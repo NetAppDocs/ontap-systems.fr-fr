@@ -1,0 +1,74 @@
+---
+permalink: sas3/install-cabling-worksheets-how-to-read-quadpath.html 
+sidebar: sidebar 
+keywords: example, guide, read, apply, complete, worksheet, stack, disk, shelves, shelf, iom12, quad-pathed, connectivity, how to read a worksheet to cable controller-to-stack connections for quad-pathed connectivity 
+summary: Cet exemple vous explique comment lire et appliquer une fiche technique complète aux piles de câbles de tiroirs disques avec modules IOM12/IOM12B pour une connectivité à quatre ports. 
+---
+= Comment lire une fiche technique pour raccorder les connexions contrôleur-pile pour la connectivité à quatre ports - tiroirs avec modules IOM12/IOM12B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cet exemple vous explique comment lire et appliquer une fiche technique complète aux piles de câbles de tiroirs disques avec modules IOM12/IOM12B pour une connectivité à quatre ports.
+
+.Description de la tâche
+* Cette procédure référence la fiche technique et l'exemple de câblage suivants pour démontrer comment lire une fiche permettant de raccorder les connexions entre le contrôleur et la pile.
++
+La configuration utilisée dans cet exemple est une configuration haute disponibilité à quatre chemins d'accès avec deux HBA SAS à quatre ports sur chaque contrôleur et deux piles de tiroirs disques avec des modules IOM12.
+
+* Si vous disposez d'une configuration à contrôleur unique, ignorez les sous-étapes b et d pour le câblage à un second contrôleur.
+* Si nécessaire, vous pouvez vous reporter à link:install-cabling-rules.html["Règles de câblage SAS"] pour plus d'informations sur la convention de numérotation des connecteurs du contrôleur, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir (notamment l'utilisation des paires de ports).
+
+
+image::../media/drw_worksheet_qpha_slots_1_and_2_two_4porthbas_two_stacks_nau.gif[feuille de travail drw qpha logements 1 et 2 deux 4porthbas deux piles nau]
+
+image::../media/drw_qpha_slots_1_and_2_two_4porthbas_two_stacks_nau.gif[drw qpha fentes 1 et 2 deux 4porthbas deux piles nau]
+
+.Étapes
+. Paire de ports de câbles 1a/2b sur chaque contrôleur pour la pile 1 :
++
+Il s'agit du câblage multipathed pour la pile 1.
+
++
+.. Reliez le port 1a du contrôleur 1 à la pile 1, premier tiroir IOM A du port 1.
+.. Reliez le port 1a du contrôleur 2 à la pile 1, puis le premier port 1 du module d'E/S par tiroir.
+.. Reliez le port 2b du contrôleur 1 à la pile 1, le port 3 du dernier IOM B du tiroir.
+.. Reliez le port 2b du contrôleur 2 à la pile 1, au dernier tiroir IOM A port 3.
+
+
+. Paire de ports de câble 2a/1d sur chaque contrôleur à la pile 1 :
++
+Il s'agit du câblage à quatre ports pour la pile 1. Une fois terminé, la pile 1 dispose d'une connectivité à quatre chemins d'accès à chaque contrôleur.
+
++
+.. Reliez le port 2a du contrôleur 1 à la pile 1, premier tiroir IOM A port 2.
+.. Reliez le port 2a du contrôleur 2 à la pile 1, puis le port 2 du premier tiroir IOM B.
+.. Reliez le port 1d du contrôleur 1 à la pile 1, le port 4 du dernier IOM B du tiroir.
+.. Reliez le port 1d du contrôleur 2 à la pile 1, le dernier port 4 de l'IOM A du dernier tiroir.
+
+
+. Paire de ports de câble 1c/2d sur chaque contrôleur pour la pile 2 :
++
+Il s'agit du câblage multipathed pour la pile 2.
+
++
+.. Reliez le port 1c du contrôleur 1 à la pile 2, puis le premier port 1 du module d'E/S par tiroir.
+.. Reliez le port 1c du contrôleur 2 à la pile 2, le premier port 1 du module d'E/S par tiroir.
+.. Reliez le port 2d du contrôleur 1 à la pile 2, le port 3 du module d'E/S du dernier tiroir.
+.. Reliez le contrôleur 2 ports 2d à la pile 2, le dernier tiroir IOM A port 3.
+
+
+. Paire de ports de câbles 2c/1b sur chaque contrôleur pour la pile 2 :
++
+Il s'agit du câblage à quatre ports pour la pile 2. Une fois cette opération terminée, la pile 2 dispose d'une connectivité à quatre chemins d'accès à chaque contrôleur.
+
++
+.. Reliez le port 2c du contrôleur 1 à la pile 2, puis le premier port 2 du module d'E/S Du tiroir.
+.. Reliez le port 2 du contrôleur au port 2 de la pile, puis le premier tiroir IOM B port 2.
+.. Reliez le port 1b du contrôleur 1 à la pile 2, le port 4 du dernier IOM B.
+.. Reliez le port 1b du contrôleur 2 à la pile 2, au port 4 du dernier IOM A.
+
+
+

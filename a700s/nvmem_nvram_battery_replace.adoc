@@ -1,0 +1,221 @@
+---
+permalink: a700s/nvmem-nvram-battery-replace.html 
+sidebar: sidebar 
+keywords: aff a700s, aff, a700s, replace, nvram, battery, system, remove, controller, reinstall, shut, down, impair, run, diagnostic, complete, replacement, process, replace the nvram battery, shut down the impaired controller, remove the controller module, replace the nvram battery, reinstall the controller module, run diagnostics, complete the replacement process 
+summary: Pour remplacer une batterie NVRAM du système, vous devez retirer le module de contrôleur du système, retirer la batterie, remplacer la batterie, puis réinstaller le module de contrôleur. 
+---
+= Remplacer la batterie NVRAM - AFF A700s
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer une batterie NVRAM du système, vous devez retirer le module de contrôleur du système, retirer la batterie, remplacer la batterie, puis réinstaller le module de contrôleur.
+
+Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+[role="lead"]
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=_number_of_hours_down_h`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Si le contrôleur défectueux fait partie d'une paire HA, désactivez le rétablissement automatique à partir de la console du contrôleur en bon état : `storage failover modify -node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y`.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+[role="lead"]
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez l'alimentation du module de contrôleur de la source, puis débranchez le câble du bloc d'alimentation.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a700s_pcm_remove.png[retrait du module de commande du module de commande du système drw a700s]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquet de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Mettez le module de contrôleur de côté en lieu sûr.
+
+
+
+
+== Étape 3 : remplacer la batterie NVRAM
+
+[role="lead"]
+Pour remplacer la batterie NVRAM, vous devez retirer la batterie NVRAM défectueuse du module de contrôleur et installer la batterie NVRAM de rechange dans le module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Repérez la batterie NVRAM sur le côté gauche du module de montage, le surmontoir 1.
++
+image::../media/drw_a700s_nvme_battery_replace.png[remplacement de la batterie nvme drw a700s]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Fiche de la batterie NVRAM
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Languette bleue de verrouillage de la batterie NVRAM
+
+|===
+. Localisez la fiche mâle batterie et appuyez sur le clip situé sur la face de la fiche mâle batterie pour libérer la fiche de la prise, puis débranchez le câble de batterie de la prise.
+. Appuyez sur la languette bleue de verrouillage du support de batterie, de sorte que le loquet se dégage du support.
+. Faites glisser la batterie vers le bas du support de montage, soulevez la batterie pour la sortir du contrôleur, puis mettez-la de côté.
+. Faites glisser la batterie de rechange le long de la paroi latérale métallique jusqu'à ce que les pattes de support du crochet mural latéral s'engagent dans les fentes de la batterie et que le loquet de la batterie s'enclenche et se verrouille en place.
+. Branchez la fiche de la batterie dans la prise de montage et assurez-vous que la fiche se verrouille en place.
+
+
+
+
+== Étape 4 : réinstallez le module de contrôleur
+
+[role="lead"]
+Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Si ce n'est déjà fait, fermer le conduit d'air :
++
+.. Faire basculer la conduite d'air complètement vers le bas jusqu'au module de commande.
+.. Faites glisser la conduite d'air vers les surmontoirs jusqu'à ce que les pattes de verrouillage s'enclenchent.
+.. Inspecter le conduit d'air pour s'assurer qu'il est correctement installé et verrouillé en place.
++
+image::../media/drw_a700s_close_air_duct.png[drw a700s fermer la conduite d'air]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Languettes de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Faire glisser le plongeur
+
+|===
+
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Branchez le cordon d'alimentation dans le bloc d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis connectez le bloc d'alimentation à la source d'alimentation.
+. Terminez la réinstallation du module de contrôleur :
++
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+.. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
+
+
+. Si votre système est configuré pour prendre en charge l'interconnexion de cluster 10 GbE et les connexions de données sur les cartes réseau 40 GbE ou les ports intégrés, convertissez ces ports en connexions 10 GbE à l'aide de la commande nicadmin convert en mode Maintenance.
++
+
+NOTE: Assurez-vous de quitter le mode Maintenance après avoir terminé la conversion.
+
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 5 : renvoyer la pièce défaillante à NetApp
+
+[role="lead"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

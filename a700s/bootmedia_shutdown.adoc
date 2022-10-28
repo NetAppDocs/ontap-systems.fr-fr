@@ -1,0 +1,51 @@
+---
+permalink: a700s/bootmedia-shutdown.html 
+sidebar: sidebar 
+keywords: aff a700s, aff, a700s, completing, complete, nve, nse, shutdown, impair, controller, shut down the controller 
+summary: Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement. 
+---
+= Arrêtez le contrôleur - AFF A700s
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
+
+.Étapes
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode impaired_node_name`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+. Dans l'invite DU CHARGEUR, entrez : `printenv` pour capturer toutes les variables environnementales de démarrage. Enregistrez le résultat dans votre fichier journal.
++
+
+NOTE: Cette commande peut ne pas fonctionner si le périphérique d'amorçage est corrompu ou non fonctionnel.
+
+

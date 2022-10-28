@@ -1,0 +1,95 @@
+= 
+:allow-uri-read: 
+
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Return a FIPS drive or SED to Unprotected mode » de link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html["Présentation du chiffrement NetApp avec l'interface de ligne de commande"^].
+* Vous devez laisser les alimentations allumées à l'issue de cette procédure pour fournir une alimentation au contrôleur en état.
+
+
+.Étapes
+. Vérifiez l'état du contrôleur MetroCluster pour déterminer si le contrôleur défectueux a automatiquement basculé sur le contrôleur en bon état : `metrocluster show`
+. Selon qu'un basculement automatique s'est produit, suivre le tableau suivant :
++
+[cols="1,2"]
+|===
+| En cas de dysfonctionnement du contrôleur... | Alors... 
+
+
+ a| 
+A automatiquement basculé
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+N'a pas été automatiquement commutée
+ a| 
+Effectuer un basculement planifié à partir du contrôleur en bon état : `metrocluster switchover`
+
+
+
+ a| 
+N'a pas été automatiquement commutée, vous avez tenté de basculer avec le `metrocluster switchover` la commande, et le basculement a été vetoté
+ a| 
+Examinez les messages de veto et, si possible, résolvez le problème et réessayez. Si vous ne parvenez pas à résoudre le problème, contactez le support technique.
+
+|===
+. Resynchroniser les agrégats de données en exécutant le `metrocluster heal -phase aggregates` commande provenant du cluster survivant.
++
+[listing]
+----
+controller_A_1::> metrocluster heal -phase aggregates
+[Job 130] Job succeeded: Heal Aggregates is successful.
+----
++
+Si la guérison est vetotée, vous avez la possibilité de réémettre le `metrocluster heal` commande avec `-override-vetoes` paramètre. Si vous utilisez ce paramètre facultatif, le système remplace tout veto logiciel qui empêche l'opération de correction.
+
+. Vérifiez que l'opération a été terminée à l'aide de la commande MetroCluster Operation show.
++
+[listing]
+----
+controller_A_1::> metrocluster operation show
+    Operation: heal-aggregates
+      State: successful
+Start Time: 7/25/2016 18:45:55
+   End Time: 7/25/2016 18:45:56
+     Errors: -
+----
+. Vérifier l'état des agrégats à l'aide de `storage aggregate show` commande.
++
+[listing]
+----
+controller_A_1::> storage aggregate show
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+...
+aggr_b2    227.1GB   227.1GB    0% online       0 mcc1-a2          raid_dp, mirrored, normal...
+----
+. Réparez les agrégats racine à l'aide de `metrocluster heal -phase root-aggregates` commande.
++
+[listing]
+----
+mcc1A::> metrocluster heal -phase root-aggregates
+[Job 137] Job succeeded: Heal Root Aggregates is successful
+----
++
+Si la guérison est vetotée, vous avez la possibilité de réémettre le `metrocluster heal` commande avec le paramètre -override-vetos. Si vous utilisez ce paramètre facultatif, le système remplace tout veto logiciel qui empêche l'opération de correction.
+
+. Vérifier que l'opération de correction est terminée en utilisant le `metrocluster operation show` commande sur le cluster destination :
++
+[listing]
+----
+
+mcc1A::> metrocluster operation show
+  Operation: heal-root-aggregates
+      State: successful
+ Start Time: 7/29/2016 20:54:41
+   End Time: 7/29/2016 20:54:42
+     Errors: -
+----
+. Sur le module de contrôleur défaillant, débranchez les blocs d'alimentation.
+

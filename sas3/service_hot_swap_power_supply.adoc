@@ -1,0 +1,89 @@
+---
+permalink: sas3/service-hot-swap-power-supply.html 
+sidebar: sidebar 
+keywords: hot-swap, fail, power, supply, ds460c, ds224c, ds212c, disk, shelf-nondisruptively, shelf, nondisruptive, system, power, i/o, progress, hot-swap a power supply 
+summary: Vous pouvez remplacer à chaud une alimentation défectueuse dans un tiroir disque DS460C, DS224C ou DS212C. 
+---
+= Bloc d'alimentation à remplacement à chaud - étagères avec modules IOM12/IOM12B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez remplacer à chaud une alimentation défectueuse dans un tiroir disque DS460C, DS224C ou DS212C.
+
+Tous les autres composants du système, y compris l'autre bloc d'alimentation, doivent fonctionner correctement.
+
+.Description de la tâche
+* Si vous remplacez plusieurs alimentations, vous devez le faire une par une afin que le tiroir disque reste alimenté.
+* Vous devez remplacer une alimentation électrique dans les deux minutes qui suivent le retrait pour limiter les perturbations du flux d'air du tiroir disque.
+* Utilisez toujours deux mains pour retirer, installer ou transporter une alimentation pour soutenir son poids.
+* Avant d'ajouter de nouveaux tiroirs disques, des composants d'unités remplaçables sur site pour les tiroirs ou des câbles SAS, il est recommandé d'installer les versions les plus récentes du firmware IOM (module d'E/S) pour le tiroir disque et du firmware pour le disque.
++
+Ces firmwares sont disponibles sur le site du support NetApp.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
+
+* Si nécessaire, vous pouvez activer les LED d'emplacement (bleues) du tiroir disque pour faciliter la localisation physique du tiroir disque concerné : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
++
+Un tiroir disque dispose de trois LED d'emplacement : une sur le panneau d'affichage de l'opérateur et une sur chaque module IOM12. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l'option Désactivé.
+
+* Si nécessaire, reportez-vous à la section Monitoring des LED du tiroir disque pour plus d'informations sur la signification et l'emplacement des LED du tiroir disque sur le panneau d'affichage de l'opérateur et les composants FRU.
+
+
+.Étapes
+. Mettez-vous à la terre.
+. Déballez la nouvelle alimentation et placez-la sur une surface plane à proximité de la tablette.
++
+Conservez tous les matériaux d'emballage pour pouvoir les utiliser lors du retour de l'alimentation défectueuse.
+
+. Identifiez physiquement l'alimentation défectueuse à partir du message d'avertissement de la console du système et le voyant d'avertissement allumé (orange) sur le bloc d'alimentation.
+. Eteindre l'alimentation défectueuse et débrancher le câble d'alimentation :
++
+.. Eteindre l'interrupteur de l'alimentation en panne.
+.. Ouvrez le dispositif de retenue du cordon d'alimentation et débranchez le cordon d'alimentation du bloc d'alimentation.
+.. Débranchez le cordon d'alimentation de la source d'alimentation.
+
+
+. Appuyez sur le loquet orange de la poignée de came du bloc d'alimentation jusqu'à ce qu'elle se libère, puis ouvrez la poignée de came pour libérer complètement l'alimentation du plan central.
++
+L'illustration suivante concerne un bloc d'alimentation utilisé dans un tiroir disque DS224C ou DS212C. Cependant, le loquet fonctionne de la même manière pour les alimentations utilisées dans les tiroirs disques DS460C.
+
++
+image::../media/drw_2600_psu.gif[psu drw 2600]
+
+. Utilisez la poignée de came pour faire glisser le bloc d'alimentation hors du tiroir disque.
++
+Si vous disposez d'un tiroir disque DS224C ou DS212C, lorsque vous retirez le bloc d'alimentation, un volet se met en place pour bloquer la baie vide, ce qui contribue à maintenir le débit d'air et le refroidissement.
+
++
+
+NOTE: Lors de la manipulation d'un bloc d'alimentation, toujours utiliser deux mains pour soutenir son poids.
+
+. S'assurer que l'interrupteur marche/arrêt de la nouvelle alimentation est en position arrêt.
+. À deux mains, avec la poignée de came du nouveau bloc d'alimentation en position ouverte, soutenez et alignez les bords du nouveau bloc d'alimentation avec l'ouverture du tiroir disque, puis poussez fermement le nouveau bloc d'alimentation jusqu'à ce qu'il atteigne le plan milieu.
++
+
+NOTE: N'utilisez pas de force excessive lors de l'insertion de l'alimentation dans le tiroir disque ; vous risquez d'endommager les connecteurs.
+
+. Fermez la poignée de came de façon à ce que le loquet s'enclenche en position verrouillée et que le bloc d'alimentation soit bien en place.
+. Rebranchez le câble d'alimentation et mettez le nouveau bloc d'alimentation sous tension :
++
+.. Rebranchez le cordon d'alimentation à la source d'alimentation.
+.. Rebranchez le cordon d'alimentation au bloc d'alimentation et fixez-le à l'aide de la pièce de retenue du cordon d'alimentation.
+.. Mettre l'interrupteur en position de marche.
++
+Le voyant d'alimentation (vert) et le voyant d'avertissement (orange) du bloc d'alimentation s'allument, puis le voyant d'avertissement (orange) s'éteint dans les 40 secondes.
+
+
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
++
+Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
+
+

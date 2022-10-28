@@ -1,0 +1,246 @@
+---
+permalink: fas9500/controller_replace_system_config_restore_and_verify.html 
+sidebar: sidebar 
+keywords:  
+summary: Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vous devez vérifier la configuration système de bas niveau du contrôleur de remplacement, reconfigurer les paramètres système si nécessaire, puis exécuter des diagnostics au niveau du système. 
+---
+= Restaurez et vérifiez la configuration du système - FAS9500
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois le remplacement du matériel terminé, vérifiez la configuration système de bas niveau du contrôleur de remplacement, reconfigurez les paramètres système selon les besoins, puis exécutez des diagnostics au niveau du système.
+
+
+
+== Étape 1 : définissez et vérifiez l'heure du système après le remplacement du module de contrôleur
+
+Vous devez vérifier l'heure et la date du module de contrôleur de remplacement par rapport au module de contrôleur sain dans une paire haute disponibilité, ou par rapport à un serveur de temps fiable dans une configuration autonome. Si la date et l'heure ne correspondent pas, vous devez les réinitialiser sur le module de contrôleur de remplacement pour éviter toute interruption possible sur les clients en raison de différences de temps.
+
+Il est important d'appliquer les commandes dans les étapes sur les systèmes appropriés :
+
+* Le _remplacement_ node est le nouveau noeud qui a remplacé le noeud douteux dans le cadre de cette procédure.
+* Le _Healthy_ node est le partenaire HA du _replace_ node.
+
+
+.Étapes
+. Si le _remplacement_ node n'est pas à l'invite DU CHARGEUR, arrêtez le système à l'invite DU CHARGEUR.
+. Sur le noeud _Healthy_, vérifiez l'heure du système : `show date`
++
+La date et l'heure sont indiquées en GMT.
+
+. À l'invite DU CHARGEUR, vérifiez la date et l'heure sur le noeud _remplacement_ : `show date`
++
+La date et l'heure sont indiquées en GMT.
+
+. Si nécessaire, définissez la date en GMT sur le nœud de remplacement : `set date _mm/dd/yyyy_`
+. Si nécessaire, définissez l'heure en GMT sur le nœud de remplacement : `set time _hh:mm:ss_`
+. À l'invite DU CHARGEUR, confirmez la date et l'heure sur le noeud _remplacement_ : `show date`
++
+La date et l'heure sont indiquées en GMT.
+
+
+
+
+
+== Étape 2 : vérifier et définir l'état HA du module de contrôleur
+
+Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
+
+. En mode Maintenance à partir du module de contrôleur de remplacement, vérifier que tous les composants affichent la même valeur `HA` état : `ha-config show`
++
+[cols="1,2"]
+|===
+| Si votre système est en... | L'état de haute disponibilité de tous les composants doit être... 
+
+
+ a| 
+Une paire haute disponibilité
+ a| 
+haute disponibilité
+
+
+
+ a| 
+Configuration FC MetroCluster avec quatre nœuds ou plus
+ a| 
+mcc
+
+
+
+ a| 
+Configuration MetroCluster IP
+ a| 
+ccip
+
+|===
+. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le `HA` état pour le module de contrôleur : `ha-config modify controller _ha-state_`
+. Si l'état système affiché du châssis ne correspond pas à la configuration de votre système, définissez l' `HA` état du châssis : `ha-config modify chassis _ha-state_`
+
+
+
+
+== Étape 3 : exécutez les diagnostics au niveau du système
+
+Chaque fois que vous remplacez le contrôleur, vous devez exécuter des tests de diagnostic complets ou précis pour des composants et sous-systèmes spécifiques.
+
+Toutes les commandes des procédures de diagnostic sont émises depuis le nœud sur lequel le composant est remplacé.
+
+. Si le nœud à entretenir n'est pas à l'invite DU CHARGEUR, redémarrez le nœud : `halt`
++
+Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
+
+. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
++
+Au cours du processus de démarrage, vous pouvez répondre en toute sécurité `y` Aux invites jusqu'à ce que l'invite du mode Maintenance (*>) s'affiche.
+
+. Afficher et noter les périphériques disponibles sur le module de contrôleur : `sldiag device show -dev mb`
++
+Les périphériques et ports du module de contrôleur affichés peuvent être les suivants :
+
++
+** bootmedia est le périphérique de démarrage du système.
+** le cna est un adaptateur réseau convergé ou une interface non connectée à un réseau ou à un périphérique de stockage.
+** fcal est un périphérique Fibre Channel-Arbitrated Loop non connecté à un réseau Fibre Channel.
+** env correspond aux spécifications environnementales de la carte mère.
+** mem est la mémoire système.
+** nic est une carte d'interface réseau.
+** la mémoire nvram est une RAM non volatile.
+** Nvmem est une hybride de NVRAM et de mémoire système.
+** sas est un périphérique SCSI connecté en série qui n'est pas connecté à un tiroir disque.
+
+
+. Exécutez les diagnostics comme souhaité.
++
+[cols="1,2"]
+|===
+| Si vous voulez exécuter des tests de diagnostic sur... | Alors... 
+
+
+ a| 
+Composants individuels
+ a| 
+.. Effacez les journaux d'état : `sldiag device clearstatus`
+.. Afficher les tests disponibles pour les périphériques sélectionnés : `sldiag device show -dev dev_name`
++
+dev_name peut être l'un des ports et périphériques identifiés à l'étape précédente.
+
+.. Examinez la sortie et, le cas échéant, sélectionnez uniquement les tests que vous souhaitez exécuter : `sldiag device modify -dev dev_name -selection only`
++
+`-selection only` désactive tous les autres tests que vous ne souhaitez pas exécuter pour le périphérique.
+
+.. Exécutez les tests sélectionnés : `sldiag device run -dev dev_name`
++
+Une fois le test terminé, le message suivant s'affiche :
+
++
+[listing]
+----
+*> <SLDIAG:_ALL_TESTS_COMPLETED>
+----
+.. Vérifiez qu'aucun test n'a échoué : `sldiag device status -dev dev_name -long -state failed`
++
+Les diagnostics au niveau du système vous renvoie à l'invite s'il n'y a pas d'échec de test ou répertorie l'état complet des échecs résultant du test du composant.
+
+
+
+
+
+ a| 
+Plusieurs composants en même temps
+ a| 
+.. Examinez les périphériques activés et désactivés dans la sortie de la procédure précédente et déterminez ceux que vous souhaitez exécuter simultanément.
+.. Lister les tests individuels du périphérique : `sldiag device show -dev dev_name`
+.. Examinez la sortie et, le cas échéant, sélectionnez uniquement les tests que vous souhaitez exécuter : `sldiag device modify -dev dev_name -selection only`
++
+-selection ne désactive que tous les autres tests que vous ne souhaitez pas exécuter pour le périphérique.
+
+.. Vérifier que les tests ont été modifiés : `sldiag device show`
+.. Répétez ces sous-étapes pour chaque périphérique que vous souhaitez exécuter simultanément.
+.. Exécutez les tests de diagnostic sur tous les périphériques : `sldiag device run`
++
+
+IMPORTANT: Ne pas ajouter ou modifier vos entrées après avoir lancé les diagnostics.
+
++
+Une fois le test terminé, le message suivant s'affiche :
+
++
+[listing]
+----
+*> <SLDIAG:_ALL_TESTS_COMPLETED>
+----
+.. Vérifiez qu'il n'y a aucun problème matériel sur le nœud : `sldiag device status -long -state failed`
++
+Les diagnostics au niveau du système vous renvoie à l'invite s'il n'y a pas d'échec de test ou répertorie l'état complet des échecs résultant du test du composant.
+
+
+
+|===
+. Procédez comme suit en fonction du résultat de l'étape précédente :
++
+[cols="1,2"]
+|===
+| Si les tests de diagnostic au niveau du système... | Alors... 
+
+
+ a| 
+Ont été achevés sans défaillance
+ a| 
+.. Effacez les journaux d'état : `sldiag device clearstatus`
+.. Vérifiez que le journal a été effacé : `sldiag device status`
++
+La réponse par défaut suivante est affichée :
+
++
+SLDIAG : aucun message de journal n'est présent.
+
+.. Quitter le mode Maintenance : `halt`
++
+Le nœud affiche l'invite DU CHARGEUR.
+
+.. Démarrez le nœud depuis l'invite DU CHARGEUR : `bye`
+.. Rétablir le fonctionnement normal du nœud :
+
+
+|===
+
+
+[cols="1,2"]
+|===
+| Si votre nœud est en... | Alors... 
+
+
+ a| 
+Une paire haute disponibilité
+ a| 
+Effectuer un retour : `storage failover giveback -ofnode replacement_node_name`
+
+
+NOTE: Si vous avez désactivé le rétablissement automatique, réactivez-le à l'aide de la commande Storage Failover modify.
+
+
+
+ a| 
+A entraîné des échecs de test
+ a| 
+Déterminez la cause du problème :
+
+. Quitter le mode Maintenance : `halt`
++
+Une fois que vous avez terminé d'exécuter la commande, attendez que le système s'arrête à l'invite DU CHARGEUR.
+
+. Mettez les blocs d'alimentation hors tension ou laissez-les hors tension, en fonction du nombre de modules de contrôleur présents dans le châssis. + laissez les alimentations allumées pour alimenter l'autre module de contrôleur.
+. Vérifier que vous avez bien remarqué tous les facteurs à prendre en compte pour l'exécution des diagnostics au niveau du système, que les câbles sont correctement connectés et que les composants matériels sont correctement installés dans le système de stockage.
+. Démarrez le module de contrôleur que vous effectuez le service, interrompant le démarrage en appuyant sur `Ctrl-C` Lorsque vous êtes invité à accéder au menu de démarrage. + le module de contrôleur s'amorce lorsqu'il est bien en place.
+. Dans le menu, sélectionnez Boot to maintenance mode.
+. Quittez le mode maintenance en saisissant la commande suivante : `halt`
++
+Une fois que vous avez terminé d'exécuter la commande, attendez que le système s'arrête à l'invite DU CHARGEUR.
+
+. Exécutez à nouveau le test de diagnostic au niveau du système.
+
+
+|===

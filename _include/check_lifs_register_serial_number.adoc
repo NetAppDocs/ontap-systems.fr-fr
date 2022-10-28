@@ -1,0 +1,19 @@
+= 
+:allow-uri-read: 
+
+
+Avant de renvoyer le _replace_ node au service, vérifiez que les LIF se trouvent sur leurs ports de rattachement, puis enregistrez le numéro de série du _replace_ node si AutoSupport est activé et réinitialisez le rétablissement automatique.
+
+.Étapes
+. Vérifiez que les interfaces logiques sont bien placées sur leur serveur domestique et leurs ports : `network interface show -is-home false`
++
+Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de home port : `network interface revert`
+
+. Enregistrez le numéro de série du système auprès du support NetApp.
++
+** Si AutoSupport est activé, envoyez un message AutoSupport pour enregistrer le numéro de série.
+** Si AutoSupport n'est pas activé, appeler https://mysupport.netapp.com["Support NetApp"] pour enregistrer le numéro de série.
+
+
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+

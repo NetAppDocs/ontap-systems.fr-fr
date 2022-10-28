@@ -1,0 +1,104 @@
+---
+permalink: ns224/change-shelf-id.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, change, shelf, id, system, ontap, unown, spare, offline, aggregate, change an ns224 drive shelf id 
+summary: 'Vous pouvez modifier l"ID d"un tiroir dans un système lorsque ONTAP n"est pas encore en cours d"exécution ou lors de l"ajout à chaud d"un tiroir avant son câblage vers le système. Vous pouvez également modifier un ID de tiroir lorsque ONTAP est actif et en cours d"exécution de \(les modules de contrôleur sont disponibles pour servir les données\). Tous les disques du tiroir ne sont pas détenus, les disques de secours ou une partie de la mise hors ligne de l"agrégat\(s\).' 
+---
+= Modifiez l'ID de tiroir NS224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez modifier l'ID d'un tiroir dans un système lorsque ONTAP n'est pas encore en cours d'exécution ou lors de l'ajout à chaud d'un tiroir avant son câblage vers le système. Vous pouvez également modifier un ID de tiroir lorsque ONTAP est actif et en cours d'exécution (les modules de contrôleur sont disponibles pour servir les données) et tous les disques du tiroir sont non détenus, Spares ou font partie d'un ou de plusieurs agrégats de mise hors ligne.
+
+.Avant de commencer
+* Si ONTAP est opérationnel (les modules de contrôleur sont disponibles pour servir les données), vous devez avoir vérifié que tous les disques du tiroir ne sont pas détenus, Spares ou font partie d'un ou de plusieurs agrégats de mise hors ligne.
++
+Vous pouvez vérifier l'état des disques à l'aide de la `storage disk show -shelf _shelf_number_` commande. Sortie dans le `Container Type` la colonne doit s'afficher `spare` ou `broken` s'il s'agit d'un disque défectueux. De plus, le `Container Name` et `Owner` les colonnes doivent comporter un tiret.
+
+* Vous avez besoin d'un trombone avec un côté redressé ou d'un stylo à bille à pointe étroite.
++
+Utilisez le trombone ou le stylo à bille pour accéder au bouton d'identification de la tablette par le petit trou, à droite des voyants, dans le panneau de commande (ODP).
+
+
+
+.Description de la tâche
+* Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99.
+* Ils doivent être uniques dans chaque paire HA.
+* Vous devez mettre un tiroir hors tension/remettre sous tension (débrancher les deux câbles d'alimentation, attendre la durée appropriée, puis les rebrancher) afin que l'ID de tiroir prenne effet.
++
+Le délai d'attente avant de rebrancher les cordons d'alimentation dépend de l'état du ONTAP, comme décrit plus loin dans cette procédure.
+
++
+
+NOTE: Les tiroirs NS224 n'ont pas de commutateur d'alimentation sur les blocs d'alimentation.
+
+
+
+.Étapes
+. Mettez le shelf sous tension, si elles ne sont pas déjà sous tension.
++
+Vous branchez d'abord les câbles d'alimentation au tiroir, puis les fixez-les à l'aide de la pièce de retenue du cordon d'alimentation, puis connectez les câbles d'alimentation à différentes sources d'alimentation pour assurer la résilience.
+
+. Déposer le capuchon d'extrémité gauche pour localiser le petit trou à droite des LED.
+. Modifier le premier numéro de l'ID de tiroir :
++
+.. Insérez le trombone ou le stylo à bille dans le petit trou.
+.. Appuyez sur le bouton et maintenez-le enfoncé jusqu'à ce que le premier chiffre de l'écran numérique clignote, puis relâchez le bouton.
++
+Un chiffre peut clignoter pendant 15 secondes. Cela active le mode de programmation de l'ID de tiroir.
+
++
+
+NOTE: Si l'ID prend plus de 15 secondes pour clignoter, appuyez de nouveau sur le bouton et maintenez-le enfoncé, en veillant à l'appuyer complètement.
+
+.. Appuyez sur le bouton et relâchez-le pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité de 0 à 9.
++
+La durée de chaque pression et de chaque relâchement peut être aussi courte qu'une seconde.
+
++
+Le premier chiffre continue de clignoter.
+
+
+
+. Modifier le second numéro de l'ID de tiroir :
++
+.. Appuyez sur le bouton et maintenez-le enfoncé jusqu'à ce que le second chiffre de l'écran numérique clignote.
++
+Il peut prendre jusqu'à trois secondes pour que le chiffre clignote.
+
++
+Le premier chiffre de l'écran numérique cesse de clignoter.
+
+.. Appuyez sur le bouton et relâchez-le pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité de 0 à 9.
++
+Le second chiffre continue de clignoter.
+
+
+
+. Verrouillez le chiffre souhaité et quittez le mode de programmation en appuyant sur le bouton et en le maintenant enfoncé jusqu'à ce que le second chiffre cesse de clignoter.
++
+Un chiffre qui ne clignote plus pendant trois secondes peut s'arrêter.
+
++
+Les deux chiffres de l'écran numérique commencent à clignoter et le voyant orange de l'écran ODP s'allume au bout de cinq secondes environ pour vous avertir que l'ID de tiroir en attente n'est pas encore pris en compte.
+
+. Mettez le tiroir hors tension puis sous tension afin de valider l'ID.
++
+Vous devez débrancher le cordon d'alimentation des deux alimentations du shelf, attendre la durée adéquate, puis les rebrancher aux alimentations shelf pour terminer la mise hors/sous tension.
+
++
+Une alimentation est mise sous tension dès que le cordon d'alimentation est branché. Sa LED bicolore doit s'allumer en vert.
+
++
+** Si le système ONTAP n'est pas encore opérationnel ou si vous ajoutez un tiroir à chaud (qui n'a pas encore été câblé au système), attendez au moins 10 secondes.
+** Si ONTAP est en cours d'exécution (les contrôleurs sont disponibles pour servir les données) et que tous les disques du tiroir sont non détenus, Spares ou font partie d'un ou plusieurs agrégats de mise hors ligne, attendez au moins 70 secondes.
++
+Cette heure permet à ONTAP de supprimer correctement l'ancienne adresse de tiroir et de mettre à jour la copie de la nouvelle adresse de tiroir.
+
+
+
+. Remettez le capuchon d'extrémité gauche en place.
+

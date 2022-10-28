@@ -1,0 +1,210 @@
+---
+permalink: c190/bootmedia-replace.html 
+sidebar: sidebar 
+keywords: aff c190, locate, boot, media, controller, direction, replace 
+summary: Vous devez localiser le support de démarrage dans le module de contrôleur, puis suivre les instructions pour le remplacer. 
+---
+= Remplacez le support de démarrage - AFF C190
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
+
+
+
+== Étape 1 : retirer le contrôleur
+
+Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez et mettez de côté les dispositifs de gestion des câbles des côtés gauche et droit du module de contrôleur.
++
+image::../media/drw_25xx_cable_management_arm.png[ARM de gestion de câble 25xx drw]
+
+. Appuyez sur le loquet de la poignée de came jusqu'à ce qu'il se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à l'aide de deux mains, retirez le module de contrôleur du châssis.
++
+image::../media/drw_2240_x_opening_cam_latch.png[drw 2240 x verrou de came d'ouverture]
+
+. Retournez le module de contrôleur et placez-le sur une surface plane et stable.
+. Ouvrez le capot en le faisant glisser dans les languettes bleues pour le dégager, puis faites pivoter le couvercle vers le haut et ouvrez-le.
++
+image::../media/drw_2600_opening_pcm_cover.png[couvercle du module de commande du groupe motopropulseur ouvert drw 2600]
+
+
+
+
+
+== Étape 2 : remplacer le support de démarrage
+
+Vous devez localiser le support de démarrage dans le module de contrôleur, puis suivre les instructions pour le remplacer.
+
+. Recherchez le support de démarrage à l'aide de l'illustration suivante ou du mappage des FRU sur le module de contrôleur :
+. Appuyez sur le bouton bleu du logement du support de démarrage pour libérer le support de démarrage de son logement, puis tirez-le doucement hors du support de démarrage.
++
+
+NOTE: Ne faites pas tourner ou tirer le support de démarrage directement vers le haut, car cela pourrait endommager le support ou le support de démarrage.
+
+. Alignez les bords du support de démarrage de remplacement avec le support de démarrage, puis poussez-le doucement dans le support.
+. Vérifiez le support de démarrage pour vous assurer qu'il est bien en place dans le support.
++
+Si nécessaire, retirez le support de démarrage et réinstallez-le dans le support.
+
+. Poussez le support de démarrage vers le bas pour engager le bouton de verrouillage sur le boîtier du support de démarrage.
+. Fermez le capot du module de contrôleur.
+
+
+
+
+== Étape 3 : transférez l'image de démarrage sur le support de démarrage
+
+Vous pouvez installer l'image système sur le support de démarrage de remplacement à l'aide d'un lecteur flash USB avec l'image installée sur celui-ci. Cependant, vous devez restaurer le `var` système de fichiers pendant cette procédure.
+
+* Vous devez disposer d'une clé USB, formatée en FAT32, avec au moins 4 Go de capacité.
+* Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section *Downloads* du site de support NetApp
++
+** Si NVE est activé, téléchargez l'image avec NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+** Si NVE n'est pas activé, téléchargez l'image sans NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+
+
+* Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau.
+* Si votre système est un système autonome, vous n'avez pas besoin d'une connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
+
+
+.Étapes
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+. Réinstallez le périphérique de gestion des câbles et recâblage du système, selon les besoins.
++
+Lors de la remise en état, n'oubliez pas de réinstaller les convertisseurs de support (SFP) s'ils ont été retirés.
+
+. Insérez la clé USB dans le logement USB du module de contrôleur.
++
+Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
+
+. Poussez le module de contrôleur complètement dans le système, en vous assurant que la poignée de came se dégage du lecteur flash USB, appuyez fermement sur la poignée de came pour terminer l'installation du module de contrôleur, poussez la poignée de came en position fermée, puis serrez la vis moletée.
++
+Le contrôleur commence à démarrer dès qu'il est entièrement installé dans le châssis.
+
+. Interrompez le processus de démarrage pour qu'il s'arrête à l'invite DU CHARGEUR en appuyant sur Ctrl-C lorsque vous voyez `Starting AUTOBOOT press Ctrl-C to abort....`
++
+Si ce message ne vous est pas manquer, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis `halt` Contrôleur à démarrer sur LE CHARGEUR.
+
+. Démarrez l'image de récupération :
++
+`*boot_recovery __ontap_image_name__.tgz*`
+
++
+
+NOTE: Si le `image.tgz` le fichier est nommé autrement que image.tgz, par exemple `boot_recovery 9_4.tgz`, vous devez inclure le nom de fichier différent dans l' `boot_recovery` commande.
+
++
+Le système démarre dans le menu de démarrage et vous invite à fournir le nom de l'image de démarrage.
+
+. Entrez le nom de l'image de démarrage qui se trouve sur le lecteur flash USB :
++
+`*__image_name__.tgz*`
+
++
+Après `image_name.tgz` est installé, le système vous invite à restaurer la configuration de sauvegarde (le `var` file system) à partir du contrôleur sain.
+
+. Restaurez le `var` système de fichiers :
++
+[cols="1,2"]
+|===
+| Si votre système dispose de... | Alors... 
+
+
+ a| 
+Une connexion réseau
+ a| 
+.. Appuyez sur `*y*` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. Définissez le contrôleur sain sur le niveau de privilège avancé :
++
+`*set -privilege advanced*`
+
+.. Exécutez la commande restore backup :
++
+`*system node restore-backup -node local -target-address _impaired_node_IP_address_*`
+
+.. Renvoyer le contrôleur au niveau admin :
++
+`*set -privilege admin*`
+
+.. Appuyez sur `*y*` lorsque vous êtes invité à utiliser la configuration restaurée.
+.. Appuyez sur `*y*` lorsque vous êtes invité à redémarrer le contrôleur.
+
+
+
+
+ a| 
+Aucune connexion réseau
+ a| 
+.. Appuyez sur `*n*` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. Redémarrez le système à l'invite du système.
+.. Sélectionnez l'option *mettre à jour Flash dans Backup config* (Sync flash) dans le menu affiché.
++
+Si vous êtes invité à poursuivre la mise à jour, appuyez sur `*y*`.
+
+
+
+|===
+. Vérifiez que les variables d'environnement sont définies comme prévu.
++
+.. Prenez le contrôleur vers l'invite DU CHARGEUR.
++
+Dans l'invite ONTAP, vous pouvez lancer la commande `system node halt -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true`.
+
+.. Vérifiez les paramètres de la variable d'environnement à l'aide de l' `printenv` commande.
+.. Si une variable d'environnement n'est pas définie comme prévu, modifiez-la avec le `setenv _environment_variable_name changed_value_` commande.
+.. Enregistrez vos modifications à l'aide du `saveenv` commande.
+.. Redémarre le contrôleur.
+
+
+. L'étape suivante dépend de la configuration de votre système :
++
+[cols="1,2"]
+|===
+| Si votre système est en... | Alors... 
+
+
+ a| 
+Une configuration autonome
+ a| 
+Vous pouvez commencer à utiliser votre système après le redémarrage du contrôleur.
+
+
+
+ a| 
+Une paire haute disponibilité
+ a| 
+Une fois que le contrôleur affecté affiche le `Waiting for Giveback...` message, effectuer un retour à partir du contrôleur en bon état :
+
+.. Effectuer un retour à partir du contrôleur en bon état :
++
+`*storage failover giveback -ofnode _partner_node_name_*`
+
++
+Cela initie le processus de retour de la propriété des agrégats et des volumes du contrôleur déficient vers le contrôleur en bon état.
+
++
+[NOTE]
+====
+Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["Guide de configuration de la solution haute disponibilité ONTAP 9"]
+
+====
+.. Surveiller la progression de l'opération de rétablissement à l'aide du ``storage failover show`commande -giveback».
+.. Une fois l'opération de rétablissement terminée, vérifiez que la paire HA est saine et que le basculement est possible à l'aide du `storage failover show` commande.
+.. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify` commande.
+
+
+|===
+

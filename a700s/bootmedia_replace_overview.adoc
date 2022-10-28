@@ -1,0 +1,26 @@
+---
+permalink: a700s/bootmedia-replace-overview.html 
+sidebar: sidebar 
+keywords: aff a700s, aff, a700s, primary, boot, media, store, ontap, image, system, restore, primary, media, secondary, usb, flash, drive, replace, replace the boot media 
+summary: 'Le support de démarrage principal stocke l"image de démarrage ONTAP que le système utilise lors du démarrage. Vous pouvez restaurer l"image du support de démarrage principal à l"aide de l"image ONTAP sur le support de démarrage secondaire ou, si nécessaire, à l"aide d"une clé USB.' 
+---
+= Présentation du remplacement du support de démarrage - AFF A700s
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le support de démarrage principal stocke l'image de démarrage ONTAP que le système utilise lors du démarrage. Vous pouvez restaurer l'image du support de démarrage principal à l'aide de l'image ONTAP sur le support de démarrage secondaire ou, si nécessaire, à l'aide d'une clé USB.
+
+Si le support d'amorçage secondaire a échoué ou s'il n'a pas le fichier image.tgz, vous devez restaurer le support d'amorçage principal à l'aide d'un lecteur flash USB. Le lecteur doit être formaté en FAT32 et avoir la quantité de stockage appropriée pour contenir le fichier image_xxx.tgz.
+
+* Le processus de remplacement restaure le système de fichiers var du support de démarrage secondaire ou du lecteur flash USB vers le support de démarrage principal.
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Il est important d'appliquer les commandes au cours de la procédure suivante sur le contrôleur approprié :
++
+** Le contrôleur _trouble_ est le contrôleur sur lequel vous effectuez la maintenance.
+** Le contrôleur _Healthy_ est le partenaire HA du contrôleur déficient.
+
+
+

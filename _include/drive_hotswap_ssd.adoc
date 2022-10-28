@@ -1,0 +1,81 @@
+= 
+:allow-uri-read: 
+
+
+. Si vous souhaitez attribuer manuellement la propriété des disques de remplacement, vous devez désactiver le disque de remplacement d'affectation automatique des disques, s'il est activé
++
+
+NOTE: Vous attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.
+
++
+.. Vérifiez si l'affectation automatique des disques est activée : `storage disk option show`
++
+Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
+
++
+Si l'affectation automatique de l'entraînement est activée, la sortie affiche `on` Dans la colonne « affectation automatique » (pour chaque module de contrôleur).
+
+.. Si l'affectation automatique des disques est activée, désactivez-la : `storage disk option modify -node node_name -autoassign off`
++
+Vous devez désactiver l'affectation automatique des disques sur les deux modules de contrôleur.
+
+
+
+. Mettez-vous à la terre.
+. Identifiez physiquement le disque défectueux.
++
+Lorsqu'un disque tombe en panne, le système consigne un message d'avertissement à la console du système pour indiquer quel disque est en panne. En outre, la LED d'avertissement (orange) s'allume sur le panneau d'affichage de l'opérateur du tiroir disque et le disque défectueux.
+
++
+
+NOTE: Le voyant d'activité (vert) d'un disque défectueux peut être allumé (en continu), ce qui indique que le lecteur est sous tension, mais ne doit pas clignoter, ce qui indique une activité d'E/S. Un disque défectueux n'a aucune activité d'E/S.
+
+. Retirez le disque défectueux :
++
+.. Appuyez sur le bouton de dégagement situé sur la face d'entraînement pour ouvrir la poignée de came.
+.. Faites glisser l'entraînement hors de la tablette à l'aide de la poignée de came et en soutenant l'entraînement avec l'autre main.
+
+
+. Attendre au moins 70 secondes avant d'insérer le lecteur de remplacement.
++
+Ceci permet au système de reconnaître qu'un lecteur a été retiré.
+
+. Insérer le lecteur de remplacement :
++
+.. Avec la poignée de came en position ouverte, insérer l'entraînement de remplacement à l'aide des deux mains.
+.. Poussez jusqu'à ce que l'entraînement s'arrête.
+.. Fermez la poignée de came de façon à ce que le lecteur soit bien en place dans le plan médian et que la poignée s'enclenche.
++
+Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur la face de l'entraînement.
+
+
+
+. Vérifiez que le voyant d'activité (vert) du lecteur est allumé.
++
+Lorsque le voyant d'activité du lecteur est allumé, cela signifie que le lecteur est alimenté. Lorsque le voyant d'activité du lecteur clignote, cela signifie que le lecteur est alimenté et que les E/S sont en cours. Si le micrologiciel du lecteur est mis à jour automatiquement, le voyant clignote.
+
+. Si vous remplacez un autre lecteur, répétez les étapes 3 à 7.
+. Si vous avez désactivé l'affectation de l'entraînement automatique à l'étape 1, affectez manuellement la propriété du lecteur, puis réactivez l'affectation automatique du lecteur si nécessaire.
++
+.. Afficher tous les disques non propriétaires : `storage disk show -container-type unassigned`
++
+Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
+
+.. Affectez chaque disque : `storage disk assign -disk disk_name -owner owner_name`
++
+Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
+
++
+Vous pouvez utiliser le caractère générique pour attribuer plusieurs lecteurs à la fois.
+
+.. Réactivez l'affectation automatique des disques si nécessaire : `storage disk option modify -node node_name -autoassign on`
++
+Vous devez réactiver l'affectation automatique des disques sur les deux modules de contrôleur.
+
+
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
++
+Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
+
+

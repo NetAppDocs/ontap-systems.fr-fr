@@ -1,0 +1,49 @@
+---
+permalink: platform-supplemental/42u-1280mm-replace-pdus.html 
+sidebar: sidebar 
+keywords: replace, fail, PDU, system, cabinet, replace, exist, replace pdu 
+summary: Vous pouvez remplacer une PDU défectueuse dans votre armoire système ou remplacer une PDU existante par un autre type de PDU. 
+---
+= Remplacer les PDU
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez remplacer une PDU défectueuse dans votre armoire système ou remplacer une PDU existante par un autre type de PDU.
+
+La PDU de remplacement doit être prise en charge par votre armoire système et doit fournir une alimentation suffisante à l'équipement installé.
+
+https://hwu.netapp.com/["hwu.netapp.com"]
+
+. Éteignez les disjoncteurs de l'unité de distribution électrique cible, puis débranchez l'ancienne unité de distribution électrique de la source d'alimentation secteur.
+. Mettez-vous à la terre vers l'armoire système, puis débranchez les cordons d'alimentation de chacun des composants du système et de l'unité de distribution d'alimentation.
+. Retirez les vis du châssis de l'unité de distribution d'alimentation, en premier lieu la vis inférieure.
++
+
+NOTE: Assurez-vous de soutenir l'unité de distribution d'alimentation d'une main tout en retirant la dernière vis du haut de l'unité de distribution d'alimentation. Cela empêche la PDU de tomber ou de tomber vers vous après le retrait de la vis.
+
+. Retirez l'ancienne PDU de l'armoire système.
++
+Assurez-vous de suivre les vis de montage pour pouvoir les réutiliser lors de l'installation de l'unité de distribution d'alimentation de remplacement.
+
+. Retirez les supports de l'ancien PDU, puis installez-les à l'arrière de l'unité de distribution d'alimentation de remplacement.
+. Tout en soutenant l'unité de distribution d'alimentation de remplacement, alignez l'emplacement du support de montage de l'unité de distribution d'alimentation avec les trous supérieurs du cadre à l'intérieur de l'armoire système, puis fixez l'unité de distribution d'alimentation au cadre de l'armoire système à l'aide des vis de montage de l'ancienne unité de distribution d'alimentation.
+. Fixez la partie inférieure de l'unité de distribution d'alimentation sur le châssis de l'armoire système, puis serrez toutes les vis de montage.
+. Vérifier que tous les interrupteurs d'alimentation ou les disjoncteurs sont en position d'arrêt.
++
+Si les disjoncteurs ne sont pas en position d'arrêt, poussez un petit tournevis ou un trombone redressé dans la fente située à droite de l'étiquette d'arrêt pour déclencher le disjoncteur et éteindre le circuit.
+
+. Branchez les cordons d'alimentation du système dans l'unité de distribution électrique, en branchant chaque composant dans la prise de l'unité de distribution d'alimentation directement du composant.
++
+
+TIP: Il est recommandé de distribuer la charge totale entre les branches de l'unité de distribution d'alimentation, en rendant la charge de chaque branche aussi égale que possible.
+
+. Verrouillez chaque fiche du câble d'alimentation en place avec le clip de retenue du câble au-dessus en faisant glisser le bord courbé du clip de retenue du câble sur l'épaulement de la fiche.
+. Branchez le cordon d'alimentation de la PDU à la source d'alimentation CA.
+. Allumez les interrupteurs d'alimentation de l'unité de distribution d'alimentation ou les disjoncteurs de l'unité de distribution d'alimentation.
++
+Pour les disjoncteurs PDU, le bouton est activé lorsqu'il est au même niveau que le cadre PDU.
+
+

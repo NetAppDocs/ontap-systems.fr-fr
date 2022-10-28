@@ -1,0 +1,254 @@
+---
+permalink: fas500f/dimm-replace.html 
+sidebar: sidebar 
+keywords: fas500f, replace dimms 
+summary: 'Vous devez remplacer un module DIMM dans le module de contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d"erreurs (ECC) pouvant être corrigés ; dans le cas contraire, le système risque de se trouver en panne.' 
+---
+= Remplacez un module DIMM - FAS500f
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez remplacer un module DIMM dans le module de contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d'erreurs (ECC) pouvant être corrigés ; dans le cas contraire, le système risque de se trouver en panne.
+
+Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Retour des disques SED en mode non protégé » du _ONTAP 9 Guide d'alimentation et de cryptage NetApp_.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"^]
+
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement (`event log show`) Pour la lame SCSI du contrôleur altérée.
++
+Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez un composant dans le module de contrôleur.
+
+Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les blocs d'alimentation du module de contrôleur de la source.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Insérez votre index dans le mécanisme de verrouillage de chaque côté du module de contrôleur, appuyez sur le levier avec votre pouce et tirez doucement le contrôleur à quelques pouces du châssis.
++
+
+NOTE: Si vous avez des difficultés à retirer le module de contrôleur, placez vos doigts à travers les trous des doigts de l'intérieur (en croisant vos bras).
+
++
+image::../media/drw_a250_pcm_remove_install.png[le module de commande du groupe motopropulseur du drw a250 dépose l'installation]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Levier 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Mécanisme de verrouillage
+
+|===
+. À l'aide des deux mains, saisissez les côtés du module de contrôleur et tirez-le doucement hors du châssis et posez-le sur une surface plane et stable.
+. Tournez la vis moletée située à l'avant du module de contrôleur dans le sens anti-horaire et ouvrez le capot du module de contrôleur.
++
+image::../media/drw_a250_open_controller_module_cover.png[ouvrir le couvercle du module de contrôleur drw a250]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Vis moletée 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Capot du module de contrôleur.
+
+|===
+. Soulever le couvercle du conduit d'air.
++
+image::../media/drw_a250_remove_airduct_cover.png[drw a250 déposer le couvercle du conduit d'air]
+
+
+
+
+
+== Étape 3 : remplacez un module DIMM
+
+Pour remplacer un module DIMM, vous devez le localiser dans le module de contrôleur à l'aide de l'étiquette de carte DIMM située sur le dessus du conduit d'air, puis le remplacer en suivant la séquence spécifique des étapes.
+
+Vous pouvez utiliser la vidéo suivante ou les étapes tabulées pour remplacer un module DIMM :
+
+.Animation - remplacer un module DIMM
+video::fa6b8107-86fb-4332-aa57-ac5b01605e52[panopto]
+. Remplacez le module DIMM endommagé de votre module de contrôleur.
++
+Les modules DIMM se trouvent dans le logement 3 ou 1 de la carte mère. Les emplacements 2 et 4 restent vides. N'essayez pas d'installer des modules DIMM dans ces emplacements.
+
++
+image::../media/drw_a250_dimm_replace.png[remplacement du module dimm drw a250]
+
+. Notez l'orientation du module DIMM dans le support afin que vous puissiez insérer le module DIMM de remplacement dans le bon sens.
+. Poussez lentement les languettes de l'éjecteur de module DIMM de chaque côté du module DIMM, puis faites glisser le module DIMM hors de son logement.
+. Laissez les languettes de l'éjecteur DIMM sur le connecteur en position ouverte.
+. Retirez le module DIMM de remplacement du sac d'expédition antistatique, tenez le module DIMM par les coins et alignez-le sur le logement.
++
+
+NOTE: Tenez le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+
+. Insérez le module DIMM de remplacement directement dans le logement.
++
+Les barrettes DIMM s'adaptent bien dans le support. Si ce n'est pas le cas, réinsérez le module DIMM pour le réaligner avec le support.
+
+. Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le support.
+
+
+
+
+== Étape 4 : installer le module de contrôleur
+
+Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
+
+Vous pouvez utiliser l'illustration suivante ou les étapes écrites pour installer le module de contrôleur de remplacement dans le châssis.
+
+. Si ce n'est déjà fait, installez le conduit d'air.
++
+image::../media/drw_a250_install_airduct_cover.png[drw a250 installer le couvercle de la conduite d'air]
+
+. Fermez le capot du module de contrôleur et serrez la vis à molette.
++
+image::../media/drw_a250_close_controller_module_cover.png[drw a250 fermer le couvercle du module de commande]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Capot du module de contrôleur 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Vis moletée
+
+|===
+. Insérer le module de contrôleur dans le châssis :
++
+.. S'assurer que les bras du mécanisme de verrouillage sont verrouillés en position complètement sortie.
+.. À l'aide des deux mains, alignez et faites glisser doucement le module de commande dans les bras du mécanisme de verrouillage jusqu'à ce qu'il s'arrête.
+.. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
+.. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
+.. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
+
+
++
+Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
+
+. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
++
+
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+
+
+
+
+
+== Étape 5 : exécutez les diagnostics
+
+Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
+
+Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
+
+Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
+
+. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node node_name`
++
+Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
+
+. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
+. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
+. Sélectionnez *Tester mémoire* dans le menu affiché.
+. Procédez comme suit en fonction du résultat de l'étape précédente :
++
+** Si le test a échoué, corrigez la défaillance, puis relancez le test.
+** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
+
+
+
+
+
+
+== Étape 6 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

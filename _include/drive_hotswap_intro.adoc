@@ -1,0 +1,34 @@
+= 
+:allow-uri-read: 
+
+
+[role="lead"]
+Vous pouvez remplacer un disque défaillant sans interruption pendant que des opérations d'E/S sont en cours. La procédure de remplacement d'un disque SSD est destinée aux disques non rotatifs et la procédure de remplacement d'un disque dur est destinée aux disques rotatifs.
+
+Lorsqu'un lecteur tombe en panne, la plate-forme consigne un message d'avertissement à la console du système indiquant quel lecteur est défectueux. De plus, le voyant de panne du panneau d'affichage de l'opérateur et le voyant de panne du disque défectueux sont allumés.
+
+.Avant de commencer
+* Suivez les bonnes pratiques et installez la version la plus récente du Disk qualification Package (DQP) avant de remplacer un disque.
+* Identifiez le disque défectueux en exécutant le `storage disk show -broken` commande depuis la console du système.
++
+Le lecteur défectueux apparaît dans la liste des disques défectueux. Si ce n'est pas le cas, attendez, puis exécutez de nouveau la commande.
+
++
+
+NOTE: Selon le type et la capacité du disque, il peut prendre jusqu'à plusieurs heures pour que le lecteur apparaisse dans la liste des disques défaillants.
+
+* Déterminez si l'authentification SED est activée.
++
+La procédure de remplacement du disque dépend de l'utilisation du lecteur. Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]. Ces instructions décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
+
+* Assurez-vous que le lecteur de remplacement est pris en charge par votre plate-forme. Voir la https://hwu.netapp.com["NetApp Hardware Universe"].
+* Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.
+
+
+Le firmware des disques est automatiquement mis à jour (sans interruption) sur les nouveaux disques dont les versions de micrologiciel ne sont pas à jour.
+
+Lors du remplacement de plusieurs disques, vous devez attendre une minute entre le retrait de chaque disque défectueux et l'insertion du lecteur de disque de remplacement pour permettre au système de stockage de reconnaître l'existence de chaque nouveau disque.
+
+Remplacez le lecteur défectueux en sélectionnant l'option appropriée aux lecteurs pris en charge par votre plate-forme.
+
+Vous pouvez également choisir de regarder le https://www.youtube.com/embed/Ziqg9HL8oYQ?rel=0["_Remplacer la vidéo du lecteur défaillant_"^] cette présente la procédure de remplacement de disques intégrée.

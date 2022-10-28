@@ -1,0 +1,33 @@
+---
+permalink: fas9000/bootmedia-replace-overview.html 
+sidebar: sidebar 
+keywords: aff a700, fas9000, replace, boot, media, primary, secondary, image, disruptive, nondisruptive 
+summary: 'Le support de démarrage stocke un ensemble principal et secondaire de fichiers système (image de démarrage) que le système utilise lors du démarrage. Selon votre configuration réseau, vous pouvez effectuer un remplacement sans interruption ou sans interruption.' 
+---
+= Présentation du remplacement des supports de démarrage - AFF A700 et FAS9000
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="include"]
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers système (image de démarrage) que le système utilise lors du démarrage. Selon votre configuration réseau, vous pouvez effectuer un remplacement sans interruption ou sans interruption.
+
+Vous devez disposer d'une clé USB, formatée en FAT32, avec la quantité de stockage appropriée pour maintenir le `image_xxx.tgz`.
+
+Vous devez également copier le `image_xxx.tgz` Fichier sur le lecteur flash USB pour une utilisation ultérieure dans cette procédure.
+
+* Les méthodes pour remplacer un support de démarrage sans interruption et sans interruption nécessitent toutes deux la restauration du `var` système de fichiers :
++
+** Pour le remplacement sans interruption, la paire haute disponibilité ne requiert pas de connexion à un réseau pour restaurer le `var` système de fichiers. La paire HA dans un châssis unique dispose d'une connexion e0S interne, qui est utilisée pour le transfert `var` une configuration entre eux.
+** Pour un remplacement perturbateur, vous n'avez pas besoin d'une connexion réseau pour restaurer le `var` le système de fichiers, mais le processus nécessite deux redémarrages.
+
+
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Il est important d'appliquer les commandes au cours de la procédure suivante sur le nœud approprié :
++
+** Le noeud _trouble_ est le noeud sur lequel vous effectuez la maintenance.
+** Le _Healthy node_ est le partenaire HA du nœud douteux.
+
+
+

@@ -1,0 +1,214 @@
+---
+permalink: a320/pci-cards-and-risers-replace.html 
+sidebar: sidebar 
+keywords: aff, a320, aff a320, replace, pcie, card, disconnect, cable, card, sfp, qsfp, module, riser, reinstall, shut, down, controller, operation, diagnostic, complete, process, replace a pcie card, shut down the impaired controller, remove the controller module, replace a pcie card, install the controller module, restore the controller module to operation after running diagnostics, complete the replacement process 
+summary: Pour remplacer une carte PCIe, vous devez déconnecter les câbles des cartes, retirer les modules SFP et QSFP des cartes avant de retirer la carte de montage, réinstaller la carte de montage, puis réinstaller les modules SFP et QSFP avant de câbler les cartes. 
+---
+= Remplacement d'une carte PCIe - AFF A320
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer une carte PCIe, vous devez déconnecter les câbles des cartes, retirer les modules SFP et QSFP des cartes avant de retirer la carte de montage, réinstaller la carte de montage, puis réinstaller les modules SFP et QSFP avant de câbler les cartes.
+
+* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Retour des disques SED en mode non protégé » du _ONTAP 9 Guide d'alimentation et de cryptage NetApp_.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"^]
+
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement (`event log show`) Pour la lame SCSI du contrôleur altérée.
++
+Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+[role="lead"]
+Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez l'alimentation du module de contrôleur de la source d'alimentation.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+image::../media/drw_a320_controller_cable_unplug_animated_gif.png[câble du contrôleur drw a320 débrancher le gif animé]
+
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez et mettez de côté les dispositifs de gestion des câbles des côtés gauche et droit du module de contrôleur.
+. Retirer le module de contrôleur du châssis :
++
+image::../media/drw_a320_controller_remove_animated_gif.png[le contrôleur drw a320 supprime le gif animé]
+
++
+.. Insérez l'index dans le mécanisme de verrouillage de chaque côté du module de contrôleur.
+.. Appuyez sur la languette orange située sur la partie supérieure du mécanisme de verrouillage jusqu'à ce qu'elle se dégage de la goupille de verrouillage du châssis.
+
+
++
+Le crochet du mécanisme de verrouillage doit être presque vertical et doit être dégagé de l'axe du châssis.
+
++
+.. Tirez doucement le module de contrôleur de quelques pouces vers vous pour pouvoir saisir les côtés du module de contrôleur.
+.. A l'aide des deux mains, tirez doucement le module de contrôleur hors du châssis et posez-le sur une surface plane et stable.
+
+
+
+
+
+
+== Étape 3 : remplacer une carte PCIe
+
+[role="lead"]
+Vous devez retirer la carte de montage PCIe contenant la carte PCIe défectueuse du module de contrôleur, retirer la carte PCIe défectueuse de la carte de montage, installer la carte PCIe de remplacement dans la carte de montage, puis réinstaller la carte de montage dans le module de contrôleur.
+
+image::../media/drw_a320_pci_card_replace_animated_gif.png[la carte pci drw a320 remplace le gif animé]
+
+. Retirez le capot des cartes de montage PCIe en dévissant la vis moletée bleue du capot, faites glisser le capot vers vous, faites pivoter le capot vers le haut, retirez-le du module de contrôleur, puis mettez-le de côté.
+. Retirez la carte de montage avec la carte PCIe défectueuse :
++
+.. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
+.. Placez votre index dans le trou situé sur le côté gauche du module de montage et saisissez la carte de montage avec votre pouce.
+.. Soulevez la carte de montage pour la sortir de la prise et mettez-la de côté.
+
+
+. Remplacez la carte dans la carte de montage :
++
+.. Placez la carte de montage sur une surface stable, puis tournez la carte de montage pour accéder à la carte PCIe.
+.. Placez vos pouces juste sous le bord inférieur de la carte PCIe de chaque côté du support, puis poussez doucement vers le haut pour libérer la carte du support.
+.. Faites glisser la carte hors de la carte de montage et mettez-la de côté.
+.. Alignez le cadre de la carte de remplacement avec le bord de la carte de montage et le bord extérieur de la carte avec le guide d'alignement situé sur le côté gauche de la carte de montage.
+.. Faites glisser doucement la carte jusqu'à ce que le connecteur de la carte s'aligne sur le support de montage, puis poussez doucement la carte dans le support.
+
+
+. Réinstallez la carte de montage dans le module de contrôleur :
++
+.. Alignez la carte de montage sur l'ouverture de sorte que les bords avant de la carte de montage soient directement au-dessus des ouvertures du compartiment de montage.
+.. Alignez le bord arrière de la carte de montage de sorte que les broches situées sous la carte de montage soient au-dessus des trous de la tôle de tôlerie au niveau de la baie de montage arrière.
+.. Appliquez une pression vers le bas uniforme pour placer la rehausse directement dans la douille du module de contrôleur.
+.. Réinstallez le capot de la carte de montage PCIe sur le module de contrôleur.
+
+
+
+
+
+
+== Septembre 4 : installez le module de contrôleur
+
+[role="lead"]
+Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
+
+. Si ce n'est déjà fait, fermez le conduit d'air à l'arrière du module de contrôleur et réinstallez le couvercle sur les cartes PCIe.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+image::../media/drw_a320_controller_install_animated_gif.png[image gif animée sur l'installation du contrôleur drw a320]
+
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
++
+
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+
+. Terminez la réinstallation du module de contrôleur :
++
+.. S'assurer que les bras de verrouillage sont verrouillés en position étendue.
+.. A l'aide des bras de verrouillage, poussez le module de contrôleur dans la baie du châssis jusqu'à ce qu'il s'arrête.
+.. Appuyez sur les languettes orange du haut du mécanisme de verrouillage et maintenez-les enfoncées.
+.. Poussez doucement le module contrôleur dans la baie du châssis jusqu'à ce qu'il affleure les bords du châssis.
++
+
+NOTE: Les bras du mécanisme de verrouillage coulissent dans le châssis.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+.. Libérer les loquets pour verrouiller le module de contrôleur en place.
+.. Recâblage du bloc d'alimentation.
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Interrompre le processus de démarrage normal en appuyant sur `Ctrl-C`.
+
+
+
+
+
+
+== Étape 5 : rétablir le fonctionnement du module de contrôleur
+
+[role="lead"]
+Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 6 : renvoyer la pièce défaillante à NetApp
+
+[role="lead"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

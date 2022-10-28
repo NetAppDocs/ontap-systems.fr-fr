@@ -1,0 +1,247 @@
+---
+permalink: a700s/bootmedia-transfer-boot-image.html 
+sidebar: sidebar 
+keywords: aff a700s, aff, a700s, procedure, secondary, boot, media, restore, fail, image, tgz, file, trasnfer, usb, flash, drive, transfer the boot image to the boot medai using a usb flash drive 
+summary: Cette procédure ne doit être utilisée que si la restauration du support de démarrage secondaire a échoué ou si le fichier image.tgz est introuvable sur le support de démarrage secondaire. 
+---
+= Transférez l'image de démarrage vers le support de démarrage - AFF A700s
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez installer l'image système sur le support de démarrage de remplacement à l'aide de l'image sur le second support de démarrage installé dans le module de contrôleur, la méthode principale de restauration de l'image système, Ou en transférant l'image de démarrage vers le support de démarrage à l'aide d'un lecteur flash USB lorsque le support de démarrage secondaire a échoué ou si le fichier image.tgz est introuvable sur le support de démarrage secondaire.
+
+
+
+== Option 1 : transférez des fichiers vers le support de démarrage à l'aide de la récupération de sauvegarde à partir du second support de démarrage
+
+[role="lead"]
+Vous pouvez installer l'image système sur le support de démarrage de remplacement à l'aide de l'image sur le second support de démarrage installé dans le module de contrôleur. Il s'agit de la méthode principale pour transférer les fichiers de support d'amorçage vers le support d'amorçage de remplacement des systèmes avec deux supports d'amorçage dans le module de contrôleur.
+
+L'image du support de démarrage secondaire doit contenir un `image.tgz` fichier et ne doit pas être signalant des échecs. Si le fichier image.tgz est manquant ou si le support de démarrage signale des échecs, vous ne pouvez pas suivre cette procédure. Vous devez transférer l'image d'amorçage sur le support de démarrage de remplacement en suivant la procédure de remplacement du lecteur flash USB.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Si ce n'est déjà fait, fermer le conduit d'air :
++
+.. Faire basculer la conduite d'air complètement vers le bas jusqu'au module de commande.
+.. Faites glisser la conduite d'air vers les surmontoirs jusqu'à ce que les pattes de verrouillage s'enclenchent.
+.. Inspecter le conduit d'air pour s'assurer qu'il est correctement installé et verrouillé en place.
++
+image::../media/drw_a700s_close_air_duct.png[drw a700s fermer la conduite d'air]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Redresseurs
+
+|===
+
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+. Réinstallez le périphérique de gestion des câbles et recâblage du système, selon les besoins.
++
+Lors de la remise en état, n'oubliez pas de réinstaller les convertisseurs de support (SFP) s'ils ont été retirés.
+
+. Recâblage du bloc d'alimentation, puis connexion à la source d'alimentation.
++
+Vérifiez que vous refixez le collier de verrouillage du câble d'alimentation sur le cordon d'alimentation.
+
+. Poussez doucement le module de contrôleur complètement dans le système jusqu'à ce que les crochets de verrouillage du module de contrôleur commencent à se lever, appuyez fermement sur les crochets de verrouillage pour terminer d'asseoir le module de contrôleur, puis faites pivoter les crochets de verrouillage dans la position verrouillée par-dessus les broches du module de contrôleur.
++
+Le contrôleur commence à démarrer dès qu'il est entièrement installé dans le châssis.
+
+. Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
++
+Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
+
+. Dans l'invite DU CHARGEUR, démarrez l'image de restauration à partir du support de démarrage secondaire : `boot_recovery`
++
+L'image est téléchargée à partir du support de démarrage secondaire.
+
+. Lorsque vous y êtes invité, entrez le nom de l'image ou acceptez l'image par défaut affichée entre crochets sur votre écran.
+. Une fois l'image installée, démarrez le processus de restauration :
++
+.. Notez l'adresse IP du contrôleur affecté qui s'affiche à l'écran.
+.. Appuyez sur `y` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. Appuyez sur `y` lorsque vous êtes invité à confirmer que la procédure de sauvegarde a réussi.
+
+
+. À partir du contrôleur partenaire au niveau de privilège avancé, démarrez la synchronisation de la configuration à l'aide de l'adresse IP enregistrée à l'étape précédente : `system node restore-backup -node local -target-address _impaired_node_IP_address_`
+. Une fois la synchronisation de la configuration terminée sans erreur, appuyez sur `y` lorsque vous êtes invité à confirmer que la procédure de sauvegarde a réussi.
+. Appuyez sur `y` lorsque vous êtes invité à utiliser la copie restaurée, puis à appuyer sur `y` lorsque vous êtes invité à redémarrer le contrôleur.
+. Quittez le niveau de privilège avancé sur le contrôleur en bon état.
+
+
+
+
+== Option 2 : transférez l'image d'amorçage sur le support d'amorçage à l'aide d'une clé USB
+
+[role="lead"]
+Cette procédure ne doit être utilisée que si la restauration du support de démarrage secondaire a échoué ou si le fichier image.tgz est introuvable sur le support de démarrage secondaire.
+
+* Vous devez disposer d'une clé USB, formatée en FAT32, avec au moins 4 Go de capacité.
+* Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section Downloads du site de support NetApp
++
+** Si NVE est activé, téléchargez l'image avec NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+** Si NVE n'est pas activé, téléchargez l'image sans NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+
+
+* Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau.
+* Si votre système est un système autonome, vous n'avez pas besoin d'une connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
+
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Si ce n'est déjà fait, fermer le conduit d'air :
++
+.. Faire basculer la conduite d'air complètement vers le bas jusqu'au module de commande.
+.. Faites glisser la conduite d'air vers les surmontoirs jusqu'à ce que les pattes de verrouillage s'enclenchent.
+.. Inspecter le conduit d'air pour s'assurer qu'il est correctement installé et verrouillé en place.
++
+image::../media/drw_a700s_close_air_duct.png[drw a700s fermer la conduite d'air]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Redresseurs
+
+|===
+
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+. Réinstallez le périphérique de gestion des câbles et recâblage du système, selon les besoins.
++
+Lors de la remise en état, n'oubliez pas de réinstaller les convertisseurs de support (SFP) s'ils ont été retirés.
+
+. Recâblage du bloc d'alimentation, puis connexion à la source d'alimentation.
++
+Vérifiez que vous refixez le collier de verrouillage du câble d'alimentation sur le cordon d'alimentation.
+
+. Insérez la clé USB dans le logement USB du module de contrôleur.
++
+Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
+
+. Poussez doucement le module de contrôleur complètement dans le système jusqu'à ce que les crochets de verrouillage du module de contrôleur commencent à se lever, appuyez fermement sur les crochets de verrouillage pour terminer d'asseoir le module de contrôleur, puis faites pivoter les crochets de verrouillage dans la position verrouillée par-dessus les broches du module de contrôleur.
++
+Le contrôleur commence à démarrer dès qu'il est entièrement installé dans le châssis.
+
+. Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
++
+Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
+
+. Bien que les variables d'environnement et les bootargs soient conservés, vous devez vérifier que toutes les variables d'environnement d'amorçage et les bootargs requis sont correctement définis pour votre type de système et votre configuration à l'aide de l' `printenv bootarg name` commande et corriger les erreurs à l'aide du `setenv variable-name <value>` commande.
++
+.. Vérifier les variables d'environnement de boot:
++
+*** `bootarg.init.boot_clustered`
+*** `partner-sysid`
+*** `bootarg.init.flash_optimized` Pour AFF C190/AFF A220 (FAS 100 % Flash)
+*** `bootarg.init.san_optimized` Pour AFF A220 et baies SAN 100 % Flash
+*** `bootarg.init.switchless_cluster.enable`
+
+
+.. Si le gestionnaire de clés externe est activé, vérifiez les valeurs d'amorçage répertoriées dans le `kenv` Sortie ASUP :
++
+*** `bootarg.storageencryption.support <value>`
+*** `bootarg.keymanager.support <value>`
+*** `kmip.init.interface <value>`
+*** `kmip.init.ipaddr <value>`
+*** `kmip.init.netmask <value>`
+*** `kmip.init.gateway <value>`
+
+
+.. Si Onboard Key Manager est activé, vérifiez les valeurs de démarrage, répertoriées dans le `kenv` Sortie ASUP :
++
+*** `bootarg.storageencryption.support <value>`
+*** `bootarg.keymanager.support <value>`
+*** `bootarg.onboard_keymanager <value>`
+
+
+.. Enregistrez les variables d'environnement que vous avez modifiées à l'aide de la `savenv` commande
+.. Confirmez vos modifications à l'aide du `printenv _variable-name_` commande.
+
+
+. À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`
++
+L'image est téléchargée à partir de la clé USB.
+
+. Lorsque vous y êtes invité, entrez le nom de l'image ou acceptez l'image par défaut affichée entre crochets sur votre écran.
+. Une fois l'image installée, démarrez le processus de restauration :
++
+.. Notez l'adresse IP du contrôleur affecté qui s'affiche à l'écran.
+.. Appuyez sur `y` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. Appuyez sur `y` lorsque vous êtes invité à confirmer que la procédure de sauvegarde a réussi.
+
+
+. Appuyez sur `y` lorsque vous êtes invité à utiliser la copie restaurée, puis à appuyer sur `y` lorsque vous êtes invité à redémarrer le contrôleur.
+. À partir du contrôleur partenaire au niveau de privilège avancé, démarrez la synchronisation de la configuration à l'aide de l'adresse IP enregistrée à l'étape précédente : `system node restore-backup -node local -target-address _impaired_node_IP_address_`
+. Une fois la synchronisation de la configuration terminée sans erreur, appuyez sur `y` lorsque vous êtes invité à confirmer que la procédure de sauvegarde a réussi.
+. Appuyez sur `y` lorsque vous êtes invité à utiliser la copie restaurée, puis à appuyer sur `y` lorsque vous êtes invité à redémarrer le contrôleur.
+. Vérifiez que les variables d'environnement sont définies comme prévu.
++
+.. Prenez le contrôleur vers l'invite DU CHARGEUR.
++
+À l'invite ONTAP, vous pouvez lancer la commande « System node halt -skip-lif-migration-before-shutdown true -ignore-quorum-avertissements true -Inhibit-Takeover-Takeover true ».
+
+.. Vérifiez les paramètres de la variable d'environnement à l'aide de l' `printenv` commande.
+.. Si une variable d'environnement n'est pas définie comme prévu, modifiez-la avec le `setenv __environment-variable-name__ __changed-value__` commande.
+.. Enregistrez vos modifications à l'aide du `savenv` commande.
+.. Redémarre le contrôleur.
+
+
+. Le contrôleur ayant redémarré affiche le `Waiting for giveback...` message, effectuer un retour à partir du contrôleur en bon état :
++
+[cols="1,2"]
+|===
+| Si votre système est en... | Alors... 
+
+
+ a| 
+Une paire haute disponibilité
+ a| 
+Une fois que le contrôleur affecté affiche le `Waiting for giveback...` message, effectuer un retour à partir du contrôleur en bon état :
+
+.. Depuis le contrôleur sain : `storage failover giveback -ofnode partner_node_name`
++
+Le contrôleur affecté revient son stockage, termine son démarrage, puis redémarre et le contrôleur en bon état prend à nouveau le relais.
+
++
+
+NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["Guide de configuration de la solution haute disponibilité ONTAP 9"]
+
+.. Surveiller la progression de l'opération de rétablissement à l'aide du `storage failover show-giveback` commande.
+.. Une fois l'opération de rétablissement terminée, vérifiez que la paire HA est saine et que le basculement est possible à l'aide du `storage failover show` commande.
+.. Restaurez le retour automatique si vous le désactivez à l'aide du `storage failover modify` commande.
+
+
+|===
+. Quittez le niveau de privilège avancé sur le contrôleur en bon état.
+

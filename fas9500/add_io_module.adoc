@@ -1,0 +1,197 @@
+---
+permalink: fas9500/add_io_module.html 
+sidebar:  
+keywords:  
+summary: 'Vous pouvez ajouter un module d"E/S à votre système, soit en remplaçant un module d"E/S existant par un nouveau module d"E/S dans un système entièrement rempli, soit en ajoutant un nouveau module d"E/S dans un emplacement vide du châssis.' 
+---
+= Ajout d'un module d'E/S - FAS9500
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez ajouter un module d'E/S à votre système en remplaçant une carte réseau ou une carte de stockage par une nouvelle carte dans un système entièrement rempli, ou en ajoutant une nouvelle carte réseau ou un adaptateur de stockage dans un logement de châssis vide du système.
+
+.Avant de commencer
+* Vérifier le https://hwu.netapp.com/["NetApp Hardware Universe"] Pour vérifier que le nouveau module d'E/S est compatible avec votre système et la version de ONTAP que vous utilisez.
+* Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans https://hwu.netapp.com/["NetApp Hardware Universe"] Et utiliser la meilleure solution disponible pour votre module d'E/S.
+* Pour ajouter un module d'E/S sans interruption, vous devez reprendre le contrôleur cible, retirer l'obturateur de logement dans le slot cible ou retirer un module d'E/S existant, ajouter le nouveau ou le module d'E/S de remplacement, puis renvoyer le contrôleur cible.
+* S'assurer que tous les autres composants fonctionnent correctement.
+
+
+
+
+== Option 1 : ajoutez le module d'E/S à un système doté de logements ouverts
+
+Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système en tant que carte réseau ou module de stockage pour les tiroirs de stockage SAS.
+
+. Arrêter le contrôleur A :
++
+.. Désactiver le rétablissement automatique : `storage failover modify -node local -auto-giveback false`
+.. Reprendre le nœud cible : `storage failover takeover -ofnode target_node_name`
++
+La connexion de la console indique que le nœud tombe dans l'invite DU CHARGEUR une fois le transfert terminé.
+
+
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Déposer l'obturateur de fente cible :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
+.. Faites tourner le loquet de came vers le bas jusqu'à ce qu'il soit en position ouverte.
+.. Déposer l'obturateur.
+
+
+. Installez le module d'E/S :
++
+.. Alignez le module d'E/S sur les bords du logement.
+.. Faites glisser le module d'E/S dans le logement jusqu'à ce que le loquet de came d'E/S numéroté et numéroté commence à s'engager avec la broche de came d'E/S.
+.. Poussez le loquet de came d'E/S complètement vers le haut pour verrouiller le module en place.
+
+
+. Si le module d'E/S de remplacement est une carte réseau, branchez-le sur les commutateurs de données.
++
+
+NOTE: Assurez-vous que des espaces vides sont installés dans les emplacements d'E/S inutilisés afin d'éviter tout problème thermique.
+
+. Redémarrez le contrôleur à partir de l'invite DU CHARGEUR : _bye_
++
+
+NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+
+. Renvoyer le nœud à partir du nœud partenaire. `storage failover giveback -ofnode target_node_name`
+. Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
+. Si vous utilisez des connecteurs 3 et/ou 7 pour la mise en réseau, utilisez le `storage port modify -node __<node name>__ -port __<port name>__ -mode network` commande permettant de convertir le logement pour une utilisation en réseau.
+. Répétez ces étapes pour le contrôleur B.
+. Si vous avez installé un module d'E/S de stockage, installez et connectez les câbles de vos tiroirs SAS, comme indiqué dans la https://docs.netapp.com/us-en/ontap-systems/sas3/install-hot-add-shelf.html["Ajout à chaud d'un tiroir SAS"^].
+
+
+
+
+== Option 2 : ajout d'un module d'E/S dans un système sans emplacements ouverts
+
+Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage existants de votre système pour installer un ou plusieurs modules d'E/S dans votre système entièrement rempli.
+
+. Si vous êtes :
++
+[cols="1,2"]
+|===
+| Remplacement... | Alors... 
+
+
+ a| 
+Module d'E/S NIC avec le même nombre de ports
+ a| 
+Les LIF migrent automatiquement lorsque son module de contrôleur est arrêté.
+
+
+
+ a| 
+Module d'E/S NIC avec moins de ports
+ a| 
+Réallouer de manière définitive les LIF affectées à un autre port de départ. Voir https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^] Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF.
+
+
+
+ a| 
+Module d'E/S NIC avec module d'E/S de stockage
+ a| 
+Utilisez System Manager pour migrer définitivement les LIF vers différents ports de base, comme décrit dans la https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^].
+
+|===
+. Arrêter le contrôleur A :
++
+.. Désactiver le rétablissement automatique : `storage failover modify -node local -auto-giveback false`
+.. Reprendre le nœud cible : `storage failover takeover -ofnode target_node_name`
++
+La connexion de la console indique que le nœud tombe dans l'invite DU CHARGEUR une fois le transfert terminé.
+
+
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez tout câblage du module d'E/S cible.
+. Retirez le module d'E/S cible du châssis :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
++
+Le bouton de came s'éloigne du châssis.
+
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
++
+Le module d'E/S se désengage du châssis et se déplace d'environ 1/2 pouces hors du logement d'E/S.
+
+.. Retirez le module d'E/S du châssis en tirant sur les languettes de traction situées sur les côtés de la face du module.
++
+Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
+
++
+.Animation - remplacer un module d'E/S.
+video::0903b1f9-187b-4bb8-9548-ae9b0012bb21[panopto]
++
+image::../media/drw_9500_remove_PCIe_module.svg[drw 9500 déposer le module PCIe]
+
++
+[cols="20%,80%"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Loquet de came d'E/S numéroté et numéroté
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[icône de légende 02]
+ a| 
+Verrou de came d'E/S complètement déverrouillé
+
+|===
+
+
+. Installez le module d'E/S dans le logement cible :
++
+.. Alignez le module d'E/S sur les bords du logement.
+.. Faites glisser le module d'E/S dans le logement jusqu'à ce que le loquet de came d'E/S numéroté et numéroté commence à s'engager avec la broche de came d'E/S.
+.. Poussez le loquet de came d'E/S complètement vers le haut pour verrouiller le module en place.
+
+
+. Répétez les étapes de retrait et d'installation pour remplacer les modules supplémentaires du contrôleur A.
+. Si le module d'E/S de remplacement est une carte réseau, reliez le ou les modules aux commutateurs de données.
+. Redémarrez le contrôleur BMC, puis redémarrez le nœud :
++
+.. Dans l'invite DU CHARGEUR, passez en mode de privilège avancé : `priv set advanced`
+.. Redémarrez le contrôleur BMC : `sp reboot`
+
+
+. Depuis l'invite DU CHARGEUR, redémarrez le nœud : `bye`
++
+
+NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+
+. Renvoyer le nœud à partir du nœud partenaire. `storage failover giveback -ofnode target_node_name`
+. Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
+. Si vous avez ajouté :
++
+[cols="1,2"]
+|===
+| Si le module d'E/S est un... | Alors... 
+
+
+ a| 
+Module NIC dans les emplacements 3 ou 7,
+ a| 
+Utilisez le `storage port modify -node *_<node name>__ -port *_<port name>__ -mode network` commande pour chaque port.
+
+
+
+ a| 
+Module de stockage
+ a| 
+Installez et connectez les câbles de vos tiroirs SAS, comme décrit dans lahttps://docs.netapp.com/us-en/ontap-systems/sas3/install-hot-add-shelf.html["Ajout à chaud d'un tiroir SAS"^].
+
+|===
+. Répétez ces étapes pour le contrôleur B.
+

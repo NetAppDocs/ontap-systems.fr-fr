@@ -1,0 +1,40 @@
+---
+permalink: a200/replace_internal_drive.html 
+sidebar: sidebar 
+keywords: AFF A200 
+summary: 'Pour arrêter le contrôleur défaillant, vous devez déterminer l"état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.' 
+---
+= Remplacement du disque défectueux - AFF A200
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez remplacer un module DIMM dans le module de contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d'erreurs (ECC) pouvant être corrigés ; dans le cas contraire, le système risque de se trouver en panne.
+
+.Avant de commencer
+* Il est recommandé d'installer la version la plus récente du Disk qualification Package (DQP) avant de remplacer un disque à chaud.
+* Identifiez le disque défectueux en exécutant le `storage disk show -broken` commande depuis la console du système. Le lecteur défectueux apparaît dans la liste des disques défectueux. Si ce n'est pas le cas, attendez, puis exécutez de nouveau la commande.
+* La manière dont vous remplacez à chaud le disque dépend de la façon dont le lecteur est utilisé. Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]. Ces instructions décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
+* Le lecteur de remplacement doit être pris en charge par votre plate-forme. Voir la https://hwu.netapp.com["NetApp Hardware Universe"].
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+Le firmware des disques est automatiquement mis à jour (sans interruption) sur les nouveaux disques dont les versions de micrologiciel ne sont pas à jour.
+
+Lors du remplacement de plusieurs disques, vous devez attendre une minute entre le retrait de chaque disque défectueux et l'insertion du lecteur de disque de remplacement pour permettre au système de stockage de reconnaître l'existence de chaque nouveau disque.
+
+[role="tabbed-block"]
+====
+.Option 1 : remplacer un disque SSD
+--
+Directive non résolue dans <stdin> - inclure :./_include/drive_hotswap_sas.adoc[]
+
+--
+.Option 2 : remplacement du disque dur
+--
+Directive non résolue dans <stdin> - inclure :./_include/drive_hotswap_sas.adoc.adoc[]
+
+--
+====

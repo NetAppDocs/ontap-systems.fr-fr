@@ -1,0 +1,37 @@
+---
+permalink: fas2600/controller-replace-overview.html 
+sidebar: sidebar 
+keywords: fas2600, prerequisite, replace the controller module 
+summary: 'Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d"exploitation ONTAP.' 
+---
+= Présentation du remplacement des modules de contrôleur - FAS2600
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d'exploitation ONTAP.
+
+* Tous les tiroirs disques doivent fonctionner correctement.
+* Si votre système se trouve dans une paire haute disponibilité, le contrôleur en bon état doit pouvoir reprendre le contrôleur en cours de remplacement (appelé « contrôleur défectueux »).
+* Cette procédure comprend les étapes de réaffectation automatique ou manuelle des disques au contrôleur _replace_, en fonction de la configuration de votre système.
++
+Vous devez effectuer la réaffectation du disque selon les instructions de la procédure.
+
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Vous devez remplacer un module de contrôleur par un module de contrôleur du même type de modèle. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le module de contrôleur.
+* Vous ne pouvez pas modifier de disques ou de tiroirs disques dans le cadre de cette procédure.
+* Dans cette procédure, le périphérique d'amorçage est déplacé du contrôleur défaillant vers le contrôleur _remplacement_ de sorte que le _remplacement_ contrôleur démarre dans la même version de ONTAP que l'ancien module de contrôleur.
+* Il est important d'appliquer les commandes au cours des étapes suivantes sur les systèmes appropriés :
++
+** Le contrôleur _trouble_ est le contrôleur qui est en cours de remplacement.
+** Le contrôleur _remplacement_ est le nouveau contrôleur qui remplace le contrôleur défaillant.
+** Le contrôleur _Healthy_ est le contrôleur survivant.
+
+
+* Vous devez toujours capturer la sortie de la console du contrôleur dans un fichier texte.
++
+Vous disposez ainsi d'un enregistrement de la procédure afin de pouvoir résoudre tout problème que vous pourriez rencontrer pendant le processus de remplacement.
+
+

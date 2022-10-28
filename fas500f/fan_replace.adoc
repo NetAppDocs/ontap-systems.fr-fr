@@ -1,0 +1,207 @@
+---
+permalink: fas500f/fan-replace.html 
+sidebar: sidebar 
+keywords: fas500f, replace a fan 
+summary: Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez un module de ventilation défectueux et le remplacer par un nouveau module de ventilation. 
+---
+= Remplacement d'un ventilateur — FAS500f
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous remplacez un ventilateur par un nouveau module de ventilation en cas de panne.
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Retour des disques SED en mode non protégé » du _ONTAP 9 Guide d'alimentation et de cryptage NetApp_.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"^]
+
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement (`event log show`) Pour la lame SCSI du contrôleur altérée.
++
+Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+Vous devez retirer le module de contrôleur du châssis lors du remplacement d'un module de ventilation.
+
+Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les blocs d'alimentation du module de contrôleur de la source.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Insérez votre index dans le mécanisme de verrouillage de chaque côté du module de contrôleur, appuyez sur le levier avec votre pouce et tirez doucement le contrôleur à quelques pouces du châssis.
++
+
+NOTE: Si vous avez des difficultés à retirer le module de contrôleur, placez vos doigts à travers les trous des doigts de l'intérieur (en croisant vos bras).
+
++
+image::../media/drw_a250_pcm_remove_install.png[le module de commande du groupe motopropulseur du drw a250 dépose l'installation]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Levier 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Mécanisme de verrouillage
+
+|===
+. À l'aide des deux mains, saisissez les côtés du module de contrôleur et tirez-le doucement hors du châssis et posez-le sur une surface plane et stable.
+. Tournez la vis moletée située à l'avant du module de contrôleur dans le sens anti-horaire et ouvrez le capot du module de contrôleur.
++
+image::../media/drw_a250_open_controller_module_cover.png[ouvrir le couvercle du module de contrôleur drw a250]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Vis moletée 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Capot du module de contrôleur
+
+|===
+
+
+
+
+== Étape 3 : remplacer un ventilateur
+
+Pour remplacer un ventilateur, retirez le module de ventilation défectueux et remplacez-le par un nouveau module de ventilation.
+
+Vous pouvez utiliser la vidéo suivante ou les étapes tabulées pour remplacer un ventilateur :
+
+.Animation - remplacer un ventilateur
+video::ccfa6665-2c2b-4571-ae79-ac5b015c19fc[panopto]
+. Identifiez le module de ventilation que vous devez remplacer en vérifiant les messages d'erreur de la console ou en localisant le voyant lumineux du module de ventilation sur la carte mère.
+. Retirez le module de ventilateur en pinçant le côté du module de ventilateur, puis en soulevant le module de ventilateur pour le sortir du module de contrôleur.
++
+image::../media/drw_a250_replace_fan.png[drw a250 remplacer le ventilateur]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Module de ventilateur 
+|===
+. Alignez les bords du module de ventilateur de remplacement avec l'ouverture du module de contrôleur, puis faites glisser le module de ventilateur de remplacement dans le module de contrôleur.
+
+
+
+
+== Étape 4 : réinstallez le module de contrôleur
+
+Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
+
+. Fermez le capot du module de contrôleur et serrez la vis à molette.
++
+image::../media/drw_a250_close_controller_module_cover.png[drw a250 fermer le couvercle du module de commande]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Capot du module de contrôleur 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Vis moletée
+
+|===
+. Insérer le module de contrôleur dans le châssis :
++
+.. S'assurer que les bras du mécanisme de verrouillage sont verrouillés en position complètement sortie.
+.. À l'aide des deux mains, alignez et faites glisser doucement le module de commande dans les bras du mécanisme de verrouillage jusqu'à ce qu'il s'arrête.
+.. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
+.. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
+.. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
+
+
++
+Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
+
+. Recâblage du système, selon les besoins.
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 5 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

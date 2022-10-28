@@ -1,0 +1,61 @@
+= 
+:allow-uri-read: 
+
+
+Dans un système autonome, vous devez réaffecter manuellement les disques à l'ID système du nouveau contrôleur avant de rétablir le fonctionnement normal du système.
+
+.Description de la tâche
+
+NOTE: Cette procédure ne s'applique qu'aux systèmes dans une configuration autonome.
+
+.Étapes
+. Si ce n'est déjà fait, redémarrez le _replace_ node, interrompez le processus de démarrage en appuyant sur Ctrl-C, puis sélectionnez l'option permettant de démarrer en mode maintenance dans le menu affiché.
+. Vous devez entrer `Y` Lorsque vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système.
+. Afficher les ID système : `disk show -a`
+. Notez l'ancien ID système, qui s'affiche dans la colonne propriétaire du disque.
++
+L'exemple suivant montre l'ancien ID système de 118073209 :
+
++
+[listing]
+----
+*> disk show -a
+Local System ID: 118065481
+
+  DISK      OWNER                  POOL   SERIAL NUMBER  HOME
+--------    -------------          -----  -------------  -------------
+disk_name    system-1  (118073209)  Pool0  J8XJE9LC       system-1  (118073209)
+disk_name    system-1  (118073209)  Pool0  J8Y478RC       system-1  (118073209)
+.
+.
+.
+
+----
+. Réallouer la propriété du disque à l'aide des informations d'ID système obtenues via la commande disk show : `disk reassign -s old system ID disk reassign -s 118073209`
+. Vérifier que les disques ont été correctement affectés : `disk show -a`
++
+Les disques appartenant au nœud de remplacement doivent afficher le nouvel ID système. L'exemple suivant montre maintenant les disques qui appartiennent à system-1 le nouvel ID système, 118065481 :
+
++
+[listing]
+----
+*> disk show -a
+Local System ID: 118065481
+
+  DISK      OWNER                  POOL   SERIAL NUMBER  HOME
+--------    -------------          -----  -------------  -------------
+disk_name    system-1  (118065481)  Pool0  J8Y0TDZC       system-1  (118065481)
+disk_name    system-1  (118065481)  Pool0  J8Y0TDZC       system-1  (118065481)
+.
+.
+.
+
+----
+. Si le chiffrement du volume ou du stockage est configuré sur votre système de stockage, vous devez restaurer la fonctionnalité de chiffrement du stockage ou du volume en suivant l'une des procédures suivantes, selon que vous utilisez la gestion des clés intégrée ou externe :
++
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
+
+
+. Démarrez le nœud : `boot_ontap`
+

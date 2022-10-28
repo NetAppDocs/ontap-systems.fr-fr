@@ -1,0 +1,80 @@
+---
+permalink: sas3/service-replace-fan-ds460c.html 
+sidebar: sidebar 
+keywords: ds460c, drive, shelf, fan, module, cooling, disk, replace, replace a fan module in a ds460c disk shelf 
+summary: 'Chaque tiroir de disque DS460C comprend deux modules de ventilation. En cas de défaillance d"un module de ventilation, vous devez le remplacer dès que possible pour vous assurer que le shelf présente un refroidissement approprié. Lorsque vous retirez le module de ventilation défectueux, il n"est pas nécessaire de mettre le tiroir disque hors tension.' 
+---
+= Remplacement d'un module de ventilateur dans un tiroir disque DS460C - étagères avec modules IOM12/IOM12B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Chaque tiroir de disque DS460C comprend deux modules de ventilation. En cas de défaillance d'un module de ventilation, vous devez le remplacer dès que possible pour vous assurer que le shelf présente un refroidissement approprié. Lorsque vous retirez le module de ventilation défectueux, il n'est pas nécessaire de mettre le tiroir disque hors tension.
+
+Vous devez vous assurer de retirer et de remplacer le module de ventilation dans les 30 minutes afin d'éviter toute surchauffe du système.
+
+.Étapes
+. Mettre en place une protection antistatique.
+. Déballez le nouveau module de ventilation et placez-le sur une surface plane à proximité de la tablette.
++
+Conservez tous les matériaux d'emballage pour les réutiliser lors du retour du ventilateur défectueux.
+
+. À l'arrière du tiroir disque, observez les LED d'avertissement pour localiser le module de ventilateur à retirer.
++
+Vous devez remplacer le module de ventilation sur lequel le voyant d'avertissement est allumé.
+
++
+image::../media/28_dwg_e2860_de460c_single_fan_canister_with_led_callout.gif[28 dwg e2860 de460c canister à ventilateur unique avec légende à led]
+
++
+|===
+
+
+| Élément | Nom DU VOYANT | État | Description 
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Attention  a| 
+Orange fixe
+ a| 
+Le ventilateur est défectueux
+
+|===
+. Appuyez sur la languette orange pour libérer la poignée du module de ventilation.
++
+image::../media/28_dwg_e2860_de460c_single_fan_canister_with_orange_tab_callout.gif[28 dwg e2860 de460c canister à ventilateur unique avec symbole à languette orange]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Languette sur laquelle vous appuyez pour libérer la poignée du module de ventilation 
+|===
+. Utilisez la poignée du module de ventilation pour retirer le module de ventilation de l'étagère.
++
+image::../media/28_dwg_e2860_de460c_fan_canister_handle_with_callout.gif[28 dwg e2860 de460c poignée de la cartouche du ventilateur avec légende]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Poignée pour extraire le module de ventilateur 
+|===
+. Faites glisser le module de ventilateur de remplacement complètement dans la tablette, en déplaçant la poignée du module de ventilateur vers le côté jusqu'à ce qu'elle s'enclenche avec la languette orange.
+. Vérifiez le voyant d'avertissement orange sur le nouveau module de ventilateur.
++
+
+NOTE: Après avoir remplacé le module de ventilation, le voyant d'avertissement reste allumé (orange fixe) pendant que le micrologiciel vérifie que le module de ventilation a été correctement installé. Le voyant s'éteint une fois le processus terminé.
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
++
+Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA.
+
+

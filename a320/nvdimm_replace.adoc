@@ -1,0 +1,240 @@
+---
+permalink: a320/nvdimm-replace.html 
+sidebar: sidebar 
+keywords: aff, a320, aff a320, replace, nvdimm, controller, module, system, register, flash, lifetime, identified, idenify, nvdimm, healthy, general, failure, system, panic, replace an nvdimm, shut down the impaired controller, remove the controller module, replace the nvdimm, install the controller module, run diagnostics, restore the controller module to operation after running diagnostics, complete the replacement process 
+summary: 'Vous devez remplacer le NVDIMM dans le module de contrôleur lorsque votre système enregistre que la durée de vie du flash est presque à la fin ou que le NVDIMM identifié n"est pas en bon état en général ; si vous ne le faites pas, vous pouvez provoquer une panique du système.' 
+---
+= Remplacez un système NVDIMM - AFF A320
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez remplacer le NVDIMM dans le module de contrôleur lorsque votre système enregistre que la durée de vie du flash est presque à la fin ou que le NVDIMM identifié n'est pas en bon état en général ; si vous ne le faites pas, vous pouvez provoquer une panique du système.
+
+Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+[role="lead"]
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Retour des disques SED en mode non protégé » du _ONTAP 9 Guide d'alimentation et de cryptage NetApp_.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"^]
+
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement (`event log show`) Pour la lame SCSI du contrôleur altérée.
++
+Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+[role="lead"]
+Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez l'alimentation du module de contrôleur de la source d'alimentation.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+image::../media/drw_a320_cable_management_arms.png[bras de gestion des câbles drw a320]
+
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez et mettez de côté les dispositifs de gestion des câbles des côtés gauche et droit du module de contrôleur.
+. Retirer le module de contrôleur du châssis :
++
+image::../media/drw_a320_controller_remove_animated_gif.png[le contrôleur drw a320 supprime le gif animé]
+
++
+.. Insérez l'index dans le mécanisme de verrouillage de chaque côté du module de contrôleur.
+.. Appuyez sur la languette orange située sur la partie supérieure du mécanisme de verrouillage jusqu'à ce qu'elle se dégage de la goupille de verrouillage du châssis.
+
+
++
+Le crochet du mécanisme de verrouillage doit être presque vertical et doit être dégagé de l'axe du châssis.
+
++
+.. Tirez doucement le module de contrôleur de quelques pouces vers vous pour pouvoir saisir les côtés du module de contrôleur.
+.. A l'aide des deux mains, tirez doucement le module de contrôleur hors du châssis et posez-le sur une surface plane et stable.
+
+
+
+
+
+
+== Étape 3 : remplacez le NVDIMM
+
+[role="lead"]
+Pour remplacer le NVDIMM, vous devez le localiser dans le module de contrôleur à l'aide de l'étiquette de carte NVDIMM située sur le dessus du conduit d'air, puis le remplacer en suivant la séquence spécifique des étapes.
+
+image::../media/drw_a320_nvdimm_replace_animated_gif.png[drw a320 nvmm remplace le gif animé]
+
+. Ouvrez le conduit d'air, puis localisez le NVDIMM dans le logement 11 de votre module de contrôleur.
++
+
+NOTE: L'aspect NVDIMM est très différent de celui des DIMM système.
+
+. Notez l'orientation du NVDIMM dans le support pour pouvoir insérer le NVDIMM dans le module de remplacement du contrôleur dans le bon sens.
+. Éjectez le NVDIMM de son logement en écartant lentement les deux languettes d'éjection NVDIMM de chaque côté du NVDIMM, puis faites glisser le NVDIMM hors du support et mettez-le de côté.
++
+
+NOTE: Tenez soigneusement le NVDIMM par les bords pour éviter toute pression sur les composants de la carte de circuit imprimé NVDIMM.
+
+. Retirez le NVDIMM de remplacement du sac d'expédition antistatique, tenez le NVDIMM par les coins, puis alignez-le sur le logement.
++
+L'encoche entre les broches du NVDIMM doit être alignée avec la languette du support.
+
+. Localisez le logement où vous installez le NVDIMM.
+. Insérez le NVDIMM directement dans le logement.
++
+Le NVDIMM s'insère fermement dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le NVDIMM avec le logement et réinsérez-le.
+
++
+
+NOTE: Inspectez visuellement le NVDIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
+
+. Poussez délicatement, mais fermement, sur le bord supérieur du NVDIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent au-dessus des encoches aux extrémités du NVDIMM.
+. Fermer le conduit d'air.
+
+
+
+
+== Étape 4 : installer le module de contrôleur
+
+[role="lead"]
+Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
+
+. Si ce n'est déjà fait, fermez le conduit d'air à l'arrière du module de contrôleur et réinstallez le couvercle sur les cartes PCIe.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
++
+
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+
+. Terminez la réinstallation du module de contrôleur :
++
+.. S'assurer que les bras de verrouillage sont verrouillés en position étendue.
+.. A l'aide des bras de verrouillage, poussez le module de contrôleur dans la baie du châssis jusqu'à ce qu'il s'arrête.
+.. Appuyez sur les languettes orange du haut du mécanisme de verrouillage et maintenez-les enfoncées.
+.. Poussez doucement le module contrôleur dans la baie du châssis jusqu'à ce qu'il affleure les bords du châssis.
++
+
+NOTE: Les bras du mécanisme de verrouillage coulissent dans le châssis.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+.. Libérer les loquets pour verrouiller le module de contrôleur en place.
+.. Recâblage du bloc d'alimentation.
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Interrompre le processus de démarrage normal en appuyant sur `Ctrl-C`.
+
+
+
+
+
+
+== Étape 5 : exécutez les diagnostics
+
+[role="lead"]
+Après avoir remplacé le NVDIMM de votre système, exécutez des tests de diagnostic sur ce composant.
+
+Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
+
+Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
+
+. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node node_name`
++
+Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
+
+. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
+. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
+. Sélectionnez *Tester mémoire* dans le menu affiché.
+. Sélectionnez *Test NVDIMM* dans le menu affiché.
+. Procédez comme suit en fonction du résultat de l'étape précédente :
++
+** Si le test a échoué, corrigez la défaillance, puis relancez le test.
+** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
+
+
+
+
+
+
+== Étape 6 : rétablir le fonctionnement du module de contrôleur après l'exécution des diagnostics
+
+[role="lead"]
+Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 7 : renvoyer la pièce défaillante à NetApp
+
+[role="lead"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

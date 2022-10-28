@@ -1,0 +1,85 @@
+---
+permalink: ns224/service-replace-power-supply.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, replace, fail, power, supply, nondisruptive, drive, i/o, progress, hot-swap, hot-swap a power supply 
+summary: 'Vous pouvez remplacer un bloc d"alimentation défaillant dans un tiroir disque NS224 sous tension, tandis que les E/S sont en cours.' 
+---
+= Remplacez à chaud une alimentation - étagères NS224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez remplacer un bloc d'alimentation défaillant dans un tiroir disque NS224 sous tension, tandis que les E/S sont en cours.
+
+.Description de la tâche
+* Ne mélangez pas les alimentations avec des niveaux d'efficacité différents. Toujours remplacer comme pour similaire.
+* Si vous remplacez plusieurs alimentations, vous devez le faire une par une afin que le tiroir reste alimenté.
+* *Meilleure pratique :* la meilleure pratique consiste à remplacer l'alimentation électrique dans les deux minutes suivant le retrait du module NSM.
++
+Si vous dépassez les deux minutes, le tiroir continue de fonctionner, mais ONTAP envoie des messages à la console concernant l'alimentation endommagée jusqu'à ce que l'alimentation soit remplacée.
+
+* *Meilleure pratique :* la meilleure pratique consiste à installer sur votre système les versions les plus récentes du firmware du module de tiroir NVMe (NSM) et du firmware du lecteur avant de remplacer les composants FRU.
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
+
++
+[NOTE]
+====
+Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
+
+====
+* Si nécessaire, vous pouvez allumer les LED situées à l'emplacement des tiroirs (bleues) pour faciliter l'emplacement physique des tiroirs concernés : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
++
+Si vous ne connaissez pas le `shelf_name` sur la tablette concernée, exécutez la `storage shelf show` commande.
+
++
+Une étagère comporte trois LED d'emplacement : une sur le panneau d'affichage de l'opérateur et une sur chaque module NSM. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l'option Désactivé.
+
+* Lorsque vous déballez le bloc d'alimentation de remplacement, conservez tous les matériaux d'emballage pour l'utiliser lorsque vous renvoyez le bloc d'alimentation défectueux.
++
+Si vous avez besoin du numéro d'autorisation de renvoi de matériel ou d'une aide supplémentaire pour effectuer la procédure de remplacement, contactez le support technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"^], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique).
+
+* Vous pouvez utiliser la vidéo suivante ou les étapes écrites pour remplacer une alimentation électrique.
++
+.Animation - remplacez à chaud un bloc d'alimentation dans un tiroir de disque NS224
+video::5794da63-99aa-425a-825f-aa86002f154d[panopto]
+
+
+.Étapes
+. Mettez-vous à la terre.
+. Identifier physiquement l'alimentation défectueuse.
++
+Le système consigne un message d'avertissement à la console du système indiquant quelle alimentation a échoué. En outre, la LED d'avertissement (orange) s'allume sur le panneau d'affichage de l'opérateur du shelf et la LED bicolore de l'alimentation défectueuse s'allume en rouge.
+
+. Débrancher le cordon d'alimentation de l'alimentation en ouvrant la retenue du cordon d'alimentation, puis débrancher le cordon d'alimentation de l'alimentation.
++
+Les blocs d'alimentation n'ont pas de commutateur d'alimentation.
+
+. Retrait de l'alimentation défectueuse :
++
+.. Faites tourner la poignée de came en position ouverte (horizontale), puis saisissez-la.
+.. Avec votre pouce, appuyez sur la languette bleue pour libérer le mécanisme de verrouillage.
+.. Tirez l'alimentation hors du module NSM tout en l'utilisant pour soutenir son poids.
+
+
+. Insérer l'alimentation de remplacement :
++
+.. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module NSM.
+.. Poussez doucement le bloc d'alimentation dans le module NSM jusqu'à ce que le mécanisme de verrouillage s'enclenche.
++
+
+NOTE: N'utilisez pas de force excessive et vous risquez d'endommager le connecteur interne.
+
+.. Tourner la poignée de came en position fermée.
+
+
+. Connectez le cordon d'alimentation à l'alimentation et fixez le cordon d'alimentation à l'aide de la pièce de retenue du cordon d'alimentation.
++
+Lorsqu'elle fonctionne correctement, la LED bicolore d'un bloc d'alimentation s'allume en vert.
+
+

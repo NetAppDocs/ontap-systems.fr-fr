@@ -1,0 +1,332 @@
+= Nouvelle prise en charge de l'adaptateur
+:allow-uri-read: 
+
+
+
+
+== Nouvelle prise en charge de l'adaptateur
+
+[cols="4*"]
+|===
+| Référence de l'adaptateur | Description | Catégorie | Disponible au début 
+
+
+ a| 
+https://hwu.netapp.com/adapter/index["X91148A"]
+ a| 
+2 ports RoCE 100 GbE QSFP28
+ a| 
+* Stockage
+* Mise en réseau
+* HAUTE DISPONIBILITÉ/MetroCluster
+
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+https://hwu.netapp.com/adapter/index["X91122A"]
+ a| 
+2 ports RoCE 25 GbE QSFP28
+ a| 
+* Mise en réseau
+* HAUTE DISPONIBILITÉ/MetroCluster
+
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+https://hwu.netapp.com/adapter/index["X9170A"]
+ a| 
+Module SSD NVMe (1 To)
+ a| 
+Système de vidage de mémoire
+ a| 
+ONTAP 9.8
+
+|===
+
+
+== Nouveau support de commutateur
+
+[cols="25h,~,~"]
+|===
+| Commutateurs | Description | Disponible au début 
+
+
+ a| 
+https://hwu.netapp.com/Switch/Index["Commutateur Cisco 100 GbE 36 ports (X190200)"]
+ a| 
+Prise en charge d'une infrastructure partagée (cluster, haute disponibilité et stockage DAS) sur la même paire de commutateurs Cisco Nexus 9336C-FX2, y compris la prise en charge des configurations MetroCluster IP.
+ a| 
+ONTAP 9.9.1
+
+
+
+ a| 
+https://hwu.netapp.com/Switch/Index["Commutateur Cisco 100 GbE 36 ports (X190200 et X190210)"]
+ a| 
+Le commutateur d'interconnexion de cluster et le commutateur de stockage Cisco Nexus 9336C-FX2 prennent en charge les contrôleurs AFF/FAS, ainsi que la connectivité des données front-end.
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+https://hwu.netapp.com/Switch/Index["Commutateur Broadcom BES-53248 (X190005 et X190005R)"]
+ a| 
+Prise en charge du commutateur d'interconnexion de cluster Broadcom BES-53248 pour les contrôleurs AFF/FAS avec ports 40 GbE.
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+https://hwu.netapp.com/Switch/Index["Commutateur Cisco 100 GbE 36 ports (X190200)"] https://hwu.netapp.com/Switch/Index["Commutateur Cisco 100 GbE 32 ports (X190100 et X190100R)"]
+ a| 
+Le commutateur Cisco Nexus 100 GbE peut être utilisé en tant que commutateur de stockage dédié pour connecter les tiroirs disques NVMe NS224 aux plateformes suivantes :
+
+* AFF A800/AFF ASA A800
+* ASA AFF A700/AFF A700
+* AFF A400/AFF ASA A400
+* AFF A320
+
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+https://hwu.netapp.com/Switch/Index["Commutateur Broadcom BES-53248 (X190005 et X190005R)"]
+ a| 
+Prise en charge du commutateur d'interconnexion de cluster Broadcom BES-53248 pour les contrôleurs AFF/FAS avec ports 10 GbE.
+ a| 
+ONTAP 9.5P8
+
+|===
+
+
+== Prise en charge de la nouvelle plateforme
+
+[cols="2*"]
+|===
+| Plateformes (avec liens vers les fiches techniques) | Disponible au début 
+
+
+ a| 
+https://hwu.netapp.com/ProductSpecs/Index["FAS9500"]
+ a| 
+ONTAP 9.10.1P3 et 9.11.1
+
+
+
+ a| 
+https://www.netapp.com/pdf.html?item=/media/7828-ds-3582.pdf["AFF A900"]
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+https://www.netapp.com/pdf.html?item=/media/7828-ds-3582.pdf["AFF A250/AFF ASA A250"]
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+https://www.netapp.com/pdf.html?item=/media/7819-ds-4020.pdf["FAS500f"]
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+https://www.netapp.com/pdf.html?item=/media/7828-ds-3582.pdf["AFF ASA A800"]
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+https://www.netapp.com/pdf.html?item=/media/7819-ds-4020.pdf["FAS8300"]
+ a| 
+ONTAP 9.7
+
+
+
+ a| 
+https://www.netapp.com/pdf.html?item=/media/7819-ds-4020.pdf["FAS8700"]
+ a| 
+ONTAP 9.7
+
+
+
+ a| 
+https://www.netapp.com/pdf.html?item=/media/7828-ds-3582.pdf["AFF A400"]
+ a| 
+ONTAP 9.7
+
+
+
+ a| 
+https://www.netapp.com/pdf.html?item=/media/17190-na-382.pdf["AVEC AFF ASA A220"]
+ a| 
+ONTAP 9.7
+
+
+
+ a| 
+https://www.netapp.com/pdf.html?item=/media/7828-ds-3582.pdf["AFF ASA A700"]
+ a| 
+ONTAP 9.7
+
+
+
+ a| 
+https://www.netapp.com/us/media/ds-3989.pdf["AFF C190"]
+ a| 
+ONTAP 9.6
+
+
+
+ a| 
+https://www.netapp.com/pdf.html?item=/media/17190-na-382.pdf["AFF A320"]
+ a| 
+ONTAP 9.6
+
+|===
+
+
+== Nouveau support de tablette
+
+[cols="2*"]
+|===
+| Tiroirs | Disponible au début 
+
+
+ a| 
+NS224
+ a| 
+ONTAP 9.6
+
+|===
+
+
+== Nouvelles mises à jour matérielles
+
+[cols="25h,~,~"]
+|===
+| Fonctionnalité | Description et où en savoir plus | Disponible au début 
+
+
+ a| 
+Prise en charge étendue de la plateforme pour les tiroirs disques NS224
+ a| 
+Les plateformes suivantes prennent en charge les tiroirs disques NS224 :
+
+* AFF A800/AFF ASA A800
+* ASA AFF A700/AFF A700
+* AFF A250/AFF ASA A250
+* FAS500f
+
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+Ajout à chaud de tiroirs SAS 12 Gb à des piles de stockage SAS 6 Gb
+ a| 
+Une transition à vitesse unique de 6 Gb à 12 Gb dans une pile de stockage SAS est désormais prise en charge. Vous pouvez ainsi étendre le stockage de piles 6 Go existantes avec des tiroirs 12 Gb.
+
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["Ajout de tiroirs à chaud avec modules IOM12 à une pile de tiroirs avec modules IOM6"]
+ a| 
+ONTAP 9.7P4
+
+ONTAP 9.6P9
+
+ONTAP 9.5P14
+
+|===
+
+
+== Nouvelles améliorations matérielles
+
+Les procédures de mise à niveau matérielle ont été simplifiées dans ONTAP 9.8 grâce à l'introduction de la fonction de positionnement automatique des ports. Lorsque vous mettez à niveau un système exécutant ONTAP 9.8, vous devez suivre la procédure correcte pour prendre en compte la fonction de positionnement des ports.
+
+Consultez le tableau suivant pour connaître les procédures de mise à niveau disponibles. Consultez chaque guide pour obtenir des détails supplémentaires afin de déterminer si la procédure est appropriée.
+
+Pour connaître les procédures supplémentaires propres à MetroCluster, reportez-vous à la section https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Choisissez une méthode de mise à niveau ou de rafraîchissement"].
+
+[cols="4*"]
+|===
+| Version ONTAP | Emplacement | Continuité de l'activité | Prend en charge MetroCluster 
+
+
+ a| 
+9.8 à 9.0.x
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html["Guide Express de mise à niveau matérielle des contrôleurs"] (Déplacement du stockage physique existant)
+ a| 
+Non
+ a| 
+Non
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html["Guide Express de mise à niveau matérielle des contrôleurs"] (Déplacement des volumes vers un nouveau stockage)
+ a| 
+Oui.
+ a| 
+Non
+
+
+
+ a| 
+9.8
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html["Utilisation des commandes "remplacer contrôleur système" pour mettre à niveau le matériel du contrôleur exécutant ONTAP 9.8"]
+ a| 
+Oui.
+ a| 
+Oui (FC)
+
+
+
+ a| 
+9.8
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["Utilisation du transfert d'agrégats pour mettre à niveau manuellement le matériel du contrôleur exécutant ONTAP 9.8 ou une version ultérieure"]
+ a| 
+Oui.
+ a| 
+Oui (FC)
+
+
+
+ a| 
+9.7 à 9.5
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["Utilisation des commandes "remplacer contrôleur système" pour mettre à niveau le matériel du contrôleur exécutant ONTAP 9.5 vers ONTAP 9.7"]
+ a| 
+Oui.
+ a| 
+Oui (FC)
+
+
+
+ a| 
+9.7 et versions antérieures
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["Mettre à niveau les contrôleurs avec déplacement d'agrégats pour mettre à niveau manuellement le matériel du contrôleur exécutant ONTAP 9.7 et les versions antérieures"]
+ a| 
+Oui.
+ a| 
+Oui (FC)
+
+|===

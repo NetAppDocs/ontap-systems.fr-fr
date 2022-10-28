@@ -1,0 +1,254 @@
+---
+permalink: a800/bootmedia-replace.html 
+sidebar: sidebar 
+keywords: aff a800, replace the boot media 
+summary: 'Vous trouvez le support d"amorçage défectueux dans le module de contrôleur en retirant la carte de montage 3 du module de contrôleur avant de pouvoir remplacer le support d"amorçage.' 
+---
+= Remplacez le support de démarrage - AFF A800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
+
+
+
+== Étape 1 : retirer le module de contrôleur
+
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les blocs d'alimentation du module de contrôleur de la source.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Desserrez le crochet et la bride de boucle reliant les câbles au dispositif de gestion des câbles, puis débranchez les câbles du système et les modules SFP et QSFP (si nécessaire) du module de contrôleur, en gardant une trace de l'emplacement de connexion des câbles.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a800_pcm_remove.png[dépose du module de commande du groupe motopropulseur du drw a800]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquet de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Placez le module de commande sur une surface plane et stable, puis ouvrez la conduite d'air :
++
+.. Appuyer sur les languettes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de contrôleur.
+.. Faites glisser le conduit d'air vers les modules de ventilateur, puis tournez-le vers le haut jusqu'à sa position complètement ouverte.
+
+
+
+
+image::../media/drw_a800_open_air_duct.png[drw a800 conduit d'air ouvert]
+
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Pattes de verrouillage du conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Faire glisser le conduit d'air vers les modules de ventilation
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Tourner la conduite d'air vers les modules de ventilation
+
+|===
+
+
+== Étape 2 : remplacer le support de démarrage
+
+Vous trouvez le support d'amorçage défectueux dans le module de contrôleur en retirant la carte de montage 3 du module de contrôleur avant de pouvoir remplacer le support d'amorçage.
+
+Vous avez besoin d'un tournevis cruciforme pour retirer la vis qui maintient le support de démarrage en place.
+
+. Recherchez le support de démarrage :
++
+image::../media/drw_a800_boot_media_replace.png[remplacement du support de démarrage drw a800]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Carte de montage 3
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Tournevis cruciforme n° 1
+
+
+
+ a| 
+image:../media/legend_icon_04.png[""]
+ a| 
+Vis du support de démarrage
+
+
+
+ a| 
+image:../media/legend_icon_05.png[""]
+ a| 
+Support de démarrage
+
+|===
+. Retirez le support de démarrage du module de contrôleur :
++
+.. À l'aide d'un tournevis cruciforme n° 1, retirez la vis qui maintient le support de démarrage et mettez la vis de côté en lieu sûr.
+.. Saisissez les côtés du support de coffre, faites pivoter doucement le support de coffre vers le haut, puis tirez le support de coffre hors du support et mettez-le de côté.
+
+
+. Installez le support de démarrage de remplacement dans le module de contrôleur :
++
+.. Alignez les bords du support de coffre avec le logement de la prise, puis poussez-le doucement d'équerre dans le support.
+.. Faites pivoter le support de démarrage vers le bas, vers la carte mère.
+.. Fixez le support de démarrage à la carte mère à l'aide de la vis du support de démarrage.
++
+Ne serrez pas trop la vis pour éviter d'endommager le support de démarrage.
+
+
+
+. Réinstallez la carte de montage dans le module de contrôleur.
+. Fermer le conduit d'air :
++
+.. Faire pivoter le conduit d'air vers le bas.
+.. Faites glisser le conduit d'air vers les surmontoirs jusqu'à ce qu'il s'enclenche.
+
+
+
+
+
+
+== Étape 3 : transférez l'image de démarrage sur le support de démarrage
+
+Le support de démarrage de remplacement que vous avez installé est sans image de démarrage, donc vous devez transférer une image de démarrage à l'aide d'une clé USB.
+
+.Avant de commencer
+* Vous devez disposer d'une clé USB, formatée en FAT32, avec au moins 4 Go de capacité.
+* Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section Downloads du site de support NetApp
++
+** Si NVE est activé, téléchargez l'image avec NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+** Si NVE n'est pas activé, téléchargez l'image sans NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+
+
+* Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau.
+* Si votre système est un système autonome, vous n'avez pas besoin d'une connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
+
+
+.Étapes
+. Téléchargez et copiez l'image de service appropriée depuis le site de support NetApp vers le lecteur Flash USB.
++
+.. Téléchargez l'image du service sur votre espace de travail sur votre ordinateur portable.
+.. Décompressez l'image du service.
++
+
+NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas WinZip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
+
++
+Le fichier image du service décompressé contient deux dossiers :
+
++
+*** démarrage
+*** efi
+
+
+.. Copiez le dossier efi dans le répertoire supérieur du lecteur flash USB. + le lecteur flash USB doit avoir le dossier efi et la même version de l'image de service (BIOS) de ce que le contrôleur douteux est en cours d'exécution.
+.. Retirez la clé USB de votre ordinateur portable.
+
+
+. Si ce n'est déjà fait, fermer le conduit d'air :
++
+.. Faire basculer la conduite d'air complètement vers le bas jusqu'au module de commande.
+.. Faites glisser la conduite d'air vers les surmontoirs jusqu'à ce que les pattes de verrouillage s'enclenchent.
+.. Inspecter le conduit d'air pour s'assurer qu'il est correctement installé et verrouillé en place.
++
+image::../media/drw_a800_close_air_duct.png[drw a800 fermer le conduit d'air]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Redresseurs
+
+|===
+
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+. Réinstallez le périphérique de gestion des câbles et recâblage du système, selon les besoins.
++
+Lors du retrait, n'oubliez pas de réinstaller les convertisseurs de support (SFP ou QSFP) s'ils ont été retirés.
+
+. Branchez le câble d'alimentation dans le bloc d'alimentation et réinstallez le dispositif de retenue du câble d'alimentation.
+. Insérez la clé USB dans le logement USB du module de contrôleur.
++
+Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
+
+. Poussez doucement le module de contrôleur complètement dans le système jusqu'à ce que les crochets de verrouillage du module de contrôleur commencent à se lever, appuyez fermement sur les crochets de verrouillage pour terminer d'asseoir le module de contrôleur, puis faites pivoter les crochets de verrouillage dans la position verrouillée par-dessus les broches du module de contrôleur.
++
+Le contrôleur commence à démarrer dès qu'il est entièrement installé dans le châssis.
+
+. Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
++
+Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
+
+

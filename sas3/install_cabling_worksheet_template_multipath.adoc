@@ -1,0 +1,81 @@
+---
+permalink: sas3/install-cabling-worksheet-template-multipath.html 
+sidebar: sidebar 
+keywords: complete, completing, worksheet, template, controller, sas, port, pair, cable, controller, disk, shelves, iom12, module, achieve, multipathed, connectivity, ha, pair, single-controller, configuration, worksheet, connection, controller-to-stack cabling worksheet template for multipathed connectivity 
+summary: 'Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pour connecter les contrôleurs aux piles de tiroirs disques avec des modules IOM12/IOM12B afin d"obtenir une connectivité multipathée dans une paire haute disponibilité ou une configuration à un seul contrôleur. Vous pouvez également utiliser la fiche complétée pour vous guider à travers le câblage des connexions multipathed pour votre configuration.' 
+---
+= Modèle de fiche de câblage contrôleur à pile pour la connectivité multipathed - tiroirs avec modules IOM12/IOM12B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pour connecter les contrôleurs aux piles de tiroirs disques avec des modules IOM12/IOM12B afin d'obtenir une connectivité multipathée dans une paire haute disponibilité ou une configuration à un seul contrôleur. Vous pouvez également utiliser la fiche complétée pour vous guider à travers le câblage des connexions multipathed pour votre configuration.
+
+Si vous disposez d'une plateforme avec stockage interne, notamment les systèmes FAS2600, AFF A200, FAS2700 Series, AFF A220, puis, utilisez les éléments suivants (ces plates-formes utilisent une feuille de calcul unique) :
+
+link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes avec stockage interne"]
+
+.Description de la tâche
+* Ce modèle de procédure et de fiche est applicable au câblage de la connectivité multipathing pour une configuration multivoie haute disponibilité ou à chemins d'accès multiples avec une ou plusieurs piles.
++
+Des exemples de feuilles de calcul complétées sont fournis pour les configurations haute disponibilité multivoie et les configurations à chemins d'accès multiples.
+
++
+Pour les exemples de feuille de travail, vous pouvez utiliser une configuration dotée de deux HBA SAS à quatre ports et de deux piles de tiroirs disques avec des modules IOM12/IOM12B.
+
+* Le modèle de feuille de calcul peut contenir jusqu'à six piles. Vous devez ajouter d'autres colonnes si nécessaire.
+* Si nécessaire, vous pouvez consulter le link:install-cabling-rules.html["Règles de câblage SAS"] pour plus d'informations sur les configurations prises en charge, la convention de numérotation des connecteurs du contrôleur, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir (notamment l'utilisation des paires de ports).
+* Si nécessaire, après avoir terminé la fiche, vous pouvez vous reporter à link:install-cabling-worksheets-how-to-read-multipath.html["Comment lire une fiche technique pour relier les connexions du contrôleur à la pile pour assurer une connectivité multipathed"]
+
+
+image::../media/drw_worksheet_mpha_template.gif[modèle mpha de fiche de travail drw]
+
+.Étapes
+. Dans les cases au-dessus des cases grises, répertoriez tous les ports SAS A de votre système, puis tous les ports SAS C de votre système en séquence d'emplacements (0, 1, 2, 3, etc.).
++
+Par exemple : 1a, 2a, 1c, 2c
+
+. Dans les cases grises, énumérez tous les ports SAS B de votre système, puis tous les ports SAS D de votre système en séquence d'emplacements (0, 1, 2, 3, etc.).
++
+Par exemple : 1b, 2b, 1D, 2d
+
+. Dans les zones situées sous les zones grises, réécrire la liste des ports D et B de sorte que le premier port de la liste soit déplacé à la fin de la liste.
++
+Par exemple : 2b, 1D, 2d, 1b
+
+. Entourez (désignez) une paire de ports pour chaque pile.
++
+Lorsque toutes les paires de ports sont utilisées pour raccorder les piles de votre système, entourez-les de paires de ports dans l'ordre dans lequel elles sont définies (répertoriées) dans la fiche.
+
++
+Par exemple, dans une configuration haute disponibilité multivoie avec huit ports SAS et quatre piles, la paire de ports 1a/2b est câblée sur la pile 1, la paire de ports 2a/1D est câblée sur la pile 2, la paire de ports 1c/2d est câblée sur stack3 et la paire de ports 2c/1b est câblée sur la pile 4.
+
++
+image::../media/drw_worksheet_mpha_slots_1_and_2_two_4porthbas_two_stacks.gif[fiche technique drw mpha logements 1 et 2 deux 4porthbas deux piles]
+
++
+Lorsque toutes les paires de ports ne sont pas nécessaires pour raccorder les piles de votre système, ignorez les paires de ports (utilisez toutes les autres paires de ports).
+
++
+Par exemple, dans une configuration haute disponibilité multivoie avec huit ports SAS et deux piles, la paire de ports 1a/2b est câblée sur la pile 1 et la paire de ports 1c/2d est câblée sur la pile 2. Si deux piles supplémentaires sont ajoutées à chaud ultérieurement, la paire de ports 2a/1d est câblée sur la pile 3 et la paire de ports 2c/1b est câblée sur la pile 4.
+
++
+
+NOTE: Lorsque vous avez plus de paires de ports que nécessaire pour connecter les piles du système, il est recommandé d'ignorer les paires de ports pour optimiser les ports SAS de votre système. Grâce à l'optimisation des ports SAS, vous optimisez les performances de votre système.
+
++
+image::../media/drw_worksheet_mpha_skipped_template.gif[modèle mpha de fiche de travail drw ignoré]
+
++
+Vous pouvez utiliser la fiche complétée pour connecter les câbles de votre système.
+
+. Si vous disposez d'une configuration à un seul contrôleur (multivoie), cross les informations du contrôleur 2.
++
+image::../media/drw_worksheet_mp_template.gif[modèle mp de fiche de travail drw]
+
++
+Vous pouvez utiliser la fiche complétée pour connecter les câbles de votre système.
+
+

@@ -1,0 +1,80 @@
+---
+permalink: sas3/install-cabling-worksheet-template-quadpath.html 
+sidebar: sidebar 
+keywords: complete, completing, worksheet, template, controller, sas, port, pair, cable, controller, disk, shelves, shelf, iom12, quad-pathed, connectivity, ha, pair, controller-to-stack, controller-to-stack cabling worksheet template for quad-pathed connectivity 
+summary: 'Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pour connecter les contrôleurs aux piles de tiroirs disques avec des modules IOM12/IOM12B afin d"obtenir une connectivité à quatre ports dans une paire haute disponibilité ou une configuration à un seul contrôleur. Vous pouvez également utiliser la fiche de travail complétée pour vous guider à travers le câblage des connexions à quatre ports pour votre configuration.' 
+---
+= Modèle de fiche de câblage contrôleur à pile pour la connectivité à quatre chemins d'accès - tiroirs avec modules IOM1/IOM12B2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pour connecter les contrôleurs aux piles de tiroirs disques avec des modules IOM12/IOM12B afin d'obtenir une connectivité à quatre ports dans une paire haute disponibilité ou une configuration à un seul contrôleur. Vous pouvez également utiliser la fiche de travail complétée pour vous guider à travers le câblage des connexions à quatre ports pour votre configuration.
+
+.Sur sa tâche
+* Ce modèle de procédure et de fiche est applicable au câblage de la connectivité à quatre chemins d'accès pour une configuration haute disponibilité à quatre chemins d'accès ou à quatre chemins avec une ou plusieurs piles.
++
+Vous trouverez des exemples de feuilles de calcul terminées pour les configurations à quatre chemins d'accès haute disponibilité et à quatre chemins d'accès.
+
++
+Pour les exemples de feuille de travail, vous pouvez utiliser une configuration dotée de deux HBA SAS à quatre ports et de deux piles de tiroirs disques avec des modules IOM12/IOM12B.
+
+* Le modèle de feuille de calcul peut contenir jusqu'à deux piles. Vous devez ajouter d'autres colonnes si nécessaire.
+* La connectivité à quatre chemins d'accès pour les connexions contrôleur-pile se compose de deux jeux de câbles multipathés : le premier jeu de câbles est appelé « Multifpathed » ; le second jeu de câbles est appelé « quadruple pathed ».
++
+Ce deuxième jeu de câbles est appelé « quadruple paths », car ce jeu de câbles vous offre la connectivité à quatre ports d'un contrôleur vers une pile d'une paire haute disponibilité ou d'une configuration à un seul contrôleur.
+
+* Les ports 1 et 3 IOM du tiroir disque sont toujours utilisés pour le câblage multipathed et les ports IOM 2 et 4 sont toujours utilisés pour le câblage à quatre chemins d'accès, comme désignés par les en-têtes de colonne de la fiche.
+* Dans les exemples de fiche, les paires de ports sont désignées pour un câblage multipathed ou un câblage à quatre chemins d'accès à la pile concernée.
++
+Chaque paire de ports désignée pour le câblage multipathed est encerclée par un ovale qui est la couleur associée à la pile à laquelle elle est reliée. Chaque paire de ports désignée pour un câblage à quatre chemins d'accès est entourée d'un rectangle de la couleur associée à la pile à laquelle elle est câblée. La pile 1 est associée à la couleur bleue ; la pile 2 est associée à la couleur orange.
+
+* Si nécessaire, vous pouvez vous reporter à link:install-cabling-rules.html["Règles de câblage SAS"] pour plus d'informations sur la convention de numérotation des connecteurs du contrôleur, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir (notamment l'utilisation des paires de ports).
+* Si nécessaire, après avoir terminé la fiche, vous pouvez vous reporter à link:install-cabling-worksheets-how-to-read-quadpath.html["Comment lire une fiche technique pour relier les connexions du contrôleur à la pile pour assurer une connectivité à quatre chemins d'accès"].
+
+
+image::../media/drw_worksheet_quad_pathed_template_nau.gif[modèle à chemins d'accès quadruples de la feuille de calcul drw nau]
+
+.Étapes
+. Dans les cases au-dessus des cases grises, répertoriez tous les ports SAS A de votre système, puis tous les ports SAS C de votre système en séquence d'emplacements (0, 1, 2, 3, etc.).
++
+Par exemple : 1a, 2a, 1c, 2c
+
+. Dans les cases grises, énumérez tous les ports SAS B de votre système, puis tous les ports SAS D de votre système en séquence d'emplacements (0, 1, 2, 3, etc.).
++
+Par exemple : 1b, 2b, 1D, 2d
+
+. Dans les zones situées sous les zones grises, réécrire la liste des ports D et B de sorte que le premier port de la liste soit déplacé à la fin de la liste.
++
+Par exemple : 2b, 1D, 2d, 1b
+
+. Identifiez les deux ensembles de paires de ports à connecter à la pile 1 en traçant un ovale autour du premier ensemble de paires de ports et un rectangle autour du second ensemble de paires de ports.
++
+Ces deux jeux de câbles sont nécessaires pour atteindre une connectivité à quatre ports entre chaque contrôleur et la pile 1 de votre paire haute disponibilité ou de votre configuration à un seul contrôleur.
+
++
+L'exemple suivant utilise la paire de ports 1a/2b pour le câblage multipathed et la paire de ports 2a/1d pour le câblage à quatre ports sur la pile 1.
+
++
+image::../media/drw_worksheet_qpha_slots_1_and_2_two_4porthbas_two_stacks_set1_circled_nau.gif[feuille de travail drw qpha logements 1 et 2 deux 4porthbas deux piles set1 encerclées nau]
+
+. Identifiez les deux ensembles de paires de ports à connecter à la pile 2 en traçant un ovale autour du premier ensemble de paires de ports et un rectangle autour du second ensemble de paires de ports.
++
+Ces deux jeux de câbles sont nécessaires pour atteindre une connectivité à quatre ports entre chaque contrôleur et la pile 1 de votre paire haute disponibilité ou de votre configuration à un seul contrôleur.
+
++
+L'exemple suivant utilise la paire de ports 1c/2d pour le câblage multipathed et la paire de ports 2c/1b pour le câblage à quatre chemins d'accès à la pile 2.
+
++
+image::../media/drw_worksheet_qpha_slots_1_and_2_two_4porthbas_two_stacks_nau.gif[feuille de travail drw qpha logements 1 et 2 deux 4porthbas deux piles nau]
+
+. Si vous disposez d'une configuration à quatre chemins (un seul contrôleur), cross les informations du contrôleur 2; il vous suffit d'avoir les informations du contrôleur 1 pour connecter les câbles du contrôleur à la pile.
++
+L'exemple suivant montre que les informations du contrôleur 2 sont crossed out.
+
++
+image::../media/drw_worksheet_qp_slots_1_and_2_two_4porthbas_two_stacks_nau.gif[fiche de travail drw qp logements 1 et 2 deux 4porthbas deux piles nau]
+
+

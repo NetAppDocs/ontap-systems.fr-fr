@@ -1,0 +1,90 @@
+---
+permalink: sas3/install-change-shelf-id.html 
+sidebar: sidebar 
+keywords: change, shelf, id, system, ontap, run, hot-add, ontap, controller, module, available, serve, data, unown, spare, offline, aggregate 
+summary: 'Vous pouvez modifier l"ID d"un tiroir dans un système lorsque ONTAP n"est pas encore en cours d"exécution ou lors de l"ajout à chaud d"un tiroir avant son câblage vers le système. Vous pouvez également modifier un ID de tiroir lorsque ONTAP est actif et en cours d"exécution de \(les modules de contrôleur sont disponibles pour servir les données\). Tous les disques du tiroir ne sont pas détenus, les disques de secours ou une partie de la mise hors ligne de l"agrégat\(s\).' 
+---
+= Changer un ID de tiroir - étagères avec modules IOM12/IOM12B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez modifier l'ID d'un tiroir dans un système lorsque ONTAP n'est pas encore en cours d'exécution ou lors de l'ajout à chaud d'un tiroir avant son câblage vers le système. Vous pouvez également modifier un ID de tiroir lorsque ONTAP est actif et en cours d'exécution (les modules de contrôleur sont disponibles pour servir les données) et tous les disques du tiroir sont non détenus, Spares ou font partie d'un ou de plusieurs agrégats de mise hors ligne.
+
+.Avant de commencer
+* Si ONTAP est opérationnel (les modules de contrôleur sont disponibles pour servir les données), vous devez avoir vérifié que tous les disques du tiroir ne sont pas détenus, Spares ou font partie d'un ou de plusieurs agrégats de mise hors ligne.
++
+Vous pouvez vérifier l'état des disques à l'aide de la `storage disk show -shelf _shelf_number_` commande. La sortie dans la colonne Type de conteneur doit afficher le disque de secours ou cassé s'il s'agit d'un disque défectueux. En outre, les colonnes Nom du conteneur et propriétaire doivent comporter un tiret.
+
+* Vous pouvez vérifier les ID de tiroir déjà utilisés dans votre système en exécutant Active IQ Config Advisor ou en utilisant le `storage shelf show -fields shelf-id` commande.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+
+
+
+.Description de la tâche
+* Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99.
+* Ils doivent être uniques dans chaque paire HA ou configuration à un seul contrôleur.
++
+Si vous utilisez une plate-forme avec stockage interne, vous devez utiliser des identifiants de tiroir pour le tiroir disque interne et tous les tiroirs disques connectés en externe.
+
+* Vous devez mettre un tiroir hors tension puis sous tension pour que son ID prenne effet.
++
+La durée d'attente avant la mise sous tension dépend de l'état du ONTAP, comme décrit plus loin dans cette procédure.
+
+
+
+.Étapes
+. Mettez le tiroir disque sous tension s'il n'est pas déjà sous tension.
+. Retirez le capuchon d'extrémité gauche pour localiser le bouton à proximité des LED de tablette.
+. Modifiez le premier numéro de l'ID du tiroir en appuyant sur le bouton orange et en le maintenant enfoncé jusqu'à ce que le premier chiffre de l'écran numérique clignote, ce qui peut prendre jusqu'à trois secondes.
++
+[NOTE]
+====
+Si l'ID prend plus de trois secondes pour clignoter, appuyez de nouveau sur le bouton, en veillant à appuyer dessus complètement.
+
+Cela active le mode de programmation de l'ID de tiroir disque.
+
+====
+. Appuyez sur le bouton pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité de 0 à 9.
++
+Le premier chiffre continue de clignoter.
+
+. Modifiez le second numéro de l'ID de tiroir en appuyant sur le bouton et en le maintenant enfoncé jusqu'à ce que le second chiffre de l'écran numérique clignote, ce qui peut prendre jusqu'à trois secondes.
++
+Le premier chiffre de l'écran numérique cesse de clignoter.
+
+. Appuyez sur le bouton pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité de 1 à 9.
++
+Le second chiffre continue de clignoter.
+
+. Verrouillez le chiffre souhaité et quittez le mode de programmation en appuyant sur le bouton et en le maintenant enfoncé jusqu'à ce que le second chiffre cesse de clignoter, ce qui peut prendre jusqu'à trois secondes.
++
+Les deux chiffres de l'écran numérique commencent à clignoter et la LED orange du panneau d'affichage de l'opérateur s'allume au bout de cinq secondes environ pour vous avertir que l'ID de tiroir disque en attente n'est pas encore pris en compte.
+
+. Mettez le tiroir disque sous tension afin de valider l'ID.
++
+Vous devez éteindre les deux commutateurs d'alimentation, attendre la durée appropriée, puis les rallumer pour terminer le cycle d'alimentation.
+
++
+** Si le système ONTAP n'est pas encore opérationnel ou si vous ajoutez un tiroir à chaud (qui n'a pas encore été câblé au système), attendez au moins 10 secondes.
+** Si ONTAP est en cours d'exécution (les contrôleurs sont disponibles pour servir les données) et que tous les disques du tiroir sont détenus, Spares ou font partie d'un ou plusieurs agrégats de mise hors ligne, attendez au moins 70 secondes.
++
+Cette heure permet à ONTAP de supprimer correctement l'ancienne adresse de tiroir et de mettre à jour la copie de la nouvelle adresse de tiroir.
+
+
+
+. Remettez le capuchon d'extrémité gauche en place.
+. Répétez les étapes 1 à 9 pour chaque tiroir disque supplémentaire.
+. Vérifiez que votre système ne dispose pas d'ID de tiroir dupliqués.
++
+Lorsque deux tiroirs disques ou plus ont le même ID, le système attribue un ID logiciel au tiroir disque dupliqué à un numéro d'ID égal ou supérieur à 100. Vous devez modifier le numéro d'ID logiciel (en double).
+
++
+.. Exécutez Active IQ Config Advisor pour vérifier que les alertes d'ID de tiroir dupliqués ou exécutez le `storage shelf show -fields shelf-id` Commande pour afficher la liste des ID de tiroir déjà utilisés, y compris les ID en double.
+.. Si votre système possède des ID de tiroir dupliqués, modifiez les ID de tiroir dupliqués en répétant cette procédure.
+
+
+

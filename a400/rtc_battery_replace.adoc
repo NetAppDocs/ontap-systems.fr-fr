@@ -1,0 +1,376 @@
+---
+permalink: a400/rtc-battery-replace.html 
+sidebar: sidebar 
+keywords: aff a400, aff, a400, replace, real-time, clock, rtc, battery, controller, module, system, service, application, synchronization, function, shut, down, impair, rtc, replacement, switch, back, aggregate, two-node, metrocluster, configuration, complete, process, replace the real-time clock battery, shut down the impaired controller, remove the controller module, replace the rtc battery, reinstall the controller module and setting time/date after rtc battery replacement, switch back aggregates in a two-node MetroCluster configuration, complete the replacement process 
+summary: 'Vous remplacez la batterie de l"horloge temps réel (RTC) dans le module de contrôleur afin que les services et applications de votre système qui dépendent d"une synchronisation précise de l"heure continuent de fonctionner.' 
+---
+= Remplacez la pile de l'horloge en temps réel - AFF A400
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de contrôleur afin que les services et applications de votre système qui dépendent d'une synchronisation précise de l'heure continuent de fonctionner.
+
+* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+[role="lead"]
+Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
+
+[role="tabbed-block"]
+====
+.Option 1 : plupart des configurations
+--
+[role="lead"]
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Retour des disques SED en mode non protégé » du _ONTAP 9 Guide d'alimentation et de cryptage NetApp_.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"^]
+
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement (`event log show`) Pour la lame SCSI du contrôleur altérée.
++
+Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+--
+.Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
+--
+[role="lead"]
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Return a FIPS drive or SED to Unprotected mode » de link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html["Présentation du chiffrement NetApp avec l'interface de ligne de commande"^].
+* Vous devez laisser les alimentations allumées à l'issue de cette procédure pour fournir une alimentation au contrôleur en état.
+
+
+.Étapes
+. Vérifiez l'état du contrôleur MetroCluster pour déterminer si le contrôleur défectueux a automatiquement basculé sur le contrôleur en bon état : `metrocluster show`
+. Selon qu'un basculement automatique s'est produit, suivre le tableau suivant :
++
+[cols="1,2"]
+|===
+| En cas de dysfonctionnement du contrôleur... | Alors... 
+
+
+ a| 
+A automatiquement basculé
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+N'a pas été automatiquement commutée
+ a| 
+Effectuer un basculement planifié à partir du contrôleur en bon état : `metrocluster switchover`
+
+
+
+ a| 
+N'a pas été automatiquement commutée, vous avez tenté de basculer avec le `metrocluster switchover` la commande, et le basculement a été vetoté
+ a| 
+Examinez les messages de veto et, si possible, résolvez le problème et réessayez. Si vous ne parvenez pas à résoudre le problème, contactez le support technique.
+
+|===
+. Resynchroniser les agrégats de données en exécutant le `metrocluster heal -phase aggregates` commande provenant du cluster survivant.
++
+[listing]
+----
+controller_A_1::> metrocluster heal -phase aggregates
+[Job 130] Job succeeded: Heal Aggregates is successful.
+----
++
+Si la guérison est vetotée, vous avez la possibilité de réémettre le `metrocluster heal` commande avec `-override-vetoes` paramètre. Si vous utilisez ce paramètre facultatif, le système remplace tout veto logiciel qui empêche l'opération de correction.
+
+. Vérifiez que l'opération a été terminée à l'aide de la commande MetroCluster Operation show.
++
+[listing]
+----
+controller_A_1::> metrocluster operation show
+    Operation: heal-aggregates
+      State: successful
+Start Time: 7/25/2016 18:45:55
+   End Time: 7/25/2016 18:45:56
+     Errors: -
+----
+. Vérifier l'état des agrégats à l'aide de `storage aggregate show` commande.
++
+[listing]
+----
+controller_A_1::> storage aggregate show
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+...
+aggr_b2    227.1GB   227.1GB    0% online       0 mcc1-a2          raid_dp, mirrored, normal...
+----
+. Réparez les agrégats racine à l'aide de `metrocluster heal -phase root-aggregates` commande.
++
+[listing]
+----
+mcc1A::> metrocluster heal -phase root-aggregates
+[Job 137] Job succeeded: Heal Root Aggregates is successful
+----
++
+Si la guérison est vetotée, vous avez la possibilité de réémettre le `metrocluster heal` commande avec le paramètre -override-vetos. Si vous utilisez ce paramètre facultatif, le système remplace tout veto logiciel qui empêche l'opération de correction.
+
+. Vérifier que l'opération de correction est terminée en utilisant le `metrocluster operation show` commande sur le cluster destination :
++
+[listing]
+----
+
+mcc1A::> metrocluster operation show
+  Operation: heal-root-aggregates
+      State: successful
+ Start Time: 7/29/2016 20:54:41
+   End Time: 7/29/2016 20:54:42
+     Errors: -
+----
+. Sur le module de contrôleur défaillant, débranchez les blocs d'alimentation.
+
+
+--
+====
+
+
+== Étape 2 : retirer le module de contrôleur
+
+[role="lead"]
+Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
+
+Vous pouvez utiliser les animations, illustrations ou étapes écrites suivantes pour retirer le module de contrôleur du châssis.
+
+.Animation - retirez le module de contrôleur
+video::ca74d345-e213-4390-a599-aae10019ec82[panopto]
+image::../media/drw_A400_Remove_controller.png[drw A400 retirer le contrôleur]
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Placez le module de commande sur une surface plane et stable.
+
+
+
+
+== Étape 3 : remplacer la batterie RTC
+
+[role="lead"]
+Vous devez localiser la batterie RTC à l'intérieur du module de contrôleur, puis suivre la séquence spécifique des étapes. Voir le schéma des FRU à l'intérieur du module de contrôleur pour l'emplacement de la batterie RTC.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer la batterie RTC.
+
+.Animation - remplacer la batterie RTC
+video::80fe7a9b-de6f-46e0-a18b-aadb0157263d[panopto]
+image::../media/drw_A400_rtc-batt.png[batterie rtc drw A400]
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Ouvrir le conduit d'air :
++
+.. Appuyer sur les pattes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de commande.
+.. Faites glisser le conduit d'air vers l'arrière du module de commande, puis faites-le pivoter vers le haut jusqu'à sa position complètement ouverte.
+
+
+. Localisez, retirez et remplacez la batterie RTC :
++
+.. A l'aide du plan des FRU, localiser la batterie RTC sur le module de contrôleur.
+.. Poussez doucement la batterie hors du support, faites-la pivoter pour l'éloigner du support, puis retirez-la du support.
++
+
+NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La batterie est signalée par un signe plus et doit être correctement positionnée dans le support. Un signe plus près du support indique comment la batterie doit être positionnée.
+
+.. Retirez la batterie de rechange du sac d'expédition antistatique.
+.. Notez la polarité de la batterie RTC, puis insérez-la dans le support en inclinant la batterie et en la poussant vers le bas.
+
+
+. Inspectez visuellement la batterie pour vous assurer qu'elle est complètement installée dans le support et que la polarité est correcte.
+. Fermer le conduit d'air.
+
+
+
+
+== Étape 4 : réinstaller le module de contrôleur et régler l'heure/la date après le remplacement de la batterie RTC
+
+[role="lead"]
+Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour installer le module de contrôleur dans le châssis.
+
+.Animation - installez le module de contrôleur
+video::0310fe80-b129-4685-8fef-ab19010e720a[panopto]
+image::../media/drw_A400_Install_controller_source.png[drw A400 installez la source du contrôleur]
+
+. Si ce n'est déjà fait, fermez le conduit d'air ou le couvercle du module de commande.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Si les blocs d'alimentation ont été débranchés, rebranchez-les et réinstallez les dispositifs de retenue du câble d'alimentation.
+. Terminez l'installation du module de contrôleur :
++
+.. A l'aide des loquets de verrouillage, poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
+.. Insérez complètement le module de commande dans le châssis en faisant tourner les loquets de verrouillage vers le haut, en les inclinant de manière à dégager les goupilles de verrouillage, poussez doucement le contrôleur complètement vers l'intérieur, puis abaissez les loquets de verrouillage en position verrouillée.
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Interrompez le processus de démarrage normal et démarrez vers LE CHARGEUR en appuyant sur `Ctrl-C`.
++
+
+NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
+
+
+
+. Réinitialiser l'heure et la date sur le contrôleur :
++
+.. Vérifiez la date et l'heure sur le contrôleur en bon état à l'aide du `show date` commande.
+.. À l'invite DU CHARGEUR sur le contrôleur cible, vérifier l'heure et la date.
+.. Si nécessaire, modifiez la date avec le `set date mm/dd/yyyy` commande.
+.. Si nécessaire, réglez l'heure, en GMT, à l'aide du `set time hh:mm:ss` commande.
+.. Confirmez la date et l'heure sur le contrôleur cible.
+
+
+. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et d'autres composants et laisser le contrôleur redémarrer.
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 5 : retournez les agrégats via une configuration MetroCluster à deux nœuds
+
+[role="lead"]
+Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
+
+Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
+
+.Étapes
+. Vérifiez que tous les nœuds sont dans le `enabled` état : `metrocluster node show`
++
+[listing]
+----
+cluster_B::>  metrocluster node show
+
+DR                           Configuration  DR
+Group Cluster Node           State          Mirroring Mode
+----- ------- -------------- -------------- --------- --------------------
+1     cluster_A
+              controller_A_1 configured     enabled   heal roots completed
+      cluster_B
+              controller_B_1 configured     enabled   waiting for switchback recovery
+2 entries were displayed.
+----
+. Vérifier que la resynchronisation est terminée sur tous les SVM : `metrocluster vserver show`
+. Vérifier que toutes les migrations LIF automatiques effectuées par les opérations de correction ont été effectuées correctement : `metrocluster check lif show`
+. Effectuez le rétablissement en utilisant le `metrocluster switchback` utilisez une commande à partir d'un nœud du cluster survivant.
+. Vérifiez que l'opération de rétablissement est terminée : `metrocluster show`
++
+L'opération de rétablissement s'exécute toujours lorsqu'un cluster est dans `waiting-for-switchback` état :
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster              Configuration State    Mode
+--------------------	------------------- 	---------
+ Local: cluster_B configured       	switchover
+Remote: cluster_A configured       	waiting-for-switchback
+----
++
+Le rétablissement est terminé une fois les clusters dans `normal` état :
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster              Configuration State    Mode
+--------------------	------------------- 	---------
+ Local: cluster_B configured      		normal
+Remote: cluster_A configured      		normal
+----
++
+Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des lignes de base en cours en utilisant le `metrocluster config-replication resync-status show` commande.
+
+. Rétablir toutes les configurations SnapMirror ou SnapVault.
+
+
+
+
+== Étape 6 : renvoyer la pièce défaillante à NetApp
+
+[role="lead"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

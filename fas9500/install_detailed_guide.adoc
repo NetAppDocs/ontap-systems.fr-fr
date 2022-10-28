@@ -1,0 +1,701 @@
+---
+permalink: fas9500/install_detailed_guide.html 
+sidebar: sidebar 
+keywords: FAS9500 
+summary: 'Cette section fournit des instructions détaillées vous permettant d"installer un système NetApp classique.' 
+---
+= Étapes détaillées - FAS9500
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cet article fournit des instructions détaillées vous permettant d'installer un système NetApp classique. Utilisez cet article si vous souhaitez obtenir des instructions d'installation plus détaillées.
+
+
+
+== Étape 1 : préparer l'installation
+
+Pour installer votre système, vous devez créer un compte sur le site de support NetApp, enregistrer votre système et obtenir les clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
+
+Vous devez avoir accès au https://hwu.netapp.com["NetApp Hardware Universe"^] pour plus d'informations sur les exigences du site ainsi que sur les informations supplémentaires sur votre système configuré.
+
+Vous pouvez également avoir accès au http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Notes de version de ONTAP 9"^] Pour votre version de ONTAP pour plus d'informations sur ce système.
+
+Vous devez fournir les informations suivantes sur votre site :
+
+* Espace rack pour le système de stockage
+* Tournevis Phillips n°2
+* Câbles réseau supplémentaires pour connecter votre système à votre commutateur réseau et à votre ordinateur portable ou console avec un navigateur Web
+
+
+.Étapes
+. Déballez le contenu de toutes les boîtes.
+. Notez le numéro de série du système depuis les contrôleurs.
++
+image::../media/drw_ssn_label.svg[etiquette drw ssn]
+
+. Faites un inventaire et notez le nombre et le type de câbles que vous avez reçus.
++
+Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la Hardware Universe pour localiser le câble et identifier son utilisation.
+
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
++
+[cols="1,2,1,2"]
+|===
+| Type de câble... | Numéro de pièce et longueur | Type de connecteur | Pour... 
+
+
+ a| 
+Câble de données 25 GbE
+ a| 
+X66240A-05 (112-00639), 0,5 M.
+
+X66240A-2 (112-00598), 2 M.
+
+X66240A-5 (112-00600), 5 m
+| image:../media/oie_cable_sfp_gbe_copper.svg["largeur=85 px"]  a| 
+Câble réseau
+
+
+
+ a| 
+FC 32 Gbit/s (SFP+ Op)
+ a| 
+X66250-2 (112-00342), 2 M.
+
+X66250-5 (112-00344), 5 m
+
+X66250-15 (112-00346), 15 M.
+ a| 
+image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
+ a| 
+Câble réseau optique FC
+
+
+
+ a| 
+Câble réseau 40 GbE
+ a| 
+X66100-1 (112-00542), 1 m
+
+X66100-3 (112-00543), 3 m
+
+X66100-5 (112-00544), 5 m
+ a| 
+image::../media/oie_cable100_gbe_qsfp28.svg[oie cab100 gbe qsfp28]
+ a| 
+Données Ethernet, réseau en cluster
+
+
+
+ a| 
+Câble 100 GbE
+ a| 
+X66211B-1 (112-00573), 1 m
+
+X66211B-2 (112-00574), 2 M.
+
+X66211B-5 (112-00576), 5 m
+ a| 
+image::../media/oie_cable100_gbe_qsfp28.svg[oie cab100 gbe qsfp28]
+ a| 
+Réseau,
+
+Données Ethernet,
+
+réseau de clusters
+
+
+
+ a| 
+Câbles optiques
+ a| 
+X66031A (112-00436), 1 m
+
+X66032A (112-00437), 2 M.
+
+X66033A (112-00438), 3 M.
+ a| 
+image::../media/oie_cable_fiber_lc_connector.svg[connecteur lc pour câble oie]
+ a| 
+Réseau optique FC
+
+
+
+ a| 
+Cat 6, RJ-45 (selon la commande)
+ a| 
+Références X6585-R6 (112-00291), 3 m
+
+X6562-R6 (112-00196), 5 m
+ a| 
+image::../media/oie_cable_rj45.svg[câble oie rj45]
+ a| 
+Réseau de gestion et données Ethernet
+
+
+
+ a| 
+Stockage
+ a| 
+X66031A (112-00436), 1 m
+
+X66032A (112-00437), 2 M.
+
+X66033A (112-00438), 3 M.
+ a| 
+image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[câble oie mini sas hd vers mini sas hd]
+ a| 
+Stockage
+
+
+
+ a| 
+Câble de console micro-USB
+ a| 
+Sans objet
+ a| 
+image::../media/oie_cable_micro_usb.svg[câble oie micro usb]
+ a| 
+Connexion de la console pendant la configuration du logiciel sur un ordinateur portable/console autre que Windows ou Mac
+
+
+
+ a| 
+Câbles d'alimentation
+ a| 
+Sans objet
+ a| 
+image::../media/oie_cable_power.svg[alimentation du câble de l'oie]
+ a| 
+Mise sous tension du système
+
+|===
+. Vérifiez le https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"^] et recueillez les informations requises répertoriées dans ce guide.
+
+
+
+
+== Étape 2 : installer le matériel de fixation
+
+Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
+
+. Installez les kits de rails, au besoin.
+. Installez et sécurisez votre système en suivant les instructions fournies avec le kit de rails.
++
+
+NOTE: Vous devez être conscient des problèmes de sécurité associés au poids du système.
+
++
+L'étiquette de gauche indique un châssis vide, tandis que l'étiquette de droite indique un système plein.
+
++
+image::../media/drw_9500_lifting_icon.svg[icône de levage drw 9500]
+
+. Fixez les dispositifs de gestion des câbles (comme illustré).
++
+image::../media/drw_9500_cable_management_arms.svg[bras de gestion de câbles drw 9500]
+
+. Placez le panneau à l'avant du système.
+
+
+
+
+== Étape 3 : connectez les câbles des contrôleurs à votre réseau
+
+Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
+
+[role="tabbed-block"]
+====
+.Option 1 : cluster à 2 nœuds sans commutateur
+--
+Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
+
+Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
+
+Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de fixation des câbles sont destinées à tous les ports de module réseau.
+
+image::../media/oie_cable_pull_tab_up.svg[tirer la languette du câble de l'oie vers le haut]
+
+
+NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
+
+. Utilisez l'animation ou l'illustration pour terminer le câblage entre les contrôleurs et les commutateurs :
++
+.Animation : câblage de cluster sans commutateur à deux nœuds
+video::da08295f-ba8c-4de7-88c3-ae7c0170408d[panopto]
++
+image::../media/drw_9500_tnsc_network_cabling.svg[câblage réseau drw 9500 tnsc]
+
++
+[cols="20%,80%"]
+|===
+| Étape | Effectuer des opérations sur chaque contrôleur 
+
+
+ a| 
+image::../media/oie_legend_icon_1_lg.svg[légende de l'oie icône 1 lg]
+ a| 
+Câblage des ports d'interconnexion de cluster :
+
+** Logements A4 et B4 (e4a)
+** Fente A8 et B8 (e8a)
+
+
+image::../media/oie_cable100_gbe_qsfp28.svg[oie cab100 gbe qsfp28]
+
+
+
+ a| 
+image::../media/oie_legend_icon_2_lp.svg[légende de l'oie icône 2 lp]
+ a| 
+Reliez les ports de gestion du contrôleur (clé en charge).
+
+image::../media/oie_cable_rj45.svg[câble oie rj45]
+
+
+
+ a| 
+image::../media/oie_legend_icon_3_o.svg[icône de légende de l'oie 3 o]
+ a| 
+Câblage des commutateurs réseau FC 32 Gbit :
+
+Ports situés dans les logements A3 et B3 (e3a et e3c) et A9 et B9 (e9a et e9c) vers les commutateurs de réseau FC 32 Gb.
+
+image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
+
+40 GbE commutateurs réseau hôte :
+
+Reliez les ports b côté hôte dans les logements A4 et B4 (e4b) et A8 et B8 (e8b) au commutateur hôte.
+
+image::../media/oie_cable100_gbe_qsfp28.svg[oie cab100 gbe qsfp28]
+
+
+
+ a| 
+image::../media/oie_legend_icon_4_dr.svg[légende de l'oie 4 dr]
+ a| 
+Câblage des connexions 25 GbE :
+
+Reliez les ports A5 et B5 (5a, 5b, 5c et 5d) et les connecteurs A7 et B7 (7a, 7b, 7c et 7d) aux commutateurs réseau 25 GbE.
+
+image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
+
+|===
+. Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées).
+. Attachez les câbles aux bras de gestion des câbles (non illustrés).
+. Pour câbler votre espace de stockage, reportez-vous à la section  4: Cable controllers to drive shelves.
+
+
+--
+.Option 2 : cluster commuté
+--
+Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur le commutateur de cluster/haute disponibilité.
+
+Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
+
+Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de fixation des câbles sont destinées à tous les ports de module réseau.
+
+image::../media/oie_cable_pull_tab_up.svg[tirer la languette du câble de l'oie vers le haut]
+
+
+NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
+
+. Utilisez l'animation ou l'illustration pour terminer le câblage entre les contrôleurs et les commutateurs :
++
+.Animation - câblage commuté du cluster
+video::3ad3f118-8339-4683-865f-ae7c0170400c[panopto]
++
+image::../media/drw_9500_switched_network_cabling.svg[câblage réseau commuté drw 9500]
+
++
+[cols="20%,80%"]
+|===
+| Étape | Effectuer des opérations sur chaque contrôleur 
+
+
+ a| 
+image::../media/oie_legend_icon_1_lg.svg[légende de l'oie icône 1 lg]
+ a| 
+Câblage des ports d'interconnexion de cluster a :
+
+** Connecteurs A4 et B4 (e4a) sur le commutateur de réseau du cluster.
+** Les connecteurs A8 et B8 (e8a) du commutateur de réseau du cluster.
+
+
+image::../media/oie_cable100_gbe_qsfp28.svg[oie cab100 gbe qsfp28]
+
+
+
+ a| 
+image::../media/oie_legend_icon_2_lp.svg[légende de l'oie icône 2 lp]
+ a| 
+Reliez les ports de gestion du contrôleur (clé en charge).
+
+image::../media/oie_cable_rj45.svg[câble oie rj45]
+
+
+
+ a| 
+image::../media/oie_legend_icon_3_o.svg[icône de légende de l'oie 3 o]
+ a| 
+Câblage des commutateurs réseau FC 32 Gbit :
+
+Ports situés dans les logements A3 et B3 (e3a et e3c) et A9 et B9 (e9a et e9c) vers les commutateurs de réseau FC 32 Gb.
+
+image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
+
+40 GbE commutateurs réseau hôte :
+
+Reliez les ports b côté hôte dans les logements A4 et B4 (e4b) et A8 et B8 (e8b) au commutateur hôte.
+
+image::../media/oie_cable100_gbe_qsfp28.svg[oie cab100 gbe qsfp28]
+
+
+
+ a| 
+image::../media/oie_legend_icon_4_dr.svg[légende de l'oie 4 dr]
+ a| 
+Connexions 25 GbE sur câble :
+
+Reliez les ports A5 et B5 (5a, 5b, 5c et 5d) et les connecteurs A7 et B7 (7a, 7b, 7c et 7d) aux commutateurs réseau 25 GbE.
+
+image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
+
+|===
+. Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées).
+. Attachez les câbles aux bras de gestion des câbles (non illustrés).
+. Pour câbler votre espace de stockage, reportez-vous à la section  4: Cable controllers to drive shelves.
+
+
+--
+====
+
+
+== Étape 4 : câblage des contrôleurs aux tiroirs disques
+
+Il est nécessaire de connecter le tiroir à tiroir, puis de connecter les deux contrôleurs aux tiroirs disques DS212C ou DS224C.
+
+
+NOTE: Pour plus d'informations sur le câblage SAS et les feuilles de calcul, consultez https://docs.netapp.com/us-en/ontap-systems/sas3/overview-cabling-rules-examples.html["Présentation des règles, des feuilles de calcul et des exemples de câblage SAS - tiroirs avec modules IOM12"^]
+
+.Avant de commencer
+* Renseignez la fiche de câblage SAS de votre système. Voir https://docs.netapp.com/us-en/ontap-systems/sas3/overview-cabling-rules-examples.html["Présentation des règles, des feuilles de calcul et des exemples de câblage SAS - tiroirs avec modules IOM12"^].
+* Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait des câbles des modules de stockage est vers le haut, tandis que les languettes de retrait des étagères sont vers le bas.
+
+
+image::../media/oie_cable_pull_tab_up.svg[tirer la languette du câble de l'oie vers le haut]
+
+image::../media/oie_cable_pull_tab_down.svg[languette de traction du câble oie vers le bas]
+
+
+NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
+
+. Utilisez l'animation ou les mises en plan suivantes pour connecter les contrôleurs à trois (1 pile d'un tiroir disque et une pile de deux tiroirs disques) tiroirs disques DS224C.
++
+.Animation - Connectez les tiroirs disques par câble
+video::c958aae6-9d08-4d3d-a213-ae7c017040cd[panopto]
++
+image::../media/drw_9500_sas_shelf_cabling.svg[câblage du tiroir sas drw 9500]
+
++
+[cols="20%,80%"]
+|===
+| Étape | Effectuer des opérations sur chaque contrôleur 
+
+
+ a| 
+image::../media/oie_legend_icon_1_mb.svg[légende de l'oie, icône 1 mo]
+ a| 
+Connectez la pile de tiroirs disques une aux contrôleurs à l'aide du graphique pour référence.
+
+image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[câble oie mini sas hd vers mini sas hd]
+
+Câble mini-SAS
+
+
+
+ a| 
+image::../media/oie_legend_icon_2_t.svg[icône de légende oie 2 t]
+ a| 
+Connectez la pile de tiroirs disques deux aux contrôleurs à l'aide du graphique pour référence.
+
+image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[câble oie mini sas hd vers mini sas hd]
+
+Câble mini-SAS
+
+|===
+. Pour terminer la configuration de votre système, reportez-vous à la section  5: Complete system setup and configuration.
+
+
+
+
+== Étape 5 : installation et configuration complètes du système
+
+Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
+
+[role="tabbed-block"]
+====
+.Option 1 : si la détection réseau est activée
+--
+Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
+
+. Utilisez l'animation ou la mise en plan suivante pour définir un ou plusieurs ID de tiroir disque :
++
+.Animation : définissez l'ID de tiroir&#8217;s.
+video::95a29da1-faa3-4ceb-8a0b-ac7600675aa6[panopto]
++
+image::../media/drw_power-on_set_shelf_ID_set.svg[drw POWER on set shelf ID set]
+
++
+[cols="20%,80%"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Déposer le bouchon d'extrémité.
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[icône de légende 02]
+ a| 
+Appuyez sur le bouton d'ID du tiroir et maintenez-le enfoncé jusqu'à ce que le premier chiffre clignote, puis appuyez sur pour passer à 0-9.
+
+
+NOTE: Le premier chiffre continue de clignoter
+
+
+
+ a| 
+image::../media/legend_icon_03.svg[icône de légende 03]
+ a| 
+Appuyez sur le bouton d'ID du tiroir et maintenez-le enfoncé jusqu'à ce que le second chiffre clignote, puis appuyez sur pour passer à 0-9.
+
+
+NOTE: Le premier chiffre cesse de clignoter et le second chiffre continue de clignoter.
+
+
+
+ a| 
+image::../media/legend_icon_04.svg[icône de légende 04]
+ a| 
+Remettez le bouchon d'extrémité en place.
+
+
+
+ a| 
+image::../media/legend_icon_05.svg[icône de légende 05]
+ a| 
+Attendre 10 secondes pour le voyant orange (!) Pour afficher la commande, mettez le tiroir disque hors tension puis sous tension afin de définir l'ID de tiroir.
+
+|===
+. Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
+. Mettez les boutons marche/arrêt sur les deux nœuds.
++
+.Animation : mettez les contrôleurs sous tension
+video::a905e56e-c995-4704-9673-adfa0005a891[panopto]
++
+image::../media/drw_9500_power-on.svg[l'analyseur drw 9500 est sous tension]
+
++
+
+NOTE: Le démarrage initial peut prendre jusqu'à huit minutes.
+
+. Assurez-vous que la détection réseau de votre ordinateur portable est activée.
++
+Consultez l'aide en ligne de votre ordinateur portable pour plus d'informations.
+
+. Utilisez l'animation suivante pour connecter votre ordinateur portable au commutateur de gestion.
++
+.Animation : connectez votre ordinateur portable au commutateur de gestion
+video::d61f983e-f911-4b76-8b3a-ab1b0066909b[panopto]
++
+image::../media/dwr_laptop_to_switch_only.svg[ordinateur portable dwr pour changer uniquement]
+
+. Sélectionnez une icône ONTAP pour découvrir :
++
+image::../media/drw_autodiscovery_controler_select.svg[sélection du contrôleur de découverte automatique drw]
+
++
+.. Ouvrez l'Explorateur de fichiers.
+.. Cliquez sur réseau dans le volet gauche.
+.. Cliquez avec le bouton droit de la souris et sélectionnez Actualiser.
+.. Double-cliquez sur l'une des icônes ONTAP et acceptez les certificats affichés à l'écran.
++
+
+NOTE: XXXXX est le numéro de série du système du nœud cible.
+
++
+System Manager s'ouvre.
+
+
+
+. Utilisez la configuration assistée de System Manager pour configurer votre système à l'aide des données collectées dans le https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"^].
+. Configurez votre compte et téléchargez Active IQ Config Advisor :
++
+.. Connectez-vous à votre compte existant ou créez un compte.
++
+https://mysupport.netapp.com/eservice/public/now.do["Inscription au support NetApp"^]
+
+.. Enregistrez votre système.
++
+https://mysupport.netapp.com/eservice/registerSNoAction.do?moduleName=RegisterMyProduct["Enregistrement de produit NetApp"^]
+
+.. Téléchargez Active IQ Config Advisor.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
+
+
+
+. Vérifiez l'état de santé de votre système en exécutant Config Advisor.
+. Une fois la configuration initiale terminée, passez à la https://www.netapp.com/data-management/oncommand-system-documentation/["ONTAP  ; Ressources de documentation ONTAP System Manager"^] Pour plus d'informations sur la configuration de fonctionnalités supplémentaires dans ONTAP.
+
+
+--
+.Option 2 : si la détection réseau n'est pas activée
+--
+Si vous n'utilisez pas un ordinateur portable ou une console Windows ou Mac ou si la détection automatique n'est pas activée, vous devez terminer la configuration et la configuration à l'aide de cette tâche.
+
+. Branchez et configurez votre ordinateur portable ou votre console :
++
+.. Définissez le port de console de l'ordinateur portable ou de la console sur 115,200 bauds avec N-8-1.
++
+
+NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console pour savoir comment configurer le port de console.
+
+.. Connectez le câble de la console à l'ordinateur portable ou à la console à l'aide du câble de console fourni avec le système, puis connectez l'ordinateur portable au commutateur du sous-réseau de gestion.
++
+image::../media/drw_9500_cable_console_switch_controller.svg[contrôleur du commutateur de console à câbles drw 9500]
+
+.. Attribuez une adresse TCP/IP à l'ordinateur portable ou à la console à l'aide d'une adresse située sur le sous-réseau de gestion.
+
+
+. Utilisez l'animation suivante pour définir un ou plusieurs ID de tiroir disque :
++
+.Animation : définissez l'ID de tiroir&#8217;s.
+video::95a29da1-faa3-4ceb-8a0b-ac7600675aa6[panopto]
++
+image::../media/drw_power-on_set_shelf_ID_set.svg[drw POWER on set shelf ID set]
+
++
+[cols="20%,80%"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Déposer le bouchon d'extrémité.
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[icône de légende 02]
+ a| 
+Appuyez sur le bouton d'ID du tiroir et maintenez-le enfoncé jusqu'à ce que le premier chiffre clignote, puis appuyez sur pour passer à 0-9.
+
+
+NOTE: Le premier chiffre continue de clignoter
+
+
+
+ a| 
+image::../media/legend_icon_03.svg[icône de légende 03]
+ a| 
+Appuyez sur le bouton d'ID du tiroir et maintenez-le enfoncé jusqu'à ce que le second chiffre clignote, puis appuyez sur pour passer à 0-9.
+
+
+NOTE: Le premier chiffre cesse de clignoter et le second chiffre continue de clignoter.
+
+
+
+ a| 
+image::../media/legend_icon_04.svg[icône de légende 04]
+ a| 
+Remettez le bouchon d'extrémité en place.
+
+
+
+ a| 
+image::../media/legend_icon_05.svg[icône de légende 05]
+ a| 
+Attendre 10 secondes pour le voyant orange (!) Pour afficher la commande, mettez le tiroir disque hors tension puis sous tension afin de définir l'ID de tiroir.
+
+|===
+. Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
+. Mettez les boutons marche/arrêt sur les deux nœuds.
++
+.Animation : mettez les contrôleurs sous tension
+video::a905e56e-c995-4704-9673-adfa0005a891[panopto]
++
+image::../media/drw_9500_power-on.svg[l'analyseur drw 9500 est sous tension]
+
++
+
+NOTE: Le démarrage initial peut prendre jusqu'à huit minutes.
+
+. Attribuez une adresse IP initiale de gestion des nœuds à l'un des nœuds.
++
+[cols="1,2"]
+|===
+| Si le réseau de gestion dispose de DHCP... | Alors... 
+
+
+ a| 
+Configuré
+ a| 
+Notez l'adresse IP attribuée aux nouveaux contrôleurs.
+
+
+
+ a| 
+Non configuré
+ a| 
+.. Ouvrez une session de console à l'aide de PuTTY, d'un serveur de terminal ou de l'équivalent pour votre environnement.
++
+
+NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console si vous ne savez pas comment configurer PuTTY.
+
+.. Saisissez l'adresse IP de gestion lorsque le script vous y invite.
+
+
+|===
+. Utilisez System Manager sur votre ordinateur portable ou sur la console pour configurer votre cluster :
++
+.. Indiquez l'adresse IP de gestion des nœuds dans votre navigateur.
++
+
+NOTE: Le format de l'adresse est +https://x.x.x.x+.
+
+.. Configurez le système à l'aide des données que vous avez collectées dans https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"^] .
+
+
+. Configurez votre compte et téléchargez Active IQ Config Advisor :
++
+.. Connectez-vous à votre compte existant ou créez un compte.
++
+https://mysupport.netapp.com/eservice/public/now.do["Inscription au support NetApp"^]
+
+.. Enregistrez votre système.
++
+https://mysupport.netapp.com/eservice/registerSNoAction.do?moduleName=RegisterMyProduct["Enregistrement de produit NetApp"^]
+
+.. Téléchargez Active IQ Config Advisor.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
+
+
+
+. Vérifiez l'état de santé de votre système en exécutant Config Advisor.
+. Une fois la configuration initiale terminée, passez à la https://www.netapp.com/data-management/oncommand-system-documentation/["ONTAP  ; Ressources de documentation ONTAP System Manager"^] Pour plus d'informations sur la configuration de fonctionnalités supplémentaires dans ONTAP.
+
+
+--
+====

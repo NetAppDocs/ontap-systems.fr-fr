@@ -1,0 +1,315 @@
+---
+permalink: fas8300/controller-replace-move-hardware.html 
+sidebar: sidebar 
+keywords: fas8300, fas8700, move the controller module hardware 
+summary: Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance. 
+---
+= Remplacez le matériel du module de contrôleur - FAS8300 et FAS8700
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance.
+
+
+
+== Étape 1 : retirer le module de contrôleur
+
+Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour retirer le module de contrôleur du châssis.
+
+.Animation - retirez le module de contrôleur
+video::75b6fa91-96b9-4323-b156-aae10007c9a5[panopto]
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+image::../media/drw_A400_Remove_controller.png[drw A400 retirer le contrôleur]
+
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Placez le module de commande sur une surface plane et stable.
+. Sur le module de contrôleur de remplacement, ouvrez le conduit d'air et retirez les surmontoirs vides du module de contrôleur en suivant l'animation, l'illustration ou les étapes écrites :
++
+https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=49053752-e813-4c15-a917-ab190147fa6e["Retrait des cartes de montage vides du module de contrôleur de remplacement"]
+
+
+
+image::../media/drw_8300_empty_riser_remove.png[drw 8300 retirer la rehausse vide]
+
+. Appuyer sur les pattes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de commande.
+. Faites glisser le conduit d'air vers l'arrière du module de commande, puis faites-le pivoter vers le haut jusqu'à sa position complètement ouverte.
+. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse 1 vers le haut et vers le conduit d'air, soulevez la rehausse, puis mettez-la de côté.
+. Répétez l'étape précédente pour les autres surmontoirs.
+
+
+
+
+== Étape 2 : déplacer les blocs d'alimentation
+
+Lorsque vous remplacez un module de contrôleur, vous devez déplacer le bloc d'alimentation du module de contrôleur endommagé vers le module de contrôleur de remplacement.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer les blocs d'alimentation vers le module de contrôleur de remplacement.
+
+.Animation - déplacer les blocs d'alimentation
+video::92060115-1967-475b-b517-aad9012f130c[panopto]
+image::../media/drw_A400_psu.png[psu drw A400]
+
+. Retirer l'alimentation électrique :
++
+.. Faites pivoter la poignée de came de façon à ce qu'elle puisse être utilisée pour extraire le bloc d'alimentation du châssis.
+.. Appuyez sur la languette de verrouillage bleue pour dégager le bloc d'alimentation du châssis.
+.. A l'aide des deux mains, retirez le bloc d'alimentation du châssis, puis mettez-le de côté.
+
+
+. Déplacez le bloc d'alimentation vers le nouveau module de contrôleur, puis installez-le.
+. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module de contrôleur, puis poussez doucement le bloc d'alimentation dans le module de contrôleur jusqu'à ce que la languette de verrouillage s'enclenche.
++
+Les blocs d'alimentation ne s'enclenteront correctement qu'avec le connecteur interne et se verrouillent d'une seule manière.
+
++
+
+NOTE: Pour éviter d'endommager le connecteur interne, ne pas exercer de force excessive lors du glissement du bloc d'alimentation dans le système.
+
+. Répétez les étapes précédentes pour les blocs d'alimentation restants.
+
+
+
+
+== Étape 3 : déplacez la batterie NVDIMM
+
+Pour déplacer la batterie NVDIMM du module de contrôleur défaillant vers le module de contrôleur de remplacement, vous devez effectuer une séquence spécifique d'étapes.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer la batterie NVDIMM du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+
+.Animation : déplacez la batterie NVDIMM
+video::94d115b2-b02a-4234-805c-aad9012f204c[panopto]
+. Ouvrir le conduit d'air :
++
+.. Appuyer sur les pattes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de commande.
+.. Faites glisser le conduit d'air vers l'arrière du module de commande, puis faites-le pivoter vers le haut jusqu'à sa position complètement ouverte.
+
+
+. Localisez la batterie NVDIMM dans le module de contrôleur.
+
+
+image::../media/drw_A400_nvdimm-batt.png[batterie nvdimm drw A400]
+
+. Localisez la fiche mâle batterie et appuyez sur le clip situé sur la face de la fiche mâle batterie pour libérer la fiche de la prise, puis débranchez le câble de batterie de la prise.
+. Saisissez la batterie et appuyez sur la languette de verrouillage bleue indiquant « POUSSER », puis soulevez la batterie pour la sortir du support et du module de contrôleur.
+. Placer la batterie sur le module de contrôleur de remplacement.
+. Alignez le module de batterie avec l'ouverture de la batterie, puis poussez doucement la batterie dans son logement jusqu'à ce qu'elle s'enclenche.
++
+
+NOTE: Ne rebranchez pas le câble de la batterie sur la carte mère tant que vous n'y êtes pas invité.
+
+
+
+
+
+== Étape 4 : déplacer le support de démarrage
+
+Vous devez localiser le support de démarrage, puis suivre les instructions pour le retirer du module de contrôleur pour facultés affaiblies et l'insérer dans le module de contrôleur de remplacement.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer le support de démarrage du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+
+.Animation : permet de déplacer le support de démarrage
+video::2a14099c-85de-4a84-867c-aad9012efac8[panopto]
+image::../media/drw_A400_Replace-boot_media.png[drw A400 remplacer le support de démarrage]
+
+. Recherchez et retirez le support de démarrage du module de contrôleur :
++
+.. Appuyez sur le bouton bleu à l'extrémité du support de démarrage jusqu'à ce que le rebord du support de démarrage disparaisse du bouton bleu.
+.. Faites pivoter le support de démarrage vers le haut et retirez doucement le support de démarrage du support.
+
+
+. Déplacez le support de démarrage vers le nouveau module de contrôleur, alignez les bords du support de démarrage avec le boîtier du support, puis poussez-le doucement dans le support.
+. Vérifiez le support de démarrage pour vous assurer qu'il est bien en place dans le support.
++
+Si nécessaire, retirez le support de démarrage et réinstallez-le dans le support.
+
+. Verrouillez le support de démarrage en place :
++
+.. Faites pivoter le support de démarrage vers le bas, vers la carte mère.
+.. Appuyer sur le bouton de verrouillage bleu pour qu'il soit en position ouverte.
+.. En plaçant vos doigts à l'extrémité du support de démarrage par le bouton bleu, appuyez fermement sur l'extrémité du support de démarrage pour engager le bouton de verrouillage bleu.
+
+
+
+
+
+
+== Étape 5 : déplacez les cartes de montage PCIe et la carte mezzanine
+
+Dans le cadre du processus de remplacement du contrôleur, vous devez déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+
+Vous pouvez utiliser les animations et illustrations suivantes. Ou les étapes écrites pour déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+
+Déplacement des cartes de montage PCIe 1 et 2 (redresseurs gauche et central) :
+
+.Animation - déplacer les cartes de montage PCI 1 et 2
+video::f4ee1d4d-6029-4fe6-a063-aad9012f170b[panopto]
+image::../media/drw_A400_Replace-PCIe-cards.png[drw A400 remplacez les cartes PCIe]
+
+Déplacement de la carte mezzanine et de la carte de montage 3 (carte de montage droite) :
+
+.Animation : déplacez la carte mezzanine et la carte de montage 3
+video::b0c3b575-3434-4e00-a421-aad9012f2e9e[panopto]
+image::../media/drw_A400_Replace-mezz-card.png[drw A400 remplacez la carte mezz]
+
+. Déplacez les cartes de montage PCIe une et deux du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement :
++
+.. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
+.. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers le conduit d'air.
++
+La carte de montage se soulève légèrement du module de contrôleur.
+
+.. Soulevez la carte de montage, puis déplacez-la vers le module de contrôleur de remplacement.
+.. Alignez la carte de montage avec les broches sur le côté du support de la carte de montage, abaissez la carte de montage sur les broches, poussez-la directement dans le support de la carte mère, puis faites-la pivoter vers le bas au même niveau que la tôle de la carte de montage.
+.. Répétez cette étape pour la carte de montage numéro 2.
+
+
+. Retirez la carte de montage numéro 3, retirez la carte mezzanine et installez les deux dans le module de contrôleur de remplacement :
++
+.. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
+.. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers le conduit d'air.
++
+La carte de montage se soulève légèrement du module de contrôleur.
+
+.. Soulevez la rehausse, puis mettez-la de côté sur une surface plane et stable.
+.. Desserrez les vis moletées de la carte mezzanine, soulevez doucement la carte pour la sortir du support, puis déplacez-la vers le module de contrôleur de remplacement.
+.. Installez la mezzanine dans le contrôleur de remplacement et fixez-la à l'aide des vis à molette.
+.. Installez la troisième carte de montage dans le module de contrôleur de remplacement.
+
+
+
+
+
+
+== Étape 6 : déplacer les modules de cache
+
+Vous devez déplacer les modules de cache des modules de contrôleur douteux vers le module de contrôleur de remplacement lors du remplacement d'un module de contrôleur.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer les modules de cache vers le nouveau module de contrôleur.
+
+.Animation : déplacez les modules de cache
+video::d6a43902-0e78-40c3-a2bd-aad9012f5b94[panopto]
+image::../media/drw_A400_Replace-flashcache.png[drw A400 - remplacer les flashcache]
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Déplacez les modules de cache du module de contrôleur défaillant vers le module de contrôleur de remplacement :
++
+.. Appuyez sur la languette de dégagement bleue à l'extrémité du module de cache, faites pivoter le module vers le haut, puis retirez-le du support.
+.. Déplacez le module de mise en cache vers le même support sur le module de contrôleur de remplacement.
+.. Alignez les bords du module de cache avec le support et insérez délicatement le module aussi loin que possible dans le support.
+.. Faites pivoter le module de cache vers le bas, vers la carte mère.
+.. Placez votre doigt à l'extrémité du module de cache par le bouton bleu, appuyez fermement sur l'extrémité du module de cache, puis soulevez le bouton de verrouillage pour verrouiller le module de cache en place.
+
+
+
+
+
+
+== Étape 7 : déplacez les modules DIMM
+
+Vous devez localiser les modules DIMM, puis les déplacer du module de contrôleur défaillant vers le module de contrôleur de remplacement.
+
+Vous devez avoir le nouveau module de contrôleur prêt pour pouvoir déplacer les modules DIMM directement du module de contrôleur défaillant vers les logements correspondants du module de contrôleur de remplacement.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer les modules DIMM du module de contrôleur défaillant vers le module de contrôleur de remplacement.
+
+.Animation : déplacez les modules DIMM
+video::717b52fa-f236-4f3d-b07d-aad9012f51a3[panopto]
+image::../media/drw_A400_Replace-NVDIMM-DIMM.png[drw A400 remplacez NVDIMM]
+
+. Localisez les modules DIMM de votre module de contrôleur.
+. Notez l'orientation du module DIMM dans le support afin que vous puissiez insérer le module DIMM dans le module de remplacement dans le bon sens.
+. Vérifiez que la batterie NVDIMM n'est pas branchée sur le nouveau module de contrôleur.
+. Déplacez les modules DIMM du module de contrôleur défaillant vers le module de contrôleur de remplacement :
++
+
+NOTE: Assurez-vous d'installer chaque module DIMM dans le même emplacement qu'il est occupé dans le module de contrôleur défaillant.
+
++
+.. Éjectez le module DIMM de son logement en écartant lentement les languettes de l'éjecteur de DIMM de chaque côté du module DIMM, puis en faisant glisser le module DIMM hors de son logement.
++
+
+NOTE: Tenez soigneusement le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+
+.. Localisez le slot DIMM correspondant sur le module de contrôleur de remplacement.
+.. Assurez-vous que les languettes de l'éjecteur de DIMM sur le support DIMM sont en position ouverte, puis insérez le module DIMM directement dans le support.
++
+Les barrettes DIMM s'adaptent bien dans le support, mais elles devraient être facilement intégrées. Si ce n'est pas le cas, réalignez le module DIMM avec le support et réinsérez-le.
+
+.. Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le support.
+.. Répétez ces sous-étapes pour les modules DIMM restants.
+
+
+. Branchez la batterie NVDIMM sur la carte mère.
++
+Assurez-vous que la fiche se verrouille sur le module de contrôleur.
+
+
+
+
+
+== Étape 8 : installer le module de contrôleur
+
+Après avoir déplacé tous les composants du module de contrôleur défaillant vers le module de contrôleur de remplacement, vous devez installer le module de contrôleur de remplacement dans le châssis, puis le démarrer en mode maintenance.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour installer le module de contrôleur de remplacement dans le châssis.
+
+.Animation - installez le module de contrôleur
+video::9249fdb8-1522-437d-9280-aae10007c97b[panopto]
+image::../media/drw_A400_Install_controller_source.png[drw A400 installez la source du contrôleur]
+
+. Si ce n'est déjà fait, fermer le conduit d'air.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
++
+
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+
+. Terminez l'installation du module de contrôleur :
++
+.. Branchez le cordon d'alimentation dans le bloc d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis connectez le bloc d'alimentation à la source d'alimentation.
+.. A l'aide des loquets de verrouillage, poussez fermement le module de contrôleur dans le châssis jusqu'à ce que les loquets de verrouillage commencent à se relever.
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
+.. Insérez complètement le module de commande dans le châssis en faisant tourner les loquets de verrouillage vers le haut, en les inclinant de manière à dégager les goupilles de verrouillage, poussez doucement le contrôleur complètement vers l'intérieur, puis abaissez les loquets de verrouillage en position verrouillée.
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Interrompez le processus de démarrage normal et démarrez vers LE CHARGEUR en appuyant sur `Ctrl-C`.
++
+
+NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
+
+.. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et les autres composants.
+.. Interrompez le processus de démarrage et démarrez vers l'invite DU CHARGEUR en appuyant sur `Ctrl-C`.
++
+Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
+
+
+
+

@@ -1,0 +1,170 @@
+---
+permalink: sas3/service-hot-swap-iom.html 
+sidebar: sidebar 
+keywords: system, configuration, whether, perform, nondisruptive, iom12, module, hot-swap, disruptive, replacement, hot-swap or replace an iom12/iom12b module, iom12b 
+summary: 'La configuration de votre système détermine si vous pouvez effectuer un remplacement à chaud de module IOM12/IOM12B sans interruption ou un remplacement de module IOM12/IOM12B perturbateur en cas de défaillance d"un module IOM12/IOM12B.' 
+---
+= Remplacer à chaud un module IOM12/IOM12B - étagères avec modules IOM12/IOM12B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Votre configuration système détermine si vous pouvez effectuer un remplacement à chaud d'E/S de tiroir sans interruption ou en cas de panne d'un module d'E/S de tiroir.
+
+Tous les autres composants du système, y compris l'autre module IOM12/IOM12B, doivent fonctionner correctement.
+
+.Description de la tâche
+* Cette procédure s'applique aux étagères comportant des modules IOM12 et des étagères possédant des modules IOM12B.
++
+
+NOTE: Cette procédure concerne les remplacements ou les remplacements à chaud de module d'E/S de tiroir similaires. Cela signifie que vous ne pouvez remplacer qu'un module IOM12 par un autre module IOM12 ou remplacer un module IOM12B par un autre module IOM12B. (Votre tiroir peut être équipé de deux modules IOM12 ou de deux modules IOM12B.)
+
+* Les modules IOM12 et IOM12B peuvent se distinguer par leur apparence :
++
+Les modules IOM12 se distinguent par une étiquette « IOM12 » :
+
++
+image::../media/drw_iom12.gif[drw iom12]
+
++
+Les modules IOM12B se distinguent par une bande bleue et une étiquette « IOM12B » :
+
++
+image::../media/iom12b.png[iom12b]
+
+* Pour les configurations multipathes (multivoie haute disponibilité ou chemins d'accès multiples) et à quatre chemins d'accès (quadruple chemin d'accès haute disponibilité ou quadruple chemin), vous pouvez échanger un module de tiroir (remplacement sans interruption d'un module d'E/S dans un système qui est sous tension et assure le service des données).
+* Pour les configurations HA à chemin unique des gammes FAS2600 et FAS2700, vous devez effectuer une opération de basculement et de rétablissement pour remplacer un module d'E/S de tiroir dans un système sous tension et où il assure l'accès aux données.
+* Pour les configurations à chemin unique de la gamme FAS2600, vous devez arrêter le système pour remplacer un IOM de tiroir.
++
+
+NOTE: Si vous tentez de remplacer à chaud un module d'E/S de tiroir sur un tiroir disque avec une connexion à un seul chemin, vous perdez tout accès aux disques du tiroir disque, ainsi qu'aux tiroirs disques en dessous. Vous pouvez également arrêter l'ensemble de votre système.
+
+* Avant d'ajouter de nouveaux tiroirs disques, des composants d'unités remplaçables sur site pour les tiroirs ou des câbles SAS, il est recommandé d'installer les versions les plus récentes du firmware IOM (module d'E/S) pour le tiroir disque et du firmware pour le disque.
++
+Ces firmwares sont disponibles sur le site du support NetApp.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
+
+* Le firmware du tiroir disque (IOM) est automatiquement mis à jour (sans interruption) sur un nouveau module d'E/S de tiroir avec une version de firmware non à jour.
++
+Les vérifications du firmware du module d'E/S du tiroir se font toutes les dix minutes. Une mise à jour du firmware du module d'E/S peut prendre jusqu'à 30 minutes.
+
+* Si nécessaire, vous pouvez activer les LED d'emplacement (bleues) du tiroir disque pour faciliter la localisation physique du tiroir disque concerné : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
++
+Un tiroir disque dispose de trois LED d'emplacement : une sur le panneau d'affichage de l'opérateur et une sur chaque IOM de tiroir. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l'option Désactivé.
+
+* Si nécessaire, reportez-vous à la section Monitoring des LED du tiroir disque pour plus d'informations sur la signification et l'emplacement des LED du tiroir disque sur le panneau d'affichage de l'opérateur et les composants FRU.
+
+
+.Étapes
+. Mettez-vous à la terre.
+. Déballez le nouveau module d'E/S et mettez-le sur une surface plane à proximité du tiroir disque.
++
+Conservez tous les matériaux d'emballage à utiliser lors de l'affichage du module d'E/S des tiroirs défectueux.
+
+. Identifiez physiquement le module d'E/S de tiroir défectueux dans le message d'avertissement de la console du système et la LED d'avertissement allumée (orange) sur le module d'E/S du tiroir défectueux.
+. Effectuez l'une des actions suivantes en fonction du type de configuration dont vous disposez :
++
+[cols="2*"]
+|===
+| Si vous avez un... | Alors... 
+
+
+ a| 
+Haute disponibilité multivoie, chemins d'accès multiples, configuration à quatre chemins d'accès (HA) ou à quatre chemins d'accès
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+Les gammes FAS2600 et FAS2700 Series à chemin unique
+ a| 
+.. Déterminez le nœud cible (le nœud auquel appartient l'IOM de tiroir défaillant).
++
+L'E/S A appartient au contrôleur 1. L'IOM B appartient au contrôleur 2.
+
+.. Reprendre le nœud cible : `storage failover takeover -bynode _partner HA node_`
+
+
+
+
+ a| 
+Configuration à chemin unique de la gamme FAS2600
+ a| 
+.. Arrêter le système depuis la console du système : `halt`
+.. Vérifiez que votre système est arrêté en vérifiant la console du système de stockage.
+
+
+|===
+. Débranchez le câblage du module d'E/S du tiroir que vous retirez.
++
+Notez les ports IOM du tiroir. Chaque câble est connecté à.
+
+. Appuyez sur le loquet orange sur la poignée de came du module d'E/S du tiroir jusqu'à ce qu'elle se libère, puis ouvrez entièrement la poignée de came pour libérer le module d'E/S du plan central.
++
+image::../media/drw_iom_latch.png[loquet iom drw]
+
++
+image::../media/drw_iom_open.png[module drw ouvert]
+
+. A l'aide du levier de came, faites glisser le module d'E/S du tiroir hors du tiroir disque.
++
+Lors de la manipulation d'un module d'E/S de tiroir, toujours utiliser deux mains pour soutenir son poids.
+
+. Attendez au moins 70 secondes après le retrait du module d'E/S de tiroir avant d'installer le nouveau module d'E/S de tiroir.
++
+Une attente d'au moins 70 secondes permet au pilote d'enregistrer correctement l'ID de tiroir.
+
+. À deux mains, avec la poignée de came du nouveau module d'E/S de tiroir en position ouverte, soutenez et alignez les bords du nouveau module d'E/S de tiroir sur l'ouverture du tiroir disque, puis poussez fermement le nouveau module d'E/S de tiroir jusqu'à ce qu'il atteigne le plan milieu.
++
+
+NOTE: N'utilisez pas de force excessive lors de l'insertion du module d'E/S du tiroir dans le tiroir disque ; vous pouvez endommager les connecteurs.
+
+. Fermez la poignée de came de façon à ce que le loquet s'enclenche en position verrouillée et que l'IOM du shelf soit complètement en place.
+. Rebranchez le câblage.
++
+Les connecteurs de câble SAS sont clavetés ; lorsqu'ils sont orientés correctement dans un port IOM, le connecteur s'enclenche et la LED LNK du port IOM s'allume en vert. Vous insérez un connecteur de câble SAS dans un port IOM, avec la languette de retrait orientée vers le bas (sur la face inférieure du connecteur).
+
+. Effectuez l'une des actions suivantes en fonction du type de configuration dont vous disposez :
++
+[cols="2*"]
+|===
+| Si vous avez un... | Alors... 
+
+
+ a| 
+Haute disponibilité multivoie, chemins d'accès multiples, configuration à quatre chemins d'accès (HA) ou à quatre chemins d'accès
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+Les gammes FAS2600 et FAS2700 Series à chemin unique
+ a| 
+Renvoyer le nœud cible : `storage failover giveback -fromnode partner_HA_node`
+
+
+
+ a| 
+Configuration à chemin unique de la gamme FAS2600
+ a| 
+Redémarrez votre système.
+
+|===
+. Vérifiez que les liaisons du port IOM du tiroir ont été établies.
++
+Pour chaque port de module câblé, le voyant LNK (vert) s'allume lorsqu'une ou plusieurs voies SAS ont établi une liaison (avec un adaptateur ou un autre tiroir disque).
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
++
+Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
+
+

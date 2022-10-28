@@ -1,0 +1,400 @@
+---
+permalink: a700s/nvram-or-nvram-dimm-replacement.html 
+sidebar: sidebar 
+keywords: aff a700s, aff, a700s, replace, fail, nvram, card, remove, riser, controller, module, system, id, nvram, dimm, shut, down, reassign, disk, restore, encryption, functionality, complete, replacement, process, replace the nvram module and/or nvram dimms, shut down the impaired controller, shut down the impaired controller, remove the controller module, remove the nvram card, reinstall the controller module and booting the system, reassign disks, restore storage and volume encryption functionality, complete the replacement process 
+summary: 'Pour remplacer une carte NVRAM défectueuse, vous devez retirer la carte de montage NVRAM, Riser 1, du module de contrôleur, retirer la carte défectueuse de la carte de montage, installer la nouvelle carte NVRAM dans la carte de montage, puis réinstaller la carte de montage dans le module de contrôleur. Étant donné que l"ID système est dérivé de la carte NVRAM, si le module est remplacé, les disques appartenant au système sont réaffectés au nouvel ID système.' 
+---
+= Remplacez le module NVRAM et les modules DIMM NVRAM - AFF A700s
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer une carte NVRAM défectueuse, vous devez retirer la carte de montage NVRAM, Riser 1, du module de contrôleur, retirer la carte défectueuse de la carte de montage, installer la nouvelle carte NVRAM dans la carte de montage, puis réinstaller la carte de montage dans le module de contrôleur. Étant donné que l'ID système est dérivé de la carte NVRAM, si le module est remplacé, les disques appartenant au système sont réaffectés au nouvel ID système.
+
+.Avant de commencer
+* Tous les tiroirs disques doivent fonctionner correctement.
+* Si votre système se trouve dans une paire haute disponibilité, le contrôleur partenaire doit pouvoir reprendre le contrôleur associé au module NVRAM qui est remplacé.
+* Cette procédure utilise la terminologie suivante :
++
+** Le contrôleur _trouble_ est le contrôleur sur lequel vous effectuez la maintenance.
+** Le contrôleur _Healthy_ est le partenaire HA du contrôleur déficient.
+
+
+* Cette procédure comprend les étapes de réaffectation automatique ou manuelle des disques au module de contrôleur associé au nouveau module NVRAM. Vous devez réaffecter les disques lorsqu'il est demandé dans la procédure. La réaffectation du disque avant le retour peut entraîner des problèmes.
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Vous ne pouvez pas changer de disque ou de tiroir disque dans le cadre de cette procédure.
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+[role="lead"]
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=_number_of_hours_down_h`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Si le contrôleur défectueux fait partie d'une paire HA, désactivez le rétablissement automatique à partir de la console du contrôleur en bon état : `storage failover modify -node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y`.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
++
+** Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Retour des disques SED en mode non protégé » du _ONTAP 9 Guide d'alimentation et de cryptage NetApp_.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]
+
+
+
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+[role="lead"]
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Débranchez l'alimentation du module de contrôleur de la source, puis débranchez le câble du bloc d'alimentation.
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a700s_pcm_remove.png[retrait du module de commande du module de commande du système drw a700s]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquet de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Placez le module de commande sur une surface plane et stable, puis ouvrez la conduite d'air :
++
+.. Appuyer sur les languettes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de contrôleur.
+.. Faites glisser le conduit d'air vers les modules de ventilateur, puis tournez-le vers le haut jusqu'à sa position complètement ouverte.
++
+image::../media/drw_a700s_open_air_duct.png[conduit d'air ouvert drw a700s]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Pattes de verrouillage du conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Redresseurs
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Conduit d'air
+
+|===
+
+
+
+
+
+
+== Étape 3 : retirez la carte NVRAM
+
+[role="lead"]
+Le remplacement de la NVRAM consiste à retirer la carte de montage NVRAM, la carte Riser 1, du module de contrôleur, à déconnecter la batterie NVRAM de la carte NVRAM, à retirer la carte NVRAM défectueuse et à installer la carte NVRAM de rechange, puis à réinstaller la carte de montage NVRAM dans le module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez la carte de montage NVRAM, Riser 1, du module de contrôleur :
++
+.. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers les ventilateurs.
++
+La carte de montage NVRAM s'élève légèrement du module de contrôleur.
+
+.. Soulevez la carte de montage NVRAM, déplacez-la vers les ventilateurs de manière à ce que la lèvre métallique de la carte de montage se dégage du bord du module de contrôleur, soulevez la carte de montage pour la sortir du module de contrôleur. Puis placez-le sur une surface stable et plane afin de pouvoir accéder à la carte NVRAM.
++
+image::../media/drw_a700s_nvme_replace.png[remplacement nvme drw a700s]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Loquet de verrouillage de la rehausse 1
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Prise du câble de la batterie NVRAM reliant la carte NVRAM
+
+
+
+ a| 
+image:../media/legend_icon_04.png[""]
+ a| 
+Support de verrouillage de carte
+
+
+
+ a| 
+image:../media/legend_icon_05.png[""]
+ a| 
+Carte NVRAM
+
+|===
+
+
+. Retirez la carte NVRAM du module de montage :
++
+.. Tournez le module de montage pour accéder à la carte NVRAM.
+.. Débranchez le câble de la batterie NVRAM qui est relié à la carte NVRAM.
+.. Appuyez sur le support de verrouillage situé sur le côté de la carte de montage NVRAM, puis faites-le pivoter en position ouverte.
+.. Retirez la carte NVRAM du module de montage.
+
+
+. Installez la carte NVRAM dans la carte de montage NVRAM :
++
+.. Alignez la carte avec le guide de carte du module de montage et le support de carte de la carte de montage.
+.. Faites glisser la carte à l'équerre dans la prise de la carte.
++
+
+NOTE: Assurez-vous que la carte est correctement insérée dans le support de montage.
+
+.. Branchez le câble de la batterie à la prise de la carte NVRAM.
+.. Faites pivoter le loquet de verrouillage en position verrouillée et assurez-vous qu'il se verrouille en place.
+
+
+. Installez la carte de montage dans le module de contrôleur :
++
+.. Alignez la lèvre de la carte de montage avec la partie inférieure de la tôle du module de contrôleur.
+.. Guidez la carte de montage le long des broches du module de contrôleur, puis abaissez la carte de montage dans le module de contrôleur.
+.. Faites pivoter le loquet de verrouillage vers le bas et cliquez dessus en position verrouillée.
++
+Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de la carte de montage et la carte de montage est placée directement dans le module de contrôleur.
+
+.. Réinsérez tous les modules SFP retirés des cartes PCIe.
+
+
+
+
+
+
+== Étape 4 : réinstallez le module de contrôleur et démarrez le système
+
+[role="lead"]
+Après avoir remplacé une FRU dans le module de contrôleur, vous devez réinstaller le module de contrôleur et le redémarrer.
+
+Pour les paires haute disponibilité avec deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez le module de contrôleur est particulièrement important, car il tente de redémarrer dès que vous le placez entièrement dans le châssis.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Branchez le cordon d'alimentation dans le bloc d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis connectez le bloc d'alimentation à la source d'alimentation.
+. Terminez la réinstallation du module de contrôleur :
++
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
+.. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
+.. Interrompez le processus de démarrage en appuyant sur `Ctrl-C` lorsque vous voyez `Press Ctrl-C for Boot Menu`.
+.. Sélectionnez l'option pour démarrer en mode maintenance dans le menu qui s'affiche.
+
+
+
+
+
+
+== Étape 5 : vérifier la modification de l'ID système sur un système HA
+
+[role="lead"]
+Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.
+
+Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
+
+. Si le _remplacement_ contrôleur est en mode Maintenance (affiche le `*>` Invite, quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`
+. À partir de l'invite DU CHARGEUR sur le contrôleur _replace_, démarrez le contrôleur, puis entrez `y` Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système :``boot_ontap``
+. Attendre jusqu'à `Waiting for giveback...` Le message s'affiche sur la console du contrôleur _replace_, puis, à partir du contrôleur sain, vérifiez que le nouvel ID système partenaire a été automatiquement attribué : `storage failover show`
++
+Dans le résultat de la commande, un message indiquant l'ID système modifié sur le contrôleur associé est affiché, indiquant l'ancien et le nouveau ID corrects. Dans l'exemple suivant, le node2 a fait l'objet d'un remplacement et a un nouvel ID système de 151759706.
+
++
+[listing]
+----
+node1> `storage failover show`
+                                    Takeover
+Node              Partner           Possible     State Description
+------------      ------------      --------     -------------------------------------
+node1             node2             false        System ID changed on partner (Old:
+                                                  151759755, New: 151759706), In takeover
+node2             node1             -            Waiting for giveback (HA mailboxes)
+----
+. Depuis le contrôleur sain, vérifier que les « coredumps » sont enregistrés :
++
+.. Changement au niveau de privilège avancé : `set -privilege advanced`
++
+Vous pouvez répondre `Y` lorsque vous êtes invité à passer en mode avancé. L'invite du mode avancé s'affiche (*>).
+
+.. Enregistrez les « coredumps » : `system node run -node _local-node-name_ partner savecore`
+.. Attendez que la commande `savecore'se termine avant d'émettre le retour.
++
+Vous pouvez saisir la commande suivante pour surveiller la progression de la commande savecore : `system node run -node _local-node-name_ partner savecore -s`
+
+.. Retour au niveau de privilège admin : `set -privilege admin`
+
+
+. Remettre le contrôleur :
++
+.. Depuis le contrôleur sain, remettre le stockage du contrôleur remplacé : `storage failover giveback -ofnode _replacement_node_name_`
++
+Le contrôleur _remplacement_ reprend son stockage et termine son démarrage.
+
++
+Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système, vous devez entrer `y`.
+
++
+
+NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+
++
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Recherchez le Guide de configuration haute disponibilité de votre version de ONTAP 9"]
+
+.. Une fois le retour arrière terminé, vérifiez que la paire HA est saine et que le basculement est possible : `storage failover show`
++
+La sortie du `storage failover show` La commande ne doit pas inclure l'ID système modifié dans le message partenaire.
+
+
+
+. Vérifier que les disques ont été correctement affectés : `storage disk show -ownership`
++
+Les disques appartenant au _replace_ Controller doivent afficher le nouvel ID système. Dans l'exemple suivant, les disques appartenant au nœud1 affichent alors le nouvel ID système, 1873775277 :
+
++
+[listing]
+----
+node1> `storage disk show -ownership`
+
+Disk  Aggregate Home  Owner  DR Home  Home ID    Owner ID  DR Home ID Reserver  Pool
+----- ------    ----- ------ -------- -------    -------    -------  ---------  ---
+1.0.0  aggr0_1  node1 node1  -        1873775277 1873775277  -       1873775277 Pool0
+1.0.1  aggr0_1  node1 node1           1873775277 1873775277  -       1873775277 Pool0
+.
+.
+.
+----
+. Vérifier que les volumes attendus sont présents pour chaque contrôleur : `vol show -node node-name`
+. Si vous avez désactivé le basculement automatique au redémarrage, activez-le à partir du contrôleur sain : `storage failover modify -node replacement-node-name -onreboot true`
+
+
+
+
+== Étape 6 : restauration de la fonctionnalité de cryptage du stockage et du volume
+
+[role="lead"]
+Après avoir remplacé le module de contrôleur ou le module NVRAM d'un système de stockage que vous avez précédemment configuré pour utiliser le cryptage de stockage ou de volume, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de cryptage ininterrompu. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n'est pas activé.
+
+.Étapes
+. Restaurez la fonctionnalité de cryptage de stockage ou de volume en suivant la procédure appropriée de la section https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commande"^].
+. Choisissez l'une des procédures suivantes selon que vous utilisez la gestion intégrée ou externe des clés :
++
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
+
+
+
+
+
+
+== Étape 7 : renvoyer la pièce défaillante à NetApp
+
+[role="lead"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

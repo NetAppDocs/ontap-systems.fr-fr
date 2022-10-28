@@ -1,0 +1,66 @@
+---
+permalink: a300/bootmedia-2n-mcc-switchback.html 
+sidebar: sidebar 
+keywords: aff a300, switch back aggregate in a two-node metrocluster configuration 
+summary: 'Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l"opération de rétablissement MetroCluster. Cette commande renvoie la configuration à son état de fonctionnement normal, avec des serveurs virtuels de stockage source synchrone \(SVM\) sur le site précédemment affecté, maintenant actifs et servant les données des pools de disques locaux.' 
+---
+= Retournez des agrégats dans une configuration MetroCluster à deux nœuds - AFF A300
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
+
+Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
+
+.Étapes
+. Vérifiez que tous les nœuds sont dans le `enabled` état : `metrocluster node show`
++
+[listing]
+----
+cluster_B::>  metrocluster node show
+
+DR                           Configuration  DR
+Group Cluster Node           State          Mirroring Mode
+----- ------- -------------- -------------- --------- --------------------
+1     cluster_A
+              controller_A_1 configured     enabled   heal roots completed
+      cluster_B
+              controller_B_1 configured     enabled   waiting for switchback recovery
+2 entries were displayed.
+----
+. Vérifier que la resynchronisation est terminée sur tous les SVM : `metrocluster vserver show`
+. Vérifier que toutes les migrations LIF automatiques effectuées par les opérations de correction ont été effectuées correctement : `metrocluster check lif show`
+. Effectuez le rétablissement en utilisant le `metrocluster switchback` utilisez une commande à partir d'un nœud du cluster survivant.
+. Vérifiez que l'opération de rétablissement est terminée : `metrocluster show`
++
+L'opération de rétablissement s'exécute toujours lorsqu'un cluster est dans `waiting-for-switchback` état :
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster              Configuration State    Mode
+--------------------	------------------- 	---------
+ Local: cluster_B configured       	switchover
+Remote: cluster_A configured       	waiting-for-switchback
+----
++
+Le rétablissement est terminé une fois les clusters dans `normal` état :
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster              Configuration State    Mode
+--------------------	------------------- 	---------
+ Local: cluster_B configured      		normal
+Remote: cluster_A configured      		normal
+----
++
+Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des lignes de base en cours en utilisant le `metrocluster config-replication resync-status show` commande.
+
+. Rétablir toutes les configurations SnapMirror ou SnapVault.
+

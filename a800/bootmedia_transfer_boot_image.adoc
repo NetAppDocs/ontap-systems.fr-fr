@@ -1,0 +1,134 @@
+---
+permalink: a800/bootmedia-transfer-boot-image.html 
+sidebar: sidebar 
+keywords: aff a800, transfer the boot image to the boot media 
+summary: 'Le support de démarrage de remplacement que vous avez installé est sans image de démarrage, donc vous devez transférer une image de démarrage à l"aide d"une clé USB.' 
+---
+= Transférez l'image de démarrage vers le support de démarrage - AFF A800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le support de démarrage de remplacement que vous avez installé est sans image de démarrage, donc vous devez transférer une image de démarrage à l'aide d'une clé USB.
+
+* Vous devez disposer d'une clé USB, formatée en FAT32, avec au moins 4 Go de capacité.
+* Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section Downloads du site de support NetApp
++
+** Si NVE est activé, téléchargez l'image avec NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+** Si NVE n'est pas activé, téléchargez l'image sans NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+
+
+* Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau.
+* Si votre système est un système autonome, vous n'avez pas besoin d'une connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
++
+.. Téléchargez et copiez l'image de service appropriée depuis le site de support NetApp vers le lecteur Flash USB.
++
+... Téléchargez l'image du service sur votre espace de travail sur votre ordinateur portable.
+... Décompressez l'image du service.
++
+
+NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas WinZip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
+
++
+Le fichier image du service décompressé contient deux dossiers :
+
++
+**** `boot`
+**** `efi`
+
+
+... Copiez le `efi` Dossier dans le répertoire supérieur de la clé USB.
++
+Le lecteur flash USB doit avoir le dossier efi et la même version BIOS (Service image) de ce que le contrôleur douteux est en cours d'exécution.
+
+... Retirez la clé USB de votre ordinateur portable.
+
+
+.. Si ce n'est déjà fait, fermer le conduit d'air :
++
+... Faire basculer la conduite d'air complètement vers le bas jusqu'au module de commande.
+... Faites glisser la conduite d'air vers les surmontoirs jusqu'à ce que les pattes de verrouillage s'enclenchent.
+... Inspecter le conduit d'air pour s'assurer qu'il est correctement installé et verrouillé en place.
++
+image::../media/drw_a800_close_air_duct.png[drw a800 fermer le conduit d'air]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+
+
+
+ a| 
+Conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+
+
+
+ a| 
+Redresseurs
+
+|===
+
+
+.. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+.. Réinstallez le périphérique de gestion des câbles et recâblage du système, selon les besoins.
++
+Lors du retrait, n'oubliez pas de réinstaller les convertisseurs de support (SFP ou QSFP) s'ils ont été retirés.
+
+.. Branchez le câble d'alimentation dans le bloc d'alimentation et réinstallez le dispositif de retenue du câble d'alimentation.
+.. Insérez la clé USB dans le logement USB du module de contrôleur.
++
+Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
+
+.. Poussez doucement le module de contrôleur complètement dans le système jusqu'à ce que les crochets de verrouillage du module de contrôleur commencent à se lever, appuyez fermement sur les crochets de verrouillage pour terminer d'asseoir le module de contrôleur, puis faites pivoter les crochets de verrouillage dans la position verrouillée par-dessus les broches du module de contrôleur.
++
+Le contrôleur commence à démarrer dès qu'il est entièrement installé dans le châssis.
+
+.. Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
++
+Si ce message ne vous est pas manquer, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis `halt` Contrôleur à démarrer sur LE CHARGEUR.
+
+.. Bien que les variables d'environnement et les bootargs soient conservés, vous devez vérifier que toutes les variables d'environnement d'amorçage et les bootargs requis sont correctement définis pour votre type de système et votre configuration à l'aide de l' `printenv bootarg name` commande et corriger les erreurs à l'aide du `setenv variable-name <value>` commande.
++
+... Vérifier les variables d'environnement de boot:
++
+**** `bootarg.init.boot_clustered`
+**** `partner-sysid`
+**** `bootarg.init.flash_optimized` Pour AFF C190/AFF A220 (FAS 100 % Flash)
+**** `bootarg.init.san_optimized` Pour AFF A220 et baies SAN 100 % Flash
+**** `bootarg.init.switchless_cluster.enable`
+
+
+... Si le gestionnaire de clés externe est activé, vérifiez les valeurs d'amorçage répertoriées dans le `kenv` Sortie ASUP :
++
+**** `bootarg.storageencryption.support <value>`
+**** `bootarg.keymanager.support <value>`
+**** `kmip.init.interface <value>`
+**** `kmip.init.ipaddr <value>`
+**** `kmip.init.netmask <value>`
+**** `kmip.init.gateway <value>`
+
+
+... Si Onboard Key Manager est activé, vérifiez les valeurs de démarrage, répertoriées dans le `kenv` Sortie ASUP :
++
+**** `bootarg.storageencryption.support <value>`
+**** `bootarg.keymanager.support <value>`
+**** `bootarg.onboard_keymanager <value>`
+
+
+... Enregistrez les variables d'environnement que vous avez modifiées à l'aide de la `savenv` commande
+... Confirmez vos modifications à l'aide du `printenv _variable-name_` commande.
+
+
+
+
+

@@ -1,0 +1,15 @@
+= 
+:allow-uri-read: 
+
+
+Après avoir remplacé le module de contrôleur ou le module NVRAM d'un système de stockage que vous avez précédemment configuré pour utiliser le cryptage de stockage ou de volume, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de cryptage ininterrompu. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n'est pas activé.
+
+.Étapes
+. Restaurez la fonctionnalité de cryptage de stockage ou de volume en suivant la procédure appropriée de la section https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commande"^].
+. Choisissez l'une des procédures suivantes selon que vous utilisez la gestion intégrée ou externe des clés :
++
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
+
+
+

@@ -1,0 +1,90 @@
+---
+permalink: platform-supplemental/sldiag-requirements.html 
+sidebar: sidebar 
+keywords: system-level, diagnostic, test, run, time, system, requirement, system, memory, general, nic, sas, fc-al, cna, interconnect, requirement for running system-level diagnostic 
+summary: En fonction des tests de diagnostic au niveau du système que vous exécutez, vous devez connaître les exigences en matière de temps et de matériel système. 
+---
+= Conditions requises pour l'exécution des diagnostics au niveau du système
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En fonction des tests de diagnostic au niveau du système que vous exécutez, vous devez connaître les exigences en matière de temps et de matériel système.
+
+Chaque tâche documentée présente de légères différences ; utilisez la procédure recommandée pour la tâche.
+
+Les conditions suivantes doivent être remplies lors de l'exécution de diagnostics au niveau du système ; sinon, des parties des tests échouent et des messages d'erreur apparaissent dans le rapport d'état :
+
+
+
+== Exigences générales
+
+* Chaque système testé doit se trouver sur un réseau distinct.
++
+Le test d'interface réseau attribue des adresses IP statiques uniques, à partir de 172.25.150.23, à toutes les interfaces réseau disponibles sur un système de stockage. En effet, la même adresse IP est affectée aux ports d'interface réseau de différents contrôleurs de stockage. Si tous les systèmes testés se trouvent sur le même réseau, des messages d'avertissement d'adresse ip en double apparaissent sur les consoles connectées. Ces messages d'avertissement n'affectent pas les résultats du test.
+
+
+
+
+
+== Mémoire système requise
+
+* Vous devez réserver du temps pour exécuter les tests de mémoire ; plus la capacité de mémoire de votre système de stockage est importante, plus vous en aurez besoin longtemps.
+
+
+
+
+== Configuration NIC requise
+
+* Tous les ports d'interface réseau adjacents du système doivent être connectés pour optimiser les performances à l'aide d'un câble Ethernet standard.
++
+Des exemples de ports adjacents sont e0a et e0b, e2c et e2d.
+
++
+
+NOTE: Les ports e0M et e0P ne peuvent pas être connectés en raison d'une connexion de commutateur interne. Dans les systèmes équipés de ports e0M et e0P, les paires les plus efficaces sont e0M avec e0a et e0P avec e0b.
+
+* S'il existe plusieurs ports d'interface réseau sur le système, vous devrez peut-être exécuter le test de diagnostic au niveau du système de la carte réseau plusieurs fois, limitant chaque exécution à deux paires maximum à chaque fois.
+
+
+
+
+== Exigences liées à la technologie SAS
+
+* Lors de l'exécution de tests de diagnostic au niveau du système SAS, les ports SAS adjacents doivent être connectés pour optimiser les performances. Les tiroirs de stockage doivent être déconnectés des ports.
++
+
+NOTE: Les connexions entre ports SAS adjacents ne sont plus nécessaires pour les systèmes exécutant Data ONTAP 8.2. Cependant, seul le test de bouclage interne sera exécuté pour les systèmes dotés de ports SAS non connectés.
+
+
+
+
+
+== Exigences FC-AL
+
+* Lors de l'exécution des tests de diagnostic du système FC-AL, vous devez disposer de hottes de boucle sur les interfaces FC-AL de la carte mère ou des adaptateurs d'extension pour optimiser les performances. Tous les autres câbles pour le stockage ou les réseaux Fibre Channel doivent être déconnectés des ports.
++
+
+NOTE: Bien que l'utilisation des hottes de bouclage sur les interfaces FC-AL ne soit plus requise pour les systèmes exécutant Data ONTAP 8.2, l'étendue de la couverture de test sur l'interface est également réduite.
+
+
+
+
+
+== Exigences CNA
+
+* L'utilisation de hottes de bouclage n'est pas requise pour exécuter les tests de diagnostic au niveau du système CNA.
+
+
+
+
+== Exigences d'interconnexion
+
+* Les deux modules de contrôleur de plate-forme d'un système à double contrôleur doivent être en mode Maintenance pour que le test de diagnostic au niveau du système d'interconnexion puisse s'exécuter.
++
+
+NOTE: Vous recevrez un message d'avertissement si vous tentez d'exécuter le test de diagnostic au niveau du système d'interconnexion avec d'autres tests de diagnostic au niveau du système.
+
+

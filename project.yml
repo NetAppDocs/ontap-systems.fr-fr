@@ -1,0 +1,124 @@
+---
+settings:
+  search: ontap-systems
+  name: Install and maintain
+  internal:
+    pdf_enabled: false
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  rss_page: whats-new.html
+  langs: fr-fr,us-en,ja-jp,zh-cn,zh-tw,ko-kr,de-de
+sidebar:
+  entries:
+  - title: Documentation sur les systèmes AFF et FAS
+    url: "/index.html"
+  - title: Commencez
+    entries:
+    - title: Quoi de neuf
+      url: "/whats-new.html"
+    - title: Notes de mise à jour
+      url: "/rel-notes.html"
+  - title: Systèmes AFF
+    entries:
+    - section: c190
+    - section: a200
+    - section: a220
+    - section: a250
+    - section: a300
+    - section: a320
+    - section: a400
+    - section: a700
+    - section: a700s
+    - section: a800
+    - section: a900
+  - title: Systèmes FAS
+    entries:
+    - section: fas500f
+    - section: fas2600
+    - section: fas2700
+    - section: fas8200
+    - section: fas8300
+    - section: fas9000
+    - section: fas9500
+  - section: allsan
+  - section: upgrade
+  - title: Diagnostics au niveau du système
+    entries:
+    - title: Introduction
+      url: "/platform-supplemental/sldiag-introduction.html"
+    - title: De formation
+      url: "/platform-supplemental/sldiag-requirements.html"
+    - title: Comment utiliser l'aide en ligne de commande
+      url: "/platform-supplemental/sldiag-use-cli-help.html"
+    - title: Exécutez les diagnostics d'installation du système
+      url: "/platform-supplemental/sldiag-system-installation-diagnostics.html"
+    - title: Exécutez les diagnostics d'urgence du système
+      url: "/platform-supplemental/sldiag-system-panic-diagnostics.html"
+    - title: Exécuter des diagnostics de réponse du système lents
+      url: "/platform-supplemental/sldiag-slow-system-diagnostics.html"
+    - title: Exécutez les diagnostics d'installation du matériel
+      url: "/platform-supplemental/sldiag-hardware-installation-diagnostics.html"
+    - title: Exécutez les diagnostics d'échec du périphérique
+      url: "/platform-supplemental/sldiag-device-failure-diagnostics.html"
+  - title: Tiroirs disques
+    entries:
+    - section: ns224
+    - section: sas3
+  - section: switch
+  - title: Kits d'armoires et de rails
+    entries:
+    - title: Kit SuperRail
+      url: "/platform-supplemental/superrail-install.html"
+    - title: Kit de rails à deux montants AFF A700/FAS9000
+      url: "/platform-supplemental/telco-installation-instructions.html"
+    - title: Armoire système 42U 1280 mm
+      entries:
+      - title: Préparez l'installation de l'armoire
+        entries:
+        - title: Caractéristiques de l'armoire
+          url: "/platform-supplemental/42u-1280mm-features.html"
+        - title: Outils/équipement requis
+          url: "/platform-supplemental/42u-1280mm-required-tools.html"
+        - title: Espace requis et dimensions de l'armoire
+          url: "/platform-supplemental/42u-1280mm-space-and-dimensions.html"
+        - title: Types et spécifications de PDU pris en charge
+          url: "/platform-supplemental/42u-1280mm-supported-pdu-types-and-specifications.html"
+      - title: Déballez l'armoire système
+        url: "/platform-supplemental/42u-1280mm-unpack.html"
+      - title: Installez l'armoire
+        entries:
+        - title: Présentation
+          url: "/platform-supplemental/42u-1280mm-install.html"
+        - title: Installez le kit d'interconnexion de l'armoire
+          url: "/platform-supplemental/42u-1280mm-install-cabinet-interconnect-kit.html"
+        - title: Poser le kit de boulon
+          url: "/platform-supplemental/42u-1280mm-install-bolt-down-kit.html"
+        - title: Poser les rails de support
+          url: "/platform-supplemental/42u-1280mm-install-additional-rails.html"
+        - title: Installer l'équipement
+          url: "/platform-supplemental/42u-1280mm-install-equipment.html"
+        - title: Mettez l'armoire sous tension
+          url: "/platform-supplemental/42u-1280mm-power-on.html"
+      - title: Remplacer les PDU
+        url: "/platform-supplemental/42u-1280mm-replace-pdus.html"
+      - title: Porte avant de l'armoire de marche arrière
+        entries:
+        - title: Ce dont vous avez besoin
+          url: "/platform-supplemental/42u-1280mm-reverse-front-door.html"
+        - title: Retirer le badge éclairé
+          url: "/platform-supplemental/42u-1280mm-remove-illuminated-badge.html"
+        - title: Retirez la porte de l'armoire
+          url: "/platform-supplemental/42u-1280mm-remove-door.html"
+        - title: Déplacez l'alimentation et le câblage du badge
+          url: "/platform-supplemental/42u-1280mm-move-badge-ps-and-cabling.html"
+        - title: Charnière de porte arrière et loquet de verrouillage
+          url: "/platform-supplemental/42u-1280mm-reverse-hinge-and-lock.html"
+        - title: Réinstallez la porte et le badge éclairé
+          url: "/platform-supplemental/42u-1280mm-reinstall-door-and-badge.html"
+  - section: other
+  - title: Mentions légales
+    url: "/legal-notices.html"
+product-family:
+  name: AFF and FAS Systems
+  repo: ontap-systems-family

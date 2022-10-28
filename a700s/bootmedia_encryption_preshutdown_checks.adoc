@@ -1,0 +1,307 @@
+---
+permalink: a700s/bootmedia-encryption-preshutdown-checks.html 
+sidebar: sidebar 
+keywords: aff a700s, aff, a700s, shut, down, impair, controller, check, status, onboard, encryption, keys, status, disable, automatic, giveback, ontap, pre-shutdown, pre-shutdown checks for onboard encyption keys 
+summary: 'Avant d"arrêter le contrôleur douteux et de vérifier le statut des clés de cryptage intégrées, vous devez vérifier le statut de ce contrôleur, désactiver le giveback automatique et vérifier quelle version de ONTAP le système fonctionne.' 
+---
+= Vérifiez les clés de chiffrement intégrées - AFF A700s
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'arrêter le contrôleur douteux et de vérifier le statut des clés de cryptage intégrées, vous devez vérifier le statut de ce contrôleur, désactiver le giveback automatique et vérifier la version de ONTAP en cours d'exécution.
+
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commande"^].
+
+.Étapes
+. Vérifier l'état du contrôleur détérioré :
++
+** Si le contrôleur douteux se trouve à l'invite de connexion, connectez-vous en tant que `admin`.
+** Si le contrôleur associé est au niveau de l'invite DU CHARGEUR et qu'il fait partie de la configuration HA, connectez-vous en tant que `admin` sur le contrôleur sain.
+** Si le contrôleur douteux se trouve dans une configuration autonome et à l'invite DU CHARGEUR, contactez link:http://mysupport.netapp.com/["mysupport.netapp.com"^].
+
+
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Vérifiez la version de ONTAP que le système fonctionne sur le contrôleur défaillant, si c'est le cas, ou sur le contrôleur partenaire si le contrôleur défaillant est en panne, à l'aide du `version -v` commande :
++
+** Si <lno-DARE> ou <1Ono-DARE> s'affiche dans la sortie de la commande, le système ne prend pas en charge NVE, procédez à l'arrêt du contrôleur.
+** Si <lno-DARE> n'est pas affiché dans la sortie de la commande et que le système exécute ONTAP 9.5, passer à  1: Checking NVE or NSE on systems running ONTAP 9.5 and earlier.
+** Si <lno-DARE> ne s'affiche pas dans la sortie de la commande et si le système exécute ONTAP 9.6 ou une version ultérieure, passer à  2: Checking NVE or NSE on systems running ONTAP 9.6 and later.
+
+
+. Si le contrôleur douteux est intégré à une configuration HA, désactivez le rétablissement automatique de l'état du contrôleur: `storage failover modify -node local -auto-giveback false` ou `storage failover modify -node local -auto-giveback-after-panic false`
+
+
+
+
+== Option 1 : vérifiez NVE ou NSE sur les systèmes qui exécutent ONTAP 9.5 ou une version antérieure
+
+[role="lead"]
+Avant d'arrêter le contrôleur défaillant, vérifiez si NetApp Volume Encryption (NVE) ou NetApp Storage Encryption (NSE) sont activés sur le système. Si c'est le cas, vous devez vérifier la configuration.
+
+.Étapes
+. Connectez le câble de la console au contrôleur pour facultés affaiblies.
+. Vérifier si NVE est configuré pour n'importe quel volume du cluster : `volume show -is-encrypted true`
++
+Si des volumes sont répertoriés dans le résultat, NVE est configuré et vous devez vérifier la configuration NVE. Si aucun volume n'est indiqué, vérifiez si NSE est configuré ou non.
+
+. Vérifier si NSE est configuré : `storage encryption disk show`
++
+** Si le résultat de la commande affiche les détails du disque avec les informations relatives au mode et à l'ID de clé, NSE est configuré et vous devez vérifier la configuration NSE.
+** Si NVE et NSE ne sont pas configurés, vous pouvez arrêter le contrôleur défaillant.
+
+
+
+
+
+
+=== Vérifiez la configuration NVE
+
+.Étapes
+. Afficher les ID de clé des clés d'authentification stockées sur les serveurs de gestion des clés : `security key-manager query`
++
+** Si le `Restored` s'affiche `yes` et tous les gestionnaires de clés s'affichent `available`, il est sûr d'arrêter le contrôleur défaillant.
+** Si le `Restored` colonne affiche tout autre élément que `yes`, ou si un gestionnaire de clés s'affiche `unavailable`, vous devez effectuer quelques étapes supplémentaires.
+** Si le message cette commande n'est pas prise en charge lorsque la gestion intégrée des clés est activée, vous devez effectuer d'autres étapes supplémentaires.
+
+
+. Si le `Restored` colonne affichée autre que `yes`, ou si un gestionnaire de clés s'affiche `unavailable`:
++
+.. Récupérez et restaurez toutes les clés d'authentification et les ID de clé associés : `security key-manager restore -address *`
++
+Si la commande échoue, contactez le support NetApp.
+
++
+http://mysupport.netapp.com/["mysupport.netapp.com"]
+
+.. Vérifiez que le `Restored` s'affiche `yes` affichage de toutes les clés d'authentification et de tous les gestionnaires de clés `available`: `security key-manager query`
+.. Arrêtez le contrôleur défaillant.
+
+
+. Si vous avez vu le message, cette commande n'est pas prise en charge lorsque la gestion intégrée des clés est activée, affichez les clés stockées dans le gestionnaire de clés intégré : `security key-manager key show -detail`
++
+.. Si le `Restored` s'affiche `yes` sauvegardez manuellement les informations de gestion intégrée des clés :
++
+*** Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
+*** Entrez la commande pour afficher les informations de sauvegarde OKM : `security key-manager backup show`
+*** Copiez le contenu des informations de sauvegarde dans un fichier distinct ou dans votre fichier journal. Dans les scénarios d'incident, vous devrez peut-être restaurer manuellement le gestionnaire de clés intégré OKM.
+*** Revenir en mode admin: `set -priv admin`
+*** Arrêtez le contrôleur défaillant.
+
+
+.. Si le `Restored` colonne affiche tout autre élément que `yes`:
++
+*** Exécutez l'assistant d'installation du gestionnaire de clés : `security key-manager setup -node target/impaired node name`
++
+
+NOTE: Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. Si la phrase de passe ne peut pas être fournie, contactez http://mysupport.netapp.com/["mysupport.netapp.com"]
+
+*** Vérifiez que le `Restored` s'affiche `yes` pour toutes les clés d'authentification : `security key-manager key show -detail`
+*** Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
+*** Entrez la commande pour afficher les informations de sauvegarde OKM : `security key-manager backup show`
+*** Copiez le contenu des informations de sauvegarde dans un fichier distinct ou dans votre fichier journal. Dans les scénarios d'incident, vous devrez peut-être restaurer manuellement le gestionnaire de clés intégré OKM.
+*** Revenir en mode admin: `set -priv admin`
+*** Vous pouvez arrêter le contrôleur en toute sécurité.
+
+
+
+
+
+
+
+
+=== Vérifiez la configuration NSE
+
+.Étapes
+. Afficher les ID de clé des clés d'authentification stockées sur les serveurs de gestion des clés : `security key-manager query`
++
+** Si le `Restored` s'affiche `yes` et tous les gestionnaires de clés s'affichent `available`, il est sûr d'arrêter le contrôleur défaillant.
+** Si le `Restored` colonne affiche tout autre élément que `yes`, ou si un gestionnaire de clés s'affiche `unavailable`, vous devez effectuer quelques étapes supplémentaires.
+** Si le message cette commande n'est pas prise en charge lorsque la gestion intégrée des clés est activée, vous devez effectuer d'autres étapes supplémentaires
+
+
+. Si le `Restored` colonne affichée autre que `yes`, ou si un gestionnaire de clés s'affiche `unavailable`:
++
+.. Récupérez et restaurez toutes les clés d'authentification et les ID de clé associés : `security key-manager restore -address *`
++
+Si la commande échoue, contactez le support NetApp.
+
++
+http://mysupport.netapp.com/["mysupport.netapp.com"]
+
+.. Vérifiez que le `Restored` s'affiche `yes` affichage de toutes les clés d'authentification et de tous les gestionnaires de clés `available`: `security key-manager query`
+.. Arrêtez le contrôleur défaillant.
+
+
+. Si vous avez vu le message, cette commande n'est pas prise en charge lorsque la gestion intégrée des clés est activée, affichez les clés stockées dans le gestionnaire de clés intégré : `security key-manager key show -detail`
++
+.. Si le `Restored` s'affiche `yes`, sauvegardez manuellement les informations de gestion des clés intégrées :
++
+*** Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
+*** Entrez la commande pour afficher les informations de sauvegarde OKM :  `security key-manager backup show`
+*** Copiez le contenu des informations de sauvegarde dans un fichier distinct ou dans votre fichier journal. Dans les scénarios d'incident, vous devrez peut-être restaurer manuellement le gestionnaire de clés intégré OKM.
+*** Revenir en mode admin: `set -priv admin`
+*** Arrêtez le contrôleur défaillant.
+
+
+.. Si le `Restored` colonne affiche tout autre élément que `yes`:
++
+*** Exécutez l'assistant d'installation du gestionnaire de clés : `security key-manager setup -node target/impaired node name`
++
+
+NOTE: Entrez la phrase de passe OKM du client à l'invite. Si la phrase de passe ne peut pas être fournie, contactez http://mysupport.netapp.com/["mysupport.netapp.com"]
+
+*** Vérifiez que le `Restored` affiche la colonne `yes` pour toutes les clés d'authentification : `security key-manager key show -detail`
+*** Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
+*** Entrez la commande pour sauvegarder les informations OKM : ``security key-manager backup show``
++
+
+NOTE: Assurez-vous que les informations OKM sont enregistrées dans votre fichier journal. Ces informations seront nécessaires dans les scénarios d'incident pour lesquels OKM peut avoir besoin d'être restauré manuellement.
+
+*** Copiez le contenu des informations de sauvegarde dans un fichier distinct ou dans votre journal. Dans les scénarios d'incident, vous devrez peut-être restaurer manuellement le gestionnaire de clés intégré OKM.
+*** Revenir en mode admin: `set -priv admin`
+*** Vous pouvez arrêter le contrôleur en toute sécurité.
+
+
+
+
+
+
+
+
+== Option 2 : vérifiez NVE ou NSE sur les systèmes qui exécutent ONTAP 9.6 ou version ultérieure
+
+[role="lead"]
+Avant d'arrêter le contrôleur défaillant, vérifiez si NetApp Volume Encryption (NVE) ou NetApp Storage Encryption (NSE) sont activés sur le système. Si c'est le cas, vous devez vérifier la configuration.
+
+. Vérifiez que NVE est utilisé pour n'importe quel volume du cluster : `volume show -is-encrypted true`
++
+Si des volumes sont répertoriés dans le résultat, NVE est configuré et vous devez vérifier la configuration NVE. Si aucun volume n'est indiqué, vérifiez si NSE est configuré et utilisé.
+
+. Vérifiez si NSE est configuré et utilisé : `storage encryption disk show`
++
+** Si le résultat de la commande répertorie les détails du disque avec les informations relatives au mode et à l'ID de clé, NSE est configuré et vous devez vérifier la configuration NSE et son utilisation.
+** Si aucun disque n'est affiché, NSE n'est pas configuré.
+** Si NVE et NSE ne sont pas configurés, aucun disque n'est protégé avec les clés NSE, vous pouvez arrêter le contrôleur pour facultés affaiblies.
+
+
+
+
+
+
+=== Vérifiez la configuration NVE
+
+. Afficher les ID de clé des clés d'authentification stockées sur les serveurs de gestion des clés : `security key-manager key-query`
++
+
+NOTE: Après la version ONTAP 9.6, il est possible que vous ayez d'autres types de gestionnaire de clés. Les types sont `KMIP`, `AKV`, et `GCP`. Le processus de confirmation de ces types est identique à celui de la confirmation `external` ou `onboard` types de gestionnaire de clés.
+
++
+** Si le `Key Manager` affichage du type `external` et le `Restored` s'affiche `yes`, il est sûr d'arrêter le contrôleur défaillant.
+** Si le `Key Manager` affichage du type `onboard` et le `Restored` s'affiche `yes`, vous devez effectuer quelques étapes supplémentaires.
+** Si le `Key Manager` affichage du type `external` et le `Restored` colonne affiche tout autre élément que `yes`, vous devez effectuer quelques étapes supplémentaires.
+** Si le `Key Manager` affichage du type `onboard` et le `Restored` colonne affiche tout autre élément que `yes`, vous devez effectuer quelques étapes supplémentaires.
+
+
+. Si le `Key Manager` affichage du type `onboard` et le `Restored` s'affiche `yes`, Sauvegardez manuellement les informations OKM :
++
+.. Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
+.. Entrez la commande pour afficher les informations de gestion des clés : `security key-manager onboard show-backup`
+.. Copiez le contenu des informations de sauvegarde dans un fichier distinct ou dans votre fichier journal. Dans les scénarios d'incident, vous devrez peut-être restaurer manuellement le gestionnaire de clés intégré OKM.
+.. Revenir en mode admin: `set -priv admin`
+.. Arrêtez le contrôleur défaillant.
+
+
+. Si le `Key Manager` affichage du type `external` et le `Restored` colonne affiche tout autre élément que `yes`:
++
+.. Restaurer les clés d'authentification externe de gestion des clés sur tous les nœuds du cluster : `security key-manager external restore`
++
+Si la commande échoue, contactez le support NetApp.
+
++
+http://mysupport.netapp.com/["mysupport.netapp.com"^]
+
+.. Vérifiez que le `Restored` colonne égale à `yes` pour toutes les clés d'authentification : `security key-manager key-query`
+.. Arrêtez le contrôleur défaillant.
+
+
+. Si le `Key Manager` affichage du type `onboard` et le `Restored` colonne affiche tout autre élément que `yes`:
++
+.. Entrez la commande de synchronisation du gestionnaire de clés de sécurité intégré : `security key-manager onboard sync`
++
+
+NOTE: Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. Si cette phrase secrète ne peut pas être fournie, contactez le support NetApp. http://mysupport.netapp.com/["mysupport.netapp.com"^]
+
+.. Vérifiez le `Restored` affiche la colonne `yes` pour toutes les clés d'authentification : `security key-manager key-query`
+.. Vérifiez que le `Key Manager` s'affiche `onboard`, Puis sauvegardez manuellement les informations OKM.
+.. Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
+.. Entrez la commande pour afficher les informations de sauvegarde de la gestion des clés : `security key-manager onboard show-backup`
+.. Copiez le contenu des informations de sauvegarde dans un fichier distinct ou dans votre fichier journal. Dans les scénarios d'incident, vous devrez peut-être restaurer manuellement le gestionnaire de clés intégré OKM.
+.. Revenir en mode admin: `set -priv admin`
+.. Vous pouvez arrêter le contrôleur en toute sécurité.
+
+
+
+
+
+
+=== Vérifiez la configuration NSE
+
+. Afficher les ID de clé des clés d'authentification stockées sur les serveurs de gestion des clés : `security key-manager key-query -key-type NSE-AK`
++
+
+NOTE: Après la version ONTAP 9.6, il est possible que vous ayez d'autres types de gestionnaire de clés. Les types sont `KMIP`, `AKV`, et `GCP`. Le processus de confirmation de ces types est identique à celui de la confirmation `external` ou `onboard` types de gestionnaire de clés.
+
++
+** Si le `Key Manager` affichage du type `external` et le `Restored` s'affiche `yes`, il est sûr d'arrêter le contrôleur défaillant.
+** Si le `Key Manager` affichage du type `onboard` et le `Restored` s'affiche `yes`, vous devez effectuer quelques étapes supplémentaires.
+** Si le `Key Manager` affichage du type `external` et le `Restored` colonne affiche tout autre élément que `yes`, vous devez effectuer quelques étapes supplémentaires.
+** Si le `Key Manager` affichage du type `external` et le `Restored` colonne affiche tout autre élément que `yes`, vous devez effectuer quelques étapes supplémentaires.
+
+
+. Si le `Key Manager` affichage du type `onboard` et le `Restored` s'affiche `yes`, Sauvegardez manuellement les informations OKM :
++
+.. Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
+.. Entrez la commande pour afficher les informations de gestion des clés : `security key-manager onboard show-backup`
+.. Copiez le contenu des informations de sauvegarde dans un fichier distinct ou dans votre fichier journal. Dans les scénarios d'incident, vous devrez peut-être restaurer manuellement le gestionnaire de clés intégré OKM.
+.. Revenir en mode admin: `set -priv admin`
+.. Vous pouvez arrêter le contrôleur en toute sécurité.
+
+
+. Si le `Key Manager` affichage du type `external` et le `Restored` colonne affiche tout autre élément que `yes`:
++
+.. Entrez la commande de synchronisation du gestionnaire de clés de sécurité intégré : `security key-manager external sync`
++
+Si la commande échoue, contactez le support NetApp.
+
++
+http://mysupport.netapp.com/["mysupport.netapp.com"^]
+
+.. Vérifiez que le `Restored` colonne égale à `yes` pour toutes les clés d'authentification : `security key-manager key-query`
+.. Vous pouvez arrêter le contrôleur en toute sécurité.
+
+
+. Si le `Key Manager` affichage du type `onboard` et le `Restored` colonne affiche tout autre élément que `yes`:
++
+.. Entrez la commande de synchronisation du gestionnaire de clés de sécurité intégré : `security key-manager onboard sync`
++
+Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. Si cette phrase secrète ne peut pas être fournie, contactez le support NetApp.
+
++
+http://mysupport.netapp.com/["mysupport.netapp.com"^]
+
+.. Vérifiez le `Restored` affiche la colonne `yes` pour toutes les clés d'authentification : `security key-manager key-query`
+.. Vérifiez que le `Key Manager` s'affiche `onboard`, Puis sauvegardez manuellement les informations OKM.
+.. Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
+.. Entrez la commande pour afficher les informations de sauvegarde de la gestion des clés : `security key-manager onboard show-backup`
+.. Copiez le contenu des informations de sauvegarde dans un fichier distinct ou dans votre fichier journal. Dans les scénarios d'incident, vous devrez peut-être restaurer manuellement le gestionnaire de clés intégré OKM.
+.. Revenir en mode admin: `set -priv admin`
+.. Vous pouvez arrêter le contrôleur en toute sécurité.
+
+
+

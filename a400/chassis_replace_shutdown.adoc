@@ -1,0 +1,168 @@
+---
+permalink: a400/chassis-replace-shutdown.html 
+sidebar: sidebar 
+keywords: aff a400, aff, a400, component, system, function, properly, contact, technical, support, replace, chassis, shut, down, controller, replacing, remove, module, fan, equipment, rack, cabinet, ha, state, diagnostic, switch, back, aggregate, two-node, metrocluster, configuration, complete, replacement, process, replace the chassis, shut down the controllers when replacing a chassis, remove the controller modules, move the fans, replace a chassis from within the equipment rack or system cabinet, install the controller modules, verify and set the ha state of the chassis, run diagnostics, switch back aggregates in a two-node metrocluster configuration, complete the replacement process 
+summary: Pour remplacer le châssis, vous devez arrêter les contrôleurs. 
+---
+= Arrêter les contrôleurs - AFF A400
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
+
+
+
+== Option 1 : arrêter les contrôleurs lors du remplacement d'un châssis
+
+[role="lead"]
+Vous devez arrêter le contrôleur ou le contrôleur du châssis avant de les déplacer vers le nouveau châssis.
+
+.Description de la tâche
+* Si un cluster possède plus de deux contrôleurs, il doit se trouver au quorum. Si le cluster n'est pas dans le quorum ou si un contrôleur sain s'affiche `false` pour l'admissibilité et la santé, vous devez corriger le problème avant d'arrêter le contrôleur déficient ; consultez le link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+* Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+
+
+.Étapes
+. Si votre système dispose de deux modules de contrôleur, désactivez la paire haute disponibilité.
++
+[cols="1,2"]
+|===
+| Si votre système exécute clustered ONTAP avec... | Alors... 
+
+
+ a| 
+Deux contrôleurs dans le cluster
+ a| 
+`cluster ha modify -configured false` `storage failover modify -node node0 -enabled false`
+
+
+
+ a| 
+Plus de deux contrôleurs dans le cluster
+ a| 
+`storage failover modify -node node0 -enabled false`
+
+|===
+. Arrêter le contrôleur, en appuyant sur `y` lorsque vous êtes invité à confirmer l'arrêt : `system node halt -node _node_name_`
++
+Le message de confirmation se présente comme suit :
+
++
+[listing]
+----
+Warning: This operation will cause controller "node-name" to be marked as unhealthy. Unhealthy nodes do not participate in quorum voting. If the controller goes out of service and one more controller goes out of service there will be a data serving failure for the entire cluster. This will cause a client disruption. Use "cluster show" to verify cluster state. If possible bring other nodes online to improve the resiliency of this cluster.
+
+Do you want to continue? {y|n}:
+----
++
+
+NOTE: Vous devez effectuer un arrêt correct du système avant de remplacer le châssis pour éviter de perdre des données non écrites dans la mémoire non volatile (NVMEM/NVRAM). Selon votre système, si le voyant NVMEM/NVRAM clignote, il y a du contenu dans la NVMEM/NVRAM qui n'a pas été enregistré sur le disque. Vous devez redémarrer le contrôleur et démarrer depuis le début de cette procédure. Si des tentatives répétées d'arrêt anormal du contrôleur tombent en panne, sachez que vous risquez de perdre des données qui n'ont pas été enregistrées sur le disque.
+
+. Le cas échéant, arrêtez le second contrôleur pour éviter un message d'erreur de quorum dans une configuration de paire haute disponibilité : `system node halt -node _second_node_name_ -ignore-quorum-warnings true -skip-lif-migration-before-shutdown true`
++
+Réponse `y` lorsque vous y êtes invité.
+
+
+
+
+
+== Option 2 : arrêter un contrôleur dans une configuration MetroCluster à deux nœuds
+
+[role="lead"]
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Return a FIPS drive or SED to Unprotected mode » de link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html["Présentation du chiffrement NetApp avec l'interface de ligne de commande"^].
+* Vous devez laisser les alimentations allumées à l'issue de cette procédure pour fournir une alimentation au contrôleur en état.
+
+
+.Étapes
+. Vérifiez l'état du contrôleur MetroCluster pour déterminer si le contrôleur défectueux a automatiquement basculé sur le contrôleur en bon état : `metrocluster show`
+. Selon qu'un basculement automatique s'est produit, suivre le tableau suivant :
++
+[cols="1,2"]
+|===
+| En cas de dysfonctionnement du contrôleur... | Alors... 
+
+
+ a| 
+A automatiquement basculé
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+N'a pas été automatiquement commutée
+ a| 
+Effectuer un basculement planifié à partir du contrôleur en bon état : `metrocluster switchover`
+
+
+
+ a| 
+N'a pas été automatiquement commutée, vous avez tenté de basculer avec le `metrocluster switchover` la commande, et le basculement a été vetoté
+ a| 
+Examinez les messages de veto et, si possible, résolvez le problème et réessayez. Si vous ne parvenez pas à résoudre le problème, contactez le support technique.
+
+|===
+. Resynchroniser les agrégats de données en exécutant le `metrocluster heal -phase aggregates` commande provenant du cluster survivant.
++
+[listing]
+----
+controller_A_1::> metrocluster heal -phase aggregates
+[Job 130] Job succeeded: Heal Aggregates is successful.
+----
++
+Si la guérison est vetotée, vous avez la possibilité de réémettre le `metrocluster heal` commande avec `-override-vetoes` paramètre. Si vous utilisez ce paramètre facultatif, le système remplace tout veto logiciel qui empêche l'opération de correction.
+
+. Vérifiez que l'opération a été terminée à l'aide de la commande MetroCluster Operation show.
++
+[listing]
+----
+controller_A_1::> metrocluster operation show
+    Operation: heal-aggregates
+      State: successful
+Start Time: 7/25/2016 18:45:55
+   End Time: 7/25/2016 18:45:56
+     Errors: -
+----
+. Vérifier l'état des agrégats à l'aide de `storage aggregate show` commande.
++
+[listing]
+----
+controller_A_1::> storage aggregate show
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+...
+aggr_b2    227.1GB   227.1GB    0% online       0 mcc1-a2          raid_dp, mirrored, normal...
+----
+. Réparez les agrégats racine à l'aide de `metrocluster heal -phase root-aggregates` commande.
++
+[listing]
+----
+mcc1A::> metrocluster heal -phase root-aggregates
+[Job 137] Job succeeded: Heal Root Aggregates is successful
+----
++
+Si la guérison est vetotée, vous avez la possibilité de réémettre le `metrocluster heal` commande avec le paramètre -override-vetos. Si vous utilisez ce paramètre facultatif, le système remplace tout veto logiciel qui empêche l'opération de correction.
+
+. Vérifier que l'opération de correction est terminée en utilisant le `metrocluster operation show` commande sur le cluster destination :
++
+[listing]
+----
+
+mcc1A::> metrocluster operation show
+  Operation: heal-root-aggregates
+      State: successful
+ Start Time: 7/29/2016 20:54:41
+   End Time: 7/29/2016 20:54:42
+     Errors: -
+----
+. Sur le module de contrôleur défaillant, débranchez les blocs d'alimentation.
+

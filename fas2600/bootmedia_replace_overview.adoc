@@ -1,0 +1,33 @@
+---
+permalink: fas2600/bootmedia-replace-overview.html 
+sidebar: sidebar 
+keywords: fas2600, nondisruptive, disruptive, replace the boot media 
+summary: 'Le support de démarrage stocke un ensemble principal et secondaire de fichiers système \(image de démarrage\) que le système utilise lors de son démarrage. Selon votre configuration réseau, vous pouvez effectuer un remplacement sans interruption ou sans interruption.' 
+---
+= Présentation du remplacement des supports de démarrage - FAS2600
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers système (image de démarrage) que le système utilise lors du démarrage. Selon votre configuration réseau, vous pouvez effectuer un remplacement sans interruption ou sans interruption.
+
+Vous devez disposer d'une clé USB, formatée en FAT32, avec la quantité de stockage appropriée pour maintenir le `image_xxx.tgz` fichier.
+
+Vous devez également copier le `image_xxx.tgz` Fichier sur le lecteur flash USB pour une utilisation ultérieure dans cette procédure.
+
+* Les méthodes pour remplacer un support de démarrage sans interruption et sans interruption nécessitent toutes deux la restauration du `var` système de fichiers :
++
+** Pour le remplacement sans interruption, la paire haute disponibilité doit être connectée à un réseau afin de restaurer le `var` système de fichiers.
+** Pour un remplacement perturbateur, vous n'avez pas besoin d'une connexion réseau pour restaurer le `var` le système de fichiers, mais le processus nécessite deux redémarrages.
+
+
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Il est important d'appliquer les commandes au cours de la procédure suivante sur le nœud approprié :
++
+** Le noeud _trouble_ est le noeud sur lequel vous effectuez la maintenance.
+** Le _Healthy node_ est le partenaire HA du nœud douteux.
+
+
+

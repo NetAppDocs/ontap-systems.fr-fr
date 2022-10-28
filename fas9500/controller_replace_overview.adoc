@@ -1,0 +1,40 @@
+---
+permalink: fas9500/controller_replace_overview.html 
+sidebar: sidebar 
+keywords: FAS9500 
+summary: 'Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d"exploitation ONTAP.' 
+---
+= Remplacez le module de contrôleur - FAS9500
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer le module de contrôleur défaillant, vous devez arrêter le contrôleur défaillant, déplacer les composants internes vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement et redémarrer le contrôleur de remplacement.
+
+Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d'exploitation ONTAP.
+
+* Tous les tiroirs disques doivent fonctionner correctement.
+* Si votre système est un système FlexArray ou dispose d'une licence V_StorageAttach, vous devez vous reporter aux étapes supplémentaires requises avant d'effectuer cette procédure.
+* Si votre système se trouve dans une paire haute disponibilité, le nœud en bon état doit pouvoir reprendre le nœud en cours de remplacement (appelé « nœud avec facultés affaiblies »).
+* Si votre système est dans une configuration MetroCluster, vous devez passer en revue la section https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html["Choix de la procédure de récupération correcte"^] pour déterminer si vous devez utiliser cette procédure.
++
+Si c'est cette procédure, notez que la procédure de remplacement du contrôleur d'un nœud d'une configuration MetroCluster à quatre ou huit nœuds est identique à celle d'une paire HA. Aucune étape spécifique à MetroCluster n'est requise, car la défaillance est limitée à une paire haute disponibilité et les commandes de basculement du stockage peuvent être utilisées pour assurer une continuité de l'activité pendant le remplacement.
+
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Vous devez remplacer un module de contrôleur par un module de contrôleur du même type de modèle. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le module de contrôleur.
+* Vous ne pouvez pas modifier de disques ou de tiroirs disques dans le cadre de cette procédure.
+* Dans cette procédure, le périphérique de démarrage est déplacé du nœud douteux vers le nœud de remplacement afin que le nœud de remplacement démarre dans la même version de ONTAP que l'ancien module de contrôleur.
+* Il est important d'appliquer les commandes au cours des étapes suivantes sur les systèmes appropriés :
++
+** Le nœud douteux est le nœud en cours de remplacement.
+** Le nœud de remplacement est le nouveau nœud qui remplace le nœud avec facultés affaiblies.
+** Le nœud en bon état est le nœud survivant.
+
+
+* Vous devez toujours capturer les valeurs de sortie de la console du nœud dans un fichier texte.
++
+Vous disposez ainsi d'un enregistrement de la procédure afin de pouvoir résoudre tout problème que vous pourriez rencontrer pendant le processus de remplacement.
+
+

@@ -1,0 +1,128 @@
+= 
+:allow-uri-read: 
+
+
+Lors de la mise à niveau en déplaçant le stockage, vous mettez les nœuds 3 et 4 sous tension, démarrez l'image logicielle et configurez les nœuds. L'organisation des ports physiques entre les nœuds d'origine et les nouveaux peut être différente. Le mappage des ports entre les nœuds d'origine et de remplacement doit être réalisé afin d'identifier le schéma approprié des ports et des connexions.
+
+Si la version d'ONTAP exécutée sur les nouveaux nœuds est différente de celle du nœud d'origine, vous devez avoir téléchargé le fichier <ontap_version>_image.tgz du site de support NetApp vers un répertoire accessible via le web (voir l'étape 4). Vous avez besoin du fichier <ontap_version>_image.tgz pour effectuer un démarrage sur le réseau du système.
+
+.Étapes
+. Mettez le nœud 3 sous tension, puis appuyez immédiatement sur Ctrl-C sur le terminal de la console pour accéder à l'invite DU CHARGEUR.
++
+Si les nœuds 3 et 4 se trouvent dans le même châssis, passez à l'étape 2. Sinon, passer à l'étape 3.
+
+. Si les nœuds 3 et 4 se trouvent dans une configuration de châssis unique (avec des contrôleurs dans le même châssis) :
++
+.. Reliez une console série au nœud 4.
+.. Mettez le nœud 4 sous tension, s'il n'est pas déjà ALLUMÉ, puis interrompez le processus de démarrage en appuyant sur Ctrl-C au niveau du terminal de la console pour accéder à l'invite DU CHARGEUR.
++
+Si les deux contrôleurs se trouvent dans le même châssis, l'alimentation doit déjà ÊTRE MISE SOUS tension.
+
++
+Quittez NODE4 à l'invite DU CHARGEUR ; vous revenez à cette procédure et répétez ces étapes après l'installation du nœud 3.
+
+
+
+. À l'invite DU CHARGEUR, entrez la commande suivante : `set-defaults`
+. À l'invite DU CHARGEUR, configurez la connexion netboot pour les LIF de gestion :
++
+[cols="1,2"]
+|===
+| Si l'adressage IP est... | Alors... 
+
+
+ a| 
+DHCP
+ a| 
+ Configure the automatic connection:
+`ifconfig e0M -auto`
+
+
+
+ a| 
+ Static a| 
+ Configure the manual connection:
+`ifconfig e0M -addr=ip_addr -mask=netmask` `-gw=gateway`
+
+|===
+. À l'invite DU CHARGEUR, exécutez netboot sur le nœud 3 :
++
+[cols="1,2"]
+|===
+| Pour... | Alors... 
+
+
+ a| 
+*SYSTÈMES FAS2200, FAS2500, FAS3200, FAS6200, FAS/AFF8000*
+ a| 
+`+netboot http://web_server_ip/path_to_web-accessible_directory/netboot/kernel+`
+
+
+
+ a| 
+*Tous les autres systèmes*
+ a| 
+`+netboot http://web_server_ip/path_to_web-accessible_directory/<ontap_version>_image.tgz+`
+
+|===
++
+Le chemin_to_the_web-accessible_Directory est l'emplacement du fichier <ontap_version>_image.tgz téléchargé.
+
++
+
+NOTE: Si vous ne pouvez pas netboot sur les nouveaux contrôleurs, contactez le support technique.
+
+. Dans le menu de démarrage, sélectionnez l'option *(7) installer le nouveau logiciel en premier* pour télécharger et installer la nouvelle image logicielle sur le périphérique d'amorçage.
++
+Ignorez le message suivant : « cette procédure n'est pas prise en charge pour effectuer une mise à niveau sans interruption sur une paire haute disponibilité ». Il s'applique aux mises à niveau logicielles sans interruption et non aux mises à niveau des contrôleurs.
+
+. Si vous êtes invité à poursuivre la procédure, entrez `y`, Et lorsque vous êtes invité à saisir l'URL du fichier image : `+http://web_server_ip/path_to_web-accessible_directory/<ontap_version>_image.tgz+`.
++
+Saisissez le nom d'utilisateur/mot de passe, le cas échéant, ou appuyez sur entrée pour continuer.
+
+. Entrez `n` pour ignorer la restauration de la sauvegarde lorsque vous voyez une invite similaire à la suivante :
++
+[listing]
+----
+Do you want to restore the backup configuration now? {y|n}
+----
+. Redémarrez en entrant `y` lorsque vous voyez une invite similaire à la suivante :
++
+[listing]
+----
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+----
+. Interrompez le processus de redémarrage en appuyant sur Ctrl-C pour afficher le menu de démarrage lorsque le système vous invite à le faire.
+. Dans le menu de démarrage, sélectionnez *(5) Maintenance mode boot* pour accéder au mode Maintenance.
+. Si nécessaire, modifiez les ports FC ou CNA sur le nœud, puis redémarrez le nœud en mode maintenance.
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["Guide d'administration du SAN ONTAP 9"]
+
++
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092["Recherchez le Guide d'administration SAN correspondant à votre version de Data ONTAP 8"]
+
+. Vous devez vérifier que le résultat de la commande indique ha :
++
+[listing]
+----
+*> ha-config show
+   Chassis HA configuration: ha
+   Controller HA configuration: ha
+----
++
+Les systèmes enregistrent dans une PROM, qu'ils soient dans une paire HA ou une configuration autonome. L'état doit être le même sur tous les composants du système autonome ou de la paire haute disponibilité
+
++
+La commande ha-config modify Controller HA configure la haute disponibilité pour le paramètre du contrôleur. La commande ha-config modify chassis HA configure la haute disponibilité pour le paramètre châssis.
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["Guide de configuration de la solution haute disponibilité ONTAP 9"]
+
++
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092["Recherchez le Guide de configuration haute disponibilité de votre version de Data ONTAP 8"]
+
+. Quitter le mode Maintenance : `halt`
++
+Le système s'arrête à l'invite DU CHARGEUR.
+
+

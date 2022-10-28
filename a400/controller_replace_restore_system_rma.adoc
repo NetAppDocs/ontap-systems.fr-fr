@@ -1,0 +1,125 @@
+---
+permalink: a400/controller-replace-restore-system-rma.html 
+sidebar: sidebar 
+keywords: aff a400, how to restore NetApp Storage Encryption, how to complete the replacement process 
+summary: 'Pour restaurer le fonctionnement complet de votre système, vous devez restaurer la configuration NetApp Storage Encryption (si nécessaire), installer les licences pour le nouveau contrôleur et renvoyer la pièce défaillante à NetApp, comme indiqué dans les instructions RMA fournies avec le kit. Contactez l"assistance technique à l"adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l"aide supplémentaire pour la procédure de remplacement.' 
+---
+= Restauration complète du système - AFF A400
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour restaurer le fonctionnement complet de votre système, vous devez restaurer la configuration NetApp Storage Encryption (si nécessaire), installer les licences pour le nouveau contrôleur et renvoyer la pièce défaillante à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.
+
+
+
+== Étape 1 : installer les licences pour le contrôleur de remplacement dans ONTAP
+
+Vous devez installer de nouvelles licences pour le _remplacement_ node si le nœud douteux utilisait des fonctions ONTAP qui requièrent une licence standard (nœud verrouillé). Pour les fonctionnalités avec licences standard, chaque nœud du cluster doit avoir sa propre clé pour cette fonctionnalité.
+
+Jusqu'à ce que vous installiez les clés de licence, les fonctions nécessitant des licences standard restent disponibles pour le _remplacement_ node. Cependant, si le nœud douteux était le seul nœud du cluster avec une licence pour la fonction, aucune modification de configuration de la fonction n'est autorisée. En outre, l'utilisation de fonctions sans licence sur le nœud peut vous mettre hors conformité avec votre contrat de licence. Vous devez donc installer la ou les clés de licence de remplacement sur le _remplacement_ noeud dès que possible.
+
+Les clés de licence doivent être au format à 28 caractères.
+
+Vous disposez d'une période de grâce de 90 jours pour installer les clés de licence. Après la période de grâce, toutes les anciennes licences sont invalidés. Après l'installation d'une clé de licence valide, vous disposez de 24 heures pour installer toutes les clés avant la fin du délai de grâce.
+
+.Étapes
+. Si vous avez besoin de nouvelles clés de licence, vous pouvez obtenir ces clés sur le https://mysupport.netapp.com/site/global/dashboard["Site de support NetApp"] Dans la section My support (mon support), sous licences logicielles.
++
+
+NOTE: Les nouvelles clés de licence dont vous avez besoin sont générées automatiquement et envoyées à l'adresse électronique du fichier. Si vous ne recevez pas l'e-mail contenant les clés de licence dans les 30 jours, contactez l'assistance technique.
+
+. Installer chaque clé de licence : `+system license add -license-code license-key, license-key...+`
+. Supprimez les anciennes licences, si nécessaire :
++
+.. Vérifier si les licences ne sont pas utilisées : `license clean-up -unused -simulate`
+.. Si la liste semble correcte, supprimez les licences inutilisées : `license clean-up -unused`
+
+
+
+
+
+
+== Étape 2 : vérifier les LIF et enregistrer le numéro de série
+
+Avant de renvoyer le _replace_ node au service, vérifiez que les LIF se trouvent sur leurs ports de rattachement, puis enregistrez le numéro de série du _replace_ node si AutoSupport est activé et réinitialisez le rétablissement automatique.
+
+.Étapes
+. Vérifiez que les interfaces logiques sont bien placées sur leur serveur domestique et leurs ports : `network interface show -is-home false`
++
+Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de home port : `network interface revert`
+
+. Enregistrez le numéro de série du système auprès du support NetApp.
++
+** Si AutoSupport est activé, envoyez un message AutoSupport pour enregistrer le numéro de série.
+** Si AutoSupport n'est pas activé, appeler https://mysupport.netapp.com["Support NetApp"] pour enregistrer le numéro de série.
+
+
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 3 : retournez les agrégats via une configuration MetroCluster à deux nœuds
+
+Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
+
+Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
+
+.Étapes
+. Vérifiez que tous les nœuds sont dans le `enabled` état : `metrocluster node show`
++
+[listing]
+----
+cluster_B::>  metrocluster node show
+
+DR                           Configuration  DR
+Group Cluster Node           State          Mirroring Mode
+----- ------- -------------- -------------- --------- --------------------
+1     cluster_A
+              controller_A_1 configured     enabled   heal roots completed
+      cluster_B
+              controller_B_1 configured     enabled   waiting for switchback recovery
+2 entries were displayed.
+----
+. Vérifier que la resynchronisation est terminée sur tous les SVM : `metrocluster vserver show`
+. Vérifier que toutes les migrations LIF automatiques effectuées par les opérations de correction ont été effectuées correctement : `metrocluster check lif show`
+. Effectuez le rétablissement en utilisant le `metrocluster switchback` utilisez une commande à partir d'un nœud du cluster survivant.
+. Vérifiez que l'opération de rétablissement est terminée : `metrocluster show`
++
+L'opération de rétablissement s'exécute toujours lorsqu'un cluster est dans `waiting-for-switchback` état :
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster              Configuration State    Mode
+--------------------	------------------- 	---------
+ Local: cluster_B configured       	switchover
+Remote: cluster_A configured       	waiting-for-switchback
+----
++
+Le rétablissement est terminé une fois les clusters dans `normal` état :
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster              Configuration State    Mode
+--------------------	------------------- 	---------
+ Local: cluster_B configured      		normal
+Remote: cluster_A configured      		normal
+----
++
+Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des lignes de base en cours en utilisant le `metrocluster config-replication resync-status show` commande.
+
+. Rétablir toutes les configurations SnapMirror ou SnapVault.
+
+
+
+
+== Étape 4 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

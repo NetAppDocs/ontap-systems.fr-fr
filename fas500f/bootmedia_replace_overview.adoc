@@ -1,0 +1,25 @@
+---
+permalink: fas500f/bootmedia-replace-overview.html 
+sidebar: sidebar 
+keywords: fas500f, replace the boot media 
+summary: 'Le support de démarrage stocke un ensemble principal et secondaire de fichiers système \(image de démarrage\) que le système utilise lors de son démarrage.' 
+---
+= Présentation du remplacement du support de démarrage - FAS500f
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers système (image de démarrage) que le système utilise lors du démarrage.
+
+Vous devez disposer d'une clé USB, formatée en MBR/FAT32, avec la quantité de stockage appropriée pour maintenir le `image_xxx.tgz` fichier.
+
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Il est important d'appliquer les commandes au cours de la procédure suivante sur le contrôleur approprié :
++
+** Le contrôleur _trouble_ est le contrôleur sur lequel vous effectuez la maintenance.
+** Le contrôleur _Healthy_ est le partenaire HA du contrôleur déficient.
+
+
+

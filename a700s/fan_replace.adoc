@@ -1,0 +1,249 @@
+---
+permalink: a700s/fan-replace.html 
+sidebar: sidebar 
+keywords: aff a700s, aff, a700s, replace, fan, remove, fail, module, module, replace a fan 
+summary: Pour remplacer un ventilateur, retirez le module de ventilation défectueux et remplacez-le par un nouveau module de ventilation. 
+---
+= Remplacer un ventilateur - AFF A800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer un ventilateur, retirez le module de ventilation défectueux et remplacez-le par un nouveau module de ventilation.
+
+
+
+== Étape 1 : Arrêter le contrôleur défaillant - AFF A700s
+
+[role="lead"]
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=_number_of_hours_down_h`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Si le contrôleur défectueux fait partie d'une paire HA, désactivez le rétablissement automatique à partir de la console du contrôleur en bon état : `storage failover modify -node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y`.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur - AFF A700s
+
+[role="lead"]
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Débranchez l'alimentation du module de contrôleur de la source, puis débranchez le câble du bloc d'alimentation.
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a700s_pcm_remove.png[retrait du module de commande du module de commande du système drw a700s]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquet de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Placez le module de commande sur une surface plane et stable, puis ouvrez la conduite d'air :
++
+.. Appuyer sur les languettes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de contrôleur.
+.. Faites glisser le conduit d'air vers les modules de ventilateur, puis tournez-le vers le haut jusqu'à sa position complètement ouverte.
++
+image::../media/drw_a700s_open_air_duct.png[conduit d'air ouvert drw a700s]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Pattes de verrouillage du conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Redresseurs
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Conduit d'air
+
+|===
+
+
+
+
+
+
+== Étape 3 : remplacer le ventilateur - AFF A700s
+
+[role="lead"]
+Pour remplacer un ventilateur, retirez le module de ventilation défectueux et remplacez-le par un nouveau module de ventilation.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Identifiez le module de ventilation que vous devez remplacer en vérifiant les messages d'erreur de la console.
+. Retirez le module de ventilateur en pinçant les languettes de verrouillage sur le côté du module de ventilateur, puis en soulevant le module de ventilateur pour le sortir du module de contrôleur.
++
+image::../media/drw_a700s_replace_fan.png[le drw a700s remplace le ventilateur]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Languettes de verrouillage du ventilateur
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Module de ventilateur
+
+|===
+. Alignez les bords du module de ventilateur de remplacement avec l'ouverture du module de contrôleur, puis faites glisser le module de ventilateur de remplacement dans le module de contrôleur jusqu'à ce que les loquets de verrouillage s'enclenchent.
+
+
+
+
+== Étape 4 : réinstaller le module de contrôleur - AFF A700s
+
+[role="lead"]
+Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Si ce n'est déjà fait, fermer le conduit d'air :
++
+.. Faire basculer la conduite d'air complètement vers le bas jusqu'au module de commande.
+.. Faites glisser la conduite d'air vers les surmontoirs jusqu'à ce que les pattes de verrouillage s'enclenchent.
+.. Inspecter le conduit d'air pour s'assurer qu'il est correctement installé et verrouillé en place.
++
+image::../media/drw_a700s_close_air_duct.png[drw a700s fermer la conduite d'air]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Languettes de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Faire glisser le plongeur
+
+|===
+
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Branchez le cordon d'alimentation dans le bloc d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis connectez le bloc d'alimentation à la source d'alimentation.
+. Terminez la réinstallation du module de contrôleur :
++
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+.. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
+
+
+. Si votre système est configuré pour prendre en charge l'interconnexion de cluster 10 GbE et les connexions de données sur les cartes réseau 40 GbE ou les ports intégrés, convertissez ces ports en connexions 10 GbE à l'aide de la commande nicadmin convert en mode Maintenance.
++
+
+NOTE: Assurez-vous de quitter le mode Maintenance après avoir terminé la conversion.
+
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 4 : renvoyer la pièce défaillante à NetApp - AFF A700s
+
+[role="lead"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

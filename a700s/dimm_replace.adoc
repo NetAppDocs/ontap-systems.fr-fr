@@ -1,0 +1,291 @@
+---
+permalink: a700s/dimm-replace.html 
+sidebar: sidebar 
+keywords: aff a700s, aff, a700s, replace, fimm, controller, module, system, register, increase, increasing, number, correctable, error, correction, code, ecc, failure, system, panic, dimm, shut, down, impair, diagnostic, complete, replacement, process, replace a dimmm, shut down the impaired controller, remove the controller module, replace a dimm, reinstall the controller module and booting the system, run diagnostics, complete the replacement process 
+summary: 'Vous devez remplacer un module DIMM dans le module de contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d"erreurs (ECC) pouvant être corrigés ; dans le cas contraire, le système risque de se trouver en panne.' 
+---
+= Remplacement d'un module DIMM - AFF A700s
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez remplacer un module DIMM dans le module de contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d'erreurs (ECC) pouvant être corrigés ; dans le cas contraire, le système risque de se trouver en panne.
+
+Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+[role="lead"]
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de mettre le contrôleur en panne hors tension.
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["Référence de l'administration du système ONTAP 9"]
+
+.Étapes
+. Si le contrôleur défectueux fait partie d'une paire HA, désactivez le rétablissement automatique à partir de la console du contrôleur en bon état : `storage failover modify -node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y`.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre en charge ou arrêter le contrôleur en état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur avec facultés affaiblies affiche `Waiting for giveback...`, Appuyez sur Ctrl-C, puis répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+[role="lead"]
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Débranchez l'alimentation du module de contrôleur de la source, puis débranchez le câble du bloc d'alimentation.
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a700s_pcm_remove.png[retrait du module de commande du module de commande du système drw a700s]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquet de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Placez le module de commande sur une surface plane et stable, puis ouvrez la conduite d'air :
++
+.. Appuyer sur les languettes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de contrôleur.
+.. Faites glisser le conduit d'air vers les modules de ventilateur, puis tournez-le vers le haut jusqu'à sa position complètement ouverte.
++
+image::../media/drw_a700s_open_air_duct.png[conduit d'air ouvert drw a700s]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Pattes de verrouillage du conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Redresseurs
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Conduit d'air
+
+|===
+
+
+
+
+
+
+== Étape 3 : remplacez un module DIMM
+
+[role="lead"]
+Pour remplacer un module DIMM, vous devez le localiser dans le module de contrôleur à l'aide de la carte DIMM à l'intérieur du module de contrôleur, puis le remplacer en suivant la séquence spécifique des étapes.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez la carte de montage appropriée.
++
+image::../media/drw_a700s_dimm_replace.png[remplacement du module dimm drw a700s]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Couvercle de conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Carte de montage 1 et rangée de barrettes DIMM 1-4
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Carte de montage 2 et barrette DIMM 5-8 et 9-12
+
+
+
+ a| 
+image:../media/legend_icon_04.png[""]
+ a| 
+Carte de montage 3 et DIMM 13-16
+
+|===
++
+** Si vous retirez ou déplacez un module DIMM dans le banc 1-4, débranchez la batterie NVRAM, déverrouillez le loquet de verrouillage de la carte de montage 1, puis retirez la carte de montage.
+** Si vous retirez ou déplacez un module DIMM dans la rangée 5-8 ou 9-12, déverrouillez le loquet de verrouillage du module de montage 2, puis retirez le module de montage.
+** Si vous retirez ou déplacez un module DIMM dans le banc 13-16, déverrouillez le loquet de verrouillage du module de montage 3, puis retirez le module de montage.
+
+
+. Notez l'orientation du module DIMM dans le support afin que vous puissiez insérer le module DIMM de remplacement dans le bon sens.
+. Éjectez le module DIMM de son logement en écartant lentement les deux languettes de l'éjecteur de DIMM de chaque côté du module DIMM, puis en faisant glisser le module DIMM hors de son logement.
++
+
+NOTE: Tenez soigneusement le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+
+. Retirez le module DIMM de remplacement du sac d'expédition antistatique, tenez le module DIMM par les coins et alignez-le sur le logement.
++
+L'encoche entre les broches du DIMM doit être alignée avec la languette du support.
+
+. Assurez-vous que les languettes de l'éjecteur de DIMM sur le connecteur sont en position ouverte, puis insérez le module DIMM directement dans le logement.
++
+Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
+
++
+
+NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
+
+. Poussez délicatement, mais fermement, sur le bord supérieur du module DIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent sur les encoches situées aux extrémités du module DIMM.
+. Réinstallez les cartes de montage que vous avez retirées du module de contrôleur.
++
+Si vous avez retiré la carte de montage NVRAM, Riser 1, veillez à brancher la batterie NVRAM dans le module de contrôleur.
+
+. Fermer le conduit d'air.
+
+
+
+
+== Étape 4 : réinstallez le module de contrôleur et démarrez le système
+
+[role="lead"]
+Après avoir remplacé une FRU dans le module de contrôleur, vous devez réinstaller le module de contrôleur et le redémarrer.
+
+Pour les paires haute disponibilité avec deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez le module de contrôleur est particulièrement important, car il tente de redémarrer dès que vous le placez entièrement dans le châssis.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Branchez le cordon d'alimentation dans le bloc d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis connectez le bloc d'alimentation à la source d'alimentation.
+. Terminez la réinstallation du module de contrôleur :
++
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
+.. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
+.. Interrompez le processus de démarrage en appuyant sur `Ctrl-C` lorsque vous voyez `Press Ctrl-C for Boot Menu`.
+.. Sélectionnez l'option pour démarrer en mode maintenance dans le menu qui s'affiche.
+
+
+
+
+
+
+== Étape 5 : exécutez les diagnostics
+
+[role="lead"]
+Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
+
+Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
+
+Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
+
+.Étapes
+. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node node_name`
++
+Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
+
+. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
+. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
+. Sélectionnez *Tester mémoire* dans le menu affiché.
+. Procédez comme suit en fonction du résultat de l'étape précédente :
++
+** Si le test a échoué, corrigez la défaillance, puis relancez le test.
+** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
+
+
+
+
+
+
+== Étape 6 :renvoyez la pièce défectueuse à NetApp
+
+[role="lead"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

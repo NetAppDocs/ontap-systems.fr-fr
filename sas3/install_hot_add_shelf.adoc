@@ -1,0 +1,548 @@
+---
+permalink: sas3/install-hot-add-shelf.html 
+sidebar: sidebar 
+keywords: hot-add, disk, shelves, shelf, iom12, exist, stack, module, sas, hba, onboard, sas, port, controller, DS460C, transport DS460C, move DS460C, remove drives from DS460C, DS460C drive handling, iom12b 
+summary: 'Vous pouvez ajouter à chaud un ou plusieurs tiroirs disques avec des modules IOM12/IOM12B à une pile existante de tiroirs disques avec des modules IOM12/IOM12B ou ajouter à chaud une pile d"un ou plusieurs tiroirs disques avec des modules IOM12/IOM12B directement à un HBA SAS ou à un port SAS intégré du contrôleur.' 
+---
+= Tiroir à ajout à chaud - étagères avec modules IOM12/IOM12B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez ajouter à chaud un ou plusieurs tiroirs disques avec des modules IOM12/IOM12B à une pile existante de tiroirs disques avec des modules IOM12/IOM12B ou ajouter à chaud une pile d'un ou plusieurs tiroirs disques avec des modules IOM12/IOM12B directement à un HBA SAS ou à un port SAS intégré du contrôleur.
+
+Vous ne pouvez pas utiliser cette procédure pour mélanger une pile : ajoutez à chaud un tiroir avec des modules IOM12/IOM12B à une pile de tiroirs contenant des modules IOM6. Si vous devez mélanger une pile, utilisez link:iom12-hot-add-mix.html["Ajoutez des tiroirs IOM12 à chaud à une pile de tiroirs IOM6"].
+
+
+
+== Conditions requises pour l'ajout à chaud de tiroirs disques avec modules IOM12/IOM12B
+
+[role="lead"]
+Votre système doit répondre à certaines exigences avant d'ajouter des tiroirs disques à chaud avec des modules IOM12/IOM12B.
+
+
+
+=== État de votre système
+
+* Votre système et votre version d'ONTAP doivent prendre en charge les tiroirs disques que vous ajoutez à chaud, notamment les IOM, les disques et les câbles SAS.
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* Votre système doit comporter moins de disques que le nombre maximum pris en charge, au moins en fonction du nombre de tiroirs disques que vous envisagez d'ajouter à chaud.
++
+Vous ne pouvez pas avoir dépassé le nombre maximal de disques pris en charge par votre système après l'ajout de tiroirs disques.
+
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* Si vous ajoutez à chaud une pile d'un ou de plusieurs tiroirs disques (directement sur les contrôleurs de la plateforme), votre système doit disposer de suffisamment de ports HBA PCI SAS disponibles ou de ports SAS intégrés, ou d'une combinaison des deux.
++
+[NOTE]
+====
+Si vous devez installer un HBA SAS PCI supplémentaire, il est recommandé d'utiliser des HBA SAS 12 Gb pour conserver la connectivité contrôleur/pile à 12 Gb pour des performances maximales.
+
+Avec des HBA SAS de 6 Gb ou une combinaison de HBA SAS 6 Gb et de HBA SAS 12 Gb, les connexions de module IOM12 vers des HBA SAS 6 Gb sont cependant négociées à 6 Gb et permettent de réduire les performances.
+
+====
+* Votre système ne peut pas comporter de messages d'erreur de câblage SAS.
++
+Téléchargez et exécutez Config Advisor pour vérifier que vos connexions SAS sont correctement câblées.
+
++
+Vous devez corriger toute erreur de câblage à l'aide des actions correctives fournies par les messages d'erreur.
+
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+
+
+
+
+
+=== Utilisation de câbles optiques mini-SAS HD SAS
+
+* Si vous utilisez des câbles optiques SAS HD mini-SAS ou une combinaison de câbles optiques SAS HD Mini-SAS et de câbles cuivre SAS dans la pile de tiroirs disques, vous devez respecter les règles du link:install-cabling-rules.html#mini-sas-hd-sas-optical-cable-rules["Règles du câble optique SAS HD Mini-SAS"].
+* Si vous ajoutez à chaud un tiroir disque avec des câbles optiques SAS HD Mini-SAS à une pile de tiroirs disques connectés avec des câbles en cuivre SAS, vous pouvez temporairement inclure les deux types de câbles dans la pile.
++
+Une fois le tiroir disque ajouté à chaud, vous devez remplacer les câbles en cuivre SAS pour le reste des connexions tiroir à tiroir dans la pile et les connexions contrôleur à pile afin que la pile respecte les règles en la matière link:install-cabling-rules.html#mini-sas-hd-sas-optical-cable-rules["Règles du câble optique SAS HD Mini-SAS"]. Cela signifie que vous devez avoir commandé le nombre approprié de câbles optiques mini-SAS HD SAS.
+
+
+
+
+
+== Considérations relatives à l'ajout à chaud de tiroirs disques avec des modules IOM12/IOM12B
+
+[role="lead"]
+Vous devez vous familiariser avec les aspects et les meilleures pratiques à ce sujet avant d'ajouter des tiroirs disques à chaud.
+
+
+
+=== Considérations générales
+
+* Si vous ajoutez à chaud un tiroir disque avec des modules IOM12/IOM12B à une pile existante (de tiroirs disques avec modules IOM12/IOM12B), vous pouvez ajouter à chaud le tiroir disque pour terminer, soit le premier ou le dernier tiroir disque logique, de la pile.
++
+Pour les configurations HA à chemin unique et à chemin unique, s'applique aux systèmes AFF A200, AFF A220, FAS2600 Series et FAS2700, vous pouvez ajouter à chaud des tiroirs disques à la fin de la pile qui ne dispose pas de connexions de contrôleur.
+
+* Les tiroirs disques dotés de modules IOM12/IOM12B doivent se trouver dans leur propre pile unique. Ils ne peuvent pas être ajoutés à une pile disposant de tiroirs avec des modules IOM6 ou des modules IOM3.
++
+Cette procédure ne permet pas de combiner une pile : ajout à chaud d'un tiroir avec des modules IOM12/IOM12B vers une pile de tiroirs avec des modules IOM6.
+
+* Un système peut disposer de piles à chemins d'accès multiples et quadruples de tiroirs disques avec des modules IOM12/IOM12B.
++
+Si vous disposez d'une paire haute disponibilité, ONTAP affiche la configuration du système comme `multipath HA`. Si vous disposez d'une configuration à un seul contrôleur, ONTAP présente la configuration système comme `multipath`.
+
+* Pour effectuer cette procédure, vous devez utiliser un ACP intrabande.
++
+Pour les configurations dont la configuration ACP intrabande est activée, la technologie ACP intrabande est automatiquement activée sur les tiroirs disques à chaud. Pour les configurations dans lesquelles la technologie ACP intrabande n'est pas activée, les tiroirs disques à chaud fonctionnent sans fonctionnalité ACP.
+
+* La consolidation des piles sans interruption n'est pas prise en charge.
++
+Vous ne pouvez pas utiliser cette procédure pour ajouter à chaud des tiroirs disques qui ont été supprimés à chaud d'une autre pile du système lorsque le système est sous tension et prêt à traiter des données (les E/S sont en cours).
+
+
+
+
+
+=== Meilleures pratiques à prendre en compte
+
+* La meilleure pratique consiste à installer la version la plus récente du Disk qualification Package (DQP) avant d'ajouter un tiroir disque à chaud.
++
+Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser des disques récemment qualifiés. Par conséquent, il ne faut pas tenir compte des messages d'événement système concernant la présence d'informations non à jour sur les lecteurs de disque. Vous évitez également les risques liés au partitionnement de disque, car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Téléchargements NetApp : pack de qualification des disques"^]
+
+* Il est recommandé d'exécuter Config Advisor avant et après l'ajout d'un tiroir disque.
++
+Une fois la Config Advisor exécutée avant d'ajouter un tiroir disque à chaud, vous fournit un snapshot de la connectivité SAS, vérifie les versions du firmware du tiroir disque (IOM) et vous permet de vérifier les ID de tiroir déjà utilisés sur votre système. L'exécution de Config Advisor après l'ajout d'un tiroir disque à chaud permet de vérifier que les connexions SAS sont correctement câblées et que les ID de tiroir sont uniques dans la paire haute disponibilité ou la configuration à un contrôleur unique.
+
++
+Si des erreurs de câblage SAS ou d'ID de tiroir dupliqués sont générées, suivez les actions correctives fournies.
+
++
+Vous avez besoin d'un accès réseau pour télécharger Config Advisor.
+
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+
+* Avant d'ajouter de nouveaux tiroirs disques, des composants d'unités remplaçables sur site pour les tiroirs ou des câbles SAS, il est recommandé d'installer les versions les plus récentes du firmware IOM (module d'E/S) pour le tiroir disque et du firmware pour le disque.
++
+Ces firmwares sont disponibles sur le site du support NetApp.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
+
+
+
+
+
+=== Considérations relatives à la gestion des câbles SAS
+
+* Inspectez visuellement le port SAS pour vérifier l'orientation correcte du connecteur avant de le brancher.
++
+Les connecteurs de câble SAS sont clavetés. Lorsqu'il est orienté correctement vers un port SAS, le connecteur s'enclenche et si le tiroir disque est mis sous tension à ce moment, la LED LNK du port SAS du tiroir disque s'allume en vert. Pour les tiroirs disques, vous insérez un connecteur de câble SAS avec la languette de retrait orientée vers le bas (sous le connecteur).
+
++
+Pour les contrôleurs, l'orientation des ports SAS peut varier en fonction du modèle de plateforme. Par conséquent, l'orientation correcte du connecteur de câble SAS varie.
+
+* Pour éviter de dégrader les performances, ne pas tordre, plier, pincer ou marcher sur les câbles.
++
+Les câbles ont un rayon de courbure minimum. Les spécifications du fabricant de câbles définissent le rayon de pliage minimum ; cependant, un guide général pour le rayon de pliage minimum est 10 fois le diamètre du câble.
+
+* L'utilisation de bandes Velcro au lieu de serre-câbles pour regrouper et sécuriser les câbles du système permet de régler plus facilement les câbles.
+
+
+
+
+=== Considérations relatives à la gestion des disques DS460C
+
+* Les disques sont emballés séparément du châssis des tiroirs.
++
+Vous devez faire l'inventaire des disques.
+
+* Après avoir déballez les lecteurs, vous devez les conserver pour une utilisation ultérieure.
++
+
+CAUTION: *Perte possible d'accès aux données :* si vous déplacez le tiroir dans une autre partie du data Center ou si vous le transportez dans un autre emplacement, vous devez retirer les disques des tiroirs disques pour éviter d'endommager les tiroirs disques et les disques.
+
++
+
+NOTE: Conservez les disques durs dans leur sac ESD jusqu'à ce que vous soyez prêt à les installer.
+
+* Lors de la manipulation des disques durs, toujours porter un bracelet antistatique relié à la terre sur une surface non peinte du châssis du boîtier de stockage pour éviter les décharges statiques.
++
+Si un bracelet n'est pas disponible, touchez une surface non peinte du châssis de votre boîtier de stockage avant de manipuler le lecteur de disque.
+
+
+
+
+
+== Installez les tiroirs disques avec des modules IOM12/IOM12B pour ajout à chaud
+
+[role="lead"]
+Pour chaque tiroir disque que vous ajoutez à chaud, vous installez le tiroir disque sur un rack, branchez les câbles d'alimentation, le tiroir disque et définissez l'ID du tiroir disque avant de procéder au câblage des connexions SAS.
+
+.Étapes
+. Installez le kit de montage en rack (pour les installations en rack à deux ou quatre montants) fourni avec votre tiroir disque en utilisant le Flyer d'installation fourni avec le kit.
++
+
+NOTE: Si vous installez plusieurs tiroirs disques, vous devez les installer de bas en haut du rack pour une stabilité optimale.
+
++
+
+NOTE: Ne montez pas la tablette de disque sur un rack de type opérateur ; le poids de la tablette peut entraîner une chute du rack sous son propre poids.
+
+. Installez et fixez le tiroir disque sur les supports et le rack à l'aide du prospectus d'installation fourni avec le kit.
++
+Pour rendre le tiroir disque plus léger et plus facile à manœuvrer, retirez les blocs d'alimentation et les modules d'E/S (IOM).
+
++
+Pour les tiroirs disques DS460C, bien que les disques soient emballés séparément, ce qui rend le tiroir plus léger, un tiroir DS460C vide pèse toujours environ 60 kg (132 lb). C'est pourquoi il faut respecter la précaution suivante lors du déplacement d'un tiroir.
+
++
+
+CAUTION: Il est recommandé d'utiliser un élévateur mécanisé ou quatre personnes utilisant les poignées de levage pour déplacer en toute sécurité une étagère DS460C vide.
+
++
+Votre DS460C a été livré avec quatre poignées de levage amovibles (deux pour chaque côté). Pour utiliser les poignées de levage, vous les installez en insérant les languettes des poignées dans les fentes situées sur le côté de la tablette et en poussant jusqu'à ce qu'elles s'enclenchent. Puis, lorsque vous faites glisser le tiroir disque sur les rails, vous détachez un jeu de poignées à la fois à l'aide du loquet. L'illustration suivante montre comment fixer une poignée de levage.
+
++
+image::../media/drw_ds460c_handles.gif[poignées drw ds460c]
+
+. Réinstallez les blocs d'alimentation et les modules d'E/S que vous avez retirés avant d'installer le tiroir disque dans le rack.
+. Si vous installez un tiroir disque DS460C, installez les disques dans les tiroirs disques. Sinon, passez à l'étape suivante.
++
+[NOTE]
+====
+Portez toujours un bracelet antistatique relié à la terre sur une surface non peinte du châssis de votre boîtier de stockage pour éviter les décharges statiques.
+
+Si un bracelet n'est pas disponible, touchez une surface non peinte du châssis de votre boîtier de stockage avant de manipuler le lecteur de disque.
+
+====
++
+Si vous avez acheté un tiroir partiellement rempli, ce qui signifie que le tiroir contient moins de 60 disques qu'il prend en charge, installez les disques comme suit :
+
++
+** Installez les quatre premiers disques dans les emplacements avant (0, 3, 6 et 9).
++
+
+NOTE: *Risque de dysfonctionnement de l'équipement:* pour permettre un débit d'air correct et empêcher la surchauffe, toujours installer les quatre premiers disques dans les fentes avant (0, 3, 6 et 9).
+
+** Pour les disques restants, répartissez-les uniformément entre les tiroirs.
++
+L'illustration suivante montre comment les disques sont numérotés de 0 à 11 dans chaque tiroir disque du tiroir.
+
++
+image::../media/dwg_trafford_drawer_with_hdds_callouts.gif[tiroir dwg trafford avec profils de disques durs]
+
++
+... Ouvrez le tiroir supérieur de la tablette.
+... Retirez un lecteur de son sac ESD.
+... Relever la poignée de came de l'entraînement à la verticale.
+... Alignez les deux boutons relevés de chaque côté du support d'entraînement avec l'espace correspondant dans le canal d'entraînement du tiroir d'entraînement.
++
+image::../media/28_dwg_e2860_de460c_drive_cru.gif[28 dwg e2860 de460c drive cru]
+
++
+[cols="10,90"]
+|===
+
+
+| image:../media/legend_icon_01.png[""] | Bouton levé sur le côté droit du support d'entraînement 
+|===
+... Abaissez le lecteur tout droit, puis faites tourner la poignée de came vers le bas jusqu'à ce que le lecteur s'enclenche sous le loquet de dégagement orange.
+... Répétez les sous-étapes précédentes pour chaque lecteur du tiroir.
++
+Vous devez vous assurer que les emplacements 0, 3, 6 et 9 de chaque tiroir contiennent des lecteurs.
+
+... Replacez avec précaution le tiroir du lecteur dans le boîtier.
++
+|===
+
+
+ a| 
+image:../media/2860_dwg_e2860_de460c_gentle_close.gif[""]
+
+
+
+ a| 
+
+CAUTION: *Perte possible d'accès aux données:* ne jamais claster le tiroir fermé. Poussez lentement le tiroir pour éviter de le secouant et d'endommager le module de stockage.
+
+|===
+... Fermez le tiroir d'entraînement en poussant les deux leviers vers le centre.
+... Répétez cette procédure pour chaque tiroir du tiroir disque.
+... Fixez le cadre avant.
+
+
+
+
+. Si vous ajoutez plusieurs tiroirs disques, répétez les étapes précédentes pour chaque tiroir disque que vous installez.
+. Connectez les blocs d'alimentation de chaque tiroir disque :
++
+.. Branchez d'abord les câbles d'alimentation aux tiroirs disques, puis fixez-les en place à l'aide de la pièce de retenue du cordon d'alimentation, puis branchez les câbles d'alimentation à différentes sources d'alimentation pour la résilience.
+.. Mettez les blocs d'alimentation de chaque tiroir disque sous tension, puis attendez que les disques tournent.
+
+
+. Définissez l'ID de tiroir pour chaque tiroir disque que vous ajoutez à chaud dans un ID unique au sein de la paire haute disponibilité ou de la configuration à un seul contrôleur.
++
+Si vous utilisez un modèle de plateforme avec un tiroir disque interne, vous devez obtenir des ID de tiroir unique sur le tiroir disque interne et les tiroirs disques connectés en externe.
+
++
+Vous pouvez modifier les ID de tiroir à l'aide des sous-étapes suivantes ou pour des instructions plus détaillées, utiliser link:install-change-shelf-id.html["Modifier l'ID de tiroir"].
+
++
+.. Si nécessaire, vérifiez les ID de tiroir déjà utilisés en exécutant Config Advisor.
++
+Vous pouvez également exécuter le `storage shelf show -fields shelf-id` Commande pour afficher la liste des ID de tiroir déjà utilisés (et les doublons si présents) dans votre système.
+
+.. Accéder au bouton d'ID de tiroir derrière le capuchon d'extrémité gauche.
+.. Remplacez l'ID de tiroir par un ID valide (00 à 99).
+.. Mettez le tiroir disque sous tension afin de valider l'ID.
++
+Attendez au moins 10 secondes avant de remettre le système sous tension pour terminer le cycle d'alimentation.
+
++
+L'ID du tiroir clignote et la LED orange du panneau d'écran de l'opérateur clignote jusqu'à ce que vous mettiez le tiroir disque sous tension.
+
+.. Répétez les sous-étapes a à d pour chaque tiroir disque que vous ajoutez à chaud.
+
+
+
+
+
+
+== Câbler les tiroirs disques avec des modules IOM12/IOM12B pour un ajout à chaud
+
+[role="lead"]
+Il vous suffit de connecter les câbles SAS - tiroir à tiroir et contrôleur à pile - selon le cas des tiroirs disques ajoutés à chaud de sorte qu'ils soient connectés au système.
+
+Vous devez répondre aux exigences décrites dans la section link:install-hot-add-shelf.html#requirements-for-hot-adding-disk-shelves-with-iom12iom12b-modules["Conditions requises pour l'ajout à chaud de tiroirs disques avec modules IOM12"] Et installés, sous tension et définissez les ID de tiroir pour chaque tiroir disque comme indiqué dans la link:install-hot-add-shelf.html#install-disk-shelves-with-iom12iom12b-modules-for-a-hot-add["Installez les tiroirs disques avec des modules IOM12 pour une ajout à chaud"].
+
+.Description de la tâche
+* Pour obtenir des explications et des exemples de câblage « standard » tiroir à tiroir et de câblage « cluster à grande échelle », consultez la section link:install-cabling-rules.html#shelf-to-shelf-connection-rules["Règles de connexion SAS tiroir à tiroir"].
+* Pour plus d'informations sur la lecture d'une fiche technique permettant de connecter le contrôleur à la pile, reportez-vous à la section link:install-cabling-worksheets-how-to-read-multipath.html["Comment lire une fiche technique pour relier les connexions du contrôleur à la pile pour assurer une connectivité multipathed"] ou link:install-cabling-worksheets-how-to-read-quadpath.html["Comment lire une fiche technique pour relier les connexions du contrôleur à la pile pour assurer une connectivité à quatre chemins d'accès"].
+* Une fois que vous avez câblé les tiroirs disques ajoutés à chaud, ONTAP les reconnaît : la propriété des disques est attribuée si l'affectation automatique de la propriété des disques est activée ; le firmware des tiroirs disques (IOM) et le firmware des disques doivent être mis à jour automatiquement si nécessaire ; Si la technologie ACP intrabande est activée sur votre configuration, elle est automatiquement activée sur les tiroirs disques à chaud.
++
+
+NOTE: Les mises à jour du micrologiciel peuvent prendre jusqu'à 30 minutes.
+
+
+
+.Étapes
+. Si vous souhaitez attribuer manuellement une propriété de disque aux tiroirs disques que vous ajoutez à chaud, vous devez désactiver l'affectation automatique de propriété de disque si elle est activée. Sinon, passez à l'étape suivante.
++
+Vous devez attribuer manuellement la propriété des disques si les disques de la pile sont la propriété des deux contrôleurs d'une paire haute disponibilité.
+
++
+Vous désactivez l'affectation automatique de la propriété des disques avant de câbler les tiroirs disques à chaud, puis de les activer ultérieurement, à l'étape 7, vous les réactivez après le câblage des tiroirs disques ajoutés à chaud.
+
++
+.. Vérifiez si l'assignation automatique de Disk Ownership est activée :``storage disk option show``
++
+Si vous disposez d'une paire haute disponibilité, vous pouvez saisir la commande au niveau de la console d'un autre contrôleur.
+
++
+Si l'affectation automatique de propriété de disque est activée, le résultat indique « activé » (pour chaque contrôleur) dans la colonne « affectation automatique ».
+
+.. Si l'assignation automatique de Disk Ownership est activée, vous devez la désactiver :``storage disk option modify -node _node_nam_e -autoassign off``
++
+Vous devez désactiver l'affectation automatique de la propriété de disque sur les deux contrôleurs d'une paire haute disponibilité.
+
+
+
+. Si vous ajoutez à chaud une pile de tiroirs disques directement à un contrôleur, procédez comme suit ; sinon, passez à l'étape 3.
++
+.. Si la pile que vous ajoutez à chaud comporte plusieurs tiroirs disques, reliez les connexions du tiroir au tiroir ; sinon, passez à la sous-étape b.
++
+[cols="2*"]
+|===
+| Si... | Alors... 
+
+
+ a| 
+Vous câbler une pile avec une haute disponibilité multivoie, des chemins d'accès multiples, une haute disponibilité à chemin unique ou une connectivité à chemin unique aux contrôleurs
+ a| 
+Reliez les connexions du tiroir au tiroir en tant que connectivité « standard » (avec les ports IOM 3 et 1) :
+
+... En commençant par le premier tiroir logique de la pile, connectez le port IOM A 3 au port A du tiroir suivant, jusqu'à ce que chaque IOM A de la pile soit connectée.
+... Répétez la sous-étape i pour l'IOM B.
+
+
+
+
+ a| 
+Vous câbler une pile avec une connectivité à quatre chemins ou haute disponibilité ou à quatre chemins vers les contrôleurs
+ a| 
+Reliez les connexions du tiroir au tiroir en tant que connectivité « étendue » : vous reliez la connectivité standard à l'aide des ports IOM 3 et 1, puis la connectivité double à l'aide des ports IOM 4 et 2.
+
+... En commençant par le premier tiroir logique de la pile, connectez le port IOM A 3 au port A du tiroir suivant, jusqu'à ce que chaque IOM A de la pile soit connectée.
+... En commençant par le premier tiroir logique de la pile, connectez le port IOM A 4 au port A du tiroir suivant, jusqu'à ce que chaque IOM A de la pile soit connectée.
+... Répétez les sous-étapes i et ii pour l'IOM B.
+
+
+|===
+.. Consultez les fiches de câblage du contrôleur à la pile et des exemples de câblage pour savoir si une fiche complète existe pour votre configuration.
++
+link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes AFF et FAS avec stockage intégré"]
+
++
+link:install-cabling-worksheets-examples-multipath.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les configurations haute disponibilité multivoie courantes"]
+
++
+link:install-worksheets-examples-quadpath.html["Fiche de câblage contrôleur à pile et exemple de câblage pour une configuration haute disponibilité à quatre chemins d'accès avec deux HBA SAS à quatre ports"]
+
+.. Si la fiche de votre configuration est remplie, connectez les câbles du contrôleur à la pile à l'aide de la fiche complétée. Sinon, passez à la sous-étape suivante.
+.. Si aucune fiche n'est remplie pour votre configuration, remplissez le modèle de fiche approprié, puis connectez les câbles du contrôleur à la pile à l'aide de la fiche de travail complétée.
++
+link:install-cabling-worksheet-template-multipath.html["Modèle de fiche de câblage contrôleur à pile pour la connectivité multipathed"]
+
++
+link:install-cabling-worksheet-template-quadpath.html["Modèle de fiche de câblage contrôleur à pile pour la connectivité à quatre chemins d'accès"]
+
+.. Vérifier que tous les câbles sont bien fixés.
+
+
+. Si vous ajoutez à chaud un ou plusieurs tiroirs disques à une fin (le premier ou le dernier tiroir disque logique) d'une pile existante, procédez comme suit pour votre configuration. Sinon, passez à l'étape suivante.
++
+
+NOTE: Assurez-vous d'attendre au moins 70 secondes entre le débranchement d'un câble et le rebranchement, et si vous remplacez un câble plus long.
+
++
+[cols="2*"]
+|===
+| Si vous êtes... | Alors... 
+
+
+ a| 
+Ajout à chaud d'un tiroir disque à la fin d'une pile avec chemins d'accès multiples, chemins d'accès multiples, haute disponibilité à quatre chemins d'accès ou connectivité à quatre chemins d'accès aux contrôleurs
+ a| 
+.. Déconnectez tous les câbles du module d'E/S A du tiroir disque à l'extrémité de la pile qui sont connectés à n'importe quel contrôleur. Sinon, passez à l'étape par sous-
++
+Laissez l'autre extrémité de ces câbles connectés aux contrôleurs ou remplacez les câbles par des câbles plus longs si nécessaire.
+
+.. Reliez les connexions entre le module d'E/S A du tiroir disque à l'extrémité de la pile et le module A du tiroir disque à chaud.
+.. Reconnectez tous les câbles que vous avez retirés de la sous-étape a aux mêmes ports sur le module d'E/S A du tiroir disque que vous ajoutez à chaud. Sinon, passez à la sous-étape suivante.
+.. Vérifier que tous les câbles sont bien fixés.
+.. Répétez les sous-étapes a à d pour IOM B ; sinon, passez à l'étape 4.
+
+
+
+
+ a| 
+Ajout à chaud d'un tiroir disque à la fin de la pile dans une configuration HA à chemin unique ou à chemin unique, selon le cas des systèmes AFF A200, AFF A220, FAS2600 Series et FAS2700.
+
+Ces instructions sont destinées à l'ajout à chaud à l'extrémité de la pile qui ne dispose pas de connexions contrôleur à pile.
+ a| 
+.. Reliez la connexion entre le module d'E/S A du tiroir disque de la pile et le module a du tiroir disque que vous ajoutez à chaud.
+.. Vérifier que le câble est bien fixé.
+.. Répétez les sous-étapes applicables pour l'IOM B.
+
+
+|===
+. Si vous avez ajouté à chaud un tiroir disque avec des câbles optiques SAS HD Mini-SAS à une pile de tiroirs disques connectés avec des câbles en cuivre SAS, remplacez les câbles en cuivre SAS. Sinon, passez à l'étape suivante.
++
+La pile doit répondre aux exigences indiquées dans le  for hot-adding disk shelves with IOM12 modules section de cette procédure.
+
++
+Remplacez les câbles un par un et assurez-vous d'attendre au moins 70 secondes entre le débranchement d'un câble et le branchement d'un câble neuf.
+
+. Téléchargez et exécutez Config Advisor pour vérifier que vos connexions SAS sont correctement câblées.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+
++
+Si des erreurs de câblage SAS sont générées, suivez les actions correctives fournies.
+
+. Vérifiez la connectivité SAS pour chaque tiroir disque ajouté à chaud : `storage shelf show -shelf _shelf_name_ -connectivity`
++
+Vous devez exécuter cette commande pour chaque tiroir disque ajouté à chaud.
+
++
+Par exemple, le résultat suivant montre que le tiroir disque ajouté à chaud 2.5 est connecté aux ports initiateurs 1a et 0d (paire de ports 1a/0d) sur chaque contrôleur (dans une configuration haute disponibilité multivoie FAS8080 avec un HBA SAS à quatre ports) :
+
++
+[listing]
+----
+cluster1::> storage shelf show -shelf 2.5 -connectivity
+
+           Shelf Name: 2.5
+             Stack ID: 2
+             Shelf ID: 5
+            Shelf UID: 40:0a:09:70:02:2a:2b
+        Serial Number: 101033373
+          Module Type: IOM12
+                Model: DS224C
+         Shelf Vendor: NETAPP
+           Disk Count: 24
+      Connection Type: SAS
+          Shelf State: Online
+               Status: Normal
+
+Paths:
+
+Controller     Initiator   Initiator Side Switch Port   Target Side Switch Port   Target Port   TPGN
+------------   ---------   --------------------------   -----------------------   -----------   ------
+stor-8080-1    1a           -                           -                          -             -
+stor-8080-1    0d           -                           -                          -             -
+stor-8080-2    1a           -                           -                          -             -
+stor-8080-2    0d           -                           -                          -             -
+
+Errors:
+------
+-
+----
+. Si vous avez désactivé l'affectation automatique de propriété de disque à l'étape 1, attribuez manuellement la propriété de disque, puis réactivez l'affectation automatique de propriété de disque si nécessaire :
++
+.. Afficher tous les disques non possédés :``storage disk show -container-type unassigned``
+.. Affectez chaque disque :``storage disk assign -disk _disk_name_ -owner _owner_name_``
++
+Vous pouvez utiliser le caractère générique pour attribuer plusieurs disques à la fois.
+
+.. Réactivez l'affectation automatique de la propriété de disque si nécessaire :``storage disk option modify -node _node_name_ -autoassign on``
++
+Vous devez à nouveau activer l'affectation automatique de la propriété de disque sur les deux contrôleurs d'une paire haute disponibilité.
+
+
+
+. Si votre configuration exécute une configuration ACP intrabande, vérifiez que la technologie ACP intrabande est automatiquement activée sur les tiroirs disques à chaud : `storage shelf acp show`
++
+Dans le résultat, « In-band » est répertorié comme « actif » pour chaque nœud.
+
+
+
+
+
+== Déplacement ou transport des étagères DS460C
+
+[role="lead"]
+Si, à l'avenir, vous déplacez les tiroirs DS460C vers une autre partie du data Center, ou si vous transportez ces tiroirs dans un autre emplacement, vous devez les retirer des tiroirs disques afin d'éviter d'endommager les tiroirs et les disques.
+
+* Si vous avez installé des étagères DS460C dans le cadre de votre tiroir d'ajout à chaud, vous avez sauvegardé les matériaux d'emballage des disques et les utilisez pour reconditionner les disques avant de les déplacer.
++
+Si vous n'avez pas enregistré les matériaux d'emballage, vous devez placer les lecteurs sur des surfaces rembourrées ou utiliser un autre emballage amorti. Ne jamais empiler les disques les uns sur les autres.
+
+* Avant de manipuler les lecteurs, portez un bracelet antistatique relié à la terre sur une surface non peinte du châssis de votre boîtier de stockage.
++
+Si un bracelet n'est pas disponible, touchez une surface non peinte du châssis de votre boîtier de stockage avant de manipuler un lecteur.
+
+* Vous devez prendre des mesures pour manipuler les lecteurs avec précaution :
++
+** Toujours utiliser deux mains lors du retrait, de l'installation ou du transport d'un lecteur pour soutenir son poids.
++
+
+CAUTION: Ne placez pas les mains sur les cartes d'entraînement exposées sur la face inférieure du support d'entraînement.
+
+** Veillez à ne pas heurter les entraînements contre d'autres surfaces.
+** Les entraînements doivent être tenus à l'écart des dispositifs magnétiques.
++
+
+CAUTION: Les champs magnétiques peuvent détruire toutes les données d'un lecteur et causer des dommages irréparables au circuit d'entraînement.
+
+
+
+

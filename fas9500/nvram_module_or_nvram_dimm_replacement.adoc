@@ -1,0 +1,412 @@
+---
+permalink: fas9500/nvram_module_or_nvram_dimm_replacement.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Le module NVRAM se compose de l"architecture NVRAM11 et de modules DIMM, et jusqu"à deux modules Flash cache SSD NVMe (Flash cache ou modules de cache) par module NVRAM.' 
+---
+= Remplacez le module NVRAM et/ou les modules DIMM NVRAM - FAS9500
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le module NVRAM se compose de l'NVRAM11 et de modules DIMM. Vous pouvez remplacer un module NVRAM défectueux ou les modules DIMM à l'intérieur du module NVRAM. Pour remplacer un module NVRAM défectueux, vous devez le retirer du châssis, déplacer les modules DIMM vers le module de remplacement et installer le module NVRAM de remplacement dans le châssis.
+
+Pour remplacer le module DIMM et NVRAM, vous devez retirer le module NVRAM du châssis, remplacer le module DIMM défectueux dans le module, puis réinstaller le module NVRAM.
+
+Étant donné que l'ID système est dérivé du module NVRAM, si vous remplacez le module, les disques appartenant au système sont réaffectés à un nouvel ID système.
+
+.Avant de commencer
+* Tous les tiroirs disques doivent fonctionner correctement.
+* Si votre système se trouve dans une paire haute disponibilité, le nœud partenaire doit pouvoir reprendre le nœud associé au module NVRAM qui est remplacé.
+* Cette procédure utilise la terminologie suivante :
++
+** Le nœud pour lequel vous êtes affaibli est le nœud sur lequel vous effectuez des opérations de maintenance.
+** Le nœud sain est le partenaire de haute disponibilité du nœud douteux.
+
+
+* Cette procédure comprend les étapes de réaffectation automatique ou manuelle des disques au module de contrôleur associé au nouveau module NVRAM. Vous devez réaffecter les disques lorsqu'il est demandé dans la procédure. La réaffectation du disque avant le retour peut entraîner des problèmes.
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Vous ne pouvez pas changer de disque ou de tiroir disque dans le cadre de cette procédure.
+
+
+
+
+== Étape 1 : arrêtez le nœud douteux
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : remplacer le module NVRAM
+
+Pour remplacer le module NVRAM, localisez-le dans le logement 6 du châssis et suivez la séquence des étapes.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez le module NVRAM cible du châssis :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
++
+Le bouton de came s'éloigne du châssis.
+
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
++
+Le module NVRAM se désengage du châssis et se déplace en quelques pouces.
+
+.. Retirez le module NVRAM du châssis en tirant sur les languettes de traction situées sur les côtés de la face du module.
++
+.Animation : remplacez le module NVRAM
+video::228cbd14-4cb2-49b5-88f1-ae78004b9d84[panopto]
++
+image::../media/drw_9500_move-remove_NVRAM_module.svg[drw 9500 déplacer déposer le module NVRAM]
+
++
+[cols="20%,90%"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Loquet de came d'E/S numéroté et numéroté
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[icône de légende 02]
+ a| 
+Loquet d'E/S complètement déverrouillé
+
+|===
+
+
+. Placez le module NVRAM sur une surface stable et retirez le capot du module NVRAM en appuyant sur le bouton de verrouillage bleu du capot, puis, tout en maintenant le bouton bleu enfoncé, faites glisser le couvercle hors du module NVRAM.
++
+image::../media/drw_9500_remove_NVRAM_module_contents.svg[drw 9500 retirer le contenu du module NVRAM]
+
++
+[cols="20%,80%"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Bouton de verrouillage du couvercle
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[icône de légende 02]
+ a| 
+Languettes d'éjection du module DIMM et du module DIMM
+
+|===
+. Retirez les modules DIMM, un par un, de l'ancien module NVRAM et installez-les dans le module NVRAM de remplacement.
+. Fermez le capot du module.
+. Installez le module NVRAM de remplacement dans le châssis :
++
+.. Alignez le module sur les bords de l'ouverture du châssis dans le logement 6.
+.. Faites glisser doucement le module dans le logement jusqu'à ce que le loquet de came d'E/S numéroté et numéroté commence à s'engager avec la goupille de came d'E/S, puis poussez le loquet de came d'E/S jusqu'à ce qu'il se verrouille en place.
+
+
+
+
+
+
+== Étape 3 : remplacer un module DIMM NVRAM
+
+Pour remplacer les modules DIMM NVRAM du module NVRAM, vous devez retirer le module NVRAM, ouvrir le module, puis remplacer le module DIMM cible.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez le module NVRAM cible du châssis :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
++
+Le bouton de came s'éloigne du châssis.
+
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
++
+Le module NVRAM se désengage du châssis et se déplace en quelques pouces.
+
+.. Retirez le module NVRAM du châssis en tirant sur les languettes de traction situées sur les côtés de la face du module.
++
+.Animation : remplacez le module NVRAM
+video::228cbd14-4cb2-49b5-88f1-ae78004b9d84[panopto]
++
+image::../media/drw_9500_move-remove_NVRAM_module.svg[drw 9500 déplacer déposer le module NVRAM]
+
++
+[cols="20%,80%"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Loquet de came d'E/S numéroté et numéroté
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[icône de légende 02]
+ a| 
+Loquet d'E/S complètement déverrouillé
+
+|===
+
+
+. Placez le module NVRAM sur une surface stable et retirez le capot du module NVRAM en appuyant sur le bouton de verrouillage bleu du capot, puis, tout en maintenant le bouton bleu enfoncé, faites glisser le couvercle hors du module NVRAM.
++
+image::../media/drw_9500_remove_NVRAM_module_contents.svg[drw 9500 retirer le contenu du module NVRAM]
+
++
+[cols="20%,80%"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Bouton de verrouillage du couvercle
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[icône de légende 02]
+ a| 
+Languettes d'éjection du module DIMM et du module DIMM
+
+|===
+. Repérez le module DIMM à remplacer à l'intérieur du module NVRAM, puis retirez-le en appuyant sur les languettes de verrouillage du module DIMM et en soulevant le module DIMM pour le sortir du support.
+. Installez le module DIMM de remplacement en alignant le module DIMM avec le support et en poussant doucement le module DIMM dans le support jusqu'à ce que les languettes de verrouillage se verrouillent en place.
+. Fermez le capot du module.
+. Installez le module NVRAM dans le châssis :
++
+.. Alignez le module sur les bords de l'ouverture du châssis dans le logement 6.
+.. Faites glisser doucement le module dans le logement jusqu'à ce que le loquet de came d'E/S numéroté et numéroté commence à s'engager avec la goupille de came d'E/S, puis poussez le loquet de came d'E/S jusqu'à ce qu'il se verrouille en place.
+
+
+
+
+
+
+== Étape 4 : redémarrer le contrôleur après le remplacement d'une unité remplaçable sur site
+
+Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
+
+. Pour démarrer ONTAP à partir de l'invite DU CHARGEUR, entrez `bye`.
+
+
+
+
+== Étape 5 : vérifier et définir l'état HA du module de contrôleur
+
+Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
+
+. En mode Maintenance à partir du module de contrôleur de remplacement, vérifier que tous les composants affichent la même valeur `HA` état : `ha-config show`
++
+[cols="1,2"]
+|===
+| Si votre système est en... | L'état de haute disponibilité de tous les composants doit être... 
+
+
+ a| 
+Une paire haute disponibilité
+ a| 
+haute disponibilité
+
+
+
+ a| 
+Configuration FC MetroCluster avec quatre nœuds ou plus
+ a| 
+mcc
+
+
+
+ a| 
+Configuration MetroCluster IP
+ a| 
+ccip
+
+|===
+. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le `HA` état pour le module de contrôleur : `ha-config modify controller _ha-state_`
+. Si l'état système affiché du châssis ne correspond pas à la configuration de votre système, définissez l' `HA` état du châssis : `ha-config modify chassis _ha-state_`
+
+
+
+
+== Étape 6 : réaffectation des disques
+
+Vous devez confirmer la modification de l'ID système au démarrage du nœud de remplacement, puis vérifier que la modification a été implémentée.
+
+Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
+
+.Étapes
+. Si le nœud de remplacement est en mode maintenance (affiche le `*>` Invite), quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`
+. Dans l'invite DU CHARGEUR sur le nœud de remplacement, démarrez le nœud, entrez `y` Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système.
+. Attendre jusqu'à `Waiting for giveback...` Un message s'affiche sur la console du nœud de remplacement, puis, dans le nœud en bon état, vérifiez que le nouvel ID système partenaire a été automatiquement attribué : `storage failover show`
++
+Dans le résultat de la commande, un message indiquant l'ID du système a changé sur le nœud pour lequel l'ID a été modifié, et indiquant l'ancien et le nouveau ID corrects. Dans l'exemple suivant, le node2 a fait l'objet d'un remplacement et a un nouvel ID système de 151759706.
+
++
+[listing]
+----
+node1> `storage failover show`
+                                    Takeover
+Node              Partner           Possible     State Description
+------------      ------------      --------     -------------------------------------
+node1             node2             false        System ID changed on partner (Old:
+                                                  151759755, New: 151759706), In takeover
+node2             node1             -            Waiting for giveback (HA mailboxes)
+----
+. Depuis le nœud sain, vérifier que les « core dumps » sont enregistrés :
++
+.. Changement au niveau de privilège avancé : `set -privilege advanced`
++
+Vous pouvez répondre `Y` lorsque vous êtes invité à passer en mode avancé. L'invite du mode avancé s'affiche (*>).
+
+.. Enregistrez les « coredumps » : `system node run -node local-node-name partner savecore`
+.. Attendez le `savecore` commande à compléter avant d'émettre le retour.
++
+Vous pouvez saisir la commande suivante pour contrôler la progression du `savecore` commande : `system node run -node local-node-name partner savecore -s`
+
+.. Retour au niveau de privilège admin : `set -privilege admin`
+
+
+. Remettre le nœud :
++
+.. Depuis le nœud sain, remettre le stockage du nœud remplacé : `storage failover giveback -ofnode replacement_node_name`
++
+Le nœud de remplacement reprend son stockage et termine son démarrage.
+
++
+Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système, vous devez entrer `y`.
+
++
+
+NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+
++
+Pour plus d'informations, reportez-vous à la section https://docs.netapp.com/us-en/ontap/high-availability/ha_manual_giveback.html#if-giveback-is-interrupted["Commandes de rétablissement manuel"^] rubrique pour remplacer le droit de veto.
+
+.. Une fois le retour arrière terminé, vérifiez que la paire HA est saine et que le basculement est possible : `storage failover show`
++
+Le résultat de la commande Storage failover show ne doit pas inclure l'ID système modifié dans le message partenaire.
+
+
+
+. Vérifier que les disques ont été correctement affectés : `storage disk show -ownership`
++
+Les disques appartenant au nœud de remplacement doivent afficher le nouvel ID système. Dans l'exemple suivant, les disques appartenant au nœud1 affichent alors le nouvel ID système, 1873775277 :
+
++
+[listing]
+----
+node1> `storage disk show -ownership`
+
+Disk  Aggregate Home  Owner  DR Home  Home ID    Owner ID  DR Home ID Reserver  Pool
+----- ------    ----- ------ -------- -------    -------    -------  ---------  ---
+1.0.0  aggr0_1  node1 node1  -        1873775277 1873775277  -       1873775277 Pool0
+1.0.1  aggr0_1  node1 node1           1873775277 1873775277  -       1873775277 Pool0
+.
+.
+.
+----
+. Si le système est dans une configuration MetroCluster, surveillez l'état du nœud : `metrocluster node show`
++
+La configuration MetroCluster prend quelques minutes après le remplacement pour revenir à un état normal. À ce moment, chaque nœud affiche un état configuré, avec la mise en miroir reprise sur incident activée et un mode de fonctionnement normal. Le `metrocluster node show -fields node-systemid` Le résultat de la commande affiche l'ancien ID système jusqu'à ce que la configuration MetroCluster revienne à un état normal.
+
+. Si le nœud est dans une configuration MetroCluster, en fonction de l'état de la MetroCluster, vérifiez que le champ ID de domicile DR affiche le propriétaire d'origine du disque si le propriétaire d'origine est un nœud sur le site de secours.
++
+Ceci est requis si les deux conditions suivantes sont vraies :
+
++
+** La configuration MetroCluster est en état de basculement.
+** Le nœud de remplacement est le propriétaire actuel des disques sur le site d'incident.
++
+Voir https://docs.netapp.com/us-en/ontap-metrocluster/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#disk-ownership-changes-during-ha-takeover-and-metrocluster-switchover-in-a-four-node-metrocluster-configuration["Modification de la propriété des disques lors du basculement haute disponibilité et du basculement du MetroCluster dans une configuration MetroCluster à quatre nœuds"^] pour en savoir plus.
+
+
+
+. Si votre système se trouve dans une configuration MetroCluster, vérifiez que chaque nœud est configuré : `metrocluster node show - fields configuration-state`
++
+[listing]
+----
+node1_siteA::> metrocluster node show -fields configuration-state
+
+dr-group-id            cluster node           configuration-state
+-----------            ---------------------- -------------- -------------------
+1 node1_siteA          node1mcc-001           configured
+1 node1_siteA          node1mcc-002           configured
+1 node1_siteB          node1mcc-003           configured
+1 node1_siteB          node1mcc-004           configured
+
+4 entries were displayed.
+----
+. Vérifiez que les volumes attendus sont présents pour chaque nœud : `vol show -node node-name`
+. Si vous avez désactivé le basculement automatique au redémarrage, activez-le à partir du nœud sain : `storage failover modify -node replacement-node-name -onreboot true`
+
+
+
+
+== Étape 7 : restauration de la fonctionnalité de cryptage du stockage et du volume
+
+Après avoir remplacé le module de contrôleur ou le module NVRAM d'un système de stockage que vous avez précédemment configuré pour utiliser le cryptage de stockage ou de volume, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de cryptage ininterrompu. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n'est pas activé.
+
+.Étapes
+. Restaurez la fonctionnalité de cryptage de stockage ou de volume en suivant la procédure appropriée de la section https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commande"^].
+. Choisissez l'une des procédures suivantes selon que vous utilisez la gestion intégrée ou externe des clés :
++
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
+
+
+
+
+
+
+== Étape 8 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

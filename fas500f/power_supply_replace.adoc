@@ -1,0 +1,79 @@
+---
+permalink: fas500f/power-supply-replace.html 
+sidebar: sidebar 
+keywords: fas500f, replace power supply 
+summary: 'Le remplacement d"un bloc d"alimentation consiste à débrancher le bloc d"alimentation cible de la source d"alimentation, à débrancher le câble d"alimentation, à retirer l"ancien bloc d"alimentation et à installer le bloc d"alimentation de remplacement, puis à le reconnecter à la source d"alimentation.' 
+---
+= Remplacement d'une alimentation - FAS500f
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le remplacement d'un bloc d'alimentation consiste à déconnecter le bloc d'alimentation cible de la source d'alimentation, à débrancher le câble d'alimentation, à retirer l'ancien bloc d'alimentation et à installer le bloc d'alimentation de remplacement, puis à le reconnecter à la source d'alimentation.
+
+* Les blocs d'alimentation sont redondants et échangeables à chaud.
+* Cette procédure permet de remplacer une alimentation à la fois.
++
+
+NOTE: Il est recommandé de remplacer le bloc d'alimentation dans les deux minutes qui suivent le retrait du châssis. Le système continue de fonctionner, mais ONTAP envoie des messages à la console concernant l'alimentation défectueuse jusqu'à ce que le bloc d'alimentation soit remplacé.
+
+
+
+Vous pouvez utiliser la vidéo suivante ou les étapes tabulées pour remplacer le bloc d'alimentation :
+
+.Animation : remplacez le bloc d'alimentation
+video::86487f5e-20ff-43e6-99ae-ac5b015c1aa5[panopto]
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Identifiez le bloc d'alimentation que vous souhaitez remplacer en fonction des messages d'erreur de la console ou par le voyant rouge de panne de l'alimentation.
+. Débrancher l'alimentation électrique :
++
+.. Ouvrez le dispositif de retenue du câble d'alimentation, puis débranchez le câble d'alimentation du bloc d'alimentation.
+.. Débranchez le câble d'alimentation de la source d'alimentation.
+
+
+. Faites tourner la poignée de came de façon à pouvoir tirer le bloc d'alimentation hors du module de contrôleur tout en appuyant sur la patte de verrouillage.
++
+[CAUTION]
+====
+L'alimentation est en court-circuit. Utilisez toujours deux mains pour le soutenir lors du retrait du module de contrôleur afin qu'il ne bascule pas brusquement et ne vous blesse pas.
+
+====
++
+image::../media/drw_a250_replace_psu.png[drw a250 remplacer psu]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Languette bleue de verrouillage du bloc d'alimentation 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Alimentation électrique
+
+|===
+. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module de contrôleur, puis poussez doucement le bloc d'alimentation dans le module de contrôleur jusqu'à ce que la languette de verrouillage s'enclenche.
++
+Les blocs d'alimentation ne s'enclenteront correctement qu'avec le connecteur interne et se verrouillent d'une seule manière.
+
++
+
+NOTE: Pour éviter d'endommager le connecteur interne, ne pas exercer de force excessive lors du glissement du bloc d'alimentation dans le système.
+
+. Rebranchez le câblage du bloc d'alimentation :
++
+.. Rebranchez le câble d'alimentation au bloc d'alimentation et à la source d'alimentation.
+.. Fixez le câble d'alimentation à l'alimentation à l'aide de la retenue du câble d'alimentation.
+
+
++
+Une fois l'alimentation rétablie, la LED d'état doit être verte.
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"^] pour plus d'informations.
+

@@ -1,0 +1,304 @@
+---
+permalink: a700s/pci-cards-and-risers-replace.html 
+sidebar: sidebar 
+keywords: aff a700s, aff, a700s, replace, pcie, card, disconnect, cable, riser, shut, down, reinstall, complete, replacement, process, replace a pcie card, shut down the impaired controller, remove the controller module, replace a pcie card, reinstall the controller module, complete the replacement process 
+summary: Pour remplacer une carte PCIe, vous devez déconnecter les câbles des cartes de la carte de montage, retirer la carte de montage, remplacer la carte de montage, puis recâter les cartes de cette carte de montage. 
+---
+= Remplacement d'une carte PCIe - AFF A700s
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer une carte PCIe, vous devez déconnecter les câbles des cartes de la carte de montage, retirer la carte de montage, remplacer la carte de montage, puis recâter les cartes de cette carte de montage.
+
+* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+[role="lead"]
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=_number_of_hours_down_h`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Si le contrôleur défectueux fait partie d'une paire HA, désactivez le rétablissement automatique à partir de la console du contrôleur en bon état : `storage failover modify -node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y`.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+[role="lead"]
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Débranchez l'alimentation du module de contrôleur de la source, puis débranchez le câble du bloc d'alimentation.
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a700s_pcm_remove.png[retrait du module de commande du module de commande du système drw a700s]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquet de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Placez le module de commande sur une surface plane et stable, puis ouvrez la conduite d'air :
++
+.. Appuyer sur les languettes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de contrôleur.
+.. Faites glisser le conduit d'air vers les modules de ventilateur, puis tournez-le vers le haut jusqu'à sa position complètement ouverte.
++
+image::../media/drw_a700s_open_air_duct.png[conduit d'air ouvert drw a700s]
+
+
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Pattes de verrouillage du conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Redresseurs
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Conduit d'air
+
+|===
+
+
+
+
+== Étape 3 : remplacer une carte PCIe
+
+[role="lead"]
+Pour remplacer une carte PCIe, vous devez retirer le câblage et les SFP des ports des cartes PCIe de la carte de montage cible, retirer la carte de montage du module de contrôleur, retirer et remplacer la carte PCIe, réinstaller la carte de montage et la remettre en place.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez la carte de montage PCIe du module de contrôleur :
++
+.. Retirez tous les modules SFP qui peuvent se trouver dans les cartes PCIe.
+.. Faites pivoter le loquet de verrouillage du module sur le côté gauche de la rehausse vers le haut et vers les modules de ventilateur.
++
+La carte de montage PCIe s'élève légèrement du module de contrôleur.
+
+.. Soulevez la carte de montage PCIe, déplacez-la vers les ventilateurs de manière à ce que la lèvre métallique de la carte de montage se dégage du bord du module de contrôleur, soulevez la carte de montage pour la sortir du module de contrôleur, puis placez-la sur une surface plane et stable.
++
+image::../media/drw_a700s_pcie_replace.png[remplacement pcie de l'analyseur drw a700s]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Loquet de verrouillage de la rehausse
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Support de verrouillage de carte
+
+
+
+ a| 
+image:../media/legend_icon_04.png[""]
+ a| 
+Carte de montage 2 (carte de montage centrale) et cartes PCI dans les logements de montage 2 et 3.
+
+|===
+
+
+. Retirez la carte PCIe de la carte de montage :
++
+.. Tournez la carte de montage pour accéder à la carte PCIe.
+.. Appuyez sur le support de verrouillage situé sur le côté de la carte de montage PCIe, puis faites-le pivoter en position ouverte.
+.. Retirez la carte PCIe de la carte de montage.
+
+
+. Installez la carte PCIe dans le même logement dans la carte de montage PCIe :
++
+.. Alignez la carte avec le guide de la carte de montage et le support de la carte dans la carte de montage, puis faites-la glisser à l'équerre dans le support de la carte de montage.
++
+
+NOTE: Assurez-vous que la carte est correctement insérée dans le support de montage.
+
+.. Faites pivoter le loquet de verrouillage jusqu'à ce qu'il s'enclenche en position verrouillée.
+
+
+. Installez la carte de montage dans le module de contrôleur :
++
+.. Alignez la lèvre de la carte de montage avec la partie inférieure de la tôle du module de contrôleur.
+.. Guidez la carte de montage le long des broches du module de contrôleur, puis abaissez la carte de montage dans le module de contrôleur.
+.. Faites pivoter le loquet de verrouillage vers le bas et cliquez dessus en position verrouillée.
++
+Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de la carte de montage et la carte de montage est placée directement dans le module de contrôleur.
+
+.. Réinsérez tous les modules SFP retirés des cartes PCIe.
+
+
+
+
+
+
+== Étape 4 : réinstallez le module de contrôleur
+
+[role="lead"]
+Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Si ce n'est déjà fait, fermer le conduit d'air :
++
+.. Faire basculer la conduite d'air complètement vers le bas jusqu'au module de commande.
+.. Faites glisser la conduite d'air vers les surmontoirs jusqu'à ce que les pattes de verrouillage s'enclenchent.
+.. Inspecter le conduit d'air pour s'assurer qu'il est correctement installé et verrouillé en place.
++
+image::../media/drw_a700s_close_air_duct.png[drw a700s fermer la conduite d'air]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Languettes de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Faire glisser le plongeur
+
+|===
+
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Branchez le cordon d'alimentation dans le bloc d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis connectez le bloc d'alimentation à la source d'alimentation.
+. Terminez la réinstallation du module de contrôleur :
++
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+.. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
+
+
+. Si votre système est configuré pour prendre en charge l'interconnexion de cluster 10 GbE et les connexions de données sur les cartes réseau 40 GbE ou les ports intégrés, convertissez ces ports en connexions 10 GbE à l'aide de la commande nicadmin convert en mode Maintenance.
++
+
+NOTE: Assurez-vous de quitter le mode Maintenance après avoir terminé la conversion.
+
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 5 : renvoyer la pièce défaillante à NetApp
+
+[role="lead"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

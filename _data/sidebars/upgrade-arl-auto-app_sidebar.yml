@@ -1,0 +1,119 @@
+---
+prefix: upgrade-arl-auto-app
+entries:
+- title: Utiliser le transfert d'agrégats pour mettre à niveau le matériel du contrôleur
+  entries:
+  - title: Présentation
+    url: "/using_aggregate_relocation_to_upgrade_controller_hardware_overview.html"
+  - title: Automatisation du processus de mise à niveau des contrôleurs
+    url: "/automating_the_controller_upgrade_process.html"
+- title: Décider d'utiliser ou non le guide de relocalisation d'agrégats
+  url: "/deciding_whether_to_use_the_aggregate_relocation_guide.html"
+- title: Outils et documentation requis
+  url: "/required_tools_and_documentation.html"
+- title: Instructions de mise à niveau des contrôleurs avec l'ARL
+  url: "/guidelines_for_upgrading_controllers_with_arl.html"
+- title: Vérifier l'état de santé de la configuration MetroCluster
+  url: "/verifying_the_health_of_the_metrocluster_configuration.html"
+- title: Recherchez les erreurs de configuration MetroCluster
+  url: "/checking_for_metrocluster_configuration_errors.html"
+- title: Vérification du basculement, de la résolution et du rétablissement
+  url: "/verifying_switchover,_healing,_and_switchback.html"
+- title: Présentation de la mise à niveau ARL
+  url: "/overview_of_the_arl_upgrade.html"
+- title: Mettre à niveau la paire de nœuds
+  url: "/upgrading_the_node_pair.html"
+- title: Étape 1 préparer la mise à niveau
+  entries:
+  - title: Présentation
+    url: "/stage_1_preparing_for_upgrade_overview.html"
+  - title: Préparer les nœuds pour une mise à niveau
+    url: "/preparing_the_nodes_for_upgrade.html"
+  - title: Procurez-vous une adresse IP d'un serveur de gestion externe des clés pour
+      le cryptage du stockage
+    url: "/getting_an_ip_address_of_an_external_key_management_server_for_storage_encryption.html"
+- title: Étape 2 déplacer et retirer le nœud1
+  entries:
+  - title: Présentation
+    url: "/stage_2_relocating_and_retiring_node1_overview.html"
+  - title: Transférez les agrégats non racine et les LIF de données NAS qui appartiennent
+      au nœud1 vers le nœud2
+    url: "/relocating_non-root_aggregates_and_nas_data_lifs_owned_by_node1_to_node2.html"
+  - title: Le transfert d'agrégats a échoué ou a été veto
+    url: "/relocating_failed_or_vetoed_aggregates.html"
+  - title: Retirer le nœud 1
+    url: "/retiring_node1.html"
+  - title: Préparation à la mise sur le réseau
+    url: "/preparing_for_netboot.html"
+- title: Étape 3 installation et démarrage du nœud 3
+  entries:
+  - title: Présentation
+    url: "/stage_3_installing_and_booting_node3_overview.html"
+  - title: Installez et démarrez le nœud 3
+    url: "/installing_and_booting_node3.html"
+  - title: Définissez la configuration FC ou UTA/UTA2 sur le nœud 3
+    url: "/setting_the_fc_or_uta_uta2_configuration_on_node3.html"
+  - title: Vérifiez l'installation du noeud 3
+    url: "/verifying_the_node3_installation.html"
+  - title: Restaurez la configuration du gestionnaire de clés sur le noeud 3
+    url: "/restoring_key-manager_configuration_on_node3.html"
+  - title: Déplacement des agrégats non racines et des LIF de données NAS qui appartiennent
+      au nœud 1 du nœud 2 vers le nœud 3
+    url: "/moving_non-root_aggregates_and_nas_data_lifs_owned_by_node1_from_node2_to_node3.html"
+- title: Étape 4 déplacer et retirer le node2
+  entries:
+  - title: Présentation
+    url: "/stage_4_relocating_and_retiring_node2_overview.html"
+  - title: Transférez des agrégats non racines et des LIF de données NAS du nœud 2
+      vers le nœud 3
+    url: "/relocating_non-root_aggregates_and_nas_data_lifs_from_node2_to_node3.html"
+  - title: Retrait du nœud 2
+    url: "/retiring_node2.html"
+- title: Étape 5 installation et démarrage du node4
+  entries:
+  - title: Présentation
+    url: "/stage_5_installing_and_booting_node4_overview.html"
+  - title: Installez et démarrez Node4
+    url: "/installing_and_booting_node4.html"
+  - title: Définissez la configuration FC ou UTA/UTA2 sur le nœud 4
+    url: "/setting_the_fc_or_uta_uta2_configuration_on_node4.html"
+  - title: Vérifiez l'installation du node4
+    url: "/verifying_the_node4_installation.html"
+  - title: Restaurez la configuration du gestionnaire de clés sur le nœud 4
+    url: "/restoring_key-manager_configuration_on_node4.html"
+  - title: Déplacement des agrégats non racines et des LIF de données NAS qui appartiennent
+      au nœud 2 du nœud 3 vers le nœud 4
+    url: "/moving_non-root_aggregates_and_nas_data_lifs_owned_by_node2_from_node3_to_node4.html"
+- title: Étape 6 terminez la mise à niveau
+  entries:
+  - title: Présentation
+    url: "/stage_6_completing_the_upgrade_overview.html"
+  - title: Terminer la mise à niveau de la configuration MetroCluster FC
+    url: "/completing_the_upgrade_for_metrocluster_fc_configuration.html"
+  - title: Vérifiez que les nouveaux contrôleurs sont correctement configurés
+    url: "/ensuring_that_the_new_controllers_are_set_up_correctly.html"
+  - title: Configurez Storage Encryption sur le nouveau module de contrôleur
+    url: "/setting_up_storage_encryption_on_the_new_controller_module.html"
+  - title: Configurez NetApp Volume Encryption sur le nouveau module de contrôleur
+    url: "/setting_up_netapp_volume_encryption_on_the_new_controller_module.html"
+  - title: Désaffectation de l'ancien système
+    url: "/decommissioning_the_old_system.html"
+  - title: Reprendre les opérations SnapMirror
+    url: "/resuming_snapmirror_operations.html"
+- title: Dépannage
+  entries:
+  - title: Présentation
+    url: "/troubleshooting_overview.html"
+  - title: Défaillance du transfert d'agrégats
+    url: "/aggregate_relocation_failures.html"
+  - title: Vérifier l'échec du transfert d'agrégat
+    url: "/checking_for_aggregate_relocation_failure.html"
+  - title: Les agrégats situés à l'origine sur le nœud 1 sont détenus par le nœud
+      4 après la fin de la mise à niveau
+    url: "/aggregates_originally_on_node1_are_owned_by_node4_after_completion_of_the_upgrade.html"
+  - title: Redémarre, fonctionne de façon incohérente ou fonctionne tout cycle d'alimentation
+    url: "/reboots_panics_or_power_cycles.html"
+  - title: Problèmes pouvant survenir à plusieurs étapes de la procédure
+    url: "/issues_that_can_arise_in_multiple_stages_of_the_procedure.html"
+  - title: Échec de la migration de LIF
+    url: "/lif_migration_failure.html"

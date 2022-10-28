@@ -1,0 +1,167 @@
+---
+permalink: a700s/bootmedia-replace.html 
+sidebar: sidebar 
+keywords: aff a700s, aff, a700s, locate, fail, boot, media, controller, module, pcie, led, replace, replace the boot media 
+summary: Vous devez localiser le support de démarrage défectueux dans le module de contrôleur en retirant le module PCIe central du module de contrôleur, en localisant le support de démarrage défectueux par le voyant allumé près du support de démarrage, puis en remplaçant le support de démarrage. 
+---
+= Remplacez le support de démarrage - AFF A700s
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez retirer le module de contrôleur du châssis, l'ouvrir, puis remplacer le support de démarrage défectueux.
+
+
+
+== Étape 1 : retirer le module de contrôleur
+
+[role="lead"]
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Débranchez l'alimentation du module de contrôleur de la source, puis débranchez le câble du bloc d'alimentation.
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a700s_pcm_remove.png[retrait du module de commande du module de commande du système drw a700s]
+
+
+
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquet de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Placez le module de commande sur une surface plane et stable, puis ouvrez la conduite d'air :
++
+.. Appuyer sur les languettes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de contrôleur.
+.. Faites glisser le conduit d'air vers les modules de ventilateur, puis tournez-le vers le haut jusqu'à sa position complètement ouverte.
+
+
+
+
+image::../media/drw_a700s_open_air_duct.png[conduit d'air ouvert drw a700s]
+
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Pattes de verrouillage du conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Redresseurs
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Conduit d'air
+
+|===
+
+
+== Étape 2 : remplacer le support de démarrage - AFF A700s
+
+[role="lead"]
+Vous devez localiser le support de démarrage défectueux dans le module de contrôleur en retirant le module PCIe central du module de contrôleur, en localisant le support de démarrage défectueux, puis en remplaçant le support de démarrage.
+
+Vous avez besoin d'un tournevis cruciforme pour retirer la vis qui maintient le support de démarrage en place.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Recherchez le support de démarrage :
++
+.. Ouvrir le conduit d'air, si nécessaire.
+.. Si nécessaire, retirez la carte de montage 2, le module PCIe central, en déverrouillant le loquet de verrouillage, puis en retirant la carte de montage du module de contrôleur.
++
+image::../media/drw_a700s_boot_media_replace.png[remplacement du support de démarrage drw a700s]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Conduit d'air
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Carte de montage 2 (module PCIe central)
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Vis du support de démarrage
+
+
+
+ a| 
+image:../media/legend_icon_04.png[""]
+ a| 
+Support de démarrage
+
+|===
+
+
+. Recherchez le support de démarrage ayant échoué.
+. Retirez le support de démarrage du module de contrôleur :
++
+.. À l'aide d'un tournevis cruciforme n° 1, retirez la vis qui maintient le support de démarrage et mettez la vis de côté en lieu sûr.
+.. Saisissez les côtés du support de coffre, faites pivoter doucement le support de coffre vers le haut, puis tirez le support de coffre hors du support et mettez-le de côté.
+
+
+. Alignez les bords du support de démarrage de remplacement avec le support de démarrage, puis poussez-le doucement dans le support.
+. Vérifiez le support de démarrage pour vous assurer qu'il est bien en place dans le support.
++
+Si nécessaire, retirez le support de démarrage et réinstallez-le dans le support.
+
+. Faites pivoter le support de démarrage vers le bas jusqu'à ce qu'il soit aligné sur la carte mère.
+. Fixez le support de démarrage à l'aide de la vis.
++
+
+NOTE: Ne serrez pas trop la vis. Cela pourrait fissurer la carte de circuit du support de démarrage.
+
+. Réinstallez la carte de montage dans le module de contrôleur.
+. Fermer le conduit d'air :
++
+.. Faire pivoter le conduit d'air vers le bas.
+.. Faites glisser le conduit d'air vers les surmontoirs jusqu'à ce qu'il s'enclenche.
+
+
+

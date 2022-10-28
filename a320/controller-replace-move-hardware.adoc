@@ -1,0 +1,263 @@
+---
+permalink: a320/controller-replace-move-hardware.html 
+sidebar: sidebar 
+keywords: aff a320, move the controller module hardware 
+summary: Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance. 
+---
+= Remplacez le matériel du module de contrôleur - AFF A320
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance.
+
+
+
+== Étape 1 : retirer le module de contrôleur
+
+Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
+
+Vous pouvez utiliser les images suivantes ou les étapes écrites pour retirer le module de contrôleur du châssis.
+
+L'image suivante montre le retrait des câbles et des bras de gestion des câbles du module de contrôleur pour facultés affaiblies :
+
+image::../media/drw_a320_controller_cable_unplug_animated_gif.png[câble du contrôleur drw a320 débrancher le gif animé]
+
+L'image suivante montre le retrait du module de contrôleur défaillant du châssis :
+
+image::../media/drw_a320_controller_remove_animated_gif.png[le contrôleur drw a320 supprime le gif animé]
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez l'alimentation du module de contrôleur de la source d'alimentation.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez et mettez de côté les dispositifs de gestion des câbles des côtés gauche et droit du module de contrôleur.
+. Retirer le module de contrôleur du châssis :
++
+.. Insérez l'index dans le mécanisme de verrouillage de chaque côté du module de contrôleur.
+.. Appuyez sur la languette orange située sur la partie supérieure du mécanisme de verrouillage jusqu'à ce qu'elle se dégage de la goupille de verrouillage du châssis.
++
+Le crochet du mécanisme de verrouillage doit être presque vertical et doit être dégagé de l'axe du châssis.
+
+.. Tirez doucement le module de contrôleur de quelques pouces vers vous pour pouvoir saisir les côtés du module de contrôleur.
+.. A l'aide des deux mains, tirez doucement le module de contrôleur hors du châssis et posez-le sur une surface plane et stable.
+
+
+
+
+
+
+== Étape 2 : déplacer les blocs d'alimentation
+
+Lorsque vous remplacez un module de contrôleur, vous devez déplacer le bloc d'alimentation du module de contrôleur endommagé vers le module de contrôleur de remplacement.
+
+. Faites tourner la poignée de came de façon à pouvoir tirer le bloc d'alimentation hors du module de contrôleur tout en appuyant sur la patte de verrouillage bleue.
++
+
+CAUTION: L'alimentation est en court-circuit. Utilisez toujours deux mains pour le soutenir lors du retrait du module de contrôleur afin qu'il ne bascule pas brusquement et ne vous blesse pas.
+
+. Déplacez le bloc d'alimentation vers le nouveau module de contrôleur, puis installez-le.
+. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module de contrôleur, puis poussez doucement le bloc d'alimentation dans le module de contrôleur jusqu'à ce que la languette de verrouillage s'enclenche.
++
+Les blocs d'alimentation ne s'enclenteront correctement qu'avec le connecteur interne et se verrouillent d'une seule manière.
+
++
+
+NOTE: Pour éviter d'endommager le connecteur interne, ne pas exercer de force excessive lors du glissement du bloc d'alimentation dans le système.
+
+
+
+
+
+== Étape 3 : déplacez la batterie NVDIMM
+
+Pour déplacer la batterie NVDIMM du module de contrôleur défaillant vers le module de contrôleur de remplacement, vous devez effectuer une séquence spécifique d'étapes.
+
+Vous pouvez utiliser l'illustration suivante ou les étapes écrites pour déplacer la batterie NVDIMM du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+
+image::../media/drw_a320_nvbat_move_animated_gif.png[image gif animée drw a320 nvbat move]
+
+. Localisez la batterie NVDIMM dans le module de contrôleur.
+. Localisez la fiche mâle batterie et appuyez sur le clip situé sur la face de la fiche mâle batterie pour libérer la fiche de la prise, puis débranchez le câble de batterie de la prise.
+. Saisissez la batterie et appuyez sur la languette de verrouillage bleue indiquant « POUSSER », puis soulevez la batterie pour la sortir du support et du module de contrôleur.
+. Placer la batterie sur le module de contrôleur de remplacement.
+. Alignez le module de batterie avec l'ouverture de la batterie, puis poussez doucement la batterie dans son logement jusqu'à ce qu'elle s'enclenche.
++
+
+NOTE: Ne rebranchez pas le câble de la batterie sur la carte mère tant que vous n'y êtes pas invité.
+
+
+
+
+
+== Étape 4 : déplacer le support de démarrage
+
+Vous devez localiser le support de démarrage, puis suivre les instructions pour le retirer du module de contrôleur pour facultés affaiblies et l'insérer dans le module de contrôleur de remplacement.
+
+Vous pouvez utiliser l'illustration suivante ou les étapes écrites pour déplacer le support de démarrage du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+
+image::../media/drw_a320_boot_media_move_animated_gif.png[image gif animée du mouvement du support de démarrage drw a320]
+
+. Ouvrez le conduit d'air et localisez le support de démarrage à l'aide de l'illustration ou du mappage des FRU sur le module de contrôleur :
+. Recherchez et retirez le support de démarrage du module de contrôleur :
++
+.. Appuyez sur le bouton bleu à l'extrémité du support de démarrage jusqu'à ce que le rebord du support de démarrage disparaisse du bouton bleu.
+.. Faites pivoter le support de démarrage vers le haut et retirez doucement le support de démarrage du support.
+
+
+. Déplacez le support de démarrage vers le nouveau module de contrôleur, alignez les bords du support de démarrage avec le boîtier du support, puis poussez-le doucement dans le support.
+. Vérifiez le support de démarrage pour vous assurer qu'il est bien en place dans le support.
++
+Si nécessaire, retirez le support de démarrage et réinstallez-le dans le support.
+
+. Verrouillez le support de démarrage en place :
++
+.. Faites pivoter le support de démarrage vers le bas, vers la carte mère.
+.. En plaçant un doigt à l'extrémité du support de démarrage par le bouton bleu, appuyez sur l'extrémité du support de démarrage pour engager le bouton de verrouillage bleu.
+.. Tout en appuyant sur le support de démarrage, soulevez le bouton de verrouillage bleu pour verrouiller le support de démarrage en place.
+
+
+
+
+
+
+== Étape 5 : déplacez les modules DIMM
+
+Vous devez localiser les modules DIMM, puis les déplacer du module de contrôleur défaillant vers le module de contrôleur de remplacement.
+
+Vous devez avoir le nouveau module de contrôleur prêt pour pouvoir déplacer les modules DIMM directement du module de contrôleur défaillant vers les logements correspondants du module de contrôleur de remplacement.
+
+Vous pouvez utiliser les illustrations suivantes ou les étapes écrites pour déplacer les modules DIMM du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+
+image::../media/drw_a320_dimm_move_animated_gif.png[image gif animée déplacement du dimm du drw a320]
+
+. Localisez les modules DIMM de votre module de contrôleur.
++
+image::../media/drw_a320_dimm_map.png[carte dimm drw a320]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Conduit d'air 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+** Emplacements DIMM système : 2,4, 7, 9, 13, 15, 18 et 20
+** Emplacement NVDIMM : 11
++
+
+NOTE: L'aspect NVDIMM est très différent de celui des DIMM système.
+
+
+
+|===
+. Notez l'orientation du module DIMM dans le support afin que vous puissiez insérer le module DIMM dans le module de remplacement dans le bon sens.
+. Vérifiez que la batterie NVDIMM n'est pas branchée sur le nouveau module de contrôleur.
+. Déplacez les modules DIMM du module de contrôleur défaillant vers le module de contrôleur de remplacement :
++
+
+NOTE: Assurez-vous d'installer chaque module DIMM dans le même emplacement qu'il est occupé dans le module de contrôleur défaillant.
+
++
+.. Éjectez le module DIMM de son logement en écartant lentement les languettes de l'éjecteur de DIMM de chaque côté du module DIMM, puis en faisant glisser le module DIMM hors de son logement.
++
+
+NOTE: Tenez soigneusement le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+
+.. Localisez le slot DIMM correspondant sur le module de contrôleur de remplacement.
+.. Assurez-vous que les languettes de l'éjecteur de DIMM sur le support DIMM sont en position ouverte, puis insérez le module DIMM directement dans le support.
++
+Les barrettes DIMM s'adaptent bien dans le support, mais elles devraient être facilement intégrées. Si ce n'est pas le cas, réalignez le module DIMM avec le support et réinsérez-le.
+
+.. Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le support.
+.. Répétez ces sous-étapes pour les modules DIMM restants.
+
+
+. Branchez la batterie NVDIMM sur la carte mère.
++
+Assurez-vous que la fiche se verrouille sur le module de contrôleur.
+
+
+
+
+
+== Étape 6 : déplacez les cartes de montage PCIe
+
+Vous devez déplacer les cartes de montage PCIe, avec les cartes PCIe installées, du module de contrôleur pour personnes avec facultés affaiblies au module de contrôleur de remplacement.
+
+Vous pouvez utiliser l'illustration suivante ou les étapes écrites pour déplacer les cartes de montage PCIe du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+
+image::../media/drw_a320_pci_riser_move_animated_gif.png[image gif animée déplacement de la carte de montage pci a320 drw]
+
+. Retirez le capot des cartes de montage PCIe en dévissant la vis moletée bleue du capot, faites glisser le capot vers vous, faites pivoter le capot vers le haut, retirez-le du module de contrôleur, puis mettez-le de côté.
+. Retirez les cartes de montage vides du module de contrôleur de remplacement.
++
+.. Placez votre index dans le trou situé sur le côté gauche du module de montage et saisissez la carte de montage avec votre pouce.
+.. Soulevez la carte de montage pour la sortir de la baie, puis mettez-la de côté.
+.. Répétez ces sous-étapes pour la deuxième carte de montage.
+
+
+. Déplacez les cartes de montage PCIe du module de contrôleur pour personnes en état de marche vers les mêmes baies de montage sur le module de contrôleur de remplacement :
++
+.. Retirez une carte de montage du module de contrôleur défaillant et placez-la dans le module de contrôleur de remplacement.
+.. Abaissez la carte de montage dans la baie de manière à ce qu'elle soit carrée avec la baie et que les broches de la carte de montage glissent dans les trous de guidage à l'arrière de la baie.
+.. Insérez la carte de montage dans la prise de la carte mère tout droit dans le support en exerçant une pression vers le bas, le long des bords de la carte de montage, jusqu'à ce qu'elle soit bien en place.
++
+La rehausse doit s'asseoir sans à-coups avec peu de résistance. Réinstallez la carte de montage dans la baie si vous constatez une résistance importante, insérez la carte de montage dans le support.
+
+.. Répétez ces sous-étapes pour la deuxième carte de montage.
+.. Réinstallez le capot au-dessus des cartes de montage PCIe.
+
+
+
+
+
+
+== Étape 7 : installer le module de contrôleur
+
+Après avoir déplacé tous les composants du module de contrôleur défaillant vers le module de contrôleur de remplacement, vous devez installer le module de contrôleur de remplacement dans le châssis, puis le démarrer en mode maintenance.
+
+Vous pouvez utiliser l'illustration suivante ou les étapes écrites pour installer le module de contrôleur de remplacement dans le châssis.
+
+image::../media/drw_a320_controller_install_animated_gif.png[image gif animée sur l'installation du contrôleur drw a320]
+
+. Si ce n'est déjà fait, fermez le conduit d'air à l'arrière du module de contrôleur et réinstallez le couvercle sur les cartes PCIe.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
++
+
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+
+. Terminez la réinstallation du module de contrôleur :
++
+.. S'assurer que les bras de verrouillage sont verrouillés en position étendue.
+.. A l'aide des bras de verrouillage, poussez le module de contrôleur dans la baie du châssis jusqu'à ce qu'il s'arrête.
+.. Appuyez sur les languettes orange du haut du mécanisme de verrouillage et maintenez-les enfoncées.
+.. Poussez doucement le module contrôleur dans la baie du châssis jusqu'à ce qu'il affleure les bords du châssis.
++
+
+NOTE: Les bras du mécanisme de verrouillage coulissent dans le châssis.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+.. Libérer les loquets pour verrouiller le module de contrôleur en place.
+.. Recâblage du bloc d'alimentation.
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Interrompre le processus de démarrage normal en appuyant sur `Ctrl-C`.
+
+
+

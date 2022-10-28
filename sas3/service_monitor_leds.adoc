@@ -1,0 +1,340 @@
+---
+permalink: sas3/service-monitor-leds.html 
+sidebar: sidebar 
+keywords: monitor, health, disk, shelf, location, status, condition, led, component, operator, display, panel, iom12, power, supply, fan, ds460c, shelves, drive, monitor disk shelf leds, operator display panel leds, iom12 module leds, power supply leds, fan leds on ds460c disk shelves, disk drive leds 
+summary: 'Vous pouvez contrôler l"état de santé du tiroir disque en indiquant l"emplacement et l"état des LED des composants de votre tiroir disque.' 
+---
+= Surveillez les LED de tiroir disque - tiroirs avec modules IOM12/IOM12B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez contrôler l'état de santé du tiroir disque en indiquant l'emplacement et l'état des LED des composants de votre tiroir disque.
+
+
+
+== Voyants du panneau d'affichage de l'opérateur
+
+[role="lead"]
+Les LED situées sur le panneau d'affichage avant de l'opérateur du tiroir disque indiquent si votre tiroir disque fonctionne normalement ou s'il existe des problèmes de matériel.
+
+Le tableau suivant décrit les trois LED du panneau d'affichage de l'opérateur utilisées dans les tiroirs disques DS460C, DS224C et DS212C :
+
+[cols="4*"]
+|===
+| Icône LED | Nom DU VOYANT | État | Description 
+
+
+ a| 
+image:../media/drw_sas_power_icon.png[""]
+ a| 
+Puissance
+ a| 
+Vert fixe
+ a| 
+Un ou plusieurs blocs d'alimentation fournissent l'alimentation au tiroir disque.
+
+
+
+.2+| image:../media/drw_sas_fault_icon.png[""] .2+| Attention  a| 
+Orange fixe
+ a| 
+Une erreur s'est produite au niveau de la fonction d'une ou plusieurs unités remplaçables sur site : tiroir disque, disques, modules IOM12 ou blocs d'alimentation.
+
+Consultez les messages d'événement pour déterminer les mesures correctives à prendre.
+
+
+
+ a| 
+Orange clignotant
+ a| 
+L'ID de tiroir est défini sur un état en attente.
+
+Mettez le tiroir disque hors tension puis sous tension afin que l'ID de tiroir prenne effet.
+
+
+
+ a| 
+image:../media/drw_sas3_location_icon.gif[""]
+ a| 
+Emplacement
+ a| 
+Bleu fixe
+ a| 
+L'administrateur système a activé cette fonction à LED afin de faciliter la localisation physique du tiroir disque devant être mis en service.
+
+La LED d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12 s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.
+
+|===
+Selon votre modèle de tiroir disque, le panneau d'affichage de l'opérateur semble différent ; cependant, les trois LED sont disposées de la même manière.
+
+L'illustration suivante est un panneau opérateur de tiroir disque DS224C avec le capuchon d'extrémité activé :
+
+image::../media/drw_opd.gif[opd. drw]
+
+
+
+== LED du module IOM12
+
+[role="lead"]
+Les voyants du module IOM12 indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il y a des problèmes avec le matériel.
+
+Le tableau suivant décrit les LED du module IOM12 associées à la fonction du module et à la fonction de chaque port SAS du module.
+
+Le module IOM12 est utilisé avec les tiroirs disques DS460C, DS224C et DS212C.
+
+[cols="4*"]
+|===
+| Icône LED | Nom DU VOYANT | État | Description 
+
+
+ a| 
+image:../media/drw_sas_fault_icon.png[""]
+ a| 
+Attention
+ a| 
+Orange fixe
+ a| 
+Fonction du module IOM12 : une erreur s'est produite au niveau de la fonction du module IOM12.
+
+Fonction du port SAS : moins de quatre couloirs SAS ont établi une liaison (avec un adaptateur ou un autre tiroir disque).
+
+Consultez les messages d'événement pour déterminer les mesures correctives à prendre.
+
+
+
+ a| 
+NK
+ a| 
+Liaison de port
+ a| 
+Vert fixe
+ a| 
+Un ou plusieurs des quatre voies SAS ont établi une liaison (avec un adaptateur ou un autre tiroir disque).
+
+
+
+ a| 
+image:../media/drw_sas3_location_icon.gif[""]
+ a| 
+Emplacement
+ a| 
+Bleu fixe
+ a| 
+L'administrateur système a activé cette fonction LED afin de faciliter le positionnement physique du tiroir disque avec le module IOM12 défaillant.
+
+La LED d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12 s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.
+
+|===
+L'illustration suivante concerne un module IOM12 :
+
+image::../media/drw_iom12.gif[drw iom12]
+
+
+
+== LED d'alimentation électrique
+
+[role="lead"]
+Les voyants du bloc d'alimentation indiquent si le bloc d'alimentation fonctionne normalement ou s'il y a des problèmes matériels.
+
+Le tableau suivant décrit les deux LED des blocs d'alimentation utilisés dans les tiroirs disques DS460C, DS224C et DS212C :
+
+[cols="4*"]
+|===
+| Icône LED | Nom DU VOYANT | État | Description 
+
+
+.2+| image:../media/drw_sas_power_icon.png[""] .2+| Puissance  a| 
+Vert fixe
+ a| 
+Le bloc d'alimentation fonctionne correctement.
+
+
+
+ a| 
+Éteint
+ a| 
+Le bloc d'alimentation est défectueux, l'interrupteur CA est éteint, le cordon d'alimentation CA n'est pas correctement installé ou l'alimentation électrique n'est pas correctement fournie.
+
+Consultez les messages d'événement pour déterminer les mesures correctives à prendre.
+
+
+
+ a| 
+image:../media/drw_sas_fault_icon.png[""]
+ a| 
+Attention
+ a| 
+Orange fixe
+ a| 
+Une erreur s'est produite au niveau du fonctionnement de l'alimentation.
+
+Consultez les messages d'événement pour déterminer les mesures correctives à prendre.
+
+|===
+Selon le modèle de tiroir disque, les blocs d'alimentation peuvent être différents et dictez l'emplacement des deux LED.
+
+L'illustration suivante concerne un bloc d'alimentation utilisé dans un tiroir disque DS460C.
+
+Les deux icônes LED servent d'étiquettes et de LED, ce qui signifie que les icônes s'allument elles-mêmes --il n'y a pas de LED adjacentes.
+
+image::../media/28_dwg_e2860_de460c_psu.gif[28 dwg e2860 de460c psu]
+
+L'illustration suivante concerne un bloc d'alimentation utilisé dans un tiroir disque DS224C ou DS212C :
+
+image::../media/drw_powersupply_913w_vsd.gif[alimentation drw 913w vsd]
+
+
+
+== LED du ventilateur des tiroirs disques DS460C
+
+[role="lead"]
+Les voyants des ventilateurs du DS460C indiquent si le ventilateur fonctionne normalement ou s'il y a des problèmes matériels.
+
+Le tableau suivant décrit les LED des ventilateurs utilisés dans les tiroirs disques DS460C :
+
+[cols="4*"]
+|===
+| Élément | Nom DU VOYANT | État | Description 
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Attention
+ a| 
+Orange fixe
+ a| 
+Une erreur s'est produite au niveau de la fonction du ventilateur.
+
+Consultez les messages d'événement pour déterminer les mesures correctives à prendre.
+
+|===
+image:../media/28_dwg_e2860_de460c_single_fan_canister_with_led_callout.gif[""]
+
+
+
+== LED du disque dur
+
+[role="lead"]
+Les voyants d'un lecteur de disque indiquent s'il fonctionne normalement ou s'il y a des problèmes avec le matériel.
+
+
+
+=== LED de disque pour tiroirs disques DS224C et DS212C
+
+Le tableau suivant décrit les deux LED des disques utilisés dans les tiroirs disques DS224C et DS212C :
+
+[cols="4*"]
+|===
+| Légende | Nom DU VOYANT | État | Description 
+
+
+.2+| image:../media/legend_icon_01.png[""] .2+| Activité  a| 
+Vert fixe
+ a| 
+Le lecteur de disque est alimenté.
+
+
+
+ a| 
+Vert clignotant
+ a| 
+Le lecteur de disque est alimenté et les opérations d'E/S sont en cours.
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Attention
+ a| 
+Orange fixe
+ a| 
+Une erreur s'est produite au niveau de la fonction du lecteur de disque.
+
+Consultez les messages d'événement pour déterminer les mesures correctives à prendre.
+
+|===
+Selon le modèle de tiroir disque, les disques sont disposés à la fois verticalement ou horizontalement dans le tiroir disque, afin d'imposer l'emplacement des deux LED.
+
+L'illustration suivante concerne un disque utilisé dans un tiroir disque DS224C.
+
+Les tiroirs disques DS224C utilisent des disques 2.5 pouces disposés verticalement dans le tiroir disque.
+
+image::../media/drw_diskdrive_ds224c.gif[lecteur de disque drw ds224c]
+
+L'illustration suivante concerne un disque utilisé dans un tiroir disque DS212C.
+
+Les tiroirs disques DS212C utilisent des disques 3.5" ou des disques 2.5" dans des supports disposés horizontalement dans le tiroir disque.
+
+image::../media/drw_diskdrive_ds212c.gif[lecteur de disques drw ds212c]
+
+
+
+=== LED de disques pour tiroirs disques DS460C
+
+Le tableau et l'illustration ci-dessous décrit les LED d'activité des disques situées sur le tiroir disque et leurs États opérationnels :
+
+image::../media/2860_dwg_drive_drawer_leds.gif[2860 dwg led du tiroir d'entraînement]
+
+[cols="4*"]
+|===
+| Emplacement | LED | Indicateur d'état | Description 
+
+
+.3+| 1 .3+| Attention : attention aux tiroirs pour chaque tiroir  a| 
+Orange fixe
+ a| 
+Un composant du tiroir d'entraînement nécessite l'intervention de l'opérateur.
+
+
+
+ a| 
+Éteint
+ a| 
+Aucun lecteur ou autre composant dans le tiroir ne nécessite une intervention et aucun lecteur dans le tiroir n'a une opération de localisation active.
+
+
+
+ a| 
+Orange clignotant
+ a| 
+Une opération localiser l'entraînement est active pour tout lecteur dans le tiroir.
+
+
+
+.3+| 2-13 .3+| Activité : activité de lecteur pour les lecteurs 0 à 11 dans le tiroir  a| 
+Vert
+ a| 
+L'alimentation est mise sous tension et le lecteur fonctionne normalement.
+
+
+
+ a| 
+Vert clignotant
+ a| 
+Le lecteur est sous tension et les opérations d'E/S sont en cours.
+
+
+
+ a| 
+Éteint
+ a| 
+L'alimentation est coupée.
+
+|===
+Lorsque le tiroir disque est ouvert, une LED d'avertissement s'affiche devant chaque disque.
+
+image::../media/2860_dwg_amber_on_drive.gif[2860 dwg orange sur le lecteur]
+
+[cols="10,90"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Voyant d'avertissement allumé 
+|===

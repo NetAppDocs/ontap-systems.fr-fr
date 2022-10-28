@@ -1,0 +1,200 @@
+---
+permalink: sas3/service-hot-swap-drive-ds224c-ds212c.html 
+sidebar: sidebar 
+keywords: hot-swap, fail, disk, drive, ds224c, ds212c, disk, shelf-nondisruptive, nondisruptive, replace, i/o, hot-swap a disk drive in a ds224c or ds212c disk shelf 
+summary: 'Il est possible d"échanger à chaud un disque défectueux dans un tiroir disque DS224C ou DS212C.' 
+---
+= Remplacez à chaud un disque dans un tiroir disque DS224C ou DS212C - tiroirs avec des modules IOM12/IOM12B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il est possible d'échanger à chaud un disque défectueux dans un tiroir disque DS224C ou DS212C.
+
+.Avant de commencer
+* Le disque que vous installez doit être pris en charge par le tiroir disque DS224C ou DS212C.
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, contactez le support technique.
+* Le lecteur de disque que vous retirez doit être défectueux.
++
+Vous pouvez vérifier que le lecteur de disque est défectueux en exécutant le `storage disk show -broken` commande. Le lecteur de disque défectueux apparaît dans la liste des lecteurs de disque défectueux. Si ce n'est pas le cas, vous devez attendre et exécuter de nouveau la commande.
+
++
+
+NOTE: Selon le type et la capacité du disque, il peut prendre jusqu'à plusieurs heures pour que le lecteur apparaisse dans la liste des lecteurs de disque défaillants.
+
+* Si vous remplacez un disque à auto-cryptage (SED), vous devez suivre les instructions relatives au remplacement d'un disque SED dans la documentation ONTAP de votre version de ONTAP.
++
+Les instructions de la documentation ONTAP décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
+
++
+https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commandes"]
+
+
+
+.Description de la tâche
+* Pour éviter toute décharge électrostatique (ESD), prenez les mesures suivantes :
++
+** Conservez le lecteur de disque dans le sac ESD jusqu'à ce que vous soyez prêt à l'installer.
+** Ouvrez le sac ESD à la main ou coupez le dessus avec une paire de ciseaux.
++
+
+NOTE: N'insérez pas d'outil métallique ou de couteau dans le sac ESD.
+
+** Portez toujours un bracelet antistatique relié à la terre sur une surface non peinte du châssis de votre boîtier de stockage.
++
+Si un bracelet n'est pas disponible, touchez une surface non peinte du châssis de votre boîtier de stockage avant de manipuler le lecteur de disque.
+
+
+
+* Vous devez prendre des mesures pour manipuler les lecteurs de disque avec précaution :
++
+** Utilisez toujours deux mains pour déposer, installer ou transporter un disque dur pour soutenir son poids.
++
+
+NOTE: Ne placez pas vos mains sur les cartes de lecteur de disque exposées sur le dessous du support de lecteur de disque.
+
+** Vous devez placer les lecteurs de disque sur des surfaces amorties et ne jamais empiler les lecteurs de disque les uns sur les autres.
+** Veillez à ne pas heurter les entraînements de disques contre d'autres surfaces.
+
+
+* Les disques durs doivent être maintenus à l'écart des dispositifs magnétiques.
++
+
+NOTE: Les champs magnétiques peuvent détruire toutes les données du lecteur de disque et causer des dommages irréparables aux circuits du lecteur de disque.
+
+* La meilleure pratique consiste à installer la version la plus récente du Disk qualification Package (DQP) avant de remplacer un disque.
++
+Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser des disques récemment qualifiés. Par conséquent, il ne faut pas tenir compte des messages d'événement système concernant la présence d'informations non à jour sur les lecteurs de disque. Vous évitez également les risques liés au partitionnement de disque, car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Téléchargements NetApp : pack de qualification des disques"^]
+
+* Avant d'ajouter de nouveaux tiroirs disques, des composants d'unités remplaçables sur site pour les tiroirs ou des câbles SAS, il est recommandé d'installer les versions les plus récentes du firmware IOM (module d'E/S) pour le tiroir disque et du firmware pour le disque.
++
+Ces firmwares sont disponibles sur le site du support NetApp.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
+
+* Le micrologiciel du disque est automatiquement mis à jour (sans interruption) sur les nouveaux disques avec des versions de micrologiciel non récentes.
++
+
+NOTE: Les vérifications du firmware du disque dur se font toutes les deux minutes.
+
+* Si nécessaire, vous pouvez activer les LED d'emplacement (bleues) du tiroir disque pour faciliter la localisation physique du tiroir disque concerné : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
++
+Un tiroir disque dispose de trois LED d'emplacement : une sur le panneau d'affichage de l'opérateur et une sur chaque module IOM12. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l'option Désactivé.
+
+* Si nécessaire, reportez-vous à la section Monitoring des LED du tiroir disque pour plus d'informations sur la signification et l'emplacement des LED du tiroir disque sur le panneau d'affichage de l'opérateur et les composants FRU.
+
+
+.Étapes
+. Si vous souhaitez attribuer manuellement la propriété du disque de remplacement, vous devez désactiver l'affectation automatique des disques s'il est activé. Sinon, passez à l'étape suivante.
++
+
+NOTE: Vous devez attribuer manuellement la propriété des disques si les disques de la pile sont la propriété des deux contrôleurs d'une paire haute disponibilité.
+
++
+
+NOTE: Vous affectez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.
+
++
+.. Vérifiez si l'affectation automatique des disques est activée :``storage disk option show``
++
+Si vous disposez d'une paire haute disponibilité, vous pouvez saisir la commande au niveau de la console d'un autre contrôleur.
+
++
+Si l'affectation automatique des lecteurs est activée, la sortie indique « activé » (pour chaque contrôleur) dans la colonne « affectation automatique ».
+
+.. Si l'affectation automatique des disques est activée, vous devez la désactiver :``storage disk option modify -node _node_name_ -autoassign off``
++
+Vous devez désactiver l'affectation automatique des disques sur les deux contrôleurs d'une paire haute disponibilité.
+
+
+
+. Mettez-vous à la terre.
+. Déballez le nouveau lecteur de disque et placez-le sur une surface plane à proximité du tiroir disque.
++
+Conservez tous les matériaux d'emballage pour le retour du disque défectueux.
+
++
+
+NOTE: NetApp exige que tous les disques retournés soient dans un sac conforme aux normes ESD.
+
+. Identifiez physiquement le disque défectueux à partir du message d'avertissement de la console système et le voyant d'avertissement allumé (orange) sur le disque dur.
++
+
+NOTE: Le voyant d'activité (vert) d'un disque défectueux peut être allumé (en continu), ce qui indique que le disque est sous tension, mais ne doit pas clignoter, ce qui indique une activité d'E/S. Un disque défectueux n'a pas d'activité d'E/S.
+
+. Appuyez sur le bouton de dégagement situé sur la face du lecteur de disque, puis tirez la poignée de came jusqu'à sa position d'ouverture complète pour libérer le lecteur de disque du plan médian.
++
+Lorsque vous appuyez sur le bouton de déverrouillage, la poignée de came des ressorts d'entraînement de disque s'ouvre partiellement.
+
++
+
+NOTE: Les disques d'un tiroir disque DS212C sont disposés de manière horizontale avec le bouton de déverrouillage, situé à gauche de la face du disque. Les disques d'un tiroir disque DS224C sont disposés verticalement avec le bouton de libération situé en haut de la face du disque.
+
++
+Les éléments suivants présentent les disques dans un tiroir disque DS212C :
+
++
+image::../media/drw_drive_open_no_bezel.png[le lecteur drw ne s'ouvre pas]
+
++
+Voici les avantages pour les disques d'un tiroir disque DS224C :
+
++
+image::../media/2240_removing_disk_no_bezel.png[2240 retrait du disque pas de cadre]
+
+. Faites glisser légèrement le disque pour le faire tourner en toute sécurité, puis retirez-le du tiroir disque.
++
+Un disque dur peut prendre jusqu'à une minute pour s'arrêter en toute sécurité.
+
++
+
+NOTE: Lors de la manipulation d'un disque dur, toujours utiliser deux mains pour soutenir son poids.
+
+. À l'aide de deux mains, placez la poignée de came en position ouverte, insérez le disque de remplacement dans le tiroir disque en poussant fermement jusqu'à ce que l'entraînement s'arrête.
++
+
+NOTE: Attendre au moins 10 secondes avant d'insérer un nouveau lecteur de disque. Ceci permet au système de reconnaître qu'un lecteur de disque a été retiré.
+
++
+
+NOTE: Ne placez pas les mains sur les cartes de disque exposées sur le dessous du support de disque.
+
+. Fermez la poignée de came de façon à ce que le lecteur de disque soit bien en place dans le plan médian et que la poignée s'enclenche.
++
+Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur la face de l'entraînement de disque.
+
+. Si vous remplacez un autre lecteur de disque, répétez les étapes 3 à 8.
+. Vérifiez que le voyant d'activité (vert) du disque est allumé.
++
+Lorsque le voyant d'activité du disque est vert, cela signifie que le disque est sous tension. Lorsque le voyant d'activité du lecteur de disque clignote, cela signifie que le lecteur de disque est alimenté et que les E/S sont en cours. Si le micrologiciel du lecteur de disque est mis à jour automatiquement, le voyant clignote.
+
+. Si vous avez désactivé l'affectation automatique des disques à l'étape 1, attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques si nécessaire :
++
+.. Afficher tous les disques non possédés :``storage disk show -container-type unassigned``
+.. Affectez chaque disque :``storage disk assign -disk _disk_name_ -owner _owner_name_``
++
+Vous pouvez utiliser le caractère générique pour attribuer plusieurs disques à la fois.
+
+.. Réactivez l'affectation automatique des disques si nécessaire :``storage disk option modify -node _node_name_ -autoassign on``
++
+Vous devez à nouveau activer l'affectation automatique des disques sur les deux contrôleurs d'une paire haute disponibilité.
+
+
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
++
+Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
+
+

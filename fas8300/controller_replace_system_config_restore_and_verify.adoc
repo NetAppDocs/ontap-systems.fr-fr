@@ -1,0 +1,105 @@
+---
+permalink: fas8300/controller-replace-system-config-restore-and-verify.html 
+sidebar: sidebar 
+keywords: fas8300, fas8700, restore and verify the system configuration, verify and set the ha state of the controller module, run system-level diagnostics 
+summary: Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire. 
+---
+= Restaurez et vérifiez la configuration du système - FAS8300 et FAS8700
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
+
+
+
+== Étape 1 : définir et vérifier l'heure du système après le remplacement du contrôleur
+
+Vous devez vérifier l'heure et la date du module de contrôleur de remplacement par rapport au module de contrôleur sain dans une paire haute disponibilité, ou par rapport à un serveur de temps fiable dans une configuration autonome. Si la date et l'heure ne correspondent pas, vous devez les réinitialiser sur le module de contrôleur de remplacement pour éviter toute interruption possible sur les clients en raison de différences de temps.
+
+Il est important d'appliquer les commandes dans les étapes sur les systèmes appropriés :
+
+* Le _remplacement_ node est le nouveau noeud qui a remplacé le noeud douteux dans le cadre de cette procédure.
+* Le _Healthy_ node est le partenaire HA du _replace_ node.
+
+
+.Étapes
+. Si le _remplacement_ node n'est pas à l'invite DU CHARGEUR, arrêtez le système à l'invite DU CHARGEUR.
+. Sur le noeud _Healthy_, vérifiez l'heure du système : `show date`
++
+La date et l'heure sont indiquées en GMT.
+
+. À l'invite DU CHARGEUR, vérifiez la date et l'heure sur le noeud _remplacement_ : `show date`
++
+La date et l'heure sont indiquées en GMT.
+
+. Si nécessaire, définissez la date en GMT sur le nœud de remplacement : `set date _mm/dd/yyyy_`
+. Si nécessaire, définissez l'heure en GMT sur le nœud de remplacement : `set time _hh:mm:ss_`
+. À l'invite DU CHARGEUR, confirmez la date et l'heure sur le noeud _remplacement_ : `show date`
++
+La date et l'heure sont indiquées en GMT.
+
+
+
+
+
+== Étape 2 : vérifier et définir l'état HA du module de contrôleur
+
+Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
+
+. En mode Maintenance à partir du nouveau module de contrôleur, vérifier que tous les composants affichent la même valeur `HA` état : `ha-config show`
++
+L'état de la HA doit être le même pour tous les composants.
+
+. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le `HA` état pour le module de contrôleur : `ha-config modify controller ha-state`
++
+La valeur pour `HA-state` peut être l'une des suivantes :
+
++
+** `ha`
+** `mcc`
+** `mcc-2n`
+** `mccip`
+** `non-ha`
+
+
+. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le `HA` état pour le module de contrôleur : `ha-config modify controller ha-state`
+. Vérifiez que le paramètre a changé : `ha-config show`
+
+
+
+
+== Étape 3 : exécutez les diagnostics
+
+Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
+
+Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
+
+Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
+
+. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node _node_name_`
++
+Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
+
+. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
+. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
+. Sélectionnez *Test System* dans le menu affiché pour exécuter les tests de diagnostic.
+. Sélectionnez le test ou la série de tests dans les différents sous-menus.
+. Procédez comme suit en fonction du résultat de l'étape précédente :
++
+** Si le test a échoué, corrigez la défaillance, puis relancez le test.
+** Si le test n'a signalé aucune défaillance, sélectionnez `Reboot` dans le menu pour redémarrer le système.
++
+
+NOTE: Au cours du processus de démarrage, les invites suivantes peuvent s'afficher :
+
++
+*** Un message d'avertissement indiquant une discordance d'ID système et demandant de remplacer l'ID système.
+*** Un avertissement s'affiche lorsque vous passez en mode maintenance dans une configuration HA, vous devez vous assurer que le contrôleur en bon état reste arrêté. Vous pouvez répondre en toute sécurité `y` à ces invites.
+
+
+
+
+

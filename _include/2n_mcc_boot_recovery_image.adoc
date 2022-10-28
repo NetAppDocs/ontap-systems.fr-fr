@@ -1,0 +1,34 @@
+= 
+:allow-uri-read: 
+
+
+Vous devez démarrer l'image ONTAP à partir du lecteur USB et vérifier les variables environnementales.
+
+Cette procédure s'applique aux systèmes dotés d'une configuration MetroCluster à deux nœuds.
+
+.Étapes
+. À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`
++
+L'image est téléchargée à partir de la clé USB.
+
+. Lorsque vous y êtes invité, entrez le nom de l'image ou acceptez l'image par défaut affichée entre crochets sur votre écran.
+. Une fois l'image installée, démarrez le processus de restauration :
++
+.. Appuyez sur `n` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. Appuyez sur `y` lorsque vous êtes invité à redémarrer le système pour commencer à utiliser le nouveau logiciel installé.
++
+Vous devez être prêt à interrompre le processus d'amorçage lorsque vous y êtes invité.
+
+
+
+. Lorsque le système démarre, appuyez sur `Ctrl-C` après que vous ayez vu le `Press Ctrl-C for Boot Menu` Message. Et lorsque le menu de démarrage est affiché, sélectionnez l'option 6.
+. Vérifiez que les variables d'environnement sont définies comme prévu.
++
+.. Prenez le nœud vers l'invite DU CHARGEUR.
+.. Vérifiez les paramètres de la variable d'environnement à l'aide de l' `printenv` commande.
+.. Si une variable d'environnement n'est pas définie comme prévu, modifiez-la avec le `setenv __environment-variable-name__ __changed-value__` commande.
+.. Enregistrez vos modifications à l'aide du `savenv` commande.
+.. Redémarrez le nœud.
+
+
+

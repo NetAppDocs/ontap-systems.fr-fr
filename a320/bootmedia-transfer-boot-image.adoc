@@ -1,0 +1,179 @@
+---
+permalink: a320/bootmedia-transfer-boot-image.html 
+sidebar: sidebar 
+keywords: aff, a320, aff a320, replacement, boot, media, install, image, transfer, usb, flash, drive, transfer the boot image to the boot media using a usb flash drive 
+summary: 'Le support de démarrage de remplacement que vous avez installé ne dispose pas d"une image d"amorçage. Vous devez donc transférer une image d"amorçage à l"aide d"un lecteur flash USB.' 
+---
+= Transférez l'image de démarrage sur le support de démarrage à l'aide d'une clé USB AFF A320
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le support de démarrage de remplacement que vous avez installé ne dispose pas d'une image d'amorçage. Vous devez donc transférer une image d'amorçage à l'aide d'un lecteur flash USB.
+
+* Vous devez disposer d'une clé USB, formatée en MBR/FAT32, avec au moins 4 Go de capacité
+* Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section Downloads du site de support NetApp
++
+** Si NVE est activé, téléchargez l'image avec NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+** Si NVE n'est pas activé, téléchargez l'image sans NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+
+
+* Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau.
+* Si votre système est un système autonome, vous n'avez pas besoin d'une connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
++
+.. Téléchargez et copiez l'image de service appropriée depuis le site de support NetApp vers le lecteur Flash USB.
++
+... Téléchargez l'image du service sur votre espace de travail sur votre ordinateur portable.
+... Décompressez l'image du service.
++
+
+NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas winzip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
+
++
+Le fichier image du service décompressé contient deux dossiers :
+
++
+**** démarrage
+**** efi
+
+
+... Copiez le dossier efi dans le répertoire supérieur du lecteur flash USB.
++
+Le lecteur flash USB doit avoir le dossier efi et la même version BIOS (Service image) de ce que le contrôleur douteux est en cours d'exécution.
+
+... Retirez la clé USB de votre ordinateur portable.
+
+
+.. Si ce n'est déjà fait, fermer le conduit d'air.
+.. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+.. Réinstallez le périphérique de gestion des câbles et recâblage du système, selon les besoins.
++
+Lors du retrait, n'oubliez pas de réinstaller les convertisseurs de support (SFP ou QSFP) s'ils ont été retirés.
+
+.. Branchez le câble d'alimentation dans le bloc d'alimentation et réinstallez le dispositif de retenue du câble d'alimentation.
+.. Insérez la clé USB dans le logement USB du module de contrôleur.
++
+Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
+
+.. Terminez la réinstallation du module de contrôleur :
++
+image::../media/drw_a320_controller_install_animated_gif.png[image gif animée sur l'installation du contrôleur drw a320]
+
++
+... S'assurer que les bras de verrouillage sont verrouillés en position étendue.
+... A l'aide des bras de verrouillage, poussez le module de contrôleur dans la baie du châssis jusqu'à ce qu'il s'arrête.
++
+
+NOTE: Ne pas pousser le mécanisme de verrouillage en haut des bras de verrouillage vers le bas. Relever le mécanisme de verrouillage et empêcher le déplacement du module de contrôleur dans le châssis.
+
+... Appuyez sur les languettes orange du haut du mécanisme de verrouillage et maintenez-les enfoncées.
+... Poussez doucement le module contrôleur dans la baie du châssis jusqu'à ce qu'il affleure les bords du châssis.
++
+
+NOTE: Les bras du mécanisme de verrouillage coulissent dans le châssis.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+... Libérer les loquets pour verrouiller le module de contrôleur en place.
+... Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+
+
+.. Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
++
+Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
+
+.. Bien que les variables d'environnement et les bootargs soient conservés, vous devez vérifier que toutes les variables d'environnement d'amorçage et les bootargs requis sont correctement définis pour votre type de système et votre configuration à l'aide de l' `printenv bootarg name` commande et corriger les erreurs à l'aide du `setenv variable-name <value>` commande.
++
+... Vérifier les variables d'environnement de boot:
++
+**** `bootarg.init.boot_clustered`
+**** `partner-sysid`
+**** `bootarg.init.flash_optimized` Pour AFF C190/AFF A220 (FAS 100 % Flash)
+**** `bootarg.init.san_optimized` Pour AFF A220 et baies SAN 100 % Flash
+**** `bootarg.init.switchless_cluster.enable`
+
+
+... Si le gestionnaire de clés externe est activé, vérifiez les valeurs d'amorçage répertoriées dans le `kenv` Sortie ASUP :
++
+**** `bootarg.storageencryption.support <value>`
+**** `bootarg.keymanager.support <value>`
+**** `kmip.init.interface <value>`
+**** `kmip.init.ipaddr <value>`
+**** `kmip.init.netmask <value>`
+**** `kmip.init.gateway <value>`
+
+
+... Si Onboard Key Manager est activé, vérifiez les valeurs de démarrage, répertoriées dans le `kenv` Sortie ASUP :
++
+**** `bootarg.storageencryption.support <value>`
+**** `bootarg.keymanager.support <value>`
+**** `bootarg.onboard_keymanager <value>`
+
+
+... Enregistrez les variables d'environnement que vous avez modifiées à l'aide de la `savenv` commande
+... Confirmez vos modifications à l'aide du `printenv _variable-name_` commande.
+
+
+.. À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`
++
+L'image est téléchargée à partir de la clé USB.
+
+.. Lorsque vous y êtes invité, entrez le nom de l'image ou acceptez l'image par défaut affichée entre crochets sur votre écran.
+.. Une fois l'image installée, démarrez le processus de restauration :
++
+... Notez l'adresse IP du contrôleur affecté qui s'affiche à l'écran.
+... Appuyez sur `y` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+... Appuyez sur `y` lorsque vous êtes invité à remplacer /etc/ssh/ssh_host_dsa_key.
+
+
+.. À partir du contrôleur partenaire au niveau de privilège avancé, démarrez la synchronisation de la configuration à l'aide de l'adresse IP enregistrée à l'étape précédente : `system node restore-backup -node local -target-address _impaired_node_IP_address_`
+.. Si la restauration a réussi, appuyez sur `y` sur le contrôleur douteux lorsque vous êtes invité à utiliser la copie restaurée ?
+.. Appuyez sur `y` lorsque vous voyez confirmer la réussite de la procédure de sauvegarde, puis appuyez sur `y` lorsque vous êtes invité à redémarrer le contrôleur.
+.. Vérifiez que les variables d'environnement sont définies comme prévu.
++
+... Prenez le contrôleur vers l'invite DU CHARGEUR.
++
+À partir de l'invite ONTAP, vous pouvez lancer la commande system node halt -skip-lif-migration-before-shutdown true -ignore-quorum-avertissements true -Inhibit-Takeover-Takeover true.
+
+... Vérifiez les paramètres de la variable d'environnement à l'aide de l' `printenv` commande.
+... Si une variable d'environnement n'est pas définie comme prévu, modifiez-la avec le `setenv __environment-variable-name__ __changed-value__` commande.
+... Enregistrez vos modifications à l'aide du `savenv` commande.
+... Redémarre le contrôleur.
+
+
+.. Le contrôleur ayant redémarré affiche le `Waiting for giveback...` message, effectuer un retour à partir du contrôleur en bon état :
++
+[cols="1,2"]
+|===
+| Si votre système est en... | Alors... 
+
+
+ a| 
+Une paire haute disponibilité
+ a| 
+Une fois que le contrôleur affecté affiche le `Waiting for giveback...` message, effectuer un retour à partir du contrôleur en bon état :
+
+... Depuis le contrôleur sain : `storage failover giveback -ofnode partner_node_name`
++
+Le contrôleur affecté revient son stockage, termine son démarrage, puis redémarre et le contrôleur en bon état prend à nouveau le relais.
+
++
+
+NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["Guide de configuration de la solution haute disponibilité ONTAP 9"]
+
+... Surveiller la progression de l'opération de rétablissement à l'aide du `storage failover show-giveback` commande.
+... Une fois l'opération de rétablissement terminée, vérifiez que la paire HA est saine et que le basculement est possible à l'aide du `storage failover show` commande.
+... Restaurez le rétablissement automatique si vous le avez désactivé à l'aide de la commande Storage Failover modify.
+
+
+|===
+.. Quittez le niveau de privilège avancé sur le contrôleur en bon état.
+
+
+
