@@ -21,6 +21,7 @@ Pour installer votre système, vous devez créer un compte sur le site de suppor
 
 Vous devez avoir accès au https://hwu.netapp.com["NetApp Hardware Universe"^] pour plus d'informations sur les exigences du site ainsi que sur les informations supplémentaires sur votre système configuré.
 
+.Ce dont vous avez besoin
 Vous pouvez également avoir accès au http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Notes de version de ONTAP 9"^] Pour votre version de ONTAP pour plus d'informations sur ce système.
 
 Vous devez fournir les informations suivantes sur votre site :
@@ -215,6 +216,7 @@ Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode
 --
 Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
 
+.Avant de commencer
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
 
 Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de fixation des câbles sont destinées à tous les ports de module réseau.
@@ -288,7 +290,7 @@ image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
 |===
 . Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées).
 . Attachez les câbles aux bras de gestion des câbles (non illustrés).
-. Pour câbler votre espace de stockage, reportez-vous à la section  4: Cable controllers to drive shelves.
+. Pour câbler votre espace de stockage, reportez-vous à la section <<Étape 4 : câblage des contrôleurs aux tiroirs disques>>.
 
 
 --
@@ -296,6 +298,7 @@ image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
 --
 Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur le commutateur de cluster/haute disponibilité.
 
+.Avant de commencer
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
 
 Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de fixation des câbles sont destinées à tous les ports de module réseau.
@@ -369,7 +372,7 @@ image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
 |===
 . Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées).
 . Attachez les câbles aux bras de gestion des câbles (non illustrés).
-. Pour câbler votre espace de stockage, reportez-vous à la section  4: Cable controllers to drive shelves.
+. Pour câbler votre espace de stockage, reportez-vous à la section <<Étape 4 : câblage des contrôleurs aux tiroirs disques>>.
 
 
 --
@@ -429,7 +432,7 @@ image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[câble oie mini sas hd 
 Câble mini-SAS
 
 |===
-. Pour terminer la configuration de votre système, reportez-vous à la section  5: Complete system setup and configuration.
+. Pour terminer la configuration de votre système, reportez-vous à la section <<Étape 5 : installation et configuration complètes du système>>.
 
 
 

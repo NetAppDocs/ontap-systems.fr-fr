@@ -21,7 +21,7 @@ Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chau
 Votre paire haute disponibilité, un contrôleur unique ou une configuration MetroCluster étendue (système) doit répondre à certaines exigences avant d'ajouter des tiroirs IOM12/IOM12B à chaud à une pile de tiroirs IOM6.
 
 
-NOTE: Pour les configurations MetroCluster reliées à un pont, reportez-vous à la section  for a hot-add in bridge-attached MetroCluster configurations.
+NOTE: Pour les configurations MetroCluster reliées à un pont, reportez-vous à la section <<Configuration requise pour l'ajout à chaud dans les configurations MetroCluster reliées à un pont>>.
 
 * Votre système et la version de ONTAP doivent prendre en charge une combinaison de tiroirs IOM6 et de tiroirs IOM12/IOM12B dans la même pile (une pile mixte).
 +
@@ -226,12 +226,14 @@ NOTE: Les instructions de migration fournissent la configuration système requis
 [role="lead"]
 Si vous attribuez manuellement la propriété des disques aux tiroirs IOM12 que vous ajoutez à chaud, vous devez désactiver l'affectation automatique des disques s'il est activé.
 
+.Avant de commencer
 Vous devez avoir satisfait à la configuration système requise.
 
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
- for a hot-add in bridge-attached MetroCluster configurations
+<<Configuration requise pour l'ajout à chaud dans les configurations MetroCluster reliées à un pont>>
 
+.Description de la tâche
 Si vous disposez d'une paire haute disponibilité, vous devez attribuer manuellement la propriété des disques si les disques du tiroir seront détenus par les deux modules de contrôleur.
 
 .Étapes
@@ -396,15 +398,15 @@ Le câblage d'un tiroir IOM12/IOM12B à une pile de tiroirs IOM6 dépend si le t
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
 +
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
 * Vous devez avoir terminé la procédure de préparation, le cas échéant.
 +
- to manually assign drive ownership for a hot-add
+<<Préparez-vous à attribuer manuellement la propriété du disque pour un ajout à chaud>>
 
 * Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.
 +
- shelves for a hot-add
+<<Installez les étagères pour un ajout à chaud>>
 
 
 
@@ -634,7 +636,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 Sinon, cette procédure est effectuée.
 
 +
- the hot-add
+<<Terminez l'ajout à chaud>>
 
 +
 
@@ -649,9 +651,10 @@ NOTE: Toutes les configurations MetroCluster requièrent l'affectation manuelle 
 [role="lead"]
 Si vous avez désactivé l'affectation automatique des disques dans le cadre de la préparation à l'ajout à chaud de tiroirs IOM12/IOM12B à la pile de tiroirs IOM6, vous devez attribuer manuellement la propriété des disques et réactiver l'affectation automatique des disques si nécessaire.
 
+.Avant de commencer
 Vous devez déjà câbler votre tiroir comme indiqué pour votre système.
 
- shelves for a hot-add
+<<Des étagères pour un ajout à chaud>>
 
 .Étapes
 . Afficher tous les disques non propriétaires : `storage disk show -container-type unassigned`

@@ -47,14 +47,14 @@ Vous devez suivre la procédure correcte pour votre configuration :
  a| 
 Paire HA
  a| 
- 1: Verify the system ID change on an HA system]
+<<Option 1 : vérifiez la modification de l'ID système sur un système HA>>]
 
 
 
  a| 
 Configuration MetroCluster à deux nœuds
  a| 
- 2: Manually reassign the system ID on systems in a two-node MetroCluster configuration
+<<Option 2 : réaffectez manuellement l'ID système sur les systèmes dans une configuration MetroCluster à deux nœuds>>
 
 |===
 
@@ -149,6 +149,7 @@ Disk  Aggregate Home  Owner  DR Home  Home ID    Owner ID  DR Home ID Reserver  
 
 Dans une configuration MetroCluster à deux nœuds exécutant ONTAP, vous devez réallouer manuellement des disques vers le nouvel ID système du contrôleur avant de rétablir le fonctionnement normal du système.
 
+.Description de la tâche
 Cette procédure s'applique uniquement aux systèmes d'une configuration MetroCluster à deux nœuds exécutant ONTAP.
 
 Vous devez être sûr d'exécuter les commandes dans cette procédure sur le nœud approprié :

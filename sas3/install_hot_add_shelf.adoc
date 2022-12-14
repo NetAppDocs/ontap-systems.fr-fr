@@ -13,6 +13,7 @@ summary: 'Vous pouvez ajouter à chaud un ou plusieurs tiroirs disques avec des 
 [role="lead"]
 Vous pouvez ajouter à chaud un ou plusieurs tiroirs disques avec des modules IOM12/IOM12B à une pile existante de tiroirs disques avec des modules IOM12/IOM12B ou ajouter à chaud une pile d'un ou plusieurs tiroirs disques avec des modules IOM12/IOM12B directement à un HBA SAS ou à un port SAS intégré du contrôleur.
 
+.Description de la tâche
 Vous ne pouvez pas utiliser cette procédure pour mélanger une pile : ajoutez à chaud un tiroir avec des modules IOM12/IOM12B à une pile de tiroirs contenant des modules IOM6. Si vous devez mélanger une pile, utilisez link:iom12-hot-add-mix.html["Ajoutez des tiroirs IOM12 à chaud à une pile de tiroirs IOM6"].
 
 
@@ -321,6 +322,7 @@ L'ID du tiroir clignote et la LED orange du panneau d'écran de l'opérateur cli
 [role="lead"]
 Il vous suffit de connecter les câbles SAS - tiroir à tiroir et contrôleur à pile - selon le cas des tiroirs disques ajoutés à chaud de sorte qu'ils soient connectés au système.
 
+.Avant de commencer
 Vous devez répondre aux exigences décrites dans la section link:install-hot-add-shelf.html#requirements-for-hot-adding-disk-shelves-with-iom12iom12b-modules["Conditions requises pour l'ajout à chaud de tiroirs disques avec modules IOM12"] Et installés, sous tension et définissez les ID de tiroir pour chaque tiroir disque comme indiqué dans la link:install-hot-add-shelf.html#install-disk-shelves-with-iom12iom12b-modules-for-a-hot-add["Installez les tiroirs disques avec des modules IOM12 pour une ajout à chaud"].
 
 .Description de la tâche
@@ -446,7 +448,7 @@ Ces instructions sont destinées à l'ajout à chaud à l'extrémité de la pile
 |===
 . Si vous avez ajouté à chaud un tiroir disque avec des câbles optiques SAS HD Mini-SAS à une pile de tiroirs disques connectés avec des câbles en cuivre SAS, remplacez les câbles en cuivre SAS. Sinon, passez à l'étape suivante.
 +
-La pile doit répondre aux exigences indiquées dans le  for hot-adding disk shelves with IOM12 modules section de cette procédure.
+La pile doit répondre aux exigences indiquées dans le <<Conditions requises pour l'ajout à chaud de tiroirs disques avec modules IOM12>> section de cette procédure.
 
 +
 Remplacez les câbles un par un et assurez-vous d'attendre au moins 70 secondes entre le débranchement d'un câble et le branchement d'un câble neuf.

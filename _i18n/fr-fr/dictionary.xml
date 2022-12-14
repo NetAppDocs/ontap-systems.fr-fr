@@ -4023,7 +4023,6 @@
   <block id="483a752599520b0534872ca3822c9083" category="list-text">Vérifier que les volumes attendus sont présents pour chaque contrôleur :<block ref="6931ff74d75f98d072d2434c71cfc1e4" prefix=" " category="inline-code"></block></block>
   <block id="ea22b9523724a1472e9a6474903abd69" category="list-text">Si vous avez désactivé le basculement automatique au redémarrage, activez-le à partir du contrôleur sain :<block ref="5f447b86ccb3d9573dccd053b419efda" prefix=" " category="inline-code"></block></block>
   <block id="13bebe2596a4000b53c1d171e85d4669" category="doc">Restauration complète du système - AFF C190</block>
-  <block id="86c3969f421b58d4b4b270ed1fb7b003" category="section-title">Étape 1 : installation des licences pour le contrôleur de remplacement dans ONTAP</block>
   <block id="8ba332a9944c2e6a66e36aee66689593" category="section-title">Étape 2 : vérification des LIF et enregistrement du numéro de série</block>
   <block id="c8ba643914db1664b5eb486f2f97cf94" category="doc">OKM, NSE et NVE si besoin : AFF C190</block>
   <block id="d5d1d7f0ba452ea37dcd299489e09eff" category="doc">Renvoyez la pièce défectueuse à NetApp - AFF C190</block>
@@ -4624,7 +4623,6 @@
   <block id="82b742085f424ab9b6b3cdea2a76ee8d" category="paragraph">Avec deux contrôleurs au sein du cluster</block>
   <block id="f810400e8f6c8db0e850e30403d338b7" category="paragraph">Avec plus de deux contrôleurs dans le cluster</block>
   <block id="ebc7476a478f335dcc4ca03640d92275" category="doc">Remplacez le support de démarrage - AFF A200</block>
-  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">Ce dont vous avez besoin, 8217;ll</block>
   <block id="5cae28c48acee98f2baac425290bbe14" category="list-text"><block ref="5febc3d23fb96d5ced3d61bafc5158de" prefix="" category="inline-code"></block> Est l'adresse IP du système de stockage.</block>
   <block id="881a30a5eb497e5f1a74adafa0d2fe0d" category="list-text"><block ref="3f5c8adfe42894248788ef03028cca0b" prefix="" category="inline-code"></block> Est le masque de réseau du réseau de gestion connecté au partenaire HA.</block>
   <block id="f902be9386ed1a89086bfd6000dab684" category="list-text"><block ref="3e21ab62fb17400301d9f0156b6c3031" prefix="" category="inline-code"></block> est la passerelle du réseau.</block>
@@ -7337,4 +7335,12 @@
   <block id="f6caefdbf5b7d345e721affd6b6d9bab" category="sidebar">DIMM AFF A220</block>
   <block id="9e493c35f280e1be11ab7f0f286f498b" category="sidebar">AFF A220 Drive</block>
   <block id="ca55628a813bde8148e26c974fb5bd2e" category="sidebar">Batterie d'horloge en temps réel AFF A220</block>
+  <block id="8c4271e6faf2cea4cfc8e5b7108d8ee9" category="paragraph-title">Procédure</block>
+  <block id="6bcc4bf7321499602cc726d01ccea765" category="paragraph-title">La vérification de la modification de l'ID système sur un système HA</block>
+  <block id="354b2998d28fedeb0bad97fc9be9b342" category="paragraph-title">Réaffectez l'ID système dans une configuration MetroCluster à deux nœuds</block>
+  <block id="9826dc7dca2ce77788236ffc0e442de8" category="section-title">Étape 2 : vérifier et définir l'état HA du module de contrôleur</block>
+  <block id="48023daa3129599e2b4aa0dbaefd201f" category="paragraph-title">À propos de ces tâches</block>
+  <block id="d59db7846bd10b6d60d21543df9faa9e" category="paragraph-title">Ce dont vous avez besoin</block>
+  <block id="7d60346fb854755b0fc4b8486f2e5769" category="section-title">Étape 1 : installation des licences pour le _remplacement_ contrôleur dans ONTAP</block>
+  <block id="541648f14089765ba6e8c3198be32507" category="section-title">Étape 2 : remplacer le support de démarrage</block>
 </blocks>

@@ -15,6 +15,7 @@ Le module NVRAM se compose de l'NVRAM11 et de modules DIMM. Vous pouvez remplace
 
 Pour remplacer le module DIMM et NVRAM, vous devez retirer le module NVRAM du châssis, remplacer le module DIMM défectueux dans le module, puis réinstaller le module NVRAM.
 
+.Description de la tâche
 Étant donné que l'ID système est dérivé du module NVRAM, si vous remplacez le module, les disques appartenant au système sont réaffectés à un nouvel ID système.
 
 .Avant de commencer
@@ -37,6 +38,7 @@ Pour remplacer le module DIMM et NVRAM, vous devez retirer le module NVRAM du ch
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
+.Description de la tâche
 Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
 
 .Étapes

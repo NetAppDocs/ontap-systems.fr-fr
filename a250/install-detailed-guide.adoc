@@ -24,6 +24,7 @@ Vous devez avoir accès au link:https://hwu.netapp.com["NetApp Hardware Universe
 
 NOTE: Les clients qui ont des exigences énergétiques spécifiques doivent vérifier que l'HWU est bien adaptée à leur configuration.
 
+.Ce dont vous avez besoin
 Vous devez fournir les informations suivantes sur votre site :
 
 * Espace rack pour le système de stockage
@@ -176,6 +177,7 @@ Reliez les contrôleurs à un cluster en utilisant la méthode de cluster sans c
 
 Les ports de gestion, Fibre Channel et de données ou réseau hôte des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux modules de contrôleur.
 
+.Avant de commencer
 Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -228,6 +230,7 @@ Pour terminer la configuration de votre système, reportez-vous à la section li
 
 Tous les ports des contrôleurs sont connectés aux commutateurs, à l'interconnexion de cluster, à la gestion, à Fibre Channel et aux commutateurs de réseau d'hôte ou de données.
 
+.Avant de commencer
 Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -286,6 +289,7 @@ Vous disposez d'un câblage en option dépendant de la configuration pour les r�
 
 Les ports Fibre Channel situés sur les contrôleurs sont connectés aux commutateurs réseau hôte Fibre Channel.
 
+.Avant de commencer
 Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -312,8 +316,8 @@ Reliez les ports 2a à 2d aux commutateurs hôte FC.image:../media/drw_affa250_f
  a| 
 Pour effectuer d'autres câbles en option, choisissez parmi les options suivantes :
 
-*  2: Cable to a 25GbE data or host network
-*  3: Cable the controllers to a single drive shelf
+* <<Option 2 : câble vers un réseau hôte ou une données de 25 GbE>>
+* <<Option 3 : câblage des contrôleurs à un tiroir disque unique>>
 
 
 
@@ -330,6 +334,7 @@ Pour terminer la configuration de votre système, reportez-vous à la section li
 
 Les ports 25 GbE des contrôleurs sont connectés à des switchs de données 25 GbE ou du réseau hôte.
 
+.Avant de commencer
 Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -356,8 +361,8 @@ Reliez les ports e4a à e4d aux commutateurs du réseau hôte 10GbE.image:../med
  a| 
 Pour effectuer d'autres câbles en option, choisissez parmi les options suivantes :
 
-*  1: Cable to a Fibre Channel host network
-*  3: Cable the controllers to a single drive shelf
+* <<Option 1 : câble vers un réseau hôte Fibre Channel>>
+* <<Option 3 : câblage des contrôleurs à un tiroir disque unique>>
 
 
 
@@ -374,6 +379,7 @@ Pour terminer la configuration de votre système, reportez-vous à la section li
 
 Reliez chaque contrôleur aux modules NSM du tiroir de disque NS224.
 
+.Avant de commencer
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
 
 image::../media/oie_cable_pull_tab_up.png[tirer la languette du câble de l'oie vers le haut]

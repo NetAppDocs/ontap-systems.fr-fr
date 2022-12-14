@@ -13,6 +13,7 @@ summary: 'Pour remplacer un tiroir disque, vous devez arrêter l"intégralité d
 [role="lead"]
 Pour remplacer un tiroir disque, vous devez arrêter l'intégralité du système de stockage (paire haute disponibilité), qui permet de conserver les agrégats de données sur le tiroir ou de maintenir le fonctionnement de la paire haute disponibilité. pour ce faire, vous devez déplacer toutes les données depuis les agrégats de données résidant sur les disques, ainsi que hors ligne et supprimer les agrégats de données. Cependant, si le tiroir contient un agrégat racine, vous devez arrêter la paire haute disponibilité.
 
+.Avant de commencer
 Vous avez besoin de ces éléments pour cette procédure :
 
 * Protection antistatique
@@ -79,7 +80,7 @@ NOTE: Les agrégats de données peuvent rester dans le tiroir lors de l'arrêt d
 .. Arrêtez les deux contrôleurs de la paire haute disponibilité.
 .. Vérifiez que votre paire haute disponibilité est stoppée en vérifiant la console du système de stockage.
 .. Mettre le shelf hors tension.
-.. Aller à la section,  the cable chains.
+.. Aller à la section, <<Déposer les chaînes de câbles>>.
 
 
 . Si vous choisissez de maintenir le fonctionnement de la paire HA, procédez comme suit :
@@ -128,7 +129,7 @@ NOTE: Si des disques défectueux dans le tiroir, `broken` s'affiche dans le `Con
 Les chaînes de câbles gauche et droite de chaque tiroir d'entraînement du DS460C permettent aux tiroirs de glisser vers l'intérieur et l'extérieur. Avant de pouvoir retirer un tiroir disque, vous devez retirer les deux chaînes de câble.
 
 .Avant de commencer
-* Vous avez terminé  to replace a drive drawer Étapes pour que votre paire haute disponibilité soit interrompue ou que vous avez déplacé toutes les données des agrégats de données résidant sur les disques, ainsi que la mise hors ligne et la suppression des agrégats de données pour permettre aux disques de devenir des unités de rechange.
+* Vous avez terminé <<Préparez-vous à remplacer un tiroir>> Étapes pour que votre paire haute disponibilité soit interrompue ou que vous avez déplacé toutes les données des agrégats de données résidant sur les disques, ainsi que la mise hors ligne et la suppression des agrégats de données pour permettre aux disques de devenir des unités de rechange.
 * Vous avez éteint les tablettes.
 * Vous avez obtenu les éléments suivants :
 +
@@ -142,6 +143,7 @@ NOTE: *Dommages matériels possibles:* pour éviter d'endommager les décharges 
 
 
 
+.Description de la tâche
 Chaque tiroir disque comporte des câbles en forme de chaîne gauche et droite. Les extrémités métalliques des chaînes de câbles coulissent dans les supports verticaux et horizontaux correspondants à l'intérieur du boîtier, comme suit :
 
 * Les supports verticaux gauche et droit relient la chaîne de câbles au fond de panier central du boîtier.

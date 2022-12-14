@@ -43,7 +43,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 ====
 Les ports non dédiés compatibles RoCE doivent être configurés pour le stockage (et non pour l'utilisation de la mise en réseau).
 
- non-dedicated RoCE-capable ports for a hot-add
+<<Préparez les ports non dédiés compatibles RoCE à des fins d'ajout à chaud>>
 
 ====
 * Si vous disposez d'une paire haute disponibilité AFF A700 et que vous ajoutez à chaud le tiroir de disque NS224 initial (il n'existe pas de tiroir de disque NS224 dans votre paire haute disponibilité), vous devez avoir installé un module de dump principal (X9170A, SSD NVMe 1 To) dans chaque contrôleur afin de prendre en charge les « core dumps » (stocker les fichiers « core »).
@@ -128,9 +128,10 @@ Vous devez effectuer les tâches de préparation applicables à votre paire haut
 
 Si votre paire haute disponibilité possède des ports non dédiés compatibles RoCE que vous utilisez pour ajouter à chaud un tiroir de disque NS224, vous devez vous assurer que les ports sont configurés pour le stockage (pas d'utilisation réseau). Selon le modèle de votre plateforme, les ports compatibles RoCE sont intégrés aux contrôleurs, sur des cartes PCIe compatibles RoCE, ou sur des modules d'E/S compatibles RoCE.
 
+.Avant de commencer
 Vous devez avoir satisfait à la configuration système requise.
 
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
 .Description de la tâche
 * Pour certains modèles de plateforme, lorsqu'une carte PCIe compatible RoCE ou un module d'E/S est installé dans un slot pris en charge sur un contrôleur, les ports par défaut sont automatiquement utilisés pour le stockage (au lieu de la mise en réseau). Cependant, il est recommandé de suivre cette procédure pour vérifier que les ports compatibles RoCE sont configurés pour le stockage.
@@ -250,11 +251,11 @@ Si vous disposez d'une paire haute disponibilité AFF A700, AFF A800 ou AFF A400
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
 +
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
 * Vous devez avoir activé les ports sur les cartes PCIe compatibles RoCE ou les modules d'E/S que vous avez installés.
 +
- non-dedicated RoCE-capable ports for a hot-add
+<<Préparez les ports non dédiés compatibles RoCE à des fins d'ajout à chaud>>
 
 
 
@@ -288,7 +289,7 @@ NOTE: Les sous-étapes supposent que le tiroir existant est câblé aux modules 
 ====
 Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant un seul tiroir existant et le « tiroir » à tiroir « recâblage, dans une configuration à deux tiroirs ».
 
- a hot-add shelf for an AFF A700 HA pair
+<<Connectez un tiroir à chaud pour une paire HA AFF A700>>
 
 ====
 .. Sur le contrôleur A, déplacer le câble du connecteur 3, port b (e3b), vers le connecteur 7, port b (e7b).
@@ -307,7 +308,7 @@ NOTE: Les sous-étapes supposent que le tiroir existant est câblé aux cartes P
 ====
 Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant un seul tiroir existant et le « tiroir » à tiroir « recâblage, dans une configuration à deux tiroirs ».
 
- a hot-add shelf for an AFF A800 HA pair
+<<Connectez les câbles d'un tiroir d'extension à chaud pour une paire HA AFF A800>>
 
 ====
 .. Sur le contrôleur A, déplacer le câble du connecteur 5 port b (e5b) vers le connecteur 3 port b (e3b).
@@ -323,7 +324,7 @@ PAIRE HA AFF A400
 ====
 Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant un seul tiroir existant et le « tiroir » à tiroir « recâblage, dans une configuration à deux tiroirs ».
 
- a hot-add shelf for an AFF A400 HA pair
+<<Connectez un tiroir d'extension à chaud pour une paire haute disponibilité AFF A400>>
 
 ====
 .. Sur le contrôleur A, déplacer le câble du port e0d vers le connecteur 5 Port b (e5b).
@@ -346,10 +347,12 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 
 Si vous attribuez manuellement la propriété du lecteur pour le tiroir de disque NS224 que vous ajoutez à chaud, vous devez désactiver l'affectation automatique du disque s'il est activé.
 
+.Avant de commencer
 Vous devez avoir satisfait à la configuration système requise.
 
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
+.Description de la tâche
 Vous devez attribuer manuellement la propriété des disques si les disques du tiroir seront détenus par les deux modules de contrôleur dans la paire haute disponibilité.
 
 .Étapes
@@ -376,11 +379,11 @@ L'installation d'un nouveau tiroir de disque NS224 implique l'installation du ti
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
 +
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
 * Vous devez avoir terminé les procédures de préparation applicables.
 +
- for a hot-add
+<<Préparez-vous à un ajout à chaud>>
 
 
 
@@ -472,15 +475,15 @@ Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chau
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
 +
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
 * Vous devez avoir terminé les procédures de préparation applicables.
 +
- for a hot-add
+<<Préparez-vous à un ajout à chaud>>
 
 * Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.
 +
- a drive shelf for a hot-add
+<<Installez un tiroir disque pour un ajout à chaud>>
 
 
 
@@ -553,7 +556,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 Sinon, cette procédure est effectuée.
 
 +
- the hot-add
+<<Terminez l'ajout à chaud>>
 
 
 
@@ -567,18 +570,19 @@ Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chau
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
 +
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
 * Vous devez avoir terminé les procédures de préparation applicables.
 +
- for a hot-add
+<<Préparez-vous à un ajout à chaud>>
 
 * Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.
 +
- a drive shelf for a hot-add
+<<Installez un tiroir disque pour un ajout à chaud>>
 
 
 
+.Description de la tâche
 Vu de l'arrière du châssis de la plateforme, le port de la carte compatible RoCE sur la gauche est le port « a » (e1a) et le port de droite est le port « b » (e1b).
 
 .Étapes
@@ -605,7 +609,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 Sinon, cette procédure est effectuée.
 
 +
- the hot-add
+<<Terminez l'ajout à chaud>>
 
 
 
@@ -618,15 +622,15 @@ Le branchement des câbles d'un tiroir de disques NS224 dans une paire HA AFF A7
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
 +
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
 * Vous devez avoir terminé les procédures de préparation applicables.
 +
- for a hot-add
+<<Préparez-vous à un ajout à chaud>>
 
 * Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.
 +
- a drive shelf for a hot-add
+<<Installez un tiroir disque pour un ajout à chaud>>
 
 
 
@@ -706,7 +710,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 Sinon, cette procédure est effectuée.
 
 +
- the hot-add
+<<Terminez l'ajout à chaud>>
 
 
 
@@ -719,15 +723,15 @@ Le branchement des câbles d'un tiroir de disques NS224 dans une paire HA AFF A8
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
 +
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
 * Vous devez avoir terminé les procédures de préparation applicables.
 +
- for a hot-add
+<<Préparez-vous à un ajout à chaud>>
 
 * Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.
 +
- a drive shelf for a hot-add
+<<Installez un tiroir disque pour un ajout à chaud>>
 
 
 
@@ -811,7 +815,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 Sinon, cette procédure est effectuée.
 
 +
- the hot-add
+<<Terminez l'ajout à chaud>>
 
 
 
@@ -824,15 +828,15 @@ Le câblage d'un tiroir de disques NS224 dans une paire haute disponibilité AFF
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
 +
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
 * Vous devez avoir terminé les procédures de préparation applicables.
 +
- for a hot-add
+<<Préparez-vous à un ajout à chaud>>
 
 * Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.
 +
- a drive shelf for a hot-add
+<<Installez un tiroir disque pour un ajout à chaud>>
 
 
 
@@ -902,7 +906,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 Sinon, cette procédure est effectuée.
 
 +
- the hot-add
+<<Terminez l'ajout à chaud>>
 
 
 
@@ -915,18 +919,19 @@ Lorsqu'un stockage supplémentaire est nécessaire, vous connectez un second tir
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
 +
- for a hot-add
+<<Conditions requises pour un ajout à chaud>>
 
 * Vous devez avoir terminé les procédures de préparation applicables.
 +
- for a hot-add
+<<Préparez-vous à un ajout à chaud>>
 
 * Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.
 +
- a drive shelf for a hot-add
+<<Installez un tiroir disque pour un ajout à chaud>>
 
 
 
+.Description de la tâche
 Cette procédure suppose que votre paire HA AFF A320 dispose d'un tiroir NS224 et que vous ajoutez à chaud un second tiroir.
 
 .Étapes
@@ -953,7 +958,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 Sinon, cette procédure est effectuée.
 
 +
- the hot-add
+<<Terminez l'ajout à chaud>>
 
 
 
@@ -964,9 +969,10 @@ Sinon, cette procédure est effectuée.
 [role="lead"]
 Si vous avez désactivé l'affectation automatique de disque dans le cadre de la préparation du tiroir disque NS224 à chaud, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire.
 
+.Avant de commencer
 Vous devez avoir déjà câblé votre tiroir selon les instructions de la paire haute disponibilité.
 
- a drive shelf for a hot-add
+<<Reliez un tiroir de disque pour un ajout à chaud>>
 
 .Étapes
 . Afficher tous les disques non propriétaires : `storage disk show -container-type unassigned`

@@ -19,6 +19,7 @@ Après avoir effectué le remplacement du matériel et démarrer en mode mainten
 
 Vous devez vérifier l'heure et la date du module de contrôleur de remplacement par rapport au module de contrôleur sain dans une paire haute disponibilité, ou par rapport à un serveur de temps fiable dans une configuration autonome. Si la date et l'heure ne correspondent pas, vous devez les réinitialiser sur le module de contrôleur de remplacement pour éviter toute interruption possible sur les clients en raison de différences de temps.
 
+.Description de la tâche
 Il est important d'appliquer les commandes dans les étapes sur les systèmes appropriés :
 
 * Le _remplacement_ node est le nouveau noeud qui a remplacé le noeud douteux dans le cadre de cette procédure.
@@ -69,6 +70,7 @@ La valeur de HA-State peut être l'une des suivantes :
 
 Chaque fois que vous remplacez le contrôleur, vous devez exécuter des tests de diagnostic complets ou précis pour des composants et sous-systèmes spécifiques.
 
+.Description de la tâche
 Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
 
 .Étapes

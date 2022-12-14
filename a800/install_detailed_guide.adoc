@@ -21,6 +21,7 @@ Pour installer votre système AFF A800, vous devez créer un compte et enregistr
 
 Vous devez avoir accès au link:https://hwu.netapp.com["NetApp Hardware Universe"^] (HWU) pour obtenir des informations sur les conditions requises par le site ainsi que des informations supplémentaires sur votre système configuré. Vous pouvez également avoir accès au link:http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Notes de version pour votre version de ONTAP"^] pour plus d'informations sur ce système.
 
+.Ce dont vous avez besoin
 Vous devez fournir les informations suivantes sur votre site :
 
 * Espace rack pour le système de stockage
@@ -200,6 +201,7 @@ Reliez les contrôleurs à un cluster en utilisant la méthode de cluster sans c
 
 Les ports du réseau de gestion situés sur les contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion haute disponibilité et d'interconnexion de cluster sont câblés sur les deux contrôleurs.
 
+.Avant de commencer
 Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -257,10 +259,10 @@ NE branchez PAS les cordons d'alimentation à ce stade.
 |===
 . Pour procéder au câblage facultatif, reportez-vous à la section :
 +
-**  1: Connect to a Fibre Channel host
-**  2: Connect to a 10GbE host
-**  3: Connect to a single direct-attached NS224 drive shelf
-**  4: Connect to two direct-attached NS224 drive shelves
+** <<Option 1: Connect to a Fibre Channel host>>
+** <<Option 2: Connect to a 10GbE host>>
+** <<Option 3: Connect to a single direct-attached NS224 drive shelf>>
+** <<Option 4: Connect to two direct-attached NS224 drive shelves>>
 
 
 . Pour terminer la configuration de votre système, reportez-vous à la section link:install-detailed-guide.html#step-4-complete-system-setup-and-configuration["Étape 4 : installation et configuration complètes du système"].
@@ -272,6 +274,7 @@ NE branchez PAS les cordons d'alimentation à ce stade.
 
 Les ports réseau d'interconnexion et de gestion de cluster des contrôleurs sont connectés aux commutateurs, tandis que les ports d'interconnexion haute disponibilité sont câblés sur les deux contrôleurs.
 
+.Avant de commencer
 Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -325,10 +328,10 @@ NE branchez PAS les cordons d'alimentation à ce stade.
 |===
 . Pour procéder au câblage facultatif, reportez-vous à la section :
 +
-**  1: Connect to a Fibre Channel host
-**  2: Connect to a 10GbE host
-**  3: Connect to a single direct-attached NS224 drive shelf
-**  4: Connect to two direct-attached NS224 drive shelves
+** <<Option 1: Connect to a Fibre Channel host>>
+** <<Option 2: Connect to a 10GbE host>>
+** <<Option 3: Connect to a single direct-attached NS224 drive shelf>>
+** <<Option 4: Connect to two direct-attached NS224 drive shelves>>
 
 
 . Pour terminer la configuration de votre système, reportez-vous à la section link:install-detailed-guide.html#step-4-complete-system-setup-and-configuration["Étape 4 : installation et configuration complètes du système"].
@@ -346,6 +349,7 @@ Vous disposez d'un câblage en option dépendant de la configuration pour les r�
 
 Les ports Fibre Channel situés sur les contrôleurs sont connectés aux commutateurs réseau hôte Fibre Channel.
 
+.Avant de commencer
 Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -372,8 +376,8 @@ Reliez les ports 2a à 2d aux commutateurs hôte FC.image:../media/drw_affa800_f
  a| 
 Pour effectuer d'autres câbles en option, choisissez parmi les options suivantes :
 
-*  3: Connect to a single direct-attached NS224 drive shelf
-*  4: Connect to two direct-attached NS224 drive shelves
+* <<Option 3: Connect to a single direct-attached NS224 drive shelf>>
+* <<Option 4: Connect to two direct-attached NS224 drive shelves>>
 
 
 
@@ -390,6 +394,7 @@ Pour terminer la configuration de votre système, reportez-vous à la section li
 
 Les ports 10GbE des contrôleurs sont connectés aux commutateurs du réseau hôte 10GbE.
 
+.Avant de commencer
 Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -416,8 +421,8 @@ Reliez les ports e4a à e4d aux commutateurs du réseau hôte 10GbE.image:../med
  a| 
 Pour effectuer d'autres câbles en option, choisissez parmi les options suivantes :
 
-*  3: Connect to a single direct-attached NS224 drive shelf
-*  4: Connect to two direct-attached NS224 drive shelves
+* <<Option 3: Connect to a single direct-attached NS224 drive shelf>>
+* <<Option 4: Connect to two direct-attached NS224 drive shelves>>
 
 
 
@@ -434,6 +439,7 @@ Pour terminer la configuration de votre système, reportez-vous à la section li
 
 Vous devez connecter chaque contrôleur aux modules NSM du tiroir de disque NS224.
 
+.Avant de commencer
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
 
 image::../media/oie_cable_pull_tab_up.png[tirer la languette du câble de l'oie vers le haut]
@@ -471,6 +477,7 @@ Pour terminer la configuration de votre système, reportez-vous à la section li
 
 Vous devez connecter chaque contrôleur aux modules NSM des deux tiroirs disques NS224.
 
+.Avant de commencer
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
 
 image::../media/oie_cable_pull_tab_up.png[tirer la languette du câble de l'oie vers le haut]

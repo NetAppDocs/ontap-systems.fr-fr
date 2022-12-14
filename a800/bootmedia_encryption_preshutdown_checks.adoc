@@ -32,8 +32,8 @@ Le message AutoSupport suivant supprime la création automatique de dossiers pen
 . Vérifiez la version de ONTAP que le système fonctionne sur le contrôleur défaillant, si c'est le cas, ou sur le contrôleur partenaire si le contrôleur défaillant est en panne, à l'aide du `version -v` commande :
 +
 ** Si <lno-DARE> ou <1Ono-DARE> s'affiche dans la sortie de la commande, le système ne prend pas en charge NVE, procédez à l'arrêt du contrôleur.
-** Si <lno-DARE> n'est pas affiché dans la sortie de la commande et que le système exécute ONTAP 9.5, passer à  NVE or NSE on systems running ONTAP 9.5 and later.
-** Si <lno-DARE> ne s'affiche pas dans la sortie de la commande et si le système exécute ONTAP 9.6 ou une version ultérieure, passer à  NVE or NSE on systems running ONTAP 9.6 and later.
+** Si <lno-DARE> n'est pas affiché dans la sortie de la commande et que le système exécute ONTAP 9.5, passer à <<Checking NVE or NSE on systems running ONTAP 9.5 and later>>.
+** Si <lno-DARE> ne s'affiche pas dans la sortie de la commande et si le système exécute ONTAP 9.6 ou une version ultérieure, passer à <<Checking NVE or NSE on systems running ONTAP 9.6 and later>>.
 
 
 . Si le contrôleur douteux est intégré à une configuration HA, désactivez le rétablissement automatique de l'état du contrôleur: `storage failover modify -node local -auto-giveback false` ou `storage failover modify -node local -auto-giveback-after-panic false`

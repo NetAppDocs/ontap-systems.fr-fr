@@ -397,6 +397,7 @@ Sélectionnez l'une des options suivantes pour obtenir des instructions sur la r
 ====
 .Option 1 : vérification de l'ID (paire HA)
 --
+.La vérification de la modification de l'ID système sur un système HA
 [role="lead"]
 Vous devez confirmer la modification de l'ID système lors du démarrage du _replace_ node, puis vérifier que la modification a été implémentée.
 
@@ -517,9 +518,11 @@ dr-group-id            cluster node           configuration-state
 --
 .Option 2 : réattribuer un ID (configuration MetroCluster)
 --
+.Réaffectez l'ID système dans une configuration MetroCluster à deux nœuds
 [role="lead"]
 Dans une configuration MetroCluster à deux nœuds exécutant ONTAP, vous devez réallouer manuellement des disques vers le nouvel ID système du contrôleur avant de rétablir le fonctionnement normal du système.
 
+.Description de la tâche
 Cette procédure s'applique uniquement aux systèmes d'une configuration MetroCluster à deux nœuds exécutant ONTAP.
 
 Vous devez être sûr d'exécuter les commandes dans cette procédure sur le nœud approprié :
