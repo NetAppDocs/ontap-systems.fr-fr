@@ -9849,7 +9849,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 10:07:42 +0000">11/15/2022</time>
+    <time datetime="2022-12-15 16:03:23 +0000">12/15/2022</time>
     
   
 
@@ -9907,10 +9907,8 @@
 <div class="paragraph">
 <p>Les ports non dédiés compatibles RoCE doivent être configurés pour le stockage (et non pour l&#8217;utilisation de la mise en réseau).</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>non-dedicated RoCE-capable ports for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="Préparez les ports non dédiés compatibles RoCE à des fins d&.html#8217;ajout à chaud">Préparez les ports non dédiés compatibles RoCE à des fins d&.html</a></p>
 </div>
 </td>
 </tr>
@@ -10042,12 +10040,11 @@ Les mises à jour du micrologiciel peuvent prendre jusqu&#8217;à 30 minutes.
 <p>Si votre paire haute disponibilité possède des ports non dédiés compatibles RoCE que vous utilisez pour ajouter à chaud un tiroir de disque NS224, vous devez vous assurer que les ports sont configurés pour le stockage (pas d&#8217;utilisation réseau). Selon le modèle de votre plateforme, les ports compatibles RoCE sont intégrés aux contrôleurs, sur des cartes PCIe compatibles RoCE, ou sur des modules d&#8217;E/S compatibles RoCE.</p>
 </div>
 <div class="paragraph">
+<div class="title">Avant de commencer</div>
 <p>Vous devez avoir satisfait à la configuration système requise.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#conditions-requises-pour-un-ajout-à-chaud">Conditions requises pour un ajout à chaud</a></p>
 </div>
 <div class="ulist">
 <div class="title">Description de la tâche</div>
@@ -10263,18 +10260,14 @@ Le premier contrôleur doit déjà avoir terminé son redémarrage.
 <ul>
 <li>
 <p>Vous devez avoir satisfait à la configuration système requise.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#conditions-requises-pour-un-ajout-à-chaud">Conditions requises pour un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir activé les ports sur les cartes PCIe compatibles RoCE ou les modules d&#8217;E/S que vous avez installés.</p>
-<div class="literalblock">
-<div class="content">
-<pre>non-dedicated RoCE-capable ports for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="Préparez les ports non dédiés compatibles RoCE à des fins d&.html#8217;ajout à chaud">Préparez les ports non dédiés compatibles RoCE à des fins d&.html</a></p>
 </div>
 </li>
 </ul>
@@ -10348,10 +10341,8 @@ Les sous-étapes supposent que le tiroir existant est câblé aux modules d&#821
 <div class="paragraph">
 <p>Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant un seul tiroir existant et le « tiroir » à tiroir « recâblage, dans une configuration à deux tiroirs ».</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>a hot-add shelf for an AFF A700 HA pair</pre>
-</div>
+<div class="paragraph">
+<p><a href="#connectez-un-tiroir-à-chaud-pour-une-paire-ha-aff-a700">Connectez un tiroir à chaud pour une paire HA AFF A700</a></p>
 </div>
 </td>
 </tr>
@@ -10394,10 +10385,8 @@ Les sous-étapes supposent que le tiroir existant est câblé aux cartes PCIe co
 <div class="paragraph">
 <p>Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant un seul tiroir existant et le « tiroir » à tiroir « recâblage, dans une configuration à deux tiroirs ».</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>a hot-add shelf for an AFF A800 HA pair</pre>
-</div>
+<div class="paragraph">
+<p><a href="Connectez les câbles d&.html#8217;un tiroir d&#8217;extension à chaud pour une paire HA AFF A800">Connectez les câbles d&.html</a></p>
 </div>
 </td>
 </tr>
@@ -10428,10 +10417,8 @@ Les sous-étapes supposent que le tiroir existant est câblé aux cartes PCIe co
 <div class="paragraph">
 <p>Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant un seul tiroir existant et le « tiroir » à tiroir « recâblage, dans une configuration à deux tiroirs ».</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>a hot-add shelf for an AFF A400 HA pair</pre>
-</div>
+<div class="paragraph">
+<p><a href="Connectez un tiroir d&.html#8217;extension à chaud pour une paire haute disponibilité AFF A400">Connectez un tiroir d&.html</a></p>
 </div>
 </td>
 </tr>
@@ -10469,14 +10456,14 @@ Les sous-étapes supposent que le tiroir existant est câblé aux cartes PCIe co
 <p>Si vous attribuez manuellement la propriété du lecteur pour le tiroir de disque NS224 que vous ajoutez à chaud, vous devez désactiver l&#8217;affectation automatique du disque s&#8217;il est activé.</p>
 </div>
 <div class="paragraph">
+<div class="title">Avant de commencer</div>
 <p>Vous devez avoir satisfait à la configuration système requise.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#conditions-requises-pour-un-ajout-à-chaud">Conditions requises pour un ajout à chaud</a></p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Vous devez attribuer manuellement la propriété des disques si les disques du tiroir seront détenus par les deux modules de contrôleur dans la paire haute disponibilité.</p>
 </div>
 <div class="olist arabic">
@@ -10513,18 +10500,14 @@ Les sous-étapes supposent que le tiroir existant est câblé aux cartes PCIe co
 <ul>
 <li>
 <p>Vous devez avoir satisfait à la configuration système requise.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#conditions-requises-pour-un-ajout-à-chaud">Conditions requises pour un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir terminé les procédures de préparation applicables.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#préparez-vous-à-un-ajout-à-chaud">Préparez-vous à un ajout à chaud</a></p>
 </div>
 </li>
 </ul>
@@ -10678,26 +10661,20 @@ Si l&#8217;ID prend plus de 15 secondes pour clignoter, appuyez de nouveau sur l
 <ul>
 <li>
 <p>Vous devez avoir satisfait à la configuration système requise.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#conditions-requises-pour-un-ajout-à-chaud">Conditions requises pour un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir terminé les procédures de préparation applicables.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#préparez-vous-à-un-ajout-à-chaud">Préparez-vous à un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.</p>
-<div class="literalblock">
-<div class="content">
-<pre>a drive shelf for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#installez-un-tiroir-disque-pour-un-ajout-à-chaud">Installez un tiroir disque pour un ajout à chaud</a></p>
 </div>
 </li>
 </ul>
@@ -10820,10 +10797,8 @@ Si l&#8217;ID prend plus de 15 secondes pour clignoter, appuyez de nouveau sur l
 <div class="paragraph">
 <p>Sinon, cette procédure est effectuée.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>the hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="Terminez l&.html#8217;ajout à chaud">Terminez l&.html</a></p>
 </div>
 </li>
 </ol>
@@ -10839,31 +10814,26 @@ Si l&#8217;ID prend plus de 15 secondes pour clignoter, appuyez de nouveau sur l
 <ul>
 <li>
 <p>Vous devez avoir satisfait à la configuration système requise.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#conditions-requises-pour-un-ajout-à-chaud">Conditions requises pour un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir terminé les procédures de préparation applicables.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#préparez-vous-à-un-ajout-à-chaud">Préparez-vous à un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.</p>
-<div class="literalblock">
-<div class="content">
-<pre>a drive shelf for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#installez-un-tiroir-disque-pour-un-ajout-à-chaud">Installez un tiroir disque pour un ajout à chaud</a></p>
 </div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Vu de l&#8217;arrière du châssis de la plateforme, le port de la carte compatible RoCE sur la gauche est le port « a » (e1a) et le port de droite est le port « b » (e1b).</p>
 </div>
 <div class="olist arabic">
@@ -10907,10 +10877,8 @@ Si l&#8217;ID prend plus de 15 secondes pour clignoter, appuyez de nouveau sur l
 <div class="paragraph">
 <p>Sinon, cette procédure est effectuée.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>the hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="Terminez l&.html#8217;ajout à chaud">Terminez l&.html</a></p>
 </div>
 </li>
 </ol>
@@ -10926,26 +10894,20 @@ Si l&#8217;ID prend plus de 15 secondes pour clignoter, appuyez de nouveau sur l
 <ul>
 <li>
 <p>Vous devez avoir satisfait à la configuration système requise.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#conditions-requises-pour-un-ajout-à-chaud">Conditions requises pour un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir terminé les procédures de préparation applicables.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#préparez-vous-à-un-ajout-à-chaud">Préparez-vous à un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.</p>
-<div class="literalblock">
-<div class="content">
-<pre>a drive shelf for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#installez-un-tiroir-disque-pour-un-ajout-à-chaud">Installez un tiroir disque pour un ajout à chaud</a></p>
 </div>
 </li>
 </ul>
@@ -11106,10 +11068,8 @@ Ces sous-étapes supposent que vous commencez le câblage en câbler le port de 
 <div class="paragraph">
 <p>Sinon, cette procédure est effectuée.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>the hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="Terminez l&.html#8217;ajout à chaud">Terminez l&.html</a></p>
 </div>
 </li>
 </ol>
@@ -11125,26 +11085,20 @@ Ces sous-étapes supposent que vous commencez le câblage en câbler le port de 
 <ul>
 <li>
 <p>Vous devez avoir satisfait à la configuration système requise.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#conditions-requises-pour-un-ajout-à-chaud">Conditions requises pour un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir terminé les procédures de préparation applicables.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#préparez-vous-à-un-ajout-à-chaud">Préparez-vous à un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.</p>
-<div class="literalblock">
-<div class="content">
-<pre>a drive shelf for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#installez-un-tiroir-disque-pour-un-ajout-à-chaud">Installez un tiroir disque pour un ajout à chaud</a></p>
 </div>
 </li>
 </ul>
@@ -11317,10 +11271,8 @@ Ces sous-étapes supposent que vous commencez le câblage en câbler le port du 
 <div class="paragraph">
 <p>Sinon, cette procédure est effectuée.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>the hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="Terminez l&.html#8217;ajout à chaud">Terminez l&.html</a></p>
 </div>
 </li>
 </ol>
@@ -11336,26 +11288,20 @@ Ces sous-étapes supposent que vous commencez le câblage en câbler le port du 
 <ul>
 <li>
 <p>Vous devez avoir satisfait à la configuration système requise.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#conditions-requises-pour-un-ajout-à-chaud">Conditions requises pour un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir terminé les procédures de préparation applicables.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#préparez-vous-à-un-ajout-à-chaud">Préparez-vous à un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.</p>
-<div class="literalblock">
-<div class="content">
-<pre>a drive shelf for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#installez-un-tiroir-disque-pour-un-ajout-à-chaud">Installez un tiroir disque pour un ajout à chaud</a></p>
 </div>
 </li>
 </ul>
@@ -11480,10 +11426,8 @@ Ces sous-étapes supposent que vous commencez le câblage en câbler le port du 
 <div class="paragraph">
 <p>Sinon, cette procédure est effectuée.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>the hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="Terminez l&.html#8217;ajout à chaud">Terminez l&.html</a></p>
 </div>
 </li>
 </ol>
@@ -11499,31 +11443,26 @@ Ces sous-étapes supposent que vous commencez le câblage en câbler le port du 
 <ul>
 <li>
 <p>Vous devez avoir satisfait à la configuration système requise.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#conditions-requises-pour-un-ajout-à-chaud">Conditions requises pour un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir terminé les procédures de préparation applicables.</p>
-<div class="literalblock">
-<div class="content">
-<pre>for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#préparez-vous-à-un-ajout-à-chaud">Préparez-vous à un ajout à chaud</a></p>
 </div>
 </li>
 <li>
 <p>Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.</p>
-<div class="literalblock">
-<div class="content">
-<pre>a drive shelf for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#installez-un-tiroir-disque-pour-un-ajout-à-chaud">Installez un tiroir disque pour un ajout à chaud</a></p>
 </div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Cette procédure suppose que votre paire HA AFF A320 dispose d&#8217;un tiroir NS224 et que vous ajoutez à chaud un second tiroir.</p>
 </div>
 <div class="olist arabic">
@@ -11567,10 +11506,8 @@ Ces sous-étapes supposent que vous commencez le câblage en câbler le port du 
 <div class="paragraph">
 <p>Sinon, cette procédure est effectuée.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>the hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="Terminez l&.html#8217;ajout à chaud">Terminez l&.html</a></p>
 </div>
 </li>
 </ol>
@@ -11585,12 +11522,11 @@ Ces sous-étapes supposent que vous commencez le câblage en câbler le port du 
 <p>Si vous avez désactivé l&#8217;affectation automatique de disque dans le cadre de la préparation du tiroir disque NS224 à chaud, vous devez attribuer manuellement la propriété des disques, puis réactiver l&#8217;affectation automatique de disque, si nécessaire.</p>
 </div>
 <div class="paragraph">
+<div class="title">Avant de commencer</div>
 <p>Vous devez avoir déjà câblé votre tiroir selon les instructions de la paire haute disponibilité.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>a drive shelf for a hot-add</pre>
-</div>
+<div class="paragraph">
+<p><a href="#reliez-un-tiroir-de-disque-pour-un-ajout-à-chaud">Reliez un tiroir de disque pour un ajout à chaud</a></p>
 </div>
 <div class="olist arabic">
 <div class="title">Étapes</div>
