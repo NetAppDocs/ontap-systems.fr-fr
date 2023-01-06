@@ -9851,7 +9851,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-15 16:03:23 +0000">12/15/2022</time>
+    <time datetime="2023-01-06 12:49:25 +0000">01/06/2023</time>
     
   
 
@@ -9921,22 +9921,16 @@
 <div class="title">Description de la tâche</div>
 <ul>
 <li>
-<p>Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l&#8217;aide des instructions de la section « Retour des disques SED en mode non protégé » du <em>ONTAP 9 Guide d&#8217;alimentation et de cryptage NetApp</em>.</p>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html" target="_blank" rel="noopener">"Guide ONTAP 9 sur l&#8217;alimentation du cryptage NetApp"</a></p>
-</div>
+<p>Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID en suivant les instructions de la section <a href="https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html">"Retour des disques SED en mode non protégé"</a>.</p>
 </li>
 <li>
-<p>Si vous disposez d&#8217;un système SAN, vous devez avoir vérifié les messages d&#8217;événement (<code>event log show</code>) Pour la lame SCSI du contrôleur altérée.</p>
+<p>Si vous disposez d&#8217;un système SAN, vous devez avoir vérifié les messages d&#8217;événement  <code>cluster kernel-service show</code>) Pour la lame SCSI du contrôleur altérée. Le <code>cluster kernel-service show</code> commande affiche le nom du nœud, l&#8217;état quorum du nœud concerné, l&#8217;état de disponibilité de ce nœud et l&#8217;état opérationnel de ce nœud.</p>
 <div class="paragraph">
 <p>Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.</p>
 </div>
 </li>
 <li>
-<p>Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n&#8217;est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l&#8217;éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir <a href="https://docs.netapp.com/us-en/ontap/system-admin/index.html" target="_blank" rel="noopener">"Présentation de l&#8217;administration avec l&#8217;interface de ligne de commande"</a>.</p>
-</li>
-<li>
-<p>Si vous disposez d&#8217;une configuration MetroCluster, vous devez avoir confirmé que l&#8217;état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (<code>metrocluster node show</code>).</p>
+<p>Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n&#8217;est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l&#8217;éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir <a href="https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum" target="_blank" rel="noopener">"Synchroniser un nœud avec le cluster"</a>.</p>
 </li>
 </ul>
 </div>
@@ -9946,7 +9940,7 @@
 <li>
 <p>Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : <code>system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh</code></p>
 <div class="paragraph">
-<p>Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : <code>cluster1:*&gt; system node autosupport invoke -node * -type all -message MAINT=2h</code></p>
+<p>Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : <code>cluster1:&gt; system node autosupport invoke -node * -type all -message MAINT=2h</code></p>
 </div>
 </li>
 <li>
@@ -9996,7 +9990,7 @@ Lorsque vous voyez <em>voulez-vous désactiver l&#8217;auto-giveback?</em>, entr
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Invite système ou invite de mot de passe (entrer le mot de passe système)</p>
+<p>Invite système ou invite de mot de passe</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Prendre le contrôle défectueux ou l&#8217;arrêter à partir du contrôleur en bon état : <code>storage failover takeover -ofnode <em>impaired_node_name</em></code></p>
@@ -10866,14 +10860,23 @@ dr-group-id            cluster node           configuration-state
 <h2 id="étape-6-restauration-de-la-fonctionnalité-de-cryptage-du-stockage-et-du-volume">Étape 6 : restauration de la fonctionnalité de cryptage du stockage et du volume</h2>
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Après avoir remplacé le module de contrôleur ou le module NVRAM d&#8217;un système de stockage que vous avez précédemment configuré pour utiliser le cryptage de stockage ou de volume, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de cryptage ininterrompu. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n&#8217;est pas activé.</p>
+<p>Pour les systèmes de stockage que vous avez déjà configurés pour utiliser le chiffrement du stockage ou des volumes, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de chiffrement sans interruption. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n&#8217;est pas activé.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Cette étape n&#8217;est pas requise lors du remplacement d&#8217;un module DIMM.
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <div class="title">Étapes</div>
 <ol class="arabic">
-<li>
-<p>Restaurez la fonctionnalité de cryptage de stockage ou de volume en suivant la procédure appropriée de la section <a href="https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html" target="_blank" rel="noopener">"Présentation du chiffrement NetApp avec l&#8217;interface de ligne de commande"</a>.</p>
-</li>
 <li>
 <p>Choisissez l&#8217;une des procédures suivantes selon que vous utilisez la gestion intégrée ou externe des clés :</p>
 <div class="ulist">
@@ -10886,6 +10889,9 @@ dr-group-id            cluster node           configuration-state
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>Réinitialisez le MSID SED</p>
 </li>
 </ol>
 </div>

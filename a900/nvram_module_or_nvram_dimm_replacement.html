@@ -9849,7 +9849,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-15 16:03:23 +0000">12/15/2022</time>
+    <time datetime="2023-01-06 12:49:25 +0000">01/06/2023</time>
     
   
 
@@ -9865,7 +9865,7 @@
 <p>Le module NVRAM se compose de l&#8217;NVRAM11 et de modules DIMM. Vous pouvez remplacer un module NVRAM défectueux ou les modules DIMM à l&#8217;intérieur du module NVRAM. Pour remplacer un module NVRAM défectueux, vous devez le retirer du châssis, déplacer les modules DIMM vers le module de remplacement et installer le module NVRAM de remplacement dans le châssis.</p>
 </div>
 <div class="paragraph">
-<p>Pour remplacer et NVRAM DIMM, vous devez retirer le module NVRAMmodule du châssis, remplacer le module DIMM défectueux dans le module, puis réinstaller le module NVRAM.</p>
+<p>Pour remplacer le module DIMM et NVRAM, vous devez retirer le module NVRAM du châssis, remplacer le module DIMM défectueux dans le module, puis réinstaller le module NVRAM.</p>
 </div>
 <div class="paragraph">
 <div class="title">Description de la tâche</div>
@@ -9894,7 +9894,7 @@
 </div>
 </li>
 <li>
-<p>Cette procédure comprend les étapes de réaffectation automatique ou manuelle des disques au module de contrôleur associé au nouveau module NVRAM. Vous devez réaffecter les disques lorsqu&#8217;il est demandé dans la procédure. La réaffectation du disque avant le retour peut entraîner des problèmes.</p>
+<p>Cette procédure comprend les étapes de réaffectation automatique des disques au module de contrôleur associé au nouveau module NVRAM. Vous devez réaffecter les disques lorsqu&#8217;il est demandé dans la procédure. La réaffectation du disque avant le retour peut entraîner des problèmes.</p>
 </li>
 <li>
 <p>Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.</p>
@@ -9925,22 +9925,16 @@
 <div class="title">Description de la tâche</div>
 <ul>
 <li>
-<p>Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l&#8217;aide des instructions de la section « Retour des disques SED en mode non protégé » du <em>ONTAP 9 Guide d&#8217;alimentation et de cryptage NetApp</em>.</p>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html" target="_blank" rel="noopener">"Guide ONTAP 9 sur l&#8217;alimentation du cryptage NetApp"</a></p>
-</div>
+<p>Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID en suivant les instructions de la section <a href="https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html">"Retour des disques SED en mode non protégé"</a>.</p>
 </li>
 <li>
-<p>Si vous disposez d&#8217;un système SAN, vous devez avoir vérifié les messages d&#8217;événement (<code>event log show</code>) Pour la lame SCSI du contrôleur altérée.</p>
+<p>Si vous disposez d&#8217;un système SAN, vous devez avoir vérifié les messages d&#8217;événement  <code>cluster kernel-service show</code>) Pour la lame SCSI du contrôleur altérée. Le <code>cluster kernel-service show</code> commande affiche le nom du nœud, l&#8217;état quorum du nœud concerné, l&#8217;état de disponibilité de ce nœud et l&#8217;état opérationnel de ce nœud.</p>
 <div class="paragraph">
 <p>Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.</p>
 </div>
 </li>
 <li>
-<p>Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n&#8217;est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l&#8217;éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir <a href="https://docs.netapp.com/us-en/ontap/system-admin/index.html" target="_blank" rel="noopener">"Présentation de l&#8217;administration avec l&#8217;interface de ligne de commande"</a>.</p>
-</li>
-<li>
-<p>Si vous disposez d&#8217;une configuration MetroCluster, vous devez avoir confirmé que l&#8217;état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (<code>metrocluster node show</code>).</p>
+<p>Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n&#8217;est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l&#8217;éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir <a href="https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum" target="_blank" rel="noopener">"Synchroniser un nœud avec le cluster"</a>.</p>
 </li>
 </ul>
 </div>
@@ -9950,7 +9944,7 @@
 <li>
 <p>Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : <code>system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh</code></p>
 <div class="paragraph">
-<p>Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : <code>cluster1:*&gt; system node autosupport invoke -node * -type all -message MAINT=2h</code></p>
+<p>Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : <code>cluster1:&gt; system node autosupport invoke -node * -type all -message MAINT=2h</code></p>
 </div>
 </li>
 <li>
@@ -10000,7 +9994,7 @@ Lorsque vous voyez <em>voulez-vous désactiver l&#8217;auto-giveback?</em>, entr
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Invite système ou invite de mot de passe (entrer le mot de passe système)</p>
+<p>Invite système ou invite de mot de passe</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Prendre le contrôle défectueux ou l&#8217;arrêter à partir du contrôleur en bon état : <code>storage failover takeover -ofnode <em>impaired_node_name</em></code></p>
@@ -10037,7 +10031,7 @@ N&#8217;utilisez pas cette procédure si votre système se trouve dans une confi
 <div class="ulist">
 <ul>
 <li>
-<p>Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n&#8217;est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l&#8217;éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir <a href="https://docs.netapp.com/us-en/ontap/system-admin/index.html" target="_blank" rel="noopener">"Présentation de l&#8217;administration avec l&#8217;interface de ligne de commande"</a>.</p>
+<p>Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n&#8217;est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l&#8217;éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir <a href="https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum" target="_blank" rel="noopener">"Synchroniser un nœud avec le cluster"</a>.</p>
 </li>
 <li>
 <p>Si vous disposez d&#8217;une configuration MetroCluster, vous devez avoir confirmé que l&#8217;état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (<code>metrocluster node show</code>).</p>
@@ -10162,7 +10156,7 @@ N&#8217;utilisez pas cette procédure si votre système se trouve dans une confi
 <p><span class="image"><img src="../media/legend_icon_01.png" alt=""></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Loquet de came d&#8217;E/S numéroté et numéroté</p>
+<p>Verrou à came numéroté et numéroté</p>
 </div></div></td>
 </tr>
 <tr>
@@ -10170,7 +10164,7 @@ N&#8217;utilisez pas cette procédure si votre système se trouve dans une confi
 <p><span class="image"><img src="../media/legend_icon_02.png" alt=""></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Loquet d&#8217;E/S complètement déverrouillé</p>
+<p>Verrou de came complètement déverrouillé</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -10222,7 +10216,7 @@ N&#8217;utilisez pas cette procédure si votre système se trouve dans une confi
 <p>Alignez le module sur les bords de l&#8217;ouverture du châssis dans le logement 6.</p>
 </li>
 <li>
-<p>Faites glisser doucement le module dans le logement jusqu&#8217;à ce que le loquet de came d&#8217;E/S numéroté et numéroté commence à s&#8217;engager avec la goupille de came d&#8217;E/S, puis poussez le loquet de came d&#8217;E/S jusqu&#8217;à ce qu&#8217;il se verrouille en place.</p>
+<p>Faites glisser doucement le module dans le logement jusqu&#8217;à ce que le loquet de came numéroté commence à s&#8217;engager avec l&#8217;axe de came d&#8217;E/S, puis poussez le loquet de came complètement vers le haut pour verrouiller le module en place.</p>
 </li>
 </ol>
 </div>
@@ -10285,7 +10279,7 @@ N&#8217;utilisez pas cette procédure si votre système se trouve dans une confi
 <p><span class="image"><img src="../media/legend_icon_01.png" alt=""></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Loquet de came d&#8217;E/S numéroté et numéroté</p>
+<p>Verrou à came numéroté et numéroté</p>
 </div></div></td>
 </tr>
 <tr>
@@ -10293,7 +10287,7 @@ N&#8217;utilisez pas cette procédure si votre système se trouve dans une confi
 <p><span class="image"><img src="../media/legend_icon_02.png" alt=""></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Loquet d&#8217;E/S complètement déverrouillé</p>
+<p>verrou de came complètement déverrouillé</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -10348,7 +10342,7 @@ N&#8217;utilisez pas cette procédure si votre système se trouve dans une confi
 <p>Alignez le module sur les bords de l&#8217;ouverture du châssis dans le logement 6.</p>
 </li>
 <li>
-<p>Faites glisser doucement le module dans le logement jusqu&#8217;à ce que le loquet de came d&#8217;E/S numéroté et numéroté commence à s&#8217;engager avec la goupille de came d&#8217;E/S, puis poussez le loquet de came d&#8217;E/S jusqu&#8217;à ce qu&#8217;il se verrouille en place.</p>
+<p>Faites glisser doucement le module dans le logement jusqu&#8217;à ce que le loquet de came numéroté commence à s&#8217;engager avec l&#8217;axe de came d&#8217;E/S, puis poussez le loquet de came complètement vers le haut pour verrouiller le module en place.</p>
 </li>
 </ol>
 </div>
@@ -10373,90 +10367,52 @@ N&#8217;utilisez pas cette procédure si votre système se trouve dans une confi
 </div>
 </div>
 <div class="sect1">
-<h2 id="étape-5-vérifier-et-définir-létat-ha-du-module-de-contrôleur">Étape 5 : vérifier et définir l&#8217;état HA du module de contrôleur</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Vous devez vérifier le <code>HA</code> état du module de contrôleur et, si nécessaire, mettez à jour l&#8217;état pour qu&#8217;il corresponde à la configuration de votre système.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>En mode Maintenance à partir du module de contrôleur de remplacement, vérifier que tous les composants affichent la même valeur <code>HA</code> état : <code>ha-config show</code></p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Si votre système est en&#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">L&#8217;état de haute disponibilité de tous les composants doit être&#8230;&#8203;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Une paire haute disponibilité</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>haute disponibilité</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Configuration FC MetroCluster avec quatre nœuds ou plus</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>mcc</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Configuration MetroCluster IP</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>ccip</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Si l&#8217;état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le <code>HA</code> état pour le module de contrôleur : <code>ha-config modify controller <em>ha-state</em></code></p>
-</li>
-<li>
-<p>Si l&#8217;état système affiché du châssis ne correspond pas à la configuration de votre système, définissez l' <code>HA</code> état du châssis : <code>ha-config modify chassis <em>ha-state</em></code></p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="étape-6-réaffectation-des-disques">Étape 6 : réaffectation des disques</h2>
+<h2 id="étape-5-réaffectation-des-disques">Étape 5 : réaffectation des disques</h2>
 <div class="sectionbody">
 <div class="paragraph lead">
 <p>Vous devez confirmer la modification de l&#8217;ID système au démarrage du contrôleur de remplacement, puis vérifier que la modification a été implémentée.</p>
 </div>
-<div class="paragraph">
-<p>Cette procédure s&#8217;applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Cette procédure s&#8217;applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems/images/caution.svg" alt="Avertissement">
+</td>
+<td class="content">
+La réaffectation du disque n&#8217;est nécessaire que lors du remplacement du module NVRAM.
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <div class="title">Étapes</div>
 <ol class="arabic">
 <li>
-<p>Si le contrôleur de remplacement est en mode maintenance (affiche le <code>*&gt;</code> Invite, quittez le mode maintenance et accédez à l&#8217;invite DU CHARGEUR : <code>halt</code></p>
+<p>Si le contrôleur de remplacement est en mode maintenance (affiche le <code>*&gt;</code> Invite), quittez le mode maintenance et accédez à l&#8217;invite DU CHARGEUR : <code>halt</code></p>
 </li>
 <li>
-<p>Dans l&#8217;invite DU CHARGEUR sur le contrôleur de remplacement, démarrez le contrôleur, entrez <code>y</code> Si vous êtes invité à remplacer l&#8217;ID système en raison d&#8217;une discordance d&#8217;ID système.</p>
+<p>Dans l&#8217;invite DU CHARGEUR sur le contrôleur de remplacement, démarrez le contrôleur et entrez y si vous êtes invité à remplacer l&#8217;ID système en raison d&#8217;une discordance d&#8217;ID système.</p>
 </li>
 <li>
-<p>Attendez que le message « waiting for giveback » s&#8217;affiche sur la console de remplacement du contrôleur, puis vérifiez que le nouvel ID de système partenaire a été automatiquement attribué: <code>storage failover show</code></p>
+<p>Attendre l&#8217;attente d&#8217;un retour&#8230;&#8203; Un message s&#8217;affiche sur la console du contrôleur avec le module de remplacement, puis, depuis le contrôleur en bon état, vérifier que le nouvel ID système partenaire a été automatiquement attribué : <code>storage failover show</code></p>
 <div class="paragraph">
 <p>Dans le résultat de la commande, un message indiquant l&#8217;ID système modifié sur le contrôleur associé est affiché, indiquant l&#8217;ancien et le nouveau ID corrects. Dans l&#8217;exemple suivant, le node2 a fait l&#8217;objet d&#8217;un remplacement et a un nouvel ID système de 151759706.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>node1&gt; `storage failover show`
+<pre>node1:&gt; storage failover show
                                     Takeover
 Node              Partner           Possible     State Description
 ------------      ------------      --------     -------------------------------------
@@ -10464,31 +10420,6 @@ node1             node2             false        System ID changed on partner (O
                                                   151759755, New: 151759706), In takeover
 node2             node1             -            Waiting for giveback (HA mailboxes)</pre>
 </div>
-</div>
-</li>
-<li>
-<p>Depuis le contrôleur sain, vérifier que les « coredumps » sont enregistrés :</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Changement au niveau de privilège avancé : <code>set -privilege advanced</code></p>
-<div class="paragraph">
-<p>Vous pouvez répondre <code>Y</code> lorsque vous êtes invité à passer en mode avancé. L&#8217;invite du mode avancé s&#8217;affiche (*&gt;).</p>
-</div>
-</li>
-<li>
-<p>Enregistrez les « coredumps » : <code>system node run -node local-node-name partner savecore</code></p>
-</li>
-<li>
-<p>Attendez que la commande `savecore&#8217;se termine avant d&#8217;émettre le retour.</p>
-<div class="paragraph">
-<p>Vous pouvez saisir la commande suivante pour surveiller la progression de la commande savecore : <code>system node run -node local-node-name partner savecore -s</code></p>
-</div>
-</li>
-<li>
-<p>Retour au niveau de privilège admin : <code>set -privilege admin</code></p>
-</li>
-</ol>
 </div>
 </li>
 <li>
@@ -10535,16 +10466,16 @@ Si le retour est vetoté, vous pouvez envisager d&#8217;ignorer les vetoes.
 <li>
 <p>Vérifier que les disques ont été correctement affectés : <code>storage disk show -ownership</code></p>
 <div class="paragraph">
-<p>Les disques appartenant au contrôleur de remplacement doivent afficher le nouvel ID système. Dans l&#8217;exemple suivant, les disques appartenant au nœud1 affichent alors le nouvel ID système, 1873775277 :</p>
+<p>Les disques appartenant au contrôleur de remplacement doivent afficher le nouvel ID système. Dans l&#8217;exemple suivant, les disques appartenant au nœud1 affichent alors le nouvel ID système, 151759706 :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>node1&gt; `storage disk show -ownership`
+<pre>node1:&gt; storage disk show -ownership
 
 Disk  Aggregate Home  Owner  DR Home  Home ID    Owner ID  DR Home ID Reserver  Pool
 ----- ------    ----- ------ -------- -------    -------    -------  ---------  ---
-1.0.0  aggr0_1  node1 node1  -        1873775277 1873775277  -       1873775277 Pool0
-1.0.1  aggr0_1  node1 node1           1873775277 1873775277  -       1873775277 Pool0
+1.0.0  aggr0_1  node1 node1  -        151759706  151759706  -       151759706 Pool0
+1.0.1  aggr0_1  node1 node1           151759706  151759706  -       151759706 Pool0
 .
 .
 .</pre>
@@ -10597,6 +10528,9 @@ dr-group-id            cluster node           configuration-state
 <p>Vérifier que les volumes attendus sont présents pour chaque contrôleur : <code>vol show -node node-name</code></p>
 </li>
 <li>
+<p>Si le chiffrement de stockage est activé, vous devez <strong><strong></strong></strong>**</p>
+</li>
+<li>
 <p>Si vous avez désactivé le basculement automatique au redémarrage, activez-le à partir du contrôleur sain : <code>storage failover modify -node replacement-node-name -onreboot true</code></p>
 </li>
 </ol>
@@ -10604,17 +10538,26 @@ dr-group-id            cluster node           configuration-state
 </div>
 </div>
 <div class="sect1">
-<h2 id="étape-7-restauration-de-la-fonctionnalité-de-cryptage-du-stockage-et-du-volume">Étape 7 : restauration de la fonctionnalité de cryptage du stockage et du volume</h2>
+<h2 id="étape-6-restauration-de-la-fonctionnalité-de-cryptage-du-stockage-et-du-volume">Étape 6 : restauration de la fonctionnalité de cryptage du stockage et du volume</h2>
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Après avoir remplacé le module de contrôleur ou le module NVRAM d&#8217;un système de stockage que vous avez précédemment configuré pour utiliser le cryptage de stockage ou de volume, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de cryptage ininterrompu. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n&#8217;est pas activé.</p>
+<p>Pour les systèmes de stockage que vous avez déjà configurés pour utiliser le chiffrement du stockage ou des volumes, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de chiffrement sans interruption. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n&#8217;est pas activé.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Cette étape n&#8217;est pas requise lors du remplacement d&#8217;un module DIMM.
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <div class="title">Étapes</div>
 <ol class="arabic">
-<li>
-<p>Restaurez la fonctionnalité de cryptage de stockage ou de volume en suivant la procédure appropriée de la section <a href="https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html" target="_blank" rel="noopener">"Présentation du chiffrement NetApp avec l&#8217;interface de ligne de commande"</a>.</p>
-</li>
 <li>
 <p>Choisissez l&#8217;une des procédures suivantes selon que vous utilisez la gestion intégrée ou externe des clés :</p>
 <div class="ulist">
@@ -10628,12 +10571,15 @@ dr-group-id            cluster node           configuration-state
 </ul>
 </div>
 </li>
+<li>
+<p>Réinitialisez le MSID SED</p>
+</li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="étape-8-renvoyer-la-pièce-défaillante-à-netapp">Étape 8 : renvoyer la pièce défaillante à NetApp</h2>
+<h2 id="étape-7-renvoyer-la-pièce-défaillante-à-netapp">Étape 7 : renvoyer la pièce défaillante à NetApp</h2>
 <div class="sectionbody">
 <div class="paragraph lead">
 <p>Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la <a href="https://mysupport.netapp.com/site/info/rma">"Retour de pièce et amp ; remplacements"</a> pour plus d&#8217;informations.</p>
