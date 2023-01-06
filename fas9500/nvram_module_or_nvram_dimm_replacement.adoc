@@ -39,7 +39,7 @@ Pour remplacer le module DIMM et NVRAM, vous devez retirer le module NVRAM du ch
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
-Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
 
 .Étapes
 . Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
@@ -395,16 +395,19 @@ dr-group-id            cluster node           configuration-state
 
 == Étape 7 : restauration de la fonctionnalité de cryptage du stockage et du volume
 
-Après avoir remplacé le module de contrôleur ou le module NVRAM d'un système de stockage que vous avez précédemment configuré pour utiliser le cryptage de stockage ou de volume, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de cryptage ininterrompu. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n'est pas activé.
+Pour les systèmes de stockage que vous avez déjà configurés pour utiliser le chiffrement du stockage ou des volumes, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de chiffrement sans interruption. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n'est pas activé.
+
+
+NOTE: Cette étape n'est pas requise lors du remplacement d'un module DIMM.
 
 .Étapes
-. Restaurez la fonctionnalité de cryptage de stockage ou de volume en suivant la procédure appropriée de la section https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commande"^].
 . Choisissez l'une des procédures suivantes selon que vous utilisez la gestion intégrée ou externe des clés :
 +
 ** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
 ** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
 
 
+. Réinitialisez le MSID SED
 
 
 

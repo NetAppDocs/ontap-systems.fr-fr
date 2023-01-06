@@ -21,7 +21,7 @@ Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropri�
 Vous devez arrêter le contrôleur ou le contrôleur du châssis avant de les déplacer vers le nouveau châssis.
 
 .Description de la tâche
-* Si un cluster possède plus de deux contrôleurs, il doit se trouver au quorum. Si le cluster n'est pas dans le quorum ou si un contrôleur sain s'affiche `false` pour l'admissibilité et la santé, vous devez corriger le problème avant d'arrêter le contrôleur déficient ; consultez le link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Présentation de l'administration avec l'interface de ligne de commande"^].
+* Si un cluster possède plus de deux contrôleurs, il doit se trouver au quorum. Si le cluster n'est pas dans le quorum ou si un contrôleur sain s'affiche `false` pour l'admissibilité et la santé, vous devez corriger le problème avant d'arrêter le contrôleur déficient ; consultez le link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
 * Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
 +
 Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
