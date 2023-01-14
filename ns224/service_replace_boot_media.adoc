@@ -11,17 +11,17 @@ summary: 'Lorsque le support de démarrage tombe en panne sur un tiroir de disqu
 
 
 [role="lead"]
-Lorsque le support de démarrage tombe en panne sur un tiroir de disque NS224 dans une paire haute disponibilité exécutant ONTAP 9.7 ou version ultérieure ou que le tiroir exécute la version 1.1x ou ultérieure du firmware du module de tiroir NVMe (NSM), vous pouvez remplacer le support de démarrage. Le remplacement du support de démarrage peut s'effectuer sans interruption, alors que le tiroir disque est sous tension et que les E/S sont en cours.
+Lorsque le support de démarrage tombe en panne sur un tiroir de disque NS224 dans une paire HA exécutant ONTAP 9.7 ou version ultérieure ou si le tiroir exécute la version 0111 ou ultérieure du firmware du module de tiroir NVMe (NSM), vous pouvez remplacer le support de démarrage. Le remplacement du support de démarrage peut s'effectuer sans interruption, alors que le tiroir disque est sous tension et que les E/S sont en cours.
 
 .Avant de commencer
-* Votre paire haute disponibilité doit déjà exécuter ONTAP 9.7 ou une version ultérieure, qui dispose de la version minimale prise en charge du micrologiciel NSM, ou votre paire haute disponibilité doit déjà exécuter une version de ONTAP 9.6 avec une version 1.1x ou ultérieure du micrologiciel NSM.
+* Votre paire HA doit déjà exécuter ONTAP 9.7 ou une version ultérieure, qui dispose de la version minimale prise en charge du micrologiciel NSM, ou votre paire HA doit déjà exécuter une version de ONTAP 9.6 avec une version 0111 ou ultérieure du micrologiciel NSM.
 +
 Vous pouvez entrer le `storage shelf show -module` Contrôlez la version du firmware NSM sur votre tiroir au niveau de la console de l'un ou l'autre contrôleur.
 
 +
 [NOTE]
 ====
-Si votre étagère n'exécute pas la version 1.1x ou ultérieure du micrologiciel NSM, vous ne pouvez pas remplacer le support d'amorçage, vous devez remplacer le module NSM.
+Si votre tiroir n'exécute pas la version 0111 ou ultérieure du micrologiciel NSM, vous ne pouvez pas remplacer le support d'amorçage, vous devez remplacer le module NSM.
 
 link:service-replace-nsm100.html["Remplacez un module NSM - étagères NS224"^]
 
@@ -48,13 +48,15 @@ Cela laisse suffisamment de temps à ONTAP pour traiter l'événement de suppres
 
 * *Meilleure pratique :* la meilleure pratique consiste à installer sur votre système les versions les plus récentes du firmware du module de tiroir NVMe (NSM) et du firmware du lecteur avant de remplacer les composants FRU.
 +
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
+
++
 [NOTE]
 ====
 Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
-
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
-
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
 
 ====
 * Si nécessaire, vous pouvez allumer les LED situées à l'emplacement des tiroirs (bleues) pour faciliter l'emplacement physique des tiroirs concernés : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
@@ -75,6 +77,7 @@ video::20ed85f9-1f80-4e0e-9219-ab4600070d8a[panopto]
 
 
 .Étapes
+. Assurez-vous que les deux modules NSM du tiroir exécutent la même version du micrologiciel : version 0200 ou ultérieure.
 . Mettez-vous à la terre.
 . Déconnectez le câblage du module NSM contenant le FRU que vous remplacez :
 +
@@ -108,11 +111,7 @@ Lorsque vous commencez à tirer, les bras du mécanisme de verrouillage s'étend
 . Desserrez la vis du couvercle du module NSM et ouvrez le couvercle.
 . Localisez physiquement le support de démarrage défectueux.
 +
-Le support de démarrage est situé le long de la paroi du châssis de la tablette, à l'opposé du bloc d'alimentation. Le voyant d'avertissement du support de démarrage (orange), situé sur la carte à côté du logement du support de démarrage, est allumé.
-
-+
-
-NOTE: Le voyant reste allumé pendant 10 minutes après avoir retiré le module NSM de la tablette.
+Le support de démarrage est situé le long de la paroi du châssis de la tablette, à l'opposé du bloc d'alimentation.
 
 . Remplacez le support de démarrage :
 +
