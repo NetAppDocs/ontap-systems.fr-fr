@@ -325,7 +325,6 @@
   <block id="880c0610027a11af7086ae7e380e12e5" category="list-text">Si votre système dispose de deux modules de contrôleur, désactivez la paire haute disponibilité.</block>
   <block id="d426a3f5c9c0e3362f4ed536e7643c03" category="cell">Si votre système exécute clustered ONTAP avec...</block>
   <block id="93ff4b8a35c5f08ad3e97fdc9983948e" category="paragraph">Deux contrôleurs dans le cluster</block>
-  <block id="8d6f30824233e0351fc71f18fbb5c436" category="paragraph"><block ref="272f3c49a4ec1753c70013d06165277b" prefix="" category="inline-code"></block><block ref="2ad2df2fff9b45582f1f35a1de091886" prefix=" " category="inline-code"></block></block>
   <block id="a0540c64b7001eb9739a6eed390808ac" category="paragraph">Plus de deux contrôleurs dans le cluster</block>
   <block id="b2aa61dcee4d7b77fcd001973469ddde" category="paragraph"><block ref="2ad2df2fff9b45582f1f35a1de091886" prefix="" category="inline-code"></block></block>
   <block id="853a8c6f8383ee1dc5f3826af9ff6797" category="list-text">Arrêter le contrôleur, en appuyant sur<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à confirmer l'arrêt :<block ref="e1f5c50429478cf8a201f7a77cce9c92" prefix=" " category="inline-code"></block></block>
@@ -2652,13 +2651,6 @@
   <block id="ad451e1c6a6a584f53b88b5c73144db7" category="doc">Autres modèles</block>
   <block id="e727b00944f81e1d0a95c12886ac4641" category="inline-link-macro">Archivage</block>
   <block id="97a6415da8202d0321d49b92f019e7b1" category="paragraph">Ces liens permettent de trouver de la documentation sur les autres plateformes AFF et FAS. Vous trouverez de la documentation sur les systèmes AFF et FAS dont le support matériel est en fin de support technique dans le <block ref="5e4606a12c7b193a6ccb23ff349575d7" category="inline-link-macro-rx"></block>.</block>
-  <block id="07fa61787cd64fafda80a8c62e643a38" category="section-title">Modèles de plateforme</block>
-  <block id="f453086a36d64a5193cd4183c14bcd72" category="inline-link-macro">Documentation sur la gamme AFF 8000</block>
-  <block id="c651d2f010c85fa1c8605da5e127657e" category="paragraph"><block ref="c651d2f010c85fa1c8605da5e127657e" category="inline-link-macro-rx"></block></block>
-  <block id="71bdc94f19d5947bd1cb6d437f119ba2" category="inline-link-macro">Documentation sur la gamme FAS8000</block>
-  <block id="2b3a51bca746a221bf4a0af6d3098ccf" category="paragraph"><block ref="2b3a51bca746a221bf4a0af6d3098ccf" category="inline-link-macro-rx"></block></block>
-  <block id="c7e39e875a3a875d9445eace0794b0f5" category="inline-link-macro">Documentation sur la gamme FAS2500</block>
-  <block id="ebc5a75e4df8077b15f7cef6c123c7db" category="paragraph"><block ref="ebc5a75e4df8077b15f7cef6c123c7db" category="inline-link-macro-rx"></block></block>
   <block id="7a31198e87ee2c9071d7bf63050a7088" category="section-title">Modèles à tiroirs</block>
   <block id="dc562a84ed096c677cedf44a7c5df0bf" category="inline-link-macro">Documentation du tiroir disque DS2246</block>
   <block id="dd26152c70d312482c21516c3889b669" category="paragraph"><block ref="dd26152c70d312482c21516c3889b669" category="inline-link-macro-rx"></block></block>
@@ -2856,7 +2848,6 @@
   <block id="e81625c6f6813a6e5480c2987f5bd781" category="section-title">Étape 8 : renvoyer la pièce défaillante à NetApp</block>
   <block id="68908cbb53a7b71659933af600697a19" category="summary">Pour intervertir à chaud un module d'alimentation de contrôleur de déétage \(DCPM\) contenant la batterie NVRAM11, vous devez localiser le module DCPM défaillant, le retirer du châssis et installer le module DCPM de remplacement.</block>
   <block id="821b1e6be57f410ab68ac2071fc04df4" category="doc">Remplacez le module d'alimentation de commande de déchargement contenant la batterie NVRAM11 - FAS9500</block>
-  <block id="b36f3c4187cae8553973b284879e1c97" category="paragraph">Pour intervertir à chaud un module d'alimentation de contrôleur de déétage (DCPM) contenant la batterie NVRAM11, vous devez localiser le module DCPM défaillant, le retirer du châssis et installer le module DCPM de remplacement.</block>
   <block id="9b9f090ead8603008076b06ff01712ce" category="paragraph">Vous devez disposer d'un module DCPM de remplacement avant de retirer le module défectueux du châssis et il doit être remplacé dans les cinq minutes suivant son retrait. Une fois le module DCPM retiré du châssis, il n'y a pas de protection contre l'arrêt pour le module de contrôleur qui possède le module DCPM, autre que le basculement vers l'autre module de contrôleur.</block>
   <block id="90eb2af5a768fd638c695d0394817a0e" category="section-title">Étape 1 : remplacer le module DCPM</block>
   <block id="5a00f3de99220093cfa367a074d35fec" category="paragraph">Pour remplacer le module DCPM de votre système, vous devez retirer le module DCPM défectueux du système, puis le remplacer par un nouveau module DCPM.</block>
@@ -7352,4 +7343,44 @@
   <block id="d067784c8bad4d41a4f87accd50abbc1" category="list-text">Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir <block ref="68d9e980b8b4998ef88139d7b7ab8ff6" category="inline-link-macro-rx"></block>.</block>
   <block id="1c0138111ac00fdce24dc38ffd9859d5" category="list-text">Si un cluster possède plus de deux contrôleurs, il doit se trouver au quorum. Si le cluster n'est pas dans le quorum ou si un contrôleur sain s'affiche<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> pour l'admissibilité et la santé, vous devez corriger le problème avant d'arrêter le contrôleur déficient ; voir <block ref="68d9e980b8b4998ef88139d7b7ab8ff6" category="inline-link-macro-rx"></block>.</block>
   <block id="305fade7b83ae4e7549b33a3ae1b1fd0" category="doc">Ajouter à chaud une étagère - NS224 étagères</block>
+  <block id="859c951ebab21901f2fd6183c53339d5" category="summary">Pour intervertir à chaud un module d'alimentation de contrôleur sur batterie \(DCPM\) contenant la batterie NVRAM11, vous devez localiser le module DCPM défaillant, le retirer du châssis et installer le module DCPM de remplacement.</block>
+  <block id="8ea19d634d233a26f4f650bd2e2b467c" category="paragraph">Pour intervertir à chaud un module d'alimentation de contrôleur (DCPM) contenant la batterie NVRAM11, vous devez localiser le module DCPM défaillant, le retirer du châssis et installer le module DCPM de remplacement.</block>
+  <block id="58fb0a507d97ff336e5db5d69ba846e9" category="inline-link">Convertissez les ports NIC 40 GbE en ports 10 GbE multiples pour assurer la connectivité 10 GbE</block>
+  <block id="8ae73aa056882e7b560f3b52b5764957" category="list-text">Si votre système est configuré pour prendre en charge l'interconnexion de cluster 10 GbE et les connexions de données sur les cartes réseau 40 GbE, convertissez ces ports en connexions 10 GbE à l'aide du<block ref="5ec041cdb2bbdf01cd4ea2c400b17495" prefix=" " category="inline-code"></block> Commande provenant du mode maintenance. Voir<block ref="2d808a662d9493bde97b50913a25a294" category="inline-link-rx"></block> pour en savoir plus.</block>
+  <block id="d875f9fec183da794cd6d6245ef00d1d" category="paragraph"><block ref="272f3c49a4ec1753c70013d06165277b" prefix="" category="inline-code"></block></block>
+  <block id="1bb835185391c9f6463cb5dc111090d1" category="paragraph">Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir <block ref="68d9e980b8b4998ef88139d7b7ab8ff6" category="inline-link-macro-rx"></block>.</block>
+  <block id="aae78f4a3d47a08dddca98a632d4a75f" category="paragraph">Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de mettre le contrôleur en panne hors tension.</block>
+  <block id="68d9e980b8b4998ef88139d7b7ab8ff6" category="paragraph"><block ref="68d9e980b8b4998ef88139d7b7ab8ff6" category="inline-link-macro-rx"></block></block>
+  <block id="3cf0b39ddc0b0c6fbe705a62aacc7d3c" category="list-text">À l'avant du châssis, enfoncez fermement chaque disque jusqu'à ce que vous sentiez un arrêt positif. Cela permet de s'assurer que les disques sont fermement installés contre le fond de panier central du châssis.</block>
+  <block id="7acc547c8acfbe4a745ca72a3e0e83e4" category="image-alt">Entraînement drw a800 assis IEOPS 960</block>
+  <block id="9fec9d1f051b750c4b137dc68aaa9695" category="list-text">Aller à l'arrière du châssis. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.</block>
+  <block id="3caccb46026f8affc6c95f65aa0c8af1" category="list-text">Faites glisser le module de contrôleur hors du châssis et placez-le sur une surface plane et stable.</block>
+  <block id="9bc9bee1c7c86ea6e815437b4f02ff6c" category="paragraph">Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis. .</block>
+  <block id="1422875ceb77c2edc7c07474b11b3c6f" category="list-text">Ouvrir le conduit d'air du module de contrôleur :</block>
+  <block id="43ae4ee714a69574b12c2b05c54410b5" category="list-text">Appuyez sur le bouton de déverrouillage en terre cuite de la poignée du module, puis faites glisser le module DCPM hors du châssis.</block>
+  <block id="0721343ac8e5e32a5122775fda62e4d0" category="doc">Restaurez et vérifiez la configuration - AFF A900</block>
+  <block id="4db8dbc03fb77b9d2fa1dabdeec7a07a" category="list-text">Exécutez à nouveau le test de diagnostic au niveau du système. + si le test de diagnostic au niveau du système échoue à nouveau, contacter <block ref="d4b5db761eff3af8abec9c2aa8b19609" category="inline-link-macro-rx"></block>.</block>
+  <block id="22afc2cb7855948b6347ad0d5b8816a7" category="paragraph">Utilisez la procédure appropriée si le cryptage du stockage est activé.</block>
+  <block id="2c35abfceaabbce6e9a2f24491d249c0" category="open-title">Option 1 : utilisation du gestionnaire de clés intégré</block>
+  <block id="86b112e5aa1ced4fbffb09dded147e9f" category="list-text">Démarrez le nœud sur le menu de démarrage.</block>
+  <block id="e07ae2ef2fbd56f8a3ced5a2ab602ded" category="list-text">Sélectionnez l'option 10,<block ref="cdca34dc3d7defb03d741a65d78de01c" prefix=" " category="inline-code"></block>.</block>
+  <block id="5affab7614cb0938ec2fe16dbf6094bd" category="list-text">Saisissez la phrase de passe du gestionnaire de clés intégré pour le cluster à l'invite : exemple requis ici</block>
+  <block id="e1abc7408800fce9a7b34d2d5dca8aee" category="list-text">Entrez les données de la clé de sauvegarde</block>
+  <block id="99f5c4eee12090497e3ca28e84e49cab" category="admonition">Le nœud revient au menu de démarrage une fois les informations de phrase de passe terminées.</block>
+  <block id="0a2404583aab34668c1c8004bddabbaa" category="list-text">Sélectionnez l'option 1,<block ref="e6922a1788401c5ef431db829a2c387b" prefix=" " category="inline-code"></block></block>
+  <block id="c566d4828cd295258aa8097a90880602" category="open-title">Option 2 : utilisation du gestionnaire externe</block>
+  <block id="0a05a9975c9259ea331a85366e41d3ce" category="list-text">Sélectionnez l'option 11,<block ref="0dd518498ab98fe1fd543910856e6153" prefix=" " category="inline-code"></block>.</block>
+  <block id="b0bab47307c92499e81bac9b25dc3e52" category="list-text">Entrez les informations du certificat de gestion à l'invite : exemple requis ici *****</block>
+  <block id="453b94e2cc94c331c590159bf6b2d21e" category="admonition">Le nœud revient au menu de démarrage une fois les informations du certificat de gestion terminées.</block>
+  <block id="6f7b977f442186b3a2cff79208772851" category="list-text">Réinitialisez le MSID des disques :</block>
+  <block id="55bbcb479d2d67bc8ad4b8a2598ddd48" category="inline-link">Attribution d'une clé d'authentification des données à un lecteur FIPS ou SED (gestion des clés intégrée)</block>
+  <block id="be8dfb1b8df54a914e06c0a343100004" category="list-text">Si vous utilisez le chiffrement de stockage intégré, suivez la procédure décrite dans la section<block ref="503b29df34267dc3c3e3b8927894b0ee" category="inline-link-rx"></block></block>
+  <block id="32c3cf2b38ceb59d729e7de2ff67fefc" category="inline-link">Attribution d'une clé d'authentification de données à un lecteur FIPS ou SED (gestion de clés externe)</block>
+  <block id="a785aecc0aa86cd8bf8795e1bc4c3e60" category="list-text">Je vous utilise un gestionnaire de clés externe, suivez la procédure de la section<block ref="c5282a2eb5b1733e45b98afbe5b54d05" category="inline-link-rx"></block></block>
+  <block id="a5462faa34b6cf806cb49f24d84b02a7" category="list-text">Si votre système est configuré pour prendre en charge l'interconnexion de cluster 10 GbE et les connexions de données sur les cartes réseau 40 GbE, convertissez ces ports en connexions 10 GbE à l'aide de la commande nicadmin convert en mode maintenance. Voir<block ref="2d808a662d9493bde97b50913a25a294" category="inline-link-rx"></block> pour en savoir plus.</block>
+  <block id="55c99fae85fce446adbb5ceb895cf55e" category="paragraph">Le retrait des blocs d'alimentation lors du remplacement d'un châssis s'accompagne de l'arrêt, du débranchement, puis du retrait des quatre blocs d'alimentation à l'arrière de l'ancien châssis.</block>
+  <block id="c56809d9cff2ea190c6fb9d67e804b42" category="paragraph">Vous devez retirer les six modules de ventilation, situés à l'avant du châssis, lors du remplacement du châssis.</block>
+  <block id="63ee7e61fbd30f44f9b9df101a63a845" category="paragraph">Retirez les deux modules d'alimentation du contrôleur de coulisses de l'avant de l'ancien châssis.</block>
+  <block id="1d8e1f6692aa85c8d94c39dda8015fdb" category="paragraph">Une fois le nouveau châssis installé dans le rack ou l'armoire, déplacez le module de LED USB de l'avant de l'ancien châssis vers le nouveau châssis.</block>
+  <block id="02c98171b36d44757b42c6b5c5d2acb9" category="paragraph">Réponse<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> Lorsque vous voyez l'invite pour démarrer en mode maintenance</block>
 </blocks>
