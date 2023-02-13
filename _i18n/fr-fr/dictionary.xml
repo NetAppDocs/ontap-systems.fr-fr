@@ -6773,20 +6773,17 @@
   <block id="3c941071b26a1822e1cb4494c2fd71da" category="doc">Arrêtez le contrôleur défaillant - AFF A900</block>
   <block id="b37eeea92bef8e254a5c7650e7002788" category="doc">Étapes détaillées - AFF 900</block>
   <block id="c85d51015376017bfac06d7a393d65a8" category="paragraph">Stockage NVMe,</block>
-  <block id="1fb0ebfbc5b5595571d6d5f9b6042526" category="image-alt">câblage réseau sc drw a900</block>
   <block id="e5d93b7dd741454087516c062b2039a9" category="paragraph"><block ref="e5d93b7dd741454087516c062b2039a9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1450e01f2144c582867e61a2ce391ade" category="paragraph">Câblage des commutateurs réseau 25 GbE :</block>
   <block id="562006e5bc5a05872c89072601752baa" category="paragraph">Ports des logements A3 et B3 (e3a et e3c) et A9 et B9 (e9a et e9c) vers les commutateurs réseau 25 GbE.</block>
   <block id="8b891f41fe066d01d04ca12a9bd0033f" category="paragraph">Câbles de connexions FC 32 Gb :</block>
   <block id="c368da6f34e41cf660fe742d1776c0c1" category="paragraph">Reliez les ports A5 et B5 (5a, 5b, 5c et 5d) et les connecteurs A7 et B7 (7a, 7b, 7c et 7d) aux commutateurs réseau FC 32 Gbit.</block>
-  <block id="4ee80bb938c529fd8e585ff1663b9324" category="image-alt">câblage réseau commuté drw a900</block>
   <block id="3b632bef76bf01e7a7e2e0c7d8200b68" category="paragraph">Câble 25 GbE switchs réseau :</block>
   <block id="e61525b2473886e554ed01ddeed52e1d" category="paragraph">Connexions FC 32 Go sur câble :</block>
   <block id="7a98f654f31b3263341788faed4ecbdd" category="section-title">Option 1 : branchement des contrôleurs à un seul tiroir de disque NS224 dans AFF A900</block>
   <block id="c60dbcf19edff60839d3c0fbf6f60f2a" category="paragraph">Vous devez connecter chaque contrôleur aux modules NSM du tiroir disque NS224 sur un système AFF A900.</block>
   <block id="5ec6942c74c6a8edac1d2288d383731d" category="list-text">Utilisez l'animation ou les dessins suivants pour connecter les contrôleurs à un seul tiroir de disque NS224.</block>
   <block id="a51b0e75591721e9a3d930569f70d056" category="video-title">Animation : raccorder un seul tiroir NS224</block>
-  <block id="3edbc67f0fd2ebb274aeb6ee9dd581fe" category="image-alt">drw a900 NS224, câblage d'un tiroir</block>
   <block id="3a58f6912b98caf7435fd9f6896ba4c6" category="list-text">Connectez le port e2a du contrôleur au port e0a du NSM A du shelf.</block>
   <block id="e4e47b4780428e178a9b09390f2362b3" category="list-text">Connectez le port e10b du contrôleur A au port e0b sur le NSM B du tiroir.</block>
   <block id="393f89fb63e48229ad961dd1e405b53e" category="list-text">Connectez le port e2a du contrôleur B au port e0a du NSM B du shelf.</block>
@@ -6796,7 +6793,6 @@
   <block id="26fe6dbccc48fc5e3f27bb01af6740e6" category="list-text">Utilisez l'animation ou le schéma ci-dessous pour connecter les câbles du contrôleur à deux tiroirs disques NS224.</block>
   <block id="ee569a1cc4ce349b19061248e726f2c2" category="video-title">Animation : raccorder deux clayettes NS224</block>
   <block id="2b31343b857fe67d64a1a976e200e971" category="paragraph"><block ref="2b31343b857fe67d64a1a976e200e971" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3cf9ca19fe84380073a6046bd956f972" category="image-alt">drw a900 NS224 câblage de deux tiroirs</block>
   <block id="1d4442969281e166b667219af7e7fe7b" category="list-text">Connectez le port e2a du contrôleur à NSM A e0a sur le tiroir 1.</block>
   <block id="952e197be70605a4933f1fa544e89cf3" category="list-text">Connectez le port e10b du contrôleur A au port NSM B e0b sur le tiroir 1.</block>
   <block id="92d9c39d99b3b14f8b5b4b785e697404" category="list-text">Connectez le port e2b du contrôleur A au port NSM B e0b sur le tiroir 2.</block>
@@ -7383,4 +7379,17 @@
   <block id="63ee7e61fbd30f44f9b9df101a63a845" category="paragraph">Retirez les deux modules d'alimentation du contrôleur de coulisses de l'avant de l'ancien châssis.</block>
   <block id="1d8e1f6692aa85c8d94c39dda8015fdb" category="paragraph">Une fois le nouveau châssis installé dans le rack ou l'armoire, déplacez le module de LED USB de l'avant de l'ancien châssis vers le nouveau châssis.</block>
   <block id="02c98171b36d44757b42c6b5c5d2acb9" category="paragraph">Réponse<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> Lorsque vous voyez l'invite pour démarrer en mode maintenance</block>
+  <block id="2adab982ea2c53caec320e625667e439" category="list-text">Repérez le module de voyants USB à l'avant de l'ancien châssis, directement sous les modules DCPM.</block>
+  <block id="e9e9a6de5e421dfe8a5ccc0b156ecc94" category="admonition">Si les étiquettes de port de la carte ne sont pas visibles, vérifiez l'orientation de l'installation de la carte (le connecteur PCIe se trouve sur le côté gauche de l'emplacement de carte dans les A400 et FAS8300/8700), puis recherchez la carte, puis recherchez la carte, par numéro de pièce, dans le<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour obtenir un graphique du panneau indiquant les étiquettes des ports. Le numéro de référence de la carte se trouve à l'aide du<block ref="432345ed72f5509f18312f01d4f08dff" prefix=" " category="inline-code"></block> ou sur la liste d'emballage du système.</block>
+  <block id="bea43746a1060b2b6af67fba31ca2890" category="paragraph">Le schéma ci-dessous montre une représentation de ce à quoi ressemble un système classique et de l'emplacement des principaux composants à la lecture du système :</block>
+  <block id="2f50f96b8a95f8c73f9257ccd13d3c46" category="image-alt">Contrôleur drw a900 dans l'ID châssis IEOPS 856</block>
+  <block id="ea69d5fd5f06add244968ab4b689c261" category="image-alt">drw a900 câblage réseau sc IEOPS 933</block>
+  <block id="e1ed9dc03578bbf7dfdc44cf31220a86" category="image-alt">câblage réseau commuté drw a900 IEOPS 934</block>
+  <block id="f31eedcaeccdc6e2f0110a8d59512b5b" category="image-alt">drw a900 NS224 - câblage d'un tiroir IEOPS 937</block>
+  <block id="de9724762d060c871892fe8183e35056" category="image-alt">drw a900 NS224 câblage à deux tiroirs IEOPS 938</block>
+  <block id="6f189db9f1b1dfc1be838de48c805168" category="video-title">Animation : définissez les ID de tiroirs de disques NVMe</block>
+  <block id="c81415a6ed927280dac360edb5000bc6" category="image-alt">drw a900 POWER sur IEOPS 941</block>
+  <block id="7a0118bb1b2d6a800462ca70c23a1876" category="image-alt">drw 9000 contrôleur de commutateur de console de câbles IEOPS 953</block>
+  <block id="1f583998630e94806bf5b9e059227dd4" category="paragraph"><block ref="1f583998630e94806bf5b9e059227dd4" category="inline-link-rx"></block></block>
+  <block id="9b0500b65158795cfc5abb2becae4e80" category="paragraph">Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la section<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour localiser le câble et identifier son utilisation.</block>
 </blocks>

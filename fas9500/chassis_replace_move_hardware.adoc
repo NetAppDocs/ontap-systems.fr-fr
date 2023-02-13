@@ -6,9 +6,11 @@ summary: 'Tous les autres composants du système doivent fonctionner correctemen
 ---
 = Déplacement et remplacement du matériel - FAS9500
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
+
+
+
+== Déplacement et remplacement du matériel - FAS9500
 
 [role="lead"]
 Pour remplacer le châssis, vous devez retirer les composants de l'ancien châssis et les installer dans le châssis de remplacement.
@@ -18,7 +20,7 @@ Pour remplacer le châssis, vous devez retirer les composants de l'ancien châss
 == Étape 1 : retirer les alimentations
 
 [role="lead"]
-Le retrait des blocs d'alimentation lors du remplacement d'un châssis implique l'arrêt, le débranchement, puis le retrait du bloc d'alimentation de l'ancien châssis.
+Le retrait des blocs d'alimentation lors du remplacement d'un châssis s'accompagne de l'arrêt, du débranchement, puis du retrait des quatre blocs d'alimentation à l'arrière de l'ancien châssis.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Mettez le bloc d'alimentation hors tension et débranchez les câbles d'alimentation :
@@ -58,7 +60,7 @@ Bouton de verrouillage
 == Étape 2 : retirez les ventilateurs
 
 [role="lead"]
-Pour retirer les modules de ventilation lors du remplacement du châssis, vous devez effectuer une séquence spécifique de tâches.
+Vous devez retirer les six modules de ventilation, situés à l'avant du châssis, lors du remplacement du châssis.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Retirez le cadre (si nécessaire) à deux mains, en saisissant les ouvertures de chaque côté du cadre, puis en le tirant vers vous jusqu'à ce que le cadre se dégage des goujons à rotule du châssis.
@@ -197,7 +199,7 @@ Verrou de came d'E/S complètement déverrouillé
 == Étape 5 : retirez le module d'alimentation du contrôleur de coulisses
 
 [role="lead"]
-Vous devez retirer les modules d'alimentation du contrôleur de déétage de l'ancien châssis pour préparer l'installation du châssis de remplacement.
+Retirez les deux modules d'alimentation du contrôleur de coulisses de l'avant de l'ancien châssis.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Appuyez sur le bouton de verrouillage en terre cuite de la poignée du module, puis faites glisser le module DCPM hors du châssis.
@@ -248,7 +250,7 @@ NOTE: Si le système se trouve dans une armoire système, il peut être nécessa
 == Étape 7 : déplacez le module LED USB vers le nouveau châssis
 
 [role="lead"]
-Une fois le nouveau châssis installé dans le rack ou l'armoire, vous devez déplacer le module de LED USB de l'ancien châssis vers le nouveau châssis.
+Une fois le nouveau châssis installé dans le rack ou l'armoire, déplacez le module de LED USB de l'avant de l'ancien châssis vers le nouveau châssis.
 
 .Animation - retrait/installation du module USB
 video::bc46a3e8-6541-444e-973b-ae78004bf153[panopto]
@@ -271,7 +273,7 @@ image:../media/legend_icon_02.svg["largeur=20"]
 Faites glisser le châssis pour le sortir.
 
 |===
-. Repérez le module de voyants USB à l'avant de l'ancien châssis, directement sous les baies d'alimentation.
+. Repérez le module de voyants USB à l'avant de l'ancien châssis, directement sous les modules DCPM.
 . Appuyez sur le bouton de verrouillage noir situé sur le côté droit du module pour libérer le module du châssis, puis faites-le glisser hors de l'ancien châssis.
 . Alignez les bords du module avec la baie LED USB située en bas à l'avant du châssis de remplacement, puis poussez doucement le module jusqu'à ce qu'il s'enclenche.
 
@@ -381,6 +383,12 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 
 NOTE: Si l'invite et les modules de contrôleur ne s'affichent pas sur ONTAP, entrez `halt`, Puis à l'invite DU CHARGEUR, entrez `boot_ontap`, appuyez sur `Ctrl-C` lorsque vous y êtes invité, puis répétez cette étape.
 
+
+
++
+Réponse `y` Lorsque vous voyez l'invite pour démarrer en mode maintenance
+
++
 .. Dans le menu de démarrage, sélectionner l'option pour le mode maintenance.
 
 

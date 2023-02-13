@@ -190,6 +190,10 @@ image::../media/drw_9000_cable_management_arms.png[bras de gestion de câbles dr
 . Placez le panneau à l'avant du système.
 
 
+Le schéma ci-dessous montre une représentation de ce à quoi ressemble un système classique et de l'emplacement des principaux composants à la lecture du système :
+
+image::../media/drw_a900_controller_in _chassis_ID_IEOPS-856.svg[Contrôleur drw a900 dans l'ID châssis IEOPS 856]
+
 
 
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
@@ -217,9 +221,9 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 . Utilisez l'animation ou l'illustration pour terminer le câblage entre les contrôleurs et les commutateurs :
 +
 .Animation : câblé à un cluster sans commutateur à deux nœuds
-video::7a55b98a-e8b8-41d5-821f-ac5b0032ead0[panopto]
+video::37419c37-f56f-48e5-8e6c-afa600095444[panopto]
 +
-image::../media/drw_a900_tnsc_network_cabling.png[câblage réseau sc drw a900]
+image::../media/drw_a900_tnsc_network_cabling_IEOPS-933.svg[drw a900 câblage réseau sc IEOPS 933]
 
 +
 |===
@@ -298,9 +302,9 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 . Utilisez l'animation ou l'illustration pour terminer le câblage entre les contrôleurs et les commutateurs :
 +
 .Animation - câble a du bloc d'instruments commuté
-video::6381b3f1-4ce5-4805-bd0a-ac5b0032f51d[panopto]
+video::61ec11ec-aa30-474a-87a5-afa60008b52b[panopto]
 +
-image::../media/drw_a900_switched_network_cabling.png[câblage réseau commuté drw a900]
+image::../media/drw_a900_switched_network_cabling_IEOPS-934.svg[câblage réseau commuté drw a900 IEOPS 934]
 
 +
 |===
@@ -386,9 +390,9 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 .. Utilisez l'animation ou les dessins suivants pour connecter les contrôleurs à un seul tiroir de disque NS224.
 +
 .Animation : raccorder un seul tiroir NS224
-video::6520eb01-87b3-4520-9109-ac5b0032ea4e[panopto]
+video::8d8b45cd-bd8f-4fab-a4fa-afa5017e7b72[panopto]
 +
-image::../media/drw_a900_NS224_one shelf_cabling.png[drw a900 NS224, câblage d'un tiroir]
+image::../media/drw_a900_NS224_one shelf_cabling_IEOPS-937.svg[drw a900 NS224 - câblage d'un tiroir IEOPS 937]
 
 
 
@@ -450,12 +454,12 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 . Utilisez l'animation ou le schéma ci-dessous pour connecter les câbles du contrôleur à deux tiroirs disques NS224.
 +
 .Animation : raccorder deux clayettes NS224
-video::34098e39-73ad-45de-9af7-ac5b0032ea9a[panopto]
+video::ec143c32-9e4b-47e5-893e-afa5017da6b4[panopto]
 +
 image:../media/drw_a900_NS224_line_art_two shelf_cabling.png[""]
 
 +
-image::../media/drw_a900_NS224_two shelf_cabling.png[drw a900 NS224 câblage de deux tiroirs]
+image::../media/drw_a900_NS224_two_shelf_cabling_IEOPS-938.svg[drw a900 NS224 câblage à deux tiroirs IEOPS 938]
 
 +
 |===
@@ -514,7 +518,7 @@ Si la détection réseau est activée sur votre ordinateur portable, vous pouvez
 Les étagères NS224 sont pré-définies pour les ID de tiroir 00 et 01. Si vous souhaitez modifier les ID de tiroir, vous devez créer un outil pour les insérer dans le trou où se trouve le bouton. voir https://docs.netapp.com/us-en/ontap-systems/ns224/change-shelf-id.html["Modifiez l'ID de tiroir NS224"] pour des instructions détaillées.
 
 +
-.Animation : définissez les ID de tiroirs de disques SAS ou NVMe
+.Animation : définissez les ID de tiroirs de disques NVMe
 video::95a29da1-faa3-4ceb-8a0b-ac7600675aa6[panopto]
 +
 image::../media/drw_a900_oie_change_ns224_shelf ID_IEOPS-836.svg[drw a900 changement de l'oie ns224 ID d'étagère IEHo 836]
@@ -557,7 +561,7 @@ Bouton de configuration de l'ID de tiroir
 .Animation : mettez les contrôleurs sous tension
 video::a905e56e-c995-4704-9673-adfa0005a891[panopto]
 +
-image::../media/drw_a900_power-on.png[drw a900 sous tension]
+image::../media/drw_a900_power-on_IEOPS-941.svg[drw a900 POWER sur IEOPS 941]
 
 +
 
@@ -629,7 +633,7 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console
 
 .. Connectez le câble de la console à l'ordinateur portable ou à la console à l'aide du câble de console fourni avec le système, puis connectez l'ordinateur portable au commutateur de gestion du sous-réseau de gestion.
 +
-image::../media/drw_9000_cable_console_switch_controller.png[contrôleur du commutateur de console à câbles drw 9000]
+image::../media/drw_9000_cable_console_switch_controller_IEOPS-953.svg[drw 9000 contrôleur de commutateur de console de câbles IEOPS 953]
 
 .. Attribuez une adresse TCP/IP à l'ordinateur portable ou à la console à l'aide d'une adresse située sur le sous-réseau de gestion.
 
@@ -639,7 +643,7 @@ image::../media/drw_9000_cable_console_switch_controller.png[contrôleur du comm
 Les étagères NS224 sont pré-définies pour les ID de tiroir 00 et 01. Si vous souhaitez modifier les ID de tiroir, vous devez créer un outil pour les insérer dans le trou où se trouve le bouton. voir https://docs.netapp.com/us-en/ontap-systems/ns224/change-shelf-id.html["Modifiez l'ID de tiroir NS224"] pour des instructions détaillées.
 
 +
-.Animation : définissez les ID de tiroirs de disques SAS ou NVMe
+.Animation : définissez les ID de tiroirs de disques NVMe
 video::95a29da1-faa3-4ceb-8a0b-ac7600675aa6[panopto]
 +
 image::../media/drw_a900_oie_change_ns224_shelf ID_IEOPS-836.svg[drw a900 changement de l'oie ns224 ID d'étagère IEHo 836]
