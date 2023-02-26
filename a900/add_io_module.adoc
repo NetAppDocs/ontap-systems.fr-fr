@@ -8,11 +8,11 @@ summary: 'Vous pouvez ajouter un module d"E/S à votre système, soit en rempla�
 :allow-uri-read: 
 
 
-Vous pouvez ajouter un module d'E/S à votre système en remplaçant une carte réseau ou une carte de stockage par une nouvelle carte dans un système entièrement rempli, ou en ajoutant une nouvelle carte réseau ou un adaptateur de stockage dans un logement de châssis vide du système.
+Vous pouvez ajouter un module d'E/S à votre système en ajoutant un nouveau module d'E/S à un système doté de slots vides ou en remplaçant un module d'E/S par un nouveau dans un système entièrement rempli.
 
 .Avant de commencer
-* Vérifier le https://hwu.netapp.com/["NetApp Hardware Universe"] Pour vérifier que le nouveau module d'E/S est compatible avec votre système et la version de ONTAP que vous utilisez.
-* Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans https://hwu.netapp.com/["NetApp Hardware Universe"] Et utiliser la meilleure solution disponible pour votre module d'E/S.
+* Vérifier le https://hwu.netapp.com/["NetApp Hardware Universe"^] Pour vérifier que le nouveau module d'E/S est compatible avec votre système et la version de ONTAP que vous utilisez.
+* Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans https://hwu.netapp.com/["NetApp Hardware Universe"^] Et utiliser la meilleure solution disponible pour votre module d'E/S.
 * Pour ajouter un module d'E/S sans interruption, vous devez reprendre le contrôleur cible, retirer l'obturateur de logement dans le slot cible ou retirer un module d'E/S existant, ajouter le nouveau ou le module d'E/S de remplacement, puis renvoyer le contrôleur cible.
 * S'assurer que tous les autres composants fonctionnent correctement.
 
@@ -22,16 +22,115 @@ Vous pouvez ajouter un module d'E/S à votre système en remplaçant une carte r
 == Option 1 : ajoutez le module d'E/S à un système doté de logements ouverts
 
 [role="lead"]
-Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système en tant que carte réseau ou module de stockage pour les tiroirs de stockage NS224.
+Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système.
 
-. Arrêter le contrôleur A :
+
+
+== Étape 1 : arrêtez le nœud douteux
+
+[role="lead"]
+Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
+
+[role="tabbed-block"]
+====
+.Option 1 : la plupart des systèmes
+--
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
 +
-.. Désactiver le rétablissement automatique : `storage failover modify -node local -auto-giveback false`
-.. Reprendre le contrôleur cible : `storage failover takeover -ofnode target_node_name`
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
 +
-La connexion de la console indique que le contrôleur tombe dans l'invite DU CHARGEUR une fois le transfert terminé.
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
 
 
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+--
+.Option 2 : le contrôleur est dans un MetroCluster
+--
+
+NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passer à l'étape suivante.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+--
+====
+
+
+== Étape 2 : ajout de modules d'E/S.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Déposer l'obturateur de fente cible :
@@ -62,7 +161,7 @@ NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
 . Si vous utilisez des connecteurs 3 et/ou 7 pour la mise en réseau, utilisez le `storage port modify -node __<node name>__ -port __<port name>__ -mode network` commande permettant de convertir le logement pour une utilisation en réseau.
 . Répétez ces étapes pour le contrôleur B.
-. Si vous avez installé un module d'E/S de stockage, installez et connectez les câbles de vos tiroirs NS224, comme indiqué dans la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud d'un tiroir disque NS224"].
+. Si vous avez installé un module d'E/S de stockage, installez et connectez les câbles de vos tiroirs NS224, comme indiqué dans la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud d'un tiroir disque NS224"^].
 
 
 
@@ -70,7 +169,7 @@ NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et
 == Option 2 : ajout d'un module d'E/S dans un système sans emplacements ouverts
 
 [role="lead"]
-Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage existants de votre système pour installer un ou plusieurs modules d'E/S dans votre système entièrement rempli.
+Si votre système est entièrement rempli, vous pouvez changer un module d'E/S dans un slot d'E/S en retirant un module d'E/S existant et en le remplaçant par un autre module d'E/S.
 
 . Si vous êtes :
 +
@@ -89,24 +188,125 @@ Les LIF migrent automatiquement lorsque son module de contrôleur est arrêté.
  a| 
 Module d'E/S NIC avec moins de ports
  a| 
-Réallouer de manière définitive les LIF affectées à un autre port de départ. Voir https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"] Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF.
+Réallouer de manière définitive les LIF affectées à un autre port de départ. Voir https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^] Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF.
 
 
 
  a| 
 Module d'E/S NIC avec module d'E/S de stockage
  a| 
-Utilisez System Manager pour migrer définitivement les LIF vers différents ports de base, comme décrit dans la https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"].
+Utilisez System Manager pour migrer définitivement les LIF vers différents ports de base, comme décrit dans la https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^].
 
 |===
-. Arrêter le contrôleur A :
-+
-.. Désactiver le rétablissement automatique : `storage failover modify -node local -auto-giveback false`
-.. Reprendre le contrôleur cible : `storage failover takeover -ofnode target_node_name`
-+
-La connexion de la console indique que le contrôleur tombe dans l'invite DU CHARGEUR une fois le transfert terminé.
 
 
+
+
+== Étape 1 : arrêtez le nœud douteux
+
+[role="lead"]
+Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
+
+[role="tabbed-block"]
+====
+.Option 1 : la plupart des systèmes
+--
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+--
+.Option 2 : le contrôleur est dans un MetroCluster
+--
+
+NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passer à l'étape suivante.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+--
+====
+
+
+== Étape 2 : remplacer les modules d'E/S.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Débranchez tout câblage du module d'E/S cible.
@@ -130,26 +330,26 @@ video::3a5b1f6e-15ec-40b4-bb2a-adf9016af7b6[panopto]
 +
 image:../media/drw_a900_remove_PCIe_module.png[""]
 
-
-
 +
 [cols="10,90"]
 |===
 
 
  a| 
-image::../media/legend_icon_01.png[icône de légende 01]
+image::../media/legend_icon_01.svg[icône de légende 01]
  a| 
 Loquet de came d'E/S numéroté et numéroté
 
 
 
  a| 
-image:../media/legend_icon_02.png[""]
+image:../media/legend_icon_02.svg["largeur=20px"]
  a| 
 Verrou de came d'E/S complètement déverrouillé
 
 |===
+
+
 . Installez le module d'E/S dans le logement cible :
 +
 .. Alignez le module d'E/S sur les bords du logement.
@@ -189,7 +389,7 @@ Utilisez le `storage port modify -node *_<node name>__ -port *_<port name>__ -mo
  a| 
 Module de stockage
  a| 
-Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la sectionhttps://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud d'un tiroir disque NS224"].
+Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la sectionhttps://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud d'un tiroir disque NS224"^].
 
 |===
 . Répétez ces étapes pour le contrôleur B.

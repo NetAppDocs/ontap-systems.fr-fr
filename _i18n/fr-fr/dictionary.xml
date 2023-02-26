@@ -3021,11 +3021,9 @@
   <block id="e01b6c84aaebe2321eef7b7a933b171f" category="list-text">Pour ajouter un module d'E/S sans interruption, vous devez reprendre le contrôleur cible, retirer l'obturateur de logement dans le slot cible ou retirer un module d'E/S existant, ajouter le nouveau ou le module d'E/S de remplacement, puis renvoyer le contrôleur cible.</block>
   <block id="91b094c45d5351d209f688ccfd548bf7" category="list-text">S'assurer que tous les autres composants fonctionnent correctement.</block>
   <block id="329fe7c89a525def535e03c6dbc6f98f" category="section-title">Option 1 : ajoutez le module d'E/S à un système doté de logements ouverts</block>
-  <block id="133808c24f6fb32a9a2a58ed28150498" category="paragraph">Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système en tant que carte réseau ou module de stockage pour les tiroirs de stockage SAS.</block>
   <block id="ff028db00edc198dd85f97eaa8795079" category="list-text">Arrêter le contrôleur A :</block>
   <block id="e775b99f0018ec21dcdd858b620ec674" category="list-text">Désactiver le rétablissement automatique :<block ref="f454cdc7efb7d9bfad8109c4264a3a1b" prefix=" " category="inline-code"></block></block>
   <block id="074dd277824bef9c902209214f2118d7" category="list-text">Reprendre le nœud cible :<block ref="f6af6f0f6b5049f82a62be536b4ed9c4" prefix=" " category="inline-code"></block></block>
-  <block id="ff231ca484e594004f4ca93ecfa6683e" category="paragraph">La connexion de la console indique que le nœud tombe dans l'invite DU CHARGEUR une fois le transfert terminé.</block>
   <block id="f95919e2465ed77382efeba17c614808" category="list-text">Déposer l'obturateur de fente cible :</block>
   <block id="c45c3f1f9d099575b7abd851e7ef8b33" category="list-text">Faites tourner le loquet de came vers le bas jusqu'à ce qu'il soit en position ouverte.</block>
   <block id="c07593bfceec64f42a005d1a16af33f0" category="list-text">Déposer l'obturateur.</block>
@@ -3043,7 +3041,6 @@
   <block id="6f8193ca6bfb281db32afbcc9e285f79" category="inline-link">Ajout à chaud d'un tiroir SAS</block>
   <block id="9856beabcb389225df78cec96e74e365" category="list-text">Si vous avez installé un module d'E/S de stockage, installez et connectez les câbles de vos tiroirs SAS, comme indiqué dans la<block ref="322cc377ef41f5776a1c64690e12c49b" category="inline-link-rx"></block>.</block>
   <block id="3e0887648c519f4a3c16a1c61b2e8ec3" category="section-title">Option 2 : ajout d'un module d'E/S dans un système sans emplacements ouverts</block>
-  <block id="3a94a10e2dbe887d30ec12c0e2d2170d" category="paragraph">Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage existants de votre système pour installer un ou plusieurs modules d'E/S dans votre système entièrement rempli.</block>
   <block id="cebb0168d5bfd94a91f0da51501ba6b8" category="list-text">Si vous êtes :</block>
   <block id="e818b574f8a890f6c21405d9164bb6ef" category="cell">Remplacement...</block>
   <block id="d6737fd4fc838900efec68220d9b62d5" category="paragraph">Module d'E/S NIC avec le même nombre de ports</block>
@@ -6809,16 +6806,9 @@
   <block id="cb0bd9965128fe9d9c7dc5fe35ba00fa" category="doc">Étapes rapides - AFF A900</block>
   <block id="cd9130a2736bae3213b0c2da4de3435e" category="inline-link-macro">Instructions d'installation et de configuration du système AFF A900</block>
   <block id="a164244a6913c60772e9b9fbbbc17a4a" category="doc">Ajout d'un module d'E/S - AFF A900</block>
-  <block id="12f686a2d13fd4b93c3ef7fbc915cdcd" category="paragraph">Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système en tant que carte réseau ou module de stockage pour les tiroirs de stockage NS224.</block>
-  <block id="e7e0acd4a94a610862553a655c0372a3" category="list-text">Reprendre le contrôleur cible :<block ref="f6af6f0f6b5049f82a62be536b4ed9c4" prefix=" " category="inline-code"></block></block>
-  <block id="0a7ae7a43062cf45861e620d40d10ab9" category="paragraph">La connexion de la console indique que le contrôleur tombe dans l'invite DU CHARGEUR une fois le transfert terminé.</block>
   <block id="ff307501f6507919aa7c2196b367a42d" category="list-text">Refaites le contrôleur du contrôleur partenaire.<block ref="49c908925c3b8a3554612823f81c8964" prefix=" " category="inline-code"></block></block>
-  <block id="2d881a27ee894664c2e7cc8d1795b104" category="list-text">Si vous avez installé un module d'E/S de stockage, installez et connectez les câbles de vos tiroirs NS224, comme indiqué dans la section<block ref="8b1d41e5fd14f554e8b3490e0dfd47ae" category="inline-link-rx"></block>.</block>
-  <block id="92fa459a77121184c537af9ee2b58dff" category="paragraph">Réallouer de manière définitive les LIF affectées à un autre port de départ. Voir<block ref="85291e79b86f275650bb0fb4e90a39e9" category="inline-link-rx"></block> Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF.</block>
-  <block id="2640f01f139d87de119d4e0ddc369433" category="paragraph">Utilisez System Manager pour migrer définitivement les LIF vers différents ports de base, comme décrit dans la<block ref="85291e79b86f275650bb0fb4e90a39e9" category="inline-link-rx"></block>.</block>
   <block id="8e110de01e4c53b1e817eb263890c2c7" category="video-title">Animation : retrait ou remplacement d'un module d'E/S.</block>
   <block id="af7e67afbae0d677789152f59d9ac82d" category="list-text">Si le module d'E/S de remplacement est une carte réseau, reliez le ou les modules aux commutateurs de données.</block>
-  <block id="907b4c195a2387f3ef35df10e9b1a0eb" category="paragraph">Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section<block ref="71b38ceec90716734f26b1c06463d904" category="inline-link-rx"></block>.</block>
   <block id="10446d8e0f9e8e6b297995ce7dafe03c" category="doc">Effectuez le processus de remplacement - AFF A900</block>
   <block id="055140d300b472c3cf197b316fc1a111" category="doc">Restauration complète du système - AFF A900</block>
   <block id="6551c0f6e6caf0566c6eae152ecd7b38" category="doc">Remplacez le support de démarrage - AFF A900</block>
@@ -7356,23 +7346,13 @@
   <block id="43ae4ee714a69574b12c2b05c54410b5" category="list-text">Appuyez sur le bouton de déverrouillage en terre cuite de la poignée du module, puis faites glisser le module DCPM hors du châssis.</block>
   <block id="0721343ac8e5e32a5122775fda62e4d0" category="doc">Restaurez et vérifiez la configuration - AFF A900</block>
   <block id="4db8dbc03fb77b9d2fa1dabdeec7a07a" category="list-text">Exécutez à nouveau le test de diagnostic au niveau du système. + si le test de diagnostic au niveau du système échoue à nouveau, contacter <block ref="d4b5db761eff3af8abec9c2aa8b19609" category="inline-link-macro-rx"></block>.</block>
-  <block id="22afc2cb7855948b6347ad0d5b8816a7" category="paragraph">Utilisez la procédure appropriée si le cryptage du stockage est activé.</block>
   <block id="2c35abfceaabbce6e9a2f24491d249c0" category="open-title">Option 1 : utilisation du gestionnaire de clés intégré</block>
   <block id="86b112e5aa1ced4fbffb09dded147e9f" category="list-text">Démarrez le nœud sur le menu de démarrage.</block>
   <block id="e07ae2ef2fbd56f8a3ced5a2ab602ded" category="list-text">Sélectionnez l'option 10,<block ref="cdca34dc3d7defb03d741a65d78de01c" prefix=" " category="inline-code"></block>.</block>
-  <block id="5affab7614cb0938ec2fe16dbf6094bd" category="list-text">Saisissez la phrase de passe du gestionnaire de clés intégré pour le cluster à l'invite : exemple requis ici</block>
-  <block id="e1abc7408800fce9a7b34d2d5dca8aee" category="list-text">Entrez les données de la clé de sauvegarde</block>
-  <block id="99f5c4eee12090497e3ca28e84e49cab" category="admonition">Le nœud revient au menu de démarrage une fois les informations de phrase de passe terminées.</block>
   <block id="0a2404583aab34668c1c8004bddabbaa" category="list-text">Sélectionnez l'option 1,<block ref="e6922a1788401c5ef431db829a2c387b" prefix=" " category="inline-code"></block></block>
   <block id="c566d4828cd295258aa8097a90880602" category="open-title">Option 2 : utilisation du gestionnaire externe</block>
   <block id="0a05a9975c9259ea331a85366e41d3ce" category="list-text">Sélectionnez l'option 11,<block ref="0dd518498ab98fe1fd543910856e6153" prefix=" " category="inline-code"></block>.</block>
-  <block id="b0bab47307c92499e81bac9b25dc3e52" category="list-text">Entrez les informations du certificat de gestion à l'invite : exemple requis ici *****</block>
   <block id="453b94e2cc94c331c590159bf6b2d21e" category="admonition">Le nœud revient au menu de démarrage une fois les informations du certificat de gestion terminées.</block>
-  <block id="6f7b977f442186b3a2cff79208772851" category="list-text">Réinitialisez le MSID des disques :</block>
-  <block id="55bbcb479d2d67bc8ad4b8a2598ddd48" category="inline-link">Attribution d'une clé d'authentification des données à un lecteur FIPS ou SED (gestion des clés intégrée)</block>
-  <block id="be8dfb1b8df54a914e06c0a343100004" category="list-text">Si vous utilisez le chiffrement de stockage intégré, suivez la procédure décrite dans la section<block ref="503b29df34267dc3c3e3b8927894b0ee" category="inline-link-rx"></block></block>
-  <block id="32c3cf2b38ceb59d729e7de2ff67fefc" category="inline-link">Attribution d'une clé d'authentification de données à un lecteur FIPS ou SED (gestion de clés externe)</block>
-  <block id="a785aecc0aa86cd8bf8795e1bc4c3e60" category="list-text">Je vous utilise un gestionnaire de clés externe, suivez la procédure de la section<block ref="c5282a2eb5b1733e45b98afbe5b54d05" category="inline-link-rx"></block></block>
   <block id="a5462faa34b6cf806cb49f24d84b02a7" category="list-text">Si votre système est configuré pour prendre en charge l'interconnexion de cluster 10 GbE et les connexions de données sur les cartes réseau 40 GbE, convertissez ces ports en connexions 10 GbE à l'aide de la commande nicadmin convert en mode maintenance. Voir<block ref="2d808a662d9493bde97b50913a25a294" category="inline-link-rx"></block> pour en savoir plus.</block>
   <block id="55c99fae85fce446adbb5ceb895cf55e" category="paragraph">Le retrait des blocs d'alimentation lors du remplacement d'un châssis s'accompagne de l'arrêt, du débranchement, puis du retrait des quatre blocs d'alimentation à l'arrière de l'ancien châssis.</block>
   <block id="c56809d9cff2ea190c6fb9d67e804b42" category="paragraph">Vous devez retirer les six modules de ventilation, situés à l'avant du châssis, lors du remplacement du châssis.</block>
@@ -7392,4 +7372,29 @@
   <block id="7a0118bb1b2d6a800462ca70c23a1876" category="image-alt">drw 9000 contrôleur de commutateur de console de câbles IEOPS 953</block>
   <block id="1f583998630e94806bf5b9e059227dd4" category="paragraph"><block ref="1f583998630e94806bf5b9e059227dd4" category="inline-link-rx"></block></block>
   <block id="9b0500b65158795cfc5abb2becae4e80" category="paragraph">Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la section<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour localiser le câble et identifier son utilisation.</block>
+  <block id="192e7ded6d54e3ac04596dc33b9c67cf" category="paragraph">Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système.</block>
+  <block id="741ade379895992f2a574e8e60de1571" category="section-title">Étape 2 : ajout de modules d'E/S.</block>
+  <block id="31ac56c0f673cbef254563f6a8a32626" category="paragraph">Si votre système est entièrement rempli, vous pouvez changer un module d'E/S dans un slot d'E/S en retirant un module d'E/S existant et en le remplaçant par un autre module d'E/S.</block>
+  <block id="ed4dc030dff8dfc29b5cd17aafe4c26e" category="paragraph">== étape 2 : remplacez les modules d'E/S.</block>
+  <block id="abd172307b56cb5c0bccb5323a67b886" category="paragraph">== étape 3 : redémarrez le contrôleur après le remplacement du module d'E/S.</block>
+  <block id="fd25e96fa9d35ae62fb86caa243d8698" category="paragraph">== étape 4 : renvoyez la pièce défectueuse à NetApp</block>
+  <block id="74458273e576f4b2da617a6e0e209a5f" category="paragraph">Si le chiffrement du stockage est activé, suivez la procédure appropriée.</block>
+  <block id="23620cc2fa7491aefb480afbef75dac2" category="list-text">Saisissez la phrase de passe du gestionnaire de clés intégré que vous avez obtenue du client.</block>
+  <block id="15247f97704eb964c60d179c321c1370" category="list-text">À l'invite, collez les données de la clé de sauvegarde à partir de la sortie de<block ref="6b6f6c1a8bc1fede794cda92ed140953" prefix=" " category="inline-code"></block> OU<block ref="32ba7af89b7557f6e3e6d80a922080ce" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="8726b2ef66dc0e734b269a3191597e11" category="paragraph">--------------------------- COMMENCER LA SAUVEGARDE------------------------------------------------------</block>
+  <block id="328f6eaec3741c1d0f9558d6c40c1da4" category="paragraph">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADuD+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAA QAAAAAAAAAAAAAAAASAA QAAAASAA 1AAAAAMHAAAAMHAAASAA+AAAAAAAAAAAAAAAAAAAAASAA 1AAAAMHAAASAYLAAASAA 1AAAAMHAAAAMHAAASAYLAAASAA 1AAASAA 1AAASAYLAMHAAASAA 1AAASAA . . . H4nPQM0nrDRYRa9SCv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</block>
+  <block id="26eef74dee0269079c9b6b002eeddb34" category="admonition">Le nœud revient au menu de démarrage.</block>
+  <block id="1e4d7cab6ce42bcab6973efa42fc0b2c" category="list-text">Exécutez la synchronisation intégrée du gestionnaire de clés de sécurité :</block>
+  <block id="377fca3965b001b9bcc8843e1b287fe7" category="list-text">Réinitialisez le MSID s'il a été défini précédemment et a été capturé au début de cette procédure :</block>
+  <block id="a967d40ef247a202e5f1ce7a9626a0ca" category="list-text">Attribuez une clé d'authentification de données à un lecteur FIPS ou SED à l'aide du<block ref="8fc59e93e98503b6d1b1230269b06192" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="551eb7af7cdc6ae3394d506bd47a783d" category="admonition">Vous pouvez utiliser le<block ref="eb3cf23f0c9c60ca759ddca34bbfbf56" prefix=" " category="inline-code"></block> Commande permettant d'afficher les ID de clés.</block>
+  <block id="6f44d6d36af2c0294f4e53a2e6947b94" category="list-text">Vérifiez que les clés d'authentification ont été attribuées à l'aide du<block ref="46353f4e0bb2c136591c37c9eeedcf40" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="960bc5d7d199e0e148cd3dd0e517250d" category="list-text">Entrez les informations du certificat de gestion aux invites.</block>
+  <block id="037baf09c7ddcc7c38f81e7dbe35fa87" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système en ajoutant un nouveau module d'E/S à un système doté de slots vides ou en remplaçant un module d'E/S par un nouveau dans un système entièrement rempli.</block>
+  <block id="55f1569cdcfb82612fcf293f23db4f6f" category="list-text">Vérifier le<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block> Pour vérifier que le nouveau module d'E/S est compatible avec votre système et la version de ONTAP que vous utilisez.</block>
+  <block id="6e4968851f4373ab9764e16cffb39389" category="list-text">Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block> Et utiliser la meilleure solution disponible pour votre module d'E/S.</block>
+  <block id="849384ba6480c0ea1f0194c179b1dad2" category="list-text">Si vous avez installé un module d'E/S de stockage, installez et connectez les câbles de vos tiroirs NS224, comme indiqué dans la section<block ref="a84558faf7b836b9db418a291f2462b5" category="inline-link-rx"></block>.</block>
+  <block id="3aa5c10c865ad075f0b3003697aa0a31" category="inline-image-macro">largeur=20px</block>
+  <block id="5574e785cb3feaf25b9cde927c042bd5" category="paragraph"><block ref="5574e785cb3feaf25b9cde927c042bd5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="314032c5f76e6fcf7f32085e64ca9fd1" category="paragraph">Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section<block ref="120b604fa0c5a5c9d522c8314c790770" category="inline-link-rx"></block>.</block>
 </blocks>
