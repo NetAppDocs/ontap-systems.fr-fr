@@ -466,9 +466,6 @@
   <block id="083781fc87756a032121b806b4d18a92" category="paragraph"><block ref="083781fc87756a032121b806b4d18a92" category="inline-link-macro-rx"></block></block>
   <block id="308216007c5ec00e109a42c5068cc3de" category="paragraph">Vous pouvez effacer le contenu de votre module de cache avant de le remplacer.</block>
   <block id="6ec04a396d43adc0bf840cc9e4cce4b3" category="list-text">Bien que les données du module de cache soient cryptées, il est possible que vous souhaitiez effacer toutes les données du module de cache pour personnes affaiblies et vérifier que le module de cache n'a pas de données :</block>
-  <block id="7befdc0c8cc35d0c1711e11bd7feb970" category="list-text">Effacer les données du module de cache :<block ref="6daf7f4112fcf7c7be366c44ff70faf2" prefix=" " category="inline-code"></block></block>
-  <block id="236dd84b9226dbf8dfd98a6c46b59972" category="list-text">Vérifiez que les données ont été effacées du module de cache :<block ref="55030d884a341e8f95d06478b61fbec9" prefix=" " category="inline-code"></block></block>
-  <block id="af41b619bf9d50ddae2454efc001e4dd" category="paragraph">La sortie doit afficher l'état du module de cache comme effacé.</block>
   <block id="b1ba38ad947dd1578f31b0197f58b44d" category="paragraph">Passez à l'étape suivante.</block>
   <block id="b6ea0c6054b7f5b7832dafbb8468dc0f" category="paragraph">Prendre en charge ou arrêter le contrôleur en état :</block>
   <block id="4571f480b4cb6246b64d91e6cacdf34c" category="list-text">Pour une paire haute disponibilité, prendre le relais du contrôleur défectueux du contrôleur en bonne santé :<block ref="64d2ac6bbd59fb854ec2bed7b2dbe259" prefix=" " category="inline-code"></block></block>
@@ -5197,8 +5194,6 @@
   <block id="4a848babffe3702bffe9efa29dd12c61" category="paragraph">Vous pouvez utiliser les animations, illustrations ou étapes écrites suivantes pour remplacer le support de démarrage.</block>
   <block id="fc68b2259a318d9688e92ea62281a6d1" category="video-title">Animation : remplacez le support de démarrage</block>
   <block id="05da715fdd840e7fc27dd764386018bc" category="doc">Remplacez le module de mise en cache - FAS8300 et FAS8700</block>
-  <block id="d457ea14ed8ca14254ad1d75e29dce09" category="list-text">Effacer les données du module de cache :<block ref="b60bf2b00ff05f3d1169095b57dfe15e" prefix=" " category="inline-code"></block></block>
-  <block id="b9106c27d735907c8812d337029e92be" category="list-text">Vérifiez que les données ont été effacées du module de cache :<block ref="ff9cd193397cd4b2dc68941ccf3d6f87" prefix=" " category="inline-code"></block></block>
   <block id="852ccbca31b38b90e5621b15b3d30e1b" category="paragraph">Prendre en charge ou arrêter le contrôleur en état :<block ref="64d2ac6bbd59fb854ec2bed7b2dbe259" prefix=" " category="inline-code"></block> Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>.</block>
   <block id="8a653be38ee9a052d5a08a28a70c1d9e" category="paragraph">Pour remplacer un module de mise en cache, appelé Flash cache sur l'étiquette de votre contrôleur, recherchez le slot dans le contrôleur et suivez la séquence d'étapes spécifiques. Reportez-vous au mappage des FRU sur le module de contrôleur pour connaître l'emplacement de Flash cache.</block>
   <block id="70edce28424200208b28981e9b221707" category="list-text">Bien que le contenu du module de cache soit crypté, il est préférable d'effacer le contenu du module avant de le remplacer. Pour plus d'informations, reportez-vous à la section<block ref="89de74d6a86df9137b0ef3fb03a43036" category="inline-link-rx"></block> De votre système sur le site de support NetApp.</block>
@@ -7375,9 +7370,6 @@
   <block id="192e7ded6d54e3ac04596dc33b9c67cf" category="paragraph">Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système.</block>
   <block id="741ade379895992f2a574e8e60de1571" category="section-title">Étape 2 : ajout de modules d'E/S.</block>
   <block id="31ac56c0f673cbef254563f6a8a32626" category="paragraph">Si votre système est entièrement rempli, vous pouvez changer un module d'E/S dans un slot d'E/S en retirant un module d'E/S existant et en le remplaçant par un autre module d'E/S.</block>
-  <block id="ed4dc030dff8dfc29b5cd17aafe4c26e" category="paragraph">== étape 2 : remplacez les modules d'E/S.</block>
-  <block id="abd172307b56cb5c0bccb5323a67b886" category="paragraph">== étape 3 : redémarrez le contrôleur après le remplacement du module d'E/S.</block>
-  <block id="fd25e96fa9d35ae62fb86caa243d8698" category="paragraph">== étape 4 : renvoyez la pièce défectueuse à NetApp</block>
   <block id="74458273e576f4b2da617a6e0e209a5f" category="paragraph">Si le chiffrement du stockage est activé, suivez la procédure appropriée.</block>
   <block id="23620cc2fa7491aefb480afbef75dac2" category="list-text">Saisissez la phrase de passe du gestionnaire de clés intégré que vous avez obtenue du client.</block>
   <block id="15247f97704eb964c60d179c321c1370" category="list-text">À l'invite, collez les données de la clé de sauvegarde à partir de la sortie de<block ref="6b6f6c1a8bc1fede794cda92ed140953" prefix=" " category="inline-code"></block> OU<block ref="32ba7af89b7557f6e3e6d80a922080ce" prefix=" " category="inline-code"></block> commande.</block>
@@ -7397,4 +7389,9 @@
   <block id="3aa5c10c865ad075f0b3003697aa0a31" category="inline-image-macro">largeur=20px</block>
   <block id="5574e785cb3feaf25b9cde927c042bd5" category="paragraph"><block ref="5574e785cb3feaf25b9cde927c042bd5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="314032c5f76e6fcf7f32085e64ca9fd1" category="paragraph">Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section<block ref="120b604fa0c5a5c9d522c8314c790770" category="inline-link-rx"></block>.</block>
+  <block id="757216293ea1da04339a2c9b8eaa2641" category="admonition">Le fichier tar.gz doit être placé sur une partition au format FAT32 d'au moins 4 Go. Bien que les partitions FAT32 puissent être de 2 To, les outils intégrés Windows (par exemple, diskpart) ne peuvent pas formater les partitions FAT32 supérieures à 32 Go.</block>
+  <block id="e9d3276fadd16a57346b54cecf613793" category="list-text">Effacer les données du module de cache :<block ref="5ffb603e9f437c31dabf66aeb6dc9941" prefix=" " category="inline-code"></block></block>
+  <block id="06dd51a0351c6bc1041f60a7a78358f1" category="admonition">Exécutez le<block ref="77da07d2ad54f11335f6a0e867b30843" prefix=" " category="inline-code"></block> Si vous ne connaissez pas l'ID de périphérique flashcache.</block>
+  <block id="955a29c530e47b3a4d397e3e2ff7a94a" category="list-text">Vérifiez que les données ont été effacées du module de cache :<block ref="5a00050b2fc68dfbfe21cffc587aa407" prefix=" " category="inline-code"></block></block>
+  <block id="04f13a81f468108c54934d79ebdf3ceb" category="admonition">Si les étiquettes de port de la carte ne sont pas visibles, vérifiez l'orientation de l'installation de la carte (le connecteur PCIe se trouve sur le côté gauche du logement de carte dans les modèles A400 et FAS8300/8700), puis recherchez la carte, par numéro de pièce, dans le<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour obtenir un graphique du panneau indiquant les étiquettes des ports. Le numéro de référence de la carte se trouve à l'aide du<block ref="432345ed72f5509f18312f01d4f08dff" prefix=" " category="inline-code"></block> ou sur la liste d'emballage du système.</block>
 </blocks>

@@ -197,7 +197,7 @@ image::../media/drw_a320_cable_management_arms.png[bras de gestion des câbles d
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
 
 
-NOTE: Si les étiquettes de port de la carte ne sont pas visibles, vérifiez l'orientation de l'installation de la carte (le connecteur PCIe se trouve sur le côté gauche de l'emplacement de carte dans les A400 et FAS8300/8700), puis recherchez la carte, puis recherchez la carte, par numéro de pièce, dans le https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir un graphique du panneau indiquant les étiquettes des ports. Le numéro de référence de la carte se trouve à l'aide du `sysconfig -a` ou sur la liste d'emballage du système.
+NOTE: Si les étiquettes de port de la carte ne sont pas visibles, vérifiez l'orientation de l'installation de la carte (le connecteur PCIe se trouve sur le côté gauche du logement de carte dans les modèles A400 et FAS8300/8700), puis recherchez la carte, par numéro de pièce, dans le https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir un graphique du panneau indiquant les étiquettes des ports. Le numéro de référence de la carte se trouve à l'aide du `sysconfig -a` ou sur la liste d'emballage du système.
 
 
 NOTE: Si vous effectuez le câblage d'une configuration IP MetroCluster, les ports e0a/e0b sont disponibles pour l'hébergement des LIF de données (généralement dans l'IPSpace par défaut).

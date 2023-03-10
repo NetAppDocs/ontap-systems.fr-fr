@@ -16,11 +16,14 @@ Vous devez remplacer le module de cache du module de contrôleur lorsque votre s
 Vous pouvez effacer le contenu de votre module de cache avant de le remplacer.
 
 * Bien que les données du module de cache soient cryptées, il est possible que vous souhaitiez effacer toutes les données du module de cache pour personnes affaiblies et vérifier que le module de cache n'a pas de données :
-* Effacer les données du module de cache : `system controller flash-cache secure-erase run`
-* Vérifiez que les données ont été effacées du module de cache : `system controller flash-cache secure-erase show -node node_name`
++
+** Effacer les données du module de cache : `system controller flash-cache secure-erase run -node _node name_ localhost -device-id _device_number_`
++
 
+NOTE: Exécutez le `system controller flash-cache show` Si vous ne connaissez pas l'ID de périphérique flashcache.
 
-La sortie doit afficher l'état du module de cache comme effacé.
+** Vérifiez que les données ont été effacées du module de cache : `system controller flash-cache secure-erase show`
+
 
 * Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 

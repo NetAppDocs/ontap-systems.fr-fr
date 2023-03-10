@@ -40,11 +40,12 @@ Vous pouvez effacer le contenu de votre module de cache avant de le remplacer.
 .Étapes
 . Bien que les données du module de cache soient cryptées, il est possible que vous souhaitiez effacer toutes les données du module de cache pour personnes affaiblies et vérifier que le module de cache n'a pas de données :
 +
-.. Effacer les données du module de cache : `system controller flash-cache secure-erase run -node _node_name_ -device-id _device_id_`
-.. Vérifiez que les données ont été effacées du module de cache : `system controller flash-cache secure-erase show -node _node_name_`
+.. Effacer les données du module de cache : `system controller flash-cache secure-erase run -node _node name_ localhost -device-id _device_number_`
 +
-La sortie doit afficher l'état du module de cache comme effacé.
 
+NOTE: Exécutez le `system controller flash-cache show` Si vous ne connaissez pas l'ID de périphérique flashcache.
+
+.. Vérifiez que les données ont été effacées du module de cache : `system controller flash-cache secure-erase show`
 
 
 . Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=_number_of_hours_down_h`

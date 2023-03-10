@@ -93,6 +93,10 @@ Si nécessaire, retirez le support de démarrage et réinstallez-le dans le supp
 Vous pouvez installer l'image système sur le support de démarrage de remplacement à l'aide d'un lecteur flash USB avec l'image installée sur celui-ci. Cependant, vous devez restaurer le système de fichiers var au cours de cette procédure.
 
 * Vous devez disposer d'une clé USB, formatée en FAT32, avec au moins 4 Go de capacité.
++
+
+NOTE: Le fichier tar.gz doit être placé sur une partition au format FAT32 d'au moins 4 Go. Bien que les partitions FAT32 puissent être de 2 To, les outils intégrés Windows (par exemple, diskpart) ne peuvent pas formater les partitions FAT32 supérieures à 32 Go.
+
 * Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section Downloads du site de support NetApp
 +
 ** Si NVE est activé, téléchargez l'image avec NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
