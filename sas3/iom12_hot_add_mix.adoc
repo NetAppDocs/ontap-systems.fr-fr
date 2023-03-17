@@ -30,10 +30,13 @@ Vous pouvez vérifier le support en utilisant l'une des méthodes suivantes :
 +
 ** Entrez le ``run local sysconfig`` commande, à l'invite d'administration de l'un ou l'autre contrôleur.
 +
-Si le champ support de pile mixte SAS2/SAS3 n'apparaît pas dans la sortie ou a une valeur aucune, alors votre système ne prend pas en charge les piles mixtes.
+Si le champ prise en charge de la pile mixte SAS2/SAS3 n'apparaît pas dans la sortie ou a la valeur « aucun », votre système ne prend pas en charge les piles mixtes.
 
 +
-Si quelque chose d'autre apparaît dans le champ support de pile mixte SAS2/SAS3, tel que tout ou connexion à un pont, votre système prend alors en charge les piles mixtes.
+Si "All" apparaît dans le champ prise en charge de la pile mixte SAS2/SAS3, votre système prend en charge les piles mixtes.
+
++
+Si « Bridge-Attached » apparaît dans le champ prise en charge de la pile mixte SAS2/SAS3, votre système prend en charge les piles mixtes uniquement si les tiroirs de stockage sont connectés via un FibreBridge ATTO.
 
 ** Accédez à Hardware Universe et accédez aux informations de votre plateforme.
 +
