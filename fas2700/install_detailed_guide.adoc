@@ -17,7 +17,6 @@ Ce guide fournit des instructions détaillées vous permettant d'installer un sy
 
 == Étape 1 : préparer l'installation
 
-[role="lead"]
 Pour installer votre système FAS2700 ou AFF A220, vous devez créer un compte sur le site de support NetApp, enregistrer votre système et obtenir les clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
 
 Pour obtenir des informations sur les conditions requises par le site ainsi que des informations supplémentaires sur le système configuré, accédez au Hardware Universe. Pour plus d'informations sur ce système, vous pouvez également accéder aux notes de version de votre version de ONTAP.
@@ -170,7 +169,6 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2839002["Fiche de configur
 
 == Étape 2 : installer le matériel de fixation
 
-[role="lead"]
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
 
 .Étapes
@@ -194,14 +192,12 @@ image::../media/drw_cable_management_arm_install.png[installation du ARM de gest
 
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
 
-[role="lead"]
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
 
 
 
 === Option 1 : câler un cluster sans commutateur à 2 nœuds, configuration réseau unifiée
 
-[role="lead"]
 Le réseau de gestion, le réseau de données UTA2 et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
 
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
@@ -270,14 +266,13 @@ image:../media/oie_legend_icon_attn_symbol.png[""]
 NE branchez PAS les cordons d'alimentation à ce stade.
 
 |===
-. Pour câbler votre espace de stockage, reportez-vous à la section link:install_detailed_guide.md#["Câblage des contrôleurs aux tiroirs disques"]
+. Pour câbler votre espace de stockage, reportez-vous à la section <<Étape 4 : câblage des contrôleurs aux tiroirs disques>>
 
 
 
 
 === Option 2 : câblage d'un cluster avec commutateur, configuration réseau unifiée
 
-[role="lead"]
 Le réseau de gestion, le réseau de données UTA2 et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés aux commutateurs d'interconnexion de cluster.
 
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
@@ -348,14 +343,13 @@ image:../media/oie_legend_icon_attn_symbol.png[""]
 NE branchez PAS les cordons d'alimentation à ce stade.
 
 |===
-. Pour câbler votre espace de stockage, reportez-vous à la section link:install_detailed_guide.md#["Câblage des contrôleurs aux tiroirs disques"]
+. Pour câbler votre espace de stockage, reportez-vous à la section <<Étape 4 : câblage des contrôleurs aux tiroirs disques>>
 
 
 
 
 === Option 3 : connexion d'un cluster à 2 nœuds sans commutateur, configuration réseau Ethernet
 
-[role="lead"]
 Le réseau de gestion, le réseau de données Ethernet et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
 
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
@@ -413,14 +407,13 @@ image:../media/oie_legend_icon_attn_symbol.png[""]
 NE branchez PAS les cordons d'alimentation à ce stade.
 
 |===
-. Pour câbler votre espace de stockage, reportez-vous à la section link:install_detailed_guide.md#["Câblage des contrôleurs aux tiroirs disques"]
+. Pour câbler votre espace de stockage, reportez-vous à la section <<Étape 4 : câblage des contrôleurs aux tiroirs disques>>
 
 
 
 
 === Option 4 : câble d'un cluster commuté, configuration réseau Ethernet
 
-[role="lead"]
 Le réseau de gestion, le réseau de données Ethernet et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés aux commutateurs d'interconnexion de cluster.
 
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
@@ -476,21 +469,19 @@ image:../media/oie_legend_icon_attn_symbol.png[""]
 NE branchez PAS les cordons d'alimentation à ce stade.
 
 |===
-. Pour câbler votre espace de stockage, reportez-vous à la section link:install_detailed_guide.md#["Câblage des contrôleurs aux tiroirs disques"]
+. Pour câbler votre espace de stockage, reportez-vous à la section <<Étape 4 : câblage des contrôleurs aux tiroirs disques>>
 
 
 
 
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
-[role="lead"]
 Vous devez connecter les câbles des contrôleurs à vos tiroirs à l'aide des ports de stockage intégrés. NetApp recommande le câblage MP-HA pour les systèmes avec stockage externe. Si vous disposez d'un lecteur de bande SAS, vous pouvez utiliser le câblage à chemin unique. Si vous ne possédez pas de tiroirs externes, le câblage MP-HA vers les disques internes est facultatif (non illustré) si les câbles SAS sont commandés avec le système.
 
 
 
 === Option 1 : câblage du stockage sur une paire haute disponibilité avec des tiroirs disques externes
 
-[role="lead"]
 Vous devez connecter le câble des connexions du tiroir à celui du tiroir, puis connecter les deux contrôleurs aux tiroirs disques.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -554,23 +545,21 @@ Connectez chaque nœud au module d'E/S B de la pile
 Si vous disposez de plusieurs tiroirs disques, reportez-vous au _Guide d'installation et de câblage_ correspondant à votre type de tiroir disque.
 
 +
-link:../com.netapp.doc.hw-ds-sas3-icg/home.html["Installation et câblage"]
+https://docs.netapp.com/us-en/ontap-systems/sas3/index.html["Installation et câblage"]
 
-. Pour terminer la configuration de votre système, reportez-vous à la section link:install_detailed_guide.md#["Finalisation de l'installation et de la configuration du système"]
+. Pour terminer la configuration de votre système, reportez-vous à la section <<Étape 5 : installation et configuration complètes du système>>
 
 
 
 
 == Étape 5 : installation et configuration complètes du système
 
-[role="lead"]
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 
 
 === Option 1 : effectuez la configuration du système si la détection du réseau est activée
 
-[role="lead"]
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
 
 .Étapes
@@ -625,7 +614,6 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configur
 
 === Option 2 : fin de la configuration et de la configuration du système si la détection du réseau n'est pas activée
 
-[role="lead"]
 Si la détection réseau n'est pas activée sur votre ordinateur portable, vous devez effectuer la configuration et la configuration à l'aide de cette tâche.
 
 .Étapes

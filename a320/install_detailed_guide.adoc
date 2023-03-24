@@ -17,7 +17,6 @@ Ce guide fournit des instructions détaillées vous permettant d'installer un sy
 
 == Avant l'installation
 
-[role="lead"]
 Pour installer votre système AFF A320, vous devez créer un compte, enregistrer le système et obtenir des clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
 
 Pour obtenir des informations sur les conditions requises par le site ainsi que des informations supplémentaires sur le système configuré, accédez au Hardware Universe. Pour plus d'informations sur ce système, vous pouvez également accéder aux notes de version de votre version de ONTAP.
@@ -178,7 +177,6 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2839002["Fiche de configur
 
 == Installer le matériel de fixation
 
-[role="lead"]
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
 
 . Installez les kits de rails, au besoin.
@@ -201,14 +199,12 @@ image::../media/drw_a320_cable_management_arms.png[bras de gestion des câbles d
 
 == Reliez les contrôleurs à votre réseau
 
-[role="lead"]
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
 
 
 
 === Option 1 : câler un cluster à deux nœuds sans commutateur
 
-[role="lead"]
 Les ports de données en option, les cartes NIC en option et les ports de gestion des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion/haute disponibilité du cluster sont câblés sur les deux modules de contrôleur.
 
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
@@ -275,14 +271,13 @@ image:../media/oie_legend_icon_attn_symbol.png[""]
 NE branchez PAS les cordons d'alimentation à ce stade.
 
 |===
-. Branchez les câbles du stockage : link:install_detailed_guide.md#["Câblage des contrôleurs aux tiroirs disques"]
+. Branchez les câbles du stockage : <<Reliez les contrôleurs aux tiroirs disques>>
 
 
 
 
 === Option 2 : câblage d'un cluster commuté
 
-[role="lead"]
 Les ports de données en option, les cartes NIC en option et les ports de gestion des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion/haute disponibilité de cluster sont câblés sur le commutateur de cluster/haute disponibilité.
 
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
@@ -349,21 +344,19 @@ image:../media/oie_legend_icon_attn_symbol.png[""]
 NE branchez PAS les cordons d'alimentation à ce stade.
 
 |===
-. Branchez les câbles du stockage : link:install_detailed_guide.md#["Câblage des contrôleurs aux tiroirs disques"]
+. Branchez les câbles du stockage : <<Reliez les contrôleurs aux tiroirs disques>>
 
 
 
 
 == Reliez les contrôleurs aux tiroirs disques
 
-[role="lead"]
 Vous devez connecter les câbles des contrôleurs à vos tiroirs à l'aide des ports de stockage intégrés.
 
 
 
 === Option 1 : câblage des contrôleurs à un tiroir disque unique
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules NSM du tiroir de disque NS224.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -396,14 +389,13 @@ image:../media/oie_legend_icon_2_lo.png[""]
 Câble du contrôleur B vers le tiroir : image:../media/drw_a320_storage_cabling_controller_b_single_shelf.png[""]
 
 |===
-. Pour terminer la configuration de votre système, reportez-vous à la section link:install_detailed_guide.md#["Finalisation de l'installation et de la configuration du système"].
+. Pour terminer la configuration de votre système, reportez-vous à la section <<Installation et configuration du système complètes>>
 
 
 
 
 === Option 2 : câblage des contrôleurs à deux tiroirs disques
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules NSM des deux tiroirs disques NS224.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -436,21 +428,19 @@ image:../media/oie_legend_icon_2_lo.png[""]
 Connectez les câbles du contrôleur B aux tiroirs. image:../media/drw_a320_2_shelves_cabling_controller_b.png[""]
 
 |===
-. Pour terminer la configuration de votre système, reportez-vous à la section link:install_detailed_guide.md#["Finalisation de l'installation et de la configuration du système"].
+. Pour terminer la configuration de votre système, reportez-vous à la section <<Installation et configuration du système complètes>>
 
 
 
 
 == Installation et configuration du système complètes
 
-[role="lead"]
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 
 
 === Option 1 : fin de la configuration et de la configuration du système si la détection du réseau est activée
 
-[role="lead"]
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
 
 . Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
@@ -495,7 +485,6 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configur
 
 === Option 2 : fin de la configuration et de la configuration du système si la détection du réseau n'est pas activée
 
-[role="lead"]
 Si la détection réseau n'est pas activée sur votre ordinateur portable, vous devez effectuer la configuration et la configuration à l'aide de cette tâche.
 
 . Branchez et configurez votre ordinateur portable ou votre console :

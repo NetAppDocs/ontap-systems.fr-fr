@@ -38,10 +38,8 @@ NOTE: Les informations d'ID système et d'affectation de disque résident dans l
 
 == Étape 2 : réaffectation de disques
 
-[role="lead"]
 Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.
 
-[role="lead"]
 Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
 
 . Si le _remplacement_ contrôleur est en mode Maintenance (affiche le `*>` Invite), quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`

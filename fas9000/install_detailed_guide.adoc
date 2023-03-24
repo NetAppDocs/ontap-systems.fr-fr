@@ -17,7 +17,6 @@ Ce guide fournit des instructions détaillées vous permettant d'installer un sy
 
 == Étape 1 : préparer l'installation
 
-[role="lead"]
 Pour installer votre système, vous devez créer un compte sur le site de support NetApp, enregistrer votre système et obtenir les clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
 
 .Avant de commencer
@@ -181,7 +180,6 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configur
 
 == Étape 2 : installer le matériel de fixation
 
-[role="lead"]
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
 
 .Étapes
@@ -210,14 +208,12 @@ image::../media/drw_9000_cable_management_arms.png[bras de gestion de câbles dr
 
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
 
-[role="lead"]
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
 
 
 
 === Option 1 : cluster à 2 nœuds sans commutateur
 
-[role="lead"]
 Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
 
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
@@ -245,7 +241,6 @@ image::../media/drw_9000_TNSC_composite_cabling.png[Câblage composite TNSC drw 
 
 === Option 2 : cluster commuté
 
-[role="lead"]
 Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur le commutateur de cluster/haute disponibilité.
 
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
@@ -273,14 +268,12 @@ image:../media/drw_9000_switched_cluster_cabling.png[""]
 
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
-[role="lead"]
 Il est possible de connecter les câbles du nouveau système aux tiroirs DS212C, DS224C ou NS224, selon qu'il s'agit d'un système AFF ou FAS.
 
 
 
 === Option 1 : branchement des contrôleurs aux tiroirs disques DS212C ou DS224C
 
-[role="lead"]
 Il est nécessaire de connecter le tiroir à tiroir, puis de connecter les deux contrôleurs aux tiroirs disques DS212C ou DS224C.
 
 Les câbles sont insérés dans le tiroir disque, les languettes de retrait étant orientées vers le bas, tandis que l'autre extrémité du câble est insérée dans les modules de stockage du contrôleur, les languettes de retrait étant orientées vers le haut.
@@ -320,7 +313,7 @@ image:../media/SAS_storage_ONTAP_9.8_and_later.png[""]
 NOTE: Si vous disposez de plusieurs tiroirs disques, reportez-vous au _Guide d'installation et de câblage_ correspondant à votre type de tiroir disque.
 
 +
-link:..https://docs.netapp.com/us-en/ontap-systems/sas3/install-new-system.html["Installez les tiroirs et reliez-les à une nouvelle installation du système, à savoir les tiroirs dotés de modules IOM12"]
+https://docs.netapp.com/us-en/ontap-systems/sas3/install-new-system.html["Installez les tiroirs et reliez-les à une nouvelle installation du système, à savoir les tiroirs dotés de modules IOM12"]
 
 +
 image:../media/Cable_shelves_new_system_IOM12_shelves.png[""]
@@ -332,7 +325,6 @@ image:../media/Cable_shelves_new_system_IOM12_shelves.png[""]
 
 === Option 2 : branchement des contrôleurs à un seul tiroir de disques NS224 dans les systèmes AFF A700 et ASA AFF A700 exécutant ONTAP 9.8 et versions ultérieures uniquement
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules NSM du tiroir disque NS224 sur un système AFF A700 ou ASA AFF A700 qui exécute ONTAP 9.8 ou une version ultérieure.
 
 * Cette tâche s'applique uniquement aux baies AFF A700 et ASA AFF A700 qui exécutent ONTAP 9.8 ou version ultérieure.
@@ -368,7 +360,6 @@ image::../media/single_NS224_shelf.png[Une seule étagère NS224]
 
 === Option 3 : connectez les contrôleurs à deux tiroirs disques NS224 dans les systèmes AFF A700 et ASA AFF A700 qui exécutent ONTAP 9.8 et versions ultérieures uniquement
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules NSM des tiroirs disques NS224 sur un système AFF A700 ou ASA AFF A700 qui exécute le système ONTAP 9.8 ou version ultérieure.
 
 * Cette tâche s'applique uniquement aux baies AFF A700 et ASA AFF A700 qui exécutent ONTAP 9.8 ou version ultérieure.
@@ -404,14 +395,12 @@ image::../media/two_NS224_shelves.png[Deux étagères NS224]
 
 == Étape 5 : installation et configuration complètes du système
 
-[role="lead"]
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 
 
 === Option 1 : fin de la configuration et de la configuration du système si la détection du réseau est activée
 
-[role="lead"]
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
 
 .Étapes
@@ -485,7 +474,6 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 
 === Option 2 : fin de la configuration et de la configuration du système si la détection du réseau n'est pas activée
 
-[role="lead"]
 Si la détection réseau n'est pas activée sur votre ordinateur portable, vous devez effectuer la configuration et la configuration à l'aide de cette tâche.
 
 .Étapes

@@ -17,7 +17,6 @@ Ce guide fournit des instructions détaillées vous permettant d'installer un sy
 
 == Étape 1 : préparer l'installation
 
-[role="lead"]
 Pour installer votre système, vous devez créer un compte, enregistrer le système et obtenir des clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
 
 .Avant de commencer
@@ -170,7 +169,6 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configur
 
 == Étape 2 : installer le matériel de fixation
 
-[role="lead"]
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
 
 . Installez les kits de rails, au besoin.
@@ -193,7 +191,6 @@ image::../media/drw_a320_cable_management_arms.png[bras de gestion des câbles d
 
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
 
-[role="lead"]
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
 
 
@@ -206,7 +203,6 @@ NOTE: Si vous effectuez le câblage d'une configuration IP MetroCluster, les por
 
 === Option 1 : câler un cluster à deux nœuds sans commutateur
 
-[role="lead"]
 Les ports de données en option, les cartes NIC en option et les ports de gestion des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur les deux modules de contrôleur.
 
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
@@ -235,7 +231,6 @@ image::../media/drw_A400_TNSC-network-cabling.png[Câblage réseau TNSC drw A400
 
 === Option 2 : câblage d'un cluster commuté
 
-[role="lead"]
 Les ports de données en option, les cartes NIC en option, les cartes mezzanine et les ports de gestion des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur le commutateur de cluster/haute disponibilité.
 
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
@@ -264,14 +259,12 @@ image::../media/drw_a400_switched_network_cabling.png[câblage réseau commuté 
 
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
-[role="lead"]
 Vous pouvez connecter le câble des tiroirs NSS224 ou SAS à votre système.
 
 
 
 === Option 1 : câblage des contrôleurs à un tiroir disque unique
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules NSM du tiroir de disque NS224.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait du câble du NS224 est relevée.
@@ -296,7 +289,6 @@ image::../media/drw_a400_one_ns224_shelves.png[drw a400 une étagère ns224]
 
 === Option 2 : câblage des contrôleurs à deux tiroirs disques
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules NSM des deux tiroirs disques NS224.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait du câble du NS224 est relevée.
@@ -321,7 +313,6 @@ image::../media/drw_a400_two_ns224_shelves.png[drw a400 deux clayettes ns224]
 
 === Option 3 : câblage des contrôleurs aux tiroirs disques SAS
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules IOM des deux tiroirs disques SAS.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette du câble pour la DS2244-C est abaissée.
@@ -346,14 +337,12 @@ image::../media/drw_a400_three_ds224c_shelves.png[drw a400 trois étagères ds22
 
 == Étape 5 : installation et configuration complètes du système
 
-[role="lead"]
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 
 
 === Option 1 : fin de la configuration et de la configuration du système si la détection du réseau est activée
 
-[role="lead"]
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
 
 . Utilisez l'animation suivante pour définir un ou plusieurs ID de tiroir disque :
@@ -418,7 +407,6 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 
 === Option 2 : fin de la configuration et de la configuration du système si la détection du réseau n'est pas activée
 
-[role="lead"]
 Si la détection réseau n'est pas activée sur votre ordinateur portable, vous devez effectuer la configuration et la configuration à l'aide de cette tâche.
 
 . Branchez et configurez votre ordinateur portable ou votre console :

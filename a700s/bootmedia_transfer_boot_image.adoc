@@ -17,7 +17,6 @@ Vous pouvez installer l'image système sur le support de démarrage de remplacem
 
 == Option 1 : transférez des fichiers vers le support de démarrage à l'aide de la récupération de sauvegarde à partir du second support de démarrage
 
-[role="lead"]
 Vous pouvez installer l'image système sur le support de démarrage de remplacement à l'aide de l'image sur le second support de démarrage installé dans le module de contrôleur. Il s'agit de la méthode principale pour transférer les fichiers de support d'amorçage vers le support d'amorçage de remplacement des systèmes avec deux supports d'amorçage dans le module de contrôleur.
 
 L'image du support de démarrage secondaire doit contenir un `image.tgz` fichier et ne doit pas être signalant des échecs. Si le fichier image.tgz est manquant ou si le support de démarrage signale des échecs, vous ne pouvez pas suivre cette procédure. Vous devez transférer l'image d'amorçage sur le support de démarrage de remplacement en suivant la procédure de remplacement du lecteur flash USB.
@@ -90,7 +89,6 @@ L'image est téléchargée à partir du support de démarrage secondaire.
 
 == Option 2 : transférez l'image d'amorçage sur le support d'amorçage à l'aide d'une clé USB
 
-[role="lead"]
 Cette procédure ne doit être utilisée que si la restauration du support de démarrage secondaire a échoué ou si le fichier image.tgz est introuvable sur le support de démarrage secondaire.
 
 * Vous devez disposer d'une clé USB, formatée en FAT32, avec au moins 4 Go de capacité.

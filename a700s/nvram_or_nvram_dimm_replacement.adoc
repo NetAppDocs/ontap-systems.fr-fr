@@ -32,7 +32,6 @@ Pour remplacer une carte NVRAM défectueuse, vous devez retirer la carte de mont
 == Étape 1 : arrêtez le contrôleur défaillant
 
 .Étapes
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
@@ -85,7 +84,6 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ON
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -164,7 +162,6 @@ Conduit d'air
 
 == Étape 3 : retirez la carte NVRAM
 
-[role="lead"]
 Le remplacement de la NVRAM consiste à retirer la carte de montage NVRAM, la carte Riser 1, du module de contrôleur, à déconnecter la batterie NVRAM de la carte NVRAM, à retirer la carte NVRAM défectueuse et à installer la carte NVRAM de rechange, puis à réinstaller la carte de montage NVRAM dans le module de contrôleur.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -256,7 +253,6 @@ Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de
 
 == Étape 4 : réinstallez le module de contrôleur et démarrez le système
 
-[role="lead"]
 Après avoir remplacé une FRU dans le module de contrôleur, vous devez réinstaller le module de contrôleur et le redémarrer.
 
 Pour les paires haute disponibilité avec deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez le module de contrôleur est particulièrement important, car il tente de redémarrer dès que vous le placez entièrement dans le châssis.
@@ -297,7 +293,6 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 
 == Étape 5 : vérifier la modification de l'ID système sur un système HA
 
-[role="lead"]
 Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.
 
 Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
@@ -380,7 +375,6 @@ Disk  Aggregate Home  Owner  DR Home  Home ID    Owner ID  DR Home ID Reserver  
 
 == Étape 6 : restauration de la fonctionnalité de cryptage du stockage et du volume
 
-[role="lead"]
 Pour les systèmes de stockage que vous avez déjà configurés pour utiliser le chiffrement du stockage ou des volumes, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de chiffrement sans interruption. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n'est pas activé.
 
 
@@ -400,5 +394,4 @@ NOTE: Cette étape n'est pas requise lors du remplacement d'un module DIMM.
 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

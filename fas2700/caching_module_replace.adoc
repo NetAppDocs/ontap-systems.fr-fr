@@ -20,7 +20,6 @@ Vous devez remplacer le module de cache du module de contrôleur lorsque votre s
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -83,7 +82,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
 
 .Étapes
@@ -111,7 +109,6 @@ image::../media/drw_2600_opening_pcm_cover.png[couvercle du module de commande d
 
 == Étape 3 : remplacer un module de cache
 
-[role="lead"]
 Pour remplacer un module de mise en cache appelé carte PCIe M.2 sur l'étiquette de votre contrôleur, localisez le logement à l'intérieur du contrôleur et suivez la séquence des étapes.
 
 Votre système de stockage doit répondre à certains critères en fonction de votre situation :
@@ -146,7 +143,6 @@ Si nécessaire, retirez le module de cache et réinstallez-le dans le support.
 
 == Étape 4 : réinstallez le module de contrôleur
 
-[role="lead"]
 Après avoir remplacé des composants dans le module de contrôleur, réinstallez-les dans le châssis.
 
 .Étapes
@@ -218,7 +214,6 @@ NOTE: Si l'invite et le module de contrôleur ne démarre pas sur ONTAP, entrez 
 
 == Étape 5 : exécutez les diagnostics au niveau du système
 
-[role="lead"]
 Après avoir installé un nouveau module de mise en cache, exécutez les diagnostics.
 
 Votre système doit être à l'invite DU CHARGEUR pour démarrer System Level Diagnostics.
@@ -248,9 +243,6 @@ Au cours du processus de démarrage, vous pouvez répondre en toute sécurité `
 +
 Les diagnostics au niveau du système vous renvoie à l'invite s'il n'y a pas d'échec de test ou répertorie l'état complet des échecs résultant du test du composant.
 
-
-
-[role="lead"]
 . Procédez comme suit en fonction du résultat de l'étape précédente :
 
 
@@ -330,7 +322,6 @@ Une fois que vous avez terminé d'exécuter la commande, attendez que le systèm
 
 == Étape 6 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
-[role="lead"]
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -389,5 +380,4 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

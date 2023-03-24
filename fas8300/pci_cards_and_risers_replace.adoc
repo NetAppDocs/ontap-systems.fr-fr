@@ -21,14 +21,12 @@ Pour remplacer une carte PCIe ou mezzanine, déconnectez les câbles et tous les
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
 ====
 .Option 1 : plupart des configurations
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -84,7 +82,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 --
 .Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -183,7 +180,6 @@ mcc1A::> metrocluster operation show
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour retirer le module de contrôleur du châssis.
@@ -215,7 +211,6 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 == Étape 3 : remplacer une carte PCIe
 
-[role="lead"]
 Pour remplacer une carte PCIe, vous devez localiser la carte PCIe défectueuse, retirer la carte de montage qui contient la carte du module de contrôleur, remplacer la carte, puis réinstaller la carte de montage PCIe dans le module de contrôleur.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer une carte PCIe.
@@ -265,7 +260,6 @@ NOTE: Si vous installez une carte dans le logement inférieur et que vous ne voy
 
 == Étape 4 : remplacer la carte mezzanine
 
-[role="lead"]
 La carte mezzanine se trouve sous la carte de montage numéro 3 (logements 4 et 5). Vous devez retirer cette carte de montage pour accéder à la carte mezzanine, remplacer la carte mezzanine, puis réinstaller le numéro de montage 3. Voir le mappage des FRU sur le module de contrôleur pour plus d'informations.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer la carte mezzanine.
@@ -307,7 +301,6 @@ La carte de montage se soulève légèrement du module de contrôleur.
 
 == Étape 5 : installer le module de contrôleur
 
-[role="lead"]
 Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour installer le module de contrôleur dans le châssis.
@@ -359,7 +352,6 @@ NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option 
 
 == Étape 6 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
-[role="lead"]
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -418,7 +410,6 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 == Étape 7 : rétablir le fonctionnement du module de contrôleur après l'exécution des diagnostics
 
-[role="lead"]
 Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
 
 .Étapes
@@ -434,5 +425,4 @@ Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas 
 
 == Étape 8 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

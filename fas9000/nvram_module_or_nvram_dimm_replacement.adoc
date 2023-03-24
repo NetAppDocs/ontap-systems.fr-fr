@@ -32,14 +32,12 @@ Le module NVRAM se compose de l'architecture NVRAM10 et de modules DIMM, et jusq
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
 
 [role="tabbed-block"]
 ====
 .Option 1 : la plupart des systèmes
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -95,7 +93,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 --
 .Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -194,7 +191,6 @@ mcc1A::> metrocluster operation show
 
 == Étape 2 : remplacer le module NVRAM
 
-[role="lead"]
 Pour remplacer le module NVRAM, localisez-le dans le logement 6 du châssis et suivez la séquence des étapes.
 
 .Étapes
@@ -299,7 +295,6 @@ Languettes d'éjection du module DIMM et du module DIMM
 
 == Étape 3 : remplacer un module DIMM NVRAM
 
-[role="lead"]
 Pour remplacer les modules DIMM NVRAM du module NVRAM, vous devez retirer le module NVRAM, ouvrir le module, puis remplacer le module DIMM cible.
 
 .Étapes
@@ -373,7 +368,6 @@ Languettes d'éjection du module DIMM et du module DIMM
 
 == Étape 4 : redémarrer le contrôleur après le remplacement d'une unité remplaçable sur site
 
-[role="lead"]
 Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
 
 .Étape
@@ -384,7 +378,6 @@ Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
 
 == Étape 5 : réaffectation de disques
 
-[role="lead"]
 Selon que vous disposez d'une paire haute disponibilité ou d'une configuration MetroCluster à deux nœuds, vous devez vérifier la réaffectation des disques sur le nouveau module de contrôleur ou réaffecter manuellement les disques.
 
 Sélectionnez l'une des options suivantes pour obtenir des instructions sur la réaffectation de disques au nouveau contrôleur.
@@ -394,7 +387,6 @@ Sélectionnez l'une des options suivantes pour obtenir des instructions sur la r
 .Option 1 : vérification de l'ID (paire HA)
 --
 .La vérification de la modification de l'ID système sur un système HA
-[role="lead"]
 Vous devez confirmer la modification de l'ID système lors du démarrage du _replace_ node, puis vérifier que la modification a été implémentée.
 
 Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
@@ -515,7 +507,6 @@ dr-group-id            cluster node           configuration-state
 .Option 2 : réattribuer un ID (configuration MetroCluster)
 --
 .Réaffectez l'ID système dans une configuration MetroCluster à deux nœuds
-[role="lead"]
 Dans une configuration MetroCluster à deux nœuds exécutant ONTAP, vous devez réallouer manuellement des disques vers le nouvel ID système du contrôleur avant de rétablir le fonctionnement normal du système.
 
 .Description de la tâche
@@ -643,7 +634,6 @@ Vous devez répondre avec `y` lorsque vous êtes invité à passer en mode avanc
 
 == Étape 6 : restauration de la fonctionnalité de cryptage du stockage et du volume
 
-[role="lead"]
 Pour les systèmes de stockage que vous avez déjà configurés pour utiliser le chiffrement du stockage ou des volumes, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de chiffrement sans interruption. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n'est pas activé.
 
 
@@ -663,5 +653,4 @@ NOTE: Cette étape n'est pas requise lors du remplacement d'un module DIMM.
 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

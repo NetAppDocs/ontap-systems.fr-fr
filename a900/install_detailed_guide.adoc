@@ -20,7 +20,6 @@ Cet article fournit des instructions détaillées vous permettant d'installer un
 Pour installer votre système, vous devez créer un compte sur le site de support NetApp, enregistrer votre système et obtenir les clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
 
 .Avant de commencer
-[role="lead"]
 Vous devez avoir accès au https://hwu.netapp.com["NetApp Hardware Universe"^] pour plus d'informations sur les exigences du site ainsi que sur les informations supplémentaires sur votre système configuré.
 
 Vous pouvez également avoir accès au http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Notes de version de ONTAP 9"^] Pour votre version de ONTAP pour plus d'informations sur ce système.
@@ -171,7 +170,6 @@ Mise sous tension du système
 
 == Étape 2 : installer le matériel de fixation
 
-[role="lead"]
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
 
 . Installez les kits de rails, au besoin.
@@ -198,14 +196,12 @@ image::../media/drw_a900_controller_in _chassis_ID_IEOPS-856.svg[Contrôleur drw
 
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
 
-[role="lead"]
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
 
 
 
 === Option 1 : cluster à 2 nœuds sans commutateur
 
-[role="lead"]
 Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
 
 .Avant de commencer
@@ -286,7 +282,6 @@ image:../media/oie_cable_sfp_gbe_copper.png[""]
 
 === Option 2 : cluster commuté
 
-[role="lead"]
 Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur le commutateur de cluster/haute disponibilité.
 
 .Avant de commencer
@@ -371,7 +366,6 @@ image:../media/oie_cable_sfp_gbe_copper.png[""]
 
 === Option 1 : branchement des contrôleurs à un seul tiroir de disque NS224 dans AFF A900
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules NSM du tiroir disque NS224 sur un système AFF A900.
 
 .Avant de commencer
@@ -436,7 +430,6 @@ Câble 100 GbE
 
 === Option 2 : branchement des contrôleurs à deux tiroirs disques NS224 dans AFF A900
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules NSM des tiroirs disques NS224.
 
 .Avant de commencer
@@ -503,14 +496,12 @@ Câble 100 GbE
 
 == Étape 5 : installation et configuration complètes du système
 
-[role="lead"]
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 
 
 === Option 1 : si la détection réseau est activée
 
-[role="lead"]
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
 
 . Utilisez l'animation ou la mise en plan suivante pour définir un ou plusieurs ID de tiroir disque :
@@ -621,7 +612,6 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 
 === Option 2 : si la détection réseau n'est pas activée
 
-[role="lead"]
 Si vous n'utilisez pas un ordinateur portable ou une console Windows ou Mac ou si la détection automatique n'est pas activée, vous devez terminer la configuration et la configuration à l'aide de cette tâche.
 
 . Branchez et configurez votre ordinateur portable ou votre console :
@@ -633,7 +623,7 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console
 
 .. Connectez le câble de la console à l'ordinateur portable ou à la console à l'aide du câble de console fourni avec le système, puis connectez l'ordinateur portable au commutateur de gestion du sous-réseau de gestion.
 +
-image::../media/drw_9000_cable_console_switch_controller_IEOPS-953.svg[drw 9000 contrôleur de commutateur de console de câbles IEOPS 953]
+image::../media/drw_A900_cable_console_switch_controller_IEOPS-953.svg[drw A900 câble console contrôleur de commutateur IEOPS 953]
 
 .. Attribuez une adresse TCP/IP à l'ordinateur portable ou à la console à l'aide d'une adresse située sur le sous-réseau de gestion.
 

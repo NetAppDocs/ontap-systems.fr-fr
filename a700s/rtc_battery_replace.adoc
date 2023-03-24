@@ -21,7 +21,6 @@ Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de cont
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
@@ -67,7 +66,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -145,7 +143,6 @@ Conduit d'air
 
 == Étape 3 : remplacer la batterie RTC
 
-[role="lead"]
 Pour remplacer la batterie RTC, la placer à l'intérieur du contrôleur et suivre l'ordre des étapes.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -185,7 +182,6 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 == Étape 4 : réinstaller le module de contrôleur et régler l'heure/la date après le remplacement de la batterie RTC
 
-[role="lead"]
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
 
 . Si ce n'est déjà fait, fermez le conduit d'air ou le couvercle du module de commande.
@@ -234,5 +230,4 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

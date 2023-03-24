@@ -17,7 +17,6 @@ Poursuivre la procédure de remplacement en mettant le stockage en mémoire et e
 
 == Étape 1 : recâblage du système
 
-[role="lead"]
 Après l'exécution des diagnostics, vous devez recâter les connexions réseau et stockage du module de contrôleur.
 
 .Étapes
@@ -36,10 +35,8 @@ Après l'exécution des diagnostics, vous devez recâter les connexions réseau 
 
 == Étape 2 : réaffectation de disques
 
-[role="lead"]
 Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Vous devez confirmer la modification de l'ID système lors du démarrage du _replace_ node, puis vérifier que la modification a été implémentée.
 
-[role="lead"]
 Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
 
 . Si le _remplacement_ noeud est en mode Maintenance (affiche le `*>` Invite, quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`

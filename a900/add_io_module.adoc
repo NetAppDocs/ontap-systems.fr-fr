@@ -6,8 +6,11 @@ summary: 'Vous pouvez ajouter un module d"E/S à votre système, soit en rempla�
 ---
 = Ajout d'un module d'E/S - AFF A900
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
+[role="lead"]
 Vous pouvez ajouter un module d'E/S à votre système en ajoutant un nouveau module d'E/S à un système doté de slots vides ou en remplaçant un module d'E/S par un nouveau dans un système entièrement rempli.
 
 .Avant de commencer
@@ -21,14 +24,12 @@ Vous pouvez ajouter un module d'E/S à votre système en ajoutant un nouveau mod
 
 == Option 1 : ajoutez le module d'E/S à un système doté de logements ouverts
 
-[role="lead"]
 Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système.
 
 
 
 == Étape 1 : arrêtez le nœud douteux
 
-[role="lead"]
 Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
 
 [role="tabbed-block"]
@@ -168,7 +169,6 @@ NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et
 
 == Option 2 : ajout d'un module d'E/S dans un système sans emplacements ouverts
 
-[role="lead"]
 Si votre système est entièrement rempli, vous pouvez changer un module d'E/S dans un slot d'E/S en retirant un module d'E/S existant et en le remplaçant par un autre module d'E/S.
 
 . Si vous êtes :
@@ -204,7 +204,6 @@ Utilisez System Manager pour migrer définitivement les LIF vers différents por
 
 == Étape 1 : arrêtez le nœud douteux
 
-[role="lead"]
 Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
 
 [role="tabbed-block"]
@@ -359,13 +358,7 @@ Verrou de came d'E/S complètement déverrouillé
 
 . Répétez les étapes de retrait et d'installation pour remplacer les modules supplémentaires du contrôleur A.
 . Si le module d'E/S de remplacement est une carte réseau, reliez le ou les modules aux commutateurs de données.
-. Redémarrez le contrôleur BMC, puis redémarrez le nœud :
-+
-.. Dans l'invite DU CHARGEUR, passez en mode de privilège avancé : `priv set advanced`
-.. Redémarrez le contrôleur BMC : `sp reboot`
-
-
-. Depuis l'invite DU CHARGEUR, redémarrez le nœud : `bye`
+. Redémarrez le nœud.
 +
 
 NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.

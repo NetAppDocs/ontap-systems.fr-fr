@@ -21,7 +21,6 @@ Vous devez remplacer le composant défectueux par un composant FRU de remplaceme
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -79,7 +78,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
 
 .Étapes
@@ -107,7 +105,6 @@ image::../media/drw_2600_opening_pcm_cover.png[couvercle du module de commande d
 
 == Étape 3 : remplacez les modules DIMM
 
-[role="lead"]
 Pour remplacer les modules DIMM, localisez-les à l'intérieur du contrôleur et suivez l'ordre des étapes.
 
 Si vous remplacez un module DIMM, vous devez le retirer une fois que vous avez débranché la batterie NVMEM du module de contrôleur.
@@ -132,7 +129,7 @@ image::../media/drw_2600_nvmem_battery_unplug.png[débrancher la batterie nvmem 
 .. Rebrancher le connecteur de la batterie.
 
 
-. Revenir à link:dimm_replace.md["Remplacez les modules DIMM"] De cette procédure pour vérifier à nouveau la LED NVMEM.
+. Revenir à <<Étape 3 : remplacez les modules DIMM>> Dans cette procédure, vérifier à nouveau la LED NVMEM.
 . Localisez les modules DIMM de votre module de contrôleur.
 . Notez l'orientation du module DIMM dans le support afin que vous puissiez insérer le module DIMM de remplacement dans le bon sens.
 . Éjectez le module DIMM de son logement en écartant lentement les deux languettes de l'éjecteur de DIMM de chaque côté du module DIMM, puis en faisant glisser le module DIMM hors de son logement.
@@ -173,7 +170,6 @@ Assurez-vous que la fiche se verrouille sur le module de contrôleur.
 
 == Étape 4 : réinstallez le module de contrôleur
 
-[role="lead"]
 Après avoir remplacé des composants dans le module de contrôleur, réinstallez-les dans le châssis.
 
 .Étapes
@@ -245,7 +241,6 @@ NOTE: Si l'invite et le module de contrôleur ne démarre pas sur ONTAP, entrez 
 
 == Étape 5 : exécutez les diagnostics au niveau du système
 
-[role="lead"]
 Après avoir installé un nouveau module DIMM, exécutez les tests de diagnostic.
 
 Votre système doit être à l'invite DU CHARGEUR pour démarrer System Level Diagnostics.
@@ -382,7 +377,6 @@ Une fois que vous avez terminé d'exécuter la commande, attendez que le systèm
 
 == Étape 6 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
-[role="lead"]
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -441,5 +435,4 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

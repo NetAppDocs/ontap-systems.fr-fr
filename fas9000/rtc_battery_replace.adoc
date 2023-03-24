@@ -21,14 +21,12 @@ Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de cont
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
 ====
 .Option 1 : plupart des configurations
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -84,7 +82,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 --
 .Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -183,7 +180,6 @@ mcc1A::> metrocluster operation show
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
 
 .Étapes
@@ -236,7 +232,6 @@ Bouton de verrouillage du couvercle du module de commande
 
 == Étape 3 : remplacer la batterie RTC
 
-[role="lead"]
 Pour remplacer la batterie RTC, vous devez localiser la batterie défectueuse dans le module de contrôleur, la retirer du support, puis installer la batterie de rechange dans le support.
 
 .Étapes
@@ -279,7 +274,6 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 == Étape 4 : réinstallez le module de contrôleur et définissez l'heure/la date
 
-[role="lead"]
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
 
 .Étapes

@@ -17,7 +17,6 @@ Vous pouvez ajouter à chaud un tiroir disque NS224 une fois que votre paire hau
 
 == Conditions requises pour un ajout à chaud
 
-[role="lead"]
 Votre paire haute disponibilité doit respecter certaines exigences avant d'ajouter à chaud un tiroir disque NS224.
 
 * Votre modèle de plateforme et votre version de ONTAP doivent prendre en charge le tiroir NS224 et les disques que vous ajoutez à chaud.
@@ -74,7 +73,6 @@ Pour modifier l'ID de tablette, utilisez le trombone ou le stylo à bille pour a
 
 == Considérations relatives à un ajout à chaud
 
-[role="lead"]
 Vous devez vous familiariser avec les meilleures pratiques et les aspects à ce sujet avant d'ajouter à chaud un tiroir disque NS224.
 
 * Si vous disposez d'une paire ASA HA prenant en charge des tiroirs NS224, vous pouvez suivre cette procédure.
@@ -119,7 +117,6 @@ NOTE: Les mises à jour du micrologiciel peuvent prendre jusqu'à 30 minutes.
 
 == Préparez-vous à un ajout à chaud
 
-[role="lead"]
 Vous devez effectuer les tâches de préparation applicables à votre paire haute disponibilité avant d'ajouter à chaud un tiroir disque NS224.
 
 
@@ -373,7 +370,6 @@ Vous devez désactiver l'affectation automatique des disques sur les deux module
 
 == Installez un tiroir disque pour un ajout à chaud
 
-[role="lead"]
 L'installation d'un nouveau tiroir de disque NS224 implique l'installation du tiroir dans un rack ou une armoire, le branchement des câbles d'alimentation (qui met automatiquement le tiroir sous tension), puis la configuration de l'ID de tiroir.
 
 .Avant de commencer
@@ -441,7 +437,6 @@ Lorsque l'alimentation est rétablie, les LED bicolores s'allument en vert.
 
 == Reliez un tiroir de disque pour un ajout à chaud
 
-[role="lead"]
 Vous connectez chaque tiroir de disque NS224 à chaud, de sorte que chaque tiroir possède deux connexions à chaque module de contrôleur de la paire haute disponibilité. En fonction du nombre de tiroirs que vous ajoutez à chaud et de votre modèle de plateforme, vous utilisez les ports compatibles RoCE sur les contrôleurs, sur les cartes PCIe compatibles RoCE, une combinaison des deux ou sur des modules d'E/S compatibles RoCE.
 
 
@@ -564,7 +559,6 @@ Sinon, cette procédure est effectuée.
 
 === Reliez un tiroir d'ajout à chaud pour une paire haute disponibilité FAS500f ou AFF A250
 
-[role="lead"]
 Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chaud un tiroir disque NS224 à une paire haute disponibilité FAS500f ou AFF A250.
 
 .Avant de commencer
@@ -966,7 +960,6 @@ Sinon, cette procédure est effectuée.
 
 == Terminez l'ajout à chaud
 
-[role="lead"]
 Si vous avez désactivé l'affectation automatique de disque dans le cadre de la préparation du tiroir disque NS224 à chaud, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire.
 
 .Avant de commencer

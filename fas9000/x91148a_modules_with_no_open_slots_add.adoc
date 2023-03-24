@@ -27,7 +27,6 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 == Option 1 : ajoutez un module X91148A en tant que module NIC dans un système sans logements ouverts
 
-[role="lead"]
 Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage existants de votre système pour installer un ou plusieurs modules NIC X91148A dans votre système plein.
 
 .Étapes
@@ -99,7 +98,6 @@ Verrou de came d'E/S complètement déverrouillé
 
 == Option 2 : ajout d'un module X91148A en tant que module de stockage dans un système sans emplacements ouverts
 
-[role="lead"]
 Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage existants de votre système pour installer un ou plusieurs modules de stockage X91148A dans votre système entièrement rempli.
 
 * Cette procédure suppose de réinstaller le module X91148A dans les logements 3 et/ou 7.
@@ -166,5 +164,5 @@ Verrou de came d'E/S complètement déverrouillé
 . Rétablissement du nœud depuis le nœud partenaire : `storage failover giveback -ofnode _target_node_name_`
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
 . Répétez ces étapes pour le contrôleur B.
-. Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-nvme-hotadd/GUID-B215753F-F3E6-4FA0-A1E1-B9390B19AD94.html["Ajout à chaud d'un tiroir disque NS224"].
+. Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud d'un tiroir disque NS224"].
 

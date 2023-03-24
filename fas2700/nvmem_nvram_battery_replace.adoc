@@ -19,7 +19,6 @@ Tous les autres composants du système doivent fonctionner correctement ; si ce 
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -77,7 +76,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
 
 .Étapes
@@ -102,7 +100,6 @@ image::../media/drw_2240_x_opening_cam_latch.png[drw 2240 x verrou de came d'ouv
 
 == Étape 3 : remplacer la batterie NVMEM
 
-[role="lead"]
 Pour remplacer la batterie NVMEM de votre système, vous devez retirer la batterie NVMEM défectueuse du système, puis la remplacer par une nouvelle batterie NVMEM.
 
 .Étapes
@@ -145,7 +142,6 @@ image::../media/drw_2600_nvmem_batt_repl_animated_gif.png[image gif animée du r
 
 == Étape 4 : réinstallez le module de contrôleur
 
-[role="lead"]
 Après avoir remplacé des composants dans le module de contrôleur, réinstallez-les dans le châssis.
 
 .Étapes
@@ -217,7 +213,6 @@ NOTE: Si l'invite et le module de contrôleur ne démarre pas sur ONTAP, entrez 
 
 == Étape 5 : exécutez les diagnostics au niveau du système
 
-[role="lead"]
 Après avoir installé une nouvelle batterie NVMEM, vous devez exécuter des diagnostics.
 
 Votre système doit être à l'invite DU CHARGEUR pour démarrer System Level Diagnostics.
@@ -354,7 +349,6 @@ Une fois que vous avez terminé d'exécuter la commande, attendez que le systèm
 
 == Étape 6 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
-[role="lead"]
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -413,5 +407,4 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

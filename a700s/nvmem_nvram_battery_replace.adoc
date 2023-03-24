@@ -19,7 +19,6 @@ Tous les autres composants du système doivent fonctionner correctement ; si ce 
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
@@ -65,7 +64,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -110,7 +108,6 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 == Étape 3 : remplacer la batterie NVRAM
 
-[role="lead"]
 Pour remplacer la batterie NVRAM, vous devez retirer la batterie NVRAM défectueuse du module de contrôleur et installer la batterie NVRAM de rechange dans le module de contrôleur.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -146,7 +143,6 @@ Languette bleue de verrouillage de la batterie NVRAM
 
 == Étape 4 : réinstallez le module de contrôleur
 
-[role="lead"]
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -217,5 +213,4 @@ NOTE: Assurez-vous de quitter le mode Maintenance après avoir terminé la conve
 
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

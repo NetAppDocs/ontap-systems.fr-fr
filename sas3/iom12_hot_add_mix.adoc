@@ -17,7 +17,6 @@ Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chau
 
 == Conditions requises pour un ajout à chaud
 
-[role="lead"]
 Votre paire haute disponibilité, un contrôleur unique ou une configuration MetroCluster étendue (système) doit répondre à certaines exigences avant d'ajouter des tiroirs IOM12/IOM12B à chaud à une pile de tiroirs IOM6.
 
 
@@ -86,7 +85,6 @@ Les tiroirs IOM12 utilisent des connecteurs HD Mini-SAS. Les tiroirs IOM6 utilis
 
 == Configuration requise pour l'ajout à chaud dans les configurations MetroCluster reliées à un pont
 
-[role="lead"]
 Si vous ajoutez à chaud des tiroirs IOM12/IOM12B à une pile de tiroirs IOM6 connectés à l'aide de deux ponts ATTO FibreBridge dans une configuration MetroCluster, le système doit répondre à certaines exigences.
 
 * Si des ports SAS de pont sont disponibles dans la configuration actuelle, vous devez ajouter les tiroirs IOM12 comme pile distincte.
@@ -138,7 +136,6 @@ Les tiroirs IOM12/IOM12B utilisent des connecteurs HD Mini-SAS. Les tiroirs IOM6
 
 == Considérations relatives à un ajout à chaud
 
-[role="lead"]
 Vous devez vous familiariser avec ces aspects et les meilleures pratiques avant d'ajouter à chaud des tiroirs IOM12/IOM12B à une pile de tiroirs IOM6.
 
 
@@ -226,7 +223,6 @@ NOTE: Les instructions de migration fournissent la configuration système requis
 
 == Préparez-vous à attribuer manuellement la propriété du disque pour un ajout à chaud
 
-[role="lead"]
 Si vous attribuez manuellement la propriété des disques aux tiroirs IOM12 que vous ajoutez à chaud, vous devez désactiver l'affectation automatique des disques s'il est activé.
 
 .Avant de commencer
@@ -257,7 +253,6 @@ Si vous disposez d'une paire haute disponibilité ou d'une configuration MetroCl
 
 == Installez les étagères pour un ajout à chaud
 
-[role="lead"]
 Pour chaque tiroir que vous ajoutez à chaud, vous installez le tiroir dans un rack, branchez les câbles d'alimentation, mettez le tiroir sous tension et définissez l'ID de tiroir.
 
 . Installez le kit de montage en rack (pour les installations en rack à deux ou quatre montants) fourni avec votre tiroir disque en utilisant le Flyer d'installation fourni avec le kit.
@@ -395,7 +390,6 @@ Vous devez éteindre les deux interrupteurs, attendre 10 secondes, puis les rall
 
 == Des étagères pour un ajout à chaud
 
-[role="lead"]
 Le câblage d'un tiroir IOM12/IOM12B à une pile de tiroirs IOM6 dépend si le tiroir IOM12 est le tiroir initial IOM12/IOM12B, ce qui signifie qu'aucun autre tiroir IOM12 n'existe dans la pile, Ou s'il s'agit d'un tiroir IOM12/IOM12B supplémentaire à une pile mixte existante, c'est-à-dire qu'un ou plusieurs tiroirs IOM12/IOM12B existent déjà dans la pile. Elle dépend également de si la pile possède une haute disponibilité multivoie, des chemins d'accès multiples, une haute disponibilité à chemin unique ou une connectivité à chemin unique.
 
 .Avant de commencer
@@ -651,7 +645,6 @@ NOTE: Toutes les configurations MetroCluster requièrent l'affectation manuelle 
 
 == Terminez l'ajout à chaud
 
-[role="lead"]
 Si vous avez désactivé l'affectation automatique des disques dans le cadre de la préparation à l'ajout à chaud de tiroirs IOM12/IOM12B à la pile de tiroirs IOM6, vous devez attribuer manuellement la propriété des disques et réactiver l'affectation automatique des disques si nécessaire.
 
 .Avant de commencer

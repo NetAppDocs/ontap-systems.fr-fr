@@ -17,7 +17,6 @@ Pour effectuer le remplacement du châssis, vous devez effectuer des tâches sp�
 
 == Étape 1 : vérification et paramétrage de l'état HA du châssis
 
-[role="lead"]
 Vous devez vérifier l'état HA du châssis et, le cas échéant, mettre à jour l'état pour qu'il corresponde à la configuration de votre système.
 
 . En mode Maintenance, depuis l'un ou l'autre module de contrôleur, afficher l'état HA du module de contrôleur local et du châssis : `ha-config show`
@@ -45,7 +44,6 @@ La valeur de HA-State peut être l'une des suivantes :
 
 == Étape 2 : exécutez les diagnostics au niveau du système
 
-[role="lead"]
 Après avoir installé un nouveau châssis, exécutez les diagnostics d'interconnexion.
 
 .Avant de commencer
@@ -162,5 +160,4 @@ Déterminer la cause du problème.
 
 == Étape 3 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

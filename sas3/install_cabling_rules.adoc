@@ -32,7 +32,6 @@ Vous devez éviter de vous écarter des règles ; les écarts pourraient réduir
 
 == Règles de configuration
 
-[role="lead"]
 Les tiroirs disques dotés de modules IOM12 sont pris en charge sur des types spécifiques de configurations de paire haute disponibilité et à contrôleur unique.
 
 
@@ -59,7 +58,6 @@ Du fait que le stockage interne utilise la connectivité à chemin unique, ONTAP
 
 == Règles de numérotation des slots du contrôleur
 
-[role="lead"]
 Pour appliquer des règles de câblage à toutes les paires haute disponibilité et configurations à contrôleur unique prises en charge, nous appliquons une convention de numérotation des connecteurs de contrôleur.
 
 * Pour toutes les paires haute disponibilité et les configurations à un seul contrôleur, les conditions suivantes s'appliquent :
@@ -84,7 +82,6 @@ image::../media/slot0_rules.png[règles slot0]
 
 == Règles de connexion du tiroir à tiroir
 
-[role="lead"]
 Lorsque vous disposez de plusieurs tiroirs disques dans une pile de tiroirs disques, ils se connectent par l'intermédiaire de chaque domaine SAS (IOM A et IOM B) en utilisant le câblage « standard » ou « à tous les niveaux » applicable. Votre utilisation du câblage « standard » ou « tablette à tiroir » dépend de votre configuration.
 
 
@@ -121,7 +118,6 @@ image::../media/drw_shelf_to_shelf_double_wide.gif[tablette drw à tablette doub
 
 == Règles de connexion contrôleur à pile
 
-[role="lead"]
 Vous pouvez correctement connecter les câbles SAS de chaque contrôleur à chaque pile d'une paire haute disponibilité ou dans une configuration à un contrôleur unique en déterminant que les tiroirs disques SAS utilisent la propriété des disques logicielle, la façon dont les ports de contrôleur A/C et B/D sont connectés aux piles, Comment les ports A/C et B/D du contrôleur sont organisés en paires de ports et comment les plateformes avec stockage interne disposent de leurs ports de contrôleur connectés aux piles.
 
 
@@ -280,7 +276,6 @@ image::../media/drw_fas2600_mpha_domain_example.png[exemple de domaine drw fas26
 
 == Règles du câble optique SAS HD Mini-SAS
 
-[role="lead"]
 Vous pouvez utiliser des câbles optiques mini-SAS HD SAS (câble optique actif multimode) avec des connecteurs HD à mini-SAS HD et des câbles d'dérivation multimode (OM4) avec des connecteurs mini-SAS HD à LC pour obtenir une connectivité SAS longue distance pour certaines configurations dotées de tiroirs disques avec des modules IOM12.
 
 * Votre plate-forme et votre version de ONTAP doivent prendre en charge l'utilisation de câbles optiques mini-SAS HD : câbles optiques multimodes (AOC) avec connecteurs HD mini-SAS HD-mini-SAS et câbles de dérivation multimodes (OM4) avec connecteurs mini-SAS HD-LC.

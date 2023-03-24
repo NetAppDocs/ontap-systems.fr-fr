@@ -37,7 +37,6 @@ Pour remplacer le module DIMM et NVRAM, vous devez retirer le module NVRAM du ch
 == Étape 1 : arrêtez le contrôleur défaillant
 
 .Étapes
-[role="lead"]
 Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
 
 [role="tabbed-block"]
@@ -151,7 +150,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 == Étape 2 : remplacer le module NVRAM
 
-[role="lead"]
 Pour remplacer le module NVRAM, localisez-le dans le logement 6 du châssis et suivez la séquence des étapes.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -228,7 +226,6 @@ Languettes d'éjection du module DIMM et du module DIMM
 
 == Étape 3 : remplacer un module DIMM NVRAM
 
-[role="lead"]
 Pour remplacer les modules DIMM NVRAM du module NVRAM, vous devez retirer le module NVRAM, ouvrir le module, puis remplacer le module DIMM cible.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -306,7 +303,6 @@ Languettes d'éjection du module DIMM et du module DIMM
 
 == Étape 4 : redémarrer le contrôleur après le remplacement d'une unité remplaçable sur site
 
-[role="lead"]
 Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
 
 . Pour démarrer ONTAP à partir de l'invite DU CHARGEUR, entrez `bye`.
@@ -316,7 +312,6 @@ Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
 
 == Étape 5 : réaffectation des disques
 
-[role="lead"]
 Vous devez confirmer la modification de l'ID système au démarrage du contrôleur de remplacement, puis vérifier que la modification a été implémentée.
 
 
@@ -414,7 +409,7 @@ dr-group-id            cluster node           configuration-state
 4 entries were displayed.
 ----
 . Vérifier que les volumes attendus sont présents pour chaque contrôleur : `vol show -node node-name`
-. Si le chiffrement de stockage est activé, vous devez ********
+. Si le chiffrement du stockage est activé, vous devez restaurer la fonctionnalité.
 . Si vous avez désactivé le basculement automatique au redémarrage, activez-le à partir du contrôleur sain : `storage failover modify -node replacement-node-name -onreboot true`
 
 
@@ -422,7 +417,6 @@ dr-group-id            cluster node           configuration-state
 
 == Étape 6 : restauration de la fonctionnalité de cryptage du stockage et du volume
 
-[role="lead"]
 Si le chiffrement du stockage est activé, suivez la procédure appropriée.
 
 [role="tabbed-block"]
@@ -448,7 +442,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADuD+AAAAAAAAAAAAAAAAAAAAAAA
 
 +
 
-NOTE: Le nœud revient au menu de démarrage.
+NOTE: Le contrôleur revient au menu de démarrage.
 
 . Sélectionnez l'option 1, `Normal Boot`
 . Renvoyer uniquement les agrégats CFO avec le `storage failover giveback -fromnode local -only-cfo-aggregates true` commande.
@@ -505,12 +499,12 @@ NOTE: Vous pouvez utiliser le `security key-manager key query -key-type NSE-AK` 
 --
 .Option 2 : utilisation du gestionnaire externe
 --
-. Démarrez le nœud sur le menu de démarrage.
+. Démarrez le contrôleur dans le menu de démarrage.
 . Sélectionnez l'option 11, `Configure node for external key management`.
 . Entrez les informations du certificat de gestion aux invites.
 +
 
-NOTE: Le nœud revient au menu de démarrage une fois les informations du certificat de gestion terminées.
+NOTE: Une fois les informations du certificat de gestion terminées, le contrôleur revient au menu de démarrage.
 
 . Sélectionnez l'option 1, `Normal Boot`
 . Déplacez le câble de la console vers le contrôleur partenaire et redonnez le stockage du contrôleur cible à l'aide de la commande Storage failover giveback -fromnode local -only-cfo-Aggregates véritable commande locale.
@@ -568,5 +562,4 @@ NOTE: Vous pouvez utiliser le `security key-manager key query -key-type NSE-AK` 
 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

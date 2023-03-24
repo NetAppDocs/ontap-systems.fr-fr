@@ -26,7 +26,6 @@ Vous devez remplacer le module de cache du module de contrôleur lorsque votre s
 
 == Étape 1 : arrêt du contrôleur défaillant
 
-[role="lead"]
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
@@ -88,7 +87,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 --
 .Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -187,7 +185,6 @@ mcc1A::> metrocluster operation show
 
 == Étape 2 : remplacer ou ajouter un module de mise en cache
 
-[role="lead"]
 Les modules Flash cache SSD NVMe (FlashCache ou modules de cache) sont des modules distincts. Ils sont situés à l'avant du module NVRAM. Pour remplacer ou ajouter un module de cache, placez-le à l'arrière du système sur le logement 6, puis suivez la séquence spécifique des étapes pour le remplacer.
 
 .Avant de commencer
@@ -248,7 +245,6 @@ Assurez-vous de soutenir le module de mise en cache lorsque vous le retirez du m
 
 == Étape 3 : ajouter ou remplacer un module de vidage de mémoire du noyau X9170A
 
-[role="lead"]
 Le « core dump » de cache de 1 To, X9170A, est uniquement utilisé dans les systèmes AFF A700. Le module core dump ne peut pas être remplacé à chaud. Le module core dump est généralement situé à l'avant du module NVRAM dans le connecteur 6-1 à l'arrière du système. Pour remplacer ou ajouter le module core dump, localisez le logement 6-1, puis suivez la séquence spécifique des étapes pour l'ajouter ou le remplacer.
 
 .Avant de commencer
@@ -307,7 +303,6 @@ Assurez-vous de soutenir le module de vidage du noyau lorsque vous le retirez du
 
 == Étape 4 : redémarrer le contrôleur après le remplacement d'une unité remplaçable sur site
 
-[role="lead"]
 Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
 
 .Étape

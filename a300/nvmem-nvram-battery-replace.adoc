@@ -19,14 +19,12 @@ Tous les autres composants du système doivent fonctionner correctement ; si ce 
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
 ====
 .Option 1 : plupart des configurations
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -82,7 +80,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 --
 .Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -181,7 +178,6 @@ mcc1A::> metrocluster operation show
 
 == Étape 2 : ouvrir le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -222,7 +218,6 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 == Étape 3 : remplacer la batterie NVMEM
 
-[role="lead"]
 Pour remplacer la batterie NVMEM de votre système, vous devez retirer la batterie NVMEM défectueuse du système, puis la remplacer par une nouvelle batterie NVMEM.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -279,7 +274,6 @@ Assurez-vous que la fiche mâle se verrouille sur la prise.
 
 == Étape 4 : réinstallez le contrôleur
 
-[role="lead"]
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer dans un état où vous pouvez exécuter des tests de diagnostic sur le composant remplacé.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -315,7 +309,6 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 
 == Étape 5 : exécutez les diagnostics au niveau du système
 
-[role="lead"]
 Après avoir installé une nouvelle batterie NVMEM, vous devez exécuter des diagnostics.
 
 Votre système doit être à l'invite DU CHARGEUR pour démarrer System Level Diagnostics.
@@ -447,7 +440,6 @@ Une fois que vous avez terminé d'exécuter la commande, attendez que le systèm
 
 == Étape 6 : (MetroCluster à deux nœuds uniquement) : retournez des agrégats
 
-[role="lead"]
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -506,5 +498,4 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

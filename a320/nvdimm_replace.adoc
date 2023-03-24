@@ -21,7 +21,6 @@ Vous devez remplacer le composant défectueux par un composant FRU de remplaceme
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -78,7 +77,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -114,7 +112,6 @@ Le crochet du mécanisme de verrouillage doit être presque vertical et doit êt
 
 == Étape 3 : remplacez le NVDIMM
 
-[role="lead"]
 Pour remplacer le NVDIMM, vous devez le localiser dans le module de contrôleur à l'aide de l'étiquette de carte NVDIMM située sur le dessus du conduit d'air, puis le remplacer en suivant la séquence spécifique des étapes.
 
 image::../media/drw_a320_nvdimm_replace_animated_gif.png[drw a320 nvmm remplace le gif animé]
@@ -151,7 +148,6 @@ NOTE: Inspectez visuellement le NVDIMM pour vérifier qu'il est bien aligné et 
 
 == Étape 4 : installer le module de contrôleur
 
-[role="lead"]
 Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
 
 . Si ce n'est déjà fait, fermez le conduit d'air à l'arrière du module de contrôleur et réinstallez le couvercle sur les cartes PCIe.
@@ -190,7 +186,6 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 
 == Étape 5 : exécutez les diagnostics
 
-[role="lead"]
 Après avoir remplacé le NVDIMM de votre système, exécutez des tests de diagnostic sur ce composant.
 
 Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
@@ -217,7 +212,6 @@ Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que
 
 == Étape 6 : rétablir le fonctionnement du module de contrôleur après l'exécution des diagnostics
 
-[role="lead"]
 Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
 
 . Recâblage du système, selon les besoins.
@@ -232,5 +226,4 @@ Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas 
 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

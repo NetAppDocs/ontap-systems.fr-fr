@@ -17,7 +17,6 @@ Vous devez vérifier l'état haute disponibilité du châssis, exécuter des dia
 
 == Étape 1 : vérifier et définir l'état de haute disponibilité du châssis
 
-[role="lead"]
 Vous devez vérifier l'état HA du châssis et, le cas échéant, mettre à jour l'état pour qu'il corresponde à la configuration de votre système.
 
 . En mode Maintenance, depuis l'un ou l'autre module de contrôleur, afficher l'état HA du module de contrôleur local et du châssis : `ha-config show`
@@ -46,7 +45,6 @@ La valeur de HA-State peut être l'une des suivantes :
 
 == Étape 2 : exécutez les diagnostics
 
-[role="lead"]
 Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
 
 Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
@@ -72,5 +70,4 @@ Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que
 
 == Étape 3 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.
