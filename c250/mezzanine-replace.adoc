@@ -1,0 +1,253 @@
+---
+permalink: c250/mezzanine-replace.html 
+sidebar: sidebar 
+keywords: aff c250, replace or install a mezzanine card 
+summary: Pour remplacer une carte mezzanine défectueuse, vous devez retirer les câbles et les modules SFP ou QSFP, remplacer la carte, réinstaller les modules SFP ou QSFP et recâter les cartes. Pour installer une nouvelle carte mezzanine, vous devez disposer des câbles appropriés et des modules SFP ou QSFP. 
+---
+= Remplacez ou installez une carte mezzanine - AFF C250
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer une carte mezzanine défectueuse, vous devez retirer les câbles et les modules SFP ou QSFP, remplacer la carte, réinstaller les modules SFP ou QSFP et recâter les cartes. Pour installer une nouvelle carte mezzanine, vous devez disposer des câbles appropriés et des modules SFP ou QSFP.
+
+.Description de la tâche
+* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID en suivant les instructions de la section link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html["Retour des disques SED en mode non protégé"].
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) Pour la lame SCSI du contrôleur altérée. Le `cluster kernel-service show` commande affiche le nom du nœud, l'état quorum du nœud concerné, l'état de disponibilité de ce nœud et l'état opérationnel de ce nœud.
++
+Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+Retirez le module de contrôleur du châssis lorsque vous remplacez un composant dans le module de contrôleur.
+
+Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les blocs d'alimentation du module de contrôleur de la source.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Insérez votre index dans le mécanisme de verrouillage de chaque côté du module de contrôleur, appuyez sur le levier avec votre pouce et tirez doucement le contrôleur à quelques pouces du châssis.
++
+
+NOTE: Si vous avez des difficultés à retirer le module de contrôleur, placez vos doigts à travers les trous des doigts de l'intérieur (en croisant vos bras).
+
++
+image::../media/drw_a250_pcm_remove_install.png[le module de commande du groupe motopropulseur du drw a250 dépose l'installation]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Levier 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Mécanisme de verrouillage
+
+|===
+. À l'aide des deux mains, saisissez les côtés du module de contrôleur et tirez-le doucement hors du châssis et posez-le sur une surface plane et stable.
+. Tournez la vis moletée située à l'avant du module de contrôleur dans le sens anti-horaire et ouvrez le capot du module de contrôleur.
++
+image::../media/drw_a250_open_controller_module_cover.png[ouvrir le couvercle du module de contrôleur drw a250]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Vis moletée 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Capot du module de contrôleur.
+
+|===
+
+
+
+
+== Étape 3 : remplacer ou installer une carte mezzanine
+
+Pour remplacer une carte mezzanine, vous devez retirer la carte pour personnes malvoyantes et installer la carte de remplacement. Pour installer une carte mezzanine, vous devez retirer la façade et installer la nouvelle carte.
+
+Utilisez la vidéo suivante ou les étapes tabulées pour remplacer une carte mezzanine :
+
+.Animation : remplacez une carte mezzanine
+video::d8e7d4d9-8d28-4be1-809b-ac5b01643676[panopto]
+. Pour remplacer une carte mezzanine :
+. Localisez et remplacez la carte mezzanine pour malvoyants située sur le module de contrôleur.
++
+image::../media/drw_a250_replace_mezz_card.png[le drw a250 remplace la carte mezz]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Retirez les vis sur la face du module de contrôleur. 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Desserrez la vis du module de contrôleur.
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Retirez la carte mezzanine.
+
+|===
++
+.. Débranchez tous les câbles associés à la carte mezzanine pour malvoyants.
++
+Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
+
+.. Retirez tous les modules SFP ou QSFP qui pourraient se trouver sur la carte mezzanine pour malvoyants et mettez-le de côté.
+.. A l'aide du tournevis magnétique n° 1, retirez les vis de la face du module de contrôleur et mettez-les de côté en toute sécurité sur l'aimant.
+.. À l'aide du tournevis magnétique n° 1, desserrez la vis de la carte mezzanine pour malvoyants.
+.. À l'aide du tournevis magnétique n° 1, soulevez doucement la carte mezzanine pour malvoyants et mettez-la de côté.
+.. Retirez la carte mezzanine de remplacement du sac d'expédition antistatique et alignez-la sur la face interne du module de contrôleur.
+.. Alignez doucement la carte mezzanine de remplacement en place.
+.. A l'aide du tournevis magnétique n° 1, insérez et serrez les vis sur la face du module de contrôleur et sur la carte mezzanine.
++
+
+NOTE: Ne forcez pas lors du serrage de la vis sur la carte mezzanine ; vous pouvez la fissurer.
+
+.. Insérez tous les modules SFP ou QSFP qui ont été retirés de la carte mezzanine pour malvoyants sur la carte mezzanine de remplacement.
+
+
+. Pour installer une carte mezzanine :
+. Vous installez une nouvelle carte mezzanine si votre système ne en possède pas.
++
+.. À l'aide du tournevis magnétique n° 1, retirez les vis de la face du module de contrôleur et de la façade recouvrant le logement de la carte mezzanine, puis mettez-les de côté en toute sécurité sur l'aimant.
+.. Retirez la carte mezzanine du sac d'expédition antistatique et alignez-la sur la face interne du module de contrôleur.
+.. Alignez doucement la carte mezzanine en place.
+.. A l'aide du tournevis magnétique n° 1, insérez et serrez les vis sur la face du module de contrôleur et sur la carte mezzanine.
++
+
+NOTE: Ne forcez pas lors du serrage de la vis sur la carte mezzanine ; vous pouvez la fissurer.
+
+
+
+
+
+
+
+== Étape 4 : réinstallez le module de contrôleur
+
+Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
+
+. Fermez le capot du module de contrôleur et serrez la vis à molette.
++
+image::../media/drw_a250_close_controller_module_cover.png[drw a250 fermer le couvercle du module de commande]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Capot du module de contrôleur 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Vis moletée
+
+|===
+. Insérer le module de contrôleur dans le châssis :
++
+.. S'assurer que les bras du mécanisme de verrouillage sont verrouillés en position complètement sortie.
+.. À l'aide des deux mains, alignez et faites glisser doucement le module de commande dans les bras du mécanisme de verrouillage jusqu'à ce qu'il s'arrête.
+.. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
+.. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
+.. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
+
+
++
+Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
+
+. Recâblage du système, selon les besoins.
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 5 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

@@ -1,0 +1,135 @@
+---
+permalink: c400/chassis-replace-complete-system-restore-rma.html 
+sidebar: sidebar 
+keywords: aff c400, verify and set HA state, run diagnostics, complete the replacement process 
+summary: 'Vous devez vérifier l"état haute disponibilité du châssis, exécuter des diagnostics et renvoyer la pièce défectueuse à NetApp, comme décrit dans les instructions RMA livrées avec le kit.' 
+---
+= Terminez le processus de restauration et de remplacement - AFF C400
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez vérifier l'état haute disponibilité du châssis, exécuter des diagnostics et renvoyer la pièce défectueuse à NetApp, comme décrit dans les instructions RMA livrées avec le kit.
+
+
+
+== Étape 1 : vérifier et définir l'état de haute disponibilité du châssis
+
+Vous devez vérifier l'état HA du châssis et, le cas échéant, mettre à jour l'état pour qu'il corresponde à la configuration de votre système.
+
+. En mode Maintenance, depuis l'un ou l'autre module de contrôleur, afficher l'état HA du module de contrôleur local et du châssis : `ha-config show`
++
+L'état de la HA doit être le même pour tous les composants.
+
+. Si l'état du système affiché pour le châssis ne correspond pas à la configuration de votre système :
++
+.. Définissez l'état haute disponibilité du châssis : `ha-config modify chassis _HA-state_`
++
+La valeur de _HA-State_ peut être l'une des suivantes :
+
++
+*** `ha`
+*** `mcc`
+*** `mcc-2n`
+*** `mccip`
+*** `non-ha`
+
+
+.. Vérifiez que le paramètre a changé : `ha-config show`
+
+
+. Si vous ne l'avez pas déjà fait, recâble le reste de votre système.
+. Réinstallez le cadre à l'avant du système.
+
+
+
+
+== Étape 2 : exécutez les diagnostics
+
+Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
+
+Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
+
+Toutes les commandes des procédures de diagnostic sont émises depuis le nœud sur lequel le composant est remplacé.
+
+. Si le nœud à entretenir n'est pas à l'invite DU CHARGEUR, redémarrez le nœud : `system node halt -node node_name`
++
+Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
+
+. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
+. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
+. Sélectionnez *Test System* dans le menu affiché pour exécuter les tests de diagnostic.
+. Sélectionnez le test ou la série de tests dans les différents sous-menus.
+. Procédez comme suit en fonction du résultat de l'étape précédente :
++
+** Si le test a échoué, corrigez la défaillance, puis relancez le test.
+** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
+
+
+
+
+
+
+== Étape 3 : retournez les agrégats via une configuration MetroCluster à deux nœuds
+
+Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
+
+Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
+
+.Étapes
+. Vérifiez que tous les nœuds sont dans le `enabled` état : `metrocluster node show`
++
+[listing]
+----
+cluster_B::>  metrocluster node show
+
+DR                           Configuration  DR
+Group Cluster Node           State          Mirroring Mode
+----- ------- -------------- -------------- --------- --------------------
+1     cluster_A
+              controller_A_1 configured     enabled   heal roots completed
+      cluster_B
+              controller_B_1 configured     enabled   waiting for switchback recovery
+2 entries were displayed.
+----
+. Vérifier que la resynchronisation est terminée sur tous les SVM : `metrocluster vserver show`
+. Vérifier que toutes les migrations LIF automatiques effectuées par les opérations de correction ont été effectuées correctement : `metrocluster check lif show`
+. Effectuez le rétablissement en utilisant le `metrocluster switchback` utilisez une commande à partir d'un nœud du cluster survivant.
+. Vérifiez que l'opération de rétablissement est terminée : `metrocluster show`
++
+L'opération de rétablissement s'exécute toujours lorsqu'un cluster est dans `waiting-for-switchback` état :
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster              Configuration State    Mode
+--------------------	------------------- 	---------
+ Local: cluster_B configured       	switchover
+Remote: cluster_A configured       	waiting-for-switchback
+----
++
+Le rétablissement est terminé une fois les clusters dans `normal` état :
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster              Configuration State    Mode
+--------------------	------------------- 	---------
+ Local: cluster_B configured      		normal
+Remote: cluster_A configured      		normal
+----
++
+Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des lignes de base en cours en utilisant le `metrocluster config-replication resync-status show` commande.
+
+. Rétablir toutes les configurations SnapMirror ou SnapVault.
+
+
+
+
+== Étape 4 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

@@ -46,19 +46,6 @@ Cette opération peut prendre jusqu'à cinq minutes.
 +
 Cela laisse suffisamment de temps à ONTAP pour traiter l'événement de suppression NSM.
 
-* *Meilleure pratique :* la meilleure pratique consiste à installer sur votre système les versions les plus récentes du firmware du module de tiroir NVMe (NSM) et du firmware du lecteur avant de remplacer les composants FRU.
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
-
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
-
-+
-[NOTE]
-====
-Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
-
-====
 * Si nécessaire, vous pouvez allumer les LED situées à l'emplacement des tiroirs (bleues) pour faciliter l'emplacement physique des tiroirs concernés : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
 +
 Si vous ne connaissez pas le `_shelf_name_` sur la tablette concernée, exécutez la `storage shelf show` commande.
@@ -70,7 +57,7 @@ Une étagère comporte trois LED d'emplacement : une sur le panneau d'affichage 
 +
 Si vous avez besoin du numéro d'autorisation de renvoi de matériel ou d'une aide supplémentaire pour effectuer la procédure de remplacement, contactez le support technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"^], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique).
 
-* Vous pouvez utiliser la vidéo suivante ou les étapes écrites pour remplacer le support de démarrage.
+* Vous pouvez utiliser l'animation suivante ou les étapes écrites pour remplacer le support de démarrage.
 +
 .Animation : remplacez le support de démarrage dans un tiroir de lecteur NS224
 video::20ed85f9-1f80-4e0e-9219-ab4600070d8a[panopto]
@@ -81,7 +68,7 @@ video::20ed85f9-1f80-4e0e-9219-ab4600070d8a[panopto]
 . Mettez-vous à la terre.
 . Déconnectez le câblage du module NSM contenant le FRU que vous remplacez :
 +
-.. Débrancher le cordon d'alimentation de l'alimentation en ouvrant la retenue du cordon d'alimentation, puis débrancher le cordon d'alimentation de l'alimentation.
+.. Déconnectez le cordon d'alimentation du bloc d'alimentation en ouvrant le dispositif de retenue du cordon d'alimentation s'il s'agit d'une alimentation CA, ou en dévissant les deux vis à serrage manuel s'il s'agit d'une alimentation CC, puis débranchez le cordon d'alimentation du bloc d'alimentation.
 +
 Les blocs d'alimentation n'ont pas de commutateur d'alimentation.
 
@@ -163,7 +150,7 @@ Le module NSM doit être complètement inséré dans la tablette et au ras des b
 +
 Les câbles sont insérés avec la languette de retrait du connecteur orientée vers le haut. Lorsqu'un câble est inséré correctement, il s'enclenche.
 
-.. Rebranchez le cordon d'alimentation à l'alimentation, puis fixez le cordon d'alimentation à l'aide de la pièce de retenue du cordon d'alimentation.
+.. Rebranchez le cordon d'alimentation sur le bloc d'alimentation, puis fixez-le à l'aide du dispositif de retenue du cordon d'alimentation s'il s'agit d'un bloc d'alimentation CA, ou serrez les deux vis à molette s'il s'agit d'un bloc d'alimentation CC.
 +
 Lorsqu'elle fonctionne correctement, la LED bicolore d'un bloc d'alimentation s'allume en vert.
 

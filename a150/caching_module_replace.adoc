@@ -1,0 +1,390 @@
+---
+permalink: a150/caching-module-replace.html 
+sidebar: sidebar 
+keywords: replace, caching, module, aff a150, a150, aff, shut, down, impaired, controller, controller, aggregates, metrocluster, configuration, replace, reinstall 
+summary: 'Vous devez remplacer le module de cache du module de contrôleur lorsque votre système enregistre un message AutoSupport (ASUP) unique que le module a mis hors ligne. Dans le cas contraire, les performances s"en trouvent affectées.' 
+---
+= Remplacer le module de cache - AFF A150
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez remplacer le module de cache du module de contrôleur lorsque votre système enregistre un message AutoSupport (ASUP) unique que le module a mis hors ligne. Dans le cas contraire, les performances s'en trouvent affectées.
+
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+[role="lead"]
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+Vous pouvez effacer le contenu de votre module de cache avant de le remplacer.
+
+.Étapes
+. Bien que les données du module de cache soient cryptées, il est possible que vous souhaitiez effacer toutes les données du module de cache pour personnes affaiblies et vérifier que le module de cache n'a pas de données :
++
+.. Effacer les données du module de cache : `system controller flash-cache secure-erase run`
+.. Vérifiez que les données ont été effacées du module de cache : `system controller flash-cache secure-erase show -node node_name`
++
+La sortie doit afficher l'état du module de cache comme effacé.
+
+
+
+. Si le contrôleur défectueux fait partie d'une paire HA, désactivez le rétablissement automatique à partir de la console du contrôleur en bon état : `storage failover modify -node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre en charge ou arrêter le contrôleur en état :
+
+** Pour une paire haute disponibilité, prendre le relais du contrôleur défectueux du contrôleur en bonne santé : `storage failover takeover -ofnode _impaired_node_name_`
++
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+** Pour un système autonome : `system node halt _impaired_node_name_`
+
+
+|===
+. Si le système ne dispose que d'un seul module de contrôleur dans le châssis, mettez les blocs d'alimentation hors tension, puis débranchez les câbles d'alimentation du contrôleur pour cause d'altération de la source d'alimentation.
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+[role="lead"]
+Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez et mettez de côté les dispositifs de gestion des câbles des côtés gauche et droit du module de contrôleur.
++
+image::../media/drw_25xx_cable_management_arm.png[ARM de gestion de câble 25xx drw]
+
+. Appuyez sur le loquet de la poignée de came jusqu'à ce qu'il se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à l'aide de deux mains, retirez le module de contrôleur du châssis.
++
+image::../media/drw_2240_x_opening_cam_latch.png[drw 2240 x verrou de came d'ouverture]
+
+. Retournez le module de contrôleur et placez-le sur une surface plane et stable.
+. Ouvrez le capot en le faisant glisser dans les languettes bleues pour le dégager, puis faites pivoter le couvercle vers le haut et ouvrez-le.
++
+image::../media/drw_2600_opening_pcm_cover.png[couvercle du module de commande du groupe motopropulseur ouvert drw 2600]
+
+
+
+
+
+== Étape 3 : remplacer un module de cache
+
+[role="lead"]
+Pour remplacer un module de mise en cache appelé carte PCIe M.2 sur l'étiquette de votre contrôleur, localisez le logement à l'intérieur du contrôleur et suivez la séquence des étapes.
+
+Votre système de stockage doit répondre à certains critères en fonction de votre situation :
+
+* Il doit disposer du système d'exploitation approprié pour le module de cache que vous installez.
+* Il doit prendre en charge la capacité de mise en cache.
+* Tous les autres composants du système de stockage doivent fonctionner correctement. Si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Recherchez le module de mise en cache à l'arrière du module de contrôleur et retirez-le.
++
+.. Appuyez sur la languette de dégagement.
+.. Retirez le dissipateur de chaleur.
+
+
++
+image::../media/drw_2600_fcache_repl_animated_gif.png[drw 2600 fcache repl. animation gif]
+
+. Tirez doucement le module de cache hors du boîtier.
+. Alignez les bords du module de cache avec le support du boîtier, puis poussez-le doucement dans le support.
+. Vérifiez que le module de mise en cache est bien placé dans le support.
++
+Si nécessaire, retirez le module de cache et réinstallez-le dans le support.
+
+. Réinstallez et poussez le dissipateur de chaleur vers le bas pour engager le bouton de verrouillage sur le boîtier du module de cache.
+. Fermez le capot du module de contrôleur, si nécessaire.
+
+
+
+
+== Étape 4 : réinstallez le module de contrôleur
+
+[role="lead"]
+Après avoir remplacé des composants dans le module de contrôleur, réinstallez-les dans le châssis.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Si vous ne l'avez pas encore fait, remettez le capot sur le module de contrôleur.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Terminez la réinstallation du module de contrôleur :
++
+[cols="1,2"]
+|===
+| Si votre système est en... | Ensuite, procédez comme suit... 
+
+
+ a| 
+Une paire haute disponibilité
+ a| 
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
+.. Avec la poignée de came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came en position verrouillée.
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le contrôleur commence à démarrer dès qu'il est assis dans le châssis.
+
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Fixez les câbles au dispositif de gestion des câbles à l'aide du crochet et de la sangle de boucle.
+.. Lorsque le message s'affiche `Press Ctrl-C for Boot Menu`, appuyez sur `Ctrl-C` pour interrompre le processus de démarrage.
++
+
+NOTE: Si l'invite et le module de contrôleur ne démarre pas sur ONTAP, entrez `halt`, Puis à l'invite DU CHARGEUR, entrez `boot_ontap`, appuyez sur `Ctrl-C` Lorsque vous y êtes invité, puis démarrez en mode de maintenance.
+
+.. Sélectionnez l'option pour démarrer en mode maintenance dans le menu qui s'affiche.
+
+
+
+
+ a| 
+Une configuration autonome
+ a| 
+.. Avec la poignée de came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came en position verrouillée.
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Fixez les câbles au dispositif de gestion des câbles à l'aide du crochet et de la sangle de boucle.
+.. Rebranchez les câbles d'alimentation aux blocs d'alimentation et aux sources d'alimentation, mettez le système sous tension pour démarrer le processus de démarrage, puis appuyez sur `Ctrl-C` après que vous ayez vu le `Press Ctrl-C for Boot Menu` messagerie.
++
+
+NOTE: Si l'invite et le module de contrôleur ne démarre pas sur ONTAP, entrez `halt`, Puis à l'invite DU CHARGEUR, entrez `boot_ontap`, appuyez sur `Ctrl-C` Lorsque vous y êtes invité, puis démarrez en mode de maintenance.
+
+.. Dans le menu de démarrage, sélectionner l'option pour le mode maintenance.
+
+
+|===
+
+
+
+
+== Étape 5 : exécutez les diagnostics au niveau du système
+
+[role="lead"]
+Après avoir installé un nouveau module de mise en cache, exécutez les diagnostics.
+
+Votre système doit être à l'invite DU CHARGEUR pour démarrer System Level Diagnostics.
+
+Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
+
+.Étapes
+. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, effectuez la procédure suivante :
++
+.. Sélectionnez l'option mode Maintenance dans le menu affiché.
+.. Une fois le contrôleur démarré en mode maintenance, arrêtez le contrôleur : `halt`
++
+Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
+
++
+
+NOTE: Au cours du processus de démarrage, vous pouvez répondre en toute sécurité `y` pour demander :
+
+
+
+. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
++
+Au cours du processus de démarrage, vous pouvez répondre en toute sécurité `y` Aux invites jusqu'à ce que l'invite du mode Maintenance (*>) s'affiche.
+
+. Exécutez les tests de diagnostic du module de cache : `sldiag device run -dev fcache`
+. Vérifiez qu'aucun problème matériel ne provient du remplacement du module de cache : `sldiag device status -dev fcache -long -state failed`
++
+Les diagnostics au niveau du système vous renvoie à l'invite s'il n'y a pas d'échec de test ou répertorie l'état complet des échecs résultant du test du composant.
+
+
+
+[role="lead"]
+. Procédez comme suit en fonction du résultat de l'étape précédente :
+
+
+[cols="1,3"]
+|===
+| Si les tests de diagnostic au niveau du système... | Alors... 
+
+
+ a| 
+Ont été achevés sans défaillance
+ a| 
+. Effacez les journaux d'état : `sldiag device clearstatus`
+. Vérifiez que le journal a été effacé : `sldiag device status`
++
+La réponse par défaut suivante est affichée :
+
++
+SLDIAG : aucun message de journal n'est présent.
+
+. Quitter le mode Maintenance : `halt`
++
+Le contrôleur affiche l'invite DU CHARGEUR.
+
+. Démarrez le contrôleur à partir de l'invite DU CHARGEUR : `bye`
+. Faire revenir le contrôleur en mode de fonctionnement normal :
++
+*Si votre contrôleur est dans une paire HA*, effectuez un retour : `storage failover giveback -ofnode _replacement_node_name_`
+
++
+*Remarque :* si vous avez désactivé le retour automatique, réactivez-le avec le `storage failover modify` commande.
+
++
+*Si votre contrôleur est dans une configuration autonome*, passez à l'étape suivante. Aucune action n'est requise.
+
++
+Vous avez terminé les diagnostics au niveau du système.
+
+
+
+
+
+ a| 
+A entraîné des échecs de test
+ a| 
+Déterminez la cause du problème :
+
+. Quitter le mode Maintenance : `halt`
++
+Une fois que vous avez terminé d'exécuter la commande, attendez que le système s'arrête à l'invite DU CHARGEUR.
+
+. Mettez les blocs d'alimentation hors tension ou laissez-les hors tension, en fonction du nombre de modules de contrôleur présents dans le châssis :
++
+** Si le châssis comporte deux modules de contrôleur, laissez les blocs d'alimentation sous tension afin de fournir l'alimentation à l'autre module de contrôleur.
+** Si le châssis comporte un module de contrôleur, mettez les blocs d'alimentation hors tension et débranchez-les des sources d'alimentation.
+
+
+. Vérifier que vous avez bien remarqué tous les facteurs à prendre en compte pour l'exécution des diagnostics au niveau du système, que les câbles sont correctement connectés et que les composants matériels sont correctement installés dans le système de stockage.
+. Démarrez le module de contrôleur que vous effectuez le service, interrompant le démarrage en appuyant sur `Ctrl-C` Lorsque vous êtes invité à accéder au menu de démarrage :
++
+** Si le châssis comporte deux modules de contrôleur, asseoir complètement le module de contrôleur que vous effectuez l'entretien dans le châssis.
++
+Le module de contrôleur s'amorce lorsqu'il est bien en place.
+
+** Si vous avez un module de contrôleur dans le châssis, connectez les blocs d'alimentation, puis mettez-les sous tension.
+
+
+. Dans le menu, sélectionnez Boot to maintenance mode.
+. Quittez le mode maintenance en saisissant la commande suivante : `halt`
++
+Une fois que vous avez terminé d'exécuter la commande, attendez que le système s'arrête à l'invite DU CHARGEUR.
+
+. Exécutez à nouveau le test de diagnostic au niveau du système.
+
+
+|===
+
+
+== Étape 6 : retournez les agrégats via une configuration MetroCluster à deux nœuds
+
+[role="lead"]
+Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
+
+Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
+
+.Étapes
+. Vérifiez que tous les nœuds sont dans le `enabled` état : `metrocluster node show`
++
+[listing]
+----
+cluster_B::>  metrocluster node show
+
+DR                           Configuration  DR
+Group Cluster Node           State          Mirroring Mode
+----- ------- -------------- -------------- --------- --------------------
+1     cluster_A
+              controller_A_1 configured     enabled   heal roots completed
+      cluster_B
+              controller_B_1 configured     enabled   waiting for switchback recovery
+2 entries were displayed.
+----
+. Vérifier que la resynchronisation est terminée sur tous les SVM : `metrocluster vserver show`
+. Vérifier que toutes les migrations LIF automatiques effectuées par les opérations de correction ont été effectuées correctement : `metrocluster check lif show`
+. Effectuez le rétablissement en utilisant le `metrocluster switchback` utilisez une commande à partir d'un nœud du cluster survivant.
+. Vérifiez que l'opération de rétablissement est terminée : `metrocluster show`
++
+L'opération de rétablissement s'exécute toujours lorsqu'un cluster est dans `waiting-for-switchback` état :
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster              Configuration State    Mode
+--------------------	------------------- 	---------
+ Local: cluster_B configured       	switchover
+Remote: cluster_A configured       	waiting-for-switchback
+----
++
+Le rétablissement est terminé une fois les clusters dans `normal` état :
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster              Configuration State    Mode
+--------------------	------------------- 	---------
+ Local: cluster_B configured      		normal
+Remote: cluster_A configured      		normal
+----
++
+Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des lignes de base en cours en utilisant le `metrocluster config-replication resync-status show` commande.
+
+. Rétablir toutes les configurations SnapMirror ou SnapVault.
+
+
+
+
+== Étape 7 : renvoyer la pièce défaillante à NetApp
+
+[role="lead"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

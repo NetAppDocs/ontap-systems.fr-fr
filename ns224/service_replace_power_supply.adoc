@@ -14,25 +14,16 @@ summary: 'Vous pouvez remplacer un bloc d"alimentation défaillant dans un tiroi
 Vous pouvez remplacer un bloc d'alimentation défaillant dans un tiroir disque NS224 sous tension, tandis que les E/S sont en cours.
 
 .Description de la tâche
-* Ne mélangez pas les alimentations avec des niveaux d'efficacité différents. Toujours remplacer comme pour similaire.
+* Ne mélangez pas des blocs d'alimentation avec des niveaux d'efficacité différents ou avec des types d'entrée différents.
++
+Toujours remplacer comme pour similaire.
+
 * Si vous remplacez plusieurs alimentations, vous devez le faire une par une afin que le tiroir reste alimenté.
 * *Meilleure pratique :* la meilleure pratique consiste à remplacer l'alimentation électrique dans les deux minutes suivant le retrait du module NSM.
 +
 Si vous dépassez les deux minutes, le tiroir continue de fonctionner, mais ONTAP envoie des messages à la console concernant l'alimentation endommagée jusqu'à ce que l'alimentation soit remplacée.
 
-* *Meilleure pratique :* la meilleure pratique consiste à installer sur votre système les versions les plus récentes du firmware du module de tiroir NVMe (NSM) et du firmware du lecteur avant de remplacer les composants FRU.
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
-
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
-
-+
-[NOTE]
-====
-Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
-
-====
+* Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
 * Si nécessaire, vous pouvez allumer les LED situées à l'emplacement des tiroirs (bleues) pour faciliter l'emplacement physique des tiroirs concernés : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
 +
 Si vous ne connaissez pas le `shelf_name` sur la tablette concernée, exécutez la `storage shelf show` commande.
@@ -44,12 +35,18 @@ Une étagère comporte trois LED d'emplacement : une sur le panneau d'affichage 
 +
 Si vous avez besoin du numéro d'autorisation de renvoi de matériel ou d'une aide supplémentaire pour effectuer la procédure de remplacement, contactez le support technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"^], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique).
 
-* Vous pouvez utiliser la vidéo suivante ou les étapes écrites pour remplacer une alimentation électrique.
-+
+
+
+Suivez la procédure appropriée pour votre type de bloc d'alimentation : CA ou CC.
+
+[role="tabbed-block"]
+====
+.Option 1 : remplacez un bloc d'alimentation CA
+--
+Pour remplacer un bloc d'alimentation CA, vous pouvez regarder l'animation ou suivre les étapes suivantes.
+
 .Animation - remplacez à chaud un bloc d'alimentation dans un tiroir de disque NS224
 video::5794da63-99aa-425a-825f-aa86002f154d[panopto]
-
-
 .Étapes
 . Mettez-vous à la terre.
 . Identifier physiquement l'alimentation défectueuse.
@@ -60,9 +57,9 @@ Le système consigne un message d'avertissement à la console du système indiqu
 +
 Les blocs d'alimentation n'ont pas de commutateur d'alimentation.
 
-. Retrait de l'alimentation défectueuse :
+. Retirer l'alimentation électrique :
 +
-.. Faites tourner la poignée de came en position ouverte (horizontale), puis saisissez-la.
+.. Faites pivoter la poignée vers le haut, jusqu'à sa position horizontale, puis saisissez-la.
 .. Avec votre pouce, appuyez sur la languette bleue pour libérer le mécanisme de verrouillage.
 .. Tirez l'alimentation hors du module NSM tout en l'utilisant pour soutenir son poids.
 
@@ -75,7 +72,7 @@ Les blocs d'alimentation n'ont pas de commutateur d'alimentation.
 
 NOTE: N'utilisez pas de force excessive et vous risquez d'endommager le connecteur interne.
 
-.. Tourner la poignée de came en position fermée.
+.. Faites pivoter la poignée vers le bas pour qu'elle ne fonctionne pas normalement.
 
 
 . Connectez le cordon d'alimentation à l'alimentation et fixez le cordon d'alimentation à l'aide de la pièce de retenue du cordon d'alimentation.
@@ -83,3 +80,96 @@ NOTE: N'utilisez pas de force excessive et vous risquez d'endommager le connecte
 Lorsqu'elle fonctionne correctement, la LED bicolore d'un bloc d'alimentation s'allume en vert.
 
 
+
+--
+.Option 2 : remplacez une alimentation CC
+--
+Pour remplacer un bloc d'alimentation CC, procédez comme suit.
+
+. Mettez-vous à la terre.
+. Identifier physiquement l'alimentation défectueuse.
++
+Le système consigne un message d'avertissement à la console du système indiquant quelle alimentation a échoué. En outre, la LED d'avertissement (orange) s'allume sur le panneau d'affichage de l'opérateur du shelf et la LED bicolore de l'alimentation défectueuse s'allume en rouge.
+
+. Débrancher l'alimentation électrique :
++
+L'illustration et le tableau de l'étape suivante montrent les deux vis à serrage à main (élément n° 1) et le connecteur du câble d'alimentation CC D-SUB (élément n° 2).
+
++
+.. Dévisser les deux vis à serrage à main sur le connecteur du câble d'alimentation.
+.. Débranchez le connecteur du câble d'alimentation du bloc d'alimentation et mettez-le de côté.
+
+
+. Retirer l'alimentation électrique :
++
+.. Faites pivoter la poignée vers le haut, jusqu'à sa position horizontale, puis saisissez-la.
+.. Avec votre pouce, appuyez sur la languette bleue pour libérer le mécanisme de verrouillage.
+.. Tirez l'alimentation hors du module NSM tout en l'utilisant pour soutenir son poids.
++
+
+NOTE: L'alimentation est en court-circuit. Utilisez toujours deux mains pour le soutenir lors de son retrait du module NSM afin qu'il ne se libère pas du module NSM et ne vous blesse pas.
+
++
+image::../media/drw_dcpsu_remove-replace-generic_IEOPS-788.svg[drw dcpsu supprimer remplacer IOPS générique 788]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["largeur=10px"]
+ a| 
+Vis à oreilles
+
+
+
+ a| 
+image:../media/legend_icon_02.svg["largeur=10px"]
+ a| 
+Connecteur du câble d'alimentation CC D-SUB
+
+
+
+ a| 
+image:../media/legend_icon_03.svg["largeur=10px"]
+ a| 
+Poignée de l'alimentation électrique
+
+
+
+ a| 
+image:../media/legend_icon_04.svg["largeur=10px"]
+ a| 
+Languette bleue de verrouillage du bloc d'alimentation
+
+|===
+
+
+. Insérer l'alimentation de remplacement :
++
+.. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module NSM.
+.. Poussez doucement le bloc d'alimentation dans le module NSM jusqu'à ce que le mécanisme de verrouillage s'enclenche.
++
+Une alimentation électrique doit s'engager correctement avec le connecteur interne et le mécanisme de verrouillage. Répétez cette étape si vous pensez que le bloc d'alimentation n'est pas correctement installé.
+
++
+
+NOTE: N'utilisez pas de force excessive et vous risquez d'endommager le connecteur interne.
+
+.. Faites pivoter la poignée vers le bas pour qu'elle ne fonctionne pas normalement.
+
+
+. Rebranchez le câble d'alimentation CC D-SUB :
++
+Une fois l'alimentation rétablie, la LED d'état doit être verte.
+
++
+.. Branchez le connecteur du câble d'alimentation sur le bloc d'alimentation.
+.. Serrez les deux vis moletées pour fixer le connecteur du câble d'alimentation à l'alimentation.
+
+
+
+
+--
+====

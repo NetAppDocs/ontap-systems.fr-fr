@@ -241,9 +241,9 @@ Si votre paire haute disponibilité exécute ONTAP 9.7 ou 9.6, les ports non dé
 
 
 
-=== Préparez une paire HA AFF A700, AFF A800 ou AFF A400 à chaud en ajoutant un second tiroir
+=== Préparez une paire HA AFF A700, AFF A800, AFF C800, AFF A400 ou AFF C400 pour ajouter à chaud un second tiroir
 
-Si vous disposez d'une paire haute disponibilité AFF A700, AFF A800 ou AFF A400 avec un tiroir de disque NS224 câblé à un ensemble de ports compatibles RoCE sur chaque contrôleur, vous devez le recâter (après avoir installé les cartes PCIe ou modules d'E/S supplémentaires compatibles RoCE). sur les deux ensembles de ports de chaque contrôleur, avant d'ajouter le second tiroir à chaud.
+Si vous disposez d'une paire haute disponibilité AFF A700, AFF A800, AFF C800, AFF A400 ou AFF C400 avec un tiroir de disque NS224 connecté à un ensemble de ports compatibles RoCE sur chaque contrôleur, vous devez recâbler le tiroir (Après avoir installé les cartes PCIe ou modules d'E/S compatibles RoCE supplémentaires) sur les deux ensembles de ports de chaque contrôleur, avant d'ajouter le second tiroir à chaud.
 
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
@@ -296,7 +296,7 @@ Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant 
 
 
  a| 
-PAIRE HA AFF A800
+Paire HA AFF A800 ou AFF C800
  a| 
 
 NOTE: Les sous-étapes supposent que le tiroir existant est câblé aux cartes PCIe compatibles RoCE dans le connecteur 5 de chaque contrôleur.
@@ -305,7 +305,7 @@ NOTE: Les sous-étapes supposent que le tiroir existant est câblé aux cartes P
 ====
 Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant un seul tiroir existant et le « tiroir » à tiroir « recâblage, dans une configuration à deux tiroirs ».
 
-<<Connectez les câbles d'un tiroir d'extension à chaud pour une paire HA AFF A800>>
+<<Reliez un tiroir à chaud à une paire HA AFF A800 ou AFF C800>>
 
 ====
 .. Sur le contrôleur A, déplacer le câble du connecteur 5 port b (e5b) vers le connecteur 3 port b (e3b).
@@ -325,6 +325,22 @@ Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant 
 
 ====
 .. Sur le contrôleur A, déplacer le câble du port e0d vers le connecteur 5 Port b (e5b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+ a| 
+Paire HA AFF C400
+ a| 
+[NOTE]
+====
+Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant un seul tiroir existant et le « tiroir » à tiroir « recâblage, dans une configuration à deux tiroirs ».
+
+<<Reliez un tiroir à chaud à une paire haute disponibilité AFF C400>>
+
+====
+.. Sur le contrôleur A, déplacez le câble de l'emplacement 4, port a (e4a), vers l'emplacement 5, port b (e5b).
 .. Répétez le même déplacement de câble sur le contrôleur B.
 
 
@@ -394,7 +410,7 @@ NOTE: Ne montez pas la tablette à bride.
 
 NOTE: Une tablette NS224 entièrement chargée peut peser jusqu'à 30.29 kg (66.78 lb) et doit être levée par deux personnes ou utiliser un relevage hydraulique. Évitez de retirer les composants des étagères (à l'avant ou à l'arrière du shelf) afin de réduire le poids des étagères car le poids des étagères ne sera pas équilibré.
 
-. Branchez les cordons d'alimentation au tiroir, fixez-les à l'aide de la pièce de retenue du cordon d'alimentation, puis branchez les câbles d'alimentation à différentes sources d'alimentation pour assurer la résilience.
+. Connectez les cordons d'alimentation à l'étagère, fixez-les en place à l'aide du dispositif de retenue du cordon d'alimentation s'il s'agit d'une alimentation CA ou des deux vis à serrage manuel s'il s'agit d'une alimentation CC, puis connectez les cordons d'alimentation à différentes sources d'alimentation pour plus de résilience.
 +
 Une étagère se met sous tension lorsqu'elle est connectée à une source d'alimentation ; elle n'a pas de commutateurs d'alimentation. Lorsqu'elle fonctionne correctement, la LED bicolore d'un bloc d'alimentation s'allume en vert.
 
@@ -557,7 +573,7 @@ Sinon, cette procédure est effectuée.
 
 
 
-=== Reliez un tiroir d'ajout à chaud pour une paire haute disponibilité FAS500f ou AFF A250
+=== Reliez un tiroir à chaud à une paire haute disponibilité AFF A250, AFF C250 ou FAS500f
 
 Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chaud un tiroir disque NS224 à une paire haute disponibilité FAS500f ou AFF A250.
 
@@ -587,7 +603,7 @@ Vu de l'arrière du châssis de la plateforme, le port de la carte compatible Ro
 .. Reliez le port e0a du NSM B du tiroir du contrôleur B au port a (e1a) du connecteur 1 du contrôleur.
 .. Reliez le port e0b du tiroir NSM B au port b (e1b) du contrôleur A. + l'illustration suivante montre le câblage du tiroir une fois l'opération terminée.
 +
-image::../media/drw_ns224_aff250_fas500f_1shelf.png[drw ns224 aff250 fas500f 1 étagère]
+image::../media/drw_ns224_a250_c250_f500f_1shelf_IEOPS-963.svg[drw ns224 a250 c250 f500f 1 étagère IEOPS 963]
 
 
 
@@ -611,7 +627,7 @@ Sinon, cette procédure est effectuée.
 
 === Connectez un tiroir à chaud pour une paire HA AFF A700
 
-Le branchement des câbles d'un tiroir de disques NS224 dans une paire HA AFF A700 dépend du nombre de tiroirs que vous ajoutez à chaud et du nombre de jeux de ports compatibles RoCE (un ou deux) que vous utilisez sur les modules de contrôleur.
+Le câblage d'un tiroir NS224 dans une paire haute disponibilité AFF A700 dépend du nombre de tiroirs que vous ajoutez à chaud et du nombre de ports compatibles RoCE (un ou deux) que vous utilisez sur les modules de contrôleur.
 
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
@@ -710,9 +726,9 @@ Sinon, cette procédure est effectuée.
 
 
 
-=== Connectez les câbles d'un tiroir d'extension à chaud pour une paire HA AFF A800
+=== Reliez un tiroir à chaud à une paire HA AFF A800 ou AFF C800
 
-Le branchement des câbles d'un tiroir de disques NS224 dans une paire HA AFF A800 dépend du nombre de tiroirs que vous ajoutez à chaud et du nombre de jeux de ports compatibles RoCE (un ou deux) que vous utilisez sur les modules de contrôleur.
+Le câblage d'un tiroir disque NS224 dans une paire HA AFF A800 ou AFF C800 dépend du nombre de tiroirs que vous ajoutez à chaud et du nombre de ports compatibles RoCE (un ou deux) que vous utilisez sur les modules de contrôleur.
 
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
@@ -739,15 +755,15 @@ Dans le cas contraire, passez à l'étape suivante.
 NOTE: Cette étape suppose que vous avez installé la carte PCIe compatible RoCE dans l'emplacement 5.
 
 +
-.. Reliez le port E0a du NSM A du tiroir au contrôleur A slot 5 port a.
-.. Port e0b du tiroir de câbles NSM A vers le connecteur 5 du contrôleur B b.
-.. Reliez le port e0a du NSM B de la tablette au connecteur 5 du contrôleur B
-.. Port e0b du tiroir de câbles NSM B vers le connecteur 5 du contrôleur A, port b.
+.. Reliez le port E0a À l'emplacement 5 du port a (e5a) du contrôleur A.
+.. Connectez le port E0b du tiroir NSM A au connecteur 5 b (e5b) du contrôleur B.
+.. Connectez le port e0a à la fente 5 a (e5a) du contrôleur B du tiroir NSM B.
+.. Reliez le port B e0b du tiroir NSM au connecteur 5 b (e5b) du contrôleur A.
 +
 L'illustration suivante montre le câblage d'un tiroir ajouté à chaud avec une carte PCIe compatible RoCE sur chaque module de contrôleur :
 
 +
-image::../media/drw_ns224_a800_1shelf.png[drw ns224 a800 1 étagère]
+image::../media/drw_ns224_a800_c800_1shelf_IEOPS-964.svg[drw ns224 a800 c800 1 étagère IEOPS 964]
 
 
 
@@ -768,10 +784,10 @@ Etagère 1
 
 NOTE: Dans ces sous-étapes, vous commencez le câblage en câbler le port du tiroir e0a vers la carte PCIe compatible RoCE dans le connecteur 5, au lieu du connecteur 3.
 
-.. Reliez le port E0A du NSM A au contrôleur A slot 5 port a.
-.. Reliez le port e0b NSM A au connecteur B du contrôleur 3, port b.
-.. Reliez le port E0A du NSM B au connecteur 5 du contrôleur B
-.. Reliez le port e0b du NSM B au connecteur 3 du contrôleur A b.
+.. Reliez le port e0a du NSM A au port a (e5a) du contrôleur A, situé à 5.
+.. Reliez le port NSM A e0b au connecteur 3 b (e3b) du contrôleur B.
+.. Reliez le port e0a du NSM B au port a (e5a) du connecteur 5 du contrôleur B.
+.. Reliez le port B NSM e0b au connecteur 3 b (e3b) du contrôleur A.
 .. Si vous ajoutez à chaud une deuxième étagère, complétez les sous-étapes "shellf 2" ; sinon, passez à l'étape 3.
 
 
@@ -783,10 +799,10 @@ Etagère 2
 
 NOTE: Ces sous-étapes supposent que vous commencez le câblage en câbler le port du tiroir e0a vers la carte PCIe compatible RoCE dans le connecteur 3, au lieu du connecteur 5 (qui correspond aux sous-étapes de câblage du tiroir 1).
 
-.. Reliez le port E0A du NSM A au contrôleur A slot 3 port a.
-.. Reliez le port e0b NSM A au connecteur B du contrôleur 5, port b.
-.. Reliez le port E0A du NSM B au connecteur 3 du contrôleur B
-.. Reliez le port e0b du NSM B au connecteur 5 du contrôleur A b.
+.. Reliez le port e0a du NSM A au port a (e3a) du contrôleur A, emplacement 3.
+.. Reliez le port NSM A e0b au connecteur 5 b (e5b) du contrôleur B.
+.. Reliez le port e0a du NSM B au port a (e3a) du connecteur 3 du contrôleur B.
+.. Reliez le port B NSM e0b au connecteur 5 b (e5b) du contrôleur A.
 .. Passez à l'étape 3.
 
 
@@ -795,7 +811,7 @@ NOTE: Ces sous-étapes supposent que vous commencez le câblage en câbler le po
 L'illustration suivante montre le câblage de deux tiroirs à chaud :
 
 +
-image::../media/drw_ns224_a800_2shelves.png[drw ns224 a800 2 étagères]
+image::../media/drw_ns224_a800_c800_2shelves_IEOPS-966.svg[drw ns224 a800 c800 2 tiroirs IEOPS 966]
 
 . Vérifiez que le tiroir à chaud est correctement câblé.
 +
@@ -817,7 +833,7 @@ Sinon, cette procédure est effectuée.
 
 === Connectez un tiroir d'extension à chaud pour une paire haute disponibilité AFF A400
 
-Le câblage d'un tiroir de disques NS224 dans une paire haute disponibilité AFF A400 dépend du nombre de tiroirs que vous ajoutez à chaud et du nombre de jeux de ports compatibles RoCE (un ou deux) que vous utilisez sur les modules de contrôleur.
+Le câblage d'un tiroir de disque NS224 dans une paire haute disponibilité AFF A400 dépend du nombre de tiroirs que vous ajoutez à chaud et du nombre de ports compatibles RoCE (un ou deux) que vous utilisez sur les modules de contrôleur.
 
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
@@ -863,9 +879,9 @@ image::../media/drw_ns224_a400_1shelf.png[drw ns224 a400 1 étagère]
 Etagère 1
  a| 
 .. Reliez le port E0A du NSM A au port e0c du contrôleur.
-.. Reliez le port e0b NSM A au connecteur B du contrôleur 5, port b.
+.. Reliez le port NSM A e0b au connecteur 5 2 (e5b) du contrôleur B.
 .. Reliez le port E0A du NSM B au port e0c du contrôleur B.
-.. Reliez le port e0b du NSM B au connecteur 5 du contrôleur A b.
+.. Reliez le port B NSM e0b au connecteur 5 2 (e5b) du contrôleur A.
 .. Si vous ajoutez à chaud une deuxième étagère, complétez les sous-étapes "shellf 2" ; sinon, passez à l'étape 3.
 
 
@@ -874,9 +890,9 @@ Etagère 1
  a| 
 Etagère 2
  a| 
-.. Reliez le port E0A du NSM A au contrôleur A slot 5 port a.
+.. Reliez le port e0a du NSM A au port 1 (e5a) du connecteur 5 du contrôleur A.
 .. Reliez le port e0b du NSM A au port e0d du contrôleur B.
-.. Reliez le port E0A du NSM B au connecteur 5 du contrôleur B
+.. Reliez le port e0a du NSM B au port 1 (e5a) du connecteur 5 du contrôleur B.
 .. Reliez le port e0b du NSM B au port e0d du contrôleur A.
 .. Passez à l'étape 3.
 
@@ -886,7 +902,98 @@ Etagère 2
 L'illustration suivante montre le câblage de deux tiroirs à chaud :
 
 +
-image::../media/drw_ns224_a400_2shelves.png[drw ns224 a400 2 étagères]
+image::../media/drw_ns224_a400_2shelves_IEOPS-983.svg[drw ns224 a400 2 tiroirs IEOPS 983]
+
+. Vérifiez que le tiroir à chaud est correctement câblé.
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
+
+. Si vous avez désactivé l'affectation automatique de disques dans le cadre de la préparation de cette procédure, vous devez attribuer manuellement la propriété du disque, puis réactiver l'affectation automatique de disques, si nécessaire.
++
+Sinon, cette procédure est effectuée.
+
++
+<<Terminez l'ajout à chaud>>
+
+
+
+
+
+=== Reliez un tiroir à chaud à une paire haute disponibilité AFF C400
+
+Le câblage d'un tiroir NS224 dans une paire HA AFF C400 dépend du nombre de tiroirs que vous ajoutez à chaud et du nombre de ports compatibles RoCE (un ou deux) que vous utilisez sur les modules de contrôleur.
+
+.Avant de commencer
+* Vous devez avoir satisfait à la configuration système requise.
++
+<<Conditions requises pour un ajout à chaud>>
+
+* Vous devez avoir terminé les procédures de préparation applicables.
++
+<<Préparez-vous à un ajout à chaud>>
+
+* Vous devez avoir installé les tiroirs, mis-les sous tension et définir les identifiants de tiroirs.
++
+<<Installez un tiroir disque pour un ajout à chaud>>
+
+
+
+.Étapes
+. Si vous ajoutez un tiroir à chaud en utilisant un ensemble de ports compatibles RoCE sur chaque module de contrôleur et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.
++
+Dans le cas contraire, passez à l'étape suivante.
+
++
+.. Connectez le port E0a À l'emplacement 4 du contrôleur A (e4a) du tiroir NSM A.
+.. Connectez le port E0b du tiroir NSM A au port 2 (e4b) du connecteur 4 du contrôleur B.
+.. Connectez le port B e0a à la fente 4 du contrôleur B 1 (e4a) du tiroir de câblage NSM.
+.. Connectez le port B e0b du tiroir NSM au port 2 (e4b) du contrôleur A 4.
++
+L'illustration suivante montre le câblage d'un tiroir à chaud utilisant un ensemble de ports compatibles RoCE sur chaque module de contrôleur :
+
++
+image::../media/drw_ns224_c400_1shelf_IEOPS-985.svg[drw ns224 c400 1 étagère IEOPS 985]
+
+
+
+. Si vous ajoutez un ou deux tiroirs à chaud en utilisant deux ensembles de ports compatibles RoCE sur chaque module de contrôleur, procédez comme suit.
++
+[cols="1,3"]
+|===
+| Tiroirs | Câblage 
+
+
+ a| 
+Etagère 1
+ a| 
+.. Reliez le port e0a du NSM A au port 1 (e4a) du connecteur 4 du contrôleur A.
+.. Reliez le port NSM A e0b au connecteur 5 2 (e5b) du contrôleur B.
+.. Reliez le port e0a du NSM B au port 1 (e4a) du port 4 du contrôleur B.
+.. Reliez le port B NSM e0b au connecteur 5 2 (e5b) du contrôleur A.
+.. Si vous ajoutez à chaud une deuxième étagère, complétez les sous-étapes "shellf 2" ; sinon, passez à l'étape 3.
+
+
+
+
+ a| 
+Etagère 2
+ a| 
+.. Reliez le port e0a du NSM A au port 1 (e5a) du connecteur 5 du contrôleur A.
+.. Reliez le port Nsm A e0b au port 2 (e4b) du connecteur 4 du contrôleur B.
+.. Reliez le port e0a du NSM B au port 1 (e5a) du connecteur 5 du contrôleur B.
+.. Reliez le port B NSM e0b au connecteur 4 2 (e4b) du contrôleur A.
+.. Passez à l'étape 3.
+
+
+|===
++
+L'illustration suivante montre le câblage de deux tiroirs à chaud :
+
++
+image::../media/drw_ns224_c400_2shelves_IEOPS-984.svg[drw ns224 c400 2 étagères IEOPS 984]
 
 . Vérifiez que le tiroir à chaud est correctement câblé.
 +

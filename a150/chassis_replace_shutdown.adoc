@@ -1,0 +1,123 @@
+---
+permalink: a150/chassis-replace-shutdown.html 
+sidebar: sidebar 
+keywords: aff a150, a150, aff, replace, chassis, shut down, controller, metrocluster, power, supply, ha, state, controller, configuration, switch, aggregates, replace, move, remove, swap 
+summary: Pour remplacer le châssis, vous devez arrêter les contrôleurs. 
+---
+= Arrêter les contrôleurs - AFF A150
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
+
+
+
+== Option 1 : plupart des configurations
+
+[role="lead"]
+Vous devez arrêter le contrôleur ou le contrôleur du châssis avant de les déplacer vers le nouveau châssis.
+
+.Description de la tâche
+* Si un cluster possède plus de deux contrôleurs, il doit se trouver au quorum. Si le cluster n'est pas dans le quorum ou si un contrôleur sain s'affiche `false` pour l'admissibilité et la santé, vous devez corriger le problème avant d'arrêter le contrôleur déficient ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+* Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+
+
+.Étapes
+. Si votre système dispose de deux modules de contrôleur, désactivez la paire haute disponibilité.
++
+[cols="1,2"]
+|===
+| Si votre système exécute clustered ONTAP avec... | Alors... 
+
+
+ a| 
+Deux contrôleurs dans le cluster
+ a| 
+`cluster ha modify -configured false`
+
+`storage failover modify -node node0 -enabled false`
+
+
+
+ a| 
+Plus de deux contrôleurs dans le cluster
+ a| 
+`storage failover modify -node node0 -enabled false`
+
+|===
+. Arrêter le contrôleur, en appuyant sur `y` lorsque vous êtes invité à confirmer l'arrêt : `system node halt -node _node_name_`
++
+Le message de confirmation se présente comme suit :
+
++
+[listing]
+----
+Warning: This operation will cause controller "node-name" to be marked as unhealthy. Unhealthy nodes do not participate in quorum voting. If the controller goes out of service and one more controller goes out of service there will be a data serving failure for the entire cluster. This will cause a client disruption. Use "cluster show" to verify cluster state. If possible bring other nodes online to improve the resiliency of this cluster.
+
+Do you want to continue? {y|n}:
+----
++
+
+NOTE: Vous devez effectuer un arrêt correct du système avant de remplacer le châssis pour éviter de perdre des données non écrites dans la mémoire non volatile (NVMEM/NVRAM). Selon votre système, si le voyant NVMEM/NVRAM clignote, il y a du contenu dans la NVMEM/NVRAM qui n'a pas été enregistré sur le disque. Vous devez redémarrer le contrôleur et démarrer depuis le début de cette procédure. Si des tentatives répétées d'arrêt anormal du contrôleur tombent en panne, sachez que vous risquez de perdre des données qui n'ont pas été enregistrées sur le disque.
+
+. Le cas échéant, arrêtez le second contrôleur pour éviter un message d'erreur de quorum dans une configuration de paire haute disponibilité : `system node halt -node _second_node_name_ -ignore-quorum-warnings true -skip-lif-migration-before-shutdown true`
++
+Réponse `y` lorsque vous y êtes invité.
+
+
+
+
+
+== Option 2 : le contrôleur est en configuration MetroCluster
+
+
+NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
