@@ -626,8 +626,6 @@
   <block id="81e1b67b4176274b272b2432d79bb3a4" category="list-text">Assurez-vous que le lecteur de remplacement est pris en charge par votre plate-forme. Voir la<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block>.</block>
   <block id="35947e84e557291e52a523d2f7eefc27" category="list-text">Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.</block>
   <block id="dd48f304652176299be75f07f2b6523a" category="paragraph">Remplacez le lecteur défectueux en sélectionnant l'option appropriée aux lecteurs pris en charge par votre plate-forme.</block>
-  <block id="db0773b2c2e76f55090ea4c745896508" category="inline-link">_Remplacer la vidéo du lecteur défaillant_</block>
-  <block id="b007859cf50f8648510a8f673ecab515" category="paragraph">Vous pouvez également choisir de regarder le<block ref="d09508f83c89674ee44a13af41e2f512" category="inline-link-rx"></block> cette présente la procédure de remplacement de disques intégrée.</block>
   <block id="349535790ff32da6089571ee962b5909" category="list-text">Si vous souhaitez attribuer manuellement la propriété des disques de remplacement, vous devez désactiver le disque de remplacement d'affectation automatique des disques, s'il est activé</block>
   <block id="9b6925a7601fc7c5515a98f2e73c64cb" category="admonition">Vous attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.</block>
   <block id="5670543c21cc67177810154ace0b7c16" category="list-text">Vérifiez si l'affectation automatique des disques est activée :<block ref="95e8c3545da27ac609a73ab063932ef7" prefix=" " category="inline-code"></block></block>
@@ -3061,7 +3059,6 @@
   <block id="0efaf93a941de2d7943b578a71c531e5" category="paragraph">Exécutez cette commande : <block ref="9523abebf4095034762968308dc8665d" prefix="" category="inline-code"></block></block>
   <block id="c60b737dad56de61b3e4c1509a184df3" category="paragraph">Vous n'avez pas d'autres étapes dans cette tâche particulière. Vous avez terminé les diagnostics au niveau du système.</block>
   <block id="f2c155633ff38e4e2d070e9d244a9074" category="doc">Déplacement et remplacement du matériel - FAS9500</block>
-  <block id="a30a15e944afabde046385685fec252c" category="paragraph">Pour remplacer le châssis, vous devez retirer les composants de l'ancien châssis et les installer dans le châssis de remplacement.</block>
   <block id="0a7d4055ebf0329a7a3468cd3ccca3ca" category="section-title">Étape 1 : retirer les alimentations</block>
   <block id="060c350ffa4e24bde01789b8be8138f7" category="paragraph">Le retrait des blocs d'alimentation lors du remplacement d'un châssis implique l'arrêt, le débranchement, puis le retrait du bloc d'alimentation de l'ancien châssis.</block>
   <block id="12ccb6284dde6c218f4afb3d3857d96e" category="list-text">Appuyez sur le bouton en terre cuite de la poignée du bloc d'alimentation et maintenez-le enfoncé, puis retirez le bloc d'alimentation du châssis.</block>
@@ -3078,7 +3075,6 @@
   <block id="7bb3e2efcb7169f8ff52d523079a8978" category="paragraph">Pour remplacer le châssis, vous devez retirer le ou les modules de contrôleur de l'ancien châssis.</block>
   <block id="2c2b9a83665e5336275a4320efcb9a16" category="image-alt">drw 9500 déposer le module de commande du groupe motopropulseur</block>
   <block id="27289e7e37a8ebe804b1a49b34e69e35" category="section-title">Étape 4 : retirez les modules d'E/S.</block>
-  <block id="21f8e15996afff8db254da85ba3f4ea7" category="paragraph">Pour retirer les modules d'E/S de l'ancien châssis, y compris les modules NVRAM, suivez la séquence spécifique des étapes. Vous n'avez pas besoin de retirer le module Flash cache, le cas échéant, du module NVRAM lors du transfert vers un nouveau châssis.</block>
   <block id="f237f7ef0851804ffdea97155b697410" category="list-text">Répétez l'étape précédente pour les autres modules d'E/S de l'ancien châssis.</block>
   <block id="e3ffa7ef57fa247f588e5917dee58499" category="section-title">Étape 5 : retirez le module d'alimentation du contrôleur de coulisses</block>
   <block id="fa32cefdac621b08336fe76915d4002f" category="paragraph">Vous devez retirer les modules d'alimentation du contrôleur de déétage de l'ancien châssis pour préparer l'installation du châssis de remplacement.</block>
@@ -3116,7 +3112,6 @@
   <block id="55b0e11d7fc34ae2b7fbd2be3acb1424" category="list-text">Avec la poignée de came en position ouverte, faites glisser le module de contrôleur dans le châssis et enfoncez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came jusqu'à ce qu'il s'enclenche en position verrouillée.</block>
   <block id="b77690ba581630e6f3bd4cee96dd675a" category="admonition">N'appliquez pas une force excessive lorsque vous faites glisser le module de contrôleur dans le châssis ; vous risquez d'endommager les connecteurs.</block>
   <block id="45c20771cb1532f5746ddda7446e7140" category="list-text">Démarrer chaque nœud en mode maintenance :</block>
-  <block id="6e7d5178a758393b97e367ca3da27d68" category="list-text">Au fur et à mesure que chaque nœud démarre, appuyez sur<block ref="76be6883bcf9e8a6aed3a347ac20e41f" prefix=" " category="inline-code"></block> Pour interrompre le processus de démarrage lorsque le message s'affiche, appuyez sur Ctrl-C pour le menu de démarrage.</block>
   <block id="1aa73ef56da88752323de5876f9b3750" category="doc">Remplacez le bloc d'alimentation - FAS9500</block>
   <block id="ef20366d8eeda4ed0725f1a5a164c558" category="paragraph">Le voyant d'alimentation vert s'allume lorsque le bloc d'alimentation est complètement inséré dans le châssis et que le voyant d'avertissement orange clignote au départ, mais s'éteint au bout de quelques instants.</block>
   <block id="3e5fda4bdb63c28cc3aa53cadbde1129" category="doc">Remplacez un module DIMM - FAS9500</block>
@@ -6739,7 +6734,6 @@
   <block id="ba076cc47bbe54dead2d30165db372b5" category="image-alt">drw a900 retirer la batterie NV</block>
   <block id="9c0cca32aafcf28a513162ba96089a15" category="video-title">Animation - Supprimer/installer USB</block>
   <block id="8da7df8c5a74dcac7b5b9a5067e72313" category="image-alt">drw a900 retirer le module de LED de remplacement</block>
-  <block id="cf261a4e73438cb00bd1e7a2fef7257c" category="list-text">Au fur et à mesure que chaque contrôleur démarre, appuyez sur<block ref="76be6883bcf9e8a6aed3a347ac20e41f" prefix=" " category="inline-code"></block> Pour interrompre le processus de démarrage lorsque le message s'affiche, appuyez sur Ctrl-C pour le menu de démarrage.</block>
   <block id="d35fd8965949830b92555b33686beb19" category="doc">Remplacez l'alimentation par un bloc d'alimentation AFF A900</block>
   <block id="fcc9aa8940599a2c3be38723a65e9e21" category="doc">Remplacez un module DIMM - AFF A900</block>
   <block id="a2996937d1a0f2d39e753cdc891f28a1" category="image-alt">Carte DIMM drw a900</block>
@@ -6775,7 +6769,6 @@
   <block id="3d583022c2a0e3f44141400e25a3113d" category="list-text"><block ref="3d583022c2a0e3f44141400e25a3113d" category="inline-link-macro-rx"></block></block>
   <block id="e95c782f97493fda4a0794b55f88c5be" category="list-text"><block ref="e95c782f97493fda4a0794b55f88c5be" category="inline-link-macro-rx"></block></block>
   <block id="280316afc56c30d6861e875ee64f9d8b" category="list-text"><block ref="280316afc56c30d6861e875ee64f9d8b" category="inline-link-macro-rx"></block></block>
-  <block id="fd6e0dc56bc08d5a210f50e7388d932f" category="doc">Documentation du système A220</block>
   <block id="426345b53ce830fc944ab03c4c6232df" category="summary">Découvrez les nouvelles fonctionnalités des systèmes FAS et AFF.</block>
   <block id="2f2c60dca423ec5715985231d7044062" category="doc">Nouveautés des systèmes FAS et AFF</block>
   <block id="b7cfb975a50851418ad4bf0bcad4933f" category="section-title">Nouvelles améliorations de mise à niveau du matériel</block>
@@ -7256,12 +7249,7 @@
   <block id="c566d4828cd295258aa8097a90880602" category="open-title">Option 2 : utilisation du gestionnaire externe</block>
   <block id="0a05a9975c9259ea331a85366e41d3ce" category="list-text">Sélectionnez l'option 11,<block ref="0dd518498ab98fe1fd543910856e6153" prefix=" " category="inline-code"></block>.</block>
   <block id="a5462faa34b6cf806cb49f24d84b02a7" category="list-text">Si votre système est configuré pour prendre en charge l'interconnexion de cluster 10 GbE et les connexions de données sur les cartes réseau 40 GbE, convertissez ces ports en connexions 10 GbE à l'aide de la commande nicadmin convert en mode maintenance. Voir<block ref="2d808a662d9493bde97b50913a25a294" category="inline-link-rx"></block> pour en savoir plus.</block>
-  <block id="55c99fae85fce446adbb5ceb895cf55e" category="paragraph">Le retrait des blocs d'alimentation lors du remplacement d'un châssis s'accompagne de l'arrêt, du débranchement, puis du retrait des quatre blocs d'alimentation à l'arrière de l'ancien châssis.</block>
   <block id="c56809d9cff2ea190c6fb9d67e804b42" category="paragraph">Vous devez retirer les six modules de ventilation, situés à l'avant du châssis, lors du remplacement du châssis.</block>
-  <block id="63ee7e61fbd30f44f9b9df101a63a845" category="paragraph">Retirez les deux modules d'alimentation du contrôleur de coulisses de l'avant de l'ancien châssis.</block>
-  <block id="1d8e1f6692aa85c8d94c39dda8015fdb" category="paragraph">Une fois le nouveau châssis installé dans le rack ou l'armoire, déplacez le module de LED USB de l'avant de l'ancien châssis vers le nouveau châssis.</block>
-  <block id="02c98171b36d44757b42c6b5c5d2acb9" category="paragraph">Réponse<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> Lorsque vous voyez l'invite pour démarrer en mode maintenance</block>
-  <block id="2adab982ea2c53caec320e625667e439" category="list-text">Repérez le module de voyants USB à l'avant de l'ancien châssis, directement sous les modules DCPM.</block>
   <block id="e9e9a6de5e421dfe8a5ccc0b156ecc94" category="admonition">Si les étiquettes de port de la carte ne sont pas visibles, vérifiez l'orientation de l'installation de la carte (le connecteur PCIe se trouve sur le côté gauche de l'emplacement de carte dans les A400 et FAS8300/8700), puis recherchez la carte, puis recherchez la carte, par numéro de pièce, dans le<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour obtenir un graphique du panneau indiquant les étiquettes des ports. Le numéro de référence de la carte se trouve à l'aide du<block ref="432345ed72f5509f18312f01d4f08dff" prefix=" " category="inline-code"></block> ou sur la liste d'emballage du système.</block>
   <block id="bea43746a1060b2b6af67fba31ca2890" category="paragraph">Le schéma ci-dessous montre une représentation de ce à quoi ressemble un système classique et de l'emplacement des principaux composants à la lecture du système :</block>
   <block id="2f50f96b8a95f8c73f9257ccd13d3c46" category="image-alt">Contrôleur drw a900 dans l'ID châssis IEOPS 856</block>
@@ -7376,7 +7364,6 @@
   <block id="af41b619bf9d50ddae2454efc001e4dd" category="paragraph">La sortie doit afficher l'état du module de cache comme effacé.</block>
   <block id="376b1cae869bbe8ab1cce68fdb30b696" category="inline-link-macro">Remplacez les modules DIMM</block>
   <block id="91e13f2779cb51174165fa30eaba7e5b" category="list-text">Revenir à <block ref="cf268cc4bc5a73daf7348170b397c07d" category="inline-link-macro-rx"></block> De cette procédure pour vérifier à nouveau la LED NVMEM.</block>
-  <block id="e23872c7fd1b170c488a2c5244bc263e" category="doc">Documentation du système A150</block>
   <block id="1a9ae2b5eb296d614bebfdc33f389268" category="doc">Vérifiez les clés de cryptage intégrées - AFF A150</block>
   <block id="3bf6a2921f0e655ea4d2b6b2851e02df" category="doc">Recâblage du système et réaffectation des disques - AFF A150</block>
   <block id="91b91feeb88498e7be1c10bbbb6db4c2" category="inline-link-macro">Vérification de la modification de l'ID du système sur un système HA</block>
@@ -7418,7 +7405,6 @@
   <block id="5ba23cc00c6685a0d9b231590e5ee1c0" category="paragraph">Pour les tiroirs disques NS224, les ID de tiroir sont prédéfinis à 00 et 01. Si vous souhaitez modifier les ID de tablette, utilisez l'extrémité droite d'un trombone ou un stylo à pointe sphérique à pointe étroite pour accéder au bouton d'ID de tablette situé derrière le cache.</block>
   <block id="688ed49ee5cf1b7f7ef70935870d42d8" category="summary">La documentation du système AFF C250 vous permet d'installer, de configurer et de gérer votre système.</block>
   <block id="c2deffcaea49ccd174c7da17d80e1edf" category="doc">Documentation du système AFF C250</block>
-  <block id="68234c72c82d88dc22b60a4f8925c19a" category="doc">Remplacez le lecteur SSD - AFF C250</block>
   <block id="a4829fef0cfb953ea3181e31db648a62" category="paragraph">Vous pouvez remplacer un disque SSD défectueux sans interrompre l'activité pendant les opérations d'E/S.</block>
   <block id="d7b7b72f7a0bd85854375ed25ad54137" category="admonition">L'affichage du disque dans la liste des disques défectueux peut prendre plusieurs heures.</block>
   <block id="f6551f88d88dddb684035802224a0336" category="doc">Arrêter le contrôleur - AFF C250</block>
@@ -7716,7 +7702,6 @@
   <block id="96575ba10e2fbb7c8295e344411ca2d1" category="doc">Remplacez un module DIMM - AFF C800</block>
   <block id="0251caa15dc8d2cbd1cfcc6d72965b59" category="summary">La documentation du système AFF C800 vous permet d'installer, de configurer et de gérer votre système.</block>
   <block id="9683970b55904c77ccb71ba2bd90666f" category="doc">Documentation du système AFF C800</block>
-  <block id="b048da3eaccc3591e9c1d6b08af1a750" category="doc">Remplacez le lecteur SSD - AFF C800</block>
   <block id="592fdd085a6d32be5ca82d8cf41fd57d" category="doc">Vérifiez les clés de cryptage intégrées - AFF C800</block>
   <block id="053f6b40fe6bb9b0a6dde49c0f76dc01" category="doc">Recâblage du système et réaffectation des disques - AFF C800</block>
   <block id="1085be18597d7d6c96ecba68a211bd73" category="doc">Remplacez une carte PCIe - AFF C800</block>
@@ -7786,4 +7771,37 @@
   <block id="36c69c49c18ae2fa7dce0347a69f0065" category="sidebar">Support de démarrage AFF C800</block>
   <block id="81e825abffe43a736d6c9dc55fd84da2" category="sidebar">Châssis AFF C800</block>
   <block id="c164f067875d1a9aa792717f22c79b98" category="sidebar">Module de contrôleur AFF C800</block>
+  <block id="0a73484fb1b3edef8bbbf67f873dec2a" category="paragraph">Pour remplacer le châssis, vous devez retirer les composants du châssis défectueux et les installer dans le châssis de remplacement.</block>
+  <block id="c41b6afef3be0625148760974efbe53b" category="paragraph">Le retrait des blocs d'alimentation lors du remplacement d'un châssis implique la mise hors tension, la déconnexion et le retrait des quatre blocs d'alimentation de l'arrière du châssis défectueux.</block>
+  <block id="f29cd4bb20b414e068c19ba637ce5223" category="paragraph">Pour remplacer le châssis, vous devez retirer le ou les modules du contrôleur du châssis défectueux.</block>
+  <block id="d29be88ad14bfa795c9cb4b5e8e71620" category="paragraph">Pour retirer les modules d'E/S du châssis défectueux, y compris les modules NVRAM, suivez la séquence spécifique des étapes. Vous n'avez pas besoin de retirer le module FlashCache, le cas échéant, du module NVRAM lorsque vous le déplacez vers un châssis de remplacement.</block>
+  <block id="70796c97dce9e8bc0ec4d548fad4c33c" category="list-text">Répétez l'étape précédente pour les autres modules d'E/S du châssis défectueux.</block>
+  <block id="7dcb58280c958448c619b7845f19a872" category="paragraph">Retirez les deux modules d'alimentation du contrôleur de transfert de l'avant du châssis défectueux.</block>
+  <block id="bd87961e02bb318277afd71851d575b3" category="section-title">Étape 6 : retirez le module LED USB</block>
+  <block id="cc5d26d79e1692ae91756085b4c1675a" category="paragraph">Retirez les modules LED USB.</block>
+  <block id="4b4ddff45477c23b33a8313eeba376e8" category="list-text">Repérez le module de voyants USB à l'avant du châssis défectueux, directement sous les baies d'alimentation.</block>
+  <block id="90228675f9bb2f32a23b3c76a9187e07" category="list-text">Appuyez sur le bouton de verrouillage noir situé sur le côté droit du module pour le libérer du châssis, puis faites-le glisser hors du châssis défectueux.</block>
+  <block id="bacfa9c94d1c1eae1fb55199be616b3d" category="section-title">Étape 7 : remplacez un châssis à l'intérieur du rack d'équipement ou de l'armoire système</block>
+  <block id="2bc629fe1fa0756ba85648b1b075475e" category="list-text">Avec l'aide de deux ou trois personnes, faites glisser le châssis défectueux hors des rails du rack dans une armoire système ou des supports _L_ dans un rack d'équipement, puis mettez-le de côté.</block>
+  <block id="1cff1ec8bb5f01806ddb910dceecf767" category="list-text">Fixez l'avant du châssis au rack de l'équipement ou à l'armoire système à l'aide des vis que vous avez retirées du châssis défectueux.</block>
+  <block id="979104406ee03d12a7689ad931f5410b" category="list-text">Si vous utilisez les supports de gestion des câbles, retirez-les du châssis défectueux, puis installez-les sur le châssis de remplacement.</block>
+  <block id="b9179a26176765e84f442a338275974c" category="paragraph">Pour installer les modules d'E/S, y compris les modules NVRAM/FlashCache du châssis défectueux, suivez la séquence spécifique des étapes.</block>
+  <block id="8a063f47876606fb88039df27bbfad1f" category="paragraph">Le châssis doit être installé pour que vous puissiez installer les modules d'E/S dans les logements correspondants du châssis de remplacement.</block>
+  <block id="62d3b0199402c94809d4bbaf872df5c3" category="admonition">Si le châssis défectueux comporte des panneaux d'E/S vierges, déplacez-les vers le châssis de remplacement à ce stade.</block>
+  <block id="dc844fd8ca4280150d42e7895f0e653c" category="list-text">Assurez-vous que les culbuteurs d'alimentation sont en position d'arrêt.</block>
+  <block id="88c1c1e7e0b97d9299ec57ba96dda64f" category="section-title">Étape 12 installez les modules LED USB</block>
+  <block id="42bf593239b1d9f984d9473a72a5ad0c" category="paragraph">Installez les modules LED USB dans le châssis de remplacement.</block>
+  <block id="b38f7c9ed48d1cadfbd357776bcf9e09" category="section-title">Étape 13 : installez le contrôleur</block>
+  <block id="1811d556efb31524fdf575ec0c8b9b6e" category="paragraph">Après avoir installé le module de contrôleur et tout autre composant dans le châssis de remplacement, démarrez-le à un état dans lequel vous pouvez exécuter le test de diagnostic d'interconnexion.</block>
+  <block id="c24ca3412a6dae4a658543695619f65a" category="list-text">Répétez les étapes précédentes pour installer le second contrôleur dans le châssis de remplacement.</block>
+  <block id="e1c82a0b92bea9d8ce8c8d14a1992cd8" category="list-text">Démarrez chaque contrôleur.</block>
+  <block id="7765edbf8893ad208b9932e53c6d932a" category="doc">Remplacez le lecteur SSD - AFF C800</block>
+  <block id="8b516ca5434f765000f11032059de011" category="section-title">Étape 6 retirez le module LED USB</block>
+  <block id="284d8ab33b7a1bc5797091f74643b163" category="section-title">Étape 7 : installez le module LED USB sur le châssis de remplacement</block>
+  <block id="b91630a08c2bbd38ab4fcccfc43288bc" category="paragraph">Une fois le châssis de remplacement installé dans le rack ou l'armoire, installez le module LED USB de l'avant du châssis défectueux au châssis de remplacement.</block>
+  <block id="d87777306e62f6ae23e04dd3919ca898" category="list-text">Localisez le module LED USB à l'avant du châssis défectueux, directement sous les modules DCPM.</block>
+  <block id="632bcda28821b8191cdaaa396c4b3e22" category="paragraph">Pour installer les modules d'E/S, y compris les modules NVRAM du châssis défectueux, suivez la séquence spécifique des étapes.</block>
+  <block id="bcf7de048a0b400d784ce2434b8beffe" category="doc">Remplacez le lecteur SSD - AFF C250</block>
+  <block id="9c7a64854bf794e3fdb5cf355e7f1647" category="doc">Documentation du système AFF A150</block>
+  <block id="31d91f8342285d4227c3ee9c296c770a" category="doc">Documentation du système AFF A220</block>
 </blocks>

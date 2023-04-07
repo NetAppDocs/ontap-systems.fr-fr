@@ -13,13 +13,13 @@ summary: 'Tous les autres composants du système doivent fonctionner correctemen
 == Déplacer et remplacer le matériel - AFF A900
 
 [role="lead"]
-Pour remplacer le châssis, vous devez retirer les composants de l'ancien châssis et les installer dans le châssis de remplacement.
+Pour remplacer le châssis, vous devez retirer les composants du châssis défectueux et les installer dans le châssis de remplacement.
 
 
 
 == Étape 1 : retirer les alimentations
 
-Le retrait des blocs d'alimentation lors du remplacement d'un châssis s'accompagne de l'arrêt, du débranchement, puis du retrait des quatre blocs d'alimentation à l'arrière de l'ancien châssis.
+Le retrait des blocs d'alimentation lors du remplacement d'un châssis implique la mise hors tension, la déconnexion et le retrait des quatre blocs d'alimentation de l'arrière du châssis défectueux.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Mettez le bloc d'alimentation hors tension et débranchez les câbles d'alimentation :
@@ -99,7 +99,7 @@ Faire glisser le ventilateur vers l'intérieur/l'extérieur du châssis
 
 == Étape 3 : retirez le module de contrôleur
 
-Pour remplacer le châssis, vous devez retirer le ou les modules de contrôleur de l'ancien châssis.
+Pour remplacer le châssis, vous devez retirer le ou les modules du contrôleur du châssis défectueux.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Débranchez les câbles du module de contrôleur défaillant et suivez l'emplacement de connexion des câbles.
@@ -139,7 +139,7 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 == Étape 4 : retirez les modules d'E/S.
 
-Pour retirer les modules d'E/S de l'ancien châssis, y compris les modules NVRAM, suivez la séquence spécifique des étapes. Vous n'avez pas besoin de retirer le module Flash cache, le cas échéant, du module NVRAM lors du transfert vers un nouveau châssis.
+Pour retirer les modules d'E/S du châssis défectueux, y compris les modules NVRAM, suivez la séquence spécifique des étapes. Vous n'avez pas besoin de retirer le module FlashCache, le cas échéant, du module NVRAM lorsque vous le déplacez vers un châssis de remplacement.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Débranchez tout câblage associé au module d'E/S cible.
@@ -187,14 +187,14 @@ Verrou de came d'E/S complètement déverrouillé
 
 |===
 . Mettez le module d'E/S de côté.
-. Répétez l'étape précédente pour les autres modules d'E/S de l'ancien châssis.
+. Répétez l'étape précédente pour les autres modules d'E/S du châssis défectueux.
 
 
 
 
 == Étape 5 : retirez le module d'alimentation du contrôleur de coulisses
 
-Retirez les deux modules d'alimentation du contrôleur de coulisses de l'avant de l'ancien châssis.
+Retirez les deux modules d'alimentation du contrôleur de transfert de l'avant du châssis défectueux.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Appuyez sur le bouton de verrouillage en terre cuite de la poignée du module, puis faites glisser le module DCPM hors du châssis.
@@ -220,30 +220,9 @@ Bouton de verrouillage terre cuite du module DCPM
 
 
 
-== Étape 6 : remplacer un châssis depuis le rack d'équipement ou l'armoire système
+== Étape 6 retirez le module LED USB
 
-Vous devez retirer le châssis existant du rack ou de l'armoire système de l'équipement avant de pouvoir installer le châssis de remplacement.
-
-. Retirez les vis des points de montage du châssis.
-+
-
-NOTE: Si le système se trouve dans une armoire système, il peut être nécessaire de retirer le support d'arrimage arrière.
-
-. A l'aide de deux ou trois personnes, faites glisser l'ancien châssis hors des rails du rack dans une armoire système ou des supports _L_ dans un rack d'équipement, puis mettez-le de côté.
-. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. De deux à trois personnes, installez le châssis de remplacement dans le rack ou l'armoire système en guidant le châssis sur les rails de rack d'une armoire système ou sur les supports _L_ dans un rack d'équipement.
-. Faites glisser le châssis complètement dans le rack de l'équipement ou l'armoire système.
-. Fixez l'avant du châssis sur le rack ou l'armoire système de l'équipement à l'aide des vis que vous avez retirées de l'ancien châssis.
-. Fixez l'arrière du châssis sur le rack de l'équipement ou l'armoire système.
-. Si vous utilisez les supports de gestion des câbles, retirez-les de l'ancien châssis, puis installez-les sur le châssis de remplacement.
-. Si ce n'est déjà fait, installez le cadre.
-
-
-
-
-== Étape 7 : déplacez le module LED USB vers le nouveau châssis
-
-Une fois le nouveau châssis installé dans le rack ou l'armoire, déplacez le module de LED USB de l'avant de l'ancien châssis vers le nouveau châssis.
+Retirez les modules LED USB.
 
 .Animation - Supprimer/installer USB
 video::eb715462-cc20-454f-bcf9-adf9016af84e[panopto]
@@ -266,8 +245,61 @@ image:../media/legend_icon_02.png[""]
 Faites glisser le châssis pour le sortir.
 
 |===
-. Repérez le module de voyants USB à l'avant de l'ancien châssis, directement sous les modules DCPM.
-. Appuyez sur le bouton de verrouillage noir situé sur le côté droit du module pour libérer le module du châssis, puis faites-le glisser hors de l'ancien châssis.
+. Repérez le module de voyants USB à l'avant du châssis défectueux, directement sous les baies d'alimentation.
+. Appuyez sur le bouton de verrouillage noir situé sur le côté droit du module pour le libérer du châssis, puis faites-le glisser hors du châssis défectueux.
+. Alignez les bords du module avec la baie LED USB située en bas à l'avant du châssis de remplacement, puis poussez doucement le module jusqu'à ce qu'il s'enclenche.
+
+
+
+
+== Étape 7 : remplacez un châssis à l'intérieur du rack d'équipement ou de l'armoire système
+
+Vous devez retirer le châssis existant du rack ou de l'armoire système de l'équipement avant de pouvoir installer le châssis de remplacement.
+
+. Retirez les vis des points de montage du châssis.
++
+
+NOTE: Si le système se trouve dans une armoire système, il peut être nécessaire de retirer le support d'arrimage arrière.
+
+. Avec l'aide de deux ou trois personnes, faites glisser le châssis défectueux hors des rails du rack dans une armoire système ou des supports _L_ dans un rack d'équipement, puis mettez-le de côté.
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. De deux à trois personnes, installez le châssis de remplacement dans le rack ou l'armoire système en guidant le châssis sur les rails de rack d'une armoire système ou sur les supports _L_ dans un rack d'équipement.
+. Faites glisser le châssis complètement dans le rack de l'équipement ou l'armoire système.
+. Fixez l'avant du châssis au rack de l'équipement ou à l'armoire système à l'aide des vis que vous avez retirées du châssis défectueux.
+. Fixez l'arrière du châssis sur le rack de l'équipement ou l'armoire système.
+. Si vous utilisez les supports de gestion des câbles, retirez-les du châssis défectueux, puis installez-les sur le châssis de remplacement.
+. Si ce n'est déjà fait, installez le cadre.
+
+
+
+
+== Étape 7 : installez le module LED USB sur le châssis de remplacement
+
+Une fois le châssis de remplacement installé dans le rack ou l'armoire, installez le module LED USB de l'avant du châssis défectueux au châssis de remplacement.
+
+.Animation - Supprimer/installer USB
+video::eb715462-cc20-454f-bcf9-adf9016af84e[panopto]
+image::../media/drw_a900_remove_replace_LED_mod.png[drw a900 retirer le module de LED de remplacement]
+
+[cols="10,90"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Éjectez le module.
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Faites glisser le châssis pour le sortir.
+
+|===
+. Localisez le module LED USB à l'avant du châssis défectueux, directement sous les modules DCPM.
+. Appuyez sur le bouton de verrouillage noir situé sur le côté droit du module pour le libérer du châssis, puis faites-le glisser hors du châssis défectueux.
 . Alignez les bords du module avec la baie LED USB située en bas à l'avant du châssis de remplacement, puis poussez doucement le module jusqu'à ce qu'il s'enclenche.
 
 
@@ -305,9 +337,9 @@ Lorsqu'il est inséré dans un système sous tension, le voyant d'avertissement 
 
 == Étape 10 : installez les modules d'E/S.
 
-Pour installer des modules d'E/S, y compris les modules NVRAM/Flash cache de l'ancien châssis, suivez la séquence spécifique des étapes.
+Pour installer les modules d'E/S, y compris les modules NVRAM du châssis défectueux, suivez la séquence spécifique des étapes.
 
-Vous devez installer le châssis pour pouvoir installer les modules d'E/S dans les emplacements correspondants du nouveau châssis.
+Le châssis doit être installé pour que vous puissiez installer les modules d'E/S dans les logements correspondants du châssis de remplacement.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Une fois le châssis de remplacement installé dans le rack ou l'armoire, installez les modules d'E/S dans leurs emplacements correspondants dans le châssis de remplacement en faisant glisser doucement le module d'E/S dans son logement jusqu'à ce que le loquet de came d'E/S numéroté et numéroté commence à s'engager, Puis poussez le loquet de came d'E/S complètement vers le haut pour verrouiller le module en place.
@@ -315,7 +347,7 @@ Vous devez installer le châssis pour pouvoir installer les modules d'E/S dans l
 . Répétez l'étape précédente pour les modules d'E/S restants que vous mettez de côté.
 +
 
-NOTE: Si l'ancien châssis est doté de panneaux d'E/S vides, déplacez-les vers le châssis de remplacement à ce stade.
+NOTE: Si le châssis défectueux comporte des panneaux d'E/S vierges, déplacez-les vers le châssis de remplacement à ce stade.
 
 
 
@@ -326,6 +358,7 @@ NOTE: Si l'ancien châssis est doté de panneaux d'E/S vides, déplacez-les vers
 L'installation des blocs d'alimentation lors du remplacement d'un châssis implique l'installation des blocs d'alimentation dans le châssis de remplacement et le raccordement à la source d'alimentation.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Assurez-vous que les culbuteurs d'alimentation sont en position d'arrêt.
 . À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du châssis du système, puis poussez doucement le bloc d'alimentation dans le châssis jusqu'à ce qu'il s'enclenche.
 +
 Les blocs d'alimentation sont munis de clés et ne peuvent être installés qu'une seule fois.
@@ -344,18 +377,29 @@ IMPORTANT: Connectez uniquement le câble d'alimentation au bloc d'alimentation.
 
 
 
-== Étape 12 : installer le contrôleur
+== Étape 12 installez les modules LED USB
 
-Après avoir installé le module de contrôleur et tout autre composant dans le nouveau châssis, démarrez-le dans un état où vous pouvez exécuter le test de diagnostic d'interconnexion.
+Installez les modules LED USB dans le châssis de remplacement.
+
+. Repérez le module de voyants USB à l'avant du châssis défectueux, directement sous les baies d'alimentation.
+. Appuyez sur le bouton de verrouillage noir situé sur le côté droit du module pour le libérer du châssis, puis faites-le glisser hors du châssis défectueux.
+. Alignez les bords du module avec la baie LED USB située en bas à l'avant du châssis de remplacement, puis poussez doucement le module jusqu'à ce qu'il s'enclenche.
+
+
+
+
+== Étape 13 : installez le contrôleur
+
+Après avoir installé le module de contrôleur et tout autre composant dans le châssis de remplacement, démarrez-le à un état dans lequel vous pouvez exécuter le test de diagnostic d'interconnexion.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Connectez les blocs d'alimentation à différentes sources d'alimentation, puis mettez-les sous tension.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
 
 NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 
 . Recâblage de la console sur le module contrôleur, puis reconnexion du port de gestion.
-. Connectez les blocs d'alimentation à différentes sources d'alimentation, puis mettez-les sous tension.
 . Avec la poignée de came en position ouverte, faites glisser le module de contrôleur dans le châssis et enfoncez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came jusqu'à ce qu'il s'enclenche en position verrouillée.
 +
 
@@ -364,18 +408,6 @@ IMPORTANT: N'appliquez pas une force excessive lorsque vous faites glisser le mo
 +
 Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
 
-. Répétez la procédure précédente pour installer le second contrôleur dans le nouveau châssis.
-. Démarrer chaque contrôleur en mode maintenance :
-+
-.. Au fur et à mesure que chaque contrôleur démarre, appuyez sur `Ctrl-C` Pour interrompre le processus de démarrage lorsque le message s'affiche, appuyez sur Ctrl-C pour le menu de démarrage.
-+
-
-NOTE: Si l'invite et les modules de contrôleur ne s'affichent pas sur ONTAP, entrez `halt`, Puis à l'invite DU CHARGEUR, entrez `boot_ontap`, appuyez sur `Ctrl-C` lorsque vous y êtes invité, puis répétez cette étape.
-
-+
-Réponse `y` Lorsque vous voyez l'invite pour démarrer en mode maintenance
-
-.. Dans le menu de démarrage, sélectionner l'option pour le mode maintenance.
-
-
+. Répétez les étapes précédentes pour installer le second contrôleur dans le châssis de remplacement.
+. Démarrez chaque contrôleur.
 
