@@ -57,9 +57,9 @@ Si des volumes sont répertoriés dans le résultat, NVE est configuré et vous 
 
 
 
-=== Vérifiez la configuration NVE
+== Vérifiez la configuration NVE
 
-. Afficher les ID de clé des clés d'authentification stockées sur les serveurs de gestion des clés : `security key-manager key-query`
+. Afficher les ID de clé des clés d'authentification stockées sur les serveurs de gestion des clés : `security key-manager key query`
 +
 
 NOTE: Après la version ONTAP 9.6, il est possible que vous ayez d'autres types de gestionnaire de clés. Les types sont `KMIP`, `AKV`, et `GCP`. Le processus de confirmation de ces types est identique à celui de la confirmation `external` ou `onboard` types de gestionnaire de clés.
@@ -89,7 +89,7 @@ Si la commande échoue, contactez le support NetApp.
 +
 http://mysupport.netapp.com/["mysupport.netapp.com"^]
 
-.. Vérifiez que le `Restored` colonne égale à `yes` pour toutes les clés d'authentification : `security key-manager key-query`
+.. Vérifiez que le `Restored` colonne égale à `yes` pour toutes les clés d'authentification : `security key-manager key query`
 .. Arrêtez le contrôleur défaillant.
 
 
@@ -100,7 +100,7 @@ http://mysupport.netapp.com/["mysupport.netapp.com"^]
 
 NOTE: Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. Si cette phrase secrète ne peut pas être fournie, contactez le support NetApp. http://mysupport.netapp.com/["mysupport.netapp.com"^]
 
-.. Vérifiez le `Restored` affiche la colonne `yes` pour toutes les clés d'authentification : `security key-manager key-query`
+.. Vérifiez le `Restored` affiche la colonne `yes` pour toutes les clés d'authentification : `security key-manager key query`
 .. Vérifiez que le `Key Manager` s'affiche `onboard`, Puis sauvegardez manuellement les informations OKM.
 .. Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
 .. Entrez la commande pour afficher les informations de sauvegarde de la gestion des clés : `security key-manager onboard show-backup`
@@ -113,9 +113,9 @@ NOTE: Entrez la phrase secrète de gestion de clés intégrée du client à l'in
 
 
 
-=== Vérifiez la configuration NSE
+== Vérifiez la configuration NSE
 
-. Afficher les ID de clé des clés d'authentification stockées sur les serveurs de gestion des clés : `security key-manager key-query -key-type NSE-AK`
+. Afficher les ID de clé des clés d'authentification stockées sur les serveurs de gestion des clés : `security key-manager key query -key-type NSE-AK`
 +
 
 NOTE: Après la version ONTAP 9.6, il est possible que vous ayez d'autres types de gestionnaire de clés. Les types sont `KMIP`, `AKV`, et `GCP`. Le processus de confirmation de ces types est identique à celui de la confirmation `external` ou `onboard` types de gestionnaire de clés.
@@ -138,14 +138,14 @@ NOTE: Après la version ONTAP 9.6, il est possible que vous ayez d'autres types 
 
 . Si le `Key Manager` affichage du type `external` et le `Restored` colonne affiche tout autre élément que `yes`:
 +
-.. Entrez la commande de synchronisation du gestionnaire de clés de sécurité intégré : `security key-manager external sync`
+.. Restaurer les clés d'authentification externe de gestion des clés sur tous les nœuds du cluster : `security key-manager external restore`
 +
 Si la commande échoue, contactez le support NetApp.
 
 +
 http://mysupport.netapp.com/["mysupport.netapp.com"^]
 
-.. Vérifiez que le `Restored` colonne égale à `yes` pour toutes les clés d'authentification : `security key-manager key-query`
+.. Vérifiez que le `Restored` colonne égale à `yes` pour toutes les clés d'authentification : `security key-manager key query`
 .. Vous pouvez arrêter le contrôleur en toute sécurité.
 
 
@@ -158,7 +158,7 @@ Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. 
 +
 http://mysupport.netapp.com/["mysupport.netapp.com"^]
 
-.. Vérifiez le `Restored` affiche la colonne `yes` pour toutes les clés d'authentification : `security key-manager key-query`
+.. Vérifiez le `Restored` affiche la colonne `yes` pour toutes les clés d'authentification : `security key-manager key query`
 .. Vérifiez que le `Key Manager` s'affiche `onboard`, Puis sauvegardez manuellement les informations OKM.
 .. Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
 .. Entrez la commande pour afficher les informations de sauvegarde de la gestion des clés : `security key-manager onboard show-backup`
