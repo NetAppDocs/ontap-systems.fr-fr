@@ -315,18 +315,7 @@
   <block id="f0bb66ccc33b2423473b4997076e2e15" category="paragraph">Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. Si cette phrase secrète ne peut pas être fournie, contactez le support NetApp.</block>
   <block id="596bcca65aca56bacb3df39265f83dfb" category="summary">Pour remplacer le châssis, vous devez arrêter les contrôleurs.</block>
   <block id="a102b530af65288511339cf8117713a3" category="doc">Arrêter les contrôleurs - FAS2600</block>
-  <block id="b5d03ef67a171c85bf4bd311e2fd75df" category="paragraph">Vous devez arrêter le contrôleur ou le contrôleur du châssis avant de les déplacer vers le nouveau châssis.</block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="list-title">Description de la tâche</block>
-  <block id="880c0610027a11af7086ae7e380e12e5" category="list-text">Si votre système dispose de deux modules de contrôleur, désactivez la paire haute disponibilité.</block>
-  <block id="d426a3f5c9c0e3362f4ed536e7643c03" category="cell">Si votre système exécute clustered ONTAP avec...</block>
-  <block id="93ff4b8a35c5f08ad3e97fdc9983948e" category="paragraph">Deux contrôleurs dans le cluster</block>
-  <block id="a0540c64b7001eb9739a6eed390808ac" category="paragraph">Plus de deux contrôleurs dans le cluster</block>
-  <block id="b2aa61dcee4d7b77fcd001973469ddde" category="paragraph"><block ref="2ad2df2fff9b45582f1f35a1de091886" prefix="" category="inline-code"></block></block>
-  <block id="853a8c6f8383ee1dc5f3826af9ff6797" category="list-text">Arrêter le contrôleur, en appuyant sur<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à confirmer l'arrêt :<block ref="e1f5c50429478cf8a201f7a77cce9c92" prefix=" " category="inline-code"></block></block>
-  <block id="481250f3e8ec41b0e994305d8fc52b4a" category="paragraph">Le message de confirmation se présente comme suit :</block>
-  <block id="253a50052b60be1951a606aa7c311ba2" category="admonition">Vous devez effectuer un arrêt correct du système avant de remplacer le châssis pour éviter de perdre des données non écrites dans la mémoire non volatile (NVMEM/NVRAM). Selon votre système, si le voyant NVMEM/NVRAM clignote, il y a du contenu dans la NVMEM/NVRAM qui n'a pas été enregistré sur le disque. Vous devez redémarrer le contrôleur et démarrer depuis le début de cette procédure. Si des tentatives répétées d'arrêt anormal du contrôleur tombent en panne, sachez que vous risquez de perdre des données qui n'ont pas été enregistrées sur le disque.</block>
-  <block id="8373aa3aac3c8f18564812bfcb55615a" category="list-text">Le cas échéant, arrêtez le second contrôleur pour éviter un message d'erreur de quorum dans une configuration de paire haute disponibilité :<block ref="0ecd86b0d64cff2c7cc14bffb8f97491" prefix=" " category="inline-code"></block></block>
-  <block id="7da65b5a10b69b45b490009ac07696ff" category="paragraph">Réponse<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous y êtes invité.</block>
   <block id="e1782167c4ccac91c29c561fbdf9bd10" category="summary">Vous pouvez utiliser l'affiche PDF pour installer et configurer votre nouveau système. Le poster PDF fournit des instructions détaillées avec des liens en direct vers des contenus supplémentaires.</block>
   <block id="f8775be935fb9d9effeb8c290b2531ef" category="doc">Affiche PDF sur l'installation et la configuration - FAS2600</block>
   <block id="4707af501257324eebcc0182dcfed521" category="inline-link-macro">Instructions d'installation et de configuration du système FAS2600</block>
@@ -6706,7 +6695,6 @@
   <block id="b12c60055be138bf7526b1769365b47e" category="image-alt">drw a900 sous tension</block>
   <block id="bb0210ac9561e033fc7d726a6ac134e8" category="paragraph"><block ref="bb0210ac9561e033fc7d726a6ac134e8" category="inline-link-rx"></block></block>
   <block id="ee509c1ffca70e9f258ad73c3116cf37" category="doc">Vérifications préalables à l'arrêt des clés de chiffrement intégrées - AFF A900</block>
-  <block id="9cc3abf99d341ddf4468a9377444f16d" category="doc">Arrêter le contrôleur douteux - AFF A900</block>
   <block id="cb0bd9965128fe9d9c7dc5fe35ba00fa" category="doc">Étapes rapides - AFF A900</block>
   <block id="cd9130a2736bae3213b0c2da4de3435e" category="inline-link-macro">Instructions d'installation et de configuration du système AFF A900</block>
   <block id="a164244a6913c60772e9b9fbbbc17a4a" category="doc">Ajout d'un module d'E/S - AFF A900</block>
@@ -7198,13 +7186,11 @@
   <block id="0c2b7daebf1a1e94a676675bf614fba6" category="paragraph">Le support de démarrage est situé le long de la paroi du châssis de la tablette, à l'opposé du bloc d'alimentation.</block>
   <block id="178d438c63a174b511750f68655d814d" category="list-text">Après le remplacement de la batterie RTC, la réinstallation du module NSM et l'amorçage du module, l'heure de l'horloge en temps réel est mise à jour par ONTAP.</block>
   <block id="d067784c8bad4d41a4f87accd50abbc1" category="list-text">Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir <block ref="68d9e980b8b4998ef88139d7b7ab8ff6" category="inline-link-macro-rx"></block>.</block>
-  <block id="1c0138111ac00fdce24dc38ffd9859d5" category="list-text">Si un cluster possède plus de deux contrôleurs, il doit se trouver au quorum. Si le cluster n'est pas dans le quorum ou si un contrôleur sain s'affiche<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> pour l'admissibilité et la santé, vous devez corriger le problème avant d'arrêter le contrôleur déficient ; voir <block ref="68d9e980b8b4998ef88139d7b7ab8ff6" category="inline-link-macro-rx"></block>.</block>
   <block id="305fade7b83ae4e7549b33a3ae1b1fd0" category="doc">Ajouter à chaud une étagère - NS224 étagères</block>
   <block id="859c951ebab21901f2fd6183c53339d5" category="summary">Pour intervertir à chaud un module d'alimentation de contrôleur sur batterie \(DCPM\) contenant la batterie NVRAM11, vous devez localiser le module DCPM défaillant, le retirer du châssis et installer le module DCPM de remplacement.</block>
   <block id="8ea19d634d233a26f4f650bd2e2b467c" category="paragraph">Pour intervertir à chaud un module d'alimentation de contrôleur (DCPM) contenant la batterie NVRAM11, vous devez localiser le module DCPM défaillant, le retirer du châssis et installer le module DCPM de remplacement.</block>
   <block id="58fb0a507d97ff336e5db5d69ba846e9" category="inline-link">Convertissez les ports NIC 40 GbE en ports 10 GbE multiples pour assurer la connectivité 10 GbE</block>
   <block id="8ae73aa056882e7b560f3b52b5764957" category="list-text">Si votre système est configuré pour prendre en charge l'interconnexion de cluster 10 GbE et les connexions de données sur les cartes réseau 40 GbE, convertissez ces ports en connexions 10 GbE à l'aide du<block ref="5ec041cdb2bbdf01cd4ea2c400b17495" prefix=" " category="inline-code"></block> Commande provenant du mode maintenance. Voir<block ref="2d808a662d9493bde97b50913a25a294" category="inline-link-rx"></block> pour en savoir plus.</block>
-  <block id="d875f9fec183da794cd6d6245ef00d1d" category="paragraph"><block ref="272f3c49a4ec1753c70013d06165277b" prefix="" category="inline-code"></block></block>
   <block id="1bb835185391c9f6463cb5dc111090d1" category="paragraph">Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir <block ref="68d9e980b8b4998ef88139d7b7ab8ff6" category="inline-link-macro-rx"></block>.</block>
   <block id="aae78f4a3d47a08dddca98a632d4a75f" category="paragraph">Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de mettre le contrôleur en panne hors tension.</block>
   <block id="68d9e980b8b4998ef88139d7b7ab8ff6" category="paragraph"><block ref="68d9e980b8b4998ef88139d7b7ab8ff6" category="inline-link-macro-rx"></block></block>
@@ -7416,11 +7402,7 @@
   <block id="5ab526c2d8a23c39c3d68b1080ca3e89" category="doc">Guide détaillé - AFF C400</block>
   <block id="ed1fe7521861c492832064f3b6daca68" category="paragraph">Câble 100 GbE (QSFP28)</block>
   <block id="e0cc8c545401fc3b34281140c54756c7" category="admonition">Si les étiquettes des ports de la carte ne sont pas visibles, vous pouvez identifier les ports en vérifiant l'orientation de l'installation de la carte (pour C400, le connecteur PCIe se trouve sur le côté gauche de l'emplacement de carte), puis rechercher la carte par numéro de référence dans NetApp Hardware Universe, qui montre un graphique du cadre avec les étiquettes des ports. Vous pouvez trouver le numéro de référence de la carte à l'aide de la commande sysconfig -a ou dans la liste de distribution du système.</block>
-  <block id="80a7f396e1bc3ed796a9313a0aa75443" category="image-alt">Câblage réseau drw c400 TNSC</block>
-  <block id="a905d4a42dacfc07296e02d609b47cb0" category="image-alt">câblage réseau commuté drw c400</block>
   <block id="670ce436320fc9008e2880db983e27d2" category="paragraph">Les options suivantes vous indiquent comment connecter un ou deux tiroirs de disque NS224 à votre système.</block>
-  <block id="66587f1aa86b9e296b1d1dd43ca73e3e" category="image-alt">drw c400 une étagère ns224</block>
-  <block id="0b9e9bf3097ae366abf0d35474fb4b1f" category="image-alt">drw c400 deux étagères ns224</block>
   <block id="eca713323e6fa9782ebae60357fc0453" category="doc">Remplacez un module NVDIMM - AFF C400</block>
   <block id="719e61ffcf0d96924351db01f7e50603" category="doc">Vidéos - AFF C400</block>
   <block id="51e4f59a1aaa143b8d5c910f0a77328e" category="video-title">Animation - instructions d'installation et de configuration du AFF C400</block>
@@ -7804,4 +7786,80 @@
   <block id="66ba60034a525a69b1b5cf4344529c25" category="paragraph">Pour retirer les modules d'E/S du châssis défectueux, y compris les modules NVRAM, suivez la séquence spécifique des étapes.</block>
   <block id="76558becedd79e95bf3921d5f08baeb6" category="list-text">Localisez le module LED USB à l'avant du châssis défectueux, directement sous les baies DCPM.</block>
   <block id="ac6201b7b810f81cfaef54d4d8fe63d5" category="list-text">Tournevis TORQ pour vis de l'armoire système</block>
+  <block id="d581cc3762a48b4da22069bdeae81b8f" category="inline-link">Comment effectuer un arrêt normal et mettre sous tension une paire haute disponibilité dans un cluster à 4 nœuds</block>
+  <block id="3f7ee1fb6cfdfd18c49f8e060fa8f9c9" category="paragraph">Cette procédure concerne uniquement les configurations à 2 nœuds non MetroCluster. Si votre système comporte plus de deux nœuds, reportez-vous à la section<block ref="681b47fbe1cebc545a75e77efd420ec0" category="inline-link-rx"></block>.</block>
+  <block id="36ee27bc3fc7c617977b35534609c979" category="paragraph">Éléments requis :</block>
+  <block id="68d685ddbaa25f1a411d5e93d6f91913" category="list-text">Informations d'identification de l'administrateur local pour ONTAP.</block>
+  <block id="ac1036c822296c33d140ef7ba7cd246d" category="list-text">Phrase secrète pour la gestion des clés intégrée NetApp à l'échelle du cluster (OKM) en cas d'utilisation du chiffrement du stockage.</block>
+  <block id="93e6bf3fa29a7ebd2a4bb235a54deb94" category="list-text">Accès SP/BMC pour chaque contrôleur.</block>
+  <block id="d6562c849f41b9038124f0c304aed030" category="list-text">Empêchez tous les clients/hôtes d'accéder aux données sur le système NetApp.</block>
+  <block id="d61b46d9cd719b77efb76269147aa377" category="list-text">Suspendre les tâches de sauvegarde externes.</block>
+  <block id="527f18fb3f8ac4bca4ae01901a2c9317" category="list-text">Outils et équipements nécessaires au remplacement.</block>
+  <block id="3b6fc5695f8237510131da824ce788d0" category="inline-link">Arrêtez et mettez votre système de stockage sous tension en toute simplicité</block>
+  <block id="03f7958d5b1fc7636429e97368e2f97f" category="admonition">Si le système est un système NetApp StorageGRID ou ONTAP S3 utilisé en tant que Tier cloud FabricPool, reportez-vous au<block ref="6db187057e0b0e01589d1a1a7f510469" category="inline-link-rx"></block> après avoir effectué cette procédure.</block>
+  <block id="ec965df16952820cbea39156c0dfe2f0" category="admonition">Si vous utilisez des LUN de baies FlexArray, suivez la documentation spécifique du fournisseur à la baie de stockage pour la procédure d'arrêt à effectuer pour ces systèmes après avoir réalisé cette procédure.</block>
+  <block id="ad8a5006901db5ea8481166a34f27929" category="inline-link">SU490 : meilleures pratiques relatives aux SSD (impact : critique) : évitez les risques de panne disque et de perte de données si vous les mettez hors tension pendant plus de deux mois</block>
+  <block id="7d140f8b4464f9a8684a7943df8e74d9" category="admonition">Si vous utilisez des disques SSD, reportez-vous à la section<block ref="13eec713a6c81535d5709aa561195b7a" category="inline-link-rx"></block></block>
+  <block id="356bf392971487f892daba5338258571" category="paragraph">Avant de procéder à l'arrêt, vous devez :</block>
+  <block id="2ee5edc561a6167cf2d57a64ee655bef" category="inline-link">vérifications de l'état du système</block>
+  <block id="7023017d0098f741d6569842ee62b922" category="list-text">Effectuer des opérations supplémentaires<block ref="9ace058273de133e6accbea83a7d278a" category="inline-link-rx"></block>.</block>
+  <block id="f40b8507b340a958be200bec6d3758a0" category="list-text">Mettez à niveau ONTAP vers une version recommandée pour le système.</block>
+  <block id="9f4d2068e7b3d206efc0252b3da597a5" category="inline-link">Alertes et risques liés au bien-être Active IQ</block>
+  <block id="c5df4dcae9a001142a36959487445ff6" category="list-text">Résoudre tout<block ref="31b25beca26cb366eeb0665e3c0d7cbf" category="inline-link-rx"></block>. Notez toutes les anomalies présentes sur le système, telles que les voyants des composants du système.</block>
+  <block id="3923b7d5100131c85be2160c8b680704" category="list-text">Connectez-vous au cluster via SSH ou connectez-vous à un nœud du cluster à l'aide d'un câble de console local et d'un ordinateur portable/d'une console.</block>
+  <block id="d9e8189e14354652821e1f0f10f12dfe" category="list-text">Désactivez AutoSupport et indiquez la durée pendant laquelle vous vous attendez à ce que le système soit hors ligne :</block>
+  <block id="ff3faabe8aca2ae4a92cf7dec5b62b8f" category="paragraph"><block ref="14fb036c43dbcde966a639d33554da5c" prefix="" category="inline-code"></block></block>
+  <block id="ac2a6618449930e8abeb32fd078d7716" category="list-text">Identifiez l'adresse SP/BMC de tous les nœuds :</block>
+  <block id="0d16db60da2c01b63ef84ee8d616c2fb" category="paragraph"><block ref="b206d268f79aeaa7c4f1e44684d2f080" prefix="" category="inline-code"></block></block>
+  <block id="a0fd5b31be719aeb26e2fc9c6991da9f" category="list-text">Quitter le cluster shell :<block ref="f24f62eeb789199b9b2e467df3b1876b" prefix=" " category="inline-code"></block></block>
+  <block id="cf814f480a03329076e1d0cf2f71d7e3" category="list-text">Connectez-vous au processeur de service/contrôleur BMC via SSH en utilisant l'adresse IP de l'un des nœuds répertoriés dans le résultat de l'étape précédente.</block>
+  <block id="aed4c23042b5f25dad252449f4ddcc59" category="paragraph">Si votre utilise une console ou un ordinateur portable, connectez-vous au contrôleur à l'aide des mêmes informations d'identification d'administrateur de cluster.</block>
+  <block id="a3dcd96fdc725fa51c4161c8a03146ab" category="admonition">Ouvrez une session SSH sur chaque connexion SP/BMC afin de pouvoir surveiller la progression.</block>
+  <block id="e2cba6e644aeaf95f80f688b880746da" category="list-text">Arrêter tous les nœuds du cluster :</block>
+  <block id="02e0d9b5c39d838c007bfad7b6e34196" category="paragraph"><block ref="b89a38fd8ae1ad809e5b3560be211bfa" prefix="" category="inline-code"></block>.</block>
+  <block id="aba2c36fe67a0528d4417c7e5c4da8a1" category="admonition">Pour les clusters qui utilisent SnapMirror en mode synchrone :<block ref="03e2e719454253f2db864fa560da7899" prefix=" " category="inline-code"></block></block>
+  <block id="3171aeb3fa199cec60349b4529cc0178" category="list-text">Entrez *y* pour chaque contrôleur du cluster lorsque vous voyez<block ref="25cae4cb08eccf660db87cfb99a959d7" prefix=" " category="inline-code"></block></block>
+  <block id="a39c8c38e51a42fcfaac22367dd19064" category="list-text">Attendez que chaque contrôleur s'arrête et affichez l'invite DU CHARGEUR.</block>
+  <block id="461bb1724a0adc2c975edfdd4b4923a1" category="list-text">Mettez chaque bloc d'alimentation hors tension ou débranchez-les s'il n'y a pas d'interrupteur marche/arrêt du bloc d'alimentation.</block>
+  <block id="e3dc6cc26ed03ba51ee4327edde1e1fc" category="list-text">Débranchez le cordon d'alimentation de chaque bloc d'alimentation.</block>
+  <block id="0042f27885e192c9ea879dde4ac34445" category="list-text">Vérifiez que tous les contrôleurs, tiroirs disques et switchs associés au cluster sont hors tension.</block>
+  <block id="3f80193798fcbb08cbe99cbe0a3aff95" category="paragraph">Après le remplacement du châssis, mettez les composants du cluster sous tension dans l'ordre suivant :</block>
+  <block id="f9604921fe40d48421b9ae74e9a50059" category="list-text">Mettez le commutateur sous tension</block>
+  <block id="85ee83d55e3fb9b20f9f17b7fb773ca0" category="list-text">Mettez les tiroirs disques sous tension</block>
+  <block id="d692ae791953fc513c9f3fd94d866964" category="list-text">Mettez les contrôleurs sous tension</block>
+  <block id="6d0114cd2de3e017d8d76d6b9f2191fc" category="list-text">Mettez le commutateur sous tension :</block>
+  <block id="fe12fd40092a74cc86c0db3006d72880" category="list-text">Rebranchez chaque câble d'alimentation de la PDU à l'unité d'alimentation.</block>
+  <block id="d79f0458e922251555ddc7baa3538dbc" category="list-text">Mettez chaque commutateur à bascule PSU en position ON (MARCHE) (le cas échéant).</block>
+  <block id="420a1ffc592934afa358803642255547" category="list-text">Attendez que le commutateur se met sous tension.</block>
+  <block id="67935e6f17c778c98c8e80fce8e29a9f" category="list-text">Vérifier l'absence de voyants d'anomalie sur le commutateur (avant et arrière).</block>
+  <block id="978a8732c5cda53a8b4a3de35d2184fd" category="list-text">Connectez-vous au commutateur via l'adresse IP de gestion.</block>
+  <block id="c72d57bd067b2b477426ef13c9c81629" category="list-text">Vérifiez l'état du commutateur (reportez-vous à la documentation du fournisseur du commutateur pour plus de détails).</block>
+  <block id="fc5b4d6235b015336cafcedc54683d5d" category="list-text">Répétez l'opération pour chaque commutateur jusqu'à ce que tous les commutateurs soient sous tension et en bon état.</block>
+  <block id="874c11301500ddf99db8a26ccc161200" category="list-text">Mettez les tiroirs disques sous tension :</block>
+  <block id="6309302d98e4a634b65821ffb59dcafc" category="list-text">Attendez que tous les tiroirs disques soient mis sous tension et que les disques tournent.</block>
+  <block id="453fd8a2e005a3688cb57a1715403eb8" category="list-text">Vérifiez que tous les ID de tiroir sont conformes aux valeurs attendues.</block>
+  <block id="43efaf94ccfd1b8ff73ede9310aa0726" category="list-text">Vérifiez s'il y a des voyants de panne situés sur le tiroir disque (à l'avant et à l'arrière) qui n'existaient pas avant l'arrêt.</block>
+  <block id="9a14737750e117b254a09e3e342bf4d4" category="list-text">Mettez les contrôleurs sous tension :</block>
+  <block id="1526ecbd5f3186fd0391bcab851746a6" category="list-text">Mettez chaque commutateur à bascule PSU en position ON (MARCHE) (le cas échéant). Les paires HAUTE DISPONIBILITÉ qui ne se trouvent pas dans le même châssis doivent être mises sous tension simultanément.</block>
+  <block id="4ac3730c7728ff9f397c9c9c30e61398" category="list-text">Attendez la mise sous tension des contrôleurs du châssis.</block>
+  <block id="2a966b5531ce1a15adff1f9be922268a" category="list-text">Vérifiez la présence de voyants de panne sur le châssis et les contrôleurs (avant et arrière).</block>
+  <block id="c908a555fb9bda03518faf090d62b55f" category="list-text">Répétez l'opération pour chaque contrôleur/châssis jusqu'à ce que tous soient mis sous tension.</block>
+  <block id="1ace3ad5235525fbfcabf5c9ed71d2c2" category="list-text">Connectez-vous à l'adresse IP du processeur de service ou du contrôleur BMC des nœuds via SSH. Utilisez cette commande pour obtenir l'adresse IP avant de mettre hors tension :</block>
+  <block id="42bd22c6658be2e7f86763221caaff8d" category="list-text">Effectuer d'autres vérifications de l'état du système :</block>
+  <block id="6cae41ec99a87022e2ff84639c1c9bc1" category="list-text">Résoudre tout<block ref="31b25beca26cb366eeb0665e3c0d7cbf" category="inline-link-rx"></block></block>
+  <block id="a4e515a78d7900d16a4af3f913b033f7" category="list-text">Courez<block ref="48865c7c1d8013246e4e5f705a9105de" category="inline-link-rx"></block></block>
+  <block id="2d7735678080387bf2714cda931af8cf" category="inline-link">Procédure de vérification de l'état du cluster à l'aide d'un script dans ONTAP</block>
+  <block id="b13401e632345d1a1c36a42722a9cdd7" category="list-text">Vérifiez l'intégrité du système comme décrit dans<block ref="8441a6aeb4c8951afc9d3ef26143aa41" category="inline-link-rx"></block></block>
+  <block id="36bc7c68ef7de2e917f4a186a4edaa58" category="list-text">Générer un message AutoSupport de fin de tâche de maintenance :</block>
+  <block id="538f577c4284d097aef57681a2acf728" category="paragraph"><block ref="a0502e9e767995ecf84f499d84740634" prefix="" category="inline-code"></block></block>
+  <block id="c779830d2c1a694320dcf49ae503c75a" category="list-text">Assurez-vous que le rétablissement automatique est actif :</block>
+  <block id="3d2d5e9a2a8cef4225a4bd073c2aeefb" category="paragraph"><block ref="6f0c6616b99fea33a3020e0e0dcbe3c6" prefix="" category="inline-code"></block></block>
+  <block id="a095b22aaa929c82c4414b8a51e710af" category="doc">Arrêter les contrôleurs - AFF A900</block>
+  <block id="736a1f9cdd2dabb4a30feb86e55777ad" category="paragraph">Câble 25 GbE (SFP28)</block>
+  <block id="bbeb14c0a41e32ab9190d6fef7d7d2de" category="list-text">Utiliser l'illustration pour terminer le câblage entre les contrôleurs et les commutateurs :</block>
+  <block id="3f90eae06a0fd4fa951102461bc035a2" category="image-alt">Câblage réseau drw c400 TNSC IEOPS 1095</block>
+  <block id="dc70a7fbe1f21380db9b236898b87503" category="image-alt">drw c400 câblage réseau commuté IEOPS 1096</block>
+  <block id="2a29b6abc01fa919029a6defab91ed09" category="list-text">Utilisez l'illustration suivante pour connecter les contrôleurs à un tiroir disque.</block>
+  <block id="cf05a1b835cc522d6ff312818c4655b5" category="image-alt">drw c400 une étagère ns224 IEOPS 1097</block>
+  <block id="c8bb212781cb1ea1ac1f2bb19672260b" category="image-alt">drw c400 deux étagères ns224 IEOPS 1098</block>
 </blocks>

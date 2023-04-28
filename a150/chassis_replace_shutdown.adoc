@@ -18,58 +18,68 @@ Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropri�
 == Option 1 : plupart des configurations
 
 [role="lead"]
-Vous devez arrêter le contrôleur ou le contrôleur du châssis avant de les déplacer vers le nouveau châssis.
+Cette procédure concerne uniquement les configurations à 2 nœuds non MetroCluster. Si votre système comporte plus de deux nœuds, reportez-vous à la section https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_perform_a_graceful_shutdown_and_power_up_of_one_HA_pair_in_a_4__node_cluster["Comment effectuer un arrêt normal et mettre sous tension une paire haute disponibilité dans un cluster à 4 nœuds"^].
 
-.Description de la tâche
-* Si un cluster possède plus de deux contrôleurs, il doit se trouver au quorum. Si le cluster n'est pas dans le quorum ou si un contrôleur sain s'affiche `false` pour l'admissibilité et la santé, vous devez corriger le problème avant d'arrêter le contrôleur déficient ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
-* Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
-+
-Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+.Avant de commencer
+Éléments requis :
 
+* Informations d'identification de l'administrateur local pour ONTAP.
+* Phrase secrète pour la gestion des clés intégrée NetApp à l'échelle du cluster (OKM) en cas d'utilisation du chiffrement du stockage.
+* Accès SP/BMC pour chaque contrôleur.
+* Empêchez tous les clients/hôtes d'accéder aux données sur le système NetApp.
+* Suspendre les tâches de sauvegarde externes.
+* Outils et équipements nécessaires au remplacement.
+
+
+
+NOTE: Si le système est un système NetApp StorageGRID ou ONTAP S3 utilisé en tant que Tier cloud FabricPool, reportez-vous au https://kb.netapp.com/onprem/ontap/hardware/What_is_the_procedure_for_graceful_shutdown_and_power_up_of_a_storage_system_during_scheduled_power_outage#["Arrêtez et mettez votre système de stockage sous tension en toute simplicité"] après avoir effectué cette procédure.
+
+
+NOTE: Si vous utilisez des LUN de baies FlexArray, suivez la documentation spécifique du fournisseur à la baie de stockage pour la procédure d'arrêt à effectuer pour ces systèmes après avoir réalisé cette procédure.
+
+
+NOTE: Si vous utilisez des disques SSD, reportez-vous à la section https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU490["SU490 : meilleures pratiques relatives aux SSD (impact : critique) : évitez les risques de panne disque et de perte de données si vous les mettez hors tension pendant plus de deux mois"]
+
+Avant de procéder à l'arrêt, vous devez :
+
+* Effectuer des opérations supplémentaires https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["vérifications de l'état du système"].
+* Mettez à niveau ONTAP vers une version recommandée pour le système.
+* Résoudre tout https://activeiq.netapp.com/["Alertes et risques liés au bien-être Active IQ"]. Notez toutes les anomalies présentes sur le système, telles que les voyants des composants du système.
 
 
 .Étapes
-. Si votre système dispose de deux modules de contrôleur, désactivez la paire haute disponibilité.
+. Connectez-vous au cluster via SSH ou connectez-vous à un nœud du cluster à l'aide d'un câble de console local et d'un ordinateur portable/d'une console.
+. Désactivez AutoSupport et indiquez la durée pendant laquelle vous vous attendez à ce que le système soit hors ligne :
 +
-[cols="1,2"]
-|===
-| Si votre système exécute clustered ONTAP avec... | Alors... 
+`system node autosupport invoke -node * -type all -messages "MAINT=8h Power Maintenance"`
 
-
- a| 
-Deux contrôleurs dans le cluster
- a| 
-`cluster ha modify -configured false`
-
-`storage failover modify -node node0 -enabled false`
-
-
-
- a| 
-Plus de deux contrôleurs dans le cluster
- a| 
-`storage failover modify -node node0 -enabled false`
-
-|===
-. Arrêter le contrôleur, en appuyant sur `y` lorsque vous êtes invité à confirmer l'arrêt : `system node halt -node _node_name_`
+. Identifiez l'adresse SP/BMC de tous les nœuds :
 +
-Le message de confirmation se présente comme suit :
+`system service-processor show -node * -fields address`
+
+. Quitter le cluster shell : `exit`
+. Connectez-vous au processeur de service/contrôleur BMC via SSH en utilisant l'adresse IP de l'un des nœuds répertoriés dans le résultat de l'étape précédente.
++
+Si votre utilise une console ou un ordinateur portable, connectez-vous au contrôleur à l'aide des mêmes informations d'identification d'administrateur de cluster.
 
 +
-[listing]
-----
-Warning: This operation will cause controller "node-name" to be marked as unhealthy. Unhealthy nodes do not participate in quorum voting. If the controller goes out of service and one more controller goes out of service there will be a data serving failure for the entire cluster. This will cause a client disruption. Use "cluster show" to verify cluster state. If possible bring other nodes online to improve the resiliency of this cluster.
 
-Do you want to continue? {y|n}:
-----
+NOTE: Ouvrez une session SSH sur chaque connexion SP/BMC afin de pouvoir surveiller la progression.
+
+. Arrêter tous les nœuds du cluster :
++
+`system node halt -node * -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true`.
+
 +
 
-NOTE: Vous devez effectuer un arrêt correct du système avant de remplacer le châssis pour éviter de perdre des données non écrites dans la mémoire non volatile (NVMEM/NVRAM). Selon votre système, si le voyant NVMEM/NVRAM clignote, il y a du contenu dans la NVMEM/NVRAM qui n'a pas été enregistré sur le disque. Vous devez redémarrer le contrôleur et démarrer depuis le début de cette procédure. Si des tentatives répétées d'arrêt anormal du contrôleur tombent en panne, sachez que vous risquez de perdre des données qui n'ont pas été enregistrées sur le disque.
+NOTE: Pour les clusters qui utilisent SnapMirror en mode synchrone : `system node halt -node * -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true -ignore-strict-sync-warnings true`
 
-. Le cas échéant, arrêtez le second contrôleur pour éviter un message d'erreur de quorum dans une configuration de paire haute disponibilité : `system node halt -node _second_node_name_ -ignore-quorum-warnings true -skip-lif-migration-before-shutdown true`
-+
-Réponse `y` lorsque vous y êtes invité.
-
+. Entrez *y* pour chaque contrôleur du cluster lorsque vous voyez `_Warning: Are you sure you want to halt node "cluster name-controller number"?
+{y|n}:_`
+. Attendez que chaque contrôleur s'arrête et affichez l'invite DU CHARGEUR.
+. Mettez chaque bloc d'alimentation hors tension ou débranchez-les s'il n'y a pas d'interrupteur marche/arrêt du bloc d'alimentation.
+. Débranchez le cordon d'alimentation de chaque bloc d'alimentation.
+. Vérifiez que tous les contrôleurs, tiroirs disques et switchs associés au cluster sont hors tension.
 
 
 

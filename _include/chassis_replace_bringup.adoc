@@ -1,0 +1,61 @@
+= 
+:allow-uri-read: 
+
+
+Après le remplacement du châssis, mettez les composants du cluster sous tension dans l'ordre suivant :
+
+* Mettez le commutateur sous tension
+* Mettez les tiroirs disques sous tension
+* Mettez les contrôleurs sous tension
+
+
+.Étapes
+. Mettez le commutateur sous tension :
++
+.. Rebranchez chaque câble d'alimentation de la PDU à l'unité d'alimentation.
+.. Mettez chaque commutateur à bascule PSU en position ON (MARCHE) (le cas échéant).
+.. Attendez que le commutateur se met sous tension.
+.. Vérifier l'absence de voyants d'anomalie sur le commutateur (avant et arrière).
+.. Connectez-vous au commutateur via l'adresse IP de gestion.
+.. Vérifiez l'état du commutateur (reportez-vous à la documentation du fournisseur du commutateur pour plus de détails).
+.. Répétez l'opération pour chaque commutateur jusqu'à ce que tous les commutateurs soient sous tension et en bon état.
+
+
+. Mettez les tiroirs disques sous tension :
++
+.. Rebranchez chaque câble d'alimentation de la PDU à l'unité d'alimentation.
+.. Mettez chaque commutateur à bascule PSU en position ON (MARCHE) (le cas échéant).
+.. Attendez que tous les tiroirs disques soient mis sous tension et que les disques tournent.
+.. Vérifiez que tous les ID de tiroir sont conformes aux valeurs attendues.
+.. Vérifiez s'il y a des voyants de panne situés sur le tiroir disque (à l'avant et à l'arrière) qui n'existaient pas avant l'arrêt.
+
+
+. Mettez les contrôleurs sous tension :
++
+.. Rebranchez chaque câble d'alimentation de la PDU à l'unité d'alimentation.
+.. Mettez chaque commutateur à bascule PSU en position ON (MARCHE) (le cas échéant). Les paires HAUTE DISPONIBILITÉ qui ne se trouvent pas dans le même châssis doivent être mises sous tension simultanément.
+.. Attendez la mise sous tension des contrôleurs du châssis.
+.. Vérifiez la présence de voyants de panne sur le châssis et les contrôleurs (avant et arrière).
+.. Répétez l'opération pour chaque contrôleur/châssis jusqu'à ce que tous soient mis sous tension.
+.. Connectez-vous à l'adresse IP du processeur de service ou du contrôleur BMC des nœuds via SSH. Utilisez cette commande pour obtenir l'adresse IP avant de mettre hors tension :
++
+`system service-processor show -node * -fields address`
+
+.. Effectuer d'autres vérifications de l'état du système :
++
+... Résoudre tout https://activeiq.netapp.com/["Alertes et risques liés au bien-être Active IQ"]
+... Courez https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"]
+... Vérifiez l'intégrité du système comme décrit dans https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["Procédure de vérification de l'état du cluster à l'aide d'un script dans ONTAP"]
+
+
+.. Générer un message AutoSupport de fin de tâche de maintenance :
++
+`system node autosupport invoke -node * -type all -message MAINT=end`
+
+.. Assurez-vous que le rétablissement automatique est actif :
++
+`storage failover modify -node local -auto-giveback true`
+
+
+
+
