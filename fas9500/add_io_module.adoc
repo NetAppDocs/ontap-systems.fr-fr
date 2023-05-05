@@ -136,7 +136,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Déposer l'obturateur de fente cible :
 +
-.. Appuyer sur le bouton à came numéroté et numéroté.
+.. Appuyer sur le loquet de came numéroté et avec des lettres.
 .. Faites tourner le loquet de came vers le bas jusqu'à ce qu'il soit en position ouverte.
 .. Déposer l'obturateur.
 
@@ -311,9 +311,9 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 . Débranchez tout câblage du module d'E/S cible.
 . Retirez le module d'E/S cible du châssis :
 +
-.. Appuyer sur le bouton à came numéroté et numéroté.
+.. Appuyer sur le loquet de came numéroté et avec des lettres.
 +
-Le bouton de came s'éloigne du châssis.
+Le loquet de came s'éloigne du châssis.
 
 .. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
 +
@@ -358,10 +358,24 @@ Verrou de came d'E/S complètement déverrouillé
 
 . Répétez les étapes de retrait et d'installation pour remplacer les modules supplémentaires du contrôleur A.
 . Si le module d'E/S de remplacement est une carte réseau, reliez le ou les modules aux commutateurs de données.
-. Redémarrez le nœud :
 +
 
 NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+
+. Redémarrez le contrôleur à partir de l'invite DU CHARGEUR :
++
+.. Vérifiez la version du contrôleur BMC sur le contrôleur : `system service-processor show`
+.. Mettez à jour le micrologiciel du contrôleur BMC si nécessaire : `system service-processor image update`
+.. Redémarrez le nœud : `bye`
++
+
+NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+
++
+
+NOTE: Si vous rencontrez un problème pendant le redémarrage, reportez-vous à la section https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1494308["BURT 1494308 - l'arrêt de l'environnement peut être déclenché lors du remplacement du module d'E/S."]
+
+
 
 . Renvoyer le nœud à partir du nœud partenaire. `storage failover giveback -ofnode target_node_name`
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`

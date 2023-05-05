@@ -58,7 +58,9 @@ X66240A-05 (112-00639), 0,5 M.
 X66240A-2 (112-00598), 2 M.
 
 X66240A-5 (112-00600), 5 m
-| image:../media/oie_cable_sfp_gbe_copper.svg["largeur=85 px"]  a| 
+ a| 
+image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
+ a| 
 Câble réseau
 
 
@@ -234,7 +236,6 @@ video::da08295f-ba8c-4de7-88c3-ae7c0170408d[panopto]
 image::../media/drw_9500_tnsc_network_cabling.svg[câblage réseau drw 9500 tnsc]
 
 +
-[cols="20%,80%"]
 |===
 | Étape | Effectuer des opérations sur chaque contrôleur 
 
@@ -287,10 +288,18 @@ Reliez les ports A5 et B5 (5a, 5b, 5c et 5d) et les connecteurs A7 et B7 (7a, 7b
 
 image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
 
+
+
+ a| 
+** Attachez les câbles aux bras de gestion des câbles (non illustrés).
+** Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées). Les PSU 1 et 3 fournissent l'alimentation à tous les composants de la face A, tandis que les PSU2 et PSU4 fournissent l'alimentation à tous les composants de la face B.
+
+ a| 
+image::../media/oie_cable_power.svg[alimentation du câble de l'oie]
+
+image::../media/drw_a900fas9500_power_source_icon_IEOPS-1142.svg[Icône de source d'alimentation drw a900fas9500 IEOPS 1142]
+
 |===
-. Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées).
-. Attachez les câbles aux bras de gestion des câbles (non illustrés).
-. Pour câbler votre espace de stockage, reportez-vous à la section <<Étape 4 : câblage des contrôleurs aux tiroirs disques>>.
 
 
 --
@@ -316,7 +325,6 @@ video::3ad3f118-8339-4683-865f-ae7c0170400c[panopto]
 image::../media/drw_9500_switched_network_cabling.svg[câblage réseau commuté drw 9500]
 
 +
-[cols="20%,80%"]
 |===
 | Étape | Effectuer des opérations sur chaque contrôleur 
 
@@ -363,16 +371,24 @@ image::../media/oie_cable100_gbe_qsfp28.svg[oie cab100 gbe qsfp28]
  a| 
 image::../media/oie_legend_icon_4_dr.svg[légende de l'oie 4 dr]
  a| 
-Connexions 25 GbE sur câble :
+Câblage des connexions 25 GbE :
 
 Reliez les ports A5 et B5 (5a, 5b, 5c et 5d) et les connecteurs A7 et B7 (7a, 7b, 7c et 7d) aux commutateurs réseau 25 GbE.
 
 image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
 
+
+
+ a| 
+** Attachez les câbles aux bras de gestion des câbles (non illustrés).
+** Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées). Les PSU 1 et 3 fournissent l'alimentation à tous les composants de la face A, tandis que les PSU2 et PSU4 fournissent l'alimentation à tous les composants de la face B.
+
+ a| 
+image::../media/oie_cable_power.svg[alimentation du câble de l'oie]
+
+image::../media/drw_a900fas9500_power_source_icon_IEOPS-1142.svg[Icône de source d'alimentation drw a900fas9500 IEOPS 1142]
+
 |===
-. Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées).
-. Attachez les câbles aux bras de gestion des câbles (non illustrés).
-. Pour câbler votre espace de stockage, reportez-vous à la section <<Étape 4 : câblage des contrôleurs aux tiroirs disques>>.
 
 
 --
@@ -381,7 +397,7 @@ image::../media/oie_cable_sfp_gbe_copper.svg[câble oie sfp gbe cuivre]
 
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
-Il est nécessaire de connecter le tiroir à tiroir, puis de connecter les deux contrôleurs aux tiroirs disques DS212C ou DS224C.
+Reliez les tiroirs disques DS212C ou DS224C aux contrôleurs.
 
 
 NOTE: Pour plus d'informations sur le câblage SAS et les feuilles de calcul, consultez https://docs.netapp.com/us-en/ontap-systems/sas3/overview-cabling-rules-examples.html["Présentation des règles, des feuilles de calcul et des exemples de câblage SAS - tiroirs avec modules IOM12"^]
@@ -432,7 +448,6 @@ image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[câble oie mini sas hd 
 Câble mini-SAS
 
 |===
-. Pour terminer la configuration de votre système, reportez-vous à la section <<Étape 5 : installation et configuration complètes du système>>.
 
 
 
@@ -499,8 +514,7 @@ image::../media/legend_icon_05.svg[icône de légende 05]
 Attendre 10 secondes pour le voyant orange (!) Pour afficher la commande, mettez le tiroir disque hors tension puis sous tension afin de définir l'ID de tiroir.
 
 |===
-. Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
-. Mettez les boutons marche/arrêt sur les deux nœuds.
+. Mettez les boutons marche/arrêt sur les alimentations des deux nœuds.
 +
 .Animation : mettez les contrôleurs sous tension
 video::a905e56e-c995-4704-9673-adfa0005a891[panopto]
@@ -632,15 +646,15 @@ image::../media/legend_icon_05.svg[icône de légende 05]
 Attendre 10 secondes pour le voyant orange (!) Pour afficher la commande, mettez le tiroir disque hors tension puis sous tension afin de définir l'ID de tiroir.
 
 |===
-. Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
-. Mettez les boutons marche/arrêt sur les deux nœuds.
+. Mettez les boutons marche/arrêt sur les alimentations des deux nœuds.
 +
 .Animation : mettez les contrôleurs sous tension
 video::a905e56e-c995-4704-9673-adfa0005a891[panopto]
 +
 image::../media/drw_9500_power-on.svg[l'analyseur drw 9500 est sous tension]
 
-+
+
+
 
 NOTE: Le démarrage initial peut prendre jusqu'à huit minutes.
 
