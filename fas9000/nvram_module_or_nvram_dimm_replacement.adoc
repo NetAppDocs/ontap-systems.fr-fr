@@ -443,7 +443,7 @@ Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'I
 NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
 
 +
-http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Recherchez le Guide de configuration haute disponibilité de votre version de ONTAP 9"]
+http://["Recherchez le Guide de configuration haute disponibilité de votre version de ONTAP 9"]
 
 .. Une fois le retour arrière terminé, vérifiez que la paire HA est saine et que le basculement est possible : `storage failover show`
 +
@@ -480,7 +480,7 @@ Ceci est requis si les deux conditions suivantes sont vraies :
 ** La configuration MetroCluster est en état de basculement.
 ** Le _remplacement_ node est le propriétaire actuel des disques sur le site de secours.
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#disk-ownership-changes-during-ha-takeover-and-metrocluster-switchover-in-a-four-node-metrocluster-configuration["Modification de la propriété des disques lors du basculement haute disponibilité et du basculement du MetroCluster dans une configuration MetroCluster à quatre nœuds"]
+https://["Modification de la propriété des disques lors du basculement haute disponibilité et du basculement du MetroCluster dans une configuration MetroCluster à quatre nœuds"]
 
 
 
@@ -610,7 +610,7 @@ dr-group-id            cluster node           configuration-state
 .. Vérifier que le MetroCluster est configuré et en mode normal : `metrocluster show`
 .. Effectuer une vérification MetroCluster : `metrocluster check run`
 .. Afficher les résultats de la vérification MetroCluster : `metrocluster check show`
-.. Exécutez Config Advisor. Accédez à la page Config Advisor du site de support NetApp à l'adresse http://support.netapp.com/NOW/download/tools/config_advisor/["support.netapp.com/NOW/download/tools/config_advisor/"].
+.. Exécutez Config Advisor. Accédez à la page Config Advisor du site de support NetApp à l'adresse http://["support.netapp.com/NOW/download/tools/config_advisor/"].
 +
 Une fois Config Advisor exécuté, vérifiez les résultats de l'outil et suivez les recommandations fournies dans la sortie pour résoudre tous les problèmes détectés.
 
@@ -642,8 +642,8 @@ NOTE: Cette étape n'est pas requise lors du remplacement d'un module DIMM.
 .Étapes
 . Choisissez l'une des procédures suivantes selon que vous utilisez la gestion intégrée ou externe des clés :
 +
-** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
-** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
+** https://["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
+** https://["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
 
 
 . Réinitialisez le MSID SED
@@ -653,4 +653,4 @@ NOTE: Cette étape n'est pas requise lors du remplacement d'un module DIMM.
 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
-Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://["Retour de pièce et amp ; remplacements"] pour plus d'informations.

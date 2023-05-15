@@ -16,14 +16,14 @@ Vous pouvez remplacer un disque défectueux dans un tiroir disque NS224 sous ten
 .Avant de commencer
 * Le lecteur que vous installez doit être pris en charge par le tiroir NS224.
 +
-https://hwu.netapp.com["NetApp Hardware Universe"^]
+https://["NetApp Hardware Universe"^]
 
 * Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans la documentation ONTAP.
 +
 Les instructions de la documentation ONTAP décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
 
 +
-https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commandes"^]
+https://["Présentation du chiffrement NetApp avec l'interface de ligne de commandes"^]
 
 * Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, contactez le support technique.
 * Vérifiez que le lecteur que vous retirez a échoué.
@@ -42,14 +42,14 @@ NOTE: Selon le type et la capacité du disque, il peut prendre jusqu'à plusieur
 Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser de nouveaux lecteurs qualifiés. Cela permet d'éviter que les messages d'événement du système ne soient pas à jour sur les disques et évite le partitionnement de disque car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Téléchargements NetApp : pack de qualification des disques"^]
+https://["Téléchargements NetApp : pack de qualification des disques"^]
 
 * *Meilleure pratique :* la meilleure pratique consiste à installer sur votre système les versions les plus récentes du firmware du module de tiroir NVMe (NSM) et du firmware du lecteur avant de remplacer les composants FRU.
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
+https://["Téléchargements NetApp : firmware des tiroirs disques"^]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
+https://["Téléchargements NetApp : firmware de disque"^]
 
 +
 [NOTE]
@@ -71,7 +71,7 @@ Une étagère comporte trois LED d'emplacement : une sur le panneau d'affichage 
 
 * Lorsque vous déballez le lecteur de remplacement, conservez tous les matériaux d'emballage pour l'utiliser lorsque vous renvoyez le lecteur défectueux.
 +
-Si vous avez besoin du numéro d'autorisation de renvoi de matériel ou d'une aide supplémentaire pour effectuer la procédure de remplacement, contactez le support technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"^], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique).
+Si vous avez besoin du numéro d'autorisation de renvoi de matériel ou d'une aide supplémentaire pour effectuer la procédure de remplacement, contactez le support technique à l'adresse https://["Support NetApp"^], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique).
 
 * L'animation suivante présente les parties de retrait et d'insertion physiques de la procédure de remplacement à chaud du disque.
 +

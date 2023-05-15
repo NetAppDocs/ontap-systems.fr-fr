@@ -28,14 +28,14 @@ Votre système doit répondre à certaines exigences avant d'ajouter des tiroirs
 
 * Votre système et votre version d'ONTAP doivent prendre en charge les tiroirs disques que vous ajoutez à chaud, notamment les IOM, les disques et les câbles SAS.
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 * Votre système doit comporter moins de disques que le nombre maximum pris en charge, au moins en fonction du nombre de tiroirs disques que vous envisagez d'ajouter à chaud.
 +
 Vous ne pouvez pas avoir dépassé le nombre maximal de disques pris en charge par votre système après l'ajout de tiroirs disques.
 
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 * Si vous ajoutez à chaud une pile d'un ou de plusieurs tiroirs disques (directement sur les contrôleurs de la plateforme), votre système doit disposer de suffisamment de ports HBA PCI SAS disponibles ou de ports SAS intégrés, ou d'une combinaison des deux.
 +
@@ -54,7 +54,7 @@ Téléchargez et exécutez Config Advisor pour vérifier que vos connexions SAS 
 Vous devez corriger toute erreur de câblage à l'aide des actions correctives fournies par les messages d'erreur.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://["Téléchargement NetApp : Config Advisor"]
 
 
 
@@ -110,7 +110,7 @@ Vous ne pouvez pas utiliser cette procédure pour ajouter à chaud des tiroirs d
 Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser des disques récemment qualifiés. Par conséquent, il ne faut pas tenir compte des messages d'événement système concernant la présence d'informations non à jour sur les lecteurs de disque. Vous évitez également les risques liés au partitionnement de disque, car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Téléchargements NetApp : pack de qualification des disques"^]
+https://["Téléchargements NetApp : pack de qualification des disques"^]
 
 * Il est recommandé d'exécuter Config Advisor avant et après l'ajout d'un tiroir disque.
 +
@@ -123,17 +123,17 @@ Si des erreurs de câblage SAS ou d'ID de tiroir dupliqués sont générées, su
 Vous avez besoin d'un accès réseau pour télécharger Config Advisor.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://["Téléchargement NetApp : Config Advisor"]
 
 * Avant d'ajouter de nouveaux tiroirs disques, des composants d'unités remplaçables sur site pour les tiroirs ou des câbles SAS, il est recommandé d'installer les versions les plus récentes du firmware IOM (module d'E/S) pour le tiroir disque et du firmware pour le disque.
 +
 Ces firmwares sont disponibles sur le site du support NetApp.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+https://["Téléchargements NetApp : firmware des tiroirs disques"]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
+https://["Téléchargements NetApp : firmware de disque"]
 
 
 
@@ -451,7 +451,7 @@ Remplacez les câbles un par un et assurez-vous d'attendre au moins 70 secondes 
 
 . Téléchargez et exécutez Config Advisor pour vérifier que vos connexions SAS sont correctement câblées.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://["Téléchargement NetApp : Config Advisor"]
 
 +
 Si des erreurs de câblage SAS sont générées, suivez les actions correctives fournies.

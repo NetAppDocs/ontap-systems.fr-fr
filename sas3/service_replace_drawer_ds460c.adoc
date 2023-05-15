@@ -68,7 +68,7 @@ Avant de remplacer un tiroir disque, veillez à mettre à jour le firmware IOM12
 Ces firmwares sont disponibles sur le site du support NetApp.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+https://["Téléchargements NetApp : firmware des tiroirs disques"]
 
 . Si le tiroir contient l'agrégat racine d'un des contrôleurs de la paire HA, ou si vous choisissez d'arrêter la paire HA (au lieu de maintenir la paire HA en service), procédez comme suit ; dans le cas contraire, passez à l'étape suivante.
 +
@@ -551,9 +551,9 @@ image:../media/legend_icon_01.png[""]
 . Si vous aviez arrêté la paire haute disponibilité, démarrez ONTAP sur les deux contrôleurs ; sinon, passez à l'étape suivante.
 . Si vous avez déplacé des données hors du tiroir et supprimé les agrégats de données, vous pouvez désormais utiliser les disques de spare du shelf pour créer ou étendre un agrégat.
 +
-https://docs.netapp.com/us-en/ontap/disks-aggregates/aggregate-creation-workflow-concept.html["Flux de production de création d'agrégats"]
+https://["Flux de production de création d'agrégats"]
 
 +
-https://docs.netapp.com/us-en/ontap/disks-aggregates/aggregate-expansion-workflow-concept.html["Flux de travail d'extension d'agrégats"]
+https://["Flux de travail d'extension d'agrégats"]
 
 

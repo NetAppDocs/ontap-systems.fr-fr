@@ -48,7 +48,7 @@ La valeur de HA-State peut être l'une des suivantes :
 . Mettez les blocs d'alimentation sous tension en basculant le commutateur à bascule sur *ON*, et attendez que les contrôleurs s'allument complètement.
 . Vérifiez l'avant et l'arrière du châssis et des contrôleurs à la recherche de voyants de défaillance après la mise sous tension.
 . Connectez-vous à l'adresse IP du processeur de service ou du contrôleur BMC des nœuds via SSH. Cette adresse sera la même que celle utilisée pour arrêter les nœuds.
-. Effectuez d'autres vérifications de l'état de santé comme décrit dans https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["Comment_exécuter_une_vérification_de_l'intégrité_d'un_cluster_avec_un_script_dans_ONTAP"^]
+. Effectuez d'autres vérifications de l'état de santé comme décrit dans https://["Comment_exécuter_une_vérification_de_l'intégrité_d'un_cluster_avec_un_script_dans_ONTAP"^]
 . Réactivez AutoSupport (mettez fin au message de la fenêtre de maintenance) :
 `system node autosupport invoke -node * -type all -message MAINT=end`
 
@@ -58,9 +58,9 @@ La valeur de HA-State peut être l'une des suivantes :
 
 NOTE: En tant que pratique exemplaire, vous devez effectuer les actions suivantes :
 
-* Résoudre tout https://activeiq.netapp.com/["Alertes et risques liés au bien-être Active IQ"^] (Active IQ prendra du temps pour traiter les supports automatiques après la mise sous tension - attendez-vous à un retard dans les résultats)
-* Courez https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^]
-* Vérifiez l'état du système à l'aide de https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["Comment_exécuter_une_vérification_de_l'intégrité_d'un_cluster_avec_un_script_dans_ONTAP"^]
+* Résoudre tout https://["Alertes et risques liés au bien-être Active IQ"^] (Active IQ prendra du temps pour traiter les supports automatiques après la mise sous tension - attendez-vous à un retard dans les résultats)
+* Courez https://["Active IQ Config Advisor"^]
+* Vérifiez l'état du système à l'aide de https://["Comment_exécuter_une_vérification_de_l'intégrité_d'un_cluster_avec_un_script_dans_ONTAP"^]
 
 
 ====
@@ -184,4 +184,4 @@ Déterminer la cause du problème.
 
 == Étape 4 : renvoyer la pièce défaillante à NetApp
 
-Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://["Retour de pièce et amp ; remplacements"] pour plus d'informations.

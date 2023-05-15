@@ -77,7 +77,7 @@ Si des volumes sont répertoriés dans le résultat, NVE est configuré et vous 
 Si la commande échoue, contactez le support NetApp.
 
 +
-http://mysupport.netapp.com/["mysupport.netapp.com"]
+http://["mysupport.netapp.com"]
 
 .. Vérifiez que le `Restored` s'affiche `yes` affichage de toutes les clés d'authentification et de tous les gestionnaires de clés `available`: `security key-manager query`
 .. Arrêtez le contrôleur défaillant.
@@ -99,7 +99,7 @@ http://mysupport.netapp.com/["mysupport.netapp.com"]
 *** Exécutez l'assistant d'installation du gestionnaire de clés : `security key-manager setup -node target/impaired node name`
 +
 
-NOTE: Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. Si la phrase de passe ne peut pas être fournie, contactez http://mysupport.netapp.com/["mysupport.netapp.com"]
+NOTE: Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. Si la phrase de passe ne peut pas être fournie, contactez http://["mysupport.netapp.com"]
 
 *** Vérifiez que le `Restored` s'affiche `yes` pour toutes les clés d'authentification : `security key-manager key show -detail`
 *** Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
@@ -132,7 +132,7 @@ NOTE: Entrez la phrase secrète de gestion de clés intégrée du client à l'in
 Si la commande échoue, contactez le support NetApp.
 
 +
-http://mysupport.netapp.com/["mysupport.netapp.com"]
+http://["mysupport.netapp.com"]
 
 .. Vérifiez que le `Restored` s'affiche `yes` affichage de toutes les clés d'authentification et de tous les gestionnaires de clés `available`: `security key-manager query`
 .. Arrêtez le contrôleur défaillant.
@@ -154,7 +154,7 @@ http://mysupport.netapp.com/["mysupport.netapp.com"]
 *** Exécutez l'assistant d'installation du gestionnaire de clés : `security key-manager setup -node target/impaired node name`
 +
 
-NOTE: Entrez la phrase de passe OKM du client à l'invite. Si la phrase de passe ne peut pas être fournie, contactez http://mysupport.netapp.com/["mysupport.netapp.com"]
+NOTE: Entrez la phrase de passe OKM du client à l'invite. Si la phrase de passe ne peut pas être fournie, contactez http://["mysupport.netapp.com"]
 
 *** Vérifiez que le `Restored` affiche la colonne `yes` pour toutes les clés d'authentification : `security key-manager key show -detail`
 *** Accédez au mode de privilège avancé et entrez `y` lorsque vous êtes invité à continuer : `set -priv advanced`
@@ -224,7 +224,7 @@ NOTE: Après la version ONTAP 9.6, il est possible que vous ayez d'autres types 
 Si la commande échoue, contactez le support NetApp.
 
 +
-http://mysupport.netapp.com/["mysupport.netapp.com"^]
+http://["mysupport.netapp.com"^]
 
 .. Vérifiez que le `Restored` colonne égale à `yes` pour toutes les clés d'authentification : `security key-manager key query`
 .. Arrêtez le contrôleur défaillant.
@@ -235,7 +235,7 @@ http://mysupport.netapp.com/["mysupport.netapp.com"^]
 .. Entrez la commande de synchronisation du gestionnaire de clés de sécurité intégré : `security key-manager onboard sync`
 +
 
-NOTE: Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. Si cette phrase secrète ne peut pas être fournie, contactez le support NetApp. http://mysupport.netapp.com/["mysupport.netapp.com"^]
+NOTE: Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. Si cette phrase secrète ne peut pas être fournie, contactez le support NetApp. http://["mysupport.netapp.com"^]
 
 .. Vérifiez le `Restored` affiche la colonne `yes` pour toutes les clés d'authentification : `security key-manager key query`
 .. Vérifiez que le `Key Manager` s'affiche `onboard`, Puis sauvegardez manuellement les informations OKM.
@@ -280,7 +280,7 @@ NOTE: Après la version ONTAP 9.6, il est possible que vous ayez d'autres types 
 Si la commande échoue, contactez le support NetApp.
 
 +
-http://mysupport.netapp.com/["mysupport.netapp.com"^]
+http://["mysupport.netapp.com"^]
 
 .. Vérifiez que le `Restored` colonne égale à `yes` pour toutes les clés d'authentification : `security key-manager key query`
 .. Vous pouvez arrêter le contrôleur en toute sécurité.
@@ -293,7 +293,7 @@ http://mysupport.netapp.com/["mysupport.netapp.com"^]
 Entrez la phrase secrète de gestion de clés intégrée du client à l'invite. Si cette phrase secrète ne peut pas être fournie, contactez le support NetApp.
 
 +
-http://mysupport.netapp.com/["mysupport.netapp.com"^]
+http://["mysupport.netapp.com"^]
 
 .. Vérifiez le `Restored` affiche la colonne `yes` pour toutes les clés d'authentification : `security key-manager key query`
 .. Vérifiez que le `Key Manager` s'affiche `onboard`, Puis sauvegardez manuellement les informations OKM.

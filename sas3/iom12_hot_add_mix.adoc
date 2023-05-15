@@ -39,19 +39,19 @@ Si « Bridge-Attached » apparaît dans le champ prise en charge de la pile mixt
 
 ** Accédez à Hardware Universe et accédez aux informations de votre plateforme.
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 
 
 * Si vous ajoutez un tiroir à une configuration MetroCluster, la configuration doit répondre à toutes les exigences des guides d'installation et de configuration de MetroCluster.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/home.html["Guide d'installation et de configuration IP de MetroCluster"]
+http://["Guide d'installation et de configuration IP de MetroCluster"]
 
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-stretch/home.html["Guide d'installation et de configuration de ONTAP 9 MetroCluster extensible"]
+http://["Guide d'installation et de configuration de ONTAP 9 MetroCluster extensible"]
 
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["Guide d'installation et de configuration du MetroCluster ONTAP 9 (Fabric-Attached)"]
+http://["Guide d'installation et de configuration du MetroCluster ONTAP 9 (Fabric-Attached)"]
 
 * La pile des tiroirs IOM6, auquel vous ajoutez un tiroir IOM12 à chaud, doit être câblée avec des câbles en cuivre SAS (pour toutes les connexions tiroir à tiroir et contrôleur à pile).
 +
@@ -66,14 +66,14 @@ NOTE: Si la pile de tiroirs IOM6 est câblée avec des câbles optiques SAS, vou
 Vous ne pouvez pas avoir dépassé le nombre maximal de disques pris en charge par votre système après l'ajout de tiroirs IOM12/IOM12B à chaud.
 
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 * Votre système ne peut pas comporter de messages d'erreur de câblage SAS.
 +
 Vous devez corriger toute erreur de câblage à l'aide des actions correctives fournies par les messages d'erreur.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://["Téléchargement NetApp : Config Advisor"]
 
 * Vous devez avoir commandé et reçu les étagères IOM12/IOM12B, ainsi que le nombre et les types appropriés de câbles en cuivre SAS.
 +
@@ -105,16 +105,16 @@ Si quelque chose d'autre apparaît dans le champ support de pile mixte SAS2/SAS3
 
 ** Accédez à Hardware Universe et accédez aux informations de votre plateforme.
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 
 
 * La configuration doit répondre à toutes les exigences décrites dans les guides d'installation et de configuration de MetroCluster.
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/index.html["Installation et configuration d'une configuration Stretch MetroCluster"]
+https://["Installation et configuration d'une configuration Stretch MetroCluster"]
 
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Installation et configuration d'une configuration MetroCluster Fabric-Attached"]
+https://["Installation et configuration d'une configuration MetroCluster Fabric-Attached"]
 
 * La pile des tiroirs IOM6, auquel vous ajoutez à chaud un tiroir IOM12/IOM12B, doit être câblée avec des câbles en cuivre SAS (pour toutes les connexions tiroir à tiroir et contrôleur à pile).
 +
@@ -176,10 +176,10 @@ NOTE: Les mises à jour du micrologiciel peuvent prendre jusqu'à 30 minutes.
 
 * *Meilleure pratique :* la meilleure pratique consiste à installer sur votre système les versions les plus récentes du firmware du tiroir (module d'E/S) et du firmware du lecteur avant d'ajouter à chaud un tiroir.
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+https://["Téléchargements NetApp : firmware des tiroirs disques"]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
+https://["Téléchargements NetApp : firmware de disque"]
 
 
 
@@ -191,14 +191,14 @@ NOTE: Ne rétablissez pas le firmware en tant que version qui ne prend pas en ch
 Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser de nouveaux lecteurs qualifiés. Cela permet d'éviter que les messages d'événement du système ne soient pas à jour sur les disques et évite le partitionnement de disque car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Téléchargements NetApp : pack de qualification des disques"^]
+https://["Téléchargements NetApp : pack de qualification des disques"^]
 
 * *Meilleure pratique :* la meilleure pratique consiste à exécuter Active IQ Config Advisor avant et après l'ajout à chaud d'une étagère.
 +
 Une fois le Active IQ Config Advisor exécuté avant l'ajout à chaud d'un tiroir fournit un snapshot de la connectivité SAS existante, il vérifie les versions du firmware des tiroirs (IOM) et vous permet de vérifier qu'un ID de tiroir est déjà utilisé sur votre système. Une fois Active IQ Config Advisor le tiroir ajouté à chaud, vous pouvez vérifier que les tiroirs sont correctement câblés et que leurs identifiants sont uniques au sein de votre système.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://["Téléchargement NetApp : Config Advisor"]
 
 * * Meilleure pratique:* la meilleure pratique est d'avoir ACP en bande (IBACP) en fonctionnement sur votre système.
 +
@@ -209,7 +209,7 @@ Vous devez migrer vers IBACP et supprimer le câblage ACP hors bande.
 
 ** Si votre système n'exécute pas IBACP et que votre système répond aux exigences d'IBACP, vous pouvez migrer votre système vers IBACP avant d'ajouter à chaud un tiroir IOM12.
 +
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/In-Band_ACP_Setup_and_Support["Instructions pour migrer vers IBACP"]
+https://["Instructions pour migrer vers IBACP"]
 
 +
 
@@ -369,7 +369,7 @@ Si vous disposez d'un modèle de plateforme avec stockage intégré, il est néc
 
 . Si nécessaire, vérifiez les ID de tiroir déjà utilisés en exécutant Active IQ Config Advisor.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://["Téléchargement NetApp : Config Advisor"]
 
 +
 Vous pouvez également exécuter le `storage shelf show -fields shelf-id` Commande pour afficher la liste des ID de tiroir déjà utilisés (et les doublons si présents) dans votre système.
@@ -626,7 +626,7 @@ Sinon, passez à l'étape 4.
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://["Téléchargement NetApp : Config Advisor"]
 
 . Si vous avez désactivé l'affectation automatique de disques dans le cadre de la préparation de cette procédure, vous devez attribuer manuellement la propriété du disque, puis réactiver l'affectation automatique de disques, si nécessaire.
 +

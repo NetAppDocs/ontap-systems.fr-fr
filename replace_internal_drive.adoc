@@ -16,8 +16,8 @@ Vous devez remplacer un module DIMM dans le module de contrôleur lorsque votre 
 .Avant de commencer
 * Il est recommandé d'installer la version la plus récente du Disk qualification Package (DQP) avant de remplacer un disque à chaud.
 * Identifiez le disque défectueux en exécutant le `storage disk show -broken` commande depuis la console du système. Le lecteur défectueux apparaît dans la liste des disques défectueux. Si ce n'est pas le cas, attendez, puis exécutez de nouveau la commande.
-* La manière dont vous remplacez à chaud le disque dépend de la façon dont le lecteur est utilisé. Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]. Ces instructions décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
-* Le lecteur de remplacement doit être pris en charge par votre plate-forme. Voir la https://hwu.netapp.com["NetApp Hardware Universe"].
+* La manière dont vous remplacez à chaud le disque dépend de la façon dont le lecteur est utilisé. Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans https://["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]. Ces instructions décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
+* Le lecteur de remplacement doit être pris en charge par votre plate-forme. Voir la https://["NetApp Hardware Universe"].
 * Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
 
 
