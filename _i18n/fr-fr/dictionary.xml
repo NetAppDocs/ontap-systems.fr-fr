@@ -3745,7 +3745,6 @@
   <block id="ca305e69a315b30dad8d789c197489f9" category="doc">Arrêtez le contrôleur - AFF C190</block>
   <block id="4ee2fc05d2faa1f333113817a90809f4" category="summary">Cette section fournit des instructions détaillées concernant l'installation d'un système AFF C190.</block>
   <block id="25cf65ddd80144b70d3dac5fc3efd292" category="doc">Étapes détaillées - AFF C190</block>
-  <block id="537180ccf440446ad8816ed356c6cee9" category="paragraph">Pour installer votre système AFF C190, vous devez créer un compte et enregistrer le système. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.</block>
   <block id="7d8007fcad12dc860aaddff5b27fe8d6" category="paragraph">Câble 10 GbE (en fonction de la commande)</block>
   <block id="a3393a78d1cddac132a3d1bbb09cf0b3" category="paragraph">X6566B-05-R6 (112-00297), 0,5 m</block>
   <block id="099e9575efd9dec07cc74564bbb3e3b2" category="paragraph">X6566B-2-R6 (112-00299), 2 m</block>
@@ -3758,34 +3757,21 @@
   <block id="490cb76fd3c75ff8166e251d789f799e" category="paragraph">Réseau d'hôte et de gestion Ethernet</block>
   <block id="c0e4edaf8676378054faf4095793fc9a" category="image-alt">attention de poids du drw oie fas2700</block>
   <block id="78b39d88cb979ddb300a4cf2c6cdb1be" category="image-alt">installation du ARM de gestion des câbles drw</block>
-  <block id="bb4dc882830ed15ff271077443be872e" category="section-title">Option 1 : câler un cluster sans commutateur à 2 nœuds, configuration unifiée</block>
-  <block id="b2566b1f021e42ed3c97e4c8d5548f0d" category="paragraph">Les ports UTA2 et les ports de gestion situés sur les modules de contrôleur sont connectés aux switchs. Les ports d'interconnexion de cluster sont câblés sur les deux modules de contrôleur.</block>
   <block id="fcca883f68c4e92b98d0f294614cda60" category="admonition">Si vous vous connectez à un commutateur optique, insérez le SFP dans le port du contrôleur avant de procéder au câblage vers le port.</block>
-  <block id="099a72df2bea2f81469ee9e97fc608df" category="list-text">Utilisez l'illustration ou les instructions détaillées pour réaliser le câblage entre les contrôleurs et les commutateurs :</block>
   <block id="73da34bccb5db786798534ea5b6eb1d6" category="image-alt">image gif animée câblage réseau unifié tnsc de l'analyseur drw c190</block>
   <block id="29232642e257cc5bf9288d51db5b38a1" category="paragraph">Reliez les ports d'interconnexion de cluster entre eux grâce au câble d'interconnexion de cluster :</block>
   <block id="e264767a0a11b7a11be0a5345921827e" category="list-text">e0b à e0b<block ref="9a0e89c71564aa69ffecf67eb610bc96" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6ed1027d1da4974a15118c7e8afd7bd8" category="paragraph">Utilisez l'un des types de câbles suivants pour raccorder les ports de données e0c/0C et e0d/0d *ou* e0e/0e et e0f/0f à votre réseau hôte :</block>
   <block id="519c55b1abbe70db981fa64fb386a258" category="paragraph"><block ref="519c55b1abbe70db981fa64fb386a258" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c0a9eb11c9962c2eb967f53a4845bf1a" category="paragraph">Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 :</block>
   <block id="f2333c38a5002ab3a3ce6f24b2d22d95" category="paragraph"><block ref="f2333c38a5002ab3a3ce6f24b2d22d95" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c173bd77464f3b04c0d7c6e0a540f514" category="section-title">Option 2 : cluster avec switch par câble, configuration unifiée</block>
-  <block id="0e8ca1ea3d276eefedced94f4d995872" category="paragraph">Les ports UTA2 et les ports de gestion situés sur les modules de contrôleur sont connectés aux switchs. Les ports d'interconnexion de cluster sont câblés aux commutateurs d'interconnexion de cluster.</block>
-  <block id="5142e76828492b8472d310125f7bdc52" category="list-text">Utilisez l'illustration ou les instructions détaillées pour réaliser le câblage entre les contrôleurs et les commutateurs :</block>
   <block id="d7d7ce9a70c375da7dd9edb7b21a9134" category="image-alt">image gif animée câblage réseau unifié commuté drw c190</block>
   <block id="81b22135a51aae23b34a49fb4dc95ad2" category="paragraph">Connectez les câbles e0a et e0b aux commutateurs d'interconnexion des clusters avec le câble d'interconnexion des clusters :</block>
   <block id="cdb6f4b16ce28508dd90ea2ebac10c11" category="paragraph"><block ref="cdb6f4b16ce28508dd90ea2ebac10c11" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="61f1c61b5feaeb89fc7d9cba126122c7" category="section-title">Option 3 : câconnectez un cluster à deux nœuds sans commutateur, configuration Ethernet</block>
-  <block id="7964bdbe798b1e42df1039eee0ed4b7f" category="paragraph">Les ports RJ45 et les ports de gestion situés sur les modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux modules de contrôleur.</block>
   <block id="0df32eef6f99f6d05877f5da86a45063" category="image-alt">image gif animée câblage réseau ethernet tnsc du modèle c190</block>
-  <block id="b96881a043916feb6b04e9d9d0e20a7f" category="paragraph">Reliez les ports d'interconnexion de cluster entre eux au moyen du câble d'interconnexion de cluster <block ref="6b6a40b68f5814cad1750bfff7e3b927" category="inline-image-macro-rx" type="image"></block>:</block>
   <block id="fb201d3291ef220a70a2ca2508729abe" category="list-text">e0b à e0b<block ref="89b350cdba7fe4fe6fc5044b1844ae20" category="inline-image-macro-rx" type="image"></block></block>
   <block id="836e597d16643401627d14a351ba6a9c" category="paragraph">Utilisez le câble RJ45 Cat 6 pour raccorder les ports e0c à e0f à votre réseau hôte :</block>
   <block id="97fa7018860cc17c4006609d9662603b" category="paragraph"><block ref="97fa7018860cc17c4006609d9662603b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f4d46ae73f467f92c060779d91e706f5" category="paragraph">Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 <block ref="af9561bb1d24f4c26f5879aaf09a1c65" category="inline-image-macro-rx" type="image"></block>.</block>
   <block id="98fba69d64d87a6163f05e51141bb98d" category="paragraph"><block ref="98fba69d64d87a6163f05e51141bb98d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0a9b2befdc7da9bfc8df73a2b240fae8" category="section-title">Option 4 : câble d'un cluster commuté, configuration Ethernet</block>
-  <block id="165f152c925d401aec3bdff9aed4cf96" category="paragraph">Les ports RJ45 et les ports de gestion situés sur les modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés aux commutateurs d'interconnexion de cluster.</block>
   <block id="ac3d560a40b4d6d28fac097677ecaa8d" category="image-alt">animation du câblage réseau ethernet commuté drw c190</block>
   <block id="3c6b5500a384efa581b62d9c5f18e0b2" category="paragraph"><block ref="3c6b5500a384efa581b62d9c5f18e0b2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="347e1a8985d85eefdfec9853c8769148" category="image-alt">drw allumez les interrupteurs d'alimentation des blocs d'alimentation</block>
@@ -3798,7 +3784,6 @@
   <block id="3125087114c2490b7c6800800a39a990" category="summary">Cette section fournit des instructions graphiques pour une installation type de votre système, du rack au câblage, jusqu'à l'introduction initiale du système.</block>
   <block id="8a20c268704bf24640a88346ca257e3e" category="doc">Pas à pas de rapidité - AFF C190</block>
   <block id="0acd1668055811ba455a173f5b2007e1" category="inline-link-macro">Instructions d'installation et de configuration de la baie AFF C190</block>
-  <block id="78986e3198e620c9a4397bd93b083e68" category="paragraph">Cette section fournit des instructions graphiques pour une installation type de votre système, du rack au câblage, jusqu'à l'introduction initiale du système. Utilisez le <block ref="3eed3afb9edbfbab44cea22e18033b51" category="inline-link-macro-rx"></block> Si vous connaissez déjà l'installation des systèmes NetApp,</block>
   <block id="48cb3ada49a99389f0b8a03abf466ec8" category="summary">Vous devez vérifier l'état HA du châssis et exécuter des diagnostics au niveau du système.</block>
   <block id="82df4d187ca1c57ddc3d281ba59fc12f" category="doc">Restaurez et vérifiez la configuration - AFF C190</block>
   <block id="a9c0a6c57639677722b2d4d4893acd60" category="section-title">Étape 1 : vérification et paramétrage de l'état HA du châssis</block>
@@ -4507,7 +4492,6 @@
   <block id="34618f776812de6f5f59a70ca2c17728" category="doc">Remplacement d'un module DIMM - AFF A200</block>
   <block id="dd33af940cfd986282d97dc9269783a9" category="summary">Le remplacement d'un bloc d'alimentation consiste à déconnecter le bloc d'alimentation cible \(PSU\) de la source d'alimentation, à débrancher le câble d'alimentation, à retirer l'ancien bloc d'alimentation et à installer le bloc d'alimentation de remplacement, puis à le reconnecter à la source d'alimentation.</block>
   <block id="b122a7303b98280f8acc1bef20b1890d" category="doc">Remplacement d'une alimentation - AFF A250</block>
-  <block id="7f078b87c94f86a68825895095430993" category="paragraph">Utilisez la vidéo suivante ou les étapes tabulées pour remplacer le bloc d'alimentation :</block>
   <block id="a73367a24d737b005906f745ac5c73c2" category="doc">Remplacement du matériel - AFF A250</block>
   <block id="586424cb167133a0adfaf4650a20127e" category="paragraph">Utilisez la vidéo suivante ou les étapes tabulées pour remplacer le châssis ; elle suppose le retrait et le remplacement du cadre :</block>
   <block id="b0a5349e52bfc1b486c0f4bb7f8c6b18" category="doc">Arrêter les contrôleurs - AFF A250</block>
@@ -7258,7 +7242,6 @@
   <block id="49c230c702ed6b30a6efde8eba87e563" category="doc">Renvoyez la pièce défectueuse à NetApp - AFF A150</block>
   <block id="3dfa4c8dc7083d8d9bf2fb1fc402660a" category="doc">Guide rapide - AFF A150</block>
   <block id="6e0311a42e114c05c9779f6c830f1d97" category="inline-link-macro">Instructions d'installation et de configuration du système AFF A150</block>
-  <block id="2e869cac122e3063f7b418f03cb3fa26" category="paragraph"><block ref="2e869cac122e3063f7b418f03cb3fa26" category="inline-link-macro-rx"></block></block>
   <block id="b80ee1e7ed290f304dbaae444297a4fa" category="doc">AFF A150 permet de restaurer OKM, NSE et NVE en fonction des besoins</block>
   <block id="e822ef8c7b4b17d3230b125760d56e76" category="doc">Restaurez et vérifiez la configuration du système - AFF A150</block>
   <block id="178a6a7a54abe615089fef92a8499c05" category="doc">Démarrez l'image de récupération - AFF A150</block>
@@ -7272,13 +7255,7 @@
   <block id="9b6f6ecb6633d22a67cc6a982fc55841" category="paragraph">Si vous disposez d'une configuration MetroCluster, utilisez le contenu d'installation de MetroCluster.</block>
   <block id="7f4d4fbe08a8a895671d05c4a82b0c85" category="inline-link">Documentation MetroCluster</block>
   <block id="c56326d51fd75802f2144766bd1e36d3" category="paragraph"><block ref="c56326d51fd75802f2144766bd1e36d3" category="inline-link-rx"></block></block>
-  <block id="11f6227d0571f4bf3fac6b6d821a60d1" category="paragraph">Pour installer votre système AFF A150, vous devez créer un compte sur le site de support NetApp, enregistrer votre système et obtenir des clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.</block>
-  <block id="dd1dcd1cd7a28bbfc3b5a581b055bce3" category="inline-link-macro">Câblage des contrôleurs aux tiroirs disques</block>
-  <block id="6c9cda13d9d7d9f8f82d912175e78d9b" category="list-text">Pour câbler votre espace de stockage, reportez-vous à la section <block ref="42bf816180738dc1660363ee044d9786" category="inline-link-macro-rx"></block></block>
   <block id="ee44682d06dd8612d09f370d6f80069a" category="image-alt">drw a150 HA de câblage de stockage IEOPS 1032</block>
-  <block id="a1770e5cf644990212f313f91eccb2d8" category="paragraph"><block ref="a1770e5cf644990212f313f91eccb2d8" category="inline-link-macro-rx"></block></block>
-  <block id="4402c8b8d6c489ed5617a151ffa90726" category="inline-link-macro">Finalisation de l'installation et de la configuration du système</block>
-  <block id="41e876cad607f9363190645026f4f818" category="list-text">Pour terminer la configuration de votre système, reportez-vous à la section <block ref="cf51f79f23f70e62c97013df347c6a0f" category="inline-link-macro-rx"></block></block>
   <block id="ab65dd4e976f1787737fc87ae65b8a6d" category="paragraph"><block ref="ab65dd4e976f1787737fc87ae65b8a6d" category="inline-link-rx"></block></block>
   <block id="c2df61cd54941946b9e1d41669228517" category="paragraph"><block ref="c2df61cd54941946b9e1d41669228517" category="inline-link-rx"></block></block>
   <block id="a7d0c7f24713f4f2e4432bb2b91f97d0" category="paragraph"><block ref="a7d0c7f24713f4f2e4432bb2b91f97d0" category="inline-link-rx"></block></block>
@@ -7355,7 +7332,6 @@
   <block id="4d8adba62be8512e84ae7825848692e9" category="doc">Renvoyez la pièce défectueuse à NetApp - AFF C400</block>
   <block id="28dd2419d5232cd5e390f590d7d76b55" category="doc">Guide rapide - AFF C400</block>
   <block id="bef061f2ba2a880a4d71960c6fb14a8f" category="inline-link-macro">Instructions d'installation et de configuration du AFF C400</block>
-  <block id="1fb877c7c5a192a0f8712065429afd55" category="paragraph"><block ref="1fb877c7c5a192a0f8712065429afd55" category="inline-link-macro-rx"></block></block>
   <block id="dde11f85a430c37e085e56c530fa6482" category="doc">AFF C400 permet de restaurer OKM, NSE et NVE en fonction des besoins</block>
   <block id="a637f1b4c2a1d9b5cb9f0347c7e77539" category="doc">Restaurez et vérifiez la configuration du système - AFF C400</block>
   <block id="b1c4aeeae550bfbe7c6574898398d781" category="doc">Remplacez la batterie NVDIMM - AFF C400</block>
@@ -7499,13 +7475,8 @@
   <block id="f0167637a350c4dd2e81ce6e691cd9db" category="list-text">Faites pivoter la poignée vers le bas pour qu'elle ne fonctionne pas normalement.</block>
   <block id="f66f18cf0f377b83882ade5b0618dbe0" category="open-title">Option 2 : remplacez une alimentation CC</block>
   <block id="75a2f242d94a472d387a461ee767e00c" category="paragraph">Pour remplacer un bloc d'alimentation CC, procédez comme suit.</block>
-  <block id="de5c94ee80b23390308831ba0a74d44b" category="paragraph">L'illustration et le tableau de l'étape suivante montrent les deux vis à serrage à main (élément n° 1) et le connecteur du câble d'alimentation CC D-SUB (élément n° 2).</block>
-  <block id="75b8b67557750f13b0b08808f90f76e3" category="list-text">Dévisser les deux vis à serrage à main sur le connecteur du câble d'alimentation.</block>
-  <block id="37a0782c59ce799b3f0ac9f1fd300d95" category="list-text">Débranchez le connecteur du câble d'alimentation du bloc d'alimentation et mettez-le de côté.</block>
   <block id="dd59df5055ae64422d06dada9ff46511" category="admonition">L'alimentation est en court-circuit. Utilisez toujours deux mains pour le soutenir lors de son retrait du module NSM afin qu'il ne se libère pas du module NSM et ne vous blesse pas.</block>
   <block id="6e496e45275d9692038e8f0693a1ec58" category="paragraph">Une alimentation électrique doit s'engager correctement avec le connecteur interne et le mécanisme de verrouillage. Répétez cette étape si vous pensez que le bloc d'alimentation n'est pas correctement installé.</block>
-  <block id="de1e769c433d3a929aaa6f6ee4b43fe2" category="list-text">Branchez le connecteur du câble d'alimentation sur le bloc d'alimentation.</block>
-  <block id="a637e5d063c7b8dd7bfddc7608e9573e" category="list-text">Serrez les deux vis moletées pour fixer le connecteur du câble d'alimentation à l'alimentation.</block>
   <block id="89f1a7f8afce2b821a07ad90fa45719c" category="list-text">Vous pouvez utiliser l'animation suivante ou les étapes écrites pour remplacer un ventilateur.</block>
   <block id="3b3c879ba506df7489cfabd2dcff0ce2" category="list-text">Déconnectez les cordons d'alimentation des blocs d'alimentation en ouvrant le dispositif de fixation du cordon d'alimentation s'il s'agit d'une alimentation CA, ou en dévissant les deux vis à serrage manuel s'il s'agit d'une alimentation CC, puis débranchez les cordons d'alimentation des blocs d'alimentation.</block>
   <block id="2618c98d909106f2012ce83478a61e98" category="list-text">Vous pouvez utiliser l'animation suivante ou les étapes écrites pour remplacer un module NSM.</block>
@@ -7871,4 +7842,108 @@
   <block id="30975d9ae55d85636f78d9b3e459df73" category="sidebar">Description de la solution ASA</block>
   <block id="6c713e33f81bfdf294d75a585966fd05" category="sidebar">Rapport technique ASA</block>
   <block id="b47e2ddbcc7bf8a413f11a740b83ad50" category="sidebar">Fiche technique du système FAS</block>
+  <block id="163a2ccd4200819af22c143525c2903e" category="list-text">Dévisser les deux vis à serrage à main sur le connecteur du câble d'alimentation CC D-SUB.</block>
+  <block id="d88c630155642b1c688f5784be9a1acf" category="paragraph">L'illustration et le tableau de l'étape 4 montrent les deux vis à serrage à main (élément n° 1) et le connecteur du câble d'alimentation CC D-SUB (élément n° 2).</block>
+  <block id="3d95f3470ed102d015e07a1fbb7f7608" category="list-text">Débranchez le connecteur du câble d'alimentation CC D-SUB de l'alimentation et mettez-le de côté.</block>
+  <block id="d28bc8f0e10f780bf01d0983424f02e4" category="list-text">Branchez le connecteur du câble d'alimentation CC D-SUB sur le bloc d'alimentation.</block>
+  <block id="538209f1ec1db21a865711f12301a29e" category="list-text">Serrez les deux vis moletées pour fixer le connecteur du câble d'alimentation CC D-SUB à l'alimentation.</block>
+  <block id="29e74344b0f8f3bb2a741f7b4a504193" category="list-text">Les blocs d'alimentation sont redondants et remplaçables à chaud.</block>
+  <block id="1510e50dd45e2c76b8244bd6a5fc56ab" category="list-text">Les unités d'alimentation sont à sélection automatique.</block>
+  <block id="408c129c35367a646082d00e22485944" category="paragraph">Utilisez la vidéo ou les étapes suivantes pour remplacer le bloc d'alimentation :</block>
+  <block id="96ebd81c649ce61228798b69731b39cc" category="list-text">Faites pivoter la poignée de came de sorte qu'elle puisse être utilisée pour extraire le bloc d'alimentation du module de contrôleur tout en appuyant sur la languette de verrouillage.</block>
+  <block id="041817816aadc0ac389510f06856eb73" category="list-text">Avec les deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module de contrôleur, puis poussez doucement le bloc d'alimentation dans le module de contrôleur jusqu'à ce que la languette de verrouillage s'enclenche.</block>
+  <block id="ecc8536d184ca3a7e451181d0f568d41" category="paragraph">Les blocs d'alimentation ne s'engagent correctement qu'avec le connecteur interne et se verrouillent en place dans un sens.</block>
+  <block id="7d710ae6fae5f82131f5e646788f27a1" category="list-text">Débranchez le connecteur du câble d'alimentation CC D-SUB du bloc d'alimentation et mettez-le de côté.</block>
+  <block id="26cc3f70141c5f4b4f5a7a7c52321240" category="list-text">Retirez le bloc d'alimentation :</block>
+  <block id="25b0a4705669fa58bd671a04b5e34a7f" category="list-text">Retirez le bloc d'alimentation du module de contrôleur tout en prenant votre main pour soutenir son poids.</block>
+  <block id="0d8f690f8863cf6dd078f46fd151cce4" category="admonition">Le bloc d'alimentation est court-circuité. Utilisez toujours deux mains pour le soutenir lors de son retrait du module de contrôleur afin qu'il ne se libère pas du module de contrôleur et ne vous blesse pas.</block>
+  <block id="8e7311e4f3b2e71464aaa1fa66388a4b" category="paragraph">Poignée du bloc d'alimentation</block>
+  <block id="6aaf2adda7ea3fae24f9570eb951048f" category="list-text">Installez le bloc d'alimentation de remplacement :</block>
+  <block id="b323fb6f842e16e2eb1c10951fffbf3e" category="list-text">Poussez doucement le bloc d'alimentation dans le module de contrôleur jusqu'à ce que le mécanisme de verrouillage s'enclenche.</block>
+  <block id="b5ecda37046d685b93693e01ecb6e6fe" category="paragraph">Un bloc d'alimentation doit s'engager correctement avec le connecteur interne et le mécanisme de verrouillage. Répétez cette étape si vous pensez que le bloc d'alimentation n'est pas correctement installé.</block>
+  <block id="049ea4245daefe1c9ce73d6a75dfbab1" category="list-text">Branchez le connecteur du câble d'alimentation CC D-SUB dans le bloc d'alimentation.</block>
+  <block id="71c2f9602a7f71f9eab2a859d2e0f4ae" category="list-text">Serrez les deux vis à oreilles pour fixer le connecteur du câble d'alimentation CC D-SUB au bloc d'alimentation.</block>
+  <block id="05a183c8bc1fc9522f554a0dcc45645f" category="paragraph">Installez les contrôleurs AFF/FAS sur le rack ou l'armoire. Accédez aux instructions d'installation et de configuration de votre modèle de plateforme AFF/FAS. Pour tous les systèmes de baies SAN (ASA), suivez les instructions d'installation du modèle AFF A-Series correspondant.</block>
+  <block id="7877fbd25ecba999ab0a739fe29df547" category="paragraph">**Systèmes AFF De la série A**</block>
+  <block id="999865050c05a9851fa1100ea708f735" category="paragraph">**Systèmes AFF série C**</block>
+  <block id="fb4b827f429720ceefe590267f9978cf" category="paragraph">**Systèmes FAS**</block>
+  <block id="6eeacbfb54f0dd2b69ca25ccf7e621e3" category="paragraph">**Commutateurs de cluster**</block>
+  <block id="05d287d05ed5025354b8f6c796c87491" category="paragraph">**Commutateurs de stockage**</block>
+  <block id="aca0ddc3769e84e478caff604ad14594" category="paragraph">**Commutateurs partagés**</block>
+  <block id="4f4f401ca3cb71c1eacaf052eac321fb" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Connectez les commutateurs aux contrôleurs</block>
+  <block id="93a86d433d6f98e9a80d74b972237ee6" category="paragraph">**Systèmes AFF**</block>
+  <block id="1688757a0e4a29ec41d21e63fcc98a90" category="paragraph">Pour installer votre système AFF C190, créez un compte et enregistrez-le. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.</block>
+  <block id="39bbc5176cba797f24070d78f90d0d5a" category="list-text">Assurez-vous d'avoir accès à <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> (HWU) pour obtenir des informations sur les conditions requises par le site ainsi que des informations supplémentaires sur votre système configuré.</block>
+  <block id="5dd03e8d039863e563e049be198c3fd3" category="inline-link-macro">Notes de version</block>
+  <block id="09e00942626b9d2b5187768ea624369a" category="list-text">Assurez-vous d'avoir accès au <block ref="9d7659179eb5b5c244263cabf30336a7" category="inline-link-macro-rx"></block> Pour votre version de ONTAP pour plus d'informations sur ce système.</block>
+  <block id="841cf46b69a4b2c782c980b795074554" category="list-text">Assurez-vous d'avoir les éléments suivants sur votre site :</block>
+  <block id="85220111cf8764a6d5eefe427de4fbde" category="paragraph">Installez le système dans un rack à 4 montants ou une armoire système NetApp, le cas échéant.</block>
+  <block id="1ccb5aa93b58b2e0cbfd6015e33c6a90" category="paragraph">Reliez les contrôleurs au réseau à l'aide de la méthode cluster sans commutateur à deux nœuds ou de la méthode réseau d'interconnexion de cluster.</block>
+  <block id="22cf31ea4e88d1269c525c08a9c8fdff" category="paragraph">Les ports UTA2, le réseau de données Ethernet et les ports de gestion des modules de contrôleur sont connectés aux switchs. Les ports d'interconnexion de cluster sont câblés sur les deux modules de contrôleur.</block>
+  <block id="434c44657e12928e06a65124dfb073b0" category="paragraph">Découvrez comment câbler un cluster à 2 nœuds sans commutateur.</block>
+  <block id="f7284f28e338cb3e10e42e8214151229" category="paragraph">Vous pouvez utiliser les ports de réseau de données UTA2 ou les ports de réseau de données ethernet pour connecter les contrôleurs à votre réseau hôte. Reportez-vous aux illustrations de câblage suivantes lors du câblage entre les contrôleurs et les commutateurs.</block>
+  <block id="48114454330840b73674b4d456819a4e" category="list-text">Configurations réseau de données UTA2</block>
+  <block id="e6746873d55c9a028bc3eae1ed6cd0db" category="list-text">Configurations réseau Ethernet</block>
+  <block id="f9655777cbdbded95ebaf4fdc1ed1c83" category="paragraph">Effectuez les étapes suivantes sur chaque module de contrôleur.</block>
+  <block id="4b7d254b4cff665eba8f89aeb96e16cb" category="list-text">Reliez les ports d'interconnexion de cluster e0a à e0a et e0b à e0b à l'aide du câble d'interconnexion de cluster. +<block ref="9a0e89c71564aa69ffecf67eb610bc96" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="365d382b2d9ecca9b0d40171c69b38ff" category="list-text">Effectuez l'une des opérations suivantes :</block>
+  <block id="54254076225178d5782bc5158de2ffd3" category="list-text">Utilisez l'un des types de câble suivants pour relier les ports de données e0c/0C et e0d/0d ou e0e/0e et e0f/0f au réseau hôte.</block>
+  <block id="43083753a8bd4d126f4e9d226b24d42f" category="list-text">Utilisez le câble RJ45 de catégorie 6 pour relier le e0c aux ports e0f du réseau hôte. dans l'illustration suivante.</block>
+  <block id="5cb31a934f99a854350d21ffae22067d" category="paragraph">Apprenez à câbler un cluster commuté.</block>
+  <block id="3c82d1b8b75fddcd5945e9505cb93e2a" category="list-text">Configurations réseau unifiées</block>
+  <block id="98632dc1c45ca0b18d4707328081c4e1" category="list-text">Reliez les câbles e0a et e0b aux commutateurs d'interconnexion de cluster à l'aide du câble d'interconnexion de cluster.</block>
+  <block id="119bf83fa4465fb53f4c1cb409fbd677" category="list-text">Utilisez le câble RJ45 de catégorie 6 pour relier le e0c aux ports e0f du réseau hôte.</block>
+  <block id="94ba17d1769cd415862a18057c1938b2" category="section-title">Étape 4 : terminez la configuration du système</block>
+  <block id="0b6ed16c1f9d9e2458c0f6738eb93288" category="paragraph">Apprenez à terminer la configuration du système si la détection réseau est activée sur votre ordinateur portable.</block>
+  <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="inline-link-macro">Documentation ONTAP</block>
+  <block id="fd69b335d8c511a8e881204822f8b6ef" category="list-text">Une fois la configuration initiale terminée, passez à la <block ref="a3e81585099d58285005c3431d208fd9" category="inline-link-macro-rx"></block> Pour plus d'informations sur la configuration de fonctions supplémentaires dans ONTAP.</block>
+  <block id="b06876b5a3b23ef5cff05f5d0950ec0d" category="paragraph">Apprenez à terminer la configuration du système si la détection réseau n'est pas activée sur votre ordinateur portable.</block>
+  <block id="a76d705a87cd7b7a1bea352a13c6cd65" category="inline-link-macro">ONTAP &amp;amp;argumentation</block>
+  <block id="0c629d7be969a0c3ffa913473ff37b4b" category="list-text">Une fois la configuration initiale terminée, passez à la <block ref="be5377ebec3eac0b9e77b9246477ddd0" category="inline-link-macro-rx"></block> Pour plus d'informations sur la configuration de fonctions supplémentaires dans ONTAP.</block>
+  <block id="02b3fd979029ff021f281b78fa7ccd20" category="paragraph">Découvrez comment installer votre système C190 depuis les racks et le câblage jusqu'à la mise en place initiale du système. Utilisez le <block ref="3eed3afb9edbfbab44cea22e18033b51" category="inline-link-macro-rx"></block> Si vous connaissez déjà l'installation des systèmes NetApp,</block>
+  <block id="1d4ac53db25f608efca8dafa3f3d6b43" category="paragraph">Utilisez les vidéos suivantes pour apprendre à installer et à connecter les câbles du système et à effectuer la configuration initiale du système.</block>
+  <block id="95a15694e7d6d23376f741970900ef8e" category="list-text">Installation du matériel et câblage</block>
+  <block id="4657c74c0fa17e5f15e4a506f177b913" category="paragraph">La vidéo suivante montre comment installer et câbler votre système.</block>
+  <block id="d4b6f94dadb3f20b9bf031b9b9983ce3" category="list-text">Configuration logicielle de bout en bout</block>
+  <block id="314f8c912a6741218e22dc8ca5f7ee41" category="paragraph">Apprenez à installer votre système AFF A150.</block>
+  <block id="119be031ef4485d20c7683d291d0e9f6" category="inline-link">Documentation MetroCluster</block>
+  <block id="bfd53ea423739db497251aa14d8747cd" category="paragraph">Si vous disposez d'une configuration MetroCluster, utilisez<block ref="9b888d0bb3e87322cc68a0bb4a7ae515" category="inline-link-rx"></block>.</block>
+  <block id="f6387b34fb856500ccda4acb52336ff7" category="paragraph">Pour installer votre système AFF A150, créez un compte sur le site de support NetApp, enregistrez votre système et obtenez vos clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.</block>
+  <block id="5d0ff6a06bf967bf825de2c2a610cc33" category="list-text">Contactez votre administrateur réseau pour plus d'informations sur la connexion de votre système aux commutateurs.</block>
+  <block id="bcce32e97ae0002c4edc1cc8b9245285" category="inline-link">Enregistrez votre système</block>
+  <block id="1e074148aea327f834455c1f6ae99894" category="list-text"><block ref="2539e9179736696f68f1ba88f3812383" category="inline-link-rx"></block>.</block>
+  <block id="f9be17421d77a57baae245776004d9fc" category="inline-link">Config Advisor</block>
+  <block id="2e1859a63c8f237167580360c7882aca" category="list-text">Téléchargez et installez<block ref="56697f7f340a212f549439c89b0cabd2" category="inline-link-rx"></block> sur votre ordinateur portable.</block>
+  <block id="a025f9bb5b185f275f929e4e427c7a26" category="paragraph">Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la section<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block> pour localiser le câble et identifier son utilisation.</block>
+  <block id="e881b3bd9e158bdbe75952ecb742a95f" category="inline-link">Téléchargez et remplissez la fiche de configuration du cluster</block>
+  <block id="738f95af1a0163cf0e1c5931095ae65f" category="list-text"><block ref="d3aebb99b149a14152b68ab3bc13a233" category="inline-link-rx"></block>.</block>
+  <block id="767d56519e2665f49f35713c1a1be451" category="section-title">Étape 3 : connectez les contrôleurs au réseau</block>
+  <block id="32eaf8761a3db861b1156e2738e758c1" category="paragraph">Reliez les contrôleurs au réseau en utilisant la méthode cluster sans commutateur à 2 nœuds ou la méthode réseau d'interconnexion de cluster.</block>
+  <block id="3760d11ceaf4a0fe32d1665068e04673" category="paragraph">Le réseau de gestion, le réseau de données UTA2, le réseau de données Ethernet et les ports de gestion des contrôleurs sont connectés aux switchs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.</block>
+  <block id="6daf690bb435e2ddca90bbd25f4d0d4c" category="list-text">Utilisez l'un des types de câble suivants pour relier les ports de données UTA2 au réseau hôte.</block>
+  <block id="afb6c834a58331c6ea63436bbf5864c3" category="list-text">Pour un hôte FC, utilisez 0c et 0d *ou* 0e et 0f.</block>
+  <block id="0bd1e8e50111e01ba1604ade94902cca" category="list-text">Pour un système 10GbE, utiliser e0c et e0d *ou* e0e et e0f.</block>
+  <block id="1fc58e4765d0d92d238af8bdfc3ab370" category="list-text">Câblage réseau unifié</block>
+  <block id="b7f69837ac40254faa2741b926641a85" category="list-text">Câblage réseau Ethernet</block>
+  <block id="d121c2dd9af112004d29375d7d7385ba" category="list-text">Pour chaque module de contrôleur, reliez les câbles e0a et e0b aux commutateurs d'interconnexion de cluster à l'aide du câble d'interconnexion de cluster.</block>
+  <block id="32f4bb165c35f300da46d2891dcd4591" category="list-text">Pour un hôte FC, utilisez 0c et 0d **ou** 0e et 0f.</block>
+  <block id="94a602afccb4ec515036eba24fdfed92" category="list-text">Pour un système 10GbE, utiliser e0c et e0d **ou** e0e et e0f.</block>
+  <block id="711382b326731ba29a44a7ecd4dacb3e" category="paragraph">Reliez les contrôleurs à vos tiroirs à l'aide des ports de stockage intégrés. NetApp recommande le câblage MP-HA pour les systèmes avec stockage externe.</block>
+  <block id="0c8480de057f1244b5ab346faf4daf5d" category="paragraph">Si vous disposez d'un lecteur de bande SAS, vous pouvez utiliser le câblage à chemin unique. Si vous ne possédez pas de tiroirs externes, le câblage MP-HA vers les disques internes est facultatif (non illustré) si les câbles SAS sont commandés avec le système.</block>
+  <block id="3d8bab9b47da70efbcdca04a75fddf8e" category="list-text">Reliez la paire haute disponibilité à des tiroirs disques externes.</block>
+  <block id="f2f386197bbf8899460af5987fca456d" category="paragraph">L'exemple suivant montre le câblage pour les tiroirs disques DS224C. Le câblage est similaire aux autres tiroirs disques pris en charge.</block>
+  <block id="1d775c632fba61d3af79e48b275d4b7e" category="paragraph">Si vous disposez de plusieurs piles de tiroirs disques, reportez-vous à la section <block ref="a1770e5cf644990212f313f91eccb2d8" category="inline-link-macro-rx"></block> correspondant à votre type de tiroir disque.</block>
+  <block id="624bc3e7c8eadd32ac4d94ff03171ec7" category="section-title">Étape 5 : terminez la configuration du système</block>
+  <block id="60567d4e2a479c00e2c6513bd91d9cd1" category="list-text">Configurez le système à l'aide des données que vous avez collectées dans<block ref="492b1b89e16fbed782c0f28e34fb9371" category="inline-link-rx"></block>.</block>
+  <block id="23dc4039b6ba90f63944cca90e993ec5" category="inline-link">compte existant ou créer et compte</block>
+  <block id="21371189181c93bc505633f5bb1729ea" category="list-text">Connectez-vous à votre<block ref="87e6dd8e4f31a1e4060528f9a17ea003" category="inline-link-rx"></block>.</block>
+  <block id="0ba7583639a274c434bbe6ef797115a4" category="inline-link">S'inscrire</block>
+  <block id="d8f675889dd7611add24a5c35dbe0287" category="list-text"><block ref="dd5351a0b089c34796a2c16f455a15ef" category="inline-link-rx"></block> votre système.</block>
+  <block id="a70e700572fd5f3ed169ddc6b2f5473e" category="list-text">Télécharger<block ref="4dfdca8e27abd55d1321fd9c213c69c3" category="inline-link-rx"></block>.</block>
+  <block id="b0ebe1326fcf7880c70950de144bb8b2" category="list-text">Une fois la configuration initiale terminée, passez à la<block ref="85236f9c87441cb975667a870e3c5acc" category="inline-link-rx"></block> Pour plus d'informations sur la configuration de fonctions supplémentaires dans ONTAP.</block>
+  <block id="cdc4a8392b31dfb0d6f525f8b4bfb521" category="list-text">Connectez et configurez votre ordinateur portable ou votre console.</block>
+  <block id="f0e48b1c6152b408e3a17383284dfa34" category="paragraph">Consultez l'aide en ligne de votre ordinateur portable ou de votre console pour obtenir des instructions sur la configuration du port de console.</block>
+  <block id="6266bb335022aad7813f5a92f40c41bb" category="list-text">Configurez votre cluster à l'aide de System Manager sur votre ordinateur portable ou sur votre console.</block>
+  <block id="b1e0a8fb86dde21901d58064a47983ae" category="paragraph">Découvrez comment installer votre système, depuis les racks et le câblage, jusqu'à la présentation initiale du système. Utiliser <block ref="2e869cac122e3063f7b418f03cb3fa26" category="inline-link-macro-rx"></block> Si vous connaissez déjà l'installation des systèmes NetApp,</block>
+  <block id="78504a496ba3e0d8a682fe929b4d61d9" category="paragraph"><block ref="78504a496ba3e0d8a682fe929b4d61d9" category="inline-link-macro-rx"></block></block>
 </blocks>

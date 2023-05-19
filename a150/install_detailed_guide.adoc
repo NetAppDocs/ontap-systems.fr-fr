@@ -11,31 +11,29 @@ summary: 'Ce guide fournit des instructions détaillées vous permettant d"insta
 
 
 [role="lead"]
-Ce guide fournit des instructions détaillées vous permettant d'installer un système NetApp classique. Utilisez ce guide si vous souhaitez obtenir des instructions d'installation plus détaillées.
+Apprenez à installer votre système AFF A150.
 
-Si vous disposez d'une configuration MetroCluster, utilisez le contenu d'installation de MetroCluster.
-
-https://["Documentation MetroCluster"^]
+Si vous disposez d'une configuration MetroCluster, utilisez https://["Documentation MetroCluster"^].
 
 
 
 == Étape 1 : préparer l'installation
 
 [role="lead"]
-Pour installer votre système AFF A150, vous devez créer un compte sur le site de support NetApp, enregistrer votre système et obtenir des clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
+Pour installer votre système AFF A150, créez un compte sur le site de support NetApp, enregistrez votre système et obtenez vos clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
 
-Pour obtenir des informations sur les conditions requises par le site ainsi que des informations supplémentaires sur le système configuré, accédez au Hardware Universe. Pour plus d'informations sur ce système, vous pouvez également accéder aux notes de version de votre version de ONTAP.
+.Avant de commencer
+* Assurez-vous d'avoir accès à link:https://hwu.netapp.com["NetApp Hardware Universe"^] (HWU) pour obtenir des informations sur les conditions requises par le site ainsi que des informations supplémentaires sur votre système configuré.
+* Assurez-vous d'avoir accès au link:http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Notes de version"^] Pour votre version de ONTAP pour plus d'informations sur ce système.
+* Contactez votre administrateur réseau pour plus d'informations sur la connexion de votre système aux commutateurs.
+* Assurez-vous d'avoir les éléments suivants sur votre site :
++
+** Espace rack pour le système de stockage
+** Tournevis Phillips n°2
+** Câbles réseau supplémentaires pour connecter votre système à votre commutateur réseau et à votre ordinateur portable ou console avec un navigateur Web
+** Ordinateur portable ou console avec connexion RJ-45 et accès à un navigateur Web
 
-https://["NetApp Hardware Universe"^]
 
-http://["Retrouvez les notes de mise à jour de votre version de ONTAP 9"^]
-
-Vous devez fournir les informations suivantes sur votre site :
-
-* Espace rack pour le système de stockage
-* Tournevis Phillips n°2
-* Câbles réseau supplémentaires pour connecter votre système à votre commutateur réseau et à votre ordinateur portable ou console avec un navigateur Web
-* Ordinateur portable ou console avec connexion RJ-45 et accès à un navigateur Web
 
 
 .Étapes
@@ -47,22 +45,13 @@ image::../media/drw_ssn_label.png[etiquette drw ssn]
 . Configurez votre compte :
 +
 .. Connectez-vous à votre compte existant ou créez un compte.
-.. Enregistrez votre système.
-+
-https://["Enregistrement de produit NetApp"]
+.. https://["Enregistrez votre système"].
 
 
-
-. Téléchargez et installez Config Advisor sur votre ordinateur portable.
-+
-https://["Téléchargement NetApp : Config Advisor"]
-
+. Téléchargez et installez https://["Config Advisor"] sur votre ordinateur portable.
 . Faites un inventaire et notez le nombre et le type de câbles que vous avez reçus.
 +
-Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la Hardware Universe pour localiser le câble et identifier son utilisation.
-
-+
-https://["NetApp Hardware Universe"]
+Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la section https://["NetApp Hardware Universe"] pour localiser le câble et identifier son utilisation.
 
 +
 [cols="1,2,1,2"]
@@ -164,10 +153,7 @@ image:../media/oie_cable_power.png[""]
 Mise sous tension du système
 
 |===
-. Téléchargez et remplissez la fiche de configuration _Cluster_.
-+
-https://["Fiche de configuration du cluster"]
-
+. https://["Téléchargez et remplissez la fiche de configuration du cluster"].
 
 
 
@@ -175,7 +161,7 @@ https://["Fiche de configuration du cluster"]
 == Étape 2 : installer le matériel de fixation
 
 [role="lead"]
-Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
+Installez le système dans un rack à 4 montants ou une armoire système NetApp, le cas échéant.
 
 .Étapes
 . Installez les kits de rails, au besoin.
@@ -196,20 +182,20 @@ image::../media/drw_cable_management_arm_install.png[installation du ARM de gest
 
 
 
-== Étape 3 : connectez les câbles des contrôleurs à votre réseau
+== Étape 3 : connectez les contrôleurs au réseau
 
 [role="lead"]
-Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
+Reliez les contrôleurs au réseau en utilisant la méthode cluster sans commutateur à 2 nœuds ou la méthode réseau d'interconnexion de cluster.
 
+Le réseau de gestion, le réseau de données UTA2, le réseau de données Ethernet et les ports de gestion des contrôleurs sont connectés aux switchs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
 
+[role="tabbed-block"]
+====
+.Option 1 : cluster à 2 nœuds sans commutateur
+--
+Découvrez comment câbler un cluster à 2 nœuds sans commutateur.
 
-=== Option 1 : câler un cluster sans commutateur à 2 nœuds, configuration réseau unifiée
-
-[role="lead"]
-Le réseau de gestion, le réseau de données UTA2 et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
-
-Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
-
+.Avant de commencer
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
 
 image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie vers le bas]
@@ -217,218 +203,66 @@ image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie 
 
 NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
 
-.Étapes
-. Vous pouvez utiliser le graphique ou les instructions pas à pas pour terminer le câblage entre les contrôleurs et vers les commutateurs :
+.Description de la tâche
+Vous pouvez utiliser les ports de réseau de données UTA2 ou les ports de réseau de données ethernet pour connecter les contrôleurs à votre réseau hôte. Reportez-vous aux illustrations de câblage suivantes lors du câblage entre les contrôleurs et les commutateurs.
+
+Configurations réseau de données UTA2::
 +
+--
 image::../media/drw_2700_tnsc_unified_network_cabling_animated_gif.png[image gif animée câblage réseau unifié drw 2700 tnsc]
 
+--
+Configurations réseau Ethernet::
 +
-[cols="1,3"]
-|===
-| Étape | Effectuer des opérations sur chaque contrôleur 
-
-
- a| 
-image:../media/oie_legend_icon_1_lg.png[""]
- a| 
-Reliez les ports d'interconnexion de cluster entre eux grâce au câble d'interconnexion de cluster :
-
-** e0a à e0a
-** e0b à e0bimage:../media/drw_c190_u_tnsc_clust_cbling.png[""]
-
-
-
-
- a| 
-image:../media/oie_legend_icon_2_o.png[""]
- a| 
-Utilisez l'un des types de câbles suivants pour relier les ports de données UTA2 au réseau hôte :
-
-Un hôte FC
-
-** 0c et 0d
-** *Ou* 0e et 0f A 10GbE
-** e0c et e0d
-** *ou* e0e et e0f
-
-
-
-NOTE: Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports en tant que FC, ou vous pouvez connecter les deux paires de ports en tant que CNA ou les deux paires de ports en tant que FC.
-
-image:../media/drw_c190_u_fc_10gbe_cbling.png[""]
-
-
-
- a| 
-image:../media/oie_legend_icon_3_lp.png[""]
- a| 
-Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 :
-
-image:../media/drw_c190_u_mgmt_cbling.png[""]
-
-
-
- a| 
-image:../media/oie_legend_icon_attn_symbol.png[""]
- a| 
-NE branchez PAS les cordons d'alimentation à ce stade.
-
-|===
-. Pour câbler votre espace de stockage, reportez-vous à la section link:install_detailed_guide.md#["Câblage des contrôleurs aux tiroirs disques"]
-
-
-
-
-=== Option 2 : câblage d'un cluster avec commutateur, configuration réseau unifiée
-
-[role="lead"]
-Le réseau de gestion, le réseau de données UTA2 et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés aux commutateurs d'interconnexion de cluster.
-
-Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
-
-Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
-
-image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie vers le bas]
-
-
-NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
-
-.Étapes
-. Vous pouvez utiliser le graphique ou les instructions pas à pas pour terminer le câblage entre les contrôleurs et les commutateurs :
-+
-image::../media/drw_2700_switched_unified_network_cabling_animated_gif.png[image gif animée câblage réseau unifié commuté drw 2700]
-
-+
-[cols="1,3"]
-|===
-| Étape | Effectuer des opérations sur chaque module de contrôleur 
-
-
- a| 
-image:../media/oie_legend_icon_1_lg.png[""]
- a| 
-Connectez les câbles e0a et e0b aux commutateurs d'interconnexion des clusters avec le câble d'interconnexion des clusters :
-
-image:../media/drw_c190_u_switched_clust_cbling.png[""]
-
-
-
- a| 
-image:../media/oie_legend_icon_2_o.png[""]
- a| 
-Utilisez l'un des types de câbles suivants pour relier les ports de données UTA2 au réseau hôte :
-
-Un hôte FC
-
-** 0c et 0d
-** **ou** 0e et 0f
-
-
-Une liaison 10 GbE
-
-** e0c et e0d
-** **ou** e0e et e0f
-
-
-
-NOTE: Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports en tant que FC, ou vous pouvez connecter les deux paires de ports en tant que CNA ou les deux paires de ports en tant que FC.
-
-image:../media/drw_c190_u_fc_10gbe_cbling.png[""]
-
-
-
- a| 
-image:../media/oie_legend_icon_3_lp.png[""]
- a| 
-Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 :
-
-image:../media/drw_c190_u_mgmt_cbling.png[""]
-
-
-
- a| 
-image:../media/oie_legend_icon_attn_symbol.png[""]
- a| 
-NE branchez PAS les cordons d'alimentation à ce stade.
-
-|===
-. Pour câbler votre espace de stockage, reportez-vous à la section link:install_detailed_guide.md#["Câblage des contrôleurs aux tiroirs disques"]
-
-
-
-
-=== Option 3 : connexion d'un cluster à 2 nœuds sans commutateur, configuration réseau Ethernet
-
-[role="lead"]
-Le réseau de gestion, le réseau de données Ethernet et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
-
-Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
-
-Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
-
-image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie vers le bas]
-
-
-NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
-
-.Étapes
-. Vous pouvez utiliser le graphique ou les instructions pas à pas pour terminer le câblage entre les contrôleurs et vers les commutateurs :
-+
+--
 image::../media/drw_2700_tnsc_ethernet_network_cabling_animated_gif.png[image gif animée câblage réseau ethernet drw 2700 tnsc]
 
+--
+
+
+Effectuez les étapes suivantes sur chaque module de contrôleur.
+
+.Étapes
+. Reliez les ports d'interconnexion de cluster e0a à e0a et e0b à e0b à l'aide du câble d'interconnexion de cluster. +image:../media/drw_c190_u_tnsc_clust_cbling.png[""]
+. Effectuez l'une des opérations suivantes :
 +
-[cols="1,3"]
-|===
-| Étape | Effectuer des opérations sur chaque contrôleur 
+Configurations réseau de données UTA2:: Utilisez l'un des types de câble suivants pour relier les ports de données UTA2 au réseau hôte.
++
+--
+** Pour un hôte FC, utilisez 0c et 0d *ou* 0e et 0f.
+** Pour un système 10GbE, utiliser e0c et e0d *ou* e0e et e0f.
++
+image:../media/drw_c190_u_fc_10gbe_cbling.png[""]
 
-
- a| 
-image:../media/oie_legend_icon_1_lg.png[""]
- a| 
-Reliez les ports d'interconnexion de cluster entre eux grâce au câble d'interconnexion de cluster :
-
-** e0a à e0a
-** e0b à e0bimage:../media/drw_c190_e_tnsc_clust_cbling.png[""]
-
++
+Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports en tant que FC, ou vous pouvez connecter les deux paires de ports en tant que CNA ou les deux paires de ports en tant que FC.
 
 
 
- a| 
-image:../media/oie_legend_icon_2_o.png[""]
- a| 
-Utilisez le câble RJ45 Cat 6 pour raccorder les ports e0c à e0f à votre réseau hôte :
-
+--
+Configurations réseau Ethernet:: Utilisez le câble RJ45 de catégorie 6 pour relier le e0c aux ports e0f du réseau hôte. dans l'illustration suivante.
++
+--
 image:../media/drw_c190_e_rj45_cbling.png[""]
 
+--
 
 
- a| 
-image:../media/oie_legend_icon_3_lp.png[""]
- a| 
-Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 :
-
-image:../media/drw_c190_e_mgmt_cbling.png[""]
-
-
-
- a| 
-image:../media/oie_legend_icon_attn_symbol.png[""]
- a| 
-NE branchez PAS les cordons d'alimentation à ce stade.
-
-|===
-. Pour câbler votre espace de stockage, reportez-vous à la section link:install_detailed_guide.md#["Câblage des contrôleurs aux tiroirs disques"]
+. Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45.
++
+image:../media/drw_c190_u_mgmt_cbling.png[""]
 
 
 
 
-=== Option 4 : câble d'un cluster commuté, configuration réseau Ethernet
+IMPORTANT: NE branchez PAS les cordons d'alimentation à ce stade.
 
-[role="lead"]
-Le réseau de gestion, le réseau de données Ethernet et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés aux commutateurs d'interconnexion de cluster.
+--
+.Option 2 : cluster commuté
+--
+Apprenez à câbler un cluster commuté.
 
-Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
-
+.Avant de commencer
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
 
 image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie vers le bas]
@@ -436,65 +270,74 @@ image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie 
 
 NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
 
-.Étapes
-. Vous pouvez utiliser le graphique ou les instructions pas à pas pour terminer le câblage entre les contrôleurs et les commutateurs :
+.Description de la tâche
+Vous pouvez utiliser les ports de réseau de données UTA2 ou les ports de réseau de données ethernet pour connecter les contrôleurs à votre réseau hôte. Reportez-vous aux illustrations de câblage suivantes lors du câblage entre les contrôleurs et les commutateurs.
+
+Câblage réseau unifié::
 +
+--
+image::../media/drw_2700_switched_unified_network_cabling_animated_gif.png[image gif animée câblage réseau unifié commuté drw 2700]
+
+--
+Câblage réseau Ethernet::
++
+--
 image::../media/drw_2700_switched_ethernet_network_cabling_animated_gif.png[image gif animée câblage réseau ethernet commuté drw 2700]
 
+--
+
+
+Effectuez les étapes suivantes sur chaque module de contrôleur.
+
+.Étapes
+. Pour chaque module de contrôleur, reliez les câbles e0a et e0b aux commutateurs d'interconnexion de cluster à l'aide du câble d'interconnexion de cluster.
 +
-[cols="1,2"]
-|===
-| Étape | Effectuer des opérations sur chaque module de contrôleur 
+image:../media/drw_c190_u_switched_clust_cbling.png[""]
+
+. Effectuez l'une des opérations suivantes :
++
+Configurations réseau de données UTA2:: Utilisez l'un des types de câble suivants pour relier les ports de données UTA2 au réseau hôte.
++
+--
+** Pour un hôte FC, utilisez 0c et 0d **ou** 0e et 0f.
+** Pour un système 10GbE, utiliser e0c et e0d **ou** e0e et e0f.
++
+image:../media/drw_c190_u_fc_10gbe_cbling.png[""]
+
++
+Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports en tant que FC, ou vous pouvez connecter les deux paires de ports en tant que CNA ou les deux paires de ports en tant que FC.
 
 
- a| 
-image:../media/oie_legend_icon_1_lg.png[""]
- a| 
-Connectez les câbles e0a et e0b aux commutateurs d'interconnexion des clusters avec le câble d'interconnexion des clusters :
 
-image:../media/drw_c190_e_switched_clust_cbling.png[""]
-
-
-
- a| 
-image:../media/oie_legend_icon_2_o.png[""]
- a| 
-Utilisez le câble RJ45 Cat 6 pour raccorder les ports e0c à e0f à votre réseau hôte :
-
+--
+Configurations réseau Ethernet:: Utilisez le câble RJ45 de catégorie 6 pour relier le e0c aux ports e0f du réseau hôte.
++
+--
 image:../media/drw_c190_e_rj45_cbling.png[""]
 
+--
 
 
- a| 
-image:../media/oie_legend_icon_3_lp.png[""]
- a| 
-Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 :
-
-image:../media/drw_c190_e_mgmt_cbling.png[""]
+. Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45.
++
+image:../media/drw_c190_u_mgmt_cbling.png[""]
 
 
 
- a| 
-image:../media/oie_legend_icon_attn_symbol.png[""]
- a| 
-NE branchez PAS les cordons d'alimentation à ce stade.
 
-|===
-. Pour câbler votre espace de stockage, reportez-vous à la section link:install_detailed_guide.md#["Câblage des contrôleurs aux tiroirs disques"]
+IMPORTANT: NE branchez PAS les cordons d'alimentation à ce stade.
 
-
+--
+====
 
 
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
-[role="lead"]
-Vous devez connecter les câbles des contrôleurs à vos tiroirs à l'aide des ports de stockage intégrés. NetApp recommande le câblage MP-HA pour les systèmes avec stockage externe. Si vous disposez d'un lecteur de bande SAS, vous pouvez utiliser le câblage à chemin unique. Si vous ne possédez pas de tiroirs externes, le câblage MP-HA vers les disques internes est facultatif (non illustré) si les câbles SAS sont commandés avec le système.
+Reliez les contrôleurs à vos tiroirs à l'aide des ports de stockage intégrés. NetApp recommande le câblage MP-HA pour les systèmes avec stockage externe.
 
+.Description de la tâche
+Si vous disposez d'un lecteur de bande SAS, vous pouvez utiliser le câblage à chemin unique. Si vous ne possédez pas de tiroirs externes, le câblage MP-HA vers les disques internes est facultatif (non illustré) si les câbles SAS sont commandés avec le système.
 
-
-=== Option 1 : câblage du stockage sur une paire haute disponibilité avec des tiroirs disques externes
-
-[role="lead"]
 Vous devez connecter le câble des connexions du tiroir à celui du tiroir, puis connecter les deux contrôleurs aux tiroirs disques.
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
@@ -502,25 +345,15 @@ Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation
 image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie vers le bas]
 
 .Étapes
-. Connectez les câbles de la paire haute disponibilité à des tiroirs disques externes :
+. Reliez la paire haute disponibilité à des tiroirs disques externes.
 +
-
-NOTE: L'exemple utilise DS224C. Le câblage est similaire à celui des autres tiroirs disques pris en charge.
+L'exemple suivant montre le câblage pour les tiroirs disques DS224C. Le câblage est similaire aux autres tiroirs disques pris en charge.
 
 +
 image::../media/drw_a150_ha_storage_cabling_IEOPS-1032.svg[drw a150 HA de câblage de stockage IEOPS 1032]
 
+. Reliez les ports tiroir à tiroir.
 +
-[cols="1,3"]
-|===
-| Étape | Effectuer des opérations sur chaque contrôleur 
-
-
- a| 
-image:../media/oie_legend_icon_1_lo.png[""]
- a| 
-Reliez les ports tiroir à tiroir.
-
 ** Le port 3 du module d'E/S A sur le port 1 du module d'E/S A du tiroir directement en dessous.
 ** Le port 3 de l'IOM B vers le port 1 sur le IOM B du shelf directement en dessous.
 +
@@ -528,13 +361,8 @@ image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png[""] Câbles HD Mini-SAS 
 
 
 
-
-
- a| 
-image:../media/oie_legend_icon_2_mb.png[""]
- a| 
-Connectez chaque nœud au module d'E/S A de la pile.
-
+. Connectez chaque nœud au module d'E/S A de la pile.
++
 ** Port 0b du contrôleur 1 vers le port Iom A 3 sur le dernier tiroir de disque de la pile.
 ** Port 0a du contrôleur 2 vers le port 1 du module d'E/S sur le premier tiroir de disque de la pile.
 +
@@ -542,39 +370,27 @@ image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png[""] Câbles HD Mini-SAS 
 
 
 
-
-
- a| 
-image:../media/oie_legend_icon_3_t.png[""]
- a| 
-Connectez chaque nœud au module d'E/S B de la pile
-
+. Connectez chaque nœud au module d'E/S B de la pile
++
 ** Du port 0a du contrôleur 1 au port 1 du module d'E/S sur le premier tiroir de disque de la pile.
 ** Contrôleur 2, port 0b vers le port B IOM 3 sur le dernier tiroir de disque de la pile.image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png[""] Câbles HD Mini-SAS vers mini-SAS HD
 
 
-|===
-+
-Si vous disposez de plusieurs tiroirs disques, reportez-vous au _Guide d'installation et de câblage_ correspondant à votre type de tiroir disque.
 
-+
-link:../com.netapp.doc.hw-ds-sas3-icg/home.html["Installation et câblage"]
 
-. Pour terminer la configuration de votre système, reportez-vous à la section link:install_detailed_guide.md#["Finalisation de l'installation et de la configuration du système"]
+Si vous disposez de plusieurs piles de tiroirs disques, reportez-vous à la section link:../com.netapp.doc.hw-ds-sas3-icg/home.html["Installation et câblage"] correspondant à votre type de tiroir disque.
 
 
 
-
-== Étape 5 : installation et configuration complètes du système
+== Étape 5 : terminez la configuration du système
 
 [role="lead"]
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
-
-
-=== Option 1 : effectuez la configuration du système si la détection du réseau est activée
-
-[role="lead"]
+[role="tabbed-block"]
+====
+.Option 1 : si la détection réseau est activée
+--
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
 
 .Étapes
@@ -617,44 +433,29 @@ System Manager s'ouvre.
 
 
 
-. Utilisez la configuration assistée de System Manager pour configurer votre système à l'aide des données collectées dans le _guide de configuration ONTAP_ de NetApp.
-+
-https://["Guide de configuration de ONTAP"]
-
+. Configurez le système à l'aide des données que vous avez collectées dans https://["Guide de configuration de ONTAP"].
 . Configurez votre compte et téléchargez Active IQ Config Advisor :
 +
-.. Connectez-vous à votre compte existant ou créez un compte.
-+
-https://["Inscription au support NetApp"]
-
-.. Enregistrez votre système.
-+
-https://["Enregistrement de produit NetApp"]
-
-.. Téléchargez Active IQ Config Advisor.
-+
-https://["Téléchargement NetApp : Config Advisor"]
-
+.. Connectez-vous à votre https://["compte existant ou créer et compte"].
+.. https://["S'inscrire"] votre système.
+.. Télécharger https://["Active IQ Config Advisor"].
 
 
 . Vérifiez l'état de santé de votre système en exécutant Config Advisor.
-. Une fois la configuration initiale terminée, passez à la https://["ONTAP  ; Ressources de documentation ONTAP System Manager"] Pour plus d'informations sur la configuration de fonctionnalités supplémentaires dans ONTAP.
+. Une fois la configuration initiale terminée, passez à la https://["Documentation ONTAP"] Pour plus d'informations sur la configuration de fonctions supplémentaires dans ONTAP.
 
 
-
-
-=== Option 2 : fin de la configuration et de la configuration du système si la détection du réseau n'est pas activée
-
-[role="lead"]
+--
+.Option 2 : si la détection réseau n'est pas activée
+--
 Si la détection réseau n'est pas activée sur votre ordinateur portable, vous devez effectuer la configuration et la configuration à l'aide de cette tâche.
 
 .Étapes
-. Branchez et configurez votre ordinateur portable ou votre console :
+. Connectez et configurez votre ordinateur portable ou votre console.
 +
 .. Définissez le port de console de l'ordinateur portable ou de la console sur 115,200 bauds avec N-8-1.
 +
-
-NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console pour savoir comment configurer le port de console.
+Consultez l'aide en ligne de votre ordinateur portable ou de votre console pour obtenir des instructions sur la configuration du port de console.
 
 .. Connectez le câble de la console à l'ordinateur portable ou à la console, et connectez le port de console du contrôleur à l'aide du câble de console fourni avec votre système.
 +
@@ -706,35 +507,26 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console
 
 
 |===
-. Utilisez System Manager sur votre ordinateur portable ou sur la console pour configurer votre cluster :
+. Configurez votre cluster à l'aide de System Manager sur votre ordinateur portable ou sur votre console.
 +
 .. Indiquez l'adresse IP de gestion des nœuds dans votre navigateur.
 +
 
 NOTE: Le format de l'adresse est https://[].
 
-.. Configurez le système à l'aide des données collectées dans le _NetApp ONTAP Configuration guide_.
-+
-https://["Guide de configuration de ONTAP"]
-
+.. Configurez le système à l'aide des données que vous avez collectées dans https://["Guide de configuration de ONTAP"].
 
 
 . Configurez votre compte et téléchargez Active IQ Config Advisor :
 +
-.. Connectez-vous à votre compte existant ou créez un compte.
-+
-https://["Inscription au support NetApp"]
-
-.. Enregistrez votre système.
-+
-https://["Enregistrement de produit NetApp"]
-
-.. Téléchargez Active IQ Config Advisor.
-+
-https://["Téléchargement NetApp : Config Advisor"]
-
+.. Connectez-vous à votre https://["compte existant ou créer et compte"].
+.. https://["S'inscrire"] votre système.
+.. Télécharger https://["Active IQ Config Advisor"].
 
 
 . Vérifiez l'état de santé de votre système en exécutant Config Advisor.
-. Une fois la configuration initiale terminée, passez à la https://["ONTAP  ; Ressources de documentation ONTAP System Manager"] Pour plus d'informations sur la configuration de fonctionnalités supplémentaires dans ONTAP.
+. Une fois la configuration initiale terminée, passez à la https://["Documentation ONTAP"] Pour plus d'informations sur la configuration de fonctions supplémentaires dans ONTAP.
 
+
+--
+====

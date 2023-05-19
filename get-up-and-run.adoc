@@ -19,15 +19,12 @@ Utilisez le workflow suivant pour déployer votre système de stockage s'il n'es
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"] Installez des contrôleurs AFF/FAS
 [role="quick-margin-para"]
-6d311090c29c1da16c7810703948cbe1
+Installez les contrôleurs AFF/FAS sur le rack ou l'armoire. Accédez aux instructions d'installation et de configuration de votre modèle de plateforme AFF/FAS. Pour tous les systèmes de baies SAN (ASA), suivez les instructions d'installation du modèle AFF A-Series correspondant.
 
-[cols="4,9,9,9"]
-|===
+[role="quick-margin-para"]
+**Systèmes AFF De la série A**
 
-
- a| 
- a| 
-.Systèmes AFF A-Series
+[role="quick-margin-list"]
 * https://["AVEC AFF A220"]
 * https://["AFF A250"]
 * https://["AFF A400"]
@@ -35,15 +32,21 @@ Utilisez le workflow suivant pour déployer votre système de stockage s'il n'es
 * https://["AFF A800"]
 * https://["AFF A900"]
 
- a| 
-.Systèmes AFF C-Series
+
+[role="quick-margin-para"]
+**Systèmes AFF série C**
+
+[role="quick-margin-list"]
 * https://["AFF C190"]
 * https://["AFF C250"]
 * https://["AFF C400"]
 * https://["AFF C800"]
 
- a| 
-.Systèmes FAS
+
+[role="quick-margin-para"]
+**Systèmes FAS**
+
+[role="quick-margin-list"]
 * https://["FAS500f"]
 * https://["FAS8300"]
 * https://["FAS8700"]
@@ -51,122 +54,126 @@ Utilisez le workflow suivant pour déployer votre système de stockage s'il n'es
 * https://["FAS9500"]
 
 
-|===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"] Installez le matériel de fixation du commutateur
 [role="quick-margin-para"]
 Installez les commutateurs sur le rack ou l'armoire. Consultez les instructions suivantes pour votre modèle de commutateur.
 
-[cols="2,9,9,9"]
-|===
+[role="quick-margin-para"]
+**Commutateurs de cluster**
 
-
- a| 
- a| 
-.f267a68fd1c8bddcc992701898021398
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/install-hardware-bes53248.html["Installer le commutateur BES-53248"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/install-switch-9336c-cluster.html["Installer le commutateur Cisco Nexus 9336C-FX2"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["Installez le commutateur NVIDIA SN2100"]
 
- a| 
-.403284bd44beda112195a484c8a76421
+
+[role="quick-margin-para"]
+**Commutateurs de stockage**
+
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-storage/install-9336c-storage.html["Installer le commutateur Cisco Nexus 9336C-FX2"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-storage.html["Installez le commutateur NVIDIA SN2100"]
 
- a| 
-.bc8a2cd252a5beb1dbf4f209baea67eb
+
+[role="quick-margin-para"]
+**Commutateurs partagés**
+
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/install-9336c-shared.html["Installer le commutateur Cisco Nexus 9336C-FX2"]
 
 
-|===
-.a4ae5d0bd4e47ba267a8df1ceee51985
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"] Connectez les commutateurs aux contrôleurs
 [role="quick-margin-para"]
 Les instructions d'installation et de configuration du système AFF/FAS comprennent des instructions de câblage des ports de contrôleur au switch. Cependant, si vous avez besoin de listes de câbles et d'émetteurs-récepteurs pris en charge et d'informations détaillées sur les ports hôtes de votre commutateur, accédez aux instructions suivantes pour votre modèle de commutateur.
 
-[cols="2,9,9,9"]
-|===
+[role="quick-margin-para"]
+**Commutateurs de cluster**
 
-
- a| 
- a| 
-.f267a68fd1c8bddcc992701898021398
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/configure-reqs-bes53248.html#configuration-requirements["Câble du commutateur BES-53248"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html["Câble du commutateur Cisco Nexus 9336C-FX2"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html["Câble du commutateur NVIDIA SN2100"]
 
- a| 
-.403284bd44beda112195a484c8a76421
+
+[role="quick-margin-para"]
+**Commutateurs de stockage**
+
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html["Câble du commutateur Cisco Nexus 9336C-FX2"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/cabling-considerations-sn2100-storage.html["Câble du commutateur NVIDIA SN2100"]
 
- a| 
-.bc8a2cd252a5beb1dbf4f209baea67eb
+
+[role="quick-margin-para"]
+**Commutateurs partagés**
+
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/cable-9336c-shared.html["Câble du commutateur Cisco Nexus 9336C-FX2"]
 
 
-|===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]Configurer le commutateur
 [role="quick-margin-para"]
 Effectuez une configuration initiale des commutateurs. Consultez les instructions suivantes pour votre modèle de commutateur.
 
-[cols="2,9,9,9"]
-|===
+[role="quick-margin-para"]
+**Commutateurs de cluster**
 
-
- a| 
- a| 
-.f267a68fd1c8bddcc992701898021398
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/configure-install-initial.html["Configurer le commutateur BES-53248"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html["Configurez le commutateur Cisco Nexus 9336C-FX2"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/configure-sn2100-cluster.html["Configurez le commutateur NVIDIA SN2100"]
 
- a| 
-.403284bd44beda112195a484c8a76421
+
+[role="quick-margin-para"]
+**Commutateurs de stockage**
+
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html["Configurez le commutateur Cisco Nexus 9336C-FX2"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/configure-sn2100-storage.html["Configurez le commutateur NVIDIA SN2100"]
 
- a| 
-.bc8a2cd252a5beb1dbf4f209baea67eb
+
+[role="quick-margin-para"]
+**Commutateurs partagés**
+
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html["Configurez le commutateur Cisco Nexus 9336C-FX2"]
 
 
-|===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"] Installer le logiciel du commutateur
 [role="quick-margin-para"]
 Pour installer et configurer le logiciel sur votre commutateur, suivez le workflow d'installation du logiciel correspondant à votre modèle de commutateur.
 
-[cols="2,9,9,9"]
-|===
+[role="quick-margin-para"]
+**Commutateurs de cluster**
 
-
- a| 
- a| 
-.f267a68fd1c8bddcc992701898021398
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/configure-software-overview-bes53248.html["Installer le logiciel pour les commutateurs BES-53248"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html["Installez le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html["Installation du logiciel pour le commutateur NVIDIA SN2100"]
 
- a| 
-.403284bd44beda112195a484c8a76421
+
+[role="quick-margin-para"]
+**Commutateurs de stockage**
+
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html["Installez le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/configure-software-sn2100-storage.html["Installation du logiciel pour le commutateur NVIDIA SN2100"]
 
- a| 
-.bc8a2cd252a5beb1dbf4f209baea67eb
+
+[role="quick-margin-para"]
+**Commutateurs partagés**
+
+[role="quick-margin-list"]
 * link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html["Installez le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
 
 
-|===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"] Terminez l'installation et la configuration du système
 [role="quick-margin-para"]
 Une fois les commutateurs configurés et le logiciel requis installé, accédez aux instructions d'installation et de configuration pour votre modèle de plateforme AFF/FAS afin de terminer la configuration du système. Pour tous les systèmes de baies SAN (ASA), suivez les instructions d'installation du modèle AFF A-Series correspondant.
 
-[cols="4,9,9,9"]
-|===
+[role="quick-margin-para"]
+**Systèmes AFF**
 
-
- a| 
- a| 
-.f3585daa539c5917b4fedd0eb7efb3f2
+[role="quick-margin-list"]
 * https://["AVEC AFF A220"]
 * https://["AFF A250"]
 * https://["AFF A400"]
@@ -174,15 +181,21 @@ Une fois les commutateurs configurés et le logiciel requis installé, accédez 
 * https://["AFF A800"]
 * https://["AFF A900"]
 
- a| 
-.Systèmes AFF C-Series
+
+[role="quick-margin-para"]
+**Systèmes AFF série C**
+
+[role="quick-margin-list"]
 * https://["AFF C190"]
 * https://["AFF C250"]
 * https://["AFF C400"]
 * https://["AFF C800"]
 
- a| 
-.Systèmes FAS
+
+[role="quick-margin-para"]
+**Systèmes FAS**
+
+[role="quick-margin-list"]
 * https://["FAS500f"]
 * https://["FAS8300"]
 * https://["FAS8700"]
@@ -190,7 +203,6 @@ Une fois les commutateurs configurés et le logiciel requis installé, accédez 
 * https://["FAS9500"]
 
 
-|===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sept"] Configuration ONTAP complète
 [role="quick-margin-para"]
 Une fois que vous avez installé et configuré vos contrôleurs et switchs AFF/FAS, vous devez terminer la configuration de votre stockage dans ONTAP. Consultez les instructions suivantes en fonction de votre configuration de déploiement.

@@ -11,31 +11,41 @@ summary: 'Le remplacement d"un bloc d"alimentation consiste à débrancher le bl
 
 
 [role="lead"]
-Le remplacement d'un bloc d'alimentation consiste à déconnecter le bloc d'alimentation cible de la source d'alimentation, à débrancher le câble d'alimentation, à retirer l'ancien bloc d'alimentation et à installer le bloc d'alimentation de remplacement, puis à le reconnecter à la source d'alimentation.
+Le remplacement d'un bloc d'alimentation implique la déconnexion du bloc d'alimentation cible de la source d'alimentation, le débranchement du câble d'alimentation, le retrait de l'ancien bloc d'alimentation et l'installation du bloc d'alimentation de remplacement, puis sa reconnexion à la source d'alimentation.
 
-* Les blocs d'alimentation sont redondants et échangeables à chaud.
-* Cette procédure permet de remplacer une alimentation à la fois.
+* Les blocs d'alimentation sont redondants et remplaçables à chaud.
+* Cette procédure est écrite pour remplacer un bloc d'alimentation à la fois.
 +
 
-NOTE: Il est recommandé de remplacer le bloc d'alimentation dans les deux minutes qui suivent le retrait du châssis. Le système continue de fonctionner, mais ONTAP envoie des messages à la console concernant l'alimentation défectueuse jusqu'à ce que le bloc d'alimentation soit remplacé.
+NOTE: Il est recommandé de remplacer le bloc d'alimentation dans les deux minutes qui suivent son retrait du châssis. Le système continue de fonctionner, mais ONTAP envoie des messages à la console concernant le bloc d'alimentation dégradé jusqu'à ce qu'il soit remplacé.
 
+* Les unités d'alimentation sont à sélection automatique.
 +
 
 IMPORTANT: Ne mélangez pas les blocs d'alimentation avec différents niveaux d'efficacité. Toujours remplacer comme pour similaire.
 
-+
-.. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-.. Identifiez le bloc d'alimentation que vous souhaitez remplacer en fonction des messages d'erreur de la console ou par le voyant rouge de panne de l'alimentation.
-.. Débrancher l'alimentation électrique :
-+
-... Ouvrez le dispositif de retenue du câble d'alimentation, puis débranchez le câble d'alimentation du bloc d'alimentation.
-... Débranchez le câble d'alimentation de la source d'alimentation.
 
 
-.. Faites tourner la poignée de came de façon à pouvoir tirer le bloc d'alimentation hors du module de contrôleur tout en appuyant sur la patte de verrouillage.
+Suivez la procédure appropriée pour votre type de bloc d'alimentation : CA ou CC.
+
+[role="tabbed-block"]
+====
+.Option 1 : remplacez un bloc d'alimentation CA
+--
+Utilisez la vidéo ou les étapes suivantes pour remplacer le bloc d'alimentation :
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Identifiez le bloc d'alimentation que vous souhaitez remplacer, en fonction des messages d'erreur de la console ou du voyant rouge de panne sur le bloc d'alimentation.
+. Déconnectez le bloc d'alimentation :
++
+.. Ouvrez le dispositif de retenue du câble d'alimentation, puis débranchez le câble d'alimentation du bloc d'alimentation.
+.. Débranchez le câble d'alimentation de la source d'alimentation.
+
+
+. Faites pivoter la poignée de came de sorte qu'elle puisse être utilisée pour extraire le bloc d'alimentation du module de contrôleur tout en appuyant sur la languette de verrouillage.
 +
 
-CAUTION: L'alimentation est en court-circuit. Utilisez toujours deux mains pour le soutenir lors du retrait du module de contrôleur afin qu'il ne bascule pas brusquement et ne vous blesse pas.
+CAUTION: Le bloc d'alimentation est court-circuité. Utilisez toujours deux mains pour le soutenir lors du retrait du module de contrôleur afin qu'il ne bascule pas brusquement et ne vous blesse pas.
 
 +
 image::../media/drw_a800_replace_psu.png[drw a800 remplace le bloc d'alimentation]
@@ -55,27 +65,113 @@ image:../media/legend_icon_02.png[""]
 Alimentation électrique
 
 |===
-.. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module de contrôleur, puis poussez doucement le bloc d'alimentation dans le module de contrôleur jusqu'à ce que la languette de verrouillage s'enclenche.
+. Avec les deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module de contrôleur, puis poussez doucement le bloc d'alimentation dans le module de contrôleur jusqu'à ce que la languette de verrouillage s'enclenche.
 +
-Les blocs d'alimentation ne s'enclenteront correctement qu'avec le connecteur interne et se verrouillent d'une seule manière.
+Les blocs d'alimentation ne s'engagent correctement qu'avec le connecteur interne et se verrouillent en place dans un sens.
 
 +
 
-NOTE: Pour éviter d'endommager le connecteur interne, ne pas exercer de force excessive lors du glissement du bloc d'alimentation dans le système.
+NOTE: Pour éviter d'endommager le connecteur interne, ne forcez pas trop lorsque vous faites glisser le bloc d'alimentation dans le système.
 
-.. Rebranchez le câblage du bloc d'alimentation :
+. Reconnectez le câblage du bloc d'alimentation :
 +
-... Rebranchez le câble d'alimentation au bloc d'alimentation et à la source d'alimentation.
-... Fixez le câble d'alimentation à l'alimentation à l'aide de la retenue du câble d'alimentation.
-
-
+.. Rebranchez le câble d'alimentation au bloc d'alimentation et à la source d'alimentation.
+.. Fixez le câble d'alimentation au bloc d'alimentation à l'aide du dispositif de retenue du câble d'alimentation.
 
 
 +
-Une fois l'alimentation rétablie, la LED d'état doit être verte.
+Une fois l'alimentation rétablie, le voyant d'état doit être vert.
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://["Retour de pièce et amp ; remplacements"^] pour plus d'informations.
+
+
+--
+.Option 2 : remplacez un bloc d'alimentation CC
+--
+Pour remplacer un bloc d'alimentation CC, procédez comme suit.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Identifiez le bloc d'alimentation que vous souhaitez remplacer, en fonction des messages d'erreur de la console ou du voyant rouge de panne sur le bloc d'alimentation.
+. Déconnectez le bloc d'alimentation :
++
+.. Dévisser les deux vis à serrage à main sur le connecteur du câble d'alimentation CC D-SUB.
++
+L'illustration et le tableau de l'étape 4 montrent les deux vis à serrage à main (élément n° 1) et le connecteur du câble d'alimentation CC D-SUB (élément n° 2).
+
+.. Débranchez le connecteur du câble d'alimentation CC D-SUB du bloc d'alimentation et mettez-le de côté.
+
+
+. Retirez le bloc d'alimentation :
++
+.. Faites pivoter la poignée vers le haut, jusqu'à sa position horizontale, puis saisissez-la.
+.. Avec votre pouce, appuyez sur la languette bleue pour libérer le mécanisme de verrouillage.
+.. Retirez le bloc d'alimentation du module de contrôleur tout en prenant votre main pour soutenir son poids.
++
+
+NOTE: Le bloc d'alimentation est court-circuité. Utilisez toujours deux mains pour le soutenir lors de son retrait du module de contrôleur afin qu'il ne se libère pas du module de contrôleur et ne vous blesse pas.
 
 +
-.. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://["Retour de pièce et amp ; remplacements"^] pour plus d'informations.
+image::../media/drw_dcpsu_remove-replace-generic_IEOPS-788.svg[drw dcpsu supprimer remplacer IOPS générique 788]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["largeur=10px"]
+ a| 
+Vis à oreilles
 
 
 
+ a| 
+image:../media/legend_icon_02.svg["largeur=10px"]
+ a| 
+Connecteur du câble d'alimentation CC D-SUB
+
+
+
+ a| 
+image:../media/legend_icon_03.svg["largeur=10px"]
+ a| 
+Poignée du bloc d'alimentation
+
+
+
+ a| 
+image:../media/legend_icon_04.svg["largeur=10px"]
+ a| 
+Languette de verrouillage bleue du bloc d'alimentation
+
+|===
+
+
+. Installez le bloc d'alimentation de remplacement :
++
+.. A deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module de contrôleur.
+.. Poussez doucement le bloc d'alimentation dans le module de contrôleur jusqu'à ce que le mécanisme de verrouillage s'enclenche.
++
+Un bloc d'alimentation doit s'engager correctement avec le connecteur interne et le mécanisme de verrouillage. Répétez cette étape si vous pensez que le bloc d'alimentation n'est pas correctement installé.
+
++
+
+NOTE: N'utilisez pas de force excessive et vous risquez d'endommager le connecteur interne.
+
+.. Faites pivoter la poignée vers le bas pour qu'elle ne fonctionne pas normalement.
+
+
+. Rebranchez le câble d'alimentation CC D-SUB :
++
+Une fois l'alimentation rétablie, le voyant d'état doit être vert.
+
++
+.. Branchez le connecteur du câble d'alimentation CC D-SUB dans le bloc d'alimentation.
+.. Serrez les deux vis à oreilles pour fixer le connecteur du câble d'alimentation CC D-SUB au bloc d'alimentation.
+
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://["Retour de pièce et amp ; remplacements"^] pour plus d'informations.
+
+
+--
+====
