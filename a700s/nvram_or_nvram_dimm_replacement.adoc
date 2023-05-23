@@ -74,7 +74,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 +
 ** Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Retour des disques SED en mode non protégé » du _ONTAP 9 Guide d'alimentation et de cryptage NetApp_.
 +
-https://["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]
 
 
 
@@ -342,7 +342,7 @@ Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'I
 NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
 
 +
-http://["Recherchez le Guide de configuration haute disponibilité de votre version de ONTAP 9"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Recherchez le Guide de configuration haute disponibilité de votre version de ONTAP 9"]
 
 .. Une fois le retour arrière terminé, vérifiez que la paire HA est saine et que le basculement est possible : `storage failover show`
 +
@@ -383,8 +383,8 @@ NOTE: Cette étape n'est pas requise lors du remplacement d'un module DIMM.
 .Étapes
 . Choisissez l'une des procédures suivantes selon que vous utilisez la gestion intégrée ou externe des clés :
 +
-** https://["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
-** https://["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
 
 
 . Réinitialisez le MSID SED
@@ -394,4 +394,4 @@ NOTE: Cette étape n'est pas requise lors du remplacement d'un module DIMM.
 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
-Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://["Retour de pièce et amp ; remplacements"] pour plus d'informations.
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

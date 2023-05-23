@@ -19,7 +19,7 @@ Vous devez passer en revue les conditions préalables à la procédure de rempla
 * Tous les tiroirs disques doivent fonctionner correctement.
 * Si votre système est un système FlexArray ou dispose d'une licence V_StorageAttach, vous devez vous reporter aux étapes supplémentaires requises avant d'effectuer cette procédure.
 * Si votre système se trouve dans une paire haute disponibilité, le nœud en bon état doit pouvoir reprendre le nœud en cours de remplacement (appelé « nœud avec facultés affaiblies »).
-* Si votre système est dans une configuration MetroCluster, vous devez passer en revue la section https://["Choix de la procédure de récupération correcte"^] pour déterminer si vous devez utiliser cette procédure.
+* Si votre système est dans une configuration MetroCluster, vous devez passer en revue la section https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html["Choix de la procédure de récupération correcte"^] pour déterminer si vous devez utiliser cette procédure.
 +
 Si c'est cette procédure, notez que la procédure de remplacement du contrôleur d'un nœud d'une configuration MetroCluster à quatre ou huit nœuds est identique à celle d'une paire HA. Aucune étape spécifique à MetroCluster n'est requise, car la défaillance est limitée à une paire haute disponibilité et les commandes de basculement du stockage peuvent être utilisées pour assurer une continuité de l'activité pendant le remplacement.
 

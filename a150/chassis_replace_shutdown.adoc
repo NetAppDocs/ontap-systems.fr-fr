@@ -18,7 +18,7 @@ Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropri�
 == Option 1 : plupart des configurations
 
 [role="lead"]
-Cette procédure concerne uniquement les configurations à 2 nœuds non MetroCluster. Si votre système comporte plus de deux nœuds, reportez-vous à la section https://["Comment effectuer un arrêt normal et mettre sous tension une paire haute disponibilité dans un cluster à 4 nœuds"^].
+Cette procédure concerne uniquement les configurations à 2 nœuds non MetroCluster. Si votre système comporte plus de deux nœuds, reportez-vous à la section https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_perform_a_graceful_shutdown_and_power_up_of_one_HA_pair_in_a_4__node_cluster["Comment effectuer un arrêt normal et mettre sous tension une paire haute disponibilité dans un cluster à 4 nœuds"^].
 
 .Avant de commencer
 Éléments requis :
@@ -32,19 +32,19 @@ Cette procédure concerne uniquement les configurations à 2 nœuds non MetroClu
 
 
 
-NOTE: Si le système est un système NetApp StorageGRID ou ONTAP S3 utilisé en tant que Tier cloud FabricPool, reportez-vous au https://["Arrêtez et mettez votre système de stockage sous tension en toute simplicité"] après avoir effectué cette procédure.
+NOTE: Si le système est un système NetApp StorageGRID ou ONTAP S3 utilisé en tant que Tier cloud FabricPool, reportez-vous au https://kb.netapp.com/onprem/ontap/hardware/What_is_the_procedure_for_graceful_shutdown_and_power_up_of_a_storage_system_during_scheduled_power_outage#["Arrêtez et mettez votre système de stockage sous tension en toute simplicité"] après avoir effectué cette procédure.
 
 
 NOTE: Si vous utilisez des LUN de baies FlexArray, suivez la documentation spécifique du fournisseur à la baie de stockage pour la procédure d'arrêt à effectuer pour ces systèmes après avoir réalisé cette procédure.
 
 
-NOTE: Si vous utilisez des disques SSD, reportez-vous à la section https://["SU490 : meilleures pratiques relatives aux SSD (impact : critique) : évitez les risques de panne disque et de perte de données si vous les mettez hors tension pendant plus de deux mois"]
+NOTE: Si vous utilisez des disques SSD, reportez-vous à la section https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU490["SU490 : meilleures pratiques relatives aux SSD (impact : critique) : évitez les risques de panne disque et de perte de données si vous les mettez hors tension pendant plus de deux mois"]
 
 Avant de procéder à l'arrêt, vous devez :
 
-* Effectuer des opérations supplémentaires https://["vérifications de l'état du système"].
+* Effectuer des opérations supplémentaires https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["vérifications de l'état du système"].
 * Mettez à niveau ONTAP vers une version recommandée pour le système.
-* Résoudre tout https://["Alertes et risques liés au bien-être Active IQ"]. Notez toutes les anomalies présentes sur le système, telles que les voyants des composants du système.
+* Résoudre tout https://activeiq.netapp.com/["Alertes et risques liés au bien-être Active IQ"]. Notez toutes les anomalies présentes sur le système, telles que les voyants des composants du système.
 
 
 .Étapes

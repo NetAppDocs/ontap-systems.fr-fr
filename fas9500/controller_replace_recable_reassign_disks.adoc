@@ -21,7 +21,7 @@ Après l'exécution des diagnostics, vous devez recâter les connexions réseau 
 
 .Étapes
 . Recâblage du système.
-. Vérifiez que le câblage est correct à l'aide de https://["Active IQ Config Advisor"^].
+. Vérifiez que le câblage est correct à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
 +
 .. Téléchargez et installez Config Advisor.
 .. Entrez les informations du système cible, puis cliquez sur collecter les données.
@@ -75,8 +75,8 @@ Vous pouvez saisir la commande suivante pour surveiller la progression de la com
 
 . Si le chiffrement du volume ou du stockage est configuré sur votre système de stockage, vous devez restaurer la fonctionnalité de chiffrement du stockage ou du volume en suivant l'une des procédures suivantes, selon que vous utilisez la gestion des clés intégrée ou externe :
 +
-** https://["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
-** https://["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
 
 
 . Remettre le nœud :
@@ -93,7 +93,7 @@ Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'I
 NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
 
 +
-Pour plus d'informations, reportez-vous à la section https://["Commandes de rétablissement manuel"^] rubrique pour remplacer le droit de veto.
+Pour plus d'informations, reportez-vous à la section https://docs.netapp.com/us-en/ontap/high-availability/ha_manual_giveback.html#if-giveback-is-interrupted["Commandes de rétablissement manuel"^] rubrique pour remplacer le droit de veto.
 
 .. Une fois le retour arrière terminé, vérifiez que la paire haute disponibilité est saine et que le basculement est possible : Storage failover show
 +
@@ -130,7 +130,7 @@ Ceci est requis si les deux conditions suivantes sont vraies :
 ** La configuration MetroCluster est en état de basculement.
 ** Le _remplacement_ node est le propriétaire actuel des disques sur le site de secours.
 +
-Pour plus d'informations, voir https://["Modification de la propriété des disques lors du basculement haute disponibilité et du basculement du MetroCluster dans une configuration MetroCluster à quatre nœuds"^] sujet.
+Pour plus d'informations, voir https://docs.netapp.com/us-en/ontap-metrocluster/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#disk-ownership-changes-during-ha-takeover-and-metrocluster-switchover-in-a-four-node-metrocluster-configuration["Modification de la propriété des disques lors du basculement haute disponibilité et du basculement du MetroCluster dans une configuration MetroCluster à quatre nœuds"^] sujet.
 
 
 

@@ -18,7 +18,7 @@ Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage exista
 * Si vous ajoutez le module X91148A en tant qu'adaptateur de stockage, vous devez l'installer dans les logements 3 et/ou 7.
 * Si vous ajoutez le module X91148A en tant que carte réseau 100 GbE, vous pouvez utiliser n'importe quel emplacement ouvert. Cependant, par défaut, les emplacements 3 et 7 sont définis comme emplacements de stockage. Si vous souhaitez utiliser ces emplacements comme emplacements réseau et n'y ajouter pas de tiroirs NS224, vous devez modifier les emplacements pour une utilisation en réseau avec `storage port modify -node _node name_ -port _port name_ -mode network` commande pour chaque port. Voir le Hardware Universe pour d'autres emplacements pouvant être utilisés par le module X91148A pour la mise en réseau.
 +
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
 
@@ -30,7 +30,7 @@ https://["NetApp Hardware Universe"]
 Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage existants de votre système pour installer un ou plusieurs modules NIC X91148A dans votre système plein.
 
 .Étapes
-. Si vous ajoutez un module X91148A dans un emplacement contenant un module NIC avec le même nombre de ports que le module X91148A, les LIFs migrent automatiquement lorsque leur module de contrôleur est arrêté. Si le module de carte réseau remplacé comporte plus de ports que le module X91148A, vous devez réaffecter définitivement les LIF concernées à un autre port d'accueil. Voir https://["Migration d'une LIF"] Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF
+. Si vous ajoutez un module X91148A dans un emplacement contenant un module NIC avec le même nombre de ports que le module X91148A, les LIFs migrent automatiquement lorsque leur module de contrôleur est arrêté. Si le module de carte réseau remplacé comporte plus de ports que le module X91148A, vous devez réaffecter définitivement les LIF concernées à un autre port d'accueil. Voir https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"] Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF
 . Arrêter le contrôleur A :
 +
 .. Désactiver le rétablissement automatique : `storage failover modify -node local -auto-giveback false`
@@ -104,7 +104,7 @@ Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage exista
 
 
 .Étapes
-. Si vous ajoutez un module X91148A en tant que module de stockage dans les logements 3 et/ou 7 dans un emplacement doté d'un module NIC existant, utilisez System Manager pour migrer définitivement les LIF vers différents ports d'accueil, comme décrit dans la section https://["Migration d'une LIF"].
+. Si vous ajoutez un module X91148A en tant que module de stockage dans les logements 3 et/ou 7 dans un emplacement doté d'un module NIC existant, utilisez System Manager pour migrer définitivement les LIF vers différents ports d'accueil, comme décrit dans la section https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"].
 . Arrêter le contrôleur A :
 +
 .. Désactiver le rétablissement automatique : `storage failover modify -node local -auto-giveback false`
@@ -164,5 +164,5 @@ Verrou de came d'E/S complètement déverrouillé
 . Rétablissement du nœud depuis le nœud partenaire : `storage failover giveback -ofnode _target_node_name_`
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
 . Répétez ces étapes pour le contrôleur B.
-. Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section https://["Ajout à chaud d'un tiroir disque NS224"].
+. Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud d'un tiroir disque NS224"].
 

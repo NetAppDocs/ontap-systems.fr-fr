@@ -15,14 +15,14 @@ Lorsqu'un lecteur de disque tombe en panne, la plate-forme consigne un message d
 
 * Le lecteur de disque de remplacement doit être pris en charge par votre plate-forme.
 +
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * Identifiez le disque défectueux en exécutant le `storage disk show -broken` commande depuis la console du système. Le lecteur défectueux apparaît dans la liste des disques défectueux. Si ce n'est pas le cas, attendez, puis exécutez de nouveau la commande.
 
 
 La manière dont vous remplacez à chaud le disque dépend de la façon dont le lecteur est utilisé. Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans la documentation ONTAP. Les instructions de la documentation ONTAP décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
 
-https://["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]
 
 Lors du remplacement de plusieurs disques, vous devez attendre une minute entre le retrait de chaque disque défectueux et l'insertion du lecteur de disque de remplacement pour permettre au système de stockage de reconnaître l'existence de chaque nouveau disque.
 
@@ -113,7 +113,7 @@ Vous devez réactiver l'affectation automatique des disques sur les deux modules
 
 .. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
 +
-Contactez l'assistance technique à l'adresse https://["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
+Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
 
 
 

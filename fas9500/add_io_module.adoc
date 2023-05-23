@@ -14,8 +14,8 @@ summary: 'Vous pouvez ajouter un module d"E/S à votre système, soit en rempla�
 Vous pouvez ajouter un module d'E/S à votre système en remplaçant une carte réseau ou une carte de stockage par une nouvelle carte dans un système entièrement rempli, ou en ajoutant une nouvelle carte réseau ou un adaptateur de stockage dans un logement de châssis vide du système.
 
 .Avant de commencer
-* Vérifier le https://["NetApp Hardware Universe"] Pour vérifier que le nouveau module d'E/S est compatible avec votre système et la version de ONTAP que vous utilisez.
-* Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans https://["NetApp Hardware Universe"] Et utiliser la meilleure solution disponible pour votre module d'E/S.
+* Vérifier le https://hwu.netapp.com/["NetApp Hardware Universe"] Pour vérifier que le nouveau module d'E/S est compatible avec votre système et la version de ONTAP que vous utilisez.
+* Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans https://hwu.netapp.com/["NetApp Hardware Universe"] Et utiliser la meilleure solution disponible pour votre module d'E/S.
 * Pour ajouter un module d'E/S sans interruption, vous devez reprendre le contrôleur cible, retirer l'obturateur de logement dans le slot cible ou retirer un module d'E/S existant, ajouter le nouveau ou le module d'E/S de remplacement, puis renvoyer le contrôleur cible.
 * S'assurer que tous les autres composants fonctionnent correctement.
 
@@ -162,7 +162,7 @@ NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
 . Si vous utilisez des connecteurs 3 et/ou 7 pour la mise en réseau, utilisez le `storage port modify -node __<node name>__ -port __<port name>__ -mode network` commande permettant de convertir le logement pour une utilisation en réseau.
 . Répétez ces étapes pour le contrôleur B.
-. Si vous avez installé un module d'E/S de stockage, installez et connectez les câbles de vos tiroirs SAS, comme indiqué dans la https://["Ajout à chaud d'un tiroir SAS"^].
+. Si vous avez installé un module d'E/S de stockage, installez et connectez les câbles de vos tiroirs SAS, comme indiqué dans la https://docs.netapp.com/us-en/ontap-systems/sas3/install-hot-add-shelf.html["Ajout à chaud d'un tiroir SAS"^].
 
 
 
@@ -188,14 +188,14 @@ Les LIF migrent automatiquement lorsque son module de contrôleur est arrêté.
  a| 
 Module d'E/S NIC avec moins de ports
  a| 
-Réallouer de manière définitive les LIF affectées à un autre port de départ. Voir https://["Migration d'une LIF"^] Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF.
+Réallouer de manière définitive les LIF affectées à un autre port de départ. Voir https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^] Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF.
 
 
 
  a| 
 Module d'E/S NIC avec module d'E/S de stockage
  a| 
-Utilisez System Manager pour migrer définitivement les LIF vers différents ports de base, comme décrit dans la https://["Migration d'une LIF"^].
+Utilisez System Manager pour migrer définitivement les LIF vers différents ports de base, comme décrit dans la https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^].
 
 |===
 
@@ -373,7 +373,7 @@ NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et
 
 +
 
-NOTE: Si vous rencontrez un problème pendant le redémarrage, reportez-vous à la section https://["BURT 1494308 - l'arrêt de l'environnement peut être déclenché lors du remplacement du module d'E/S."]
+NOTE: Si vous rencontrez un problème pendant le redémarrage, reportez-vous à la section https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1494308["BURT 1494308 - l'arrêt de l'environnement peut être déclenché lors du remplacement du module d'E/S."]
 
 
 
@@ -396,7 +396,7 @@ Utilisez le `storage port modify -node *_<node name>__ -port *_<port name>__ -mo
  a| 
 Module de stockage
  a| 
-Installez et connectez les câbles de vos tiroirs SAS, comme décrit dans lahttps://["Ajout à chaud d'un tiroir SAS"^].
+Installez et connectez les câbles de vos tiroirs SAS, comme décrit dans lahttps://docs.netapp.com/us-en/ontap-systems/sas3/install-hot-add-shelf.html["Ajout à chaud d'un tiroir SAS"^].
 
 |===
 . Répétez ces étapes pour le contrôleur B.

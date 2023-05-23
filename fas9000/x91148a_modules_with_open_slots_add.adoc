@@ -18,12 +18,12 @@ Vous pouvez ajouter un module X91148A dans un emplacement de module vide de votr
 * Un ou plusieurs emplacements ouverts doivent être disponibles sur votre système.
 * Si plusieurs emplacements sont disponibles, installez le module conformément à la matrice de priorité des logements pour le module X91148A dans le Hardware Universe.
 +
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * Si vous ajoutez le module X91148A en tant que module de stockage, vous devez installer les logements de module 3 et/ou 7.
 * Si vous ajoutez le module X91148A en tant que carte réseau 100 GbE, vous pouvez utiliser n'importe quel emplacement ouvert. Cependant, par défaut, les emplacements 3 et 7 sont définis comme emplacements de stockage. Si vous souhaitez utiliser ces emplacements comme emplacements réseau et n'y ajouter pas de tiroirs NS224, vous devez modifier les emplacements pour une utilisation en réseau avec `storage port modify -node _node name_ -port _port name_ -mode network` commande. Voir le Hardware Universe pour d'autres emplacements pouvant être utilisés par le module X91148A pour la mise en réseau.
 +
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
 
@@ -105,5 +105,5 @@ La connexion de la console indique que le nœud tombe dans l'invite DU CHARGEUR 
 . Rétablissement du nœud depuis le nœud partenaire : `storage failover giveback -ofnode target_node_name`
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
 . Répétez ces étapes pour le contrôleur B.
-. Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section https://["Ajout à chaud : étagères NS224"].
+. Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud : étagères NS224"].
 

@@ -285,7 +285,7 @@ Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'I
 NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
 
 +
-Pour plus d'informations, reportez-vous à la section https://["Commandes de rétablissement manuel"^] rubrique pour remplacer le droit de veto.
+Pour plus d'informations, reportez-vous à la section https://docs.netapp.com/us-en/ontap/high-availability/ha_manual_giveback.html#if-giveback-is-interrupted["Commandes de rétablissement manuel"^] rubrique pour remplacer le droit de veto.
 
 .. Une fois le retour arrière terminé, vérifiez que la paire HA est saine et que le basculement est possible : `storage failover show`
 +
@@ -322,7 +322,7 @@ Ceci est requis si les deux conditions suivantes sont vraies :
 ** La configuration MetroCluster est en état de basculement.
 ** Le contrôleur de remplacement est le propriétaire actuel des disques sur le site de reprise sur incident.
 +
-Voir https://["Modification de la propriété des disques lors du basculement haute disponibilité et du basculement du MetroCluster dans une configuration MetroCluster à quatre nœuds"] pour en savoir plus.
+Voir https://docs.netapp.com/us-en/ontap-metrocluster/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#disk-ownership-changes-during-ha-takeover-and-metrocluster-switchover-in-a-four-node-metrocluster-configuration["Modification de la propriété des disques lors du basculement haute disponibilité et du basculement du MetroCluster dans une configuration MetroCluster à quatre nœuds"] pour en savoir plus.
 
 
 
@@ -497,4 +497,4 @@ NOTE: Vous pouvez utiliser le `security key-manager key query -key-type NSE-AK` 
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
 [role="lead"]
-Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://["Retour de pièce et amp ; remplacements"] pour plus d'informations.
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

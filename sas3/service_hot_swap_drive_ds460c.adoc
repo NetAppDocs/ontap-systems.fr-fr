@@ -16,7 +16,7 @@ Vous pouvez remplacer à chaud un disque défectueux dans un tiroir disque DS460
 .Avant de commencer
 * Le disque de remplacement doit être pris en charge par le tiroir disque DS460C.
 +
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, contactez le support technique.
 * Le lecteur de disque que vous retirez doit être défectueux.
@@ -32,7 +32,7 @@ NOTE: Selon le type et la capacité du disque, il peut prendre jusqu'à plusieur
 Les instructions de la documentation ONTAP décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
 
 +
-https://["Présentation du chiffrement NetApp avec l'interface de ligne de commandes"]
+https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commandes"]
 
 
 
@@ -72,17 +72,17 @@ NOTE: Les champs magnétiques peuvent détruire toutes les données du lecteur d
 Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser des disques récemment qualifiés. Par conséquent, il ne faut pas tenir compte des messages d'événement système concernant la présence d'informations non à jour sur les lecteurs de disque. Vous évitez également les risques liés au partitionnement de disque, car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
 
 +
-https://["Téléchargements NetApp : pack de qualification des disques"^]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Téléchargements NetApp : pack de qualification des disques"^]
 
 * Avant d'ajouter de nouveaux tiroirs disques, des composants d'unités remplaçables sur site pour les tiroirs ou des câbles SAS, il est recommandé d'installer les versions les plus récentes du firmware IOM (module d'E/S) pour le tiroir disque et du firmware pour le disque.
 +
 Ces firmwares sont disponibles sur le site du support NetApp.
 
 +
-https://["Téléchargements NetApp : firmware des tiroirs disques"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
 
 +
-https://["Téléchargements NetApp : firmware de disque"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
 
 * Le micrologiciel du disque est automatiquement mis à jour (sans interruption) sur les nouveaux disques avec des versions de micrologiciel non récentes.
 +
@@ -255,6 +255,6 @@ Vous devez à nouveau activer l'affectation automatique de la propriété de dis
 
 . Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
 +
-Contactez l'assistance technique à l'adresse https://["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
+Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
 
 

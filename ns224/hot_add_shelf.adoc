@@ -21,11 +21,11 @@ Votre paire haute disponibilité doit respecter certaines exigences avant d'ajou
 
 * Votre modèle de plateforme et votre version de ONTAP doivent prendre en charge le tiroir NS224 et les disques que vous ajoutez à chaud.
 +
-https://["NetApp Hardware Universe"^]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * Vous devez disposer du nombre et du type de câbles appropriés pour connecter le shelf.
 +
-https://["NetApp Hardware Universe"^]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * Votre paire haute disponibilité doit disposer de suffisamment de ports compatibles RoCE disponibles pour prendre en charge le nombre de tiroirs que vous ajoutez à chaud.
 +
@@ -35,7 +35,7 @@ Pour chaque tiroir que vous ajoutez à chaud, vous devez disposer d'au moins deu
 Si votre paire haute disponibilité ne dispose pas de suffisamment de ports compatibles RoCE et si votre modèle de plateforme prend en charge l'utilisation de cartes PCIe ou de modules d'E/S compatibles RoCE, vous devez avoir installé les cartes ou modules d'E/S supplémentaires dans les connecteurs de contrôleur appropriés, comme pris en charge par votre modèle de plateforme.
 
 +
-https://["NetApp Hardware Universe"^]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 +
 [NOTE]
@@ -54,14 +54,14 @@ link:../fas9000/caching-module-and-core-dump-module-replace.html["Remplacez le m
 Vous ne pouvez pas avoir dépassé le nombre maximal de tiroirs pris en charge par votre paire haute disponibilité après l'ajout de tiroirs à chaud.
 
 +
-https://["NetApp Hardware Universe"^]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * Si vous ajoutez un tiroir à chaud à une paire haute disponibilité déjà équipée d'un tiroir NS224, votre paire haute disponibilité ne peut pas afficher de messages d'erreur relatifs au câblage du stockage, et il doit être câblé en tant que haute disponibilité multivoie.
 +
 Vous pouvez exécuter Active IQ Config Advisor pour afficher tous les messages d'erreur de câblage du stockage et les actions correctives que vous devez effectuer.
 
 +
-https://["Téléchargement NetApp : Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
 
 * Vous avez besoin d'un trombone avec un côté redressé ou d'un stylo à bille à pointe étroite.
 +
@@ -81,21 +81,21 @@ Vous devez vous familiariser avec les meilleures pratiques et les aspects à ce 
 Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser de nouveaux lecteurs qualifiés. Cela permet d'éviter que les messages d'événement du système ne soient pas à jour sur les disques et évite le partitionnement de disque car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
 
 +
-https://["Téléchargements NetApp : pack de qualification des disques"^]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Téléchargements NetApp : pack de qualification des disques"^]
 
 * *Meilleure pratique :* la meilleure pratique consiste à exécuter Active IQ Config Advisor avant et après l'ajout à chaud d'une étagère.
 +
 L'exécution de Active IQ Config Advisor avant l'ajout à chaud d'un tiroir procure une capture d'écran de la connectivité Ethernet du tiroir (ENET) existante, vérifie les versions de firmware du module de tiroir NVMe (NSM) et vous permet de vérifier l'ID de tiroir déjà utilisé dans la paire haute disponibilité. Une fois Active IQ Config Advisor le tiroir ajouté à chaud, vous pouvez vérifier que les tiroirs sont correctement câblés et que leurs ID sont uniques dans la paire haute disponibilité.
 
 +
-https://["Téléchargement NetApp : Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
 
 * *Meilleure pratique :* avant d'ajouter un nouveau tiroir, il est recommandé d'utiliser les versions les plus récentes du firmware NSM (module de tiroir NVMe) et du firmware de lecteur sur votre système.
 +
-https://["Téléchargements NetApp : firmware des tiroirs disques"^]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
 
 +
-https://["Téléchargements NetApp : firmware de disque"^]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
 
 +
 
@@ -350,7 +350,7 @@ Si nécessaire, vous pouvez faire référence aux schémas de câblage montrant 
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 +
-https://["Téléchargement NetApp : Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
 
 
 
@@ -560,7 +560,7 @@ image::../media/drw_ns224_a900_4shelves.png[drw ns224 a900 4clayettes]
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 +
-https://["Téléchargement NetApp : Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
 
 . Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire.
 +
@@ -612,7 +612,7 @@ image::../media/drw_ns224_a250_c250_f500f_1shelf_IEOPS-963.svg[drw ns224 a250 c2
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 +
-https://["Téléchargement NetApp : Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
 
 . Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire.
 +
@@ -713,7 +713,7 @@ image::../media/drw_ns224_a700_2shelves.png[drw ns224 a700 2 étagères]
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 +
-https://["Téléchargement NetApp : Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
 
 . Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire.
 +
@@ -818,7 +818,7 @@ image::../media/drw_ns224_a800_c800_2shelves_IEOPS-966.svg[drw ns224 a800 c800 2
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 +
-https://["Téléchargement NetApp : Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
 
 . Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire.
 +
@@ -909,7 +909,7 @@ image::../media/drw_ns224_a400_2shelves_IEOPS-983.svg[drw ns224 a400 2 tiroirs I
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 +
-https://["Téléchargement NetApp : Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
 
 . Si vous avez désactivé l'affectation automatique de disques dans le cadre de la préparation de cette procédure, vous devez attribuer manuellement la propriété du disque, puis réactiver l'affectation automatique de disques, si nécessaire.
 +
@@ -1000,7 +1000,7 @@ image::../media/drw_ns224_c400_2shelves_IEOPS-984.svg[drw ns224 c400 2 étagère
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 +
-https://["Téléchargement NetApp : Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
 
 . Si vous avez désactivé l'affectation automatique de disques dans le cadre de la préparation de cette procédure, vous devez attribuer manuellement la propriété du disque, puis réactiver l'affectation automatique de disques, si nécessaire.
 +
@@ -1052,7 +1052,7 @@ image::../media/drw_ns224_a320_2shelves_direct_attached.png[drw ns224 a320 2 ét
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 +
-https://["Téléchargement NetApp : Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"^]
 
 . Si vous avez désactivé l'affectation automatique de disques dans le cadre de la préparation de cette procédure, vous devez attribuer manuellement la propriété du disque, puis réactiver l'affectation automatique de disques, si nécessaire.
 +
