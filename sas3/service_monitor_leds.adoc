@@ -40,7 +40,7 @@ Un ou plusieurs blocs d'alimentation fournissent l'alimentation au tiroir disque
 .2+| image:../media/drw_sas_fault_icon.png[""] .2+| Attention  a| 
 Orange fixe
  a| 
-Une erreur s'est produite au niveau de la fonction d'une ou plusieurs unités remplaçables sur site : tiroir disque, disques, modules IOM12 ou blocs d'alimentation.
+Une erreur s'est produite avec la fonction de l'une des FRU suivantes : tiroir disque, disques durs, modules IOM12/IOM12B ou blocs d'alimentation.
 
 Consultez les messages d'événement pour déterminer les mesures correctives à prendre.
 
@@ -64,7 +64,7 @@ Bleu fixe
  a| 
 L'administrateur système a activé cette fonction à LED afin de faciliter la localisation physique du tiroir disque devant être mis en service.
 
-La LED d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12 s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.
+Le voyant d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12/IOM12B s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.
 
 |===
 Selon votre modèle de tiroir disque, le panneau d'affichage de l'opérateur semble différent ; cependant, les trois LED sont disposées de la même manière.
@@ -75,13 +75,13 @@ image::../media/drw_opd.gif[opd. drw]
 
 
 
-== LED du module IOM12
+== Voyants du module IOM12/IOM12B
 
-Les voyants du module IOM12 indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il y a des problèmes avec le matériel.
+Les voyants du module IOM12/IOM12B indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il y a des problèmes avec le matériel.
 
-Le tableau suivant décrit les LED du module IOM12 associées à la fonction du module et à la fonction de chaque port SAS du module.
+Le tableau suivant décrit les voyants des modules IOM12/IOM12B associés à la fonction du module et à la fonction de chaque port SAS du module.
 
-Le module IOM12 est utilisé avec les tiroirs disques DS460C, DS224C et DS212C.
+Le module IOM12/IOM12B est utilisé dans les tiroirs disques DS460C, DS224C et DS212C.
 
 [cols="4*"]
 |===
@@ -95,7 +95,7 @@ Attention
  a| 
 Orange fixe
  a| 
-Fonction du module IOM12 : une erreur s'est produite au niveau de la fonction du module IOM12.
+Fonction du module IOM12/IOM12B : une erreur s'est produite avec la fonction du module IOM12/IOM12B.
 
 Fonction du port SAS : moins de quatre couloirs SAS ont établi une liaison (avec un adaptateur ou un autre tiroir disque).
 
@@ -121,14 +121,18 @@ Emplacement
  a| 
 Bleu fixe
  a| 
-L'administrateur système a activé cette fonction LED afin de faciliter le positionnement physique du tiroir disque avec le module IOM12 défaillant.
+L'administrateur système a activé cette fonction de LED pour faciliter la localisation physique du tiroir disque avec le module IOM12/IOM12B défectueux.
 
-La LED d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12 s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.
+Le voyant d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12/IOM12B s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.
 
 |===
 L'illustration suivante concerne un module IOM12 :
 
 image::../media/drw_iom12.gif[drw iom12]
+
+Les modules IOM12B se distinguent par une bande bleue et une étiquette « IOM12B » :
+
+image::../media/iom12b.png[iom12b]
 
 
 

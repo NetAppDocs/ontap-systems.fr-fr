@@ -4504,9 +4504,6 @@
   <block id="ecdf5c8847c01f217fee685736ae0644" category="doc">Étapes détaillées - AFF A250</block>
   <block id="bf34833ec8e983c1342c0fbebc12c347" category="paragraph">Pour installer votre système AFF A250, vous devez créer un compte et enregistrer le système. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.</block>
   <block id="66316dee9c1b4739766a18fe76f0cf3d" category="admonition">Les clients qui ont des exigences énergétiques spécifiques doivent vérifier que l'HWU est bien adaptée à leur configuration.</block>
-  <block id="f2633075828362900ca73919da819a29" category="paragraph">Reliez les ports d'interconnexion de cluster aux autres ports avec le câble d'interconnexion de cluster 25 GbE<block ref="6b6a40b68f5814cad1750bfff7e3b927" category="inline-image-macro-rx" type="image"></block>:</block>
-  <block id="58c441d64314c2082defd9f79f4f5d89" category="paragraph">Reliez les ports 2a à 2d aux commutateurs hôte FC.<block ref="8c69ea1e01dd0a307f5cc8e68a746e18" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="291805e5f6e41a41cff79176c18b9bbc" category="paragraph">Reliez les ports e4a à e4d aux commutateurs du réseau hôte 10GbE.<block ref="4d47a33513883c069cdd23a129a70f98" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0e103ad5ee434b2faca19141061cbe51" category="paragraph">Reliez chaque contrôleur aux modules NSM du tiroir de disque NS224.</block>
   <block id="1f684a558f672dca1e5cd104fa082470" category="doc">Restauration complète du système - AFF A250</block>
   <block id="d4ec9448190c18c9b85b138eae5cfe04" category="doc">Vérifiez les clés de chiffrement intégrées : AFF A250</block>
@@ -5209,7 +5206,6 @@
   <block id="c61664b995859451c9b18dba9398d36e" category="cell"><block ref="c61664b995859451c9b18dba9398d36e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2aa97e44cace7cb882c9dcba32940f8f" category="cell">Attention</block>
   <block id="75e6252bb5a504fc80a435f3c6fc7c82" category="paragraph">Orange fixe</block>
-  <block id="a91f4dbac042acc9674c8f30f0009e10" category="paragraph">Une erreur s'est produite au niveau de la fonction d'une ou plusieurs unités remplaçables sur site : tiroir disque, disques, modules IOM12 ou blocs d'alimentation.</block>
   <block id="42532600d34fb5884550b5ba06c71866" category="paragraph">Consultez les messages d'événement pour déterminer les mesures correctives à prendre.</block>
   <block id="5bb2376fdbdd8b69f07ffed693784a70" category="paragraph">Orange clignotant</block>
   <block id="59ee562359b2b7e862570a57471bda07" category="paragraph">L'ID de tiroir est défini sur un état en attente.</block>
@@ -5217,21 +5213,13 @@
   <block id="965881f89ebf03830d8c6f3d7b4af499" category="paragraph"><block ref="965881f89ebf03830d8c6f3d7b4af499" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d4300cfa84e2e26784840198a0cbd030" category="paragraph">Bleu fixe</block>
   <block id="dcef7e6e25f4d0285a65c6e2456b274e" category="paragraph">L'administrateur système a activé cette fonction à LED afin de faciliter la localisation physique du tiroir disque devant être mis en service.</block>
-  <block id="2c64d9557c9a2aa50849a46c94063cbf" category="paragraph">La LED d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12 s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.</block>
   <block id="735b119b02d7cf2ed75726f0f7dd0561" category="paragraph">Selon votre modèle de tiroir disque, le panneau d'affichage de l'opérateur semble différent ; cependant, les trois LED sont disposées de la même manière.</block>
   <block id="5d405fcbf9fe0221fc5a388844b43691" category="paragraph">L'illustration suivante est un panneau opérateur de tiroir disque DS224C avec le capuchon d'extrémité activé :</block>
   <block id="619a6c64b692f7c7d530acc10ff465bd" category="image-alt">opd. drw</block>
-  <block id="578194735681dfccf0ab5a7f231ad3eb" category="section-title">LED du module IOM12</block>
-  <block id="4bd9e80f0885938495ab10fad1f15091" category="paragraph">Les voyants du module IOM12 indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il y a des problèmes avec le matériel.</block>
-  <block id="43887fc5a62c282f3e5be085309f0a65" category="paragraph">Le tableau suivant décrit les LED du module IOM12 associées à la fonction du module et à la fonction de chaque port SAS du module.</block>
-  <block id="1a2971baecb92cc9a6f46a52fdbc4383" category="paragraph">Le module IOM12 est utilisé avec les tiroirs disques DS460C, DS224C et DS212C.</block>
-  <block id="16dd5aba0d994e6b3b2ad2851ff70375" category="paragraph">Fonction du module IOM12 : une erreur s'est produite au niveau de la fonction du module IOM12.</block>
   <block id="06193ae5b75dce356ceef150051cbba7" category="paragraph">Fonction du port SAS : moins de quatre couloirs SAS ont établi une liaison (avec un adaptateur ou un autre tiroir disque).</block>
   <block id="96c5571f7b6648b76366cba9755c4f43" category="paragraph">NK</block>
   <block id="19e79e9ef0fa80f9b6aa5a3f8e5bb42c" category="paragraph">Liaison de port</block>
   <block id="e35abb0fc157a472260600f52f6994cc" category="paragraph">Un ou plusieurs des quatre voies SAS ont établi une liaison (avec un adaptateur ou un autre tiroir disque).</block>
-  <block id="85eed6af8a7071f352ad78220d797f3b" category="paragraph">L'administrateur système a activé cette fonction LED afin de faciliter le positionnement physique du tiroir disque avec le module IOM12 défaillant.</block>
-  <block id="11e1a575acb39145b730906b42d580a1" category="paragraph">L'illustration suivante concerne un module IOM12 :</block>
   <block id="f2105620d136a321a397d0310e98f133" category="image-alt">drw iom12</block>
   <block id="2aa3adf1c0ff2c8444260a0e888c02bc" category="section-title">LED d'alimentation électrique</block>
   <block id="09cdf702b67ff26e9a51e5bd564332db" category="paragraph">Les voyants du bloc d'alimentation indiquent si le bloc d'alimentation fonctionne normalement ou s'il y a des problèmes matériels.</block>
@@ -7946,4 +7934,48 @@
   <block id="6266bb335022aad7813f5a92f40c41bb" category="list-text">Configurez votre cluster à l'aide de System Manager sur votre ordinateur portable ou sur votre console.</block>
   <block id="b1e0a8fb86dde21901d58064a47983ae" category="paragraph">Découvrez comment installer votre système, depuis les racks et le câblage, jusqu'à la présentation initiale du système. Utiliser <block ref="2e869cac122e3063f7b418f03cb3fa26" category="inline-link-macro-rx"></block> Si vous connaissez déjà l'installation des systèmes NetApp,</block>
   <block id="78504a496ba3e0d8a682fe929b4d61d9" category="paragraph"><block ref="78504a496ba3e0d8a682fe929b4d61d9" category="inline-link-macro-rx"></block></block>
+  <block id="79386daaa48888ed81c00ef493d329e9" category="paragraph">Si vous disposez d'une configuration MetroCluster, utilisez<block ref="d4b6e949edad9293b177bc65e2892165" category="inline-link-rx"></block>.</block>
+  <block id="9b9935ad5969c28de13381a2e512b47c" category="paragraph">REMARQUE :</block>
+  <block id="25ca1a1b0a04d8f5341dca5c9e9eed8a" category="list-text">Assurez-vous d'avoir accès au <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> (HWU) pour obtenir des informations sur les exigences relatives au site.</block>
+  <block id="b00f162fad84edda46484fcada242a8c" category="inline-link">HWU</block>
+  <block id="0b596d3b9a72deeb4bca2c3f00662c30" category="list-text">Les clients ayant des besoins spécifiques en alimentation doivent les vérifier<block ref="911e5b8f28f318acfdc1d057cd36b40e" category="inline-link-rx"></block> pour les options de configuration.</block>
+  <block id="50bb0852475aeb4d407a01f8d637ccae" category="list-text">Assurez-vous d'avoir accès au <block ref="515d1814cb0f36c56a64a6574d93c9df" category="inline-link-macro-rx"></block> pour plus d'informations sur ce système.</block>
+  <block id="eba4465f65ac7360936f8f238b09999c" category="list-text">Câbles réseau supplémentaires pour connecter votre système à votre commutateur réseau et à votre ordinateur portable ou à votre console à l'aide d'un navigateur Web.</block>
+  <block id="c7e4a9edbb9ec3bb0052efd3332763a3" category="section-title">Étape 3 : câblage des contrôleurs au cluster</block>
+  <block id="089103029c56ad66034dfe6bd70cfdcb" category="paragraph">Utilisez l'animation ou les étapes tabulées pour terminer le câblage entre les contrôleurs et les commutateurs. Effectuez les étapes sur chaque contrôleur.</block>
+  <block id="38e134ad6d648c53626268f8b6a82510" category="list-text">Reliez les ports d'interconnexion de cluster e0c à e0c et e0d à e0 à l'aide du câble d'interconnexion de cluster 25 GbE<block ref="6b6a40b68f5814cad1750bfff7e3b927" category="inline-image-macro-rx" type="image"></block>:</block>
+  <block id="5d8d8fe980b572286e75db6ff18d3cbc" category="paragraph"><block ref="5d8d8fe980b572286e75db6ff18d3cbc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="84e68180cd83b83ca12149fed857f1ac" category="list-text">Reliez les ports d'interconnexion de cluster e0c et e0d aux commutateurs d'interconnexion de cluster 25 GbE.</block>
+  <block id="ee3f9d0ec20204c7d48b52d859e31c4d" category="paragraph"><block ref="ee3f9d0ec20204c7d48b52d859e31c4d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="40a8f8b2f4ff5acd74232849a99a8a04" category="section-title">Étape 4 : câble vers le réseau ou le stockage hôte (facultatif)</block>
+  <block id="03c1ffcb3fc95b8bfccde9eae4c521cb" category="open-title">Option 1 : câble vers le réseau hôte Fibre Channel</block>
+  <block id="57f232cf1846457526a67fb857654097" category="paragraph">Effectuer l'étape sur chaque module de contrôleur.</block>
+  <block id="8c69ea1e01dd0a307f5cc8e68a746e18" category="paragraph"><block ref="8c69ea1e01dd0a307f5cc8e68a746e18" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4d47a33513883c069cdd23a129a70f98" category="paragraph"><block ref="4d47a33513883c069cdd23a129a70f98" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="db24b10d7ccee1e6c17be0c81439dce8" category="open-title">Option 3 : câblage des contrôleurs pour un tiroir disque</block>
+  <block id="8fb418cbd362c972abff9e15e5bbef81" category="paragraph">Utilisez l'animation ou les étapes tabulées pour terminer le câblage entre les contrôleurs et le tiroir unique. Effectuez les étapes sur chaque module de contrôleur.</block>
+  <block id="26f36b74d2b5930cb4c8a791d8825169" category="list-text">Reliez le contrôleur A au tiroir.</block>
+  <block id="18f599f35e14d88c5e3fb9f75197e3c8" category="paragraph"><block ref="18f599f35e14d88c5e3fb9f75197e3c8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4e9ad1feb0945eeeb8a1d11bf9bf539e" category="list-text">Reliez le contrôleur B au tiroir.</block>
+  <block id="f822d74484a7588f78ead07185e89b82" category="paragraph"><block ref="f822d74484a7588f78ead07185e89b82" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a363ebbaf5776be0c980b7b95cd927d3" category="inline-link">compte existant ou créer un compte</block>
+  <block id="50350463d29f0dd6d00e1fbb6e5ee301" category="list-text">Connectez-vous à votre<block ref="7d7bd8ac0b1a83207c698de0ebfd0970" category="inline-link-rx"></block>.</block>
+  <block id="d8c9578f313af4d30124d95a9a82f55a" category="list-text"><block ref="45857239f243800c6028823fe1bb7167" category="inline-link-macro-rx"></block> votre système.</block>
+  <block id="42608111c1df97efb2c5e1785a0c9236" category="paragraph">Reliez les contrôleurs à un cluster à l'aide de la méthode cluster sans commutateur à deux nœuds ou à l'aide de la méthode réseau d'interconnexion de cluster.</block>
+  <block id="940761e28da4b693854d6f9dd90cf253" category="video-title">Animation : câble d'un cluster sans commutateur à deux nœuds</block>
+  <block id="e8da070fbb7ed9f4e58234be76f00e95" category="list-text">Utilisez le câble d'interconnexion de cluster 25 GbE pour connecter les ports d'interconnexion de cluster e0c à e0c et e0d à e0d.</block>
+  <block id="c26780590002425e46bd9c5734245466" category="paragraph">Utilisez l'animation ou les étapes pour terminer le câblage entre les contrôleurs et les commutateurs. Effectuez les étapes sur chaque contrôleur.</block>
+  <block id="76cc458c90f11508f1ec83bed8953ef1" category="video-title">Animation - Groupe de câbles commutés</block>
+  <block id="f7d77014760bf79c9b9469d98b1e031b" category="admonition">Lorsque vous insérez le connecteur, vous devez le sentir en place. Si vous ne le sentez pas, retirez-le, retournez-le et réessayez.</block>
+  <block id="ed7a3f593115fbd1332dbd3743a9967c" category="paragraph">Effectuer l'étape suivante sur chaque module de contrôleur.</block>
+  <block id="63acd4af39a4e0dda6fe6c3d381743a7" category="open-title">Option 2 : câble vers un réseau de données 25 GbE ou hôte</block>
+  <block id="2b5c65d5b0abc122c914eec510d083ae" category="paragraph">Une erreur s'est produite avec la fonction de l'une des FRU suivantes : tiroir disque, disques durs, modules IOM12/IOM12B ou blocs d'alimentation.</block>
+  <block id="179393dc95adf2d21fee0c7a4ac43a35" category="paragraph">Le voyant d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12/IOM12B s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.</block>
+  <block id="a0e54d8ccf5f2c0e80dde9c632b59a06" category="section-title">Voyants du module IOM12/IOM12B</block>
+  <block id="d513e2f89875e1250513a03a56fb4689" category="paragraph">Les voyants du module IOM12/IOM12B indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il y a des problèmes avec le matériel.</block>
+  <block id="94d8e14101b7f4ab9a744f00e8e2fe29" category="paragraph">Le tableau suivant décrit les voyants des modules IOM12/IOM12B associés à la fonction du module et à la fonction de chaque port SAS du module.</block>
+  <block id="90f41460d3ad083904e7b340e4b39ece" category="paragraph">Le module IOM12/IOM12B est utilisé dans les tiroirs disques DS460C, DS224C et DS212C.</block>
+  <block id="1ed7e5bc49edc6dcd82d94adaa712607" category="paragraph">Fonction du module IOM12/IOM12B : une erreur s'est produite avec la fonction du module IOM12/IOM12B.</block>
+  <block id="661a269cef9bb91a2f8b4d733118a2eb" category="paragraph">L'administrateur système a activé cette fonction de LED pour faciliter la localisation physique du tiroir disque avec le module IOM12/IOM12B défectueux.</block>
+  <block id="a78123fcf223e9fb14720d2a07e2ef85" category="paragraph">L'illustration suivante concerne un module IOM12 :</block>
 </blocks>
