@@ -162,8 +162,33 @@ image::../media/drw_cable_management_arm_install.png[installation du ARM de gest
 
 Reliez les contrôleurs au réseau à l'aide de la méthode cluster sans commutateur à deux nœuds ou de la méthode réseau d'interconnexion de cluster.
 
-Les ports UTA2, le réseau de données Ethernet et les ports de gestion des modules de contrôleur sont connectés aux switchs. Les ports d'interconnexion de cluster sont câblés sur les deux modules de contrôleur.
+Le tableau suivant identifie le type de câble avec le numéro d'appel et la couleur de câble sur les illustrations pour le câblage réseau à deux nœuds sans commutateur et le câblage réseau à cluster commuté.
 
+[cols="20%,80%"]
+|===
+| Câblage | Type de connexion 
+
+
+ a| 
+image::../media/oie_legend_icon_1_lg.svg[légende de l'oie icône 1 lg]
+ a| 
+Interconnexion de cluster
+
+
+
+ a| 
+image::../media/oie_legend_icon_2_o.svg[icône de légende oie 2 o]
+ a| 
+Contrôleurs pour héberger des switchs de réseau de données
+
+
+
+ a| 
+image::../media/oie_legend_icon_3_lp.svg[icône de légende oie 3 lp]
+ a| 
+Contrôleurs au commutateur réseau de gestion
+
+|===
 [role="tabbed-block"]
 ====
 .Option 1 : cluster à 2 nœuds sans commutateur
@@ -184,7 +209,7 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 NOTE: Si vous vous connectez à un commutateur optique, insérez le SFP dans le port du contrôleur avant de procéder au câblage vers le port.
 
 .Description de la tâche
-Vous pouvez utiliser les ports de réseau de données UTA2 ou les ports de réseau de données ethernet pour connecter les contrôleurs à votre réseau hôte. Reportez-vous aux illustrations de câblage suivantes lors du câblage entre les contrôleurs et les commutateurs.
+Reportez-vous aux illustrations de câblage suivantes lors du câblage entre les contrôleurs et les commutateurs.
 
 Configurations réseau de données UTA2::
 +
@@ -204,7 +229,7 @@ Effectuez les étapes suivantes sur chaque module de contrôleur.
 
 .Étapes
 . Reliez les ports d'interconnexion de cluster e0a à e0a et e0b à e0b à l'aide du câble d'interconnexion de cluster. +image:../media/drw_c190_u_tnsc_clust_cbling.png[""]
-. Effectuez l'une des opérations suivantes :
+. Reliez les contrôleurs à un réseau de données UTA2 ou à un réseau Ethernet.
 +
 Configurations réseau de données UTA2:: Utilisez l'un des types de câble suivants pour relier les ports de données e0c/0C et e0d/0d ou e0e/0e et e0f/0f au réseau hôte.
 +
@@ -248,7 +273,7 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 NOTE: Si vous vous connectez à un commutateur optique, insérez le SFP dans le port du contrôleur avant de procéder au câblage vers le port.
 
 .Description de la tâche
-Vous pouvez utiliser les ports de réseau de données UTA2 ou les ports de réseau de données ethernet pour connecter les contrôleurs à votre réseau hôte. Reportez-vous aux illustrations de câblage suivantes lors du câblage entre les contrôleurs et les commutateurs.
+Reportez-vous aux illustrations de câblage suivantes lors du câblage entre les contrôleurs et les commutateurs.
 
 Configurations réseau unifiées::
 +
@@ -271,7 +296,7 @@ Effectuez les étapes suivantes sur chaque module de contrôleur.
 +
 image:../media/drw_c190_u_switched_clust_cbling.png[""]
 
-. Effectuez l'une des opérations suivantes :
+. Reliez les contrôleurs à un réseau de données UTA2 ou à un réseau Ethernet.
 +
 Configurations réseau de données UTA2:: Utilisez l'un des types de câble suivants pour relier les ports de données e0c/0C et e0d/0d ou e0e/0e et e0f/0f au réseau hôte.
 +

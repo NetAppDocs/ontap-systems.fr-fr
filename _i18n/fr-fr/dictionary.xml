@@ -3968,7 +3968,6 @@
   <block id="20fb63d96f0c0c1b27482e0044df988a" category="paragraph">Le rétablissement est terminé une fois les clusters dans<block ref="fea087517c26fadd409bd4b9dc642555" prefix=" " category="inline-code"></block> état :</block>
   <block id="96079f0a36e437f5bfadad93d5fec62f" category="paragraph">Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des lignes de base en cours en utilisant le<block ref="32762e78cfa49b07513c4f60c2b0a741" prefix=" " category="inline-code"></block> commande.</block>
   <block id="bebab338ce208a8365444e4ebe4efe11" category="list-text">Rétablir toutes les configurations SnapMirror ou SnapVault.</block>
-  <block id="36db73d94b30571d5e78b69926c4ee10" category="doc">Remplacement du module de contrôleur - FAS8200</block>
   <block id="4fa4535552a76ba6abb695db42b48161" category="paragraph">Si c'est la procédure à suivre, notez que la procédure de remplacement du contrôleur d'un contrôleur dans une configuration MetroCluster à quatre ou huit contrôleurs est identique à celle d'une paire haute disponibilité. Aucune étape spécifique à MetroCluster n'est requise, car la défaillance est limitée à une paire haute disponibilité et les commandes de basculement du stockage peuvent être utilisées pour assurer une continuité de l'activité pendant le remplacement.</block>
   <block id="18286caf45baac43fedf94bfeaff35fa" category="list-text">Toutes les cartes PCIe déplacées de l'ancien module de contrôleur vers le nouveau module de contrôleur ou ajoutées depuis l'inventaire du site client existant doivent être prises en charge par le module de remplacement.</block>
   <block id="9f3fe6619f3cc21d2cc057e260c9a3ae" category="doc">Arrêtez le contrôleur défaillant - FAS8200</block>
@@ -7867,7 +7866,6 @@
   <block id="841cf46b69a4b2c782c980b795074554" category="list-text">Assurez-vous d'avoir les éléments suivants sur votre site :</block>
   <block id="85220111cf8764a6d5eefe427de4fbde" category="paragraph">Installez le système dans un rack à 4 montants ou une armoire système NetApp, le cas échéant.</block>
   <block id="1ccb5aa93b58b2e0cbfd6015e33c6a90" category="paragraph">Reliez les contrôleurs au réseau à l'aide de la méthode cluster sans commutateur à deux nœuds ou de la méthode réseau d'interconnexion de cluster.</block>
-  <block id="22cf31ea4e88d1269c525c08a9c8fdff" category="paragraph">Les ports UTA2, le réseau de données Ethernet et les ports de gestion des modules de contrôleur sont connectés aux switchs. Les ports d'interconnexion de cluster sont câblés sur les deux modules de contrôleur.</block>
   <block id="434c44657e12928e06a65124dfb073b0" category="paragraph">Découvrez comment câbler un cluster à 2 nœuds sans commutateur.</block>
   <block id="f7284f28e338cb3e10e42e8214151229" category="paragraph">Vous pouvez utiliser les ports de réseau de données UTA2 ou les ports de réseau de données ethernet pour connecter les contrôleurs à votre réseau hôte. Reportez-vous aux illustrations de câblage suivantes lors du câblage entre les contrôleurs et les commutateurs.</block>
   <block id="48114454330840b73674b4d456819a4e" category="list-text">Configurations réseau de données UTA2</block>
@@ -7978,4 +7976,17 @@
   <block id="1ed7e5bc49edc6dcd82d94adaa712607" category="paragraph">Fonction du module IOM12/IOM12B : une erreur s'est produite avec la fonction du module IOM12/IOM12B.</block>
   <block id="661a269cef9bb91a2f8b4d733118a2eb" category="paragraph">L'administrateur système a activé cette fonction de LED pour faciliter la localisation physique du tiroir disque avec le module IOM12/IOM12B défectueux.</block>
   <block id="a78123fcf223e9fb14720d2a07e2ef85" category="paragraph">L'illustration suivante concerne un module IOM12 :</block>
+  <block id="ab821717031a58a1a9d01409f017bf49" category="doc">Présentation du remplacement du module de contrôleur - FAS8200</block>
+  <block id="925bdd1d7aad5ef53490c52842590538" category="paragraph">Le tableau suivant identifie le type de câble avec le numéro d'appel et la couleur de câble sur les illustrations pour le câblage réseau à deux nœuds sans commutateur et le câblage réseau à cluster commuté.</block>
+  <block id="d0afed67605524c7117536fe92ce3da8" category="cell">Type de connexion</block>
+  <block id="985b78c75a9bb79d8cb44d78a86e22a9" category="image-alt">icône de légende oie 2 o</block>
+  <block id="73bfdf61f88c1cff337d81f80cb733d7" category="paragraph">Contrôleurs pour héberger des switchs de réseau de données</block>
+  <block id="2ef47c54a75d2ffe153e57585c5ef8eb" category="image-alt">icône de légende oie 3 lp</block>
+  <block id="3be4d8a4a3ae9d68dd7ac9118685e99e" category="paragraph">Contrôleurs au commutateur réseau de gestion</block>
+  <block id="c00351b5bbad5f2b55b1e523113b08ab" category="paragraph">Reportez-vous aux illustrations de câblage suivantes lors du câblage entre les contrôleurs et les commutateurs.</block>
+  <block id="70c67999b75c623ee9876e398ee7ebb9" category="list-text">Reliez les contrôleurs à un réseau de données UTA2 ou à un réseau Ethernet.</block>
+  <block id="4eb04196699d24394da6f4bdb0a6cd76" category="doc">Remplacez la batterie de l'horloge en temps réel - AFF A220 et FAS2700</block>
+  <block id="3529feb1f15a906788e97c962f5f18b5" category="doc">Remplacez la pile de l'horloge temps réel - AFF A150</block>
+  <block id="74fef60bd66705310b79dcd3e46f4894" category="doc">Remplacez le lecteur SSD ou le disque dur - AFF A150</block>
+  <block id="d646909dddf2c419f953113a67e04618" category="doc">Remplacez un module DIMM - AFF A150</block>
 </blocks>
