@@ -21,21 +21,23 @@ https://docs.netapp.com/us-en/ontap-metrocluster/index.html["Documentation Metro
 
 == Étape 1 : préparer l'installation
 
-[role="lead"]
 Pour installer votre système, vous devez créer un compte, enregistrer le système et obtenir des clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
 
 .Avant de commencer
-Pour obtenir des informations sur les conditions requises par le site ainsi que des informations supplémentaires sur le système configuré, accédez au Hardware Universe. Pour plus d'informations sur ce système, vous pouvez également accéder aux notes de version de votre version de ONTAP.
-
+* Pour obtenir des informations sur les conditions requises par le site ainsi que des informations supplémentaires sur le système configuré, accédez au Hardware Universe. Pour plus d'informations sur ce système, vous pouvez également accéder aux notes de version de votre version de ONTAP.
++
 https://hwu.netapp.com["NetApp Hardware Universe"]
 
++
 http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Retrouvez les notes de mise à jour de votre version de ONTAP 9"]
 
-Vous devez fournir les informations suivantes sur votre site :
+* Vous devez fournir les informations suivantes sur votre site :
++
+** Espace rack pour le système de stockage
+** Tournevis Phillips n°2
+** Câbles réseau supplémentaires pour connecter votre système à votre commutateur réseau et à votre ordinateur portable ou console avec un navigateur Web
 
-* Espace rack pour le système de stockage
-* Tournevis Phillips n°2
-* Câbles réseau supplémentaires pour connecter votre système à votre commutateur réseau et à votre ordinateur portable ou console avec un navigateur Web
+
 
 
 .Étapes
@@ -157,7 +159,6 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configur
 
 == Étape 2 : installer le matériel de fixation
 
-[role="lead"]
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
 
 . Installez les kits de rails, au besoin.
@@ -180,24 +181,23 @@ image::../media/drw_a320_cable_management_arms.png[bras de gestion des câbles d
 
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
 
-[role="lead"]
-Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
+Vous pouvez câbler les contrôleurs au réseau en utilisant la méthode de cluster à 2 nœuds sans commutateur ou en utilisant la méthode de cluster commuté.
+
+.Description de la tâche
+* Si les étiquettes des ports de la carte ne sont pas visibles, vous pouvez identifier les ports en vérifiant l'orientation de l'installation de la carte (pour C400, le connecteur PCIe se trouve sur le côté gauche de l'emplacement de carte), puis rechercher la carte par numéro de référence dans NetApp Hardware Universe, qui montre un graphique du cadre avec les étiquettes des ports. Vous pouvez trouver le numéro de référence de la carte à l'aide de la commande sysconfig -a ou dans la liste de distribution du système.
+* Si vous effectuez le câblage d'une configuration IP MetroCluster, les ports e0a/e0b sont disponibles pour l'hébergement des LIF de données (généralement dans l'IPSpace par défaut).
 
 
-NOTE: Si les étiquettes des ports de la carte ne sont pas visibles, vous pouvez identifier les ports en vérifiant l'orientation de l'installation de la carte (pour C400, le connecteur PCIe se trouve sur le côté gauche de l'emplacement de carte), puis rechercher la carte par numéro de référence dans NetApp Hardware Universe, qui montre un graphique du cadre avec les étiquettes des ports. Vous pouvez trouver le numéro de référence de la carte à l'aide de la commande sysconfig -a ou dans la liste de distribution du système.
+[role="tabbed-block"]
+====
+.Option 1 : câler un cluster à deux nœuds sans commutateur
+--
+Les ports d'interconnexion de cluster et les ports haute disponibilité d'un module de contrôleur sont câblés au module de contrôleur partenaire. Les ports de données en option, les cartes NIC en option et les ports de gestion des modules de contrôleur sont connectés aux commutateurs.
 
-
-NOTE: Si vous effectuez le câblage d'une configuration IP MetroCluster, les ports e0a/e0b sont disponibles pour l'hébergement des LIF de données (généralement dans l'IPSpace par défaut).
-
-
-
-=== Option 1 : câler un cluster à deux nœuds sans commutateur
-
-[role="lead"]
-Les ports de données en option, les cartes NIC en option et les ports de gestion des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur les deux modules de contrôleur.
-
+.Avant de commencer
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
 
+.Description de la tâche
 Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de branchement des câbles sont vers le haut pour tous les ports intégrés et vers le bas pour les cartes d'extension (NIC).
 
 image::../media/oie_cable_pull_tab_up.png[tirer la languette du câble de l'oie vers le haut]
@@ -215,15 +215,15 @@ image::../media/drw_c400_TNSC-networking-cabling_IEOPS-1095.svg[Câblage réseau
 . Accédez à <<Étape 4 : câblage des contrôleurs aux tiroirs disques>> pour obtenir les instructions de câblage du tiroir disque.
 
 
+--
+.Option 2 : câblage d'un cluster commuté
+--
+Les ports d'interconnexion de cluster et les ports haute disponibilité du module de contrôleur sont câblés au commutateur cluster/haute disponibilité. Les ports de données en option, les cartes NIC en option, les cartes mezzanine et les ports de gestion sont connectés aux commutateurs.
 
-
-=== Option 2 : câblage d'un cluster commuté
-
-[role="lead"]
-Les ports de données en option, les cartes NIC en option, les cartes mezzanine et les ports de gestion des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur le commutateur de cluster/haute disponibilité.
-
+.Avant de commencer
 Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
 
+.Description de la tâche
 Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de branchement des câbles sont vers le haut pour tous les ports intégrés et vers le bas pour les cartes d'extension (NIC).
 
 image::../media/oie_cable_pull_tab_up.png[tirer la languette du câble de l'oie vers le haut]
@@ -241,20 +241,21 @@ image::../media/drw_c400_switched_network_cabling_IEOPS-1096.svg[drw c400 câbla
 . Accédez à <<Étape 4 : câblage des contrôleurs aux tiroirs disques>> pour obtenir les instructions de câblage du tiroir disque.
 
 
+--
+====
 
 
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
-[role="lead"]
 Les options suivantes vous indiquent comment connecter un ou deux tiroirs de disque NS224 à votre système.
 
 
 
 === Option 1 : câblage des contrôleurs à un tiroir disque unique
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules NSM du tiroir de disque NS224.
 
+.Description de la tâche
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait du câble du NS224 est relevée.
 
 image::../media/oie_cable_pull_tab_up.png[tirer la languette du câble de l'oie vers le haut]
@@ -274,9 +275,9 @@ image::../media/drw_c400_one_ns224_shelf_IEOPS-1097.svg[drw c400 une étagère n
 
 === Option 2 : câblage des contrôleurs à deux tiroirs disques
 
-[role="lead"]
 Vous devez connecter chaque contrôleur aux modules NSM des deux tiroirs disques NS224.
 
+.Description de la tâche
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait du câble du NS224 est relevée.
 
 image::../media/oie_cable_pull_tab_up.png[tirer la languette du câble de l'oie vers le haut]
@@ -296,14 +297,12 @@ image::../media/drw_c400_two_ns224_shelves_IEOPS-1098.svg[drw c400 deux étagèr
 
 == Étape 5 : installation et configuration complètes du système
 
-[role="lead"]
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 
 
 === Option 1 : fin de la configuration et de la configuration du système si la détection du réseau est activée
 
-[role="lead"]
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
 
 . Utilisez l'animation suivante pour mettre sous tension et définir les ID de tiroir d'un ou plusieurs tiroirs disques :
@@ -318,10 +317,11 @@ video::c500e747-30f8-4763-9065-afbf00008e7f[panopto]
 +
 Consultez l'aide en ligne de votre ordinateur portable pour plus d'informations.
 
-. Utilisez l'animation suivante pour connecter votre ordinateur portable au commutateur de gestion.
-+
-.Animation : connectez votre ordinateur portable au commutateur de gestion
-video::d61f983e-f911-4b76-8b3a-ab1b0066909b[panopto]
+. Connectez votre ordinateur portable au commutateur de gestion.
+
+
+image::../media/dwr_laptop_to_switch_only.svg[ordinateur portable dwr pour changer uniquement]
+
 . Sélectionnez une icône ONTAP pour découvrir :
 +
 image::../media/drw_autodiscovery_controler_select.png[sélection du contrôleur de découverte automatique drw]
@@ -368,7 +368,6 @@ https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Adviso
 
 === Option 2 : fin de la configuration et de la configuration du système si la détection du réseau n'est pas activée
 
-[role="lead"]
 Si la détection réseau n'est pas activée sur votre ordinateur portable, vous devez effectuer la configuration et la configuration à l'aide de cette tâche.
 
 . Branchez et configurez votre ordinateur portable ou votre console :
