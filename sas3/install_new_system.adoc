@@ -53,12 +53,12 @@ Vous devez définir des ID de tiroir de manière à ce qu'ils soient uniques dan
 
 * Les tiroirs disques contenant les agrégats racine peuvent être identifiés par les étiquettes situées sur la boîte des tiroirs disques et sur le châssis des tiroirs disques.
 +
-Les étiquettes indiquent le numéro de pile, par exemple *Loop ou Stack #: 1* et *Loop ou Stack #: 2*. Les tiroirs disques qui ne contiennent pas les agrégats racine affichent uniquement le numéro de série du tiroir disque se trouvent sur les étiquettes.
+Les étiquettes indiquent le numéro de pile, par exemple *Loop ou Stack #: 1* et *Loop ou Stack #: 2*. Les tiroirs disques qui ne contiennent pas d'agrégats racine indiquent uniquement le numéro de série du tiroir disque sur les étiquettes.
 
 * Si, lors de l'installation et de la configuration du système, vous ne configurez pas le système pour qu'il utilise l'affectation automatique de propriété de disque, vous devez attribuer manuellement la propriété de disque.
-* La technologie ACP (Alternate Control Path) intrabande est automatiquement activée.
+* IBACP (Alternate Control Path) intrabande est automatiquement activé.
 +
-La technologie ACP intrabande n'est pas prise en charge dans les configurations HA à chemin unique ou à chemin unique.
+IBACP n'est pas pris en charge dans les configurations à voie unique haute disponibilité ou à voie unique.
 
 
 
@@ -84,7 +84,7 @@ Si des erreurs de câblage SAS ou d'ID de tiroir dupliqués sont générées, su
 Vous avez besoin d'un accès réseau pour télécharger Config Advisor.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 
 
@@ -242,7 +242,7 @@ NOTE: Ne mettez pas les tiroirs disques sous tension pour le moment.
 Vous branchez les câbles SAS des tiroirs disques - tiroir à tiroir (le cas échéant) et contrôleur à tiroir - pour établir la connectivité du stockage pour le système.
 
 .Avant de commencer
-Vous devez répondre aux exigences décrites dans la section <<Requirements for installing and cabling disk shelves with IOM12 modules for a new system installation>> et ont installé les tiroirs disques sur le rack.
+Vous devez répondre aux exigences décrites dans la section <<Conditions requises pour l'installation et le câblage des tiroirs disques avec des modules IOM12/IOM12B pour une nouvelle installation du système>> et ont installé les tiroirs disques sur le rack.
 
 .Description de la tâche
 Une fois les tiroirs disques câblés, vous mettez-les sous tension, définissez les ID de tiroir et terminez l'installation et la configuration du système.
@@ -259,7 +259,7 @@ Pour obtenir une explication détaillée et des exemples de câblage « standard
 
 
  a| 
-Vous câbler une configuration haute disponibilité multivoie, un chemins d'accès multiples, une configuration haute disponibilité à chemin unique ou un chemin unique
+Vous câblez une configuration à chemins d'accès multiples, haute disponibilité à trois chemins, chemins d'accès multiples, haute disponibilité à chemin unique ou chemin unique
  a| 
 Reliez les connexions du tiroir au tiroir en tant que connectivité « standard » (avec les ports IOM 3 et 1) :
 
@@ -286,10 +286,10 @@ Reliez les connexions du tiroir au tiroir en tant que connectivité « étendue 
 +
 .. Consultez les fiches de câblage du contrôleur à la pile et des exemples de câblage pour savoir si une fiche complète existe pour votre configuration.
 +
-link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes AFF et FAS avec stockage intégré"]
+link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes avec stockage interne"]
 
 +
-link:install-cabling-worksheets-examples-multipath.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les configurations haute disponibilité multivoie courantes"]
+link:install-cabling-worksheets-examples-multipath.html["Fiches de câblage contrôleur à pile et exemples de câblage pour les configurations haute disponibilité multivoie"]
 
 +
 link:install-worksheets-examples-quadpath.html["Fiche de câblage contrôleur à pile et exemple de câblage pour une configuration haute disponibilité à quatre chemins d'accès avec deux HBA SAS à quatre ports"]
@@ -409,7 +409,7 @@ Vous pouvez utiliser le caractère générique pour attribuer plusieurs disques 
 Si des erreurs de câblage SAS ou d'ID de tiroir dupliqués sont générées, suivez les actions correctives fournies.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 +
 Vous pouvez également exécuter le `storage shelf show -fields shelf-id` Commande pour afficher la liste des ID de tiroir déjà utilisés (et les doublons si présents) dans votre système.

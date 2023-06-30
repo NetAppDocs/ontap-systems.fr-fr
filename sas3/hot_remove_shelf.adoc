@@ -14,9 +14,9 @@ summary: 'Vous pouvez retirer à chaud un tiroir disque avec des modules IOM12 (
 Vous pouvez retirer à chaud un tiroir disque avec des modules IOM12/IOM12B (sans interruption de l'activité, retirer un tiroir disque d'un système sous tension et en E/S) lorsque vous devez déplacer ou remplacer un tiroir disque. Vous pouvez supprimer à chaud un ou plusieurs tiroirs disques n'importe où dans une pile de tiroirs disques ou en supprimer une pile de tiroirs disques.
 
 .Avant de commencer
-* Votre système doit être une configuration haute disponibilité multivoie, des chemins d'accès multiples, une configuration à quatre chemins d'accès (HA) ou à quatre chemins.
+* Votre système doit être une configuration à chemins d'accès multiples, haute disponibilité à trois chemins, chemins d'accès multiples, quatre chemins d'accès haute disponibilité ou quatre chemins.
 +
-Pour les plateformes avec stockage intégré, comme les systèmes AFF A200, AFF A220, FAS2600 et FAS2700, le stockage externe doit être câblé en tant que haute disponibilité multivoie ou sous forme de chemins d'accès multiples.
+Dans le cas des plateformes avec stockage interne, le stockage externe doit être câblé en tant que multivoie haute disponibilité, triple chemin ou chemins d'accès multiples.
 
 +
 
@@ -27,7 +27,7 @@ NOTE: Pour un système FAS2600 à contrôleur unique doté du stockage externe c
 Vous pouvez télécharger et exécuter Active IQ Config Advisor pour afficher tous les messages d'erreur de câblage SAS et les actions correctives que vous devez effectuer.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 * Les configurations de paires HA ne peuvent pas être dans un état de basculement.
 * Vous devez avoir supprimé tous les agrégats des disques (les disques doivent être de rechange) des tiroirs disques que vous supprimez.
@@ -52,7 +52,7 @@ La suppression des informations de propriété d'un lecteur de disque de réserv
 ====
 La procédure de suppression de propriété sur les disques durs exige que vous désactiviez l'affectation automatique de propriété de disque. Vous réactivez l'affectation automatique de la propriété de disque à la fin de cette procédure.
 
-https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Présentation des disques et des agrégats"]
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Présentation des disques et des agrégats"^]
 
 ====
 * Pour un système clustered ONTAP supérieur à deux nœuds, il est recommandé de réaffectés à une paire haute disponibilité autre que celle qui est en cours de maintenance planifiée.
@@ -75,13 +75,13 @@ Le nœud qui contient epsilon affiche `true` dans le `Epsilon` colonne. (Les nœ
 
 NOTE: Si vous n'maintenez pas la connectivité à chemin unique entre les contrôleurs et la pile lors du retrait de la pile afin de contourner le tiroir disque que vous retirez, vous pouvez tomber en panne du système après un incident comportant plusieurs disques.
 
-* *Dommages possibles sur les étagères :* si vous retirez une étagère DS460C et que vous le déplacez dans une autre partie du centre de données ou le transportez à un autre emplacement, voir la section, <<Déplacement ou transport des étagères DS460C>> à la fin de cette procédure.
+* *Dommages possibles aux étagères :* si vous retirez un tiroir DS460C et que vous le déplacez vers une autre partie du centre de données ou le transportez vers un autre emplacement, reportez-vous à la section « déplacement ou transport des étagères DS460C » à la fin de cette procédure.
 
 
 .Étapes
-. Vérifiez que la configuration de votre système est `Multi-Path HA`, `Multi-Path`, `Quad-path HA`, ou `Quad-path`: `sysconfig`
+. Vérifiez que la configuration de votre système est `Multi-Path HA`, `tri-path HA`, `Multi-Path`, `Quad-path HA`, ou `Quad-path` en exécutant le `sysconfig` commande du nodeshell des deux contrôleurs.
 +
-Vous exécutez cette commande à partir du nodeshell de n'importe quel contrôleur. Une minute peut s'avérer nécessaire pour effectuer la détection par le système.
+Une minute peut s'avérer nécessaire pour effectuer la détection par le système.
 
 +
 La configuration est répertoriée dans le `System Storage Configuration` légale.
@@ -180,8 +180,8 @@ Un tiroir disque du milieu de la pile, Un tiroir disque du milieu d'une pile, es
 Pour retirer un tiroir disque de l'extrémité d'une pile ou du milieu d'une pile, reportez-vous aux exemples de câblage suivants. Notez les exemples de câblage suivants :
 
 +
-** Les modules IOM12 sont disposés côte à côte comme dans un tiroir disque DS224C ou DS212C ; si vous disposez d'un DS460C, les modules IOM12 sont placés l'un au-dessus de l'autre.
-** Dans chaque exemple, la pile est câblée avec un câblage standard du tiroir à tiroir, utilisé dans les piles câblées avec une connectivité haute disponibilité ou multivoie.
+** Les modules IOM12/IOM12B sont disposés côte à côte comme dans un tiroir disque DS224C ou DS212C ; si vous disposez d'un DS460C, les modules IOM12/IOM12B sont disposés l'un au-dessus de l'autre.
+** Dans chaque exemple, la pile est câblée par un câblage tiroir à tiroir standard, qui est utilisé dans des piles câblées avec une haute disponibilité multivoie, une haute disponibilité à trois chemins ou une connectivité à chemins d'accès multiples.
 +
 Vous pouvez déduire le câblage de votre pile à l'aide d'une connectivité à quatre chemins haute disponibilité ou à quatre chemins d'accès, qui utilise un câblage à tiroir double.
 
@@ -189,7 +189,7 @@ Vous pouvez déduire le câblage de votre pile à l'aide d'une connectivité à 
 +
 Vous répétez la désactivation pour le chemin B (IOM B).
 
-** L'exemple de câblage pour retirer un tiroir disque de l'extrémité d'une pile illustre le retrait du dernier tiroir disque logique d'une pile câblée via une connectivité haute disponibilité multivoie.
+** L'exemple de câblage permettant de retirer un tiroir disque de l'extrémité d'une pile illustre la suppression du dernier tiroir disque logique d'une pile câblée par une connectivité haute disponibilité multivoie ou haute disponibilité à trois chemins.
 +
 Vous pouvez déduire la désactivation si vous supprimez le premier tiroir disque logique d'une pile ou si votre pile dispose d'une connectivité multipath.
 
@@ -279,7 +279,7 @@ Votre DS460C a été livré avec quatre poignées de levage amovibles (deux pour
 image::../media/drw_ds460c_handles.gif[poignées drw ds460c]
 
 +
-Si vous déplacez le DS460C dans une autre partie du centre de données ou si vous le transportez à un autre emplacement, voir la section suivante, <<Déplacement ou transport des étagères DS460C>>.
+Si vous déplacez le tiroir DS460C vers une autre partie du data Center ou si vous le transportez vers un autre emplacement, reportez-vous à la section « déplacement ou transport des tiroirs DS460C ».
 
 
 

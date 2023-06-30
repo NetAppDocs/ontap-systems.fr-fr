@@ -1,0 +1,216 @@
+---
+permalink: fas2800/caching-module-replace.html 
+sidebar: sidebar 
+keywords: replace, caching, module,  fas2800, shut, down, impaired, controller, controller, aggregates, metrocluster, configuration, replace, reinstall 
+summary: 'Vous devez remplacer le module de cache du module de contrôleur lorsque votre système enregistre un message AutoSupport (ASUP) unique que le module a mis hors ligne. Dans le cas contraire, les performances s"en trouvent affectées.' 
+---
+= Remplacer le module de cache - FAS2800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez remplacer le module de cache du module de contrôleur lorsque votre système enregistre un message AutoSupport (ASUP) unique que le module a mis hors ligne. Dans le cas contraire, les performances s'en trouvent affectées.
+
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de mettre le contrôleur en panne hors tension.
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["Référence de l'administration du système ONTAP 9"^]
+
+Vous pouvez effacer le contenu de votre module de cache avant de le remplacer.
+
+.Étapes
+. Bien que les données du module de cache soient cryptées, il est possible que vous souhaitiez effacer toutes les données du module de cache pour personnes affaiblies et vérifier que le module de cache n'a pas de données :
++
+.. Effacer les données du module de cache : `system controller flash-cache secure-erase run -node _node name_ localhost -device-id _device_number_`
++
+
+NOTE: Exécutez le `system controller flash-cache show` Si vous ne connaissez pas l'ID de périphérique flashcache.
+
+.. Vérifiez que les données ont été effacées du module de cache : `system controller flash-cache secure-erase show`
++
+La sortie doit afficher l'état du module de cache comme effacé.
+
+
+
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Si le contrôleur défectueux fait partie d'une paire HA, désactivez le rétablissement automatique à partir de la console du contrôleur en bon état : `storage failover modify -node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre en charge ou arrêter le contrôleur en état :
+
+** Pour une paire haute disponibilité, prendre le relais du contrôleur défectueux du contrôleur en bonne santé : `storage failover takeover -ofnode _impaired_node_name_`
++
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+** Pour un système autonome : `system node halt _impaired_node_name_`
+
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+Retirez le module de contrôleur du système, puis retirez le capot du module de contrôleur.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez et mettez de côté les dispositifs de gestion des câbles des côtés gauche et droit du module de contrôleur.
+. Appuyez sur le loquet de la poignée de came jusqu'à ce qu'il se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à l'aide de deux mains, retirez le module de contrôleur du châssis.
++
+image::../media/drw_2240_x_opening_cam_latch.svg[drw 2240 x verrou de came d'ouverture]
+
+. Retournez le module de contrôleur et placez-le sur une surface plane et stable.
+. Ouvrez le capot en appuyant sur les boutons bleus situés sur les côtés du module de contrôleur pour libérer le capot, puis faites pivoter le capot vers le haut et hors du module de contrôleur.
++
+image::../media/drw_2850_open_controller_module_cover_IEOPS-695.svg[couvercle du module de contrôleur ouvert drw 2850 IOPS 695]
+
+
+
+[cols="1,3"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Bouton de déverrouillage du capot du module de contrôleur
+
+|===
+
+
+== Étape 3 : remplacer un module de cache
+
+Localisez le module de cache à l'intérieur du contrôleur, retirez le module de cache défectueux et remplacez-le.
+
+.Animation - remplacer le module de mise en cache
+video::12b339c5-640a-4be8-a5fc-af47017276fd[panopto]
+Votre système de stockage doit répondre à certains critères en fonction de votre situation :
+
+* Il doit disposer du système d'exploitation approprié pour le module de cache que vous installez.
+* Il doit prendre en charge la capacité de mise en cache.
+* Tous les autres composants du système de stockage doivent fonctionner correctement. Si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Localisez le module de cache défectueux près de l'arrière du module de contrôleur et retirez-le.
++
+.. Appuyez sur le bouton de déverrouillage bleu et faites pivoter le module de cache vers le haut.
+.. Tirez doucement le module de cache hors du boîtier.
++
+image::../media/drw_2850_replace_caching module_IEOPS-697.svg[drw 2850 remplacer le module de cache IEOPS 697]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Bouton de déverrouillage du module de mise en cache
+
+|===
+
+
+. Alignez les bords du module de cache de remplacement avec le support du boîtier, puis poussez-le doucement dans le support.
+. Vérifiez que le module de mise en cache est bien placé dans le support.
++
+Si nécessaire, retirez le module de cache et réinstallez-le dans le support.
+
+. Appuyez sur le bouton de verrouillage bleu, faites pivoter le module de cache complètement vers le bas, puis relâchez le bouton de verrouillage pour verrouiller le module de cache en place.
+. Réinstallez le capot du module de contrôleur et verrouillez-le en place.
+
+
+
+
+== Étape 4 : réinstallez le module de contrôleur
+
+Réinstallez le module de contrôleur dans le châssis.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Si vous ne l'avez pas encore fait, remettez le capot sur le module de contrôleur.
+. Retournez le module de contrôleur et alignez l'extrémité sur l'ouverture du châssis.
+. Poussez doucement le module de contrôleur à mi-chemin dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Terminez la réinstallation du module de contrôleur :
++
+.. Avec la poignée de came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came en position verrouillée.
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Fixez les câbles au dispositif de gestion des câbles à l'aide du crochet et de la sangle de boucle.
+
+
+
+
+
+
+== Étape 5 : restaurez le rétablissement automatique et le AutoSupport
+
+Restaurez le rétablissement automatique et les AutoSupport s'ils ont été désactivés.
+
+. Restaurez le rétablissement automatique à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Si une fenêtre de maintenance AutoSupport a été déclenchée, mettez-la fin à l'aide du `system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+
+== Étape 6 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

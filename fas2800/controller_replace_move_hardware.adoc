@@ -1,0 +1,352 @@
+---
+permalink: fas2800/controller-replace-move-hardware.html 
+sidebar: sidebar 
+keywords: fas2800, move the controller module hardware 
+summary: Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance. 
+---
+= Remplacez le matériel du module de contrôleur - FAS2800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Remplacez le matériel défectueux du module de contrôleur en retirant le contrôleur défectueux, en déplaçant les composants FRU vers le module de contrôleur de remplacement, en installant le module de contrôleur de remplacement dans le châssis, puis en amorçant le module de contrôleur de remplacement.
+
+.Animation - remplacer un module de contrôleur
+video::c83a3301-3161-4d65-86e8-af540147576a[panopto]
+
+
+== Étape 1 : retirer le module de contrôleur
+
+Retirez le module de contrôleur défectueux du châssis.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez et mettez de côté les dispositifs de gestion des câbles des côtés gauche et droit du module de contrôleur.
+. Si vous avez laissé les modules SFP dans le système après avoir retiré les câbles, déplacez-les vers le module de contrôleur de remplacement.
+. Appuyez sur le loquet de la poignée de came jusqu'à ce qu'il se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à l'aide de deux mains, retirez le module de contrôleur du châssis.
++
+image::../media/drw_2240_x_opening_cam_latch.svg[drw 2240 x verrou de came d'ouverture]
+
+. Retournez le module de contrôleur et placez-le sur une surface plane et stable.
+. Ouvrez le capot en appuyant sur les boutons bleus situés sur les côtés du module de contrôleur pour libérer le capot, puis faites pivoter le capot vers le haut et hors du module de contrôleur.
++
+image::../media/drw_2850_open_controller_module_cover_IEOPS-695.svg[couvercle du module de contrôleur ouvert drw 2850 IOPS 695]
+
+
+
+[cols="1,3"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Bouton de déverrouillage du capot du module de contrôleur
+
+|===
+
+
+== Étape 2 : déplacer la batterie NVMEM
+
+Retirez la batterie NVMEM du module de contrôleur défectueux et installez-la dans le module de contrôleur de remplacement.
+
+
+NOTE: Ne branchez pas la batterie NVMEM avant d'y être invité.
+
+image::../media/drw_2850_replace_nvbattery_IEOPS-715.svg[drw 2850 remplacer nvbattery IEOPS 715]
+
+[cols="1,3"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Bouton de déverrouillage de la batterie NVMEM
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[icône de légende 02]
+ a| 
+Fiche mâle batterie NVMEM
+
+|===
+. Retirez la batterie du module de contrôleur :
++
+.. Appuyez sur le bouton bleu situé sur le côté du module de contrôleur.
+.. Faites glisser la batterie vers le haut jusqu'à ce qu'elle se dégage des supports de fixation, puis retirez la batterie du module de contrôleur.
+.. Débranchez la fiche mâle batterie en appuyant sur le clip situé sur la face avant de la fiche mâle batterie pour la débrancher de la prise, puis débranchez le câble de batterie de la prise.
+
+
+. Déplacez la batterie vers le module de contrôleur de remplacement et installez-la :
++
+.. Alignement de la batterie avec les supports de fixation sur la paroi latérale en tôle.
+.. Faites glisser la batterie vers le bas jusqu'à ce que le loquet de la batterie s'enclenche et s'enclenche dans l'ouverture de la paroi latérale.
++
+
+NOTE: Ne branchez pas encore la batterie.  Vous le branchez une fois que les autres composants sont déplacés vers le module de contrôleur de remplacement.
+
+
+
+
+
+
+
+== Étape 3 : retirez la carte mezzanine
+
+Retirez le cadre de la carte mezzanine et la carte mezzanine PCIe du module de contrôleur défectueux.
+
+image::../media/drw_2850_replace_HIC_IEOPS-700.svg[drw 2850 remplace HIC IEOPS 700]
+
+[cols="1,3"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Cadre de la carte de montage
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[icône de légende 02]
+ a| 
+Carte mezzanine PCIe
+
+|===
+. Retirez le cadre de la carte mezzanine en le faisant glisser hors du module de contrôleur.
+. Desserrez les vis à molette de la carte mezzanine.
++
+
+NOTE: Vous pouvez desserrer les vis moletées avec vos doigts ou un tournevis.
+
+. Soulevez la carte mezzanine et mettez-la de côté sur une surface antistatique.
+
+
+
+
+== Étape 4 : déplacer le support de démarrage
+
+Retirez le support de démarrage du module de contrôleur défectueux et installez-le dans le module de contrôleur de remplacement.
+
+. Après avoir retiré la carte mezzanine, localisez le support de démarrage à l'aide de l'illustration suivante ou du mappage FRU sur le module de contrôleur :
++
+image::../media/drw_2850_replace_boot_media_IEOPS-696.svg[drw 2850 remplacer le support de démarrage IOPS 696]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Bouton de déverrouillage du support de démarrage
+
+|===
+. Retirez le support de démarrage :
++
+.. Appuyez sur le bouton bleu situé sur le boîtier du support de démarrage pour libérer le support de démarrage de son logement.
+.. Faites pivoter le support de démarrage vers le haut, puis tirez-le doucement hors du support de démarrage.
++
+
+NOTE: Ne faites pas tourner ou tirer le support de démarrage directement vers le haut, car cela pourrait endommager le support ou le support de démarrage.
+
+
+
+. Installez le support de démarrage sur le module de contrôleur de remplacement :
++
+.. Alignez les bords du support de démarrage de remplacement avec le support de démarrage, puis poussez-le doucement dans le support.
+.. Vérifiez le support de démarrage pour vous assurer qu'il est bien en place dans le support.
++
+Si nécessaire, retirez le support de démarrage et réinstallez-le dans le support.
+
+.. Appuyez sur le bouton de verrouillage bleu situé sur le boîtier du support de démarrage, faites pivoter le support de démarrage complètement vers le bas, puis relâchez le bouton de verrouillage pour verrouiller le support de démarrage en place.
+
+
+
+
+
+
+== Étape 5 : installez la carte mezzanine dans le contrôleur de remplacement
+
+Installez la carte mezzanine dans le module de contrôleur de remplacement.
+
+. Réinstallez la carte mezzanine :
++
+.. Alignez la carte mezzanine sur le support de la carte mère.
+.. Poussez doucement la carte vers le bas pour la placer dans le support.
+.. Serrez les trois vis à molette de la carte mezzanine.
+
+
+. Réinstallez le cadre de la carte mezzanine.
+
+
+
+
+== Étape 6 : déplacez les modules DIMM
+
+Retirez les modules DIMM du module de contrôleur défectueux et installez-les dans le module de contrôleur de remplacement.
+
+image::../media/drw_2850_replace_dimms_IEOPS-699.svg[drw 2850 remplacez les modules dimm IOPS 699]
+
+[cols="1,3"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Loquets de verrouillage DIMM
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[icône de légende 02]
+ a| 
+DIMM
+
+|===
+. Localisez les modules DIMM sur votre module de contrôleur
++
+
+NOTE: Notez l'emplacement du module DIMM dans les supports afin de pouvoir insérer le module DIMM au même emplacement dans le module de contrôleur de remplacement et dans le bon sens.
+
+. Retirez les modules DIMM du module de contrôleur défectueux :
++
+.. Éjectez le module DIMM de son logement en écartant lentement les deux pattes d'éjection du module DIMM situées de chaque côté du module DIMM.
++
+Le module DIMM pivote légèrement vers le haut.
+
+.. Faites pivoter le module DIMM aussi loin que possible, puis faites-le glisser hors du support.
++
+
+NOTE: Tenez soigneusement le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+
+
+
+. Vérifiez que la batterie NVMEM n'est pas branchée sur le module de contrôleur de remplacement.
+. Installez les modules DIMM dans le contrôleur de remplacement au même endroit qu'ils se trouvaient dans le contrôleur défectueux :
++
+.. Poussez délicatement, mais fermement, sur le bord supérieur du module DIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent sur les encoches situées aux extrémités du module DIMM.
++
+Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
+
++
+
+NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
+
+
+
+. Répétez ces étapes pour l'autre module DIMM.
+
+
+
+
+== Étape 7 : déplacer un module de cache
+
+Retirez le module de cache du module de contrôleur défectueux installez-le dans le module de contrôleur de remplacement.
+
+image::../media/drw_2850_replace_caching module_IEOPS-697.svg[drw 2850 remplacer le module de cache IEOPS 697]
+
+[cols="1,3"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Bouton de verrouillage du module de mise en cache
+
+|===
+. Localisez le module de cache près de l'arrière du module de contrôleur et retirez-le :
++
+.. Appuyez sur le bouton de verrouillage bleu et faites pivoter le module de cache vers le haut.
+.. Tirez doucement le module de cache hors du boîtier.
+
+
+. Installez le module de cache dans le module de contrôleur de remplacement :
++
+.. Alignez les bords du module de cache avec le support du boîtier, puis poussez-le doucement dans le support.
+.. Vérifiez que le module de mise en cache est bien placé dans le support.
++
+Si nécessaire, retirez le module de cache et réinstallez-le dans le support.
+
+.. Appuyez sur le bouton de verrouillage bleu, faites pivoter le module de cache complètement vers le bas, puis relâchez le bouton de verrouillage pour verrouiller le module de cache en place.
+
+
+. Branchez la batterie NVMEM.
++
+Assurez-vous que la fiche se verrouille dans la prise d'alimentation de la batterie de la carte mère.
+
++
+
+NOTE: Si le branchement de la batterie est difficile, retirez la batterie du module de contrôleur, branchez-la, puis réinstallez la batterie dans le module de contrôleur.
+
+. Réinstallez le capot du module de contrôleur.
+
+
+
+
+== Étape 8 : installez la batterie NV
+
+Installez la batterie NV dans le module de contrôleur de remplacement.
+
+. Rebranchez la fiche de la batterie dans la prise du module de contrôleur.
++
+Assurez-vous que la fiche se verrouille dans la prise batterie de la carte mère.
+
+. Alignement de la batterie avec les supports de fixation sur la paroi latérale en tôle.
+. Faites glisser la batterie vers le bas jusqu'à ce que le loquet de la batterie s'enclenche et s'enclenche dans l'ouverture de la paroi latérale.
+. Réinstallez le capot du module de contrôleur et verrouillez-le en place.
+
+
+
+
+== Étape 9 : installez le contrôleur
+
+Installez le module de contrôleur de remplacement dans le châssis du système et démarrez ONTAP.
+
+
+NOTE: Le système peut mettre à jour le firmware du système lors de son démarrage. N'interrompez pas ce processus. La procédure requiert l'interruption du processus d'amorçage, que vous pouvez généralement faire à tout moment après l'invite à le faire. Toutefois, si le système met à jour le firmware du système lors de son démarrage, vous devez attendre la fin de la mise à jour avant d'interrompre le processus de démarrage.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Si vous ne l'avez pas encore fait, remettez le capot sur le module de contrôleur.
+. Tournez le module de contrôleur.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Terminez la réinstallation du module de contrôleur :
++
+.. Avec la poignée de came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came en position verrouillée.
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le contrôleur commence à démarrer dès qu'il est assis dans le châssis.
+
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Fixez les câbles au dispositif de gestion des câbles à l'aide du crochet et de la sangle de boucle.
++
+
+NOTE: Vous devez rechercher un message de console de mise à jour automatique du micrologiciel. Si le message de mise à jour s'affiche, n'appuyez pas sur `Ctrl-C` pour interrompre le processus de démarrage jusqu'à ce que vous ayez affiché un message confirmant que la mise à jour est terminée. Si la mise à jour du micrologiciel est interrompue, le processus de démarrage se ferme à l'invite DU CHARGEUR. Vous devez exécuter le `update_flash` puis entrez `bye -g` pour redémarrer le système.
+
+
+
+
+
+*Important:* pendant le processus de démarrage, vous pouvez voir les invites suivantes:
+
+* Un message d'avertissement indiquant une discordance d'ID système et demandant de remplacer l'ID système. Répondez `y` à cette invite.
+* Un avertissement s'affiche lorsque vous passez en mode maintenance dans une configuration HA, vous devez vous assurer que le contrôleur en bon état reste arrêté. Répondez `y` à cette invite.
+

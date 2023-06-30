@@ -28,9 +28,9 @@ Il est important d'appliquer les commandes dans les étapes sur les systèmes ap
 
 .Étapes
 . Si le _remplacement_ node n'est pas à l'invite DU CHARGEUR, arrêtez le système à l'invite DU CHARGEUR.
-. Sur le noeud _Healthy_, vérifiez l'heure du système : `show date`
+. Sur le noeud _Healthy_, vérifiez l'heure du système : `cluster date show`
 +
-La date et l'heure sont indiquées en GMT.
+La date et l'heure sont basées sur le fuseau horaire configuré.
 
 . À l'invite DU CHARGEUR, vérifiez la date et l'heure sur le noeud _remplacement_ : `show date`
 +
@@ -38,7 +38,7 @@ La date et l'heure sont indiquées en GMT.
 
 . Si nécessaire, définissez la date en GMT sur le nœud de remplacement : `set date _mm/dd/yyyy_`
 . Si nécessaire, définissez l'heure en GMT sur le nœud de remplacement : `set time _hh:mm:ss_`
-. À l'invite DU CHARGEUR, confirmez la date et l'heure sur le noeud _remplacement_ : `show date`
+. À l'invite DU CHARGEUR, confirmez la date et l'heure sur le noeud _remplacement_ : `date`
 +
 La date et l'heure sont indiquées en GMT.
 

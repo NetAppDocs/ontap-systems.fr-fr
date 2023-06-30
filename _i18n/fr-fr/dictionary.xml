@@ -26,12 +26,10 @@
   <block id="d6cd7784b4e7b607424fb3f31dc53b2d" category="list-text">Le _Healthy_ node est le partenaire HA du _replace_ node.</block>
   <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">Étapes</block>
   <block id="58532634ca04e50b018c22652941f0e2" category="list-text">Si le _remplacement_ node n'est pas à l'invite DU CHARGEUR, arrêtez le système à l'invite DU CHARGEUR.</block>
-  <block id="7676556d14b3f7dfc7ddc885b585b132" category="list-text">Sur le noeud _Healthy_, vérifiez l'heure du système :<block ref="7e17e2b336dbdd66c2f45405573b53de" prefix=" " category="inline-code"></block></block>
   <block id="610bb0d24c586904b13f6cb09aca2599" category="paragraph">La date et l'heure sont indiquées en GMT.</block>
   <block id="7d605a9dbf45a466003e126065e1bc68" category="list-text">À l'invite DU CHARGEUR, vérifiez la date et l'heure sur le noeud _remplacement_ :<block ref="7e17e2b336dbdd66c2f45405573b53de" prefix=" " category="inline-code"></block></block>
   <block id="fba5bbeb3ff706c0a6a0f6aa48ca6830" category="list-text">Si nécessaire, définissez la date en GMT sur le nœud de remplacement :<block ref="7e61842d1d9bb6d13127efea49e14c96" prefix=" " category="inline-code"></block></block>
   <block id="42038d95379d1d97bbdb99cca278fbaf" category="list-text">Si nécessaire, définissez l'heure en GMT sur le nœud de remplacement :<block ref="e963cd9cdc97a95d8672b225c6c0f776" prefix=" " category="inline-code"></block></block>
-  <block id="129717f48118cb8374cc8d6ecb1a3002" category="list-text">À l'invite DU CHARGEUR, confirmez la date et l'heure sur le noeud _remplacement_ :<block ref="7e17e2b336dbdd66c2f45405573b53de" prefix=" " category="inline-code"></block></block>
   <block id="627ef6515d7b7d0d5ea8083c530471b0" category="section-title">Étape 2 : vérifier et définir l'état HA du module de contrôleur</block>
   <block id="7b9f82a6a85f3a3c9f96c87c16c21372" category="paragraph">Vous devez vérifier le<block ref="594c16ca0695f6665d7cf4971707adf6" prefix=" " category="inline-code"></block> état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.</block>
   <block id="8ccdb2a9438a446fc98b092384f5d324" category="list-text">En mode Maintenance à partir du nouveau module de contrôleur, vérifier que tous les composants affichent la même valeur<block ref="594c16ca0695f6665d7cf4971707adf6" prefix=" " category="inline-code"></block> état :<block ref="fb4e6c2e33b945c3ff4d042cb66d2ed4" prefix=" " category="inline-code"></block></block>
@@ -227,7 +225,6 @@
   <block id="087b01deb1bef7c8b4ffe6fe81283666" category="list-text">Faites passer le contrôleur douteux à l'invite DU CHARGEUR :</block>
   <block id="ebc5673f419bc9da94f2c2f001aaf3ff" category="cell">Si le contrôleur en état de fonctionnement s'affiche...</block>
   <block id="a2efb773cb3f251f8687b1e41309b525" category="paragraph">Invite DU CHARGEUR</block>
-  <block id="3891e96240b27c2309a21f6387f98917" category="paragraph">Passez à la section retrait du module de contrôleur.</block>
   <block id="fd66c964768074eb90f4f1426229bf3e" category="paragraph">Attente du retour...</block>
   <block id="2c605d107b8b0f8d344d6c863e4c47a9" category="paragraph">Appuyez sur Ctrl-C, puis répondez<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>.</block>
   <block id="7e14201f51e262f13f2c3c4eb7e4a175" category="paragraph">Invite système ou invite de mot de passe (entrer le mot de passe système)</block>
@@ -787,7 +784,6 @@
   <block id="cd52056b12799b75e95ce3715dbd95d0" category="section-title">Étape 2 : vérifier les LIF et enregistrer le numéro de série</block>
   <block id="556aba51608845a42e971c4c7b471837" category="paragraph">Avant de renvoyer le _replace_ node au service, vérifiez que les LIF se trouvent sur leurs ports de rattachement, puis enregistrez le numéro de série du _replace_ node si AutoSupport est activé et réinitialisez le rétablissement automatique.</block>
   <block id="462ec873925d8409f9ead354ff424e1b" category="list-text">Vérifiez que les interfaces logiques sont bien placées sur leur serveur domestique et leurs ports :<block ref="f8a58a872dbff91c3ae7076526ddf81a" prefix=" " category="inline-code"></block></block>
-  <block id="8ea6b3a9b2a4529608397a2c8232b2e9" category="paragraph">Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de home port :<block ref="d1e4afa40f7e9718bdad64b4f5db9abb" prefix=" " category="inline-code"></block></block>
   <block id="bfe787834fd9e46156b1d62f2f5029f8" category="list-text">Enregistrez le numéro de série du système auprès du support NetApp.</block>
   <block id="523f153f577513ed6f7ddd1f4d6a7cac" category="list-text">Si AutoSupport est activé, envoyez un message AutoSupport pour enregistrer le numéro de série.</block>
   <block id="69d8be94d5b9ba35360160c6e3097920" category="list-text">Si AutoSupport n'est pas activé, appeler<block ref="201cec37350c6561a61e79fe67dd46bf" category="inline-link-rx"></block> pour enregistrer le numéro de série.</block>
@@ -5274,18 +5270,12 @@
   <block id="830b5fe829eb12d5b43a45ca8d16c92f" category="paragraph">Lorsque le tiroir disque est ouvert, une LED d'avertissement s'affiche devant chaque disque.</block>
   <block id="9a0daa08283e3d5284734f7a4dd54c88" category="image-alt">2860 dwg orange sur le lecteur</block>
   <block id="6c6102fba9a6a67d68f726fd9a0aaa6a" category="cell">Voyant d'avertissement allumé</block>
-  <block id="0fdd3a9de120fbacd6c04d73ee6832df" category="summary">Vous pouvez utiliser les fiches de câblage contrôleur-pile et des exemples de câblage pour connecter les plateformes à un système de stockage interne, notamment les gammes FAS2600, AFF A200, FAS2700 Series, AFF A220, et plus tard.</block>
   <block id="bb42dbb13759e9df73ffa74412e3548a" category="doc">Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes avec stockage interne - tiroirs avec modules IOM12/IOM12B</block>
   <block id="424f2fdac9e61f7b7785b602da677d00" category="admonition">Ces informations ne s'appliquent pas aux plateformes FAS250.</block>
-  <block id="18e93c7175385ec259f95d9d453bdda1" category="list-text">Si nécessaire, vous pouvez vous reporter à <block ref="db31d33614fd87795381d5ac14be04aa" category="inline-link-macro-rx"></block> pour plus d'informations sur les configurations prises en charge, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir.</block>
-  <block id="ba38e437ae673ee3e3f19dd893a38b35" category="list-text">Des exemples de câblage montrent que les câbles du contrôleur à la pile sont en continu ou en pointillé pour distinguer les connexions du port 0b du contrôleur des connexions du port 0a.</block>
-  <block id="1b423539e905b630394da7971c47a88a" category="image-alt">clé de type de câble entre contrôleur drw fas2600 et pile</block>
   <block id="ee547c1c638ccba345b1cbcb32709bcc" category="list-text">Des exemples de câblage montrent les connexions du contrôleur à la pile et des connexions tiroir à tiroir dans deux couleurs différentes pour distinguer la connectivité via l'IOM A (domaine A) et l'IOM B (domaine B).</block>
   <block id="c81b301c5f51b115f5e18cb1507f7388" category="image-alt">clé couleur du câble drw fas2600</block>
   <block id="4efb7705f98005596f065e30ddf32363" category="section-title">Plateformes avec stockage interne dans une configuration haute disponibilité à chemins d'accès multiples avec une pile à plusieurs tiroirs</block>
   <block id="ff82ea2b354e0f934f26abf26044a994" category="paragraph">Les exemples de fiche et de câblage suivants utilisent la paire de ports 0a/0b :</block>
-  <block id="722de0e0a7dcfb970621a772bae3850c" category="image-alt">fiche technique de mpha drw fas2600</block>
-  <block id="5eb85c13122610ca0d3c8606ac0884a7" category="image-alt">mpha drw fas2600</block>
   <block id="8498d609d156c09f9b21ae8adb760b18" category="section-title">La gamme FAS2600 offre une configuration à chemins d'accès multiples avec une pile à tiroirs multiples</block>
   <block id="5067863de55d98010fd9bb2898b6d0e2" category="paragraph">Les feuilles de calcul et exemples de câblage suivants utilisent la paire de ports 0a/0b.</block>
   <block id="436ea39ce2a06ceb277515424ceed3d4" category="paragraph">Dans cet exemple, le contrôleur est installé dans le slot A du châssis. Lorsqu'un contrôleur se trouve dans le slot A du châssis, son port de stockage interne (0b) se trouve dans le domaine A (IOM A). Par conséquent, le port 0b doit se connecter au domaine A (IOM A) de la pile.</block>
@@ -5297,7 +5287,6 @@
   <block id="22de385bc846aff8918c00418f396af3" category="summary">Les règles de câblage SAS, exemples et feuilles de calcul suivants vous aideront à connecter les tiroirs disques SAS avec des modules IOM12 à votre système de stockage.</block>
   <block id="e0c4907423e9966f80fb30cb4ce6df57" category="doc">Présentation des règles, feuilles de calcul et exemples de câblage SAS - tiroirs avec modules IOM12/IOM12B</block>
   <block id="87fe7ea614796dffe614513028372aa9" category="paragraph">Pour vous aider à connecter les tiroirs disques SAS avec des modules IOM12/IOM12B à votre système de stockage, vous pouvez utiliser l'un des règles de câblage SAS, des feuilles de calcul et des exemples disponibles, le cas échéant.</block>
-  <block id="dec8d0bac5e3e019cf604b191c0cd1fc" category="paragraph">*Règles de câblage SAS*</block>
   <block id="eb631b70ae7c721773f91b506c815082" category="inline-link-macro">Configurations</block>
   <block id="2c20867b019d706a391ac25e6929487d" category="list-text"><block ref="2c20867b019d706a391ac25e6929487d" category="inline-link-macro-rx"></block></block>
   <block id="fde7507300690e9e5b82885ffbc9508b" category="inline-link-macro">Numérotation des connecteurs du contrôleur</block>
@@ -5309,10 +5298,6 @@
   <block id="ec5bf10bb724f1090f587e3f483ad17f" category="inline-link-macro">Câbles optiques SAS HD Mini-SAS</block>
   <block id="183816ad8f9602df1b79177a9a701a9e" category="list-text"><block ref="183816ad8f9602df1b79177a9a701a9e" category="inline-link-macro-rx"></block></block>
   <block id="466938affa9a199b1c83c75ca5cb1a5b" category="paragraph">* Fiches de câblage et exemples*</block>
-  <block id="9da6ad063de2521b4320f53e9eaef62c" category="inline-link-macro">Configurations courantes de haute disponibilité multivoie</block>
-  <block id="d9e855b435b4d134eea547e0fa310441" category="list-text"><block ref="d9e855b435b4d134eea547e0fa310441" category="inline-link-macro-rx"></block></block>
-  <block id="e188406fb2d6108447e3bc6cb9155625" category="inline-link-macro">Plateformes AFF et FAS avec stockage intégré</block>
-  <block id="7a63e08a24ae8c9c1ab5dcddaf6f551f" category="list-text"><block ref="7a63e08a24ae8c9c1ab5dcddaf6f551f" category="inline-link-macro-rx"></block></block>
   <block id="d0b14672f568caba4ff0c9e7e94adbfd" category="inline-link-macro">Configurations haute disponibilité à quatre chemins d'accès</block>
   <block id="c9652f347c61d0d2c370d1229afb9e37" category="list-text"><block ref="c9652f347c61d0d2c370d1229afb9e37" category="inline-link-macro-rx"></block></block>
   <block id="8ae471d6400ac43c05cee2f01574b10c" category="paragraph">*Modèles de fiche de câblage*</block>
@@ -5345,7 +5330,6 @@
   <block id="c50fdb32ee76a4d77a2a4b76520e5bed" category="admonition">Après avoir remplacé le module de ventilation, le voyant d'avertissement reste allumé (orange fixe) pendant que le micrologiciel vérifie que le module de ventilation a été correctement installé. Le voyant s'éteint une fois le processus terminé.</block>
   <block id="162c19cb0e58f8c6c83c319b91d9da12" category="paragraph">Contactez l'assistance technique à l'adresse<block ref="eb2c61027d5e6c8b35692c1e74187026" category="inline-link-rx"></block>, 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA.</block>
   <block id="1a9e0b4a2336d16f8663305e4fc18c6f" category="summary">Vous pouvez utiliser les fiches de câblage du contrôleur à la pile et des exemples de câblage pour câbler votre paire haute disponibilité comme une configuration haute disponibilité multivoie.</block>
-  <block id="597768bf006f6e20b6db4d977f39566f" category="doc">Feuilles de câblage contrôleur à pile et exemples de câblage pour les configurations haute disponibilité multivoie classiques - tiroirs avec modules IOM12/IOM12B</block>
   <block id="bf19714cdcd1dd190617db0b27cdf3cf" category="inline-link-macro">Comment lire une fiche technique pour relier les connexions du contrôleur à la pile pour assurer une connectivité multipathed</block>
   <block id="7ab9991308c3a3d15fb6ed5c7a347e31" category="list-text">Si nécessaire, vous pouvez vous reporter à <block ref="32f1048d76ed4ef07349228b731694c0" category="inline-link-macro-rx"></block>.</block>
   <block id="f36fd727bb50e27882dbe086058bd373" category="list-text">Les exemples de câblage montrent que les câbles du contrôleur à la pile sont en continu ou en pointillés afin de distinguer les connexions des ports a et C des connexions des ports B et D.</block>
@@ -5416,9 +5400,6 @@
   <block id="16e515f4f7ddf43ca6fc5f5321a960e5" category="list-text">Si vous ajoutez à chaud un tiroir disque avec des modules IOM12/IOM12B à une pile existante (de tiroirs disques avec modules IOM12/IOM12B), vous pouvez ajouter à chaud le tiroir disque pour terminer, soit le premier ou le dernier tiroir disque logique, de la pile.</block>
   <block id="f0e56e4ad757d6fad89dfcfe1aa12d88" category="paragraph">Pour les configurations HA à chemin unique et à chemin unique, s'applique aux systèmes AFF A200, AFF A220, FAS2600 Series et FAS2700, vous pouvez ajouter à chaud des tiroirs disques à la fin de la pile qui ne dispose pas de connexions de contrôleur.</block>
   <block id="4a6c06310d2bcd1c9758407cb59a423d" category="list-text">Les tiroirs disques dotés de modules IOM12/IOM12B doivent se trouver dans leur propre pile unique. Ils ne peuvent pas être ajoutés à une pile disposant de tiroirs avec des modules IOM6 ou des modules IOM3.</block>
-  <block id="1297a8f1ac3fcf90ab0c70ff5e47b71d" category="paragraph">Cette procédure ne permet pas de combiner une pile : ajout à chaud d'un tiroir avec des modules IOM12/IOM12B vers une pile de tiroirs avec des modules IOM6.</block>
-  <block id="0712df39e8d2ca11a74df9f3fe275482" category="list-text">Un système peut disposer de piles à chemins d'accès multiples et quadruples de tiroirs disques avec des modules IOM12/IOM12B.</block>
-  <block id="835ecba5eb095440eda54c2f50f1ef89" category="paragraph">Si vous disposez d'une paire haute disponibilité, ONTAP affiche la configuration du système comme<block ref="6a2261f2aa8f6f694724a61b378ae0ea" prefix=" " category="inline-code"></block>. Si vous disposez d'une configuration à un seul contrôleur, ONTAP présente la configuration système comme<block ref="90870fcbef383147c684a1554de0fb6c" prefix=" " category="inline-code"></block>.</block>
   <block id="23799cee6c2d33512d5d7c2c4dd066da" category="list-text">Pour effectuer cette procédure, vous devez utiliser un ACP intrabande.</block>
   <block id="0a21ef57c079b8fb55adaac84e5c7dc9" category="paragraph">Pour les configurations dont la configuration ACP intrabande est activée, la technologie ACP intrabande est automatiquement activée sur les tiroirs disques à chaud. Pour les configurations dans lesquelles la technologie ACP intrabande n'est pas activée, les tiroirs disques à chaud fonctionnent sans fonctionnalité ACP.</block>
   <block id="df9362a84fd3cff7395403ecc0c32568" category="list-text">La consolidation des piles sans interruption n'est pas prise en charge.</block>
@@ -5485,7 +5466,6 @@
   <block id="82fd485bd66b7a7cf95b41701aff95f4" category="list-text">Définissez l'ID de tiroir pour chaque tiroir disque que vous ajoutez à chaud dans un ID unique au sein de la paire haute disponibilité ou de la configuration à un seul contrôleur.</block>
   <block id="50a5f31124b37f0e6f0175b4691d290a" category="paragraph">Si vous utilisez un modèle de plateforme avec un tiroir disque interne, vous devez obtenir des ID de tiroir unique sur le tiroir disque interne et les tiroirs disques connectés en externe.</block>
   <block id="437cff47077287b8acaab6cf6eb3f66e" category="inline-link-macro">Modifier l'ID de tiroir</block>
-  <block id="f44e011a4789f1353840c4446705dbef" category="paragraph">Vous pouvez modifier les ID de tiroir à l'aide des sous-étapes suivantes ou pour des instructions plus détaillées, utiliser <block ref="7a954fe7521681b1209c8a82ea854632" category="inline-link-macro-rx"></block>.</block>
   <block id="be888bc11355717d8c2ff0800204b0b3" category="list-text">Si nécessaire, vérifiez les ID de tiroir déjà utilisés en exécutant Config Advisor.</block>
   <block id="da76ba8629924d6ccf3a6035d9cd60f7" category="paragraph">Vous pouvez également exécuter le<block ref="82b00438bdff68cba792c38604023279" prefix=" " category="inline-code"></block> Commande pour afficher la liste des ID de tiroir déjà utilisés (et les doublons si présents) dans votre système.</block>
   <block id="d4220cd9c056561ecccf19054b1b635b" category="list-text">Accéder au bouton d'ID de tiroir derrière le capuchon d'extrémité gauche.</block>
@@ -5495,7 +5475,6 @@
   <block id="e721fed5752af28a811f95c9517647d5" category="paragraph">L'ID du tiroir clignote et la LED orange du panneau d'écran de l'opérateur clignote jusqu'à ce que vous mettiez le tiroir disque sous tension.</block>
   <block id="114b5f5f60d5305cae68f7358becbb08" category="list-text">Répétez les sous-étapes a à d pour chaque tiroir disque que vous ajoutez à chaud.</block>
   <block id="7c100d04606be0913d1347f47c7198ab" category="section-title">Câbler les tiroirs disques avec des modules IOM12/IOM12B pour un ajout à chaud</block>
-  <block id="7d1f085b961baef4ee505ff0b202f8af" category="paragraph">Il vous suffit de connecter les câbles SAS - tiroir à tiroir et contrôleur à pile - selon le cas des tiroirs disques ajoutés à chaud de sorte qu'ils soient connectés au système.</block>
   <block id="c920d4841ecd46b57d9a50e7295a2153" category="inline-link-macro">Conditions requises pour l'ajout à chaud de tiroirs disques avec modules IOM12</block>
   <block id="36779ed778ea1fac61fae3be46917d43" category="inline-link-macro">Installez les tiroirs disques avec des modules IOM12 pour une ajout à chaud</block>
   <block id="56ccacf68c60aa589cdd947ffabc6a40" category="paragraph">Vous devez répondre aux exigences décrites dans la section <block ref="38d5024537883b0bd86511e0b5e50dba" category="inline-link-macro-rx"></block> Et installés, sous tension et définissez les ID de tiroir pour chaque tiroir disque comme indiqué dans la <block ref="2957551c96808bfde01acb853ddbc0af" category="inline-link-macro-rx"></block>.</block>
@@ -5513,7 +5492,6 @@
   <block id="3f876ffd29608a6fdd6c56b2bcd2373a" category="list-text">Si vous ajoutez à chaud une pile de tiroirs disques directement à un contrôleur, procédez comme suit ; sinon, passez à l'étape 3.</block>
   <block id="aab34a0f20291dc4eca51492b7dda4a1" category="list-text">Si la pile que vous ajoutez à chaud comporte plusieurs tiroirs disques, reliez les connexions du tiroir au tiroir ; sinon, passez à la sous-étape b.</block>
   <block id="bfa9de45095a3a90ebc55708a5ee6dd2" category="cell">Si...</block>
-  <block id="eb6b116ad264c3ca003c27162d0d11cf" category="paragraph">Vous câbler une pile avec une haute disponibilité multivoie, des chemins d'accès multiples, une haute disponibilité à chemin unique ou une connectivité à chemin unique aux contrôleurs</block>
   <block id="4488830a541dd347507e71eccb3f4943" category="paragraph">Reliez les connexions du tiroir au tiroir en tant que connectivité « standard » (avec les ports IOM 3 et 1) :</block>
   <block id="779c08e01ec265d0aff357c180fceb48" category="list-text">En commençant par le premier tiroir logique de la pile, connectez le port IOM A 3 au port A du tiroir suivant, jusqu'à ce que chaque IOM A de la pile soit connectée.</block>
   <block id="e35dc83f4e69b7ee09cb18fffad51f70" category="list-text">Répétez la sous-étape i pour l'IOM B.</block>
@@ -5522,10 +5500,6 @@
   <block id="e3a77aa5b3bcde007d2fae9a8ec6064a" category="list-text">En commençant par le premier tiroir logique de la pile, connectez le port IOM A 4 au port A du tiroir suivant, jusqu'à ce que chaque IOM A de la pile soit connectée.</block>
   <block id="3695fc6217ea304b073a799f547f9347" category="list-text">Répétez les sous-étapes i et ii pour l'IOM B.</block>
   <block id="11eaf61422cf68224e34ee6875a0eaf8" category="list-text">Consultez les fiches de câblage du contrôleur à la pile et des exemples de câblage pour savoir si une fiche complète existe pour votre configuration.</block>
-  <block id="df890e7b6d800ea7f63516f78dc7b333" category="inline-link-macro">Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes AFF et FAS avec stockage intégré</block>
-  <block id="4831f887bab13b0957b607ad184c87f7" category="paragraph"><block ref="4831f887bab13b0957b607ad184c87f7" category="inline-link-macro-rx"></block></block>
-  <block id="157171cdb89a7c3ef4163f5ab09c52b9" category="inline-link-macro">Feuilles de câblage contrôleur à pile et exemples de câblage pour les configurations haute disponibilité multivoie courantes</block>
-  <block id="5d50d12c536a18b90ff261c6cb3dd2ff" category="paragraph"><block ref="5d50d12c536a18b90ff261c6cb3dd2ff" category="inline-link-macro-rx"></block></block>
   <block id="5c2ad194cf23987186d5cbe5c49ce2a6" category="inline-link-macro">Fiche de câblage contrôleur à pile et exemple de câblage pour une configuration haute disponibilité à quatre chemins d'accès avec deux HBA SAS à quatre ports</block>
   <block id="02548e03b89f23365c2f51edd44d2173" category="paragraph"><block ref="02548e03b89f23365c2f51edd44d2173" category="inline-link-macro-rx"></block></block>
   <block id="9495b7b73fbc9016369ec183980f3b98" category="list-text">Si la fiche de votre configuration est remplie, connectez les câbles du contrôleur à la pile à l'aide de la fiche complétée. Sinon, passez à la sous-étape suivante.</block>
@@ -5535,10 +5509,8 @@
   <block id="b9e772dcfe474ff5403c912944516e36" category="inline-link-macro">Modèle de fiche de câblage contrôleur à pile pour la connectivité à quatre chemins d'accès</block>
   <block id="612ddf012153a583a53a09e3d7b592ea" category="paragraph"><block ref="612ddf012153a583a53a09e3d7b592ea" category="inline-link-macro-rx"></block></block>
   <block id="52c50d0ed319a8e8651dbd6633a6eb4b" category="list-text">Vérifier que tous les câbles sont bien fixés.</block>
-  <block id="15d747925bd876379293d3f7b381a24a" category="list-text">Si vous ajoutez à chaud un ou plusieurs tiroirs disques à une fin (le premier ou le dernier tiroir disque logique) d'une pile existante, procédez comme suit pour votre configuration. Sinon, passez à l'étape suivante.</block>
   <block id="dbe0afeaa91b9a08168e98b33a4c7de8" category="admonition">Assurez-vous d'attendre au moins 70 secondes entre le débranchement d'un câble et le rebranchement, et si vous remplacez un câble plus long.</block>
   <block id="f869ea7ce9a752fc1c1184b74b7c48b7" category="cell">Si vous êtes...</block>
-  <block id="98aa5d35b682331617bfb7e16474e48b" category="paragraph">Ajout à chaud d'un tiroir disque à la fin d'une pile avec chemins d'accès multiples, chemins d'accès multiples, haute disponibilité à quatre chemins d'accès ou connectivité à quatre chemins d'accès aux contrôleurs</block>
   <block id="e5db3fb8bc84ca3e26b513ea750c6127" category="list-text">Déconnectez tous les câbles du module d'E/S A du tiroir disque à l'extrémité de la pile qui sont connectés à n'importe quel contrôleur. Sinon, passez à l'étape par sous-</block>
   <block id="eded78be6c2ef5bdeed5cb2e044b45ea" category="paragraph">Laissez l'autre extrémité de ces câbles connectés aux contrôleurs ou remplacez les câbles par des câbles plus longs si nécessaire.</block>
   <block id="30a13f506678dd37c6740d0a8210db83" category="list-text">Reliez les connexions entre le module d'E/S A du tiroir disque à l'extrémité de la pile et le module A du tiroir disque à chaud.</block>
@@ -5550,7 +5522,6 @@
   <block id="a3d47aa3e93dad380f8eddea49e10329" category="list-text">Vérifier que le câble est bien fixé.</block>
   <block id="310e6246fbcbc6ffbcf046392bd9519f" category="list-text">Répétez les sous-étapes applicables pour l'IOM B.</block>
   <block id="125273384fcb185d3d30fb428a9882ad" category="list-text">Si vous avez ajouté à chaud un tiroir disque avec des câbles optiques SAS HD Mini-SAS à une pile de tiroirs disques connectés avec des câbles en cuivre SAS, remplacez les câbles en cuivre SAS. Sinon, passez à l'étape suivante.</block>
-  <block id="d723d62f22ae4fd78c33384440e5978e" category="paragraph">La pile doit répondre aux exigences indiquées dans le <block ref="b97fb0f13d8cc81479b53e89d9178105" category="inline-xref-macro-rx"></block> section de cette procédure.</block>
   <block id="20244777af6f97db49ab4dc75a00ca87" category="paragraph">Remplacez les câbles un par un et assurez-vous d'attendre au moins 70 secondes entre le débranchement d'un câble et le branchement d'un câble neuf.</block>
   <block id="cffaa419df3085d01136e2b025db708e" category="paragraph">Si des erreurs de câblage SAS sont générées, suivez les actions correctives fournies.</block>
   <block id="de46960b44022dd01adfc6091d8e17ba" category="list-text">Vérifiez la connectivité SAS pour chaque tiroir disque ajouté à chaud :<block ref="a8562efc8f11591bbf23ca4b6d02f983" prefix=" " category="inline-code"></block></block>
@@ -5610,14 +5581,12 @@
   <block id="0ce1997215ff26fd5b9284736a764b25" category="admonition">Lorsque vous insérez un disque pour la première fois, sa LED d'avertissement peut s'allume. Toutefois, le voyant devrait s'éteindre en une minute.</block>
   <block id="3b11171c02404a6a48fbb19b047eef0f" category="summary">Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pour connecter les contrôleurs aux piles de tiroirs disques avec des modules IOM12/IOM12B afin d'obtenir une connectivité multipathée dans une paire haute disponibilité ou une configuration à un seul contrôleur. Vous pouvez également utiliser la fiche complétée pour vous guider à travers le câblage des connexions multipathed pour votre configuration.</block>
   <block id="12156870a61d18f81545fc90d3b6ffda" category="doc">Modèle de fiche de câblage contrôleur à pile pour la connectivité multipathed - tiroirs avec modules IOM12/IOM12B</block>
-  <block id="e789db57588c567cf162bf2f8ec8b65e" category="paragraph">Si vous disposez d'une plateforme avec stockage interne, notamment les systèmes FAS2600, AFF A200, FAS2700 Series, AFF A220, puis, utilisez les éléments suivants (ces plates-formes utilisent une feuille de calcul unique) :</block>
   <block id="f5d03e0aa6d32340b1284f6bb82c8ee3" category="inline-link-macro">Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes avec stockage interne</block>
   <block id="c19123e6031c139d66f534ae4311d605" category="paragraph"><block ref="c19123e6031c139d66f534ae4311d605" category="inline-link-macro-rx"></block></block>
   <block id="5976250f174c7aa7423cbb91c458e804" category="list-text">Ce modèle de procédure et de fiche est applicable au câblage de la connectivité multipathing pour une configuration multivoie haute disponibilité ou à chemins d'accès multiples avec une ou plusieurs piles.</block>
   <block id="8c7e7585bf065649c4ca12e935833b4c" category="paragraph">Des exemples de feuilles de calcul complétées sont fournis pour les configurations haute disponibilité multivoie et les configurations à chemins d'accès multiples.</block>
   <block id="51432cf63c198a0a11bab993299ae7fd" category="paragraph">Pour les exemples de feuille de travail, vous pouvez utiliser une configuration dotée de deux HBA SAS à quatre ports et de deux piles de tiroirs disques avec des modules IOM12/IOM12B.</block>
   <block id="da38645c7fd59844e84034f3e0e006a1" category="list-text">Le modèle de feuille de calcul peut contenir jusqu'à six piles. Vous devez ajouter d'autres colonnes si nécessaire.</block>
-  <block id="366650169d0230a4d4bd37f5a9f65737" category="list-text">Si nécessaire, vous pouvez consulter le <block ref="db31d33614fd87795381d5ac14be04aa" category="inline-link-macro-rx"></block> pour plus d'informations sur les configurations prises en charge, la convention de numérotation des connecteurs du contrôleur, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir (notamment l'utilisation des paires de ports).</block>
   <block id="2afb2ee03a930cb4967503a5dbf7a5b0" category="list-text">Si nécessaire, après avoir terminé la fiche, vous pouvez vous reporter à <block ref="32f1048d76ed4ef07349228b731694c0" category="inline-link-macro-rx"></block></block>
   <block id="b1d23e069f48305f66afd6c74e6f2742" category="image-alt">modèle mpha de fiche de travail drw</block>
   <block id="b6e864fc7eab4fd6206badf96144db05" category="list-text">Dans les cases au-dessus des cases grises, répertoriez tous les ports SAS A de votre système, puis tous les ports SAS C de votre système en séquence d'emplacements (0, 1, 2, 3, etc.).</block>
@@ -5665,7 +5634,6 @@
   <block id="d69f8bb928c8179d4a1d81a77b9f6a4c" category="list-text">Cette procédure référence la fiche technique et l'exemple de câblage suivants pour démontrer comment lire une fiche permettant de raccorder les connexions entre le contrôleur et la pile.</block>
   <block id="2f40064540d7b13547e7d24b16fd49e7" category="paragraph">La configuration utilisée dans cet exemple est une configuration haute disponibilité à quatre chemins d'accès avec deux HBA SAS à quatre ports sur chaque contrôleur et deux piles de tiroirs disques avec des modules IOM12.</block>
   <block id="a513cfe8d83ba38ea85b01260a4ffb53" category="list-text">Si vous disposez d'une configuration à contrôleur unique, ignorez les sous-étapes b et d pour le câblage à un second contrôleur.</block>
-  <block id="b4e4a43caabf816c003f966fc4a0f279" category="list-text">Si nécessaire, vous pouvez vous reporter à <block ref="db31d33614fd87795381d5ac14be04aa" category="inline-link-macro-rx"></block> pour plus d'informations sur la convention de numérotation des connecteurs du contrôleur, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir (notamment l'utilisation des paires de ports).</block>
   <block id="270a0442694cb2d6cfb0b5aac8bf618c" category="list-text">Paire de ports de câbles 1a/2b sur chaque contrôleur pour la pile 1 :</block>
   <block id="480e4f10ac2e8a84a7f6455bf724bff5" category="paragraph">Il s'agit du câblage multipathed pour la pile 1.</block>
   <block id="84233093e0fddbce6c78136ff461562e" category="list-text">Reliez le port 1a du contrôleur 1 à la pile 1, premier tiroir IOM A du port 1.</block>
@@ -5698,8 +5666,6 @@
   <block id="bd7b8cb1f03ceb90528c843b3cd8c0a4" category="summary">Vous pouvez retirer à chaud un tiroir disque avec des modules IOM12 (pour retirer de manière non disruptive un tiroir disque d'un système sous tension et en E/S) lorsque vous devez déplacer ou remplacer le tiroir disque. Vous pouvez supprimer à chaud un ou plusieurs tiroirs disques n'importe où dans une pile de tiroirs disques ou en supprimer une pile de tiroirs disques.</block>
   <block id="314802b9b5ea5477ad3c17cc48db0ca8" category="doc">Retirez à chaud une étagère - étagères avec modules IOM12/IOM12B</block>
   <block id="f6516aa66806c66f90b17f54c90fc724" category="paragraph">Vous pouvez retirer à chaud un tiroir disque avec des modules IOM12/IOM12B (sans interruption de l'activité, retirer un tiroir disque d'un système sous tension et en E/S) lorsque vous devez déplacer ou remplacer un tiroir disque. Vous pouvez supprimer à chaud un ou plusieurs tiroirs disques n'importe où dans une pile de tiroirs disques ou en supprimer une pile de tiroirs disques.</block>
-  <block id="c5cabc5bd527563ec2a9e03c2ca16ab6" category="list-text">Votre système doit être une configuration haute disponibilité multivoie, des chemins d'accès multiples, une configuration à quatre chemins d'accès (HA) ou à quatre chemins.</block>
-  <block id="a545c2ce8d557ac97c60d7fea8129606" category="paragraph">Pour les plateformes avec stockage intégré, comme les systèmes AFF A200, AFF A220, FAS2600 et FAS2700, le stockage externe doit être câblé en tant que haute disponibilité multivoie ou sous forme de chemins d'accès multiples.</block>
   <block id="079a7f8e81dcfa4ea9fb370c9901815f" category="admonition">Pour un système FAS2600 à contrôleur unique doté du stockage externe câblé avec une connectivité multivoie, le système présente une configuration à chemins d'accès multiples, car le stockage interne utilise la connectivité à chemin unique.</block>
   <block id="7aef33153293755f25958302c5aed92b" category="paragraph">Vous pouvez télécharger et exécuter Active IQ Config Advisor pour afficher tous les messages d'erreur de câblage SAS et les actions correctives que vous devez effectuer.</block>
   <block id="a87e1a96f2d7d8d3f543485f49e17ff9" category="list-text">Les configurations de paires HA ne peuvent pas être dans un état de basculement.</block>
@@ -5709,7 +5675,6 @@
   <block id="00124b65b0475ef5a1ef8812a9a5aa02" category="list-text">*Meilleure pratique :* la meilleure pratique consiste à supprimer les droits de propriété des disques après le retrait des agrégats des disques des tiroirs disques que vous retirez.</block>
   <block id="d861952ae543b7ab12c97b76ba5a6d22" category="paragraph">La suppression des informations de propriété d'un lecteur de disque de réserve permet d'intégrer correctement le lecteur de disque à un autre nœud (si nécessaire).</block>
   <block id="82a0e673933c66d13ebe9ac1bf565aa9" category="paragraph">La procédure de suppression de propriété sur les disques durs exige que vous désactiviez l'affectation automatique de propriété de disque. Vous réactivez l'affectation automatique de la propriété de disque à la fin de cette procédure.</block>
-  <block id="c917987d5d8844333d3271b88c9ef8ec" category="paragraph"><block ref="c917987d5d8844333d3271b88c9ef8ec" category="inline-link-rx"></block></block>
   <block id="6d262abed5885a9a0e7edfe9d9df36e8" category="list-text">Pour un système clustered ONTAP supérieur à deux nœuds, il est recommandé de réaffectés à une paire haute disponibilité autre que celle qui est en cours de maintenance planifiée.</block>
   <block id="aae869bb20c68bfa1b78ddb6bdd06a3d" category="paragraph">Epsilon reassigning réduit le risque d'erreurs imprévues affectant tous les nœuds d'un système clustered ONTAP. Vous pouvez utiliser les étapes suivantes pour déterminer le nœud qui possède epsilon et reassigner l'epsilon si nécessaire :</block>
   <block id="75a7fdc720f737b1c4798195fa81dd5a" category="list-text">Définissez le niveau de privilège sur avancé :<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block></block>
@@ -5719,9 +5684,6 @@
   <block id="859b2518ddc407ed154103ca5d61902f" category="list-text">Assignation d'epsilon à un nœud dans une autre paire haute disponibilité :<block ref="15bad7069cd7f71577acf6ccca0cab3e" prefix=" " category="inline-code"></block></block>
   <block id="1319d9c9945c8d2b36ffa9c0945c9db6" category="list-text">Si vous retirez à chaud un tiroir disque d'une pile (mais que vous conservez la pile), vous pouvez le recâter et vérifier un chemin à la fois (chemin A puis chemin B) pour contourner le tiroir disque que vous supprimez afin de maintenir toujours la connectivité à chemin unique des contrôleurs vers la pile.</block>
   <block id="be52806c806fdd72f6b18960841d7459" category="admonition">Si vous n'maintenez pas la connectivité à chemin unique entre les contrôleurs et la pile lors du retrait de la pile afin de contourner le tiroir disque que vous retirez, vous pouvez tomber en panne du système après un incident comportant plusieurs disques.</block>
-  <block id="0c19992873d54086f9866be6126e317c" category="list-text">*Dommages possibles sur les étagères :* si vous retirez une étagère DS460C et que vous le déplacez dans une autre partie du centre de données ou le transportez à un autre emplacement, voir la section, <block ref="2dfa5cde780121ff739815d2402836cf" category="inline-xref-macro-rx"></block> à la fin de cette procédure.</block>
-  <block id="bb4fc12c448337a0baf229180b8301a3" category="list-text">Vérifiez que la configuration de votre système est<block ref="7331911b71ec7e78bff5c45bd2c5aaf9" prefix=" " category="inline-code"></block>,<block ref="30cd2ef2a4cf8bde2668292e60ce425e" prefix=" " category="inline-code"></block>,<block ref="98a06331c5019fee7c2bec76b5d289fb" prefix=" " category="inline-code"></block>, ou<block ref="3a22361329a9005da35e1a3654fdb1ea" prefix=" " category="inline-code"></block>:<block ref="d4b15528721ed3ac7910f1fa2cacec13" prefix=" " category="inline-code"></block></block>
-  <block id="d4e4c353414a921b7e83ae256c64c7c3" category="paragraph">Vous exécutez cette commande à partir du nodeshell de n'importe quel contrôleur. Une minute peut s'avérer nécessaire pour effectuer la détection par le système.</block>
   <block id="ed6b750b8843d7a7df75da2dbf5fe1e8" category="paragraph">La configuration est répertoriée dans le<block ref="bcd87154f25ef0dd1da8c6e024c2597e" prefix=" " category="inline-code"></block> légale.</block>
   <block id="ed7a174149f5c6131e9541d84860b876" category="admonition">Pour un système à contrôleur unique de la gamme FAS2600 qui dispose du stockage externe câblé avec une connectivité multivoie, la sortie est affichée comme<block ref="864c2004fbb86b41fd41ecb867289c11" prefix=" " category="inline-code"></block> car le stockage interne utilise une connectivité à chemin unique.</block>
   <block id="7cc8d0bc29251cecfd1b637849b731d6" category="list-text">Vérifiez que les disques des tiroirs disques que vous supprimez ne disposent d'aucun agrégat (qu'il s'agit de disques de secours) et que la propriété est supprimée :</block>
@@ -5749,12 +5711,9 @@
   <block id="9fd4326c6ab2d997562f5767f3df7b73" category="list-text">Retirer tout câblage tiroir à tiroir des ports 1 et 2 de l'IOM A ou des ports 3 et 4 du tiroir disque que vous retirez et IOM A du tiroir disque suivant, puis les mettre de côté.</block>
   <block id="ea478137f9f3f510d78ded85ca711328" category="list-text">Débranchez le câblage restant tiroir à tiroir connecté aux ports IOM A du tiroir disque que vous retirez et branchez-les sur les mêmes ports IOM A du tiroir disque suivant de la pile. Le tiroir disque « suivant » peut se trouver au-dessus ou en dessous du tiroir disque que vous retirez selon les ports IOM A (1 et 2 ou 3 et 4) dont vous avez retiré le câblage.</block>
   <block id="ecb0971ba53e44dba0504141a48c9f2f" category="paragraph">Pour retirer un tiroir disque de l'extrémité d'une pile ou du milieu d'une pile, reportez-vous aux exemples de câblage suivants. Notez les exemples de câblage suivants :</block>
-  <block id="36cd08727706401ebefa64f1f844f7b4" category="list-text">Les modules IOM12 sont disposés côte à côte comme dans un tiroir disque DS224C ou DS212C ; si vous disposez d'un DS460C, les modules IOM12 sont placés l'un au-dessus de l'autre.</block>
-  <block id="3c41c9d7f79dc14dd41849a0139018f6" category="list-text">Dans chaque exemple, la pile est câblée avec un câblage standard du tiroir à tiroir, utilisé dans les piles câblées avec une connectivité haute disponibilité ou multivoie.</block>
   <block id="5fea7092c0a88a4150d45ceb8b855a04" category="paragraph">Vous pouvez déduire le câblage de votre pile à l'aide d'une connectivité à quatre chemins haute disponibilité ou à quatre chemins d'accès, qui utilise un câblage à tiroir double.</block>
   <block id="8fd0f0ba5d2b2db036e96ecd3ee6d8aa" category="list-text">Les exemples de câblage montrent la désactivation d'un des chemins : chemin A (IOM A).</block>
   <block id="ec63bd7bc48ac55f299c9d68ecffd51e" category="paragraph">Vous répétez la désactivation pour le chemin B (IOM B).</block>
-  <block id="9417829bbfaa2b6bc90f4631eba2650e" category="list-text">L'exemple de câblage pour retirer un tiroir disque de l'extrémité d'une pile illustre le retrait du dernier tiroir disque logique d'une pile câblée via une connectivité haute disponibilité multivoie.</block>
   <block id="211fa836e39f7f323e02691753f9da66" category="paragraph">Vous pouvez déduire la désactivation si vous supprimez le premier tiroir disque logique d'une pile ou si votre pile dispose d'une connectivité multipath.</block>
   <block id="c2f61fd2c187c56b3314931c01a8eaf7" category="image-alt">extrémité du hot-remove drw</block>
   <block id="147a645b8f80ab0559368234fa51e963" category="image-alt">rép. a chaud milieu</block>
@@ -5778,7 +5737,6 @@
   <block id="60f2a3cfd26e6f6c57aebe8c8e233493" category="list-text">Retirez les tiroirs disques du rack ou de l'armoire.</block>
   <block id="2832373659f325a28de2b5462611f72c" category="paragraph">Pour les tiroirs disques DS460C, un tiroir entièrement chargé peut peser environ 112 kg (247 lbs). Soyez donc prudent lors du retrait d'un shelf d'un rack ou d'une armoire.</block>
   <block id="69803fc9f7acd429df0403558d86852a" category="admonition">Il est recommandé d'utiliser un lève-personnes mécanisé ou quatre personnes utilisant les poignées de levage pour déplacer en toute sécurité une étagère DS460C.</block>
-  <block id="d2190ca0f2bf90686cb089f6fb2d5e2b" category="paragraph">Si vous déplacez le DS460C dans une autre partie du centre de données ou si vous le transportez à un autre emplacement, voir la section suivante, <block ref="2dfa5cde780121ff739815d2402836cf" category="inline-xref-macro-rx"></block>.</block>
   <block id="1d5287e79870e687badf4e2da0612ad0" category="paragraph">Si vous déplacez un tiroir DS460C vers une autre partie du data Center ou si le tiroir est déplacé à un emplacement différent, il est nécessaire de retirer les disques des tiroirs disques pour éviter d'endommager les tiroirs et les disques.</block>
   <block id="c3fdb0812209f286e664a4d0cd47c328" category="list-text">Si vous avez installé des étagères DS460C dans le cadre de votre nouvelle installation système ou de votre tiroir d'ajout à chaud, vous avez sauvegardé les matériaux de l'emballage des disques et les utilisez pour reconditionner les disques avant de les déplacer.</block>
   <block id="9f82eea0f440d221437653dd782356a4" category="summary">La configuration de votre système détermine si vous pouvez effectuer un remplacement à chaud de module IOM12/IOM12B sans interruption ou un remplacement de module IOM12/IOM12B perturbateur en cas de défaillance d'un module IOM12/IOM12B.</block>
@@ -5791,7 +5749,6 @@
   <block id="20b0dc7787284cb0afa2dbc5d95136a2" category="paragraph">Les modules IOM12 se distinguent par une étiquette « IOM12 » :</block>
   <block id="5416d570ace1334ffbc27d0d9486ebe5" category="paragraph">Les modules IOM12B se distinguent par une bande bleue et une étiquette « IOM12B » :</block>
   <block id="d2a8fdadc8d18dd445c56f47cea6197a" category="image-alt">iom12b</block>
-  <block id="f85a60cb0afe5b75f4c43ed293c8a779" category="list-text">Pour les configurations multipathes (multivoie haute disponibilité ou chemins d'accès multiples) et à quatre chemins d'accès (quadruple chemin d'accès haute disponibilité ou quadruple chemin), vous pouvez échanger un module de tiroir (remplacement sans interruption d'un module d'E/S dans un système qui est sous tension et assure le service des données).</block>
   <block id="9785f45e8f6989c9b8cb2419a2b695da" category="list-text">Pour les configurations HA à chemin unique des gammes FAS2600 et FAS2700, vous devez effectuer une opération de basculement et de rétablissement pour remplacer un module d'E/S de tiroir dans un système sous tension et où il assure l'accès aux données.</block>
   <block id="0894c7928fa1bee8fd4a0207429b7254" category="list-text">Pour les configurations à chemin unique de la gamme FAS2600, vous devez arrêter le système pour remplacer un IOM de tiroir.</block>
   <block id="f00eb102fd21bbf5e0dd612fcc8a9fde" category="admonition">Si vous tentez de remplacer à chaud un module d'E/S de tiroir sur un tiroir disque avec une connexion à un seul chemin, vous perdez tout accès aux disques du tiroir disque, ainsi qu'aux tiroirs disques en dessous. Vous pouvez également arrêter l'ensemble de votre système.</block>
@@ -5803,7 +5760,6 @@
   <block id="27f828dc47aef9b25b9f0603b1307a44" category="list-text">Identifiez physiquement le module d'E/S de tiroir défectueux dans le message d'avertissement de la console du système et la LED d'avertissement allumée (orange) sur le module d'E/S du tiroir défectueux.</block>
   <block id="44a79028b8e2f56c8d1164ae1aedc076" category="list-text">Effectuez l'une des actions suivantes en fonction du type de configuration dont vous disposez :</block>
   <block id="e8599f3c8ef213317efbf60b0379685c" category="cell">Si vous avez un...</block>
-  <block id="099e230bc4db13968f2d136f79693703" category="paragraph">Haute disponibilité multivoie, chemins d'accès multiples, configuration à quatre chemins d'accès (HA) ou à quatre chemins d'accès</block>
   <block id="373a5d24b1aa2958990518bcd5ed56ab" category="paragraph">Les gammes FAS2600 et FAS2700 Series à chemin unique</block>
   <block id="5de1791487db34e32b1323bb994c054c" category="list-text">Déterminez le nœud cible (le nœud auquel appartient l'IOM de tiroir défaillant).</block>
   <block id="1e5e667063d28d41ec828c8438a56b89" category="paragraph">L'E/S A appartient au contrôleur 1. L'IOM B appartient au contrôleur 2.</block>
@@ -5855,9 +5811,7 @@
   <block id="26a846deb04c0d63c063041ad0fa15ef" category="list-text">Exécutez Active IQ Config Advisor pour vérifier que les alertes d'ID de tiroir dupliqués ou exécutez le<block ref="82b00438bdff68cba792c38604023279" prefix=" " category="inline-code"></block> Commande pour afficher la liste des ID de tiroir déjà utilisés, y compris les ID en double.</block>
   <block id="8599052dc8c8c0f79b1edc766e0bb77e" category="list-text">Si votre système possède des ID de tiroir dupliqués, modifiez les ID de tiroir dupliqués en répétant cette procédure.</block>
   <block id="062023e4095a297f17b97a86d9b4d256" category="summary">Les tiroirs disques dotés de modules IOM12/IOM12B peuvent être câblés dans des configurations de paire haute disponibilité et à un seul contrôleur (pour les plateformes prises en charge).</block>
-  <block id="f5b9b5b9c8a3b908584581a89b8c2226" category="doc">Règles de câblage SAS - tiroirs avec modules IOM12/IOM12B</block>
   <block id="19a5945f47c08602bccb2ce050ccb955" category="paragraph">Les tiroirs disques dotés de modules IOM12/IOM12B peuvent être câblés dans des paires haute disponibilité et des configurations à un seul contrôleur (pour les plateformes prises en charge) en appliquant les règles de câblage SAS : règles de configuration, règles de numérotation des connecteurs de contrôleur, règles de connexion entre tiroirs et tiroirs, règles de connexion entre contrôleurs et SAS HD Mini-SAS, le cas échéant.</block>
-  <block id="238f6056b9fefe76918fd63804bbcbfa" category="admonition">Les règles de câblage SAS relatives aux règles de numérotation des connecteurs du contrôleur, aux règles de connexion entre tiroirs et tiroirs et aux règles de connexion entre le contrôleur et la pile décrites dans ce guide sont les mêmes règles qui s'appliquent à tous les tiroirs disques SAS, qu'ils disposent de modules IOM12/IOM12B, IOM6 ou IOM3. Les informations de ce guide spécifiques aux caractéristiques uniques des tiroirs disques dotés de modules IOM12 et leur utilisation dans les configurations prises en charge.</block>
   <block id="35f903a7001175494e6eb7088631a16e" category="paragraph">Les règles de câblage SAS relatives aux règles de configuration et aux règles de câblage optique SAS HD Mini-SAS décrites dans ce guide sont spécifiques aux tiroirs disques dotés de modules IOM12/IOM12B.</block>
   <block id="13a358753c734e014332022a647326d0" category="paragraph">Les règles de câblage SAS décrites dans ce guide équilibrent le câblage SAS entre les ports SAS intégrés et les ports SAS d'adaptateur de bus hôte pour fournir des configurations de contrôleurs de stockage haute disponibilité et atteindre les objectifs suivants :</block>
   <block id="e650f09b3c5e7082570989f690e937f2" category="list-text">Fournissez un algorithme universel unique et facile à comprendre pour tous les produits et configurations SAS</block>
@@ -5866,13 +5820,9 @@
   <block id="540d6dd9e8a601304f58e8b1692a0cbc" category="list-text">Offrir une résilience maximale possible pour maintenir la disponibilité et minimiser la dépendance aux prises de contrôle</block>
   <block id="ac9d521507af48d2a069896628ddcbe1" category="paragraph">Vous devez éviter de vous écarter des règles ; les écarts pourraient réduire la fiabilité, l'universalité et la commune.</block>
   <block id="1411fab742ef51836dbcd20dc81b333a" category="section-title">Règles de configuration</block>
-  <block id="9f5ac9f9e33d14b5edcf142aa6534de3" category="paragraph">Les tiroirs disques dotés de modules IOM12 sont pris en charge sur des types spécifiques de configurations de paire haute disponibilité et à contrôleur unique.</block>
   <block id="a02316bb16a44dfeab4bba0330def5a9" category="admonition">Les plateformes FAS250 ne sont pas traitées dans ce contenu.</block>
   <block id="e813922cd0bf97e10c1d75af7555f41d" category="list-text">Les configurations des paires HAUTE DISPONIBILITÉ doivent être câblées en tant que configurations haute disponibilité à chemins d'accès multiples ou à quatre chemins, à l'exception des cas suivants :</block>
-  <block id="f18e20acd27581fe2f1075089d65a455" category="list-text">Plateformes avec stockage interne, notamment FAS2600 Series, AFF A200, FAS2700 Series, AFF A220, Puis peuvent être câblées en tant que configurations haute disponibilité à chemin unique pour prendre en charge la connectivité à un périphérique de sauvegarde sur bande SAS externe.</block>
-  <block id="c47a6f7fbf347f2ab09e05ad80c1fc30" category="list-text">Plateformes avec stockage interne, notamment FAS2600 Series, AFF A200, FAS2700 Series, AFF A220, Par la suite, ne prennent pas en charge la connectivité haute disponibilité à quatre chemins.</block>
   <block id="905e44a8d6df3feceb87ebb53cfc800e" category="list-text">Les configurations à un contrôleur unique doivent être câblées en tant que configurations à chemins d'accès multiples ou à quatre chemins, à l'exception des cas suivants :</block>
-  <block id="4f84345fdfdaaef18218a7ade58e0626" category="list-text">Les configurations à contrôleur unique de la gamme FAS2600 (avec tiroirs disques externes) peuvent être câblées en tant que configurations à chemin unique.</block>
   <block id="ab36d824336ef6ebffc6dcb6e6c8f5c7" category="paragraph">Du fait que le stockage interne utilise la connectivité à chemin unique, ONTAP émet occasionnellement des avertissements indiquant que des chemins mixtes sont détectés. Pour éviter ces avertissements, vous pouvez utiliser la connectivité à chemin unique vers les tiroirs disques externes. En outre, vous pouvez utiliser la connectivité à chemin unique lorsqu'un périphérique de sauvegarde sur bande SAS externe est utilisé.</block>
   <block id="8e671e17830a3698938ea6b534403e16" category="list-text">Les configurations à contrôleur unique de la gamme FAS2600 ne prennent pas en charge la connectivité à quatre chemins d'accès.</block>
   <block id="978a314c2a364134efaa7961e780a939" category="section-title">Règles de numérotation des slots du contrôleur</block>
@@ -5887,8 +5837,6 @@
   <block id="32455c6254e3a15b603b17e884e4a3f5" category="section-title">Règles de connexion du tiroir à tiroir</block>
   <block id="9e6bd75d2dbbefca4d7d3cc44a0101c2" category="paragraph">Lorsque vous disposez de plusieurs tiroirs disques dans une pile de tiroirs disques, ils se connectent par l'intermédiaire de chaque domaine SAS (IOM A et IOM B) en utilisant le câblage « standard » ou « à tous les niveaux » applicable. Votre utilisation du câblage « standard » ou « tablette à tiroir » dépend de votre configuration.</block>
   <block id="dde4848c792228faaab1af9f19fc0907" category="section-title">Connectivité standard tiroir à tiroir</block>
-  <block id="630c1008b20b98a788cf51f2c263b171" category="list-text">La connectivité standard tiroir à tiroir est utilisée dans les configurations haute disponibilité multivoie, les chemins d'accès multiples, la haute disponibilité à chemin unique et le chemin unique.</block>
-  <block id="57cd520e08d659571c07fae57894a715" category="list-text">La connectivité standard tiroir à tiroir est utilisée dans les configurations de stockage SAS existantes avec des modules IOM3 et IOM6 : un câble est nécessaire pour connecter les tiroirs disques de chaque domaine a (IOM A) et B (IOM B).</block>
   <block id="5a53cde4cf5c91e0b09b08e60c754e51" category="list-text">Il est recommandé d'utiliser les ports IOM 3 et 1 pour la connectivité standard tiroir à tiroir.</block>
   <block id="925ce4810c954644e740106ff49fc2b7" category="paragraph">Du premier tiroir logique au dernier tiroir logique d'une pile, vous connectez le port IOM 3 au port IOM 1 du tiroir suivant dans le domaine A, puis le domaine B.</block>
   <block id="dcbdcc316aee385c3ebdf72977af7d44" category="image-alt">tablette drw à étagère standard</block>
@@ -5947,24 +5895,13 @@
   <block id="2baadcb56e7720f5676b919d51a92530" category="paragraph">Par exemple, si vous avez identifié six paires de ports pour votre système et que vous disposez de trois piles à connecter comme chemins d'accès multiples, vous connectez les deux autres paires de ports de votre liste :</block>
   <block id="e2379f90f7d935a1dcd0af01adbdf46e" category="image-alt">ignorer la liste des règles de connexion de portpair drw</block>
   <block id="5e94596a2debe5f10b4bfe8ed1dfb583" category="paragraph">Les fiches de câblage contrôleur à pile sont des outils pratiques pour identifier et organiser les paires de ports de sorte que vous puissiez câbler les connexions contrôleur à pile pour une paire haute disponibilité ou une configuration à un contrôleur unique.</block>
-  <block id="0ce2d44d1215d0431e0b46ed686dd560" category="section-title">Règles de connexion des ports 0b et 0a pour les plateformes avec stockage interne</block>
-  <block id="0c574ecb6a58bb92327391af7cfd84d2" category="paragraph">Plateformes avec stockage interne, notamment FAS2600 Series, AFF A200, FAS2700 Series, AFF A220, par la suite, ils disposent d'un ensemble unique de règles de connexion, car chaque contrôleur doit maintenir la même connectivité de domaine entre le stockage interne (port 0b) et la pile. Cela signifie qu'lorsqu'un contrôleur est situé dans le slot A du châssis (contrôleur 1), il se trouve dans le domaine A (IOM A) et par conséquent le port 0b doit se connecter au module d'E/S A de la pile. Lorsqu'un contrôleur se trouve dans le slot B du châssis (contrôleur 2), il se trouve dans le domaine B (IOM B) et par conséquent le port 0b doit se connecter au module d'E/S B de la pile.</block>
   <block id="27858a1c4654311bc60fbcd9494b2c3e" category="admonition">Les plateformes FAS25XX ne sont pas traitées dans ce contenu.</block>
-  <block id="f49f9d1b35c60dce77fd03008b90cb34" category="admonition">Si vous ne connectez pas le port 0b au domaine approprié (domaines de connexion croisée), vous exposez votre système aux problèmes de résilience qui empêchent la continuité de l'activité.</block>
-  <block id="5118c6333d912e1b490b20c974a571ef" category="list-text">Port 0b (port de stockage interne) :</block>
-  <block id="53b81829b8b397189aaa4f3eb1ae76a7" category="list-text">Le port 0b du contrôleur 1 se connecte toujours au module d'E/S A (domaine A).</block>
-  <block id="951d8294040ef100fca0ba29f8fd6566" category="list-text">Le port 0b du contrôleur 2 se connecte toujours au module d'E/S B (domaine B).</block>
-  <block id="f97c9e5c4cad2705f3a016e5e1997d97" category="list-text">Le port 0b est toujours le chemin principal.</block>
-  <block id="72cacfdea1ad23cb63716d9475da2462" category="list-text">Le port 0b se connecte toujours au dernier tiroir disque logique d'une pile.</block>
-  <block id="f32d66255c282d48b3e8f74f3142e658" category="list-text">Le port 0b se connecte toujours au port IOM 3 du tiroir disque.</block>
   <block id="b84caa3e5d7ef1b5806f72c6d4c5884b" category="list-text">Port 0a de contrôleur (port HBA interne) :</block>
   <block id="f3bc55f33663d14383a84df3141cf713" category="list-text">Le port 0a du contrôleur 1 se connecte toujours au module d'E/S B (domaine B).</block>
   <block id="38487244666d5641531a05514c50668d" category="list-text">Le port 0a du contrôleur 2 se connecte toujours au module d'E/S A (domaine A).</block>
   <block id="0757935fc13bec433eaf412d005fb61b" category="list-text">Le port 0a est toujours le chemin secondaire.</block>
   <block id="5821e49b61c774c699a1d7c8f58887e5" category="list-text">Le port 0a se connecte toujours au premier tiroir disque logique d'une pile.</block>
   <block id="47f1d04db41788a76ce8ec9e42c7defd" category="list-text">Le port 0a se connecte toujours au port 1 du module d'E/S du tiroir disque.</block>
-  <block id="06da34e55ca27b5fa072a7b523991230" category="paragraph">L'illustration suivante présente la connectivité du domaine des ports de stockage internes pour les gammes FAS2600, AFF A200, FAS2700, AFF A220 et HA à chemins d'accès multiples :</block>
-  <block id="d6be80f16b2e703ff33257470dacbcf3" category="image-alt">exemple de domaine drw fas2600 mpha</block>
   <block id="cfabee74f7cf81c29938b44cfcd37eae" category="paragraph">Vous pouvez utiliser des câbles optiques mini-SAS HD SAS (câble optique actif multimode) avec des connecteurs HD à mini-SAS HD et des câbles d'dérivation multimode (OM4) avec des connecteurs mini-SAS HD à LC pour obtenir une connectivité SAS longue distance pour certaines configurations dotées de tiroirs disques avec des modules IOM12.</block>
   <block id="0500445e8d76472cb131af54eda14d19" category="list-text">Votre plate-forme et votre version de ONTAP doivent prendre en charge l'utilisation de câbles optiques mini-SAS HD : câbles optiques multimodes (AOC) avec connecteurs HD mini-SAS HD-mini-SAS et câbles de dérivation multimodes (OM4) avec connecteurs mini-SAS HD-LC.</block>
   <block id="268e77a403beaee637dafa92037d4b51" category="list-text">Les câbles AOC optiques multimodes avec connecteurs HD Mini-SAS HD-to-mini-SAS peuvent être utilisés pour les connexions contrôleur à pile et tiroir à tiroir. Ils sont disponibles dans des longueurs allant jusqu'à 50 mètres.</block>
@@ -6165,28 +6102,18 @@
   <block id="129ae0938540dd9a7876d09d06bd1f3d" category="list-text">Accédez à Hardware Universe et accédez aux informations de votre plateforme.</block>
   <block id="f67745dbd9289e38cb69268974c8e01a" category="list-text">Si vous ajoutez un tiroir à une configuration MetroCluster, la configuration doit répondre à toutes les exigences des guides d'installation et de configuration de MetroCluster.</block>
   <block id="e7fc3e467c21c0163b6e186e86ec5265" category="inline-link">Guide d'installation et de configuration IP de MetroCluster</block>
-  <block id="96f4732a126902bc7ba1b00365b93018" category="paragraph"><block ref="96f4732a126902bc7ba1b00365b93018" category="inline-link-rx"></block></block>
   <block id="006182a7cf1f4ee783649b59fe5319fe" category="inline-link">Guide d'installation et de configuration de ONTAP 9 MetroCluster extensible</block>
-  <block id="2f8a4b346b8424a5087dfb19acb186a5" category="paragraph"><block ref="2f8a4b346b8424a5087dfb19acb186a5" category="inline-link-rx"></block></block>
   <block id="88961c06e2b1a459284563a20920c4a2" category="inline-link">Guide d'installation et de configuration du MetroCluster ONTAP 9 (Fabric-Attached)</block>
-  <block id="48a3ab22450cdd41a14f0b4fc3a359c9" category="paragraph"><block ref="48a3ab22450cdd41a14f0b4fc3a359c9" category="inline-link-rx"></block></block>
-  <block id="09397aecf3eae55f108f43cd457d39f0" category="list-text">La pile des tiroirs IOM6, auquel vous ajoutez un tiroir IOM12 à chaud, doit être câblée avec des câbles en cuivre SAS (pour toutes les connexions tiroir à tiroir et contrôleur à pile).</block>
   <block id="c08b36d83324a217b367ef482dda6bff" category="paragraph">Les câbles optiques SAS ne sont pas pris en charge dans les piles mixtes.</block>
-  <block id="79558b80e68c3388b4399b11c12347ac" category="admonition">Si la pile de tiroirs IOM6 est câblée avec des câbles optiques SAS, vous ne pouvez pas ajouter à chaud un tiroir IOM12. Contactez votre ingénieur commercial NetApp.</block>
-  <block id="8ac997f121720a497b3cff0318f505b3" category="list-text">Votre système doit comporter moins de disques que le nombre maximal pris en charge, au moins en prenant en charge le nombre de disques capables d'être installés dans les tiroirs IOM12 que vous ajoutez à chaud.</block>
   <block id="00fff54c913160f5c3bf6b51833732a2" category="paragraph">Vous ne pouvez pas avoir dépassé le nombre maximal de disques pris en charge par votre système après l'ajout de tiroirs IOM12/IOM12B à chaud.</block>
   <block id="930a04c4c89c9247f79288e2800c12ca" category="list-text">Vous devez avoir commandé et reçu les étagères IOM12/IOM12B, ainsi que le nombre et les types appropriés de câbles en cuivre SAS.</block>
-  <block id="3969a8285624065a82b260666129a7d3" category="paragraph">Les tiroirs IOM12 utilisent des connecteurs HD Mini-SAS. Les tiroirs IOM6 utilisent des connecteurs QSFP.</block>
   <block id="c7566a05bf32290cd12dd8d369e46bd4" category="section-title">Configuration requise pour l'ajout à chaud dans les configurations MetroCluster reliées à un pont</block>
   <block id="1aefc40815c8a14c682b27d605e0c852" category="paragraph">Si vous ajoutez à chaud des tiroirs IOM12/IOM12B à une pile de tiroirs IOM6 connectés à l'aide de deux ponts ATTO FibreBridge dans une configuration MetroCluster, le système doit répondre à certaines exigences.</block>
-  <block id="8c5677f5d5c9a3e27e7aa9a888386129" category="list-text">Si des ports SAS de pont sont disponibles dans la configuration actuelle, vous devez ajouter les tiroirs IOM12 comme pile distincte.</block>
   <block id="19ad2c0538cf2699805ae5b7a88dc72d" category="paragraph">Utilisez tous les ports de pont avant de mélanger des modules IOM12/IOM12B et IOM6 dans une pile.</block>
   <block id="bd7825d41c8830b21a19c98ddcd9b85a" category="list-text">Entrez le <block ref="5ddc7c3a7b5a66f920371f4ddb8d047c" prefix="" category="inline-code"></block> commande à l'invite d'administration de l'un ou l'autre contrôleur.</block>
   <block id="9d5ea5ac8c96d6d172e1cc58ef233dd1" category="list-text">La configuration doit répondre à toutes les exigences décrites dans les guides d'installation et de configuration de MetroCluster.</block>
   <block id="39d46c9b8c2da59196572bcb75b09f65" category="inline-link">Installation et configuration d'une configuration Stretch MetroCluster</block>
-  <block id="b984b4ca60433c9bfb091a25c359bf29" category="paragraph"><block ref="b984b4ca60433c9bfb091a25c359bf29" category="inline-link-rx"></block></block>
   <block id="e88635bcb3016a1e52f43f35377d1872" category="inline-link">Installation et configuration d'une configuration MetroCluster Fabric-Attached</block>
-  <block id="21990ac0aec263e0a024057600dc893c" category="paragraph"><block ref="21990ac0aec263e0a024057600dc893c" category="inline-link-rx"></block></block>
   <block id="f29790dcd5dad7176b065228da8e813b" category="list-text">La pile des tiroirs IOM6, auquel vous ajoutez à chaud un tiroir IOM12/IOM12B, doit être câblée avec des câbles en cuivre SAS (pour toutes les connexions tiroir à tiroir et contrôleur à pile).</block>
   <block id="a303526442a9b488afde68409bafd573" category="admonition">Si la pile de tiroirs IOM6 est câblée avec des câbles optiques SAS, vous ne pouvez pas ajouter à chaud un tiroir IOM12/IOM12B. Contactez votre ingénieur commercial NetApp.</block>
   <block id="6e4c499bdd2966c2b90a216c4bda1fb3" category="list-text">Votre configuration doit avoir un nombre de lecteurs inférieur au nombre maximum pris en charge pour un port de pont.</block>
@@ -6197,20 +6124,14 @@
   <block id="dd6fd6077c76a89a726fd6fd4df5ecd6" category="paragraph">La version prise en charge du firmware du tiroir vous protège contre les problèmes d'accès à la pile de stockage si vous câbler correctement le tiroir ajouté à chaud à la pile.</block>
   <block id="4b0c6c7c1712b07c4f6eb456f77c250b" category="paragraph">Après avoir téléchargé le micrologiciel de tiroir IOM12/IOM12B vers vos tiroirs, vérifiez que la version du micrologiciel est 0260 ou ultérieure en entrant dans le<block ref="282088db491007d323bdd5e8588f06cb" prefix=" " category="inline-code"></block> commande au niveau de la console d'un contrôleur ou de l'autre.</block>
   <block id="cc2b41a35c221fb91dbefde3e869ed2d" category="list-text">Vous pouvez suivre cette procédure pour ajouter à chaud des tiroirs disques qui ont été supprimés à chaud au sein du même système MetroCluster si le tiroir affecté dispose d'agrégats en miroir.</block>
-  <block id="398a3c8d2269f5f0bf21e8be014ed54c" category="list-text">Lorsque vous ajoutez des tiroirs avec des modules IOM12 à chaud à une pile de tiroirs avec des modules IOM6, la performance de l'ensemble de la pile fonctionne à 6 Gbit/s (s'exécute à la vitesse la plus basse).</block>
-  <block id="75e1d900c724ecf27f282e3bba238d06" category="paragraph">Si les tiroirs que vous ajoutez à chaud sont des tiroirs qui ont été mis à niveau depuis des modules IOM3 ou IOM6 vers des modules IOM12, la pile fonctionne à 12 Gbit/s. Toutefois, le fond de panier de tiroir et les capacités de disque peuvent limiter les performances des disques à 3 ou 6 Gbit/s.</block>
   <block id="6ef27274e13ef21decb2e40b817dc838" category="list-text">Le firmware des tiroirs (IOM) et du disque doivent être mis à jour automatiquement, si nécessaire.</block>
   <block id="73dba703fd8c5b56b1febc70d5f9bc0d" category="list-text">*Meilleure pratique :* la meilleure pratique consiste à installer sur votre système les versions les plus récentes du firmware du tiroir (module d'E/S) et du firmware du lecteur avant d'ajouter à chaud un tiroir.</block>
   <block id="160fd79816dd71c8a799efb47ac36361" category="paragraph">Une fois le Active IQ Config Advisor exécuté avant l'ajout à chaud d'un tiroir fournit un snapshot de la connectivité SAS existante, il vérifie les versions du firmware des tiroirs (IOM) et vous permet de vérifier qu'un ID de tiroir est déjà utilisé sur votre système. Une fois Active IQ Config Advisor le tiroir ajouté à chaud, vous pouvez vérifier que les tiroirs sont correctement câblés et que leurs identifiants sont uniques au sein de votre système.</block>
   <block id="146d395e439d39abc69ffa4b33c098e7" category="list-text">* Meilleure pratique:* la meilleure pratique est d'avoir ACP en bande (IBACP) en fonctionnement sur votre système.</block>
-  <block id="b2eb7290e0c647560c735690a8df2377" category="list-text">Pour les systèmes sur lesquels IBAP est exécuté, IBACP est automatiquement activé sur les tiroirs IOM12 ajoutés à chaud.</block>
-  <block id="0255f63676d9b237186bfd36a0664dca" category="list-text">Pour les systèmes dans lesquels la technologie ACP hors bande est activée, les fonctionnalités ACP ne sont pas disponibles sur les tiroirs IOM12.</block>
   <block id="8ea8c6292abb58ce4ad3173e65ac4ff9" category="paragraph">Vous devez migrer vers IBACP et supprimer le câblage ACP hors bande.</block>
   <block id="cf9f30a46a1bd1436a4faafee987b86d" category="list-text">Si votre système n'exécute pas IBACP et que votre système répond aux exigences d'IBACP, vous pouvez migrer votre système vers IBACP avant d'ajouter à chaud un tiroir IOM12.</block>
   <block id="4737928907e8a292681e7a90cfb49f2d" category="inline-link">Instructions pour migrer vers IBACP</block>
-  <block id="5657d544f237cd4dbe450a90b964d7ee" category="paragraph"><block ref="5657d544f237cd4dbe450a90b964d7ee" category="inline-link-rx"></block></block>
   <block id="74058cc9034742368de6ba87df420c12" category="admonition">Les instructions de migration fournissent la configuration système requise pour IBACP.</block>
-  <block id="34186aada31d58acf460b5c4c88d85ef" category="paragraph">Si vous attribuez manuellement la propriété des disques aux tiroirs IOM12 que vous ajoutez à chaud, vous devez désactiver l'affectation automatique des disques s'il est activé.</block>
   <block id="ade63becc62556e3c87bdc2937803b8e" category="paragraph"><block ref="a36de82ec030fb7c465d75421f1bf354" category="inline-xref-macro-rx"></block></block>
   <block id="f5965bbdd3ba21efcd908fcb2587c4b7" category="paragraph">Si vous disposez d'une paire haute disponibilité, vous devez attribuer manuellement la propriété des disques si les disques du tiroir seront détenus par les deux modules de contrôleur.</block>
   <block id="bddd9e5d88d913d8866bfb32eedde8d0" category="paragraph">Si vous disposez d'une paire haute disponibilité, vous pouvez saisir la commande sur un module de contrôleur.</block>
@@ -6219,7 +6140,6 @@
   <block id="186c036c7e975a624b82dd356df0999b" category="section-title">Installez les étagères pour un ajout à chaud</block>
   <block id="3546e85dc307b9bcf0b533b27fad8878" category="paragraph">Pour chaque tiroir que vous ajoutez à chaud, vous installez le tiroir dans un rack, branchez les câbles d'alimentation, mettez le tiroir sous tension et définissez l'ID de tiroir.</block>
   <block id="36c4b867932e9d22e95453e968104256" category="list-text">Définissez l'ID de tiroir pour chaque tiroir que vous ajoutez à chaud dans un ID unique au sein de la paire haute disponibilité ou de la configuration à un seul contrôleur.</block>
-  <block id="4c1c5ca48f80900bdbd6478de4bd8643" category="paragraph">Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99. Il est recommandé de définir les ID des tiroirs de sorte que les tiroirs IOM6 utilisent des numéros inférieurs (1 à 9) et les tiroirs IOM12 utilisent des nombres supérieurs (10 et supérieurs).</block>
   <block id="07ef6aaec0e48ce2f5b9d9f42adf77cc" category="paragraph">Si vous disposez d'un modèle de plateforme avec stockage intégré, il est nécessaire de disposer d'identifiants uniques entre le tiroir interne et les tiroirs connectés en externe. Il est recommandé de définir le tiroir interne sur 0. Dans les configurations IP MetroCluster, seuls les noms de tiroirs externes s'appliquent. Par conséquent, les noms de tiroirs n'ont pas besoin d'être uniques.</block>
   <block id="fea2f0f5c7391e6c3a0ee4727fd42bd6" category="list-text">Si nécessaire, vérifiez les ID de tiroir déjà utilisés en exécutant Active IQ Config Advisor.</block>
   <block id="a278e5727be8ac05546bb45f5d4a3958" category="list-text">Appuyez sur le bouton pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité.</block>
@@ -6229,7 +6149,6 @@
   <block id="74ee2dd8c1c457d065bbe6699d54d9d2" category="paragraph">Vous devez éteindre les deux interrupteurs, attendre 10 secondes, puis les rallumer pour terminer le cycle d'alimentation.</block>
   <block id="1127d0feda6e469dce912ad847745999" category="list-text">Répétez les sous-étapes b à g pour chaque étagère que vous ajoutez à chaud.</block>
   <block id="ac6725fb813060a9b7afc55f795aae39" category="section-title">Des étagères pour un ajout à chaud</block>
-  <block id="3ed3a0caa77626b30983d683ee9db330" category="paragraph">Le câblage d'un tiroir IOM12/IOM12B à une pile de tiroirs IOM6 dépend si le tiroir IOM12 est le tiroir initial IOM12/IOM12B, ce qui signifie qu'aucun autre tiroir IOM12 n'existe dans la pile, Ou s'il s'agit d'un tiroir IOM12/IOM12B supplémentaire à une pile mixte existante, c'est-à-dire qu'un ou plusieurs tiroirs IOM12/IOM12B existent déjà dans la pile. Elle dépend également de si la pile possède une haute disponibilité multivoie, des chemins d'accès multiples, une haute disponibilité à chemin unique ou une connectivité à chemin unique.</block>
   <block id="93484edf29512f42176285d1b3aaffee" category="list-text">Vous devez avoir terminé la procédure de préparation, le cas échéant.</block>
   <block id="7aa59d062d2da8d407e876bd47370fa0" category="paragraph"><block ref="1f1303724d0c3c3fd20087be0397e475" category="inline-xref-macro-rx"></block></block>
   <block id="f687c0bac0c7622f56dbb2b4da300a72" category="paragraph"><block ref="395b2cdcd845cc34c1cb8c041e444e72" category="inline-xref-macro-rx"></block></block>
@@ -6237,8 +6156,6 @@
   <block id="e0895cf80563e944b90f33500e3072ad" category="paragraph">En ajoutant à chaud des tiroirs IOM12/IOM12B au dernier tiroir logique d'une pile, les tiroirs IOM6 restent regroupés et les tiroirs IOM12/IOM12B restent regroupés pour garantir une transition à une vitesse unique entre les deux groupes de tiroirs.</block>
   <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">Par exemple :</block>
   <block id="0455216bece3ce620e2fd5c84b24a523" category="list-text">Dans une paire haute disponibilité, une transition à vitesse unique dans une pile comprend deux tiroirs IOM6 et deux tiroirs IOM12/IOM12B est décrite comme suit :</block>
-  <block id="cb9ba118de906a291cd694ac2df4fdae" category="list-text">Dans une paire haute disponibilité avec stockage IOM12E intégré, une transition à vitesse unique au sein d'une pile comportant deux tiroirs IOM12 et deux tiroirs IOM6 est décrite comme suit :</block>
-  <block id="988fffa48b6a32203597193ccfb194d0" category="paragraph">Le port de stockage intégré 0b est le port du stockage interne (expandeur). En effet, il se connecte au tiroir IOM12/IOM12B ajouté à chaud (dernier tiroir de la pile), le groupe de tiroirs IOM12/IOM12B est maintenu ensemble et une transition unique est maintenue à travers la pile et le stockage IOM12E intégré.</block>
   <block id="eadd8b5aeac3b3cac91a5861456a7daf" category="list-text">La transition d'une vitesse unique n'est prise en charge que dans une pile mixte. Vous ne pouvez pas avoir de transitions de vitesse supplémentaires. Par exemple, vous ne pouvez pas avoir deux transitions de vitesse au sein d'une pile, qui est représentée comme suit :</block>
   <block id="785690423679fc729d3390cf87c73c79" category="list-text">Vous pouvez ajouter à chaud des tiroirs IOM6 à une pile mixte. Vous devez toutefois les ajouter à chaud sur le côté de la pile avec les tiroirs IOM6 (groupe existant de tiroirs IOM6) pour maintenir la transition à une vitesse unique dans la pile.</block>
   <block id="22c141c57159ea5a9cf5ecee1f8b4145" category="list-text">Vous câblez les tiroirs IOM12/IOM12B en connectant d'abord les ports SAS du chemin Iom A, puis répétez les étapes de câblage pour le chemin IOM B, selon le cas pour votre connectivité de pile.</block>
@@ -6247,16 +6164,13 @@
   <block id="f260b20153205d9038127e4a15618a0f" category="list-text">Les connecteurs de câble SAS sont clavetés ; lorsqu'ils sont orientés correctement dans un port SAS, le connecteur s'enclenche en position.</block>
   <block id="10ae5a4ce8cb24c89ab7989958cb34b9" category="paragraph">Pour les tiroirs, vous insérez un connecteur de câble SAS avec la languette de retrait orientée vers le bas (sous le connecteur). Pour les contrôleurs, l'orientation des ports SAS peut varier en fonction du modèle de plateforme. Par conséquent, l'orientation correcte du connecteur de câble SAS varie.</block>
   <block id="f40ad7d263effd48cd15f5ec54dc2775" category="list-text">Vous pouvez vous reporter à l'illustration suivante pour le câblage des tiroirs IOM12/IOM12B vers une pile de tiroirs IOM6 dans une configuration qui n'utilise pas de ponts FC-SAS.</block>
-  <block id="80e0a56bad8ed4beffb511e7a7644751" category="paragraph">Cette illustration est spécifique à une pile avec une connectivité haute disponibilité multivoie. Toutefois, le concept de câblage peut être appliqué aux piles avec des chemins d'accès multiples, une haute disponibilité à chemin unique, une connectivité à chemin unique et des configurations MetroCluster étendues.</block>
   <block id="9eae6e522d01233eda31813671040bc9" category="image-alt">pile mixte drw sas2 sas3</block>
   <block id="5c5d06fa180884eea62ba831b980ed33" category="list-text">Reportez-vous à l'illustration suivante pour le câblage des tiroirs IOM12/IOM12B vers une pile de tiroirs IOM6 dans une configuration MetroCluster reliée à un pont. <block ref="3bf7d126d94220be52cd0d278e98261d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a4450110a0add0d3dc0ed544c4dc9587" category="list-text">Identifier physiquement le dernier tiroir logique de la pile.</block>
-  <block id="dcb30e1abfaaa4b668dce7194e9a2977" category="paragraph">Selon le modèle de plateforme et la connectivité de la pile (multivoie haute disponibilité, chemins d'accès multiples, chemin unique ou chemin unique), le dernier tiroir logique propose des connexions contrôleur à pile à partir des ports B et D du contrôleur SAS, De plus, le tiroir ne peut être connecté à aucun contrôleur (la connectivité du contrôleur à la pile est en haut logique de la pile, via les ports SAS Du contrôleur A et C).</block>
   <block id="3d7f99cbbf1b9ba05ea3a6ec89eae8b6" category="list-text">Si le tiroir IOM12/IOM12B que vous ajoutez à chaud est le tiroir initial IOM12/IOM12B ajouté à la pile IOM6. Ainsi, aucun autre tiroir IOM12/IOM12B n'existe dans la pile de tiroirs IOM6, effectuez les sous-étapes applicables.</block>
   <block id="2cb6637a5fdf450f80c9f19b8c718a47" category="admonition">Assurez-vous d'attendre au moins 70 secondes entre le débranchement d'un câble et le rebranchement, et lorsque vous remplacez un câble pour un autre.</block>
   <block id="3290caa995109a5019ab331bcbb4fd8c" category="paragraph">Sinon, passez à l'étape 3.</block>
   <block id="49ae96093ef4318ebea3748695f1f2ec" category="cell">Si la connectivité de votre pile IOM6 est...</block>
-  <block id="86ce44b3919ce611e611db5c55786de7" category="paragraph">Haute disponibilité multivoie ou chemins d'accès multiples, ou encore haute disponibilité à chemin unique avec connectivité du contrôleur au dernier tiroir logique (configurations Stretch MetroCluster)</block>
   <block id="f90e83f0fc16f0b31efebdcbd9c72739" category="list-text">Débranchez le câble reliant le contrôleur à la pile du dernier module d'E/S du tiroir IOM6, un port cercle qui relie le contrôleur ou le pont.</block>
   <block id="fd92699fb017101c94c8dbf35e4f1c24" category="paragraph">Noter le port du contrôleur.</block>
   <block id="8ac5fbac18bdb8a392c9db2f9781f0fe" category="paragraph">Mettre le câble de côté. Ce n'est plus nécessaire.</block>
@@ -6266,16 +6180,13 @@
   <block id="41cb447e88bb124a5db517ed30198998" category="list-text">Si vous ajoutez un autre tiroir IOM12/IOM12B à chaud, reliez la connexion tiroir-tiroir entre le tiroir IOM12/IOM12B IOM A port 3, du tiroir que vous venez de câbler, et le prochain module d'E/S IOM A du tiroir IOM12/IOM12B port 1.</block>
   <block id="8904fa6bfff4cd47f36ebe61b80ba07e" category="paragraph">Utilisez un câble HD Mini-SAS HD à mini-SAS en cuivre SAS.</block>
   <block id="e2e2c21437bf854e94458bf7484b889d" category="paragraph">Sinon, passez à la sous-étape suivante.</block>
-  <block id="926c9efdfde9f0aef47047a0e5f7949b" category="list-text">Rétablir la connexion entre le contrôleur et la pile en câbler le même port sur le contrôleur ou le pont (sous-étape a) sur le nouveau port 3 du module d'E/S Du dernier tiroir IOM12.</block>
   <block id="88a9a5978bd68dcd7789cf66763e32e0" category="paragraph">Utilisez un câble SAS HD QSFP-to-Mini-SAS en cuivre ou un câble HD Mini-SAS HD vers Mini-SAS HD, en fonction du type de port sur le contrôleur.</block>
   <block id="f0ae24e4bd1fbe613eaf4033ecfa3b35" category="list-text">Répétez les sous-étapes a à d pour l'IOM B.</block>
   <block id="069bc69fbf8862340aea67e1cee8ebf1" category="paragraph">Sinon, passez à l'étape 4.</block>
   <block id="7830f5d1f77c11f64cb999e574fc8f3f" category="paragraph">Connectivité Bridge-Attached dans une configuration MetroCluster</block>
   <block id="8086de199e5cb4c9290c11b750a84678" category="list-text">Débranchez le câble reliant le pont à la pile du dernier module IOM6 de tiroir A, port circulaire reliant ce dernier au pont.</block>
   <block id="7a59e011c42c6e3179dcd77e8259dd0f" category="paragraph">Notez le port de pont.</block>
-  <block id="6abc41dcfb66265b141bc0c3d6bd404f" category="list-text">Reliez la connexion tiroir-tiroir entre le port circulaire a du dernier module IOM6 de tiroir (à partir de la sous-étape a) et le nouveau port 1 IOM A du tiroir IOM12.</block>
   <block id="f1c72d9035552f6b2e5c43b27f1fd1cc" category="list-text">Répétez les sous-étapes b et c pour connecter les connexions du tiroir à l'tiroir pour l'IOM B.</block>
-  <block id="63fc6622bd95c4421099340dd35535b4" category="list-text">Rétablir la connexion entre le pont inférieur et la pile en câbler le même port sur le pont (dans la sous-étape a) au nouveau port 3 du dernier IOM A du tiroir IOM12.</block>
   <block id="87787cb4b43228e79111842d0ca7ad92" category="list-text">Passez à l'étape 4.</block>
   <block id="53446fdb493b04597baa8f53eb3225a7" category="paragraph">Chemin unique haute disponibilité ou chemin unique sans connectivité du contrôleur au dernier tiroir logique</block>
   <block id="c5053835d12fc440bf9519cf51926077" category="list-text">Reliez la connexion tiroir à tiroir entre le dernier port de cercle IOM A du tiroir IOM6 et le nouveau tiroir IOM12/IOM12B IOM A du port 1.</block>
@@ -6283,7 +6194,6 @@
   <block id="46a7d11c0de8261bfb74d9bce4920db4" category="list-text">Si vous ajoutez à chaud une autre étagère IOM12/IOM12B, répétez les sous-étapes a et b.</block>
   <block id="cc6b443dcaf375914e07667f9d494608" category="list-text">Si le tiroir IOM12/IOM12B que vous ajoutez à chaud est un tiroir IOM12/IOM12B supplémentaire à une pile mixte existante, c'est-à-dire qu'un ou plusieurs tiroirs IOM12/IOM12B existent déjà dans la pile, suivez les sous-étapes applicables.</block>
   <block id="fbeb13900997a66117589107666778fd" category="cell">Si votre pile mixte est...</block>
-  <block id="2959cd4f37c3034d02125ecfe63d8c4b" category="paragraph">Haute disponibilité multivoie ou chemins d'accès multiples, ou encore haute disponibilité à chemin unique avec la connectivité du contrôleur au dernier tiroir logique, ou encore la connectivité à connexion Bridge-Attached dans une configuration MetroCluster</block>
   <block id="323be85d169cf65d9f2dff0b9daf0dd6" category="list-text">Déplacez le câble contrôleur-pile du dernier module d'E/S a du tiroir IOM12/IOM12B 3 vers le même port du nouveau dernier tiroir IOM12/IOM12B.</block>
   <block id="4a234d60639e9340f8ce3de65d81db69" category="list-text">Si vous ajoutez à chaud un tiroir IOM12/IOM12B, reliez la connexion tiroir-tiroir entre l'ancien dernier tiroir IOM12/IOM12B IOM A port 3 au nouveau dernier tiroir IOM12/IOM12B IOM A port 1.</block>
   <block id="633e2691f3d334f1861df8688fb8aff3" category="list-text">Si vous ajoutez à chaud plusieurs tiroirs IOM12/IOM12B, reliez la connexion tiroir-tiroir entre l'ancien dernier tiroir IOM12/IOM12B IOM A port 3 et le prochain tiroir IOM12/IOM12B IOM A port 1, puis répétez cette opération pour tout tiroir IOM12/IOM12B supplémentaire.</block>
@@ -6341,10 +6251,7 @@
   <block id="1d4c0fb2a243494a984412dc5b5381a1" category="admonition">Si vous disposez d'une paire haute disponibilité avec au moins deux piles, l'ID de tiroir est défini sur 10 dans le tiroir disque contenant les agrégats racine de la seconde pile.</block>
   <block id="f2717497b83e7964ce960a0ca5ac4860" category="paragraph">Vous devez définir des ID de tiroir de manière à ce qu'ils soient uniques dans la paire HA ou la configuration à un seul contrôleur. Vous pouvez définir manuellement des ID de tiroir ou obtenir automatiquement des ID de tiroir pour tous les tiroirs disques de la paire haute disponibilité ou de la configuration d'un seul contrôleur à l'aide d'une commande en mode de maintenance. Des instructions sont fournies pour les deux méthodes.</block>
   <block id="b1b6e8ddb338daabf15cdf510590fae4" category="list-text">Les tiroirs disques contenant les agrégats racine peuvent être identifiés par les étiquettes situées sur la boîte des tiroirs disques et sur le châssis des tiroirs disques.</block>
-  <block id="5c542a7e2ad58397aad1271e4d3a0117" category="paragraph">Les étiquettes indiquent le numéro de pile, par exemple *Loop ou Stack #: 1* et *Loop ou Stack #: 2*. Les tiroirs disques qui ne contiennent pas les agrégats racine affichent uniquement le numéro de série du tiroir disque se trouvent sur les étiquettes.</block>
   <block id="ecf2c214f39b200ba60904cb20770b94" category="list-text">Si, lors de l'installation et de la configuration du système, vous ne configurez pas le système pour qu'il utilise l'affectation automatique de propriété de disque, vous devez attribuer manuellement la propriété de disque.</block>
-  <block id="3e4b78a10116c79b33b35d6940601a98" category="list-text">La technologie ACP (Alternate Control Path) intrabande est automatiquement activée.</block>
-  <block id="a465c0fe78962946e881b32ab9ec2b88" category="paragraph">La technologie ACP intrabande n'est pas prise en charge dans les configurations HA à chemin unique ou à chemin unique.</block>
   <block id="d0239e887ec2c441679c67bab9e771e2" category="list-text">La meilleure pratique consiste à installer la version la plus récente du Disk qualification Package (DQP).</block>
   <block id="83b7fe235f4d243b23ebf6cb04f9c234" category="list-text">Il est recommandé de télécharger et d'exécuter Config Advisor après une nouvelle installation du système.</block>
   <block id="f04a5c047df778cea3df6efa23d65eae" category="paragraph">L'exécution de Config Advisor après l'installation d'un nouveau système vous permet de vérifier que les connexions SAS sont correctement câblées et que les identifiants des tiroirs sont uniques dans la paire haute disponibilité ou la configuration à un contrôleur.</block>
@@ -6355,12 +6262,10 @@
   <block id="76a74383605253628e7771913e3eb749" category="admonition">Ne mettez pas les tiroirs disques sous tension pour le moment.</block>
   <block id="cff4c6a80d673a91abe24c8dff38731f" category="section-title">Reliez les tiroirs disques avec les modules IOM12/IOM12B pour une nouvelle installation du système</block>
   <block id="b8fe06fa8cda2e641eeef95ff91ef16f" category="paragraph">Vous branchez les câbles SAS des tiroirs disques - tiroir à tiroir (le cas échéant) et contrôleur à tiroir - pour établir la connectivité du stockage pour le système.</block>
-  <block id="1143d5c25aa2f693537222d1f3260323" category="paragraph">Vous devez répondre aux exigences décrites dans la section <block ref="d785cc9ecd460c8d1bff7d4aeeca8c73" category="inline-xref-macro-rx"></block> et ont installé les tiroirs disques sur le rack.</block>
   <block id="eb0ef620e7c33a9d328a59925c63f641" category="paragraph">Une fois les tiroirs disques câblés, vous mettez-les sous tension, définissez les ID de tiroir et terminez l'installation et la configuration du système.</block>
   <block id="938b81eb4d9b969de0bb315b1f640378" category="list-text">Reliez les connexions entre le tiroir et le tiroir dans chaque pile si la pile dispose de plusieurs tiroirs disques. Sinon, passez à l'étape suivante :</block>
   <block id="a7d77ef34ce2b9d850f4769f4d7e7a6c" category="inline-link-macro">règles de connexion du tiroir à tiroir</block>
   <block id="f43f298ef090aeeea5ee30105943fc22" category="paragraph">Pour obtenir une explication détaillée et des exemples de câblage « standard » tiroir à tiroir et de câblage « cluster à tiroir », consultez la section <block ref="26ae17222c3b6b055eac72da397050a1" category="inline-link-macro-rx"></block>.</block>
-  <block id="1c0e65520c35332052a7497245e722c4" category="paragraph">Vous câbler une configuration haute disponibilité multivoie, un chemins d'accès multiples, une configuration haute disponibilité à chemin unique ou un chemin unique</block>
   <block id="e6b5dfec5e2c0904b5ee95122da9b6a5" category="list-text">Répéter la sous-étape a pour l'IOM B.</block>
   <block id="56767a43c2f3e9180e63f6a9f40436fa" category="list-text">Répétez les sous-étapes a et b pour chaque pile.</block>
   <block id="fd4ece52db86a5d9850377adfb59fc89" category="paragraph">Vous câbler une configuration haute disponibilité à quatre chemins ou à quatre chemins</block>
@@ -6502,7 +6407,6 @@
   <block id="fedeae451b36efcc460d172d9fe45850" category="section-title">Étape 3 : remplacer le ventilateur - AFF A700s</block>
   <block id="62052f557603d07beccb5c5c5b7c8d48" category="list-text">Identifiez le module de ventilation que vous devez remplacer en vérifiant les messages d'erreur de la console.</block>
   <block id="e1d83f38808259079bf63398959b5064" category="section-title">Étape 4 : réinstaller le module de contrôleur - AFF A700s</block>
-  <block id="db1d1fc556b59fbc6af03005e8bfd733" category="section-title">Étape 4 : renvoyer la pièce défaillante à NetApp - AFF A700s</block>
   <block id="9a86085357934b0a1859c727c4e1e2ff" category="summary">Pour remplacer une carte NVRAM défectueuse, vous devez retirer la carte de montage NVRAM, Riser 1, du module de contrôleur, retirer la carte défectueuse de la carte de montage, installer la nouvelle carte NVRAM dans la carte de montage, puis réinstaller la carte de montage dans le module de contrôleur. Étant donné que l'ID système est dérivé de la carte NVRAM, si le module est remplacé, les disques appartenant au système sont réaffectés au nouvel ID système.</block>
   <block id="24ce82ff8bc29243190bb0a11659117c" category="doc">Remplacez le module NVRAM et les modules DIMM NVRAM - AFF A700s</block>
   <block id="68a1306a8c08262df17717b7309d7609" category="list-text">Si votre système se trouve dans une paire haute disponibilité, le contrôleur partenaire doit pouvoir reprendre le contrôleur associé au module NVRAM qui est remplacé.</block>
@@ -7035,9 +6939,7 @@
   <block id="2392f11d96d6fc4362b42688f146c995" category="sidebar">Installez les tiroirs et reliez-les au nouveau système</block>
   <block id="4ccd403eb19c48e7ebdaaeb982ef2481" category="sidebar">Tiroir d'ajout à chaud</block>
   <block id="cf999199f9d4c3e90d15399860476f13" category="sidebar">Modifiez l'ID de tiroir</block>
-  <block id="b32341112e04cf53228eb2711e7faa5c" category="sidebar">Feuilles de calcul et exemples de câblage pour les configurations haute disponibilité multivoie courantes</block>
   <block id="3f9904dabd6885ddf815902aade7d320" category="sidebar">Fiches de câblage et exemples pour les plateformes avec stockage interne</block>
-  <block id="99035f209c8d40299210fe873096f23b" category="sidebar">Fiche de câblage et exemple de configuration haute disponibilité à quatre chemins avec deux HBA SAS à quatre ports</block>
   <block id="f64eba4acc825268e4959bef4c193b11" category="sidebar">Modèle de fiche de câblage pour la connectivité avec chemins d'accès multiples</block>
   <block id="ce6374cb8d43c65f66d31cf1a0ede69e" category="sidebar">Modèle de fiche de câblage pour la connectivité à quatre chemins d'accès</block>
   <block id="c9dbe70bac035df0f96f45c02dcf5bd9" category="sidebar">Comment lire la feuille de travail sur le câble pour la connectivité multipathed</block>
@@ -7607,8 +7509,6 @@
   <block id="fcaf8c1ce832814314e7cdc51233676b" category="sidebar">Mise à niveau de la plateforme (la plupart des systèmes)</block>
   <block id="7c4365c5c3b36c349d31ac07e90053ce" category="sidebar">Mise à niveau de la plateforme (configuration MetroCluster)</block>
   <block id="46edf46f46a5fc2267bcf312e1955d28" category="sidebar">Documentation logicielle de ONTAP</block>
-  <block id="c8a6259aed44fea9ff6723eeb59cce9e" category="sidebar">Documents Digital Advisor</block>
-  <block id="974ad78dc53c253ebfe5b2b8b376f353" category="sidebar">Outils et assistance</block>
   <block id="668e2078ef1b1722c77cdb5c523a4463" category="sidebar">Base de connaissances NetApp</block>
   <block id="2bae42f280067110dfd52cc69a468364" category="sidebar">Active IQ (connexion requise)</block>
   <block id="b5bfe3d61bf9be292418cb9d21eec19c" category="sidebar">Mise en service</block>
@@ -7996,4 +7896,466 @@
   <block id="04924b20a91a5f5b238ee6721421d3cb" category="list-text">Vous pouvez utiliser les ports de réseau de données UTA2 ou les ports de réseau de données ethernet pour connecter les contrôleurs à votre réseau hôte :</block>
   <block id="be838816a39a48461edd5a1e87b6d8e5" category="list-text">Connectez l'ordinateur portable ou la console au commutateur de gestion.</block>
   <block id="fea0a68e925a0ae2df0aa5bbdbe7c891" category="list-text">Attribuez une adresse TCP/IP à l'ordinateur portable ou à la console à l'aide d'une adresse située sur le commutateur de gestion.</block>
+  <block id="71d4d064630d70cfb9adf86452b9de52" category="paragraph">Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de home port :<block ref="985591930e85610706940dd82967bd61" prefix=" " category="inline-code"></block></block>
+  <block id="5f9489878c0e21ab14f2c4768367bc39" category="list-text">Si une fenêtre de maintenance AutoSupport a été déclenchée, mettez-la fin à l'aide du<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="fe5bb47bbec2cc6ab51288fa7ec602da" category="paragraph">Recâblage des connexions réseau et de stockage du module de contrôleur.</block>
+  <block id="8f71288719d23ae490bd8fa8ba6d2988" category="paragraph">Si des interfaces sont répertoriées comme<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>, restaurez ces interfaces à leur port de départ à l'aide de l'<block ref="71c4baf0f55b5bfce2627ab279a13043" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="1ccdd49d3b4e697ec664a985a5983b41" category="list-text">Restaurez AutoSupport s'il a été désactivé à l'aide de<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
+  <block id="657e1e449c74518bb94702c89e392c1b" category="list-text">Sur le noeud _Healthy_, vérifiez l'heure du système :<block ref="1cac34e5e8442fb80d6ade838d969fc0" prefix=" " category="inline-code"></block></block>
+  <block id="6071c318b780c1f56da250b5fe0334d8" category="paragraph">La date et l'heure sont basées sur le fuseau horaire configuré.</block>
+  <block id="408525dec83104bf941d9a7d0a93d454" category="list-text">À l'invite DU CHARGEUR, confirmez la date et l'heure sur le noeud _remplacement_ :<block ref="5fc732311905cb27e82d67f4f6511f7f" prefix=" " category="inline-code"></block></block>
+  <block id="598dc5e99f2a14bda43240b77ca40634" category="section-title">Étape 2 : afficher le système</block>
+  <block id="a5878fdf6c8d3698ab74c4f473608246" category="paragraph">Si vous disposez d'une plate-forme avec stockage interne, utilisez la fiche suivante :</block>
+  <block id="e80602d70a12972f8bf4a77f853d5172" category="inline-link-macro">Concepts et règles de câblage SAS</block>
+  <block id="21a6c3bb04b7d126a65edcb02e25ec46" category="list-text">Si nécessaire, vous pouvez consulter le <block ref="513d554484deefc85e1b679659a84cbc" category="inline-link-macro-rx"></block> pour plus d'informations sur les configurations prises en charge, la convention de numérotation des connecteurs du contrôleur, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir (notamment l'utilisation des paires de ports).</block>
+  <block id="33541e56b6653b3ccd3503e7d446f985" category="summary">Vous pouvez utiliser les feuilles de calcul de câblage contrôleur à pile complètes et des exemples de câblage pour relier les plateformes au stockage interne.</block>
+  <block id="84c55d9e8eb41695e92702bc9aa7e417" category="list-text">Si nécessaire, vous pouvez vous reporter à <block ref="513d554484deefc85e1b679659a84cbc" category="inline-link-macro-rx"></block> pour plus d'informations sur les configurations prises en charge, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir.</block>
+  <block id="84f61db881175683de35ce39e2e25556" category="list-text">Les exemples de câblage montrent que les câbles reliant le contrôleur à la pile sont continus ou en pointillés pour distinguer les connexions des ports 0b/0b1 du contrôleur des connexions des ports 0a du contrôleur.</block>
+  <block id="dd4d7242739fdb8eb5eab6889088e71a" category="image-alt">Clé de type de câble de type contrôleur à pile drw fas2600 IEOPS 947</block>
+  <block id="559ab6a66b2bfa274b38981fac849dbe" category="section-title">Plateforme FAS2800 dans une configuration haute disponibilité multivoie sans tiroirs externes</block>
+  <block id="c551f9f047036ae88cefbff0f867bfd7" category="paragraph">L'exemple suivant montre qu'aucun câblage n'est nécessaire pour obtenir la connectivité haute disponibilité multivoie :</block>
+  <block id="7520d8de654d9ba2c8c8616c324533eb" category="image-alt">drw fas2800 mpha noshelf IEOPS 954</block>
+  <block id="dce517c194d8aadca050f89acd9479f9" category="section-title">Plateforme FAS2800 dans une configuration haute disponibilité à trois chemins sans tiroirs externes</block>
+  <block id="96093137909588511c6efc52b70c20f0" category="paragraph">L'exemple de câblage suivant montre le câblage requis entre les deux contrôleurs pour obtenir une connectivité à trois chemins :</block>
+  <block id="24511779e02007e937b5e09eb22acd22" category="image-alt">drw fas2800 tpha noshelf IEOPS 955</block>
+  <block id="45eccdceb680b5fc042ecd5f2cb2f360" category="section-title">Plateforme FAS2800 dans une configuration haute disponibilité à trois chemins avec une pile à plusieurs tiroirs</block>
+  <block id="f9fe60b0d5b0a173d8e8a93ef1fad4fa" category="paragraph">La feuille de calcul et l'exemple de câblage suivants utilisent la paire de ports 0a/0b1 :</block>
+  <block id="94d112c03cbc394f8f2a92ff360b41b9" category="image-alt">Feuille de travail drw fas2800 IEOPS 948</block>
+  <block id="68f4d5ceedad60b68609111dd83bb1dd" category="image-alt">drw fas2800 avec étagères tpha IEOPS 949</block>
+  <block id="b1e743b8776f5252291595e89248eca8" category="admonition">Cette section ne s'applique pas aux systèmes FAS2800 ou FAS25XX.</block>
+  <block id="b3bbdd3382ae9ee68dc7a3c014a9e55f" category="image-alt">feuille de travail drw fas2600 mpha IEOPS 1255</block>
+  <block id="7e1de3653f38ae49017d6c9db4292905" category="image-alt">drw fas2600 mpha IOPS 1256</block>
+  <block id="889643b70d8973adb82162d572e085b6" category="list-text">Pour les configurations comportant plusieurs chemins d'accès multiples (HA ou multivoie), trois chemins d'accès haute disponibilité et quatre chemins d'accès (HA à quatre chemins ou à quatre chemins), vous pouvez remplacer à chaud un module d'E/S de tiroir (sans interruption, remplacer un module d'E/S dans un système sous tension et qui assure le service des données).</block>
+  <block id="78e2c67b6cd9683131c2d5cc3b5f52eb" category="paragraph">Haute disponibilité multivoie, haute disponibilité à trois voies, chemins d'accès multiples, haute disponibilité à quatre voies ou configuration à quatre voies</block>
+  <block id="6d777385d5ec907bb961f7417dca8878" category="paragraph"><block ref="6d777385d5ec907bb961f7417dca8878" category="inline-link-rx"></block></block>
+  <block id="0ee240824d7af98d85ac767eaccc865a" category="paragraph"><block ref="0ee240824d7af98d85ac767eaccc865a" category="inline-link-rx"></block></block>
+  <block id="6d0d5f63b661f0d75b4bc5a5a2c970fc" category="paragraph"><block ref="6d0d5f63b661f0d75b4bc5a5a2c970fc" category="inline-link-rx"></block></block>
+  <block id="874f447ea48b8a01b3d6036d97f74e27" category="list-text">Votre système doit avoir un nombre inférieur au nombre maximal de disques pris en charge, d'au moins le nombre de disques pouvant être installés dans les tiroirs IOM12/IOM12B que vous ajoutez à chaud.</block>
+  <block id="9ede2d6e7ff2c506f18985f68e692af9" category="paragraph"><block ref="9ede2d6e7ff2c506f18985f68e692af9" category="inline-link-rx"></block></block>
+  <block id="3e13397e3855003e83c5bd90f17f8b8d" category="list-text">Si des ports SAS de pont sont disponibles dans la configuration actuelle, vous devez ajouter les tiroirs IOM12/IOM12B comme pile séparée.</block>
+  <block id="59fc52719ae405798ce33ec8377fff0f" category="paragraph"><block ref="59fc52719ae405798ce33ec8377fff0f" category="inline-link-rx"></block></block>
+  <block id="1b7414640eba82929db27856a548aa7d" category="paragraph"><block ref="1b7414640eba82929db27856a548aa7d" category="inline-link-rx"></block></block>
+  <block id="c4df39668489dc5a0445eefa1b0ae993" category="list-text">Lorsque vous ajoutez à chaud des tiroirs avec des modules IOM12/IOM12B à une pile de tiroirs avec des modules IOM6, les performances de l'ensemble de la pile fonctionnent à 6 Gbit/s (s'exécutent à la vitesse commune la plus faible).</block>
+  <block id="f5397894a1a5219c58306fcf93f44e66" category="paragraph">Si vous ajoutez à chaud des tiroirs qui ont été mis à niveau des modules IOM3 ou IOM6 vers des modules IOM12/IOM12B, la pile fonctionne à 12 Gbit/s. toutefois, les capacités du fond de panier et du disque du tiroir peuvent limiter les performances du disque à 3 Gbit/s ou 6 Gbit/s.</block>
+  <block id="0e2ac0f21198c430c971dd9e441f6fc7" category="list-text">Pour les systèmes sur lesquels IBACP est exécuté, IBACP est automatiquement activé sur les tiroirs IOM12/IOM12B ajoutés à chaud.</block>
+  <block id="269e042dc90ba45b8f4ba99cc4811c43" category="list-text">Pour les systèmes sur lesquels la technologie ACP hors bande est activée, les fonctionnalités ACP ne sont pas disponibles sur les tiroirs IOM12/IOM12B.</block>
+  <block id="145cb3ca8681febc2695ed384e8786c0" category="paragraph"><block ref="145cb3ca8681febc2695ed384e8786c0" category="inline-link-rx"></block></block>
+  <block id="97887a2b9e5437b59f9205502aa6f821" category="paragraph">Si vous attribuez manuellement la propriété des disques aux tiroirs IOM12/IOM12B que vous ajoutez à chaud, vous devez désactiver l'affectation automatique des disques s'il est activé.</block>
+  <block id="44efd2e3c1edf2a13d788173c8c6bedb" category="paragraph">Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99. Il est recommandé de définir les ID de tiroir de manière à ce que les tiroirs IOM6 utilisent des nombres inférieurs (1 à 9) et les tiroirs IOM12/IOM12B des nombres supérieurs (10 et supérieurs).</block>
+  <block id="0301e862598fef61b159e918e47fbf91" category="paragraph">Le branchement du câble d'un tiroir IOM12/IOM12B sur une pile de tiroirs IOM6 dépend du fait que le tiroir IOM12/IOM12B soit le tiroir IOM12/IOM12B initial, ce qui signifie qu'il n'existe aucun autre tiroir IOM12/IOM12B dans la pile, Ou s'il s'agit d'un tiroir IOM12/IOM12B supplémentaire à une pile mixte existante, ce qui signifie qu'un ou plusieurs tiroirs IOM12/IOM12B existent déjà dans la pile. La pile doit également disposer d'une haute disponibilité multivoie, d'une haute disponibilité à trois chemins, de chemins d'accès multiples, d'une haute disponibilité à voie unique ou d'une connectivité à voie unique.</block>
+  <block id="6ddd0f1b8cb9cab2c51d86f276a4eafd" category="list-text">Dans une paire haute disponibilité avec stockage interne (IOM12E/IOM12G), une transition à vitesse unique au sein d'une pile comportant deux tiroirs IOM12/IOM12B et deux tiroirs IOM6 est représentée comme suit :</block>
+  <block id="3efe63a3802447c66b1e1340cc37011c" category="paragraph">Le port de stockage interne 0b/0b1 est le port du stockage interne (expandeur) et comme il se connecte au tiroir IOM12/IOM12B ajouté à chaud (le dernier tiroir de la pile), le groupe de tiroirs IOM12/IOM12B est conservé ensemble et une transition unique est maintenue dans la pile et le stockage interne IOM12E/IOM12G.</block>
+  <block id="17540f86c10768e4e727e19e559e374f" category="paragraph">Cette illustration est spécifique à une pile avec une connectivité haute disponibilité multivoie. Cependant, le concept de câblage peut être appliqué aux piles avec des chemins d'accès multiples, une haute disponibilité à trois chemins, une haute disponibilité à voie unique, une connectivité à voie unique et des configurations MetroCluster étendues.</block>
+  <block id="e7066e65ab6d0d00e13f5776fdc410f6" category="paragraph">Selon le modèle de votre plateforme et la connectivité de la pile (haute disponibilité multivoie, haute disponibilité à trois chemins, chemins d'accès multiples, haute disponibilité à voie unique ou voie unique), Le dernier tiroir logique est le tiroir qui possède des connexions contrôleur-pile depuis les ports SAS B et D du contrôleur ou bien le tiroir n'ayant aucune connexion avec aucun contrôleur (la connectivité contrôleur-pile étant au sommet logique de la pile, via les ports SAS A et C du contrôleur).</block>
+  <block id="6367f42eda55c79ca60e48d6384ab2f1" category="paragraph">Haute disponibilité multivoie, haute disponibilité à trois chemins, chemins d'accès multiples ou haute disponibilité à une voie avec connectivité du contrôleur au dernier tiroir logique (y compris les configurations MetroCluster étendues)</block>
+  <block id="f239ca80a281b7e3098e53bf849bbc6d" category="list-text">Rétablissez la connexion entre le contrôleur et la pile en câblant le même port sur le contrôleur ou le pont (à l'étape a) au nouveau port A 3 du dernier tiroir IOM12/IOM12B IOM.</block>
+  <block id="d0d9f013532d105b4493bf4a40659776" category="list-text">Rétablissez la connexion entre le pont inférieur et la pile en câblant le même port sur le pont (dans la sous-étape a) au nouveau port 3 IOM A du dernier tiroir IOM12/IOM12B.</block>
+  <block id="364a89e35ed719e51e59a60ec21ff69a" category="paragraph">Haute disponibilité multivoie, haute disponibilité à trois chemins, chemins d'accès multiples ou haute disponibilité à un chemin avec connectivité du contrôleur au dernier tiroir logique, ou connectivité à un pont dans une configuration MetroCluster</block>
+  <block id="d52293a37620938ba7e4feb13708edf9" category="doc">Règles et concepts de câblage SAS - tiroirs avec modules IOM12/IOM12B</block>
+  <block id="f10aa207b12f6aea0d49aa15d0d2b698" category="admonition">Les règles de câblage SAS relatives aux règles de numérotation des connecteurs du contrôleur, aux règles de connexion entre tiroirs et tiroirs et aux règles de connexion entre le contrôleur et la pile décrites dans ce guide sont les mêmes règles qui s'appliquent à tous les tiroirs disques SAS, qu'ils disposent de modules IOM12/IOM12B, IOM6 ou IOM3. Toutefois, les informations de ce guide sont spécifiques aux caractéristiques uniques des tiroirs disques avec modules IOM12/IOM12B et à leur utilisation dans les configurations prises en charge.</block>
+  <block id="8f3e1bfcac5ebf3ae518d7d0b7183191" category="paragraph">Les tiroirs disques avec modules IOM12/IOM12B sont pris en charge sur des types spécifiques de configurations à paires haute disponibilité et à un seul contrôleur.</block>
+  <block id="6c5fe9aff643cb6f6afc0c56cef693b2" category="paragraph">Pour plus d'informations sur les configurations de câblage prises en charge par votre modèle de plate-forme, consultez le Hardware Universe.</block>
+  <block id="38c7dba0bfe978540fdb2f9598267e27" category="list-text">Les plateformes avec stockage interne ne prennent pas en charge la connectivité haute disponibilité à quatre chemins.</block>
+  <block id="0fecc4c819e73e375d9c40a95ba6fec2" category="list-text">Une paire haute disponibilité FAS2800 peut être câblée sous forme de haute disponibilité à trois chemins.</block>
+  <block id="bd0ab5deac45d462eafb4c6094f38b07" category="paragraph">Vous trouverez des informations sur la connectivité FAS2800 dans le <block ref="44cb6d44583fef757ae54be5d72211f9" category="inline-xref-macro-rx"></block> section.</block>
+  <block id="379f6edbaf8caad99a93caabf81a3374" category="list-text">Les plateformes avec stockage interne peuvent être câblées en tant que configurations haute disponibilité à chemin unique (du port 0b/0b1 aux tiroirs externes) pour prendre en charge la connectivité à un périphérique de sauvegarde sur bande SAS externe (à partir du port 0a).</block>
+  <block id="e543cae57757f63f8d1f193133213927" category="paragraph">Pour les paires haute disponibilité FAS2800, bien que le câblage à des tiroirs externes soit à chemin unique, la haute disponibilité est due à la connexion interne de chaque contrôleur du port 0b à son expandeur local (IOM12G) et du port 0C au expandeur de son partenaire, la configuration des paires haute disponibilité est multivoie.</block>
+  <block id="9331810e62f51c7489e12877891ef496" category="list-text">Les configurations à un contrôleur de la gamme FAS2600 peuvent être câblées en tant que configurations à voie unique.</block>
+  <block id="58e545ebba1044e5ef472e1c15a83e56" category="list-text">La connectivité standard tiroir à tiroir est utilisée dans n'importe quelle pile de tiroirs disques dotés de plusieurs tiroirs disques.</block>
+  <block id="0d93f50b6ba07d734a4fc535331feeba" category="paragraph">Une connexion de câble est nécessaire entre les tiroirs disques de chaque domaine--domaine A (IOM A) et domaine B (IOM B).</block>
+  <block id="8e6be4e546371eb88e215e42e577faf9" category="section-title">Règles de connexion des ports des contrôleurs 0b/0b1 et 0a pour les plateformes avec stockage interne</block>
+  <block id="bdc324833c79d07a6e6e0a64fe5be5f7" category="paragraph">Les plates-formes avec stockage interne disposent d'un ensemble unique de règles de connexion car chaque contrôleur doit maintenir la même connectivité de domaine entre le stockage interne (port 0b/0b1) et la pile. Cela signifie que lorsqu'un contrôleur se trouve dans le slot A du châssis (contrôleur 1), il se trouve dans le domaine A (IOM A) et que le port 0b/0b1 doit donc se connecter au module d'E/S A de la pile. Lorsqu'un contrôleur se trouve dans le slot B du châssis (contrôleur 2), il se trouve dans le domaine B (IOM B) et par conséquent le port 0b/0b1 doit se connecter au module d'E/S B de la pile.</block>
+  <block id="3efcc2e815502067db645cea76a01d7e" category="admonition">Si vous ne connectez pas le port 0b/0b1 au domaine approprié (domaines à connexion croisée), vous exposez votre système à des problèmes de résilience qui vous empêchent d'effectuer des procédures sans interruption en toute sécurité.</block>
+  <block id="ade459d42d6d857cbd96a94e336a0f85" category="list-text">Port du contrôleur 0b/0b1 (port de stockage interne) :</block>
+  <block id="3bab20a687a982595c77f77ac9a95999" category="list-text">Le port 0b/0b1 du contrôleur 1 se connecte toujours au module d'E/S A (domaine A).</block>
+  <block id="aba2d6429487fb8312ccf308c2b4282d" category="list-text">Le port 0b/0b1 du contrôleur 2 se connecte toujours au module d'E/S B (domaine B).</block>
+  <block id="e30f4f926e91db6b95bd6a2e7d8e8db8" category="list-text">Le port 0b/0b1 est toujours le chemin principal.</block>
+  <block id="f37147b373a7dab930e9ad58967b110f" category="list-text">Le port 0b/0b1 se connecte toujours au dernier tiroir disque logique d'une pile.</block>
+  <block id="ec50871e5c9ed1add9f37e13b5f6dcc5" category="list-text">Le port 0b/0b1 est toujours connecté au port IOM 3 du tiroir disque.</block>
+  <block id="5cc45636165f15166974ddab3dfb0fd7" category="paragraph">L'illustration suivante met en évidence la connectivité de domaine du port de stockage interne (0b/0b1) à une pile de tiroirs externe :</block>
+  <block id="cb9e9a1b808c7a4e6312fd5827f6c84e" category="image-alt">exemple de domaine mpha drw fas2600 IEOPS 1172</block>
+  <block id="45219ca27a4ad91c17dcca93a96dd284" category="section-title">Connectivité haute disponibilité à trois chemins d'accès</block>
+  <block id="7125880b6305be48cdd0760966c349f2" category="paragraph">La connectivité haute disponibilité à trois chemins est disponible sur les paires haute disponibilité FAS2800. La connectivité haute disponibilité à trois chemins d'accès existe entre chaque contrôleur et les tiroirs internes (IOM12G) et externes :</block>
+  <block id="c8c29757ef852a483118b80a57d4b5ac" category="list-text">La connexion interne de chaque contrôleur du port 0b à son IOM12G local et du port 0C à l'IOM12G de son partenaire assure une connectivité haute disponibilité multivoie par paire haute disponibilité.</block>
+  <block id="494edf65cd0a33575dc779a9df2979d6" category="list-text">Le câblage des ports de stockage externes de chaque contrôleur, 0a et 0b1, assure une connectivité haute disponibilité à trois chemins par paire haute disponibilité.</block>
+  <block id="a35c30ba1541ae1d8a44ed5229f19650" category="paragraph">Les ports 0a et 0b1 sont câblés sur les deux contrôleurs en l'absence de tiroirs externes ou sur des tiroirs externes pour assurer une connectivité haute disponibilité à chemins d'accès triple.</block>
+  <block id="77f105a56bd1c2ae99c93daa98950ddb" category="paragraph">La figure suivante présente les connexions internes et le câblage externe du contrôleur permettant une connectivité haute disponibilité à trois chemins :</block>
+  <block id="d16f504f7bfcd6bdd9341d281e367431" category="image-alt">drw fas2800 concept tpha IEOPS 950</block>
+  <block id="56aa5946d918a9c287c3413f16a7f6a8" category="paragraph">Ports SAS externes FAS2800 :</block>
+  <block id="49c992eee9e3421ed1fbdca1cea6cc70" category="list-text">Le port 0a provient de l'adaptateur HBA interne (comme les autres plateformes avec un tiroir interne).</block>
+  <block id="21f39b91f6bc9739ca0f20af09effa4e" category="list-text">Le port 0b1 provient du shelf interne (comme les ports 0b sur d'autres plateformes avec un shelf interne).</block>
+  <block id="cd00b581ae35cc28e22b76f1f56e73a3" category="list-text">Le port 0b2 n'est pas utilisé. Il est désactivé. Si un câble y est connecté, un message d'erreur est généré.</block>
+  <block id="89c7c407656d81769624b64d696a7e5e" category="image-alt">drw sas3 ports sur fas2800 IEOPS 946 (1)</block>
+  <block id="4d29df0cb21d81560d8799a21074035f" category="paragraph">Des exemples de câblage de paires haute disponibilité FAS2800 sont disponibles dans le <block ref="c19123e6031c139d66f534ae4311d605" category="inline-link-macro-rx"></block> section.</block>
+  <block id="d781db166642a4d3afbe74add6458ec0" category="paragraph">*Règles et concepts de câblage SAS*</block>
+  <block id="8f8530d523c868e5ee729783d7b0a04a" category="list-text"><block ref="8f8530d523c868e5ee729783d7b0a04a" category="inline-link-macro-rx"></block></block>
+  <block id="f70fe2f81dab8d7ddd64b2b8e46c9db9" category="inline-link-macro">Configurations haute disponibilité avec chemins d'accès multiples</block>
+  <block id="4cdce5b4db97f8a8cccd6d629adfc065" category="list-text"><block ref="4cdce5b4db97f8a8cccd6d629adfc065" category="inline-link-macro-rx"></block></block>
+  <block id="49a079fbeac70af49f3d165faa90d12f" category="inline-link-macro">Plateformes avec stockage interne</block>
+  <block id="fb02e210d25a1db1f9a1388e23551987" category="list-text"><block ref="fb02e210d25a1db1f9a1388e23551987" category="inline-link-macro-rx"></block></block>
+  <block id="4b077b9294c983e4fcb79f22bbbd7059" category="list-text">Votre système doit être une configuration à chemins d'accès multiples, haute disponibilité à trois chemins, chemins d'accès multiples, quatre chemins d'accès haute disponibilité ou quatre chemins.</block>
+  <block id="47d1c6074cdb766b8570365bf3c957b4" category="paragraph">Dans le cas des plateformes avec stockage interne, le stockage externe doit être câblé en tant que multivoie haute disponibilité, triple chemin ou chemins d'accès multiples.</block>
+  <block id="b47ee462126834b65b6cb8631735e9b6" category="list-text">*Dommages possibles aux étagères :* si vous retirez un tiroir DS460C et que vous le déplacez vers une autre partie du centre de données ou le transportez vers un autre emplacement, reportez-vous à la section « déplacement ou transport des étagères DS460C » à la fin de cette procédure.</block>
+  <block id="b30291dbc620b5f1b37a40f305a02f42" category="list-text">Vérifiez que la configuration de votre système est<block ref="7331911b71ec7e78bff5c45bd2c5aaf9" prefix=" " category="inline-code"></block>,<block ref="e48889091c7b245a01ec6e7c96d076a6" prefix=" " category="inline-code"></block>,<block ref="30cd2ef2a4cf8bde2668292e60ce425e" prefix=" " category="inline-code"></block>,<block ref="98a06331c5019fee7c2bec76b5d289fb" prefix=" " category="inline-code"></block>, ou<block ref="3a22361329a9005da35e1a3654fdb1ea" prefix=" " category="inline-code"></block> en exécutant le<block ref="d4b15528721ed3ac7910f1fa2cacec13" prefix=" " category="inline-code"></block> commande du nodeshell des deux contrôleurs.</block>
+  <block id="8c39b7226de6fd48c0c5d30d8d9d17c4" category="paragraph">Une minute peut s'avérer nécessaire pour effectuer la détection par le système.</block>
+  <block id="2336de80553a028befa65fff819c1dde" category="list-text">Les modules IOM12/IOM12B sont disposés côte à côte comme dans un tiroir disque DS224C ou DS212C ; si vous disposez d'un DS460C, les modules IOM12/IOM12B sont disposés l'un au-dessus de l'autre.</block>
+  <block id="62770b693e525340d1e88f2ad5bcea2d" category="list-text">Dans chaque exemple, la pile est câblée par un câblage tiroir à tiroir standard, qui est utilisé dans des piles câblées avec une haute disponibilité multivoie, une haute disponibilité à trois chemins ou une connectivité à chemins d'accès multiples.</block>
+  <block id="f4507ab39b62bbe20965312721a8efcc" category="list-text">L'exemple de câblage permettant de retirer un tiroir disque de l'extrémité d'une pile illustre la suppression du dernier tiroir disque logique d'une pile câblée par une connectivité haute disponibilité multivoie ou haute disponibilité à trois chemins.</block>
+  <block id="09c4b41de089c23d1a678473dad5d4b0" category="paragraph">Si vous déplacez le tiroir DS460C vers une autre partie du data Center ou si vous le transportez vers un autre emplacement, reportez-vous à la section « déplacement ou transport des tiroirs DS460C ».</block>
+  <block id="d1439ffc926f9eb464ebdd314a0ffff3" category="doc">Feuilles de calcul de câblage contrôleur à pile et exemples de câblage pour les configurations haute disponibilité multivoie (tiroirs avec modules IOM12/IOM12B)</block>
+  <block id="1803219dad807bec033016996a2a80f6" category="admonition">Ces informations s'appliquent aux plates-formes sans stockage interne.</block>
+  <block id="9c5e6dce379da9748afc258e9d7006a5" category="list-text">Si nécessaire, vous pouvez vous reporter à <block ref="513d554484deefc85e1b679659a84cbc" category="inline-link-macro-rx"></block> pour plus d'informations sur les configurations prises en charge, la convention de numérotation des connecteurs du contrôleur, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir (notamment l'utilisation de paires de ports).</block>
+  <block id="ed696617fba9412fed0e3069a929b5b7" category="list-text">Si nécessaire, vous pouvez vous reporter à <block ref="513d554484deefc85e1b679659a84cbc" category="inline-link-macro-rx"></block> pour plus d'informations sur la convention de numérotation des connecteurs du contrôleur, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir (notamment l'utilisation des paires de ports).</block>
+  <block id="60564c6a5dbb582ea0f8b967540d266c" category="paragraph">Les étiquettes indiquent le numéro de pile, par exemple *Loop ou Stack #: 1* et *Loop ou Stack #: 2*. Les tiroirs disques qui ne contiennent pas d'agrégats racine indiquent uniquement le numéro de série du tiroir disque sur les étiquettes.</block>
+  <block id="e50b176d298cced2ec9cfd5bbe516332" category="list-text">IBACP (Alternate Control Path) intrabande est automatiquement activé.</block>
+  <block id="e5db155980df3ce33a16c9ed4af83e4e" category="paragraph">IBACP n'est pas pris en charge dans les configurations à voie unique haute disponibilité ou à voie unique.</block>
+  <block id="ba809f57bc3e36546d8a47b82a5d995c" category="paragraph"><block ref="ba809f57bc3e36546d8a47b82a5d995c" category="inline-link-rx"></block></block>
+  <block id="d37bef5353b917df46bc5ea30882b3a9" category="paragraph">Vous devez répondre aux exigences décrites dans la section <block ref="45a94b67f53095b9a49e00311fb0216a" category="inline-xref-macro-rx"></block> et ont installé les tiroirs disques sur le rack.</block>
+  <block id="59e65b256ff4505ae2cefd9f9a823d8b" category="paragraph">Vous câblez une configuration à chemins d'accès multiples, haute disponibilité à trois chemins, chemins d'accès multiples, haute disponibilité à chemin unique ou chemin unique</block>
+  <block id="7e8bbc30dce4dc23bd053149c93370be" category="inline-link-macro">Fiches de câblage contrôleur à pile et exemples de câblage pour les configurations haute disponibilité multivoie</block>
+  <block id="909231a59b5cc48f6b48e61f36f7ab60" category="paragraph"><block ref="909231a59b5cc48f6b48e61f36f7ab60" category="inline-link-macro-rx"></block></block>
+  <block id="bc50a6f8ac8dfb2c580781d34e24ae74" category="paragraph">Vous pouvez modifier les ID de tiroir à l'aide des sous-étapes suivantes ou pour des instructions plus détaillées, utiliser <block ref="1bf0acf64e45d0c785cbad3f63f469c6" category="inline-link-macro-rx"></block>.</block>
+  <block id="c1c6bb3499071a6bae963462682776e0" category="paragraph">Vous connectez les connexions SAS (tiroir à tiroir et contrôleur à pile) comme applicable aux tiroirs disques à chaud afin qu'ils soient connectés au système.</block>
+  <block id="0f3465a3f0de913b314ff9fa769f5b77" category="paragraph">Vous câblez une pile avec une haute disponibilité multivoie, une haute disponibilité à trois chemins, des chemins d'accès multiples, une haute disponibilité à un seul chemin ou une connectivité à un seul chemin vers les contrôleurs</block>
+  <block id="a9965269fc2882517b2f7404230818ad" category="list-text">Si vous ajoutez à chaud un ou plusieurs tiroirs disques à une extrémité (le premier ou le dernier tiroir disque logique) d'une pile existante, suivez les sous-étapes applicables à votre configuration. Dans le cas contraire, passez à l'étape suivante.</block>
+  <block id="ca067501330c228a786fd00d17229575" category="paragraph">Ajout à chaud d'un tiroir disque à l'extrémité d'une pile offrant une connectivité multivoie haute disponibilité, à trois chemins d'accès, à chemins d'accès multiples, à quatre chemins d'accès haute disponibilité ou à quatre chemins vers les contrôleurs</block>
+  <block id="fa3d4e5360018aa45e5104272d43148c" category="paragraph">La pile doit répondre aux exigences indiquées dans le <block ref="d7ead9d51e0253f97f9c0ae83a2ee9eb" category="inline-xref-macro-rx"></block> section de cette procédure.</block>
+  <block id="5be896a9c15045aaa6d68be3afa13034" category="list-text">À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics afin de fonctionner correctement :<block ref="87ee09e2a5f76fd0b04e7f6e02d1e3ef" prefix=" " category="inline-code"></block></block>
+  <block id="2aaf80f49dd70b27832d7aa8d96090d0" category="list-text">Si &lt;lno-DARE&gt; ou &lt;1Ono-DARE&gt; s'affiche dans le résultat de la commande, le système ne prend pas en charge NVE, passez à l'étape <block ref="89ef15e2cd441b6b5852f79de56e5549" category="inline-xref-macro-rx"></block>.</block>
+  <block id="78fe270cb69c9ecda90d7e049a571c28" category="list-text">Si &lt;lno-DARE&gt; ne s'affiche pas dans le résultat de la commande et que le système exécute ONTAP 9.6 ou une version ultérieure, passez à la section suivante, <block ref="a913f4e8384864716d5146884ff27f0e" category="inline-xref-macro-rx"></block>.</block>
+  <block id="d9b691280dde7c1805e39052719c9c29" category="list-text">Désactiver le rétablissement automatique à partir du contrôleur sain :
+storage failover modify -node local -auto-giveback false`
+ou<block ref="1d2c479b57949de891a15e148e1ebcf5" prefix=" " category="inline-code"></block></block>
+  <block id="ce62d26f194e7c2888ff8e53c7d011c5" category="paragraph">Une fois les variables d'environnement vérifiées, vous devez effectuer les étapes spécifiques aux systèmes sur lesquels le gestionnaire de clés intégré (OKM), le chiffrement de stockage NetApp (NSE) ou le chiffrement de volume NetApp (NVE) sont activés à l'aide des paramètres que vous avez capturés au début de cette procédure.</block>
+  <block id="a9b1f8d4946ebf3182e44c224cfa7997" category="doc">Arrêtez le contrôleur défectueux - FAS2800</block>
+  <block id="ba1ddb4c1d6bdc698ece9a974aae0713" category="paragraph">Arrêtez ou prenez le contrôle du contrôleur défectueux.</block>
+  <block id="3ab3867dfd753c1ff0d27e903bff1cc4" category="doc">Remplacez le support de démarrage - FAS2800</block>
+  <block id="1a829a672d8f4a1ab6936c766164f3fe" category="image-alt">drw 2850 pcm déposer l'installation IOPS 694</block>
+  <block id="5d9c656065fa74e7cb14500497b33617" category="list-text">Ouvrez le capot en appuyant sur les boutons bleus situés sur les côtés du module de contrôleur pour libérer le capot, puis faites pivoter le capot vers le haut et hors du module de contrôleur.</block>
+  <block id="206f40d3d3a553b715b00b4ada962595" category="image-alt">couvercle du module de contrôleur ouvert drw 2850 IOPS 695</block>
+  <block id="ac250ab529052385767cc5abd9d02efe" category="paragraph">Bouton de déverrouillage du capot du module de contrôleur</block>
+  <block id="02196554e362859bf13fdb8c354bd53c" category="paragraph">Localisez le support de démarrage dans le module de contrôleur, situé sous la carte mezzanine et suivez les instructions pour le remplacer.</block>
+  <block id="b269a4583845b75a99e2494b866181d5" category="inline-image-macro">largeur=500</block>
+  <block id="ab18556462377223339c421c568ab231" category="paragraph"><block ref="ab18556462377223339c421c568ab231" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6b6e58fb741960f0300c7783438276a5" category="paragraph">Languette de verrouillage du support de démarrage</block>
+  <block id="fa8b2d8b91c1c89065d3652288dbddc1" category="list-text">Retirez la carte mezzanine à l'aide de l'illustration suivante ou du mappage FRU sur le module de contrôleur :</block>
+  <block id="c684d6ba7251084d87edf6423b1ebd24" category="list-text">Retirez le cadre de la carte mezzanine en le faisant glisser hors du module de contrôleur.</block>
+  <block id="d62aede9e33b9cbeca49d6fcc6de78c2" category="list-text">Desserrez les vis à molette de la carte mezzanine.</block>
+  <block id="db1a320c26dfcefe739a659ae4724890" category="admonition">Vous pouvez desserrer les vis moletées avec vos doigts ou un tournevis. Si vous utilisez vos doigts, vous devrez peut-être faire pivoter la batterie NV vers le haut pour obtenir un meilleur achat de doigts sur la vis à molette située à côté de celle-ci.</block>
+  <block id="1a64138e0b66965c80b909462ba9543f" category="list-text">Soulevez la carte mezzanine.</block>
+  <block id="60e9fb8867837c6cef006a1e1ea9fb0a" category="list-text">Appuyez sur le bouton bleu du boîtier du support de démarrage pour libérer le support de démarrage de son logement, faites pivoter le support de démarrage vers le haut, puis tirez-le doucement hors du support de démarrage.</block>
+  <block id="716d7fa9776f190a42806b2c391aa047" category="list-text">Alignez les bords du support de démarrage de remplacement avec le support de démarrage, puis poussez-le doucement dans le support.
+Vérifiez le support de démarrage pour vous assurer qu'il est correctement inséré dans le support et, si nécessaire, retirez le support de démarrage et réinstallez-le dans le support.</block>
+  <block id="253b929f8465fe80f44b0c6026acc584" category="list-text">Appuyez sur le bouton de verrouillage bleu, faites pivoter le support de démarrage complètement vers le bas, puis relâchez le bouton de verrouillage pour verrouiller le support de démarrage en place.</block>
+  <block id="d29b17eb668c51029bfa0626ffe7500f" category="list-text">Réinstallez la carte mezzanine :</block>
+  <block id="834f618686de8125c24ea965ba281757" category="list-text">Alignez le connecteur de la carte mère avec le connecteur de la carte mezzanine, puis insérez doucement la carte dans le support.</block>
+  <block id="361016e8b59dfa6e2e2f28d3e38835e1" category="list-text">Serrez les trois vis à molette de la carte mezzanine.</block>
+  <block id="31276a19caaffd6d8a485978edefcae8" category="list-text">Réinstallez le cadre de la mezzanine.</block>
+  <block id="eef513f5198b93971d313eb80e4da6fb" category="list-text">Réinstallez le capot du module de contrôleur et verrouillez-le en place.</block>
+  <block id="1aecc8a01c9fc90b26bed0f39865bc18" category="paragraph">Installez l'image système sur le support de démarrage de remplacement à l'aide d'une clé USB sur laquelle l'image est installée. Vous devez restaurer le système de fichiers var au cours de cette procédure.</block>
+  <block id="4c10168d5e2592171ac54097149079b0" category="list-text">Vous devez disposer d'une clé USB, formatée en MBR/FAT32, d'une capacité minimale de 4 Go.</block>
+  <block id="2d62115b923af681ab92f0d122a64860" category="list-text">Vous devez disposer d'une connexion réseau.</block>
+  <block id="f1d3e9055855dc043c18702a6852bc69" category="list-text">Téléchargez la version d'image appropriée de ONTAP sur le lecteur flash USB formaté :</block>
+  <block id="95601ad37ef55b6b9cad60bc467a3328" category="inline-link">Comment déterminer si la version ONTAP en cours d'exécution prend en charge NetApp Volume Encryption (NVE)</block>
+  <block id="df64ce1e5d600ef517b23604e94d93bd" category="list-text">Utiliser<block ref="eeb276fd288c995d07ccaa70ededcc33" category="inline-link-rx"></block> pour déterminer si le chiffrement de volume est actuellement pris en charge.</block>
+  <block id="c5dfa5f01cf1c0d03284861e71d31370" category="list-text">Si NVE est pris en charge sur le cluster, téléchargez l'image avec le chiffrement de volume NetApp.</block>
+  <block id="a3dc3f912569e20eb3139702fd4a6206" category="inline-link">Quelle image ONTAP dois-je télécharger ? Avec ou sans chiffrement de volume ?</block>
+  <block id="1532b93706d24d095538566641303954" category="list-text">Si NVE n'est pas pris en charge sur le cluster, téléchargez l'image sans chiffrement de volume NetApp.
+Voir<block ref="087e4d006962c8ba6c4d8fdb71ff8e38" category="inline-link-rx"></block> pour en savoir plus.</block>
+  <block id="b455521e9b63749ce3c5c792316849ca" category="list-text">Décompressez l'image téléchargée.</block>
+  <block id="0f844d6324319ebe9b4aabd24f1b88dd" category="list-text">Installez le module de contrôleur :</block>
+  <block id="6bfde1459ef866428e3532004887b3b8" category="list-text">Recâblage du module de contrôleur.</block>
+  <block id="aa22e2fb20ea26cf3d0b89dfcd65a440" category="doc">Présentation du remplacement du châssis - FAS2800</block>
+  <block id="2655035d8bc59ea5bd6dd9f09d821e65" category="doc">Remplacez une carte mezzanine - FAS2800</block>
+  <block id="db5c04ca6cb958f296ff071cf8420f54" category="paragraph">Remplacez la carte mezzanine en débranchant les câbles et les modules SFP et QSFP de la carte, puis remettez la carte mezzanine défectueuse en place et remettez les cartes en place.</block>
+  <block id="783de30113379b15fc6135387f11b7e6" category="video-title">Animation - remplacez la carte mezzanine</block>
+  <block id="a0ff1a6d16d908c33e10409aed0ac623" category="paragraph">Retirez le module de contrôleur du système, puis retirez le capot du module de contrôleur.</block>
+  <block id="cf6800eb49ae54456676c105c115a1fa" category="section-title">Étape 3 : remplacez la carte mezzanine</block>
+  <block id="6918dd1d1ecfa7a18a047a925c4f30ee" category="paragraph">Remplacez la carte mezzanine.</block>
+  <block id="808ce573561d6717a3c0cc395df3a504" category="image-alt">drw 2850 remplace HIC IEOPS 700</block>
+  <block id="b98f82c68dbd20395815986320582ec2" category="paragraph">Cadre de la carte de montage</block>
+  <block id="83b54898f0ac014b1e217ee413643205" category="paragraph">Carte mezzanine PCIe</block>
+  <block id="64016c063cf6b470fdcccc5a97f852b1" category="list-text">Desserrez les vis à molette de la carte mezzanine et soulevez la carte mezzanine.</block>
+  <block id="4bca5310f65e82fe5c4eec2c7a1c6c17" category="list-text">Alignez le connecteur de la fiche de la carte mezzanine de remplacement sur le support de la carte mère, puis insérez doucement la carte dans le support.</block>
+  <block id="f2972968e044e6666c42c0182107b4f6" category="paragraph">Réinstallez le module de contrôleur.</block>
+  <block id="f36f34bd21dc87823e156cd47c7d7440" category="list-text">Retournez le module de contrôleur et alignez l'extrémité sur l'ouverture du châssis.</block>
+  <block id="3ab31ac30e2ad91e2f7e6a9ecd045f6e" category="list-text">Poussez doucement le module de contrôleur à mi-chemin dans le système.alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-chemin dans le système.</block>
+  <block id="d32890221c5529cefc96a956073d9844" category="list-text">Restaurez le rétablissement automatique à l'aide de<block ref="6f0c6616b99fea33a3020e0e0dcbe3c6" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="e2306cfc3634594ca9e5483d541a9eb2" category="doc">Restauration complète du système - FAS2800</block>
+  <block id="954e375575b9fbd9370aa08dd503d453" category="paragraph">Restaurez le fonctionnement complet de votre système en restaurant les configurations NetApp Storage Encryption ou Volume Encryption (si nécessaire) et en installant les licences pour le contrôleur de remplacement, puis en retournant la pièce défectueuse à NetApp, comme décrit dans les instructions RMA fournies avec le kit.</block>
+  <block id="ff3a1a304de699b15bd2a5a39798c5a8" category="section-title">Étape 2 : restaurez les fonctionnalités de chiffrement du volume et du stockage</block>
+  <block id="332c846459ecae57b885b30c41482384" category="section-title">Étape 3 : vérifier les LIFs et enregistrer le numéro de série</block>
+  <block id="458c640b6a96cac4ef20be523ebb7f89" category="doc">Remplacez la batterie NVMEM - FAS2800</block>
+  <block id="26e700524d9a1c0b6c28c8ad2d207679" category="section-title">Étape 2 : retirez et ouvrez le module de contrôleur</block>
+  <block id="2a0805526339647b20ef0fc7df37dd6f" category="paragraph">Retirez et ouvrez le module de contrôleur.</block>
+  <block id="9ae3f8b33ac65ec233f1c5afa0e5b31c" category="paragraph">Retirez la batterie NVMEM défectueuse du système et remplacez-la par une nouvelle batterie NVMEM.</block>
+  <block id="6858cb3dca131d0d76332f3bd5160ce7" category="video-title">Animation - remplacez la batterie NV</block>
+  <block id="cf7e5cd262adf1cc20a08505755f07a3" category="image-alt">drw 2850 remplacer nvbattery IEOPS 715</block>
+  <block id="168d99dab7a9fe08ab26290312dd16e7" category="paragraph">Languette de déverrouillage de la batterie</block>
+  <block id="33d1a8451c69f74459695562e91ceef8" category="paragraph">Connecteur d'alimentation de la batterie</block>
+  <block id="c0c80117cce7bb03ee803f73b530673c" category="list-text">Retirez la batterie défectueuse du module de contrôleur :</block>
+  <block id="5dde822876459fe513ddd782ee62b081" category="list-text">Appuyez sur le bouton bleu situé sur le côté du module de contrôleur.</block>
+  <block id="cfbaff2fca685ca6d49a66c7783234eb" category="list-text">Faites glisser la batterie vers le haut jusqu'à ce qu'elle se dégage des supports de fixation, puis retirez la batterie du module de contrôleur.</block>
+  <block id="ffdab672b5303a82bceb504a929ac040" category="list-text">Débranchez la batterie du module de contrôleur</block>
+  <block id="3236ef72d450eec8cfc673cc7faea15d" category="list-text">Retirez la batterie de rechange de son emballage.
+Installez la batterie de rechange :</block>
+  <block id="702681b0ddd2d2e77a632f93dea9da08" category="list-text">Rebranchez la fiche de la batterie dans la prise du module de contrôleur.</block>
+  <block id="1c7abce2557996fd20076d25e06502f1" category="paragraph">Assurez-vous que la fiche se verrouille dans la prise batterie de la carte mère.</block>
+  <block id="d6974842c352301a8a23606fd8d04519" category="list-text">Alignement de la batterie avec les supports de fixation sur la paroi latérale en tôle.</block>
+  <block id="2b4753778df73e034bbfe714d2d4741f" category="list-text">Faites glisser la batterie vers le bas jusqu'à ce que le loquet de la batterie s'enclenche et s'enclenche dans l'ouverture de la paroi latérale.</block>
+  <block id="98589dc004f09ae0dad7e1b6f02b49cc" category="list-text">Redémarrez le module contrôleur.</block>
+  <block id="77eded9438a3613ba447a2592768431f" category="section-title">Étape 5 : restaurez le rétablissement automatique et AutoSupport</block>
+  <block id="c7e6662de773deb97f21acca554ecb2a" category="paragraph">Restaurez le rétablissement automatique et les AutoSupport s'ils ont été désactivés.</block>
+  <block id="e8ee04904c783a5522b8e5d05e929ec0" category="doc">Vidéos - FAS2800</block>
+  <block id="89ec55d6caf5c08b62f951c13868846e" category="video-title">Animation - instructions d'installation et de configuration FAS2800</block>
+  <block id="b1431e23e98302fc2fdbdf8a76f33d8d" category="doc">Remplacez le matériel du module de contrôleur - FAS2800</block>
+  <block id="d27d70d1f85fe30f676b7d8f18fbcc20" category="paragraph">Remplacez le matériel défectueux du module de contrôleur en retirant le contrôleur défectueux, en déplaçant les composants FRU vers le module de contrôleur de remplacement, en installant le module de contrôleur de remplacement dans le châssis, puis en amorçant le module de contrôleur de remplacement.</block>
+  <block id="1c196a814e5043cb74dc86df6c03ff47" category="paragraph">Retirez le module de contrôleur défectueux du châssis.</block>
+  <block id="27d23c72f7120f51677aa7a5c4e3c7fb" category="list-text">Si vous avez laissé les modules SFP dans le système après avoir retiré les câbles, déplacez-les vers le module de contrôleur de remplacement.</block>
+  <block id="1702b5ed07427fec23228fc597ce204d" category="paragraph">Retirez la batterie NVMEM du module de contrôleur défectueux et installez-la dans le module de contrôleur de remplacement.</block>
+  <block id="f0c32c78b60207518b286f8da455dc65" category="admonition">Ne branchez pas la batterie NVMEM avant d'y être invité.</block>
+  <block id="26a1f7d3ba4c51ef22c4cfdbdfda1d8c" category="paragraph">Bouton de déverrouillage de la batterie NVMEM</block>
+  <block id="68bb8073b782fccb191b6577e7b6daed" category="paragraph">Fiche mâle batterie NVMEM</block>
+  <block id="d18072dacf447878404b5ad0bae39da2" category="list-text">Retirez la batterie du module de contrôleur :</block>
+  <block id="8583fb4771a40b0c84c5bda299897d93" category="list-text">Débranchez la fiche mâle batterie en appuyant sur le clip situé sur la face avant de la fiche mâle batterie pour la débrancher de la prise, puis débranchez le câble de batterie de la prise.</block>
+  <block id="2549b95d18de43d1c8602f07ed634585" category="list-text">Déplacez la batterie vers le module de contrôleur de remplacement et installez-la :</block>
+  <block id="350a3cd01c92197375fa1dd80773199d" category="admonition">Ne branchez pas encore la batterie.  Vous le branchez une fois que les autres composants sont déplacés vers le module de contrôleur de remplacement.</block>
+  <block id="ba9da6f2122b24c495dd034a4a5ec818" category="section-title">Étape 3 : retirez la carte mezzanine</block>
+  <block id="853a9f16e976ca6346fa38e81f8476a8" category="paragraph">Retirez le cadre de la carte mezzanine et la carte mezzanine PCIe du module de contrôleur défectueux.</block>
+  <block id="539df95ed4f8e5993f75e19be1a36f64" category="list-text">Retirez le cadre de la carte mezzanine en le faisant glisser hors du module de contrôleur.</block>
+  <block id="7bb524aff91b85838c807523fc1e4828" category="admonition">Vous pouvez desserrer les vis moletées avec vos doigts ou un tournevis.</block>
+  <block id="099cf7f6040f65b3c9d7fb3f7393d4c3" category="list-text">Soulevez la carte mezzanine et mettez-la de côté sur une surface antistatique.</block>
+  <block id="3356d87e196ed94acd2635f8d405e53f" category="paragraph">Retirez le support de démarrage du module de contrôleur défectueux et installez-le dans le module de contrôleur de remplacement.</block>
+  <block id="fed0c92cdbae5ea9c1adbf11ed80e55a" category="list-text">Après avoir retiré la carte mezzanine, localisez le support de démarrage à l'aide de l'illustration suivante ou du mappage FRU sur le module de contrôleur :</block>
+  <block id="45602b20a419ba91959f6389b3e025a3" category="image-alt">drw 2850 remplacer le support de démarrage IOPS 696</block>
+  <block id="a9ddd021b293dcac2e98382851f85f92" category="paragraph">Bouton de déverrouillage du support de démarrage</block>
+  <block id="f77adf36adb0721ff6a3bdb4c40ae967" category="list-text">Retirez le support de démarrage :</block>
+  <block id="7716b5b822ee00aa2c3fbd58b6ff2117" category="list-text">Appuyez sur le bouton bleu situé sur le boîtier du support de démarrage pour libérer le support de démarrage de son logement.</block>
+  <block id="fb6ae5bf6634b7a6d673563f05601387" category="list-text">Faites pivoter le support de démarrage vers le haut, puis tirez-le doucement hors du support de démarrage.</block>
+  <block id="d0bb83c57c80aa63779da3b7ad8fe497" category="list-text">Installez le support de démarrage sur le module de contrôleur de remplacement :</block>
+  <block id="918c073c7d2d0879662be83044a3838c" category="list-text">Appuyez sur le bouton de verrouillage bleu situé sur le boîtier du support de démarrage, faites pivoter le support de démarrage complètement vers le bas, puis relâchez le bouton de verrouillage pour verrouiller le support de démarrage en place.</block>
+  <block id="e22316649109edfe291449028ee7da74" category="section-title">Étape 5 : installez la carte mezzanine dans le contrôleur de remplacement</block>
+  <block id="a00bf690f9db0be90ea5ab9cde9db677" category="paragraph">Installez la carte mezzanine dans le module de contrôleur de remplacement.</block>
+  <block id="507e7243ab4a1d0bdbfa4edd5c9733d3" category="list-text">Alignez la carte mezzanine sur le support de la carte mère.</block>
+  <block id="fc7fc35188ad3f7c32f3328839f4dff2" category="list-text">Poussez doucement la carte vers le bas pour la placer dans le support.</block>
+  <block id="803bc905348545eacfc8739f67ee6fc2" category="list-text">Réinstallez le cadre de la carte mezzanine.</block>
+  <block id="ec782fd2b49f0e4d6edd263c0d30d7f7" category="paragraph">Retirez les modules DIMM du module de contrôleur défectueux et installez-les dans le module de contrôleur de remplacement.</block>
+  <block id="64b66263e264f63be40a6135bb7e5f04" category="image-alt">drw 2850 remplacez les modules dimm IOPS 699</block>
+  <block id="2a7c25f4f62d559672aaa2da18086b65" category="paragraph">Loquets de verrouillage DIMM</block>
+  <block id="97d11e594531d9157ff1f8acb63fd22c" category="list-text">Localisez les modules DIMM sur votre module de contrôleur</block>
+  <block id="dab2480c00fbe3b34d9af825595e97ae" category="admonition">Notez l'emplacement du module DIMM dans les supports afin de pouvoir insérer le module DIMM au même emplacement dans le module de contrôleur de remplacement et dans le bon sens.</block>
+  <block id="c9e2d45ba9969e527f9d0fa047c621bd" category="list-text">Retirez les modules DIMM du module de contrôleur défectueux :</block>
+  <block id="870ee50e7b3cc6d93b98e9ec6a8ab100" category="list-text">Éjectez le module DIMM de son logement en écartant lentement les deux pattes d'éjection du module DIMM situées de chaque côté du module DIMM.</block>
+  <block id="dc1bab551db9ce9e5c5fe8cabfa84a76" category="paragraph">Le module DIMM pivote légèrement vers le haut.</block>
+  <block id="685636dc5350b778abfb785eaf60ca39" category="list-text">Faites pivoter le module DIMM aussi loin que possible, puis faites-le glisser hors du support.</block>
+  <block id="81a434fab7192536678c765fcb18c594" category="list-text">Vérifiez que la batterie NVMEM n'est pas branchée sur le module de contrôleur de remplacement.</block>
+  <block id="f70897638195a2f326f7183edf6a3cf8" category="list-text">Installez les modules DIMM dans le contrôleur de remplacement au même endroit qu'ils se trouvaient dans le contrôleur défectueux :</block>
+  <block id="3ef62fc6a162d755622021a1d6a1ed56" category="list-text">Répétez ces étapes pour l'autre module DIMM.</block>
+  <block id="873b72e260492016e7a701ecefab8d34" category="section-title">Étape 7 : déplacer un module de cache</block>
+  <block id="2123f32d0c6f36af91430296709196a1" category="paragraph">Retirez le module de cache du module de contrôleur défectueux installez-le dans le module de contrôleur de remplacement.</block>
+  <block id="60f4158622c1b93ba749ee47777762b7" category="image-alt">drw 2850 remplacer le module de cache IEOPS 697</block>
+  <block id="bdf54b9db8bfe07cda14f003e5b4afea" category="paragraph">Bouton de verrouillage du module de mise en cache</block>
+  <block id="d6be971cb9546606b4106e2ce6594564" category="list-text">Localisez le module de cache près de l'arrière du module de contrôleur et retirez-le :</block>
+  <block id="86afc3ba2df9db0892f3d7b13977fdb3" category="list-text">Appuyez sur le bouton de verrouillage bleu et faites pivoter le module de cache vers le haut.</block>
+  <block id="5933b9f61a8881951d2ee1bf05dd260a" category="list-text">Installez le module de cache dans le module de contrôleur de remplacement :</block>
+  <block id="2688650848e4f3835aba141aab8abd77" category="list-text">Appuyez sur le bouton de verrouillage bleu, faites pivoter le module de cache complètement vers le bas, puis relâchez le bouton de verrouillage pour verrouiller le module de cache en place.</block>
+  <block id="11eeb319e60e9bfcf687bb45298baa8c" category="list-text">Branchez la batterie NVMEM.</block>
+  <block id="52171524851f62cb3baf11036da62cb6" category="paragraph">Assurez-vous que la fiche se verrouille dans la prise d'alimentation de la batterie de la carte mère.</block>
+  <block id="d3c9127aa6a1eedcb9187315657c4cbf" category="admonition">Si le branchement de la batterie est difficile, retirez la batterie du module de contrôleur, branchez-la, puis réinstallez la batterie dans le module de contrôleur.</block>
+  <block id="86976c899464bf7c145a1a100eb56931" category="section-title">Étape 8 : installez la batterie NV</block>
+  <block id="0aa269b91aaa67ad4a33798a5addcade" category="paragraph">Installez la batterie NV dans le module de contrôleur de remplacement.</block>
+  <block id="e2a7c878d6256dd0131d41af9940ac59" category="section-title">Étape 9 : installez le contrôleur</block>
+  <block id="8265ef3502f8ac77f57d832ac049580a" category="paragraph">Installez le module de contrôleur de remplacement dans le châssis du système et démarrez ONTAP.</block>
+  <block id="cbde4763aa08c054c18d5c779d9c5b23" category="list-text">Tournez le module de contrôleur.</block>
+  <block id="2242e742287f23709fa714deab7eb578" category="admonition">Vous devez rechercher un message de console de mise à jour automatique du micrologiciel. Si le message de mise à jour s'affiche, n'appuyez pas sur<block ref="76be6883bcf9e8a6aed3a347ac20e41f" prefix=" " category="inline-code"></block> pour interrompre le processus de démarrage jusqu'à ce que vous ayez affiché un message confirmant que la mise à jour est terminée. Si la mise à jour du micrologiciel est interrompue, le processus de démarrage se ferme à l'invite DU CHARGEUR. Vous devez exécuter le<block ref="af718f67c26a0f44692db1ab31eb6a36" prefix=" " category="inline-code"></block> puis entrez<block ref="1442f7a5af9f43702c90a69a8357a46d" prefix=" " category="inline-code"></block> pour redémarrer le système.</block>
+  <block id="5dc33b8c32ff69779a908c84d65a7b21" category="list-text">Un message d'avertissement indiquant une discordance d'ID système et demandant de remplacer l'ID système. Répondez<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> à cette invite.</block>
+  <block id="7ac264b7d08fb9d1106ac983e7478d8a" category="list-text">Un avertissement s'affiche lorsque vous passez en mode maintenance dans une configuration HA, vous devez vous assurer que le contrôleur en bon état reste arrêté. Répondez<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> à cette invite.</block>
+  <block id="75127c072b8dbfcfddece3f2cfd7f451" category="doc">Restaurer et vérifier la configuration - FAS2800</block>
+  <block id="e6c254ab2bdf1b6e7e1ef07d143a13af" category="paragraph">Vérifiez l'état haute disponibilité du châssis et renvoyez la pièce défectueuse à NetApp en suivant les instructions RMA (retour de matériel) fournies avec le kit.</block>
+  <block id="9596a3101174a610f7547f1a64ef5318" category="list-text">Définissez l'état haute disponibilité du châssis en fonction de la configuration existante du système :<block ref="8c04088c57a1d68914caed5df5031ed1" prefix=" " category="inline-code"></block></block>
+  <block id="fc7de36232e6d564fdd8b86d9b96e5c3" category="list-text">Quitter le mode Maintenance :<block ref="4a1bde0ea8bcda2a591f42646813c477" prefix=" " category="inline-code"></block>.    L'invite DU CHARGEUR s'affiche.</block>
+  <block id="05feda261599a7466b383d9e10f43f27" category="list-text">Démarrez les modules de contrôleur.</block>
+  <block id="eba8408f37a356fdabfeb21f5ae29286" category="doc">Remplacer le module de cache - FAS2800</block>
+  <block id="dec0306e681fc720cf31bc4851ebcee4" category="inline-link">Référence de l'administration du système ONTAP 9</block>
+  <block id="b95a2b769ddc69403557ab79e1942007" category="paragraph"><block ref="b95a2b769ddc69403557ab79e1942007" category="inline-link-rx"></block></block>
+  <block id="a9c8e259606b559907dfb2f00a204be4" category="paragraph">Localisez le module de cache à l'intérieur du contrôleur, retirez le module de cache défectueux et remplacez-le.</block>
+  <block id="ee92b073f59fe189ba6ba0d749a2475e" category="video-title">Animation - remplacer le module de mise en cache</block>
+  <block id="310b3fddb492900dc2073bfed3ad2e76" category="list-text">Localisez le module de cache défectueux près de l'arrière du module de contrôleur et retirez-le.</block>
+  <block id="7c54a0f1ea1ead89a0c9b6aeef198946" category="list-text">Appuyez sur le bouton de déverrouillage bleu et faites pivoter le module de cache vers le haut.</block>
+  <block id="1861e494e4e49e7521421f1074d1c277" category="paragraph">Bouton de déverrouillage du module de mise en cache</block>
+  <block id="8154cefebd8252a7cccd4805ef747b70" category="list-text">Alignez les bords du module de cache de remplacement avec le support du boîtier, puis poussez-le doucement dans le support.</block>
+  <block id="51561c50b0a48bfa0a140f7c1afdb558" category="paragraph">Réinstallez le module de contrôleur dans le châssis.</block>
+  <block id="c5f938bfc527c4bc823a887db137e442" category="list-text">Poussez doucement le module de contrôleur à mi-chemin dans le système.</block>
+  <block id="ee92a9f0097994689e1bda7bed36ad5d" category="paragraph">Le contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.</block>
+  <block id="7712b02131dda6b0cd207e6b834af33f" category="section-title">Étape 5 : restaurez le rétablissement automatique et le AutoSupport</block>
+  <block id="58a4b1c93d94014eec48898453bccf6b" category="list-text">Si une fenêtre de maintenance AutoSupport a été déclenchée, mettez-la fin à l'aide du<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
+  <block id="f13ddfa8c0e2762d2f399acfc6f0806b" category="summary">Le remplacement d'un bloc d'alimentation implique la mise hors tension, la déconnexion et le retrait du bloc d'alimentation défectueux et l'installation, la connexion et la mise sous tension du bloc d'alimentation de remplacement.</block>
+  <block id="de1b8802ef132a49eb27c58d444b128f" category="doc">Remplacez une alimentation - FAS2800</block>
+  <block id="9b0f331e43ad447dbbb78d71a44b1734" category="video-title">Animation - remplacez le bloc d'alimentation</block>
+  <block id="ad74e1b8d39de33b6e8b9df71820c85f" category="image-alt">drw 2850 remplace PSU IEOPS 702</block>
+  <block id="4f57674d148f7c749c1795267b17a2b1" category="doc">Recâblage du système et réaffectation des disques - FAS2800</block>
+  <block id="2675f497966bc5cad0cdd88dbe6eab31" category="list-text">Attendez le<block ref="f1cce1d6823a5337ea1ed313f3bc1d65" prefix=" " category="inline-code"></block> commande à compléter avant d'émettre le retour.</block>
+  <block id="578b3122a990bee5553a818b631268ef" category="admonition">Si le retour est refusé, résoudre le problème de veto. Si le droit de veto n'est pas critique à résoudre, vous pouvez annuler le droit de veto.</block>
+  <block id="cf71e2640e92b433c3b638e9e94411a3" category="doc">Renvoyer la pièce défectueuse à NetApp - FAS2800</block>
+  <block id="d3b5d00b3ac932c953d2ab9864fd8409" category="doc">Remplacez la batterie de l'horloge temps réel - FAS2800</block>
+  <block id="103256b354864966fcc74d6466bc1cc4" category="paragraph">Remplacez la batterie RTC en la plaçant à l'intérieur du contrôleur et suivez la séquence spécifique des étapes.</block>
+  <block id="51f7be1d2b3585b769547e04e7036ed9" category="image-alt">drw 2850 remplacer la batterie rtc IEOPS 701</block>
+  <block id="9f463a2feadd622498da11734b7d3548" category="paragraph">Réinstallez le module du contrôleur et démarrez-le à l'invite DU CHARGEUR.</block>
+  <block id="8133c5bbfd79c61b3d28f53fd52d6b77" category="section-title">Étape 5 : réglez l'heure/la date après le remplacement de la batterie RTC</block>
+  <block id="c9f8b929f9ab0b6a880c4fbdb297685c" category="doc">Restaurez OKM, NSE et NVE selon les besoins - FAS2800</block>
+  <block id="e8b941fcc944e0bbefda4636b0900a37" category="list-text"><block ref="e8b941fcc944e0bbefda4636b0900a37" category="inline-link-macro-rx"></block></block>
+  <block id="531b14cc35d21cdbdd3198396f0be9e2" category="list-text"><block ref="531b14cc35d21cdbdd3198396f0be9e2" category="inline-link-macro-rx"></block></block>
+  <block id="64bd602d0544a5fe1fc2a2419daab9cb" category="list-text"><block ref="64bd602d0544a5fe1fc2a2419daab9cb" category="inline-link-macro-rx"></block></block>
+  <block id="57d485c98e6887d6e9203bac1d90bb5b" category="summary">Déplacez les blocs d'alimentation, les disques durs et les modules de contrôleur du châssis défectueux vers le châssis de remplacement, puis remplacez le châssis défectueux du rack ou de l'armoire système par le châssis de remplacement du même modèle que le châssis défectueux.</block>
+  <block id="4366f74c4f2ef88a08284a5d59c6119c" category="doc">Déplacer et remplacer le matériel - FAS2800</block>
+  <block id="7c5cfb9ddad014365f0de74ba951ffc3" category="paragraph">Le retrait d'un bloc d'alimentation lors du remplacement d'un châssis implique la mise hors tension, la déconnexion et le retrait du bloc d'alimentation du châssis défectueux, ainsi que l'installation et la connexion sur le châssis de remplacement.</block>
+  <block id="075968c9cfe201324f67c6dd57423623" category="paragraph">Retirez le ou les modules du contrôleur du châssis défectueux.</block>
+  <block id="ecd88b88f167b4220060f55cd515a5d0" category="list-text">Répétez ces étapes pour le second module de contrôleur du châssis.</block>
+  <block id="ff6be4cd8fc3c7dd2668ce38b9f0c0d6" category="section-title">Étape 3 : déplacez les disques vers le châssis de remplacement</block>
+  <block id="cb222b0662bfcc0873a126c023d18639" category="paragraph">Déplacez les lecteurs de chaque ouverture de baie de lecteur du châssis défectueux vers la même ouverture de baie dans le châssis de remplacement.</block>
+  <block id="122d24dfbf9f05e990c3628541000cab" category="list-text">Appuyez sur le bouton de déverrouillage situé sur le côté opposé des voyants.</block>
+  <block id="781e632f918c0d9c096496d8f4cea093" category="list-text">Alignez le lecteur du châssis défectueux avec la même ouverture de baie dans le châssis de remplacement.</block>
+  <block id="666dbbf9aa205d3a1a84cd2586d5321d" category="paragraph">La poignée de came s'engage et commence à tourner en position fermée.</block>
+  <block id="e20b40789c08ab02225f933f48bd8f73" category="list-text">Poussez fermement le disque le reste dans le châssis, puis verrouillez la poignée de came en la poussant contre le support de disque.</block>
+  <block id="10ed17eeda7cfb1251b50b19d4e83cd2" category="paragraph">Retirez le châssis existant du rack d'équipement ou de l'armoire système et installez le nouveau châssis dans le rack d'équipement ou l'armoire système.</block>
+  <block id="d9b58093a09ff3f9f4ee47e855e10b09" category="paragraph">Installez le module de contrôleur et tous les autres composants dans le châssis de remplacement, puis démarrez-le en mode Maintenance.</block>
+  <block id="a1b1abf2b9f93afc61b501cc65856321" category="list-text">Répétez les étapes précédentes pour le second contrôleur du châssis de remplacement.</block>
+  <block id="fb7c806d17ac05daec934e824397154e" category="list-text">Répétez les étapes précédentes pour le second module de contrôleur du châssis de remplacement.</block>
+  <block id="939dd100817795c3c406debd7b6667d8" category="doc">Présentation du remplacement du module de contrôleur - FAS2800</block>
+  <block id="b7b41b094d20b126c69180a1751fc468" category="doc">Vérifiez les clés de chiffrement intégrées - FAS2800</block>
+  <block id="8e605f57d62f3d1be204e98b9b4935f7" category="doc">Remplacez le disque SSD ou le disque dur - FAS2800</block>
+  <block id="9e88aae04cfd42bd2e0b9f18c79e6b08" category="doc">Présentation du remplacement des supports de démarrage - FAS2800</block>
+  <block id="cffd34bd4c8c92699b3202d7f451d2ae" category="doc">Restaurez et vérifiez la configuration du système - FAS2800</block>
+  <block id="5a78b16de65a946feda8c56392de99d0" category="paragraph">Une fois le remplacement du matériel terminé et le démarrage du contrôleur de remplacement, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.</block>
+  <block id="3fc70ee0f25a2808ad9e1ace34edd095" category="list-text">Si l'état système affiché pour le contrôleur ne correspond pas à la configuration de votre système, définissez l'état haute disponibilité du module de contrôleur de remplacement :<block ref="83ac5421ebdbb8b86762e96ecda44c4a" prefix=" " category="inline-code"></block></block>
+  <block id="0da3888f81e8e56d2de2a92a42b512a3" category="doc">Démarrez l'image de restauration - FAS2800</block>
+  <block id="c5ad83e174ba7727e76fc50c8366e589" category="list-text">Restaurez le système de fichiers var :</block>
+  <block id="e51ecd8f185715278ef737fd290e62f5" category="list-text">Appuyez sur<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à restaurer la copie de configuration.</block>
+  <block id="17fb1354460acbac7ab4abe6c27a24a2" category="list-text">Si keymanager, NSE ou NVE intégré est configuré sur votre système, rendez-vous sur <block ref="4b98be10d46a75a522880bc01a177aa5" category="inline-xref-macro-rx"></block></block>
+  <block id="1a037944aedbce3040a5314200246858" category="list-text">À l'invite du cluster, vérifiez les interfaces logiques avec le<block ref="55cf88a325a6e0574aef732566cc984c" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="8c4cb494b75288cf3ce1e7ce1dee3c9d" category="paragraph">Si l'une des interfaces est indiquée comme « FALSE », restaurez ces interfaces à son port d'origine à l'aide de l'<block ref="ffbe7d182280173cba10c83ec9992974" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="fcb4d3b1f229bc036dc2280a7c1d29c4" category="list-text">Si vous n'utilisez pas le chiffrement du stockage, restaurez le rétablissement automatique et AutoSupport :</block>
+  <block id="fde9b148f6eb9655d65658597326b4ee" category="doc">Étapes détaillées - FAS2800</block>
+  <block id="c507fc907e52c0d3d2a5b32d101a1559" category="paragraph">Pour installer votre système FAS2800, vous devez créer un compte sur le site du support NetApp, enregistrer votre système et obtenir des clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.</block>
+  <block id="82374f90663d7205d26c38028c93cb8d" category="inline-link">Notes de version pour votre version de ONTAP 9</block>
+  <block id="4afcf4b1bce6c3df1cc1e778d2d69e65" category="paragraph">Vous devez avoir accès au<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block> pour plus d'informations sur les exigences du site ainsi que sur les informations supplémentaires sur votre système configuré. Vous pouvez également avoir accès au<block ref="eaa168831c6fecf820d5605f3f5de542" category="inline-link-rx"></block> Pour votre version de ONTAP pour plus d'informations sur ce système.</block>
+  <block id="94f11775f11fcb36a20933d06500449a" category="list-text">Enregistrez votre système via <block ref="1cbd3811871137aa1e003e1ccae3894e" category="inline-link-rx"></block></block>
+  <block id="4aed417c4620186c402fe3b82713076b" category="list-text">Téléchargez et installez<block ref="56697f7f340a212f549439c89b0cabd2" category="inline-link-rx"></block> sur votre ordinateur portable.</block>
+  <block id="202c6b9676e6e0879f99a323aacdd76b" category="paragraph">Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la section<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block> pour localiser le câble et identifier son utilisation.</block>
+  <block id="21d9a13ac1bf780b5a88db05a215c05d" category="paragraph">10 GbE, SFP28 (en fonction de la commande)</block>
+  <block id="68ddfa29cb0d12a802225c5426557710" category="paragraph">X6566B-05-R6, .5,</block>
+  <block id="4d60abe9b21979209fc33ec224620c9f" category="paragraph">X6566B-2-R6, 2 M.</block>
+  <block id="38ee836908ff6e63d2fe51cba40af515" category="paragraph">Ethernet 25 Gb, SFP28</block>
+  <block id="9e4563e9b028264514409ab230a5da42" category="paragraph">X66240A-05, 0,5 M.</block>
+  <block id="0aeb49c9fa6e4bb6f0e2ba133818122d" category="paragraph">X66240-2, 2 M.</block>
+  <block id="f6f5073d92449b0a0e2bd3034fc1ecea" category="paragraph">X66240A-5, 5 M.</block>
+  <block id="dea505bfaa4f0d732b7c8f5f9938f6be" category="image-alt">Câble oie Ethernet 25 Gb SFP28 IEOPS 1069</block>
+  <block id="cd438f3250a6932c30ca2344ae39b00e" category="paragraph">Fibre Channel 32 Gb,
+SFP+ (cible/initiateur)</block>
+  <block id="2c4afc06b1fdae4cd99b305968ffe5d2" category="paragraph">X66250-2, 2 M.</block>
+  <block id="4f4ed96765dcb8c23de6679e6a7ca755" category="paragraph">X66250-5, 5 M.</block>
+  <block id="cfdd6b2015d7d026f3cd6c1eb78a3ee1" category="paragraph">X66250-15, 15 M.</block>
+  <block id="f740a217496c1f42a51b7a745f62930e" category="paragraph">Réseau FC</block>
+  <block id="6e421f2c1b8bf174d208a91d7f5dc0ae" category="paragraph">X6561-R6</block>
+  <block id="9f1d44b1644f80b8412d9dd6de6d8982" category="paragraph">X6562-R6</block>
+  <block id="a49ba2f6b0c90ba38b8dcd0a94db081d" category="paragraph">X66030A, 0,5 M.</block>
+  <block id="d3b3da5c1301d8d6a324ad66c58950cb" category="paragraph">X66031A, 1 M.</block>
+  <block id="d5e936a50b968238745495b8619c3de2" category="paragraph">X66032A, 2 M.</block>
+  <block id="7176bca53e61f926de4367eb107ce7c8" category="paragraph">Câble de console USB-C.</block>
+  <block id="34dc50315428bf6e6940b722c6a21ee9" category="paragraph">Câble FC en option</block>
+  <block id="01b24af9f8a6b3efddd64ee9ab57a42e" category="paragraph">Câble réseau FC supplémentaire</block>
+  <block id="3f23ceafafc807d2b7578916c6816fcb" category="inline-link">Configuration du cluster via l'interface de ligne de commandes ONTAP</block>
+  <block id="a41ad0c41b61aa6e16a86ba5e2432d9f" category="list-text">Téléchargez et complétez les feuilles de calcul disponibles dans le <block ref="a7d19322be231451e03428c8b87e512f" category="inline-link-rx"></block>.</block>
+  <block id="3157ab12e29c7ae731c3bbc36443b23f" category="image-alt">oie fas2800 attention au poids IEOPS 1070</block>
+  <block id="bb4787913f600ff690f937a7622bfef5" category="paragraph">Reliez les contrôleurs au réseau à l'aide de la méthode cluster sans commutateur à deux nœuds ou de la méthode réseau d'interconnexion de cluster.</block>
+  <block id="9646d1820777de5269873d2317186ecb" category="paragraph">Switch réseau de gestion</block>
+  <block id="e80abcbf02cd3bed5561a16253c1dea0" category="paragraph">Switchs réseau de l'hôte</block>
+  <block id="3b9d43c8f889d04a7e7e50ecc887f626" category="paragraph">Reliez les connexions réseau et les ports d'interconnexion de cluster à un cluster sans commutateur à deux nœuds.</block>
+  <block id="724b63ff77d309630df65f6af09956a2" category="admonition">Lorsque vous insérez le connecteur, vous devez le sentir en place. Si vous ne le sentez pas, retirez-le, retournez la tête du câble et réessayez.</block>
+  <block id="b81e7d6a7be0cc8238b538c4b907282a" category="paragraph">Vous pouvez utiliser le graphique ou les instructions détaillées pour effectuer le câblage entre les contrôleurs et les commutateurs.</block>
+  <block id="43f3f164715da7f3368f26b28f4ef36f" category="video-title">Animation - câblage d'un câblage de cluster sans commutateur à deux nœuds</block>
+  <block id="00cdc1c050c54120647c95f8ac43e946" category="list-text">Reliez les ports d'interconnexion de cluster e0a à e0a et e0b à e0b à l'aide du câble d'interconnexion de cluster :</block>
+  <block id="64d64c32d62f821e30eb2ef5d4583099" category="paragraph">*Câbles d'interconnexion de cluster*</block>
+  <block id="0d31c2b61f0790381bf124be78a40d97" category="image-alt">drw 2800 Tnsc câblage du cluster IEOPS 892</block>
+  <block id="329a1da79dbbba5ea7dea23acd21eb44" category="paragraph">*Câbles RJ45*</block>
+  <block id="71148769b55621d50b01310cdb17af44" category="image-alt">Connexion de gestion drw 2800 IEOPS 1077</block>
+  <block id="69dc61becc19938a9333356069afeddb" category="list-text">Reliez les ports de la carte mezzanine au réseau hôte.</block>
+  <block id="a773f522f61f6a463095f90a0f74a848" category="image-alt">drw 2800 câblage réseau IEOPS 894</block>
+  <block id="1d249cc4581bfebd1ac174f1d758e2de" category="list-text">Si vous disposez d'un réseau de données Ethernet à 4 ports, reliez les ports e1a à e1d à votre réseau de données Ethernet.</block>
+  <block id="1cc0b86b94e25e4841fd242fdbd850e8" category="list-text">4 ports, Ethernet 10 Gb, SFP28</block>
+  <block id="213b283921a16f109ab5a42efd1afde7" category="list-text">4 PORTS, 10GBASE-T, RJ45</block>
+  <block id="245589e179b64a47376b04123778941c" category="list-text">Si vous disposez d'un réseau de données Fibre Channel à 4 ports, câblez les ports 1a à 1D pour votre réseau FC.</block>
+  <block id="9a867735c4f604a49c9d27393e56dfe2" category="list-text">4 ports, Fibre Channel 32 Gb, SFP+ (cible uniquement)</block>
+  <block id="0d483d1755efbe3138752df4c802b435" category="list-text">4 ports, Fibre Channel 32 Gb, SFP+ (initiateur/cible)</block>
+  <block id="8bb7b23c936cb70e2890bdc1e1a55118" category="list-text">Si vous disposez d'une carte 2+2 (2 ports avec connexions Ethernet et 2 ports avec connexions Fibre Channel), reliez les ports e1a et e1b à votre réseau de données FC et les ports e1c et e1D à votre réseau de données Ethernet.</block>
+  <block id="e664a3bf047f98da138d06dd6bbecf60" category="list-text">2 ports, Ethernet 10 Gb (SFP28) + 2 ports FC 32 Gb (SFP+)</block>
+  <block id="c76e1890be7e78a7e7f8b44303d6f072" category="admonition">NE branchez PAS les cordons d'alimentation.</block>
+  <block id="945919717a9a1b9de8896baef8c155a5" category="paragraph">Reliez les connexions réseau et les ports d'interconnexion de cluster à un cluster commuté.</block>
+  <block id="4b3a23428d43b0cc1ea88affb10b1421" category="admonition">Lorsque vous insérez le connecteur, vous devez le sentir en place. Si vous ne le sentez pas, retirez-le, retournez la tête du câble et réessayez.</block>
+  <block id="b6713b6dcccfb0ea851ac5892871d1ce" category="paragraph">Connectez les contrôleurs à un système de stockage externe.</block>
+  <block id="80ae6b7de29ff0be35e926815150d39e" category="paragraph">Vous pouvez utiliser le graphique ou les instructions détaillées pour terminer le câblage entre les contrôleurs et les tiroirs disques.</block>
+  <block id="3fc162aa6870cf22cf3e0a947b89615a" category="video-title">Animation : câblage du tiroir disque</block>
+  <block id="2728bec52c30a9bf554b834ce8cfd335" category="admonition">Ne pas utiliser le port 0b2 sur un FAS2800. Ce port SAS n'est pas utilisé par ONTAP et est toujours désactivé. Voir<block ref="6f4656a8b776447b5b4debad13e7a22e" category="inline-link-rx"></block> pour en savoir plus.</block>
+  <block id="936f11624ce65028d5f2861c02e343af" category="image-alt">icône de légende oie 1 lo</block>
+  <block id="c40e49e90ec7d35ff60916a8d39fe6e8" category="image-alt">icône de légende oie 2 mb</block>
+  <block id="3b7d5f20d28c201cdbde659df3e31649" category="image-alt">icône de légende de l'oie 3 t</block>
+  <block id="6ac0c621e44f0d6d3cfb9a6035ba969b" category="list-text">Du port 1 de l'IOM A au port 3 de l'IOM A sur le shelf directement en dessous.</block>
+  <block id="a2a4a3ef1017cf43a3cf109d61286633" category="list-text">Du port 1 de l'IOM B au port 3 de l'IOM B sur le shelf directement en dessous.</block>
+  <block id="9f8e1f093714df2b4e4cea2483986e1f" category="paragraph">*Câbles HD mini-SAS vers mini-SAS*</block>
+  <block id="202f3ec29ba7fc0c62960a60ae2f794f" category="image-alt">drw 2800 câblage tiroir à tiroir IEOPS 895</block>
+  <block id="b1905c91f00e1e7ad75a290938d0c0ae" category="list-text">Reliez le contrôleur A aux tiroirs disques.</block>
+  <block id="7414b28752291f5ed73122cbbe85acd3" category="list-text">Contrôleur A du port 0a à IOM B du port 1 sur le premier tiroir disque de la pile.</block>
+  <block id="d490aaf97e1fdf82eb244edca242e5f7" category="list-text">Du port 0b1 du contrôleur A au port 3 du module d'E/S Sur le dernier tiroir disque de la pile.</block>
+  <block id="0d5514b466e4b55a41f3994d3034c96f" category="image-alt">Contrôleur dwr 2800 1 vers étagères IEOPS 896</block>
+  <block id="575f5a968bfa57f9d0a99b09b5f73ff2" category="list-text">Connectez le contrôleur B aux tiroirs disques.</block>
+  <block id="49fefb8508936cb5a0f672b0146c0013" category="list-text">Contrôleur B du port 0a à IOM A port 1 sur le premier tiroir disque de la pile.</block>
+  <block id="0cbd55a3e4a33973ae5e025f7565fe75" category="list-text">Du port 0b1 du contrôleur B au port 3 du module d'E/S B du dernier tiroir disque de la pile.</block>
+  <block id="8f61138caddaadc30f99b723e123cf22" category="image-alt">Contrôleur dwr 2800 2 vers Etagères IOPS 897</block>
+  <block id="a63d383da174eddb392adcd87d936c44" category="paragraph">Si la détection de réseau est activée sur votre ordinateur portable, effectuez la configuration du système à l'aide de la détection automatique de cluster.</block>
+  <block id="17eddeb5ca42d640ce98ba7b90523804" category="image-alt">dwr 2800 mettre sous tension IEOPS 898</block>
+  <block id="9e4e9e3678bbed5f0d0698cff8427b61" category="list-text">Utilisez la configuration assistée de System Manager pour configurer votre système à l'aide des données collectées dans le<block ref="492b1b89e16fbed782c0f28e34fb9371" category="inline-link-rx"></block></block>
+  <block id="5725fc4af65adef1b57d4b7c9a365287" category="paragraph">Si la détection réseau n'est pas activée sur votre ordinateur portable, effectuez manuellement la configuration et la configuration.</block>
+  <block id="3b1f7398f44c65a5f8ab979cc8757340" category="list-text">Connectez le câble de la console à l'ordinateur portable ou à la console, puis connectez le port console du contrôleur à l'aide du câble de console fourni avec le système, puis cConnectez l'ordinateur portable ou la console au commutateur du sous-réseau de gestion.</block>
+  <block id="6f196fc99c938b047a2dbbae60694da9" category="image-alt">PC portable drw 2800 pour passer au contrôleur IOPS 1084</block>
+  <block id="1f61f05d390e702160f04da6c21786d5" category="list-text">Une fois la configuration initiale terminée, passez à l' <block ref="8203f64117389bb7bbdf8d4d70d36e4d" category="inline-link-rx"></block> Pour plus d'informations sur la configuration de fonctions supplémentaires dans ONTAP.</block>
+  <block id="1063e487d045f7cd17b5712ab35a43b6" category="doc">Documentation du système FAS2800</block>
+  <block id="40ab4deb5c724a3e2d6c8f6d96a94554" category="doc">Arrêter les contrôleurs - FAS2800</block>
+  <block id="5f81816799fe408c4f5d0d2b06be7dd0" category="doc">Guide rapide - FAS2800</block>
+  <block id="b0f0e558d3522c3be05dd8c2dd0af1cc" category="inline-link-macro">Instructions d'installation et de configuration des systèmes FAS2800</block>
+  <block id="dcd1fb87d1725e210ef205f9a1c5e788" category="paragraph"><block ref="dcd1fb87d1725e210ef205f9a1c5e788" category="inline-link-macro-rx"></block></block>
+  <block id="30d72b7769d2368f3a2f7fcacca60c27" category="doc">Remplacez un module DIMM - FAS2800</block>
+  <block id="041e48089a1444bcdc82526d41790e40" category="paragraph">Retirez le module de contrôleur du système, puis retirez le capot du module de contrôleur.</block>
+  <block id="8caaa86fafbf22c9627e97fb31c1eea5" category="paragraph">Repérez le module DIMM à l'intérieur du contrôleur, retirez-le et remplacez-le.</block>
+  <block id="95da017c37970d073ec39c2d3a5f57a0" category="admonition">Avant de remplacer un module DIMM, vous devez débrancher la batterie NVMEM du module de contrôleur.</block>
+  <block id="fa59f7fdc751f040e98449eb5f9bab77" category="list-text">Retirez la batterie du module de contrôleur en appuyant sur le bouton bleu situé sur le côté du module de contrôleur.</block>
+  <block id="e460f960683865692d03871b47a39fd8" category="list-text">Localisez le câble de batterie, appuyez sur le clip de la fiche mâle batterie pour libérer le clip de verrouillage de la prise, puis débranchez le câble de batterie de la prise.</block>
+  <block id="5f2a29b0970aac5a4425f7cf26343e24" category="list-text">Rebranchez le connecteur de la batterie et vérifiez à nouveau le voyant à l'arrière du contrôleur.</block>
+  <block id="2bb5a458e01d43f7e5641661b16f0d46" category="list-text">Débranchez le câble de la batterie.</block>
+  <block id="82b2c56e53a487cba16496c5167ec489" category="list-text">Notez l'orientation et l'emplacement du module DIMM dans le support de manière à pouvoir insérer le module DIMM de remplacement dans le bon sens.</block>
+  <block id="72d609b19c1bf7528c15b9f03dffdc1f" category="paragraph">Bouton de déverrouillage de la batterie NVRAM</block>
+  <block id="4ec1b0ed9e4f78833f020b2b7ed423ce" category="paragraph">Modules DIMM</block>
+  <block id="c8bfe0a5fc27fb76ba86b0b3f8e488a3" category="list-text">Reconnectez la batterie NVMRM :</block>
+  <block id="b7cf9d5fc111cce87031b050032fe85f" category="list-text">Branchez la batterie NVRAM.</block>
+  <block id="44e9bf23cac339f1a46833e07d1be621" category="list-text">Alignez la batterie avec les supports de fixation de la paroi latérale en tôle.</block>
+  <block id="cca6b082b0a0af8dfe622b365bd85350" category="section-title">Étape 5 : renvoyez la pièce défectueuse à NetApp - AFF A700s</block>
+  <block id="a334af0b164fc0db79711e89abe4cb0d" category="sidebar">FAS2800</block>
+  <block id="4ec6a95192d18718a540794417c8fa63" category="sidebar">Conseiller digital NetApp Active IQ</block>
+  <block id="519131237f79eadb2dc6a1e003a087bc" category="sidebar">NetApp Active IQ Config Advisor</block>
+  <block id="b1a2e879032b7693396d5911fdb9ee8f" category="sidebar">Cartes mezzanine</block>
+  <block id="7655464c949e17f83cc9f89554f784e5" category="sidebar">Câblage des feuilles de calcul et des exemples pour la haute disponibilité multivoie</block>
+  <block id="c2b6b3b554d53a9298b53bc5f03d3830" category="sidebar">Fiche technique de câblage et exemple pour une haute disponibilité à quatre chemins</block>
+  <block id="84f80d47c3a3934ba083c16827645698" category="sidebar">Systèmes FAS2800</block>
+  <block id="0822c3a3c2088294acf4b156198fab16" category="sidebar">Installation et configuration du système FAS2800</block>
+  <block id="52082133ddafec6f44b27acdb0e80d2a" category="sidebar">Maintenance du système FAS2800</block>
+  <block id="79f9aa553b7d76f8fd255e9277fa5ed0" category="sidebar">Support de démarrage FAS2800</block>
+  <block id="1823853a2ff016fa1f167769ab335876" category="sidebar">Remplacez le support de démarrage et transférez l'image de démarrage</block>
+  <block id="e8beac267c4a923aec553646307b83eb" category="sidebar">Module de cache FAS2800</block>
+  <block id="c1c62fce3287ee9fb4c1d797a1feba55" category="sidebar">Châssis FAS2800</block>
+  <block id="94e71ac35b9db70fff06a5064f80e3f9" category="sidebar">Contrôleur FAS2800</block>
+  <block id="ff67b04dba165a63ada544868c9096f3" category="sidebar">DIMM FAS2800</block>
+  <block id="082f3ddfd8b928e971f0ca5feb57e067" category="sidebar">Disque FAS2800</block>
+  <block id="7f6c436a2d5532b606b07a676e696d32" category="sidebar">Batterie NVMEM FAS2800</block>
+  <block id="aee81807d892ce8f0557ee7ba4da62af" category="sidebar">Carte mezzanine FAS2800</block>
+  <block id="9287ab39836157b975fad28f9782a821" category="sidebar">Alimentation FAS2800</block>
+  <block id="3dfd3fa9bee4e9b9ad14ec588c8e9ed4" category="sidebar">Batterie d'horloge en temps réel FAS2800</block>
 </blocks>

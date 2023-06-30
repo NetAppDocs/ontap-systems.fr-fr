@@ -35,7 +35,7 @@ Les modules IOM12B se distinguent par une bande bleue et une étiquette « IOM12
 +
 image::../media/iom12b.png[iom12b]
 
-* Pour les configurations multipathes (multivoie haute disponibilité ou chemins d'accès multiples) et à quatre chemins d'accès (quadruple chemin d'accès haute disponibilité ou quadruple chemin), vous pouvez échanger un module de tiroir (remplacement sans interruption d'un module d'E/S dans un système qui est sous tension et assure le service des données).
+* Pour les configurations comportant plusieurs chemins d'accès multiples (HA ou multivoie), trois chemins d'accès haute disponibilité et quatre chemins d'accès (HA à quatre chemins ou à quatre chemins), vous pouvez remplacer à chaud un module d'E/S de tiroir (sans interruption, remplacer un module d'E/S dans un système sous tension et qui assure le service des données).
 * Pour les configurations HA à chemin unique des gammes FAS2600 et FAS2700, vous devez effectuer une opération de basculement et de rétablissement pour remplacer un module d'E/S de tiroir dans un système sous tension et où il assure l'accès aux données.
 * Pour les configurations à chemin unique de la gamme FAS2600, vous devez arrêter le système pour remplacer un IOM de tiroir.
 +
@@ -47,10 +47,10 @@ NOTE: Si vous tentez de remplacer à chaud un module d'E/S de tiroir sur un tiro
 Ces firmwares sont disponibles sur le site du support NetApp.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
 
 * Le firmware du tiroir disque (IOM) est automatiquement mis à jour (sans interruption) sur un nouveau module d'E/S de tiroir avec une version de firmware non à jour.
 +
@@ -78,7 +78,7 @@ Conservez tous les matériaux d'emballage à utiliser lors de l'affichage du mod
 
 
  a| 
-Haute disponibilité multivoie, chemins d'accès multiples, configuration à quatre chemins d'accès (HA) ou à quatre chemins d'accès
+Haute disponibilité multivoie, haute disponibilité à trois voies, chemins d'accès multiples, haute disponibilité à quatre voies ou configuration à quatre voies
  a| 
 Passez à l'étape suivante.
 
@@ -141,7 +141,7 @@ Les connecteurs de câble SAS sont clavetés ; lorsqu'ils sont orientés correct
 
 
  a| 
-Haute disponibilité multivoie, chemins d'accès multiples, configuration à quatre chemins d'accès (HA) ou à quatre chemins d'accès
+Haute disponibilité multivoie, haute disponibilité à trois voies, chemins d'accès multiples, haute disponibilité à quatre voies ou configuration à quatre voies
  a| 
 Passez à l'étape suivante.
 

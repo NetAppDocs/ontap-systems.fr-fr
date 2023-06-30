@@ -28,14 +28,14 @@ Votre système doit répondre à certaines exigences avant d'ajouter des tiroirs
 
 * Votre système et votre version d'ONTAP doivent prendre en charge les tiroirs disques que vous ajoutez à chaud, notamment les IOM, les disques et les câbles SAS.
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * Votre système doit comporter moins de disques que le nombre maximum pris en charge, au moins en fonction du nombre de tiroirs disques que vous envisagez d'ajouter à chaud.
 +
 Vous ne pouvez pas avoir dépassé le nombre maximal de disques pris en charge par votre système après l'ajout de tiroirs disques.
 
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * Si vous ajoutez à chaud une pile d'un ou de plusieurs tiroirs disques (directement sur les contrôleurs de la plateforme), votre système doit disposer de suffisamment de ports HBA PCI SAS disponibles ou de ports SAS intégrés, ou d'une combinaison des deux.
 +
@@ -54,7 +54,7 @@ Téléchargez et exécutez Config Advisor pour vérifier que vos connexions SAS 
 Vous devez corriger toute erreur de câblage à l'aide des actions correctives fournies par les messages d'erreur.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 
 
@@ -84,13 +84,6 @@ Vous devez vous familiariser avec les aspects et les meilleures pratiques à ce 
 Pour les configurations HA à chemin unique et à chemin unique, s'applique aux systèmes AFF A200, AFF A220, FAS2600 Series et FAS2700, vous pouvez ajouter à chaud des tiroirs disques à la fin de la pile qui ne dispose pas de connexions de contrôleur.
 
 * Les tiroirs disques dotés de modules IOM12/IOM12B doivent se trouver dans leur propre pile unique. Ils ne peuvent pas être ajoutés à une pile disposant de tiroirs avec des modules IOM6 ou des modules IOM3.
-+
-Cette procédure ne permet pas de combiner une pile : ajout à chaud d'un tiroir avec des modules IOM12/IOM12B vers une pile de tiroirs avec des modules IOM6.
-
-* Un système peut disposer de piles à chemins d'accès multiples et quadruples de tiroirs disques avec des modules IOM12/IOM12B.
-+
-Si vous disposez d'une paire haute disponibilité, ONTAP affiche la configuration du système comme `multipath HA`. Si vous disposez d'une configuration à un seul contrôleur, ONTAP présente la configuration système comme `multipath`.
-
 * Pour effectuer cette procédure, vous devez utiliser un ACP intrabande.
 +
 Pour les configurations dont la configuration ACP intrabande est activée, la technologie ACP intrabande est automatiquement activée sur les tiroirs disques à chaud. Pour les configurations dans lesquelles la technologie ACP intrabande n'est pas activée, les tiroirs disques à chaud fonctionnent sans fonctionnalité ACP.
@@ -123,17 +116,17 @@ Si des erreurs de câblage SAS ou d'ID de tiroir dupliqués sont générées, su
 Vous avez besoin d'un accès réseau pour télécharger Config Advisor.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 * Avant d'ajouter de nouveaux tiroirs disques, des composants d'unités remplaçables sur site pour les tiroirs ou des câbles SAS, il est recommandé d'installer les versions les plus récentes du firmware IOM (module d'E/S) pour le tiroir disque et du firmware pour le disque.
 +
 Ces firmwares sont disponibles sur le site du support NetApp.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
 
 
 
@@ -291,7 +284,7 @@ CAUTION: *Perte possible d'accès aux données:* ne jamais claster le tiroir fer
 Si vous utilisez un modèle de plateforme avec un tiroir disque interne, vous devez obtenir des ID de tiroir unique sur le tiroir disque interne et les tiroirs disques connectés en externe.
 
 +
-Vous pouvez modifier les ID de tiroir à l'aide des sous-étapes suivantes ou pour des instructions plus détaillées, utiliser link:install-change-shelf-id.html["Modifier l'ID de tiroir"].
+Vous pouvez modifier les ID de tiroir à l'aide des sous-étapes suivantes ou pour des instructions plus détaillées, utiliser link:install-change-shelf-id.html["Modifier l'ID de tiroir"^].
 
 +
 .. Si nécessaire, vérifiez les ID de tiroir déjà utilisés en exécutant Config Advisor.
@@ -316,7 +309,7 @@ L'ID du tiroir clignote et la LED orange du panneau d'écran de l'opérateur cli
 
 == Câbler les tiroirs disques avec des modules IOM12/IOM12B pour un ajout à chaud
 
-Il vous suffit de connecter les câbles SAS - tiroir à tiroir et contrôleur à pile - selon le cas des tiroirs disques ajoutés à chaud de sorte qu'ils soient connectés au système.
+Vous connectez les connexions SAS (tiroir à tiroir et contrôleur à pile) comme applicable aux tiroirs disques à chaud afin qu'ils soient connectés au système.
 
 .Avant de commencer
 Vous devez répondre aux exigences décrites dans la section link:install-hot-add-shelf.html#requirements-for-hot-adding-disk-shelves-with-iom12iom12b-modules["Conditions requises pour l'ajout à chaud de tiroirs disques avec modules IOM12"] Et installés, sous tension et définissez les ID de tiroir pour chaque tiroir disque comme indiqué dans la link:install-hot-add-shelf.html#install-disk-shelves-with-iom12iom12b-modules-for-a-hot-add["Installez les tiroirs disques avec des modules IOM12 pour une ajout à chaud"].
@@ -363,7 +356,7 @@ Vous devez désactiver l'affectation automatique de la propriété de disque sur
 
 
  a| 
-Vous câbler une pile avec une haute disponibilité multivoie, des chemins d'accès multiples, une haute disponibilité à chemin unique ou une connectivité à chemin unique aux contrôleurs
+Vous câblez une pile avec une haute disponibilité multivoie, une haute disponibilité à trois chemins, des chemins d'accès multiples, une haute disponibilité à un seul chemin ou une connectivité à un seul chemin vers les contrôleurs
  a| 
 Reliez les connexions du tiroir au tiroir en tant que connectivité « standard » (avec les ports IOM 3 et 1) :
 
@@ -386,10 +379,10 @@ Reliez les connexions du tiroir au tiroir en tant que connectivité « étendue 
 |===
 .. Consultez les fiches de câblage du contrôleur à la pile et des exemples de câblage pour savoir si une fiche complète existe pour votre configuration.
 +
-link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes AFF et FAS avec stockage intégré"]
+link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes avec stockage interne"]
 
 +
-link:install-cabling-worksheets-examples-multipath.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les configurations haute disponibilité multivoie courantes"]
+link:install-cabling-worksheets-examples-multipath.html["Fiches de câblage contrôleur à pile et exemples de câblage pour les configurations haute disponibilité multivoie"]
 
 +
 link:install-worksheets-examples-quadpath.html["Fiche de câblage contrôleur à pile et exemple de câblage pour une configuration haute disponibilité à quatre chemins d'accès avec deux HBA SAS à quatre ports"]
@@ -405,7 +398,7 @@ link:install-cabling-worksheet-template-quadpath.html["Modèle de fiche de câbl
 .. Vérifier que tous les câbles sont bien fixés.
 
 
-. Si vous ajoutez à chaud un ou plusieurs tiroirs disques à une fin (le premier ou le dernier tiroir disque logique) d'une pile existante, procédez comme suit pour votre configuration. Sinon, passez à l'étape suivante.
+. Si vous ajoutez à chaud un ou plusieurs tiroirs disques à une extrémité (le premier ou le dernier tiroir disque logique) d'une pile existante, suivez les sous-étapes applicables à votre configuration. Dans le cas contraire, passez à l'étape suivante.
 +
 
 NOTE: Assurez-vous d'attendre au moins 70 secondes entre le débranchement d'un câble et le rebranchement, et si vous remplacez un câble plus long.
@@ -417,7 +410,7 @@ NOTE: Assurez-vous d'attendre au moins 70 secondes entre le débranchement d'un 
 
 
  a| 
-Ajout à chaud d'un tiroir disque à la fin d'une pile avec chemins d'accès multiples, chemins d'accès multiples, haute disponibilité à quatre chemins d'accès ou connectivité à quatre chemins d'accès aux contrôleurs
+Ajout à chaud d'un tiroir disque à l'extrémité d'une pile offrant une connectivité multivoie haute disponibilité, à trois chemins d'accès, à chemins d'accès multiples, à quatre chemins d'accès haute disponibilité ou à quatre chemins vers les contrôleurs
  a| 
 .. Déconnectez tous les câbles du module d'E/S A du tiroir disque à l'extrémité de la pile qui sont connectés à n'importe quel contrôleur. Sinon, passez à l'étape par sous-
 +
@@ -444,14 +437,14 @@ Ces instructions sont destinées à l'ajout à chaud à l'extrémité de la pile
 |===
 . Si vous avez ajouté à chaud un tiroir disque avec des câbles optiques SAS HD Mini-SAS à une pile de tiroirs disques connectés avec des câbles en cuivre SAS, remplacez les câbles en cuivre SAS. Sinon, passez à l'étape suivante.
 +
-La pile doit répondre aux exigences indiquées dans le <<Conditions requises pour l'ajout à chaud de tiroirs disques avec modules IOM12>> section de cette procédure.
+La pile doit répondre aux exigences indiquées dans le <<Conditions requises pour l'ajout à chaud de tiroirs disques avec modules IOM12/IOM12B>> section de cette procédure.
 
 +
 Remplacez les câbles un par un et assurez-vous d'attendre au moins 70 secondes entre le débranchement d'un câble et le branchement d'un câble neuf.
 
 . Téléchargez et exécutez Config Advisor pour vérifier que vos connexions SAS sont correctement câblées.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 +
 Si des erreurs de câblage SAS sont générées, suivez les actions correctives fournies.

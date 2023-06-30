@@ -39,45 +39,45 @@ Si « Bridge-Attached » apparaît dans le champ prise en charge de la pile mixt
 
 ** Accédez à Hardware Universe et accédez aux informations de votre plateforme.
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 
 
 * Si vous ajoutez un tiroir à une configuration MetroCluster, la configuration doit répondre à toutes les exigences des guides d'installation et de configuration de MetroCluster.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/home.html["Guide d'installation et de configuration IP de MetroCluster"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/home.html["Guide d'installation et de configuration IP de MetroCluster"^]
 
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-stretch/home.html["Guide d'installation et de configuration de ONTAP 9 MetroCluster extensible"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-stretch/home.html["Guide d'installation et de configuration de ONTAP 9 MetroCluster extensible"^]
 
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["Guide d'installation et de configuration du MetroCluster ONTAP 9 (Fabric-Attached)"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["Guide d'installation et de configuration du MetroCluster ONTAP 9 (Fabric-Attached)"^]
 
-* La pile des tiroirs IOM6, auquel vous ajoutez un tiroir IOM12 à chaud, doit être câblée avec des câbles en cuivre SAS (pour toutes les connexions tiroir à tiroir et contrôleur à pile).
+* La pile des tiroirs IOM6, auquel vous ajoutez à chaud un tiroir IOM12/IOM12B, doit être câblée avec des câbles en cuivre SAS (pour toutes les connexions tiroir à tiroir et contrôleur à pile).
 +
 Les câbles optiques SAS ne sont pas pris en charge dans les piles mixtes.
 
 +
 
-NOTE: Si la pile de tiroirs IOM6 est câblée avec des câbles optiques SAS, vous ne pouvez pas ajouter à chaud un tiroir IOM12. Contactez votre ingénieur commercial NetApp.
+NOTE: Si la pile de tiroirs IOM6 est câblée avec des câbles optiques SAS, vous ne pouvez pas ajouter à chaud un tiroir IOM12/IOM12B. Contactez votre ingénieur commercial NetApp.
 
-* Votre système doit comporter moins de disques que le nombre maximal pris en charge, au moins en prenant en charge le nombre de disques capables d'être installés dans les tiroirs IOM12 que vous ajoutez à chaud.
+* Votre système doit avoir un nombre inférieur au nombre maximal de disques pris en charge, d'au moins le nombre de disques pouvant être installés dans les tiroirs IOM12/IOM12B que vous ajoutez à chaud.
 +
 Vous ne pouvez pas avoir dépassé le nombre maximal de disques pris en charge par votre système après l'ajout de tiroirs IOM12/IOM12B à chaud.
 
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * Votre système ne peut pas comporter de messages d'erreur de câblage SAS.
 +
 Vous devez corriger toute erreur de câblage à l'aide des actions correctives fournies par les messages d'erreur.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 * Vous devez avoir commandé et reçu les étagères IOM12/IOM12B, ainsi que le nombre et les types appropriés de câbles en cuivre SAS.
 +
-Les tiroirs IOM12 utilisent des connecteurs HD Mini-SAS. Les tiroirs IOM6 utilisent des connecteurs QSFP.
+Les tiroirs IOM12/IOM12B utilisent des connecteurs HD Mini-SAS. Les tiroirs IOM6 utilisent des connecteurs QSFP.
 
 
 
@@ -87,7 +87,7 @@ Les tiroirs IOM12 utilisent des connecteurs HD Mini-SAS. Les tiroirs IOM6 utilis
 
 Si vous ajoutez à chaud des tiroirs IOM12/IOM12B à une pile de tiroirs IOM6 connectés à l'aide de deux ponts ATTO FibreBridge dans une configuration MetroCluster, le système doit répondre à certaines exigences.
 
-* Si des ports SAS de pont sont disponibles dans la configuration actuelle, vous devez ajouter les tiroirs IOM12 comme pile distincte.
+* Si des ports SAS de pont sont disponibles dans la configuration actuelle, vous devez ajouter les tiroirs IOM12/IOM12B comme pile séparée.
 +
 Utilisez tous les ports de pont avant de mélanger des modules IOM12/IOM12B et IOM6 dans une pile.
 
@@ -105,16 +105,16 @@ Si quelque chose d'autre apparaît dans le champ support de pile mixte SAS2/SAS3
 
 ** Accédez à Hardware Universe et accédez aux informations de votre plateforme.
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 
 
 * La configuration doit répondre à toutes les exigences décrites dans les guides d'installation et de configuration de MetroCluster.
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/index.html["Installation et configuration d'une configuration Stretch MetroCluster"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/index.html["Installation et configuration d'une configuration Stretch MetroCluster"^]
 
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Installation et configuration d'une configuration MetroCluster Fabric-Attached"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Installation et configuration d'une configuration MetroCluster Fabric-Attached"^]
 
 * La pile des tiroirs IOM6, auquel vous ajoutez à chaud un tiroir IOM12/IOM12B, doit être câblée avec des câbles en cuivre SAS (pour toutes les connexions tiroir à tiroir et contrôleur à pile).
 +
@@ -154,9 +154,9 @@ Après avoir téléchargé le micrologiciel de tiroir IOM12/IOM12B vers vos tiro
 Vous ne pouvez pas utiliser cette procédure pour ajouter à chaud des tiroirs disques qui ont été supprimés à chaud d'une autre pile du système lorsque le système est sous tension et prêt à traiter des données (les E/S sont en cours).
 
 * Vous pouvez suivre cette procédure pour ajouter à chaud des tiroirs disques qui ont été supprimés à chaud au sein du même système MetroCluster si le tiroir affecté dispose d'agrégats en miroir.
-* Lorsque vous ajoutez des tiroirs avec des modules IOM12 à chaud à une pile de tiroirs avec des modules IOM6, la performance de l'ensemble de la pile fonctionne à 6 Gbit/s (s'exécute à la vitesse la plus basse).
+* Lorsque vous ajoutez à chaud des tiroirs avec des modules IOM12/IOM12B à une pile de tiroirs avec des modules IOM6, les performances de l'ensemble de la pile fonctionnent à 6 Gbit/s (s'exécutent à la vitesse commune la plus faible).
 +
-Si les tiroirs que vous ajoutez à chaud sont des tiroirs qui ont été mis à niveau depuis des modules IOM3 ou IOM6 vers des modules IOM12, la pile fonctionne à 12 Gbit/s. Toutefois, le fond de panier de tiroir et les capacités de disque peuvent limiter les performances des disques à 3 ou 6 Gbit/s.
+Si vous ajoutez à chaud des tiroirs qui ont été mis à niveau des modules IOM3 ou IOM6 vers des modules IOM12/IOM12B, la pile fonctionne à 12 Gbit/s. toutefois, les capacités du fond de panier et du disque du tiroir peuvent limiter les performances du disque à 3 Gbit/s ou 6 Gbit/s.
 
 * Une fois le câblage d'un tiroir ajouté à chaud, ONTAP reconnaît ce dernier :
 +
@@ -176,10 +176,10 @@ NOTE: Les mises à jour du micrologiciel peuvent prendre jusqu'à 30 minutes.
 
 * *Meilleure pratique :* la meilleure pratique consiste à installer sur votre système les versions les plus récentes du firmware du tiroir (module d'E/S) et du firmware du lecteur avant d'ajouter à chaud un tiroir.
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
 
 
 
@@ -198,18 +198,18 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/downloa
 Une fois le Active IQ Config Advisor exécuté avant l'ajout à chaud d'un tiroir fournit un snapshot de la connectivité SAS existante, il vérifie les versions du firmware des tiroirs (IOM) et vous permet de vérifier qu'un ID de tiroir est déjà utilisé sur votre système. Une fois Active IQ Config Advisor le tiroir ajouté à chaud, vous pouvez vérifier que les tiroirs sont correctement câblés et que leurs identifiants sont uniques au sein de votre système.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 * * Meilleure pratique:* la meilleure pratique est d'avoir ACP en bande (IBACP) en fonctionnement sur votre système.
 +
-** Pour les systèmes sur lesquels IBAP est exécuté, IBACP est automatiquement activé sur les tiroirs IOM12 ajoutés à chaud.
-** Pour les systèmes dans lesquels la technologie ACP hors bande est activée, les fonctionnalités ACP ne sont pas disponibles sur les tiroirs IOM12.
+** Pour les systèmes sur lesquels IBACP est exécuté, IBACP est automatiquement activé sur les tiroirs IOM12/IOM12B ajoutés à chaud.
+** Pour les systèmes sur lesquels la technologie ACP hors bande est activée, les fonctionnalités ACP ne sont pas disponibles sur les tiroirs IOM12/IOM12B.
 +
 Vous devez migrer vers IBACP et supprimer le câblage ACP hors bande.
 
 ** Si votre système n'exécute pas IBACP et que votre système répond aux exigences d'IBACP, vous pouvez migrer votre système vers IBACP avant d'ajouter à chaud un tiroir IOM12.
 +
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/In-Band_ACP_Setup_and_Support["Instructions pour migrer vers IBACP"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/In-Band_ACP_Setup_and_Support["Instructions pour migrer vers IBACP"^]
 
 +
 
@@ -223,7 +223,7 @@ NOTE: Les instructions de migration fournissent la configuration système requis
 
 == Préparez-vous à attribuer manuellement la propriété du disque pour un ajout à chaud
 
-Si vous attribuez manuellement la propriété des disques aux tiroirs IOM12 que vous ajoutez à chaud, vous devez désactiver l'affectation automatique des disques s'il est activé.
+Si vous attribuez manuellement la propriété des disques aux tiroirs IOM12/IOM12B que vous ajoutez à chaud, vous devez désactiver l'affectation automatique des disques s'il est activé.
 
 .Avant de commencer
 Vous devez avoir satisfait à la configuration système requise.
@@ -360,7 +360,7 @@ CAUTION: *Perte possible d'accès aux données:* ne jamais claster le tiroir fer
 +
 .. Définissez l'ID de tiroir pour chaque tiroir que vous ajoutez à chaud dans un ID unique au sein de la paire haute disponibilité ou de la configuration à un seul contrôleur.
 +
-Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99. Il est recommandé de définir les ID des tiroirs de sorte que les tiroirs IOM6 utilisent des numéros inférieurs (1 à 9) et les tiroirs IOM12 utilisent des nombres supérieurs (10 et supérieurs).
+Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99. Il est recommandé de définir les ID de tiroir de manière à ce que les tiroirs IOM6 utilisent des nombres inférieurs (1 à 9) et les tiroirs IOM12/IOM12B des nombres supérieurs (10 et supérieurs).
 
 +
 Si vous disposez d'un modèle de plateforme avec stockage intégré, il est nécessaire de disposer d'identifiants uniques entre le tiroir interne et les tiroirs connectés en externe. Il est recommandé de définir le tiroir interne sur 0. Dans les configurations IP MetroCluster, seuls les noms de tiroirs externes s'appliquent. Par conséquent, les noms de tiroirs n'ont pas besoin d'être uniques.
@@ -369,7 +369,7 @@ Si vous disposez d'un modèle de plateforme avec stockage intégré, il est néc
 
 . Si nécessaire, vérifiez les ID de tiroir déjà utilisés en exécutant Active IQ Config Advisor.
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 +
 Vous pouvez également exécuter le `storage shelf show -fields shelf-id` Commande pour afficher la liste des ID de tiroir déjà utilisés (et les doublons si présents) dans votre système.
@@ -390,7 +390,7 @@ Vous devez éteindre les deux interrupteurs, attendre 10 secondes, puis les rall
 
 == Des étagères pour un ajout à chaud
 
-Le câblage d'un tiroir IOM12/IOM12B à une pile de tiroirs IOM6 dépend si le tiroir IOM12 est le tiroir initial IOM12/IOM12B, ce qui signifie qu'aucun autre tiroir IOM12 n'existe dans la pile, Ou s'il s'agit d'un tiroir IOM12/IOM12B supplémentaire à une pile mixte existante, c'est-à-dire qu'un ou plusieurs tiroirs IOM12/IOM12B existent déjà dans la pile. Elle dépend également de si la pile possède une haute disponibilité multivoie, des chemins d'accès multiples, une haute disponibilité à chemin unique ou une connectivité à chemin unique.
+Le branchement du câble d'un tiroir IOM12/IOM12B sur une pile de tiroirs IOM6 dépend du fait que le tiroir IOM12/IOM12B soit le tiroir IOM12/IOM12B initial, ce qui signifie qu'il n'existe aucun autre tiroir IOM12/IOM12B dans la pile, Ou s'il s'agit d'un tiroir IOM12/IOM12B supplémentaire à une pile mixte existante, ce qui signifie qu'un ou plusieurs tiroirs IOM12/IOM12B existent déjà dans la pile. La pile doit également disposer d'une haute disponibilité multivoie, d'une haute disponibilité à trois chemins, de chemins d'accès multiples, d'une haute disponibilité à voie unique ou d'une connectivité à voie unique.
 
 .Avant de commencer
 * Vous devez avoir satisfait à la configuration système requise.
@@ -418,12 +418,12 @@ Par exemple :
 +
 ** Dans une paire haute disponibilité, une transition à vitesse unique dans une pile comprend deux tiroirs IOM6 et deux tiroirs IOM12/IOM12B est décrite comme suit :
 +
- Controller <-> IOM6 <-> IOM6 <---> IOM12IOM12B <-> IOM12/IOM12B <-> Controller
-** Dans une paire haute disponibilité avec stockage IOM12E intégré, une transition à vitesse unique au sein d'une pile comportant deux tiroirs IOM12 et deux tiroirs IOM6 est décrite comme suit :
+ Controller <-> IOM6 <-> IOM6 <---> IOM12/IOM12B <-> IOM12/IOM12B <-> Controller
+** Dans une paire haute disponibilité avec stockage interne (IOM12E/IOM12G), une transition à vitesse unique au sein d'une pile comportant deux tiroirs IOM12/IOM12B et deux tiroirs IOM6 est représentée comme suit :
 +
- IOM12E 0b <-> IOM12/IOM12B <-> IOM12/IOM12B <---> IOM6 <-> IOM6 <-> IOM12E 0a
+ IOM12E 0b/IOM12G 0b1 <-> IOM12/IOM12B <-> IOM12/IOM12B <---> IOM6 <-> IOM6 <-> IOM12E 0a/IOM12G 0a
 +
-Le port de stockage intégré 0b est le port du stockage interne (expandeur). En effet, il se connecte au tiroir IOM12/IOM12B ajouté à chaud (dernier tiroir de la pile), le groupe de tiroirs IOM12/IOM12B est maintenu ensemble et une transition unique est maintenue à travers la pile et le stockage IOM12E intégré.
+Le port de stockage interne 0b/0b1 est le port du stockage interne (expandeur) et comme il se connecte au tiroir IOM12/IOM12B ajouté à chaud (le dernier tiroir de la pile), le groupe de tiroirs IOM12/IOM12B est conservé ensemble et une transition unique est maintenue dans la pile et le stockage interne IOM12E/IOM12G.
 
 
 
@@ -443,7 +443,7 @@ Pour les tiroirs, vous insérez un connecteur de câble SAS avec la languette de
 
 * Vous pouvez vous reporter à l'illustration suivante pour le câblage des tiroirs IOM12/IOM12B vers une pile de tiroirs IOM6 dans une configuration qui n'utilise pas de ponts FC-SAS.
 +
-Cette illustration est spécifique à une pile avec une connectivité haute disponibilité multivoie. Toutefois, le concept de câblage peut être appliqué aux piles avec des chemins d'accès multiples, une haute disponibilité à chemin unique, une connectivité à chemin unique et des configurations MetroCluster étendues.
+Cette illustration est spécifique à une pile avec une connectivité haute disponibilité multivoie. Cependant, le concept de câblage peut être appliqué aux piles avec des chemins d'accès multiples, une haute disponibilité à trois chemins, une haute disponibilité à voie unique, une connectivité à voie unique et des configurations MetroCluster étendues.
 
 +
 image::../media/drw_sas2_sas3_mixed_stack.png[pile mixte drw sas2 sas3]
@@ -454,7 +454,7 @@ image::../media/drw_sas2_sas3_mixed_stack.png[pile mixte drw sas2 sas3]
 .Étapes
 . Identifier physiquement le dernier tiroir logique de la pile.
 +
-Selon le modèle de plateforme et la connectivité de la pile (multivoie haute disponibilité, chemins d'accès multiples, chemin unique ou chemin unique), le dernier tiroir logique propose des connexions contrôleur à pile à partir des ports B et D du contrôleur SAS, De plus, le tiroir ne peut être connecté à aucun contrôleur (la connectivité du contrôleur à la pile est en haut logique de la pile, via les ports SAS Du contrôleur A et C).
+Selon le modèle de votre plateforme et la connectivité de la pile (haute disponibilité multivoie, haute disponibilité à trois chemins, chemins d'accès multiples, haute disponibilité à voie unique ou voie unique), Le dernier tiroir logique est le tiroir qui possède des connexions contrôleur-pile depuis les ports SAS B et D du contrôleur ou bien le tiroir n'ayant aucune connexion avec aucun contrôleur (la connectivité contrôleur-pile étant au sommet logique de la pile, via les ports SAS A et C du contrôleur).
 
 . Si le tiroir IOM12/IOM12B que vous ajoutez à chaud est le tiroir initial IOM12/IOM12B ajouté à la pile IOM6. Ainsi, aucun autre tiroir IOM12/IOM12B n'existe dans la pile de tiroirs IOM6, effectuez les sous-étapes applicables.
 +
@@ -471,7 +471,7 @@ Sinon, passez à l'étape 3.
 
 
  a| 
-Haute disponibilité multivoie ou chemins d'accès multiples, ou encore haute disponibilité à chemin unique avec connectivité du contrôleur au dernier tiroir logique (configurations Stretch MetroCluster)
+Haute disponibilité multivoie, haute disponibilité à trois chemins, chemins d'accès multiples ou haute disponibilité à une voie avec connectivité du contrôleur au dernier tiroir logique (y compris les configurations MetroCluster étendues)
  a| 
 .. Débranchez le câble reliant le contrôleur à la pile du dernier module d'E/S du tiroir IOM6, un port cercle qui relie le contrôleur ou le pont.
 +
@@ -494,7 +494,7 @@ Utilisez un câble HD Mini-SAS HD à mini-SAS en cuivre SAS.
 +
 Sinon, passez à la sous-étape suivante.
 
-.. Rétablir la connexion entre le contrôleur et la pile en câbler le même port sur le contrôleur ou le pont (sous-étape a) sur le nouveau port 3 du module d'E/S Du dernier tiroir IOM12.
+.. Rétablissez la connexion entre le contrôleur et la pile en câblant le même port sur le contrôleur ou le pont (à l'étape a) au nouveau port A 3 du dernier tiroir IOM12/IOM12B IOM.
 +
 Utilisez un câble SAS HD QSFP-to-Mini-SAS en cuivre ou un câble HD Mini-SAS HD vers Mini-SAS HD, en fonction du type de port sur le contrôleur.
 
@@ -519,7 +519,7 @@ Mettre le câble de côté. Ce n'est plus nécessaire.
 +
 Sinon, passez à la sous-étape e.
 
-.. Reliez la connexion tiroir-tiroir entre le port circulaire a du dernier module IOM6 de tiroir (à partir de la sous-étape a) et le nouveau port 1 IOM A du tiroir IOM12.
+.. Reliez la connexion tiroir à tiroir entre le dernier module d'E/S de tiroir IOM6, Un port cercle (de la sous-étape a) et le nouveau tiroir IOM12/IOM12B, IOM A, port 1.
 +
 Utilisez un câble SAS HD QSFP-to-Mini-SAS en cuivre.
 
@@ -531,7 +531,7 @@ Utilisez un câble HD Mini-SAS HD à mini-SAS en cuivre SAS.
 Sinon, passez à la sous-étape suivante.
 
 .. Répétez les sous-étapes b et c pour connecter les connexions du tiroir à l'tiroir pour l'IOM B.
-.. Rétablir la connexion entre le pont inférieur et la pile en câbler le même port sur le pont (dans la sous-étape a) au nouveau port 3 du dernier IOM A du tiroir IOM12.
+.. Rétablissez la connexion entre le pont inférieur et la pile en câblant le même port sur le pont (dans la sous-étape a) au nouveau port 3 IOM A du dernier tiroir IOM12/IOM12B.
 +
 Utilisez un câble SAS HD QSFP-to-Mini-SAS en cuivre ou un câble HD Mini-SAS HD vers Mini-SAS HD, en fonction du type de port sur le contrôleur.
 
@@ -567,7 +567,7 @@ NOTE: Assurez-vous d'attendre au moins 70 secondes entre le débranchement d'un 
 
 
  a| 
-Haute disponibilité multivoie ou chemins d'accès multiples, ou encore haute disponibilité à chemin unique avec la connectivité du contrôleur au dernier tiroir logique, ou encore la connectivité à connexion Bridge-Attached dans une configuration MetroCluster
+Haute disponibilité multivoie, haute disponibilité à trois chemins, chemins d'accès multiples ou haute disponibilité à un chemin avec connectivité du contrôleur au dernier tiroir logique, ou connectivité à un pont dans une configuration MetroCluster
  a| 
 .. Déplacez le câble contrôleur-pile du dernier module d'E/S a du tiroir IOM12/IOM12B 3 vers le même port du nouveau dernier tiroir IOM12/IOM12B.
 .. Si vous ajoutez à chaud un tiroir IOM12/IOM12B, reliez la connexion tiroir-tiroir entre l'ancien dernier tiroir IOM12/IOM12B IOM A port 3 au nouveau dernier tiroir IOM12/IOM12B IOM A port 1.
@@ -626,7 +626,7 @@ Sinon, passez à l'étape 4.
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Téléchargement NetApp : Config Advisor"]
+https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 . Si vous avez désactivé l'affectation automatique de disques dans le cadre de la préparation de cette procédure, vous devez attribuer manuellement la propriété du disque, puis réactiver l'affectation automatique de disques, si nécessaire.
 +

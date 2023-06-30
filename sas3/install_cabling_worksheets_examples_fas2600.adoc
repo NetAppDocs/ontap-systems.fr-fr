@@ -1,8 +1,8 @@
 ---
 permalink: sas3/install-cabling-worksheets-examples-fas2600.html 
 sidebar: sidebar 
-keywords: controller-to-stack, cabling, worksheet, aff, a200, a220, fas2600, fas2700, internal storage 
-summary: Vous pouvez utiliser les fiches de câblage contrôleur-pile et des exemples de câblage pour connecter les plateformes à un système de stockage interne, notamment les gammes FAS2600, AFF A200, FAS2700 Series, AFF A220, et plus tard. 
+keywords: controller-to-stack, cabling, worksheet, aff, a200, a220, fas2600, fas2700, fas2800, internal storage 
+summary: Vous pouvez utiliser les feuilles de calcul de câblage contrôleur à pile complètes et des exemples de câblage pour relier les plateformes au stockage interne. 
 ---
 = Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes avec stockage interne - tiroirs avec modules IOM12/IOM12B
 :allow-uri-read: 
@@ -11,15 +11,15 @@ summary: Vous pouvez utiliser les fiches de câblage contrôleur-pile et des exe
 
 
 [role="lead"]
-Vous pouvez utiliser les fiches de câblage contrôleur-pile et des exemples de câblage pour connecter les plateformes à un système de stockage interne, notamment les gammes FAS2600, AFF A200, FAS2700 Series, AFF A220, et plus tard.
+Vous pouvez utiliser les feuilles de calcul de câblage contrôleur à pile complètes et des exemples de câblage pour relier les plateformes au stockage interne.
 
 
 NOTE: Ces informations ne s'appliquent pas aux plateformes FAS250.
 
-* Si nécessaire, vous pouvez vous reporter à link:install-cabling-rules.html["Règles de câblage SAS"] pour plus d'informations sur les configurations prises en charge, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir.
-* Des exemples de câblage montrent que les câbles du contrôleur à la pile sont en continu ou en pointillé pour distinguer les connexions du port 0b du contrôleur des connexions du port 0a.
+* Si nécessaire, vous pouvez vous reporter à link:install-cabling-rules.html["Concepts et règles de câblage SAS"] pour plus d'informations sur les configurations prises en charge, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir.
+* Les exemples de câblage montrent que les câbles reliant le contrôleur à la pile sont continus ou en pointillés pour distinguer les connexions des ports 0b/0b1 du contrôleur des connexions des ports 0a du contrôleur.
 +
-image::../media/drw_fas2600_controller_to_stack_cable_type_key.png[clé de type de câble entre contrôleur drw fas2600 et pile]
+image::../media/drw_fas2600_controller_to_stack_cable_type_key_IEOPS-947.svg[Clé de type de câble de type contrôleur à pile drw fas2600 IEOPS 947]
 
 * Des exemples de câblage montrent les connexions du contrôleur à la pile et des connexions tiroir à tiroir dans deux couleurs différentes pour distinguer la connectivité via l'IOM A (domaine A) et l'IOM B (domaine B).
 +
@@ -29,13 +29,42 @@ image::../media/drw_fas2600_cable_color_key.png[clé couleur du câble drw fas26
 
 
 
+== Plateforme FAS2800 dans une configuration haute disponibilité multivoie sans tiroirs externes
+
+L'exemple suivant montre qu'aucun câblage n'est nécessaire pour obtenir la connectivité haute disponibilité multivoie :
+
+image::../media/drw_fas2800_noshelf_mpha_IEOPS-954.svg[drw fas2800 mpha noshelf IEOPS 954]
+
+
+
+== Plateforme FAS2800 dans une configuration haute disponibilité à trois chemins sans tiroirs externes
+
+L'exemple de câblage suivant montre le câblage requis entre les deux contrôleurs pour obtenir une connectivité à trois chemins :
+
+image::../media/drw_fas2800_noshelf_tpha_IEOPS-955.svg[drw fas2800 tpha noshelf IEOPS 955]
+
+
+
+== Plateforme FAS2800 dans une configuration haute disponibilité à trois chemins avec une pile à plusieurs tiroirs
+
+La feuille de calcul et l'exemple de câblage suivants utilisent la paire de ports 0a/0b1 :
+
+image::../media/drw_fas2800_worksheet_IEOPS-948.svg[Feuille de travail drw fas2800 IEOPS 948]
+
+image::../media/drw_fas2800_withshelves_tpha_IEOPS-949.svg[drw fas2800 avec étagères tpha IEOPS 949]
+
+
+
 == Plateformes avec stockage interne dans une configuration haute disponibilité à chemins d'accès multiples avec une pile à plusieurs tiroirs
 
 Les exemples de fiche et de câblage suivants utilisent la paire de ports 0a/0b :
 
-image::../media/drw_fas2600_mpha_worksheet.png[fiche technique de mpha drw fas2600]
 
-image::../media/drw_fas2600_mpha.png[mpha drw fas2600]
+NOTE: Cette section ne s'applique pas aux systèmes FAS2800 ou FAS25XX.
+
+image::../media/drw_fas2600_mpha_worksheet_IEOPS-1255.svg[feuille de travail drw fas2600 mpha IEOPS 1255]
+
+image::../media/drw_fas2600_mpha_IEOPS-1256.svg[drw fas2600 mpha IOPS 1256]
 
 
 

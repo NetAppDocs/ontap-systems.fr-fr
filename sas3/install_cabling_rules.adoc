@@ -1,10 +1,10 @@
 ---
 permalink: sas3/install-cabling-rules.html 
 sidebar: sidebar 
-keywords: disk, shelves, shelf, iom12, module, single-controller, configuration, support, platform, sas, cabling, cable, rule, controller, shelf-to-shelf, connection, rule, controller-to-stack, mini-sas, hd, optical, cable, rule, sas cabling rules, iom12b 
+keywords: disk, shelves, shelf, iom12, module, single-controller, configuration, support, platform, sas, cabling, cable, rule, controller, shelf-to-shelf, connection, rule, controller-to-stack, mini-sas, hd, optical, cable, rule, sas cabling rules, iom12b, concepts 
 summary: 'Les tiroirs disques dotés de modules IOM12/IOM12B peuvent être câblés dans des configurations de paire haute disponibilité et à un seul contrôleur (pour les plateformes prises en charge).' 
 ---
-= Règles de câblage SAS - tiroirs avec modules IOM12/IOM12B
+= Règles et concepts de câblage SAS - tiroirs avec modules IOM12/IOM12B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,7 +14,7 @@ summary: 'Les tiroirs disques dotés de modules IOM12/IOM12B peuvent être câbl
 Les tiroirs disques dotés de modules IOM12/IOM12B peuvent être câblés dans des paires haute disponibilité et des configurations à un seul contrôleur (pour les plateformes prises en charge) en appliquant les règles de câblage SAS : règles de configuration, règles de numérotation des connecteurs de contrôleur, règles de connexion entre tiroirs et tiroirs, règles de connexion entre contrôleurs et SAS HD Mini-SAS, le cas échéant.
 
 
-NOTE: Les règles de câblage SAS relatives aux règles de numérotation des connecteurs du contrôleur, aux règles de connexion entre tiroirs et tiroirs et aux règles de connexion entre le contrôleur et la pile décrites dans ce guide sont les mêmes règles qui s'appliquent à tous les tiroirs disques SAS, qu'ils disposent de modules IOM12/IOM12B, IOM6 ou IOM3. Les informations de ce guide spécifiques aux caractéristiques uniques des tiroirs disques dotés de modules IOM12 et leur utilisation dans les configurations prises en charge.
+NOTE: Les règles de câblage SAS relatives aux règles de numérotation des connecteurs du contrôleur, aux règles de connexion entre tiroirs et tiroirs et aux règles de connexion entre le contrôleur et la pile décrites dans ce guide sont les mêmes règles qui s'appliquent à tous les tiroirs disques SAS, qu'ils disposent de modules IOM12/IOM12B, IOM6 ou IOM3. Toutefois, les informations de ce guide sont spécifiques aux caractéristiques uniques des tiroirs disques avec modules IOM12/IOM12B et à leur utilisation dans les configurations prises en charge.
 
 Les règles de câblage SAS relatives aux règles de configuration et aux règles de câblage optique SAS HD Mini-SAS décrites dans ce guide sont spécifiques aux tiroirs disques dotés de modules IOM12/IOM12B.
 
@@ -32,20 +32,39 @@ Vous devez éviter de vous écarter des règles ; les écarts pourraient réduir
 
 == Règles de configuration
 
-Les tiroirs disques dotés de modules IOM12 sont pris en charge sur des types spécifiques de configurations de paire haute disponibilité et à contrôleur unique.
+[role="lead"]
+Les tiroirs disques avec modules IOM12/IOM12B sont pris en charge sur des types spécifiques de configurations à paires haute disponibilité et à un seul contrôleur.
 
 
 NOTE: Les plateformes FAS250 ne sont pas traitées dans ce contenu.
 
+[NOTE]
+====
+Pour plus d'informations sur les configurations de câblage prises en charge par votre modèle de plate-forme, consultez le Hardware Universe.
+
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+====
 * Les configurations des paires HAUTE DISPONIBILITÉ doivent être câblées en tant que configurations haute disponibilité à chemins d'accès multiples ou à quatre chemins, à l'exception des cas suivants :
 +
-** Plateformes avec stockage interne, notamment FAS2600 Series, AFF A200, FAS2700 Series, AFF A220, Puis peuvent être câblées en tant que configurations haute disponibilité à chemin unique pour prendre en charge la connectivité à un périphérique de sauvegarde sur bande SAS externe.
-** Plateformes avec stockage interne, notamment FAS2600 Series, AFF A200, FAS2700 Series, AFF A220, Par la suite, ne prennent pas en charge la connectivité haute disponibilité à quatre chemins.
+** Les plateformes avec stockage interne ne prennent pas en charge la connectivité haute disponibilité à quatre chemins.
+** Une paire haute disponibilité FAS2800 peut être câblée sous forme de haute disponibilité à trois chemins.
++
+Vous trouverez des informations sur la connectivité FAS2800 dans le <<Connectivité haute disponibilité à trois chemins d'accès>> section.
+
+** Les plateformes avec stockage interne peuvent être câblées en tant que configurations haute disponibilité à chemin unique (du port 0b/0b1 aux tiroirs externes) pour prendre en charge la connectivité à un périphérique de sauvegarde sur bande SAS externe (à partir du port 0a).
 
 
+
+
+[NOTE]
+====
+Pour les paires haute disponibilité FAS2800, bien que le câblage à des tiroirs externes soit à chemin unique, la haute disponibilité est due à la connexion interne de chaque contrôleur du port 0b à son expandeur local (IOM12G) et du port 0C au expandeur de son partenaire, la configuration des paires haute disponibilité est multivoie.
+
+====
 * Les configurations à un contrôleur unique doivent être câblées en tant que configurations à chemins d'accès multiples ou à quatre chemins, à l'exception des cas suivants :
 +
-** Les configurations à contrôleur unique de la gamme FAS2600 (avec tiroirs disques externes) peuvent être câblées en tant que configurations à chemin unique.
+** Les configurations à un contrôleur de la gamme FAS2600 peuvent être câblées en tant que configurations à voie unique.
 +
 Du fait que le stockage interne utilise la connectivité à chemin unique, ONTAP émet occasionnellement des avertissements indiquant que des chemins mixtes sont détectés. Pour éviter ces avertissements, vous pouvez utiliser la connectivité à chemin unique vers les tiroirs disques externes. En outre, vous pouvez utiliser la connectivité à chemin unique lorsqu'un périphérique de sauvegarde sur bande SAS externe est utilisé.
 
@@ -88,8 +107,10 @@ Lorsque vous disposez de plusieurs tiroirs disques dans une pile de tiroirs disq
 
 === Connectivité standard tiroir à tiroir
 
-* La connectivité standard tiroir à tiroir est utilisée dans les configurations haute disponibilité multivoie, les chemins d'accès multiples, la haute disponibilité à chemin unique et le chemin unique.
-* La connectivité standard tiroir à tiroir est utilisée dans les configurations de stockage SAS existantes avec des modules IOM3 et IOM6 : un câble est nécessaire pour connecter les tiroirs disques de chaque domaine a (IOM A) et B (IOM B).
+* La connectivité standard tiroir à tiroir est utilisée dans n'importe quelle pile de tiroirs disques dotés de plusieurs tiroirs disques.
++
+Une connexion de câble est nécessaire entre les tiroirs disques de chaque domaine--domaine A (IOM A) et domaine B (IOM B).
+
 * Il est recommandé d'utiliser les ports IOM 3 et 1 pour la connectivité standard tiroir à tiroir.
 +
 Du premier tiroir logique au dernier tiroir logique d'une pile, vous connectez le port IOM 3 au port IOM 1 du tiroir suivant dans le domaine A, puis le domaine B.
@@ -238,23 +259,23 @@ link:install-cabling-worksheet-template-quadpath.html["Modèle de fiche de câbl
 
 
 
-=== Règles de connexion des ports 0b et 0a pour les plateformes avec stockage interne
+=== Règles de connexion des ports des contrôleurs 0b/0b1 et 0a pour les plateformes avec stockage interne
 
-Plateformes avec stockage interne, notamment FAS2600 Series, AFF A200, FAS2700 Series, AFF A220, par la suite, ils disposent d'un ensemble unique de règles de connexion, car chaque contrôleur doit maintenir la même connectivité de domaine entre le stockage interne (port 0b) et la pile. Cela signifie qu'lorsqu'un contrôleur est situé dans le slot A du châssis (contrôleur 1), il se trouve dans le domaine A (IOM A) et par conséquent le port 0b doit se connecter au module d'E/S A de la pile. Lorsqu'un contrôleur se trouve dans le slot B du châssis (contrôleur 2), il se trouve dans le domaine B (IOM B) et par conséquent le port 0b doit se connecter au module d'E/S B de la pile.
+Les plates-formes avec stockage interne disposent d'un ensemble unique de règles de connexion car chaque contrôleur doit maintenir la même connectivité de domaine entre le stockage interne (port 0b/0b1) et la pile. Cela signifie que lorsqu'un contrôleur se trouve dans le slot A du châssis (contrôleur 1), il se trouve dans le domaine A (IOM A) et que le port 0b/0b1 doit donc se connecter au module d'E/S A de la pile. Lorsqu'un contrôleur se trouve dans le slot B du châssis (contrôleur 2), il se trouve dans le domaine B (IOM B) et par conséquent le port 0b/0b1 doit se connecter au module d'E/S B de la pile.
 
 
 NOTE: Les plateformes FAS25XX ne sont pas traitées dans ce contenu.
 
 
-NOTE: Si vous ne connectez pas le port 0b au domaine approprié (domaines de connexion croisée), vous exposez votre système aux problèmes de résilience qui empêchent la continuité de l'activité.
+NOTE: Si vous ne connectez pas le port 0b/0b1 au domaine approprié (domaines à connexion croisée), vous exposez votre système à des problèmes de résilience qui vous empêchent d'effectuer des procédures sans interruption en toute sécurité.
 
-* Port 0b (port de stockage interne) :
+* Port du contrôleur 0b/0b1 (port de stockage interne) :
 +
-** Le port 0b du contrôleur 1 se connecte toujours au module d'E/S A (domaine A).
-** Le port 0b du contrôleur 2 se connecte toujours au module d'E/S B (domaine B).
-** Le port 0b est toujours le chemin principal.
-** Le port 0b se connecte toujours au dernier tiroir disque logique d'une pile.
-** Le port 0b se connecte toujours au port IOM 3 du tiroir disque.
+** Le port 0b/0b1 du contrôleur 1 se connecte toujours au module d'E/S A (domaine A).
+** Le port 0b/0b1 du contrôleur 2 se connecte toujours au module d'E/S B (domaine B).
+** Le port 0b/0b1 est toujours le chemin principal.
+** Le port 0b/0b1 se connecte toujours au dernier tiroir disque logique d'une pile.
+** Le port 0b/0b1 est toujours connecté au port IOM 3 du tiroir disque.
 
 
 * Port 0a de contrôleur (port HBA interne) :
@@ -268,9 +289,37 @@ NOTE: Si vous ne connectez pas le port 0b au domaine approprié (domaines de con
 
 
 
-L'illustration suivante présente la connectivité du domaine des ports de stockage internes pour les gammes FAS2600, AFF A200, FAS2700, AFF A220 et HA à chemins d'accès multiples :
+L'illustration suivante met en évidence la connectivité de domaine du port de stockage interne (0b/0b1) à une pile de tiroirs externe :
 
-image::../media/drw_fas2600_mpha_domain_example.png[exemple de domaine drw fas2600 mpha]
+image::../media/drw_fas2600_mpha_domain_example_IEOPS-1172.svg[exemple de domaine mpha drw fas2600 IEOPS 1172]
+
+
+
+=== Connectivité haute disponibilité à trois chemins d'accès
+
+La connectivité haute disponibilité à trois chemins est disponible sur les paires haute disponibilité FAS2800. La connectivité haute disponibilité à trois chemins d'accès existe entre chaque contrôleur et les tiroirs internes (IOM12G) et externes :
+
+* La connexion interne de chaque contrôleur du port 0b à son IOM12G local et du port 0C à l'IOM12G de son partenaire assure une connectivité haute disponibilité multivoie par paire haute disponibilité.
+* Le câblage des ports de stockage externes de chaque contrôleur, 0a et 0b1, assure une connectivité haute disponibilité à trois chemins par paire haute disponibilité.
++
+Les ports 0a et 0b1 sont câblés sur les deux contrôleurs en l'absence de tiroirs externes ou sur des tiroirs externes pour assurer une connectivité haute disponibilité à chemins d'accès triple.
+
+
+
+La figure suivante présente les connexions internes et le câblage externe du contrôleur permettant une connectivité haute disponibilité à trois chemins :
+
+image::../media/drw_fas2800_concept_tpha_IEOPS-950.svg[drw fas2800 concept tpha IEOPS 950]
+
+Ports SAS externes FAS2800 :
+
+* Le port 0a provient de l'adaptateur HBA interne (comme les autres plateformes avec un tiroir interne).
+* Le port 0b1 provient du shelf interne (comme les ports 0b sur d'autres plateformes avec un shelf interne).
+* Le port 0b2 n'est pas utilisé. Il est désactivé. Si un câble y est connecté, un message d'erreur est généré.
+
+
+image::../media/drw_sas3_ports_on_fas2800_IEOPS-946 (1).svg[drw sas3 ports sur fas2800 IEOPS 946 (1)]
+
+Des exemples de câblage de paires haute disponibilité FAS2800 sont disponibles dans le link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes avec stockage interne"] section.
 
 
 

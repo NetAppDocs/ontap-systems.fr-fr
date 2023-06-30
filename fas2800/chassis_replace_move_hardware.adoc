@@ -1,0 +1,161 @@
+---
+permalink: fas2800/chassis-replace-move-hardware.html 
+sidebar: sidebar 
+keywords: fas2800, replace, chassis, shut down, controller, metrocluster, power, supply, ha, state, controller, configuration, switch, aggregates, replace, move, remove, swap 
+summary: 'Déplacez les blocs d"alimentation, les disques durs et les modules de contrôleur du châssis défectueux vers le châssis de remplacement, puis remplacez le châssis défectueux du rack ou de l"armoire système par le châssis de remplacement du même modèle que le châssis défectueux.' 
+---
+= Déplacer et remplacer le matériel - FAS2800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Déplacez les blocs d'alimentation, les disques durs et les modules de contrôleur du châssis défectueux vers le châssis de remplacement, puis remplacez le châssis défectueux du rack ou de l'armoire système par le châssis de remplacement du même modèle que le châssis défectueux.
+
+
+
+== Étape 1 : déplacer un bloc d'alimentation
+
+Le retrait d'un bloc d'alimentation lors du remplacement d'un châssis implique la mise hors tension, la déconnexion et le retrait du bloc d'alimentation du châssis défectueux, ainsi que l'installation et la connexion sur le châssis de remplacement.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Mettez le bloc d'alimentation hors tension et débranchez les câbles d'alimentation :
++
+.. Eteindre l'interrupteur de l'alimentation en panne.
+.. Ouvrez le dispositif de retenue du câble d'alimentation, puis débranchez le câble d'alimentation du bloc d'alimentation.
+.. Débranchez le câble d'alimentation de la source d'alimentation.
+
+
+. Appuyez sur le loquet de la poignée de came du bloc d'alimentation, puis ouvrez la poignée de came pour libérer complètement le bloc d'alimentation du plan central.
+. Utilisez la poignée de came pour faire glisser le bloc d'alimentation hors du système.
++
+
+CAUTION: Lors de la dépose d'une alimentation électrique, toujours utiliser deux mains pour soutenir son poids.
+
+. Répétez les étapes précédentes pour les blocs d'alimentation restants.
+. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du châssis du système, puis poussez doucement le bloc d'alimentation dans le châssis à l'aide de la poignée de came.
++
+Les blocs d'alimentation sont munis de clés et ne peuvent être installés qu'une seule fois.
+
++
+
+NOTE: Ne pas exercer de force excessive lors du glissement du bloc d'alimentation dans le système. Vous pouvez endommager le connecteur.
+
+. Fermez la poignée de came de façon à ce que le loquet s'enclenche en position verrouillée et que le bloc d'alimentation soit bien en place.
+. Rebranchez le câble d'alimentation et fixez-le au bloc d'alimentation à l'aide du mécanisme de verrouillage du câble d'alimentation.
++
+
+NOTE: Connectez uniquement le câble d'alimentation au bloc d'alimentation. Ne connectez pas le câble d'alimentation à une source d'alimentation pour le moment.
+
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+Retirez le ou les modules du contrôleur du châssis défectueux.
+
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez et mettez de côté les dispositifs de gestion des câbles des côtés gauche et droit du module de contrôleur.
+. Appuyez sur le loquet de la poignée de came jusqu'à ce qu'il se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à l'aide de deux mains, retirez le module de contrôleur du châssis.
++
+image::../media/drw_2850_pcm_remove_install_IEOPS-694.svg[drw 2850 pcm déposer l'installation IOPS 694]
+
+. Mettez le module de contrôleur de côté en lieu sûr.
+. Répétez ces étapes pour le second module de contrôleur du châssis.
+
+
+
+
+== Étape 3 : déplacez les disques vers le châssis de remplacement
+
+Déplacez les lecteurs de chaque ouverture de baie de lecteur du châssis défectueux vers la même ouverture de baie dans le châssis de remplacement.
+
+. Retirez délicatement le cadre de l'avant du système.
+. Retirez les lecteurs :
++
+.. Appuyez sur le bouton de déverrouillage situé sur le côté opposé des voyants.
+.. Tirez la poignée de came jusqu'à sa position d'ouverture complète pour dégager le lecteur du fond de panier central, puis faites glisser doucement le lecteur hors du châssis.
++
+Le lecteur doit se désengager du châssis, ce qui lui permet de glisser hors du châssis.
+
++
+
+NOTE: Lors de la dépose d'un entraînement, toujours utiliser deux mains pour soutenir son poids.
+
++
+
+NOTE: Les disques sont fragiles. Manipulez-les le moins possible pour éviter d'endommager ces derniers.
+
+
+
+. Alignez le lecteur du châssis défectueux avec la même ouverture de baie dans le châssis de remplacement.
+. Poussez doucement le lecteur dans le châssis aussi loin que possible.
++
+La poignée de came s'engage et commence à tourner en position fermée.
+
+. Poussez fermement le disque le reste dans le châssis, puis verrouillez la poignée de came en la poussant contre le support de disque.
++
+Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur l'avant du support d'entraînement. Il clique sur lorsqu'il est sécurisé.
+
+. Répétez la procédure pour les autres lecteurs du système.
+
+
+
+
+== Étape 4 : remplacer un châssis depuis le rack d'équipement ou l'armoire système
+
+Retirez le châssis existant du rack d'équipement ou de l'armoire système et installez le nouveau châssis dans le rack d'équipement ou l'armoire système.
+
+. Retirez les vis des points de montage du châssis.
+. Avec l'aide de deux ou trois personnes, faites glisser le châssis défectueux hors des rails du rack dans une armoire système ou des supports _L_ dans un rack d'équipement, puis mettez-le de côté.
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. De deux à trois personnes, installez le châssis de remplacement dans le rack ou l'armoire système en guidant le châssis sur les rails de rack d'une armoire système ou sur les supports _L_ dans un rack d'équipement.
+. Faites glisser le châssis complètement dans le rack de l'équipement ou l'armoire système.
+. Fixez l'avant du châssis au rack de l'équipement ou à l'armoire système à l'aide des vis que vous avez retirées du châssis défectueux.
+. Si ce n'est déjà fait, installez le cadre.
+
+
+
+
+== Étape 5 : installer le contrôleur
+
+Installez le module de contrôleur et tous les autres composants dans le châssis de remplacement, puis démarrez-le en mode Maintenance.
+
+Pour les paires haute disponibilité avec deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez le module de contrôleur est particulièrement important, car il tente de redémarrer dès que vous le placez entièrement dans le châssis.
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage de la console sur le module contrôleur, puis reconnexion du port de gestion.
+. Répétez les étapes précédentes pour le second contrôleur du châssis de remplacement.
+. Terminez l'installation du module de contrôleur :
++
+.. Avec la poignée de came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came en position verrouillée.
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Fixez les câbles au dispositif de gestion des câbles à l'aide du crochet et de la sangle de boucle.
+.. Répétez les étapes précédentes pour le second module de contrôleur du châssis de remplacement.
+
+
+. Connectez les blocs d'alimentation à différentes sources d'alimentation, puis mettez-les sous tension.
+. Démarrer chaque contrôleur en mode maintenance :
++
+.. Au fur et à mesure que chaque contrôleur démarre, appuyez sur `Ctrl-C` pour interrompre le processus de démarrage lorsque le message s'affiche `Press Ctrl-C for Boot Menu`.
++
+
+NOTE: Si l'invite et les modules de contrôleur ne s'affichent pas sur ONTAP, entrez `halt`, Puis à l'invite DU CHARGEUR, entrez `boot_ontap`, appuyez sur `Ctrl-C` lorsque vous y êtes invité, puis répétez cette étape.
+
+.. Dans le menu de démarrage, sélectionner l'option pour le mode maintenance.
+
+
+

@@ -1,0 +1,194 @@
+---
+permalink: fas2800/bootmedia-replace.html 
+sidebar: sidebar 
+keywords: fas2800, replace, boot, media, controller, module, fru map 
+summary: Vous devez localiser le support de démarrage dans le contrôleur et suivre les instructions pour le remplacer. 
+---
+= Remplacez le support de démarrage - FAS2800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
+
+
+
+== Étape 1 : retirer le module de contrôleur
+
+[role="lead"]
+Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
+. Appuyez sur le loquet de la poignée de came jusqu'à ce qu'il se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à l'aide de deux mains, retirez le module de contrôleur du châssis.
++
+image::../media/drw_2850_pcm_remove_install_IEOPS-694.svg[drw 2850 pcm déposer l'installation IOPS 694]
+
+. Retournez le module de contrôleur et placez-le sur une surface plane et stable.
+. Ouvrez le capot en appuyant sur les boutons bleus situés sur les côtés du module de contrôleur pour libérer le capot, puis faites pivoter le capot vers le haut et hors du module de contrôleur.
++
+image::../media/drw_2850_open_controller_module_cover_IEOPS-695.svg[couvercle du module de contrôleur ouvert drw 2850 IOPS 695]
+
+
+
+[cols="1,3"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Bouton de déverrouillage du capot du module de contrôleur
+
+|===
+
+
+== Étape 2 : remplacer le support de démarrage
+
+Localisez le support de démarrage dans le module de contrôleur, situé sous la carte mezzanine et suivez les instructions pour le remplacer.
+
+.Animation : remplacez le support de démarrage
+video::10a29a01-a86e-451c-b05a-af4701726f57[panopto]
+image:../media/drw_2850_replace_boot_media_IEOPS-696.svg["largeur=500"]
+
+[cols="1,3"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[icône de légende 01]
+ a| 
+Languette de verrouillage du support de démarrage
+
+|===
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez la carte mezzanine à l'aide de l'illustration suivante ou du mappage FRU sur le module de contrôleur :
++
+.. Retirez le cadre de la carte mezzanine en le faisant glisser hors du module de contrôleur.
+.. Desserrez les vis à molette de la carte mezzanine.
++
+
+NOTE: Vous pouvez desserrer les vis moletées avec vos doigts ou un tournevis. Si vous utilisez vos doigts, vous devrez peut-être faire pivoter la batterie NV vers le haut pour obtenir un meilleur achat de doigts sur la vis à molette située à côté de celle-ci.
+
+.. Soulevez la carte mezzanine.
+
+
+. Remplacez le support de démarrage :
++
+.. Appuyez sur le bouton bleu du boîtier du support de démarrage pour libérer le support de démarrage de son logement, faites pivoter le support de démarrage vers le haut, puis tirez-le doucement hors du support de démarrage.
++
+
+NOTE: Ne faites pas tourner ou tirer le support de démarrage directement vers le haut, car cela pourrait endommager le support ou le support de démarrage.
+
+.. Alignez les bords du support de démarrage de remplacement avec le support de démarrage, puis poussez-le doucement dans le support.
+Vérifiez le support de démarrage pour vous assurer qu'il est correctement inséré dans le support et, si nécessaire, retirez le support de démarrage et réinstallez-le dans le support.
+.. Appuyez sur le bouton de verrouillage bleu, faites pivoter le support de démarrage complètement vers le bas, puis relâchez le bouton de verrouillage pour verrouiller le support de démarrage en place.
+
+
+. Réinstallez la carte mezzanine :
++
+.. Alignez le connecteur de la carte mère avec le connecteur de la carte mezzanine, puis insérez doucement la carte dans le support.
+.. Serrez les trois vis à molette de la carte mezzanine.
+.. Réinstallez le cadre de la mezzanine.
+
+
+. Réinstallez le capot du module de contrôleur et verrouillez-le en place.
+
+
+
+
+== Étape 3 : transférez l'image de démarrage sur le support de démarrage
+
+Installez l'image système sur le support de démarrage de remplacement à l'aide d'une clé USB sur laquelle l'image est installée. Vous devez restaurer le système de fichiers var au cours de cette procédure.
+
+.Avant de commencer
+* Vous devez disposer d'une clé USB, formatée en MBR/FAT32, d'une capacité minimale de 4 Go.
+* Vous devez disposer d'une connexion réseau.
+
+
+.Étapes
+. Téléchargez la version d'image appropriée de ONTAP sur le lecteur flash USB formaté :
++
+.. Utiliser https://kb.netapp.com/onprem/ontap/dm/Encryption/How_to_determine_if_the_running_ONTAP_version_supports_NetApp_Volume_Encryption_(NVE)["Comment déterminer si la version ONTAP en cours d'exécution prend en charge NetApp Volume Encryption (NVE)"^] pour déterminer si le chiffrement de volume est actuellement pris en charge.
++
+*** Si NVE est pris en charge sur le cluster, téléchargez l'image avec le chiffrement de volume NetApp.
+*** Si NVE n'est pas pris en charge sur le cluster, téléchargez l'image sans chiffrement de volume NetApp.
+Voir https://kb.netapp.com/onprem/ontap/os/Which_ONTAP_image_should_I_download%3F_With_or_without_Volume_Encryption%3F["Quelle image ONTAP dois-je télécharger ? Avec ou sans chiffrement de volume ?"^] pour en savoir plus.
+
+
+
+
+. Décompressez l'image téléchargée.
++
+
+NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas WinZip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
+
++
+Le fichier image du service décompressé contient deux dossiers :
+
++
+** `boot`
+** `efi`
++
+... Copiez le `efi` Dossier dans le répertoire supérieur de la clé USB.
++
+Le lecteur flash USB doit avoir le dossier efi et la même version BIOS (Service image) de ce que le contrôleur douteux est en cours d'exécution.
+
+... Retirez la clé USB de votre ordinateur portable.
+
+
+
+
+. Installez le module de contrôleur :
++
+.. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+.. Recâblage du module de contrôleur.
++
+Lors de la remise en état, n'oubliez pas de réinstaller les convertisseurs de support (SFP) s'ils ont été retirés.
+
+
+
+. Insérez la clé USB dans le logement USB du module de contrôleur.
++
+Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
+
+. Poussez le module de contrôleur complètement dans le système, en vous assurant que la poignée de came se dégage du lecteur flash USB, appuyez fermement sur la poignée de came pour terminer l'installation du module de contrôleur, poussez la poignée de came en position fermée, puis serrez la vis moletée.
++
+Le contrôleur commence à démarrer dès qu'il est entièrement installé dans le châssis.
+
+. Interrompez le processus de démarrage pour qu'il s'arrête à l'invite DU CHARGEUR en appuyant sur Ctrl-C lorsque vous voyez démarrer L'AUTOBOOT, appuyez sur Ctrl-C pour annuler
++
+Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
+
+. Pour les systèmes équipés d'un contrôleur dans le châssis, reconnectez les blocs d'alimentation et mettez les blocs d'alimentation sous tension.
++
+Le système commence à démarrer et s'arrête à l'invite DU CHARGEUR.
+
+. Définissez le type de connexion réseau à l'invite DU CHARGEUR :
++
+** Si vous configurez DHCP : `ifconfig e0a -auto`
++
+
+NOTE: Le port cible que vous configurez est le port cible que vous utilisez pour communiquer avec le contrôleur douteux à partir du contrôleur en bon état pendant la restauration du système de fichiers var avec une connexion réseau. Vous pouvez également utiliser le port e0M dans cette commande.
+
+** Si vous configurez des connexions manuelles : `ifconfig e0a -addr=filer_addr -mask=netmask -gw=gateway-dns=dns_addr-domain=dns_domain`
++
+*** Filer_addr est l'adresse IP du système de stockage.
+*** Le masque de réseau est le masque de réseau du réseau de gestion connecté au partenaire haute disponibilité.
+*** passerelle est la passerelle du réseau.
+*** dns_addr est l'adresse IP d'un serveur de noms sur votre réseau.
+*** dns_Domain est le nom de domaine DNS (Domain Name System).
++
+Si vous utilisez ce paramètre facultatif, vous n'avez pas besoin d'un nom de domaine complet dans l'URL du serveur netboot. Vous avez uniquement besoin du nom d'hôte du serveur.
+
+
+
+
+
++
+
+NOTE: D'autres paramètres peuvent être nécessaires pour votre interface. Vous pouvez entrer `help ifconfig` à l'invite du micrologiciel pour plus de détails.
+
+

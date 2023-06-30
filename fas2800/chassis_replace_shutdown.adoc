@@ -1,0 +1,76 @@
+---
+permalink: fas2800/chassis-replace-shutdown.html 
+sidebar: sidebar 
+keywords: fas2800, replace, chassis, shut down, controller, metrocluster, power, supply, ha, state, controller, configuration, switch, aggregates, replace, move, remove, swap 
+summary: Pour remplacer le châssis, vous devez arrêter les contrôleurs. 
+---
+= Arrêter les contrôleurs - FAS2800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cette procédure concerne uniquement les configurations à 2 nœuds non MetroCluster. Si votre système comporte plus de deux nœuds, reportez-vous à la section https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_perform_a_graceful_shutdown_and_power_up_of_one_HA_pair_in_a_4__node_cluster["Comment effectuer un arrêt normal et mettre sous tension une paire haute disponibilité dans un cluster à 4 nœuds"^].
+
+.Avant de commencer
+Éléments requis :
+
+* Informations d'identification de l'administrateur local pour ONTAP.
+* Phrase secrète pour la gestion des clés intégrée NetApp à l'échelle du cluster (OKM) en cas d'utilisation du chiffrement du stockage.
+* Accès SP/BMC pour chaque contrôleur.
+* Empêchez tous les clients/hôtes d'accéder aux données sur le système NetApp.
+* Suspendre les tâches de sauvegarde externes.
+* Outils et équipements nécessaires au remplacement.
+
+
+
+NOTE: Si le système est un système NetApp StorageGRID ou ONTAP S3 utilisé en tant que Tier cloud FabricPool, reportez-vous au https://kb.netapp.com/onprem/ontap/hardware/What_is_the_procedure_for_graceful_shutdown_and_power_up_of_a_storage_system_during_scheduled_power_outage#["Arrêtez et mettez votre système de stockage sous tension en toute simplicité"] après avoir effectué cette procédure.
+
+
+NOTE: Si vous utilisez des LUN de baies FlexArray, suivez la documentation spécifique du fournisseur à la baie de stockage pour la procédure d'arrêt à effectuer pour ces systèmes après avoir réalisé cette procédure.
+
+
+NOTE: Si vous utilisez des disques SSD, reportez-vous à la section https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU490["SU490 : meilleures pratiques relatives aux SSD (impact : critique) : évitez les risques de panne disque et de perte de données si vous les mettez hors tension pendant plus de deux mois"]
+
+Avant de procéder à l'arrêt, vous devez :
+
+* Effectuer des opérations supplémentaires https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["vérifications de l'état du système"].
+* Mettez à niveau ONTAP vers une version recommandée pour le système.
+* Résoudre tout https://activeiq.netapp.com/["Alertes et risques liés au bien-être Active IQ"]. Notez toutes les anomalies présentes sur le système, telles que les voyants des composants du système.
+
+
+.Étapes
+. Connectez-vous au cluster via SSH ou connectez-vous à un nœud du cluster à l'aide d'un câble de console local et d'un ordinateur portable/d'une console.
+. Désactivez AutoSupport et indiquez la durée pendant laquelle vous vous attendez à ce que le système soit hors ligne :
++
+`system node autosupport invoke -node * -type all -messages "MAINT=8h Power Maintenance"`
+
+. Identifiez l'adresse SP/BMC de tous les nœuds :
++
+`system service-processor show -node * -fields address`
+
+. Quitter le cluster shell : `exit`
+. Connectez-vous au processeur de service/contrôleur BMC via SSH en utilisant l'adresse IP de l'un des nœuds répertoriés dans le résultat de l'étape précédente.
++
+Si votre utilise une console ou un ordinateur portable, connectez-vous au contrôleur à l'aide des mêmes informations d'identification d'administrateur de cluster.
+
++
+
+NOTE: Ouvrez une session SSH sur chaque connexion SP/BMC afin de pouvoir surveiller la progression.
+
+. Arrêter tous les nœuds du cluster :
++
+`system node halt -node * -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true`.
+
++
+
+NOTE: Pour les clusters qui utilisent SnapMirror en mode synchrone : `system node halt -node * -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true -ignore-strict-sync-warnings true`
+
+. Entrez *y* pour chaque contrôleur du cluster lorsque vous voyez `_Warning: Are you sure you want to halt node "cluster name-controller number"?
+{y|n}:_`
+. Attendez que chaque contrôleur s'arrête et affichez l'invite DU CHARGEUR.
+. Mettez chaque bloc d'alimentation hors tension ou débranchez-les s'il n'y a pas d'interrupteur marche/arrêt du bloc d'alimentation.
+. Débranchez le cordon d'alimentation de chaque bloc d'alimentation.
+. Vérifiez que tous les contrôleurs du châssis défectueux sont hors tension.
+
