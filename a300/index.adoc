@@ -1,13 +1,75 @@
 ---
-layout: landing-page 
-sidebar: sidebar 
 permalink: a300/index.html 
-summary: 'La documentation du système AFF A300 vous permet d"installer, de configurer et de gérer votre système.' 
+sidebar: sidebar 
+keywords: aff A300 maintenance, maintenance, repairing A300, repairing aff A300, replace aff A300 components, replace aff A300 components 
+summary: Assurez la maintenance du matériel ASA A300 
 ---
-= Documentation du système AFF A300
-:hardbreaks:
+= Assurez la maintenance du matériel AFF A300
 :allow-uri-read: 
-:linkattrs: 
-:imagesdir: ./media/
+:icons: font
+:imagesdir: ../media/
 
 
+[role="lead"]
+Pour le système de stockage AFF A300, vous pouvez effectuer les procédures de maintenance sur les composants suivants.
+
+
+
+== Support de démarrage
+
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+
+== Châssis
+
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+== Contrôleur
+
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
+
+
+
+== DIMM
+
+Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
+
+
+
+== Ventilateur
+
+Le ventilateur refroidit le contrôleur.
+
+
+
+== Batterie NVDIMM
+
+Une batterie NVDIMM est chargée de maintenir l'alimentation du module NVDIMM.
+
+
+
+== NVDIMM
+
+ The NVDIMM (non-volatile dual in-line memory module) manages the data transfer from the volatile memory to the non-volatile storage, and maintains data integrity in the event of a power loss or system shutdown.
+
+
+== Carte PCIe ou Mezzanine
+
+Une carte PCIe (Peripheral Component Interconnect express) est une carte d'extension qui se branche dans le logement PCIe de la carte mère.
+
+Une carte mezzanine est une carte d'extension conçue pour être insérée dans un emplacement spécialisé de la carte mère.
+
+
+
+== Alimentation électrique
+
+Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
+
+
+
+== Batterie d'horloge en temps réel
+
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.

@@ -1,0 +1,326 @@
+---
+permalink: a700/chassis-replace-move-hardware.html 
+sidebar: sidebar 
+keywords: aff a700, fas9000, move hardware 
+summary: 'Déplacez les ventilateurs, les disques durs et le module de contrôleur ou les modules du châssis défaillant vers le nouveau châssis, puis remplacez le châssis douteux par le rack d"équipement ou l"armoire système avec le nouveau châssis du même modèle que le châssis douteux.' 
+---
+= Déplacez et remplacez le matériel - AFF A700
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Déplacez les ventilateurs, les disques durs et le module de contrôleur ou les modules du châssis défaillant vers le nouveau châssis, puis remplacez le châssis douteux par le rack d'équipement ou l'armoire système avec le nouveau châssis du même modèle que le châssis douteux.
+
+
+
+== Étape 1 : retirer les alimentations
+
+.Étapes
+Le retrait des blocs d'alimentation lors du remplacement d'un châssis implique l'arrêt, le débranchement, puis le retrait du bloc d'alimentation de l'ancien châssis.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Mettez le bloc d'alimentation hors tension et débranchez les câbles d'alimentation :
++
+.. Eteindre l'interrupteur de l'alimentation en panne.
+.. Ouvrez le dispositif de retenue du câble d'alimentation, puis débranchez le câble d'alimentation du bloc d'alimentation.
+.. Débranchez le câble d'alimentation de la source d'alimentation.
+
+
+. Appuyez sur le bouton orange de la poignée du bloc d'alimentation et maintenez-le enfoncé, puis retirez le bloc d'alimentation du châssis.
++
+
+CAUTION: Lors de la dépose d'une alimentation électrique, toujours utiliser deux mains pour soutenir son poids.
+
++
+image::../media/drw_9000_remove_install_psu_module.gif[drw 9000 déposer le module psu]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Bouton de verrouillage 
+|===
+. Répétez les étapes précédentes pour les blocs d'alimentation restants.
+
+
+
+
+== Étape 2 : retirez les ventilateurs
+
+Pour retirer les modules de ventilation lors du remplacement du châssis, vous devez effectuer une séquence spécifique de tâches.
+
+.Étapes
+. Retirez le cadre (si nécessaire) à deux mains, en saisissant les ouvertures de chaque côté du cadre, puis en le tirant vers vous jusqu'à ce que le cadre se dégage des goujons à rotule du châssis.
+. Appuyez sur le bouton orange du module de ventilation et tirez le module de ventilation hors du châssis en vous assurant que vous le soutenez avec votre main libre.
++
+
+CAUTION: Les modules de ventilation sont courts. Soutenez toujours la partie inférieure du module de ventilation avec votre main libre pour qu'il ne tombe pas brusquement du châssis et vous blesse.
+
++
+image::../media/drw_9000_remove_install_fan.png[drw 9000 déposer le ventilateur]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Bouton de déverrouillage orange 
+|===
+. Mettez le module de ventilation de côté.
+. Répétez les étapes précédentes pour les modules de ventilation restants.
+
+
+
+
+== Étape 3 : retirez le module de contrôleur
+
+Pour remplacer le châssis, vous devez retirer le ou les modules de contrôleur de l'ancien châssis.
+
+.Étapes
+. Débranchez les câbles du module de contrôleur défaillant et suivez l'emplacement de connexion des câbles.
+. Faites glisser le bouton orange sur la poignée de came vers le bas jusqu'à ce qu'il se déverrouille.
++
+image::../media/drw_9000_remove_pcm.png[drw 9000 déposer le module de commande du groupe motopropulseur]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Bouton de déverrouillage de la poignée de came 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Poignée de came
+
+|===
+. Faites pivoter la poignée de came de façon à ce qu'elle désengage complètement le module de contrôleur du châssis, puis faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Mettez le module de contrôleur de côté en lieu sûr et répétez ces étapes si vous avez un autre module de contrôleur dans le châssis.
+
+
+
+
+== Étape 4 : retirez les modules d'E/S.
+
+.Étapes
+Pour retirer les modules d'E/S de l'ancien châssis, y compris les modules NVRAM, suivez la séquence spécifique des étapes. Vous n'avez pas besoin de retirer le module Flash cache du module NVRAM lorsque vous le déplacez vers un nouveau châssis.
+
+. Débranchez tout câblage associé au module d'E/S cible.
++
+Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
+
+. Retirez le module d'E/S cible du châssis :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
++
+Le bouton de came s'éloigne du châssis.
+
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
++
+Le module d'E/S se désengage du châssis et se déplace d'environ 1/2 pouces hors du logement d'E/S.
+
+.. Retirez le module d'E/S du châssis en tirant sur les languettes de traction situées sur les côtés de la face du module.
++
+Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
+
++
+image::../media/drw_9000_remove_pcie_module.png[drw 9000 déposer le module pcie]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Loquet de came d'E/S numéroté et numéroté 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Verrou de came d'E/S complètement déverrouillé
+
+|===
+
+
+. Mettez le module d'E/S de côté.
+. Répétez l'étape précédente pour les autres modules d'E/S de l'ancien châssis.
+
+
+
+
+== Étape 5 : retirez le module d'alimentation du contrôleur de coulisses
+
+.Étapes
+Vous devez retirer les modules d'alimentation du contrôleur de déétage de l'ancien châssis pour préparer l'installation du châssis de remplacement.
+
+. Appuyez sur le bouton de verrouillage orange de la poignée du module, puis faites glisser le module DCPM hors du châssis.
++
+image::../media/drw_9000_remove_nv_battery.png[drw 9000 retirer la batterie nv]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Bouton de verrouillage orange du module DCPM 
+|===
+. Mettez le module DCPM de côté dans un endroit sûr et répétez cette étape pour le module DCPM restant.
+
+
+
+
+== Étape 6 : remplacer un châssis depuis le rack d'équipement ou l'armoire système
+
+.Étapes
+Vous devez retirer le châssis existant du rack ou de l'armoire système de l'équipement avant de pouvoir installer le châssis de remplacement.
+
+. Retirez les vis des points de montage du châssis.
++
+
+NOTE: Si le système se trouve dans une armoire système, il peut être nécessaire de retirer le support d'arrimage arrière.
+
+. A l'aide de deux ou trois personnes, faites glisser l'ancien châssis hors des rails du rack dans une armoire système ou des supports _L_ dans un rack d'équipement, puis mettez-le de côté.
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. De deux à trois personnes, installez le châssis de remplacement dans le rack ou l'armoire système en guidant le châssis sur les rails de rack d'une armoire système ou sur les supports _L_ dans un rack d'équipement.
+. Faites glisser le châssis complètement dans le rack de l'équipement ou l'armoire système.
+. Fixez l'avant du châssis sur le rack ou l'armoire système de l'équipement à l'aide des vis que vous avez retirées de l'ancien châssis.
+. Fixez l'arrière du châssis sur le rack de l'équipement ou l'armoire système.
+. Si vous utilisez les supports de gestion des câbles, retirez-les de l'ancien châssis, puis installez-les sur le châssis de remplacement.
+. Si ce n'est déjà fait, installez le cadre.
+
+
+
+
+== Étape 7 : déplacez le module LED USB vers le nouveau châssis
+
+.Étapes
+Une fois le nouveau châssis installé dans le rack ou l'armoire, vous devez déplacer le module de LED USB de l'ancien châssis vers le nouveau châssis.
+
+. Repérez le module de voyants USB à l'avant de l'ancien châssis, directement sous les baies d'alimentation.
+. Appuyez sur le bouton de verrouillage noir situé sur le côté droit du module pour libérer le module du châssis, puis faites-le glisser hors de l'ancien châssis.
+. Alignez les bords du module avec la baie LED USB située en bas à l'avant du châssis de remplacement, puis poussez doucement le module jusqu'à ce qu'il s'enclenche.
+
+
+
+
+== Étape 8 : installez le module d'alimentation du contrôleur de déétage lors du remplacement du châssis
+
+.Étapes
+Une fois le châssis de remplacement installé dans le rack ou l'armoire système, vous devez réinstaller les modules d'alimentation du contrôleur.
+
+. Alignez l'extrémité du module DCPM avec l'ouverture du châssis, puis faites-le glisser doucement dans le châssis jusqu'à ce qu'il s'enclenche.
++
+
+NOTE: Le module et l'emplacement sont munis d'un clé. Ne forcez pas le module dans l'ouverture. Si le module ne se place pas facilement, réalignez-le et faites-le glisser dans le châssis.
+
+. Répéter cette étape pour le module DCPM restant.
+
+
+
+
+== Étape 9 : installez les ventilateurs dans le châssis
+
+.Étapes
+Pour installer les modules de ventilation lors du remplacement du châssis, vous devez effectuer une séquence spécifique de tâches.
+
+. Alignez les bords du module de ventilateur de remplacement avec l'ouverture du châssis, puis faites-le glisser dans le châssis jusqu'à ce qu'il s'enclenche.
++
+Lorsqu'il est inséré dans un système sous tension, le voyant d'avertissement orange clignote quatre fois lorsque le module de ventilation est correctement inséré dans le châssis.
+
+. Répétez ces étapes pour les autres modules de ventilation.
+. Alignez le cadre avec les goujons à rotule, puis poussez doucement le cadre sur les goujons à rotule.
+
+
+
+
+== Étape 10 : installez les modules d'E/S.
+
+.Étapes
+Pour installer des modules d'E/S, y compris les modules NVRAM/Flash cache de l'ancien châssis, suivez la séquence spécifique des étapes.
+
+Vous devez installer le châssis pour pouvoir installer les modules d'E/S dans les emplacements correspondants du nouveau châssis.
+
+. Une fois le châssis de remplacement installé dans le rack ou l'armoire, installez les modules d'E/S dans leurs emplacements correspondants dans le châssis de remplacement en faisant glisser doucement le module d'E/S dans son logement jusqu'à ce que le loquet de came d'E/S numéroté et numéroté commence à s'engager, Puis poussez le loquet de came d'E/S complètement vers le haut pour verrouiller le module en place.
+. Recâblage du module d'E/S, si nécessaire.
+. Répétez l'étape précédente pour les modules d'E/S restants que vous mettez de côté.
++
+
+NOTE: Si l'ancien châssis est doté de panneaux d'E/S vides, déplacez-les vers le châssis de remplacement à ce stade.
+
+
+
+
+
+== Étape 11 : installer les blocs d'alimentation
+
+.Étapes
+L'installation des blocs d'alimentation lors du remplacement d'un châssis implique l'installation des blocs d'alimentation dans le châssis de remplacement et le raccordement à la source d'alimentation.
+
+. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du châssis du système, puis poussez doucement le bloc d'alimentation dans le châssis jusqu'à ce qu'il s'enclenche.
++
+Les blocs d'alimentation sont munis de clés et ne peuvent être installés qu'une seule fois.
+
++
+
+NOTE: Ne pas exercer de force excessive lors du glissement du bloc d'alimentation dans le système. Vous pouvez endommager le connecteur.
+
+. Rebranchez le câble d'alimentation et fixez-le au bloc d'alimentation à l'aide du mécanisme de verrouillage du câble d'alimentation.
++
+
+NOTE: Connectez uniquement le câble d'alimentation au bloc d'alimentation. Ne connectez pas le câble d'alimentation à une source d'alimentation pour le moment.
+
+. Répétez les étapes précédentes pour les blocs d'alimentation restants.
+
+
+
+
+== Étape 12 : installer le contrôleur
+
+.Étapes
+Après avoir installé le module de contrôleur et tous les autres composants dans le nouveau châssis, démarrez-le.
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage de la console sur le module contrôleur, puis reconnexion du port de gestion.
+. Connectez les blocs d'alimentation à différentes sources d'alimentation, puis mettez-les sous tension.
+. Avec la poignée de came en position ouverte, faites glisser le module de contrôleur dans le châssis et enfoncez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came jusqu'à ce qu'il s'enclenche en position verrouillée.
++
+
+NOTE: N'appliquez pas une force excessive lorsque vous faites glisser le module de contrôleur dans le châssis ; vous risquez d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+. Répétez la procédure précédente pour installer le second contrôleur dans le nouveau châssis.
+. Démarrer chaque nœud en mode maintenance :
++
+.. Au fur et à mesure que chaque nœud démarre, appuyez sur `Ctrl-C` pour interrompre le processus de démarrage lorsque le message s'affiche `Press Ctrl-C for Boot Menu`.
++
+
+NOTE: Si l'invite et les modules de contrôleur ne s'affichent pas sur ONTAP, entrez `halt`, Puis à l'invite DU CHARGEUR, entrez `boot_ontap`, appuyez sur `Ctrl-C` lorsque vous y êtes invité, puis répétez cette étape.
+
+.. Dans le menu de démarrage, sélectionner l'option pour le mode maintenance.
+
+
+

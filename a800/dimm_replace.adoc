@@ -222,42 +222,16 @@ Les loquets de verrouillage se montent lorsque le module de contrôleur est bien
 NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
 +
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
 
 .. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
-.. Interrompre le processus de démarrage normal en appuyant sur `Ctrl-C`.
 
 
 
 
 
 
-== Étape 5 : exécutez les diagnostics
-
-Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
-
-Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
-
-Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
-
-. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node node_name`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
-. Sélectionnez *Tester mémoire* dans le menu affiché.
-. Procédez comme suit en fonction du résultat de l'étape précédente :
-+
-** Si le test a échoué, corrigez la défaillance, puis relancez le test.
-** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
-
-
-
-
-
-
-== Étape 6 : renvoyer la pièce défaillante à NetApp
+== Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

@@ -1,0 +1,359 @@
+---
+permalink: asa800/pci-cards-and-risers-replace.html 
+sidebar: sidebar 
+keywords: asa a800, replace a pcie card 
+summary: Pour remplacer une carte PCIe, vous devez déconnecter les câbles des cartes, retirer les modules SFP et QSFP des cartes avant de retirer la carte de montage, réinstaller la carte de montage, puis réinstaller les modules SFP et QSFP avant de câbler les cartes. 
+---
+= Remplacez la carte PCIe - ASA A800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer une carte PCIe, vous devez déconnecter les câbles des cartes, retirer les modules SFP et QSFP des cartes avant de retirer la carte de montage, réinstaller la carte de montage, puis réinstaller les modules SFP et QSFP avant de câbler les cartes.
+
+* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID en suivant les instructions de la section link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html["Retour des disques SED en mode non protégé"].
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) Pour la lame SCSI du contrôleur altérée. Le `cluster kernel-service show` commande affiche le nom du nœud, l'état quorum du nœud concerné, l'état de disponibilité de ce nœud et l'état opérationnel de ce nœud.
++
+Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les blocs d'alimentation du module de contrôleur de la source.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Desserrez le crochet et la bride de boucle reliant les câbles au dispositif de gestion des câbles, puis débranchez les câbles du système et les modules SFP et QSFP (si nécessaire) du module de contrôleur, en gardant une trace de l'emplacement de connexion des câbles.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a800_pcm_remove.png[dépose du module de commande du groupe motopropulseur du drw a800]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Loquet de verrouillage 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Placez le module de commande sur une surface plane et stable, puis ouvrez la conduite d'air :
++
+.. Appuyer sur les languettes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de contrôleur.
+.. Faites glisser le conduit d'air vers les modules de ventilateur, puis tournez-le vers le haut jusqu'à sa position complètement ouverte.
++
+image::../media/drw_a800_open_air_duct.png[drw a800 conduit d'air ouvert]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Pattes de verrouillage du conduit d'air 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Faire glisser le conduit d'air vers les modules de ventilation
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Tourner la conduite d'air vers les modules de ventilation
+
+|===
+
+
+
+
+
+
+== Étape 3 : remplacer une carte PCIe
+
+Pour remplacer une carte PCIe, vous devez retirer le câblage et les modules SFP et SFP des ports des cartes PCIe de la carte de montage cible, retirer la carte de montage du module de contrôleur, retirer et remplacer la carte PCIe, réinstaller la carte de montage et les modules SFP et SFP sur les ports, et brancher les ports.
+
+. Déterminez si la carte que vous remplacez provient de la carte de montage 1 ou de la carte de montage 2 ou 3.
++
+** Si vous remplacez la carte PCIe 100 GbE de la carte Riser 1, suivez les étapes 2 à 3 et les étapes 6 à 7.
+** Si vous remplacez une carte PCIe par une carte Riser 2 ou 3, suivez les étapes 4 à 7.
+
+
+. Retirez la carte de montage 1 du module de contrôleur :
++
+.. Retirez les modules QSFP qui peuvent se trouver dans la carte PCIe.
+.. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers les modules de ventilateur.
++
+La carte de montage se soulève légèrement du module de contrôleur.
+
+.. Soulevez la carte de montage, déplacez-la vers les ventilateurs de manière à ce que la lèvre métallique de la carte de montage soit dégagée du bord du module de contrôleur, soulevez la carte de montage pour la sortir du module de contrôleur, puis placez-la sur une surface plane et stable.
++
+image::../media/drw_a800_pcie_1_replace.png[remplacement de l'unité pcie 1 drw a800]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Conduit d'air 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Loquet de verrouillage de la rehausse
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Support de verrouillage de carte
+
+
+
+ a| 
+image:../media/legend_icon_04.png[""]
+ a| 
+Carte de montage 1 (carte de montage gauche) avec carte PCIe 100 GbE dans le logement 1.
+
+|===
+
+
+. Retirez la carte PCIe de la carte de montage 1 :
++
+.. Tournez la carte de montage pour accéder à la carte PCIe.
+.. Appuyez sur le support de verrouillage situé sur le côté de la carte de montage PCIe, puis faites-le pivoter en position ouverte.
+.. Retirez la carte PCIe de la carte de montage.
+
+
+. Retirez la carte de montage PCIe du module de contrôleur :
++
+.. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
+.. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers les modules de ventilateur.
++
+La carte de montage se soulève légèrement du module de contrôleur.
+
+.. Soulevez la carte de montage, déplacez-la vers les ventilateurs de manière à ce que la lèvre métallique de la carte de montage soit dégagée du bord du module de contrôleur, soulevez la carte de montage pour la sortir du module de contrôleur, puis placez-la sur une surface plane et stable.
++
+image::../media/drw_a800_pcie_2_5_replace.gif[remplacement de l'interface pcie 2 5 drw a800]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Conduit d'air 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Loquet de verrouillage de la rehausse 2 (rehausse centrale) ou 3 (rehausse droite)
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Support de verrouillage de carte
+
+
+
+ a| 
+image:../media/legend_icon_04.png[""]
+ a| 
+Panneau latéral de la rehausse 2 ou 3
+
+
+
+ a| 
+image:../media/legend_icon_05.png[""]
+ a| 
+Cartes PCIe dans la carte de montage 2 ou 3
+
+|===
+
+
+. Retirez la carte PCIe de la carte de montage :
++
+.. Tournez la carte de montage pour accéder aux cartes PCIe.
+.. Appuyez sur le support de verrouillage situé sur le côté de la carte de montage PCIe, puis faites-le pivoter en position ouverte.
+.. Faites pivoter le panneau latéral pour le retirer de la rehausse.
+.. Retirez la carte PCIe de la carte de montage.
+
+
+. Installez la carte PCIe dans le même logement dans la carte de montage :
++
+.. Alignez la carte avec le support de carte de la carte de montage, puis faites-la glisser directement dans le support de la carte de montage.
++
+
+NOTE: Assurez-vous que la carte est correctement insérée dans le support de montage.
+
+.. Pour les surmontoirs 2 ou 3, fermez le panneau latéral.
+.. Faites pivoter le loquet de verrouillage jusqu'à ce qu'il s'enclenche en position verrouillée.
+
+
+. Installez la carte de montage dans le module de contrôleur :
++
+.. Alignez la lèvre de la carte de montage avec la partie inférieure de la tôle du module de contrôleur.
+.. Guidez la carte de montage le long des broches du module de contrôleur, puis abaissez la carte de montage dans le module de contrôleur.
+.. Faites pivoter le loquet de verrouillage vers le bas et cliquez dessus en position verrouillée.
++
+Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de la carte de montage et la carte de montage est placée directement dans le module de contrôleur.
+
+.. Réinsérez tous les modules SFP retirés des cartes PCIe.
+
+
+
+
+
+
+== Étape 4 : réinstallez le module de contrôleur
+
+Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
+
+. Si ce n'est déjà fait, fermer le conduit d'air :
++
+.. Faire basculer la conduite d'air complètement vers le bas jusqu'au module de commande.
+.. Faites glisser la conduite d'air vers les surmontoirs jusqu'à ce que les pattes de verrouillage s'enclenchent.
+.. Inspecter le conduit d'air pour s'assurer qu'il est correctement installé et verrouillé en place.
++
+image::../media/drw_a800_close_air_duct.png[drw a800 fermer le conduit d'air]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Languettes de verrouillage 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Faire glisser le plongeur
+
+|===
+
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
+. Branchez les câbles d'alimentation dans les blocs d'alimentation et réinstallez les dispositifs de retenue des câbles d'alimentation.
+. Terminez la réinstallation du module de contrôleur :
++
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+.. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+
+
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 5 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

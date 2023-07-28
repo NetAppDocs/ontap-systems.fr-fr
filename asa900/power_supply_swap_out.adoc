@@ -1,0 +1,89 @@
+---
+permalink: asa900/power_supply_swap_out.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Le remplacement d"un bloc d"alimentation implique la mise hors tension, le débranchement et le retrait de l"ancien bloc d"alimentation, ainsi que l"installation, la connexion et l"activation du bloc d"alimentation de remplacement.' 
+---
+= Remplacez une alimentation - ASA A900
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le remplacement d'un bloc d'alimentation implique la mise hors tension, la déconnexion et le retrait du bloc d'alimentation, ainsi que l'installation, la connexion et l'activation du bloc d'alimentation de remplacement.
+
+Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+.Description de la tâche
+* Les blocs d'alimentation sont redondants et échangeables à chaud.
+* Cette procédure permet de remplacer une alimentation à la fois.
++
+
+NOTE: Il est recommandé de remplacer le bloc d'alimentation dans les deux minutes qui suivent le retrait du châssis. Le système continue de fonctionner, mais ONTAP envoie des messages à la console concernant l'alimentation défectueuse jusqu'à ce que le bloc d'alimentation soit remplacé.
+
+* Le système comprend quatre blocs d'alimentation.
+* Les blocs d'alimentation sont à sélection automatique.
++
+
+IMPORTANT: Ne mélangez pas les blocs d'alimentation avec différents niveaux d'efficacité. Toujours remplacer comme pour similaire.
+
+
+
+.Étapes
+. Identifiez le bloc d'alimentation que vous souhaitez remplacer, en fonction des messages d'erreur de la console ou des LED des alimentations.
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Mettez le bloc d'alimentation hors tension et débranchez les câbles d'alimentation :
++
+.. Eteindre l'interrupteur de l'alimentation en panne.
+.. Ouvrez le dispositif de retenue du câble d'alimentation, puis débranchez le câble d'alimentation du bloc d'alimentation.
+
+
+. Appuyez sur le bouton en terre cuite de la poignée du bloc d'alimentation et maintenez-le enfoncé, puis retirez le bloc d'alimentation du châssis.
++
+AVERTISSEMENT :
+
++
+Lors de la dépose d'une alimentation électrique, toujours utiliser deux mains pour soutenir son poids.
+
++
+.Animation - Supprimer/installer le bloc d'alimentation
+video::6d0eee92-72e2-4da4-a4fa-adf9016b57ff[panopto]
++
+image::../media/drw_9000_remove_install_psu_module.svg[drw 9000 déposer le module psu]
+
++
+[cols="10,90"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Bouton de verrouillage
+
+|===
+. S'assurer que l'interrupteur marche/arrêt de la nouvelle alimentation est en position arrêt.
+. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du châssis du système, puis poussez doucement le bloc d'alimentation dans le châssis jusqu'à ce qu'il s'enclenche.
++
+Les blocs d'alimentation sont munis de clés et ne peuvent être installés qu'une seule fois.
+
++
+
+IMPORTANT: Ne pas exercer de force excessive lors du glissement du bloc d'alimentation dans le système. Vous pouvez endommager le connecteur.
+
+. Rebranchez le câblage du bloc d'alimentation :
++
+.. Rebranchez le câble d'alimentation au bloc d'alimentation.
+.. Fixez le câble d'alimentation à l'alimentation à l'aide de la retenue du câble d'alimentation.
++
+Une fois l'alimentation rétablie, la LED d'état doit être verte.
+
+
+
+. Mettez la nouvelle alimentation sous tension, puis vérifiez le fonctionnement des LED d'activité des blocs d'alimentation.
++
+Le voyant d'alimentation vert s'allume lorsque le bloc d'alimentation est complètement inséré dans le châssis et que le voyant d'avertissement orange clignote au départ, mais s'éteint au bout de quelques instants.
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"^] pour plus d'informations.
+

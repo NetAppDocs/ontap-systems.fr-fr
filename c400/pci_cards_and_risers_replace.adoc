@@ -1,7 +1,7 @@
 ---
 permalink: c400/pci-cards-and-risers-replace.html 
 sidebar: sidebar 
-keywords: aff c400, aff, c400, replace, pcie, mezzanine, card, disconnect, cable, sfp, qsfp, module, fail, mezzanine, shut, down, impair, controller, pcie, switch, aggregate, two-node, metrocluster, complete, replacement, process, replace a pcie or mezzanine card, shut down the impaired controller, remove the controller module, replace a pcie card, replace the mezzanine card, install the controller module, switch back aggregates in a two-node metrocluster configuration, restore the controller module to operation after running diagnostics, complete the replacement process 
+keywords: aff c400, aff, c400, replace, pcie, mezzanine, card, disconnect, cable, sfp, qsfp, module, fail, mezzanine, shut, down, impair, controller, pcie, switch, aggregate, two-node, metrocluster, complete, replacement, process, replace a pcie or mezzanine card, shut down the impaired controller, remove the controller module, replace a pcie card, replace the mezzanine card, install the controller module, switch back aggregates in a two-node metrocluster configuration, restore the controller module to operation, complete the replacement process 
 summary: Pour remplacer une carte PCIe ou mezzanine, déconnectez les câbles et tous les modules SFP et QSFP des cartes, remplacez la carte PCIe ou mezzanine défectueuse, puis recâble les cartes. 
 ---
 = Remplacez une carte PCIe ou mezzanine - AFF C400
@@ -21,14 +21,12 @@ Pour remplacer une carte PCIe ou mezzanine, déconnectez les câbles et tous les
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
 ====
 .Option 1 : plupart des configurations
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -84,7 +82,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 --
 .Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -183,8 +180,13 @@ mcc1A::> metrocluster operation show
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
+
+Vous pouvez utiliser les animations, illustrations ou étapes écrites suivantes pour retirer le module de contrôleur du châssis.
+
+.Animation - retirez le module de contrôleur
+video::ca74d345-e213-4390-a599-aae10019ec82[panopto]
+image::../media/drw_A400_Remove_controller.png[drw A400 retirer le contrôleur]
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
@@ -197,26 +199,6 @@ Laissez les câbles dans le périphérique de gestion des câbles de sorte que l
 +
 Le module de contrôleur se déplace légèrement hors du châssis.
 
-+
-image::../media/drw_A400_Remove_controller.png[drw A400 retirer le contrôleur]
-
-+
-|===
-
-
- a| 
-image:../media/legend_icon_01.png[""]
- a| 
-Loquets de verrouillage
-
-
-
- a| 
-image:../media/legend_icon_02.png[""]
- a| 
-Le contrôleur sort légèrement du châssis
-
-|===
 . Faites glisser le module de contrôleur hors du châssis.
 +
 Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
@@ -228,7 +210,6 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 == Étape 3 : remplacer une carte PCIe
 
-[role="lead"]
 Pour remplacer une carte PCIe, vous devez localiser la carte PCIe défectueuse, retirer la carte de montage qui contient la carte du module de contrôleur, remplacer la carte, puis réinstaller la carte de montage PCIe dans le module de contrôleur.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer une carte PCIe.
@@ -277,7 +258,6 @@ NOTE: Si vous installez une carte dans le logement inférieur et que vous ne voy
 
 == Étape 4 : remplacer la carte mezzanine
 
-[role="lead"]
 La carte mezzanine se trouve sous la carte de montage numéro 3 (logements 4 et 5). Vous devez retirer cette carte de montage pour accéder à la carte mezzanine, remplacer la carte mezzanine, puis réinstaller le numéro de montage 3. Voir le mappage des FRU sur le module de contrôleur pour plus d'informations.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer la carte mezzanine.
@@ -318,8 +298,13 @@ La carte de montage se soulève légèrement du module de contrôleur.
 
 == Étape 5 : installer le module de contrôleur
 
-[role="lead"]
 Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour installer le module de contrôleur dans le châssis.
+
+.Animation - installez le module de contrôleur
+video::0310fe80-b129-4685-8fef-ab19010e720a[panopto]
+image::../media/drw_A400_Install_controller_source.png[drw A400 installez la source du contrôleur]
 
 . Si ce n'est déjà fait, fermer le conduit d'air.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
@@ -363,7 +348,6 @@ NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option 
 
 == Étape 6 : rétablir le fonctionnement du module de contrôleur
 
-[role="lead"]
 Pour restaurer le contrôleur, vous devez refaire le système, remettre le module de contrôleur, puis réactiver le rétablissement automatique.
 
 . Recâblage du système, selon les besoins.
@@ -378,7 +362,6 @@ Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas 
 
 == Étape 7 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
-[role="lead"]
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -437,5 +420,4 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 == Étape 8 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

@@ -1,7 +1,6 @@
 ---
 section: fas9500
 title: Systèmes FAS9500
-url: "/fas9500/index.html"
 entries:
 - title: Installation et configuration
   pdf-filename: Installation et configuration du système FAS9500
@@ -17,8 +16,8 @@ entries:
 - title: Maintenance
   pdf-filename: Maintenance du système FAS9500
   entries:
-  - title: Ajout d'un module d'E/S.
-    url: "/fas9500/add_io_module.html"
+  - title: Présentation
+    url: "/fas9500/maintain-overview.html"
   - title: Support de démarrage
     pdf-filename: Support de démarrage FAS9500
     entries:
@@ -67,17 +66,21 @@ entries:
       url: "/fas9500/controller_replace_complete_system_restoration_rma.html"
   - title: DIMM
     url: "/fas9500/dimm_replace.html"
-  - title: Module d'alimentation de commande de déchargement
+  - title: DCPM
     url: "/fas9500/dcpm_NVRAM11_battery_replace.html"
   - title: Ventilateur
     url: "/fas9500/fan_swap_out.html"
   - title: Module d'E/S.
-    url: "/fas9500/pci_cards_and_risers_replace.html"
-  - title: Module USB À LED
+    entries:
+    - title: Remplacement
+      url: "/fas9500/pci_cards_and_risers_replace.html"
+    - title: Autres
+      url: "/fas9500/add_io_module.html"
+  - title: VOYANT USB
     url: "/fas9500/led_module_replace.html"
-  - title: Module NVRAM et/ou DIMM NVRAM
+  - title: NVRAM
     url: "/fas9500/nvram_module_or_nvram_dimm_replacement.html"
   - title: Alimentation électrique
     url: "/fas9500/power_supply_swap_out.html"
-  - title: Batterie RTC
+  - title: Pile de l'horloge en temps réel
     url: "/fas9500/rtc_battery_replace.html"

@@ -1,0 +1,168 @@
+---
+permalink: a700/x91148a-modules-with-no-open-slots-add.html 
+sidebar: sidebar 
+keywords: aff a700, add, x91148a, storage, module, no, open, slots, system, nic 
+summary: Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage existants de votre système pour installer un ou plusieurs modules de stockage X91148A dans votre système plein. 
+---
+= Ajoutez un module de stockage X91148A dans un système sans connecteurs ouverts - A700
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage existants de votre système pour installer un ou plusieurs modules de stockage X91148A dans votre système plein.
+
+* Votre système doit exécuter ONTAP 9.8 et versions ultérieures.
+* Pour ajouter sans interruption le module X91148A, vous devez prendre le contrôle cible, ajouter le module, puis le rendre.
+* Si vous ajoutez le module X91148A en tant qu'adaptateur de stockage, vous devez l'installer dans les logements 3 et/ou 7.
+* Si vous ajoutez le module X91148A en tant que carte réseau 100 GbE, vous pouvez utiliser n'importe quel emplacement ouvert. Cependant, par défaut, les emplacements 3 et 7 sont définis comme emplacements de stockage. Si vous souhaitez utiliser ces emplacements comme emplacements réseau et n'y ajouter pas de tiroirs NS224, vous devez modifier les emplacements pour une utilisation en réseau avec `storage port modify -node _node name_ -port _port name_ -mode network` commande pour chaque port. Voir le Hardware Universe pour d'autres emplacements pouvant être utilisés par le module X91148A pour la mise en réseau.
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+
+== Option 1 : ajoutez un module X91148A en tant que module NIC dans un système sans logements ouverts
+
+Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage existants de votre système pour installer un ou plusieurs modules NIC X91148A dans votre système plein.
+
+.Étapes
+. Si vous ajoutez un module X91148A dans un emplacement contenant un module NIC avec le même nombre de ports que le module X91148A, les LIFs migrent automatiquement lorsque leur module de contrôleur est arrêté. Si le module de carte réseau remplacé comporte plus de ports que le module X91148A, vous devez réaffecter définitivement les LIF concernées à un autre port d'accueil. Voir https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"] Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF
+. Arrêter le contrôleur A :
++
+.. Désactiver le rétablissement automatique : `storage failover modify -node local -auto-giveback false`
+.. Reprendre le nœud cible : `storage failover takeover -ofnode _target_node_name_`
++
+La connexion de la console indique que le nœud tombe dans l'invite DU CHARGEUR une fois le basculement terminé.
+
+
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez tout câblage du module d'E/S cible.
+. Retirez le module d'E/S cible du châssis :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
++
+Le bouton de came s'éloigne du châssis.
+
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
++
+Le module d'E/S se désengage du châssis et se déplace d'environ 1/2 pouces hors du logement d'E/S.
+
+.. Retirez le module d'E/S du châssis en tirant sur les languettes de traction situées sur les côtés de la face du module.
++
+Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
+
++
+image::../media/drw_9000_remove_pcie_module.png[drw 9000 déposer le module pcie]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquet de came d'E/S numéroté et numéroté
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Verrou de came d'E/S complètement déverrouillé
+
+|===
+
+
+. Installer le module X91148A dans l'emplacement cible :
++
+.. Alignez le module X91148A sur les bords de l'emplacement.
+.. Faites glisser le module X91148A dans le logement jusqu'à ce que le loquet de came d'E/S numéroté et numéroté commence à s'engager avec la broche de came d'E/S.
+.. Poussez le loquet de came d'E/S complètement vers le haut pour verrouiller le module en place.
+
+
+. Répétez les étapes de retrait et d'installation pour remplacer les modules supplémentaires du contrôleur A.
+. Reliez le ou les modules aux commutateurs de données.
+. Redémarrer le contrôleur A : `boot_ontap`
+. Rétablissement du nœud depuis le nœud partenaire : `storage failover giveback -ofnode target_node_name`
+. Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
+. Si vous avez ajouté le module X91148A en tant que module NIC dans les logements 3 ou 7, pour la mise en réseau, utilisez le `storage port modify -node _node name_ -port _port name_ -mode network` commande pour chaque port.
+. Répétez ces étapes pour le contrôleur B.
+
+
+
+
+== Option 2 : ajout d'un module X91148A en tant que module de stockage dans un système sans emplacements ouverts
+
+Vous devez retirer une ou plusieurs cartes réseau ou modules de stockage existants de votre système pour installer un ou plusieurs modules de stockage X91148A dans votre système entièrement rempli.
+
+* Cette procédure suppose de réinstaller le module X91148A dans les logements 3 et/ou 7.
+
+
+.Étapes
+. Si vous ajoutez un module X91148A en tant que module de stockage dans les logements 3 et/ou 7 dans un emplacement doté d'un module NIC existant, utilisez System Manager pour migrer définitivement les LIF vers différents ports d'accueil, comme décrit dans la section https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"].
+. Arrêter le contrôleur A :
++
+.. Désactiver le rétablissement automatique : `storage failover modify -node local -auto-giveback false`
+.. Reprendre le nœud cible : `storage failover takeover -ofnode target_node_name`
++
+La connexion de la console indique que le nœud tombe dans l'invite DU CHARGEUR une fois le basculement terminé.
+
+
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez tout câblage du module d'E/S cible.
+. Retirez le module d'E/S cible du châssis :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
++
+Le bouton de came s'éloigne du châssis.
+
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
++
+Le module d'E/S se désengage du châssis et se déplace d'environ 1/2 pouces hors du logement d'E/S.
+
+.. Retirez le module d'E/S du châssis en tirant sur les languettes de traction situées sur les côtés de la face du module.
++
+Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
+
++
+image::../media/drw_9000_remove_pcie_module.png[drw 9000 déposer le module pcie]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquet de came d'E/S numéroté et numéroté
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Verrou de came d'E/S complètement déverrouillé
+
+|===
+
+
+. Installer le module X91148A dans l'emplacement 3 :
++
+.. Alignez le module X91148A sur les bords de l'emplacement.
+.. Faites glisser le module X91148A dans le logement jusqu'à ce que le loquet de came d'E/S numéroté et numéroté commence à s'engager avec la broche de came d'E/S.
+.. Poussez le loquet de came d'E/S complètement vers le haut pour verrouiller le module en place.
+.. Si vous installez un deuxième module X91148A pour le stockage, répétez les étapes de retrait et d'installation du module dans le logement 7.
+
+
+. Redémarrer le contrôleur A : `boot_ontap`
+. Rétablissement du nœud depuis le nœud partenaire : `storage failover giveback -ofnode _target_node_name_`
+. Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
+. Répétez ces étapes pour le contrôleur B.
+. Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud d'un tiroir disque NS224"].
+

@@ -1,0 +1,213 @@
+---
+permalink: asa900/pci_cards_and_risers_replace.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Pour remplacer un module d"E/S, vous devez effectuer une séquence spécifique de tâches.' 
+---
+= Remplacer le module d'E/S - ASA A900
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer un module d'E/S, vous devez effectuer une séquence spécifique de tâches.
+
+* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système.
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+
+== Étape 1 : arrêtez le nœud douteux
+
+Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
+
+[role="tabbed-block"]
+====
+.Option 1 : la plupart des systèmes
+--
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+--
+.Option 2 : le contrôleur est dans un MetroCluster
+--
+
+NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passer à l'étape suivante.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+--
+====
+
+
+== Étape 2 : remplacer les modules d'E/S.
+
+Pour remplacer un module d'E/S, localisez-le dans le châssis et suivez la séquence des étapes.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez tout câblage associé au module d'E/S cible.
++
+Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
+
+. Retirez le module d'E/S cible du châssis :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
++
+Le bouton de came s'éloigne du châssis.
+
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
++
+Le module d'E/S se désengage du châssis et se déplace d'environ 1/2 pouces hors du logement d'E/S.
+
+.. Retirez le module d'E/S du châssis en tirant sur les languettes de traction situées sur les côtés de la face du module.
++
+Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
+
++
+.Animation - Supprimer/installer le module d'E/S.
+video::3a5b1f6e-15ec-40b4-bb2a-adf9016af7b6[panopto]
++
+image:../media/drw_a900_remove_PCIe_module.png[""]
+
+
+
++
+[cols="10,90"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquet de came d'E/S numéroté et numéroté
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Verrou de came d'E/S complètement déverrouillé
+
+|===
+. Mettez le module d'E/S de côté.
+. Installez le module d'E/S de remplacement dans le châssis en faisant glisser doucement le module d'E/S dans le logement jusqu'à ce que le loquet de came d'E/S numéroté commence à s'engager avec l'axe de came d'E/S, puis poussez le loquet de came d'E/S jusqu'à ce que le module soit bien en place.
+. Recâblage du module d'E/S, si nécessaire.
+
+
+
+
+== Étape 3 : redémarrer le contrôleur
+
+Après avoir remplacé un module d'E/S, vous devez redémarrer le module de contrôleur.
+
+
+NOTE: Si le nouveau module d'E/S n'est pas le même modèle que le module défaillant, vous devez d'abord redémarrer le contrôleur BMC.
+
+.Étapes
+. Redémarrez le contrôleur BMC si le module de remplacement n'est pas du même modèle que l'ancien module :
++
+.. Dans l'invite DU CHARGEUR, passez en mode de privilège avancé : `priv set advanced`
+.. Redémarrez le contrôleur BMC : `sp reboot`
+
+
+. Depuis l'invite DU CHARGEUR, redémarrez le nœud : `bye`
++
+
+NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+
+. Si votre système est configuré pour prendre en charge l'interconnexion de cluster 10 GbE et les connexions de données sur les cartes réseau 40 GbE, convertissez ces ports en connexions 10 GbE à l'aide de la commande nicadmin convert en mode maintenance. Voir https://docs.netapp.com/us-en/ontap/networking/convert_40gbe_nic_ports_into_multiple_10gbe_ports_for_10gbe_connectivity.html["Convertissez les ports NIC 40 GbE en ports 10 GbE multiples pour assurer la connectivité 10 GbE"^] pour en savoir plus.
++
+
+NOTE: Assurez-vous de quitter le mode Maintenance après avoir terminé la conversion.
+
+. Rétablir le fonctionnement normal du nœud : `storage failover giveback -ofnode impaired_node_name`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+
+
+
+
+== Étape 4 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

@@ -1,0 +1,79 @@
+---
+permalink: asa900/index.html 
+sidebar: sidebar 
+keywords: asa A900 maintenance, maintenance, repairing asa A900, repairing asa A900, replace asa A900 components, replace asa A900 components 
+summary: Entretenir le matériel ASA A900 
+---
+= Maintenance du matériel ASA A900
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour le système de stockage ASA A900, vous pouvez effectuer des procédures de maintenance sur les composants suivants.
+
+
+
+== Support de démarrage
+
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+
+== Châssis
+
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+== Contrôleur
+
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
+
+
+
+== DIMM
+
+Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
+
+
+
+== DCPM
+
+Le DCPM (module d'alimentation du contrôleur de déchargement) contient la batterie NVRAM11.
+
+
+
+== Ventilateur
+
+Le ventilateur refroidit le contrôleur.
+
+
+
+== Module d'E/S.
+
+Le module d'E/S (module d'entrée/sortie) est un composant matériel qui sert d'intermédiaire entre le contrôleur et divers dispositifs ou systèmes qui doivent échanger des données avec le contrôleur.
+
+
+
+== VOYANT USB
+
+Le module USB à LED fournit la connectivité aux ports de console et à l'état du système.
+
+
+
+== NVRAM
+
+ The NVRAM module (Non-Volatile Random Access Memory) allows the controller to retain data across power cycles or system reboots.
+
+
+== Alimentation électrique
+
+Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
+
+
+
+== Pile de l'horloge en temps réel
+
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.

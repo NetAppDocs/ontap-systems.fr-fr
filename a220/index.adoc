@@ -1,13 +1,68 @@
 ---
-layout: landing-page 
-sidebar: sidebar 
 permalink: a220/index.html 
-summary: 'La documentation du système de stockage vous permet d"installer, de configurer et de gérer votre système.' 
+sidebar: sidebar 
+keywords: aff A220 maintenance, maintenance, repairing a220, repairing aff a220, replace aff a220 components, replace aff a220 components 
+summary: Maintenance du matériel AFF A220 
 ---
-= Documentation du système AFF A220
-:hardbreaks:
+= Maintenance du matériel ASA A220
 :allow-uri-read: 
-:linkattrs: 
-:imagesdir: ./media/
+:icons: font
+:imagesdir: ../media/
 
 
+[role="lead"]
+Pour le système de stockage AFF A220, vous pouvez effectuer les procédures de maintenance sur les composants suivants.
+
+
+
+== Support de démarrage
+
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+
+== Module de cache
+
+Vous devez remplacer le module de cache du contrôleur lorsque votre système enregistre un seul message AutoSupport (ASUP) indiquant que le module est hors ligne.
+
+
+
+== Châssis
+
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+== Contrôleur
+
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
+
+
+
+== DIMM
+
+Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
+
+
+
+== Lecteur
+
+Un lecteur est un périphérique qui fournit le support de stockage physique pour les données.
+
+
+
+== Batterie NVEM
+
+Une batterie est fournie avec un contrôleur et conserve les données mises en cache en cas de panne de l'alimentation secteur.
+
+
+
+== Alimentation électrique
+
+Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
+
+
+
+== Batterie d'horloge en temps réel
+
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: aff a700, fas9000, detailed, guide, prepare, install, hardware, two, node, switchless, cluster, cable, controller, ds212c, ds224c, ns224, drive, shelf, complete, system, setup, configuration, network, discovery 
 summary: 'Ce guide fournit des instructions détaillées vous permettant d"installer un système NetApp classique.' 
 ---
-= Guide détaillé - AFF A700 et FAS9000
+= Guide détaillé - FAS9000
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -323,11 +323,11 @@ image:../media/Cable_shelves_new_system_IOM12_shelves.png[""]
 
 
 
-=== Option 2 : branchement des contrôleurs à un seul tiroir de disques NS224 dans les systèmes AFF A700 et ASA AFF A700 exécutant ONTAP 9.8 et versions ultérieures uniquement
+=== Option 2 : connectez les contrôleurs à un seul tiroir NS224 dans les systèmes ASA AFF A700 exécutant ONTAP 9.8 et versions ultérieures uniquement
 
 Vous devez connecter chaque contrôleur aux modules NSM du tiroir disque NS224 sur un système AFF A700 ou ASA AFF A700 qui exécute ONTAP 9.8 ou une version ultérieure.
 
-* Cette tâche s'applique uniquement aux baies AFF A700 et ASA AFF A700 qui exécutent ONTAP 9.8 ou version ultérieure.
+* Cette tâche s'applique uniquement à ASA AFF A700 exécutant ONTAP 9.8 ou une version ultérieure.
 * Les systèmes doivent comporter au moins un module X91148A installé dans les logements 3 et/ou 7 pour chaque contrôleur. L'animation ou les illustrations montrent ce module installé dans les emplacements 3 et 7.
 * Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait des câbles des modules de stockage est vers le haut, tandis que les languettes de retrait des étagères sont vers le bas.
 +
@@ -358,11 +358,11 @@ image::../media/single_NS224_shelf.png[Une seule étagère NS224]
 
 
 
-=== Option 3 : connectez les contrôleurs à deux tiroirs disques NS224 dans les systèmes AFF A700 et ASA AFF A700 qui exécutent ONTAP 9.8 et versions ultérieures uniquement
+=== Option 3 : connectez les contrôleurs à deux tiroirs disques NS224 dans les systèmes ASA AFF A700 exécutant ONTAP 9.8 et versions ultérieures uniquement
 
 Vous devez connecter chaque contrôleur aux modules NSM des tiroirs disques NS224 sur un système AFF A700 ou ASA AFF A700 qui exécute le système ONTAP 9.8 ou version ultérieure.
 
-* Cette tâche s'applique uniquement aux baies AFF A700 et ASA AFF A700 qui exécutent ONTAP 9.8 ou version ultérieure.
+* Cette tâche s'applique uniquement à ASA AFF A700 exécutant ONTAP 9.8 ou une version ultérieure.
 * Les systèmes doivent comporter deux modules X91148A, par contrôleur, installés dans les logements 3 et 7.
 * Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait des câbles des modules de stockage est vers le haut, tandis que les languettes de retrait des étagères sont vers le bas.
 +

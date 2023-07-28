@@ -1,7 +1,7 @@
 ---
 permalink: fas8300/dimm-replace.html 
 sidebar: sidebar 
-keywords: fas8300, fas8700, replace, dimm, shut, down, impaired, controller, module, reinstall, diagnostic, system, controller, aggregates, metrocluster, replacement 
+keywords: fas8300, fas8700, replace, dimm, shut, down, impaired, controller, module, reinstall,  system, controller, aggregates, metrocluster, replacement 
 summary: 'Vous devez remplacer un module DIMM dans le module de contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d"erreurs (ECC) pouvant être corrigés ; dans le cas contraire, le système risque de se trouver en panne.' 
 ---
 = Remplacez un module DIMM - FAS8300 et FAS8700
@@ -263,7 +263,7 @@ NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien align�
 
 == Étape 4 : installer le module de contrôleur
 
-Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
+Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis.
 
 Vous pouvez utiliser l'animation, la mise en plan ou les étapes écrites suivantes pour installer le module de contrôleur dans le châssis.
 
@@ -293,7 +293,7 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 
 .. Insérez complètement le module de commande dans le châssis en faisant tourner les loquets de verrouillage vers le haut, en les inclinant de manière à dégager les goupilles de verrouillage, poussez doucement le contrôleur complètement vers l'intérieur, puis abaissez les loquets de verrouillage en position verrouillée.
 +
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
 
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
 .. Interrompez le processus de démarrage normal et démarrez vers LE CHARGEUR en appuyant sur `Ctrl-C`.
@@ -302,46 +302,15 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
 
 .. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et les autres composants.
-.. Interrompez le processus de démarrage et démarrez vers l'invite DU CHARGEUR en appuyant sur `Ctrl-C`.
-+
-Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
 
 
 
 
 
 
+== Étape 5 : rétablir le fonctionnement du module de contrôleur
 
-== Étape 5 : exécutez les diagnostics
-
-Après avoir remplacé un module DIMM système de votre système, vous devez exécuter des tests de diagnostic sur ce composant.
-
-Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
-
-Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
-
-.Étapes
-. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node _node_name_`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
-. Sélectionnez *Tester mémoire* dans le menu affiché.
-. Sélectionnez une option dans le sous-menu affiché et exécutez le test.
-. Procédez comme suit en fonction du résultat de l'étape précédente :
-+
-** Si le test a échoué, corrigez la défaillance, puis relancez le test.
-** Si le test n'a signalé aucune défaillance, sélectionnez `Reboot` dans le menu pour redémarrer le système.
-
-
-
-
-
-
-== Étape 6 : rétablir le fonctionnement du module de contrôleur après l'exécution des diagnostics
-
-Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
+Vous devez recâblage du système, remettre le module de contrôleur, puis réactiver le rétablissement automatique.
 
 .Étapes
 . Recâblage du système, selon les besoins.
@@ -354,7 +323,7 @@ Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas 
 
 
 
-== Étape 7 : retournez les agrégats via une configuration MetroCluster à deux nœuds
+== Étape 6 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
@@ -412,6 +381,6 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 
 
-== Étape 8 : renvoyer la pièce défaillante à NetApp
+== Étape 7 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

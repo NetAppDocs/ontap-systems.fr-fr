@@ -1,0 +1,142 @@
+= Étape 1 : recâblage du système
+:allow-uri-read: 
+
+
+Poursuivre la procédure de remplacement en mettant le stockage en mémoire et en confirmant la réaffectation du disque.
+
+
+
+== Étape 1 : recâblage du système
+
+Recâblage des connexions réseau et de stockage du module de contrôleur.
+
+.Étapes
+. Recâblage du système.
+. Vérifiez que le câblage est correct à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"].
++
+.. Téléchargez et installez Config Advisor.
+.. Entrez les informations du système cible, puis cliquez sur collecter les données.
+.. Cliquez sur l'onglet câblage, puis examinez la sortie. Vérifiez que tous les tiroirs disques sont affichés et que tous les disques apparaissent dans le résultat, en corrigeant les problèmes de câblage que vous rencontrez.
+.. Pour vérifier les autres câbles, cliquez sur l'onglet approprié, puis examinez les résultats de Config Advisor.
+
+
+
+
+
+
+== Étape 2 : réaffectation de disques
+
+Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.
+
+Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
+
+. Si le _remplacement_ contrôleur est en mode Maintenance (affiche le `*>` Invite, quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`
+. À partir de l'invite DU CHARGEUR sur le contrôleur _replace_, démarrez le contrôleur, puis entrez `y` Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système :
+. Attendre jusqu'à `Waiting for giveback...` Le message s'affiche sur la console du contrôleur _replace_, puis, à partir du contrôleur sain, vérifiez que le nouvel ID système partenaire a été automatiquement attribué : `storage failover show`
++
+Dans le résultat de la commande, un message indiquant l'ID système modifié sur le contrôleur associé est affiché, indiquant l'ancien et le nouveau ID corrects. Dans l'exemple suivant, le node2 a fait l'objet d'un remplacement et a un nouvel ID système de 151759706.
+
++
+[listing]
+----
+node1> `storage failover show`
+                                    Takeover
+Node              Partner           Possible     State Description
+------------      ------------      --------     -------------------------------------
+node1             node2             false        System ID changed on partner (Old:
+                                                  151759755, New: 151759706), In takeover
+node2             node1             -            Waiting for giveback (HA mailboxes)
+----
+. Depuis le contrôleur sain, vérifier que les « coredumps » sont enregistrés :
++
+.. Changement au niveau de privilège avancé : `set -privilege advanced`
++
+Vous pouvez répondre `Y` lorsque vous êtes invité à passer en mode avancé. L'invite du mode avancé s'affiche (*>).
+
+.. Enregistrez les « coredumps » : `system node run -node _local-node-name_ partner savecore`
+.. Attendez que la commande `savecore'se termine avant d'émettre le retour.
++
+Vous pouvez saisir la commande suivante pour surveiller la progression de la commande savecore : `system node run -node _local-node-name_ partner savecore -s`
+
+.. Retour au niveau de privilège admin : `set -privilege admin`
+
+
+. Si le chiffrement du volume ou du stockage est configuré sur votre système de stockage, vous devez restaurer la fonctionnalité de chiffrement du stockage ou du volume en suivant l'une des procédures suivantes, selon que vous utilisez la gestion des clés intégrée ou externe :
++
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
+
+
+. Remettre le contrôleur :
++
+.. Depuis le contrôleur sain, remettre le stockage du contrôleur remplacé : `storage failover giveback -ofnode _replacement_node_name_`
++
+Le contrôleur _remplacement_ reprend son stockage et termine son démarrage.
+
++
+Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système, vous devez entrer `y`.
+
++
+
+NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+
++
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Recherchez le contenu Configuration haute disponibilité de votre version de ONTAP 9"]
+
+.. Une fois le retour arrière terminé, vérifiez que la paire HA est saine et que le basculement est possible : `storage failover show`
++
+La sortie du `storage failover show` La commande ne doit pas inclure l'ID système modifié dans le message partenaire.
+
+
+
+. Vérifier que les disques ont été correctement affectés : `storage disk show -ownership`
++
+Les disques appartenant au _replace_ Controller doivent afficher le nouvel ID système. Dans l'exemple suivant, les disques appartenant au nœud1 affichent alors le nouvel ID système, 1873775277 :
+
++
+[listing]
+----
+node1> `storage disk show -ownership`
+
+Disk  Aggregate Home  Owner  DR Home  Home ID    Owner ID  DR Home ID Reserver  Pool
+----- ------    ----- ------ -------- -------    -------    -------  ---------  ---
+1.0.0  aggr0_1  node1 node1  -        1873775277 1873775277  -       1873775277 Pool0
+1.0.1  aggr0_1  node1 node1           1873775277 1873775277  -       1873775277 Pool0
+.
+.
+.
+----
+. Si le système se trouve dans une configuration MetroCluster, surveillez l'état du contrôleur : `metrocluster node show`
++
+La configuration MetroCluster prend quelques minutes après le remplacement pour revenir à un état normal. À ce moment, chaque contrôleur affiche un état configuré, avec la mise en miroir reprise sur incident activée et un mode de fonctionnement normal. Le `metrocluster node show -fields node-systemid` Le résultat de la commande affiche l'ancien ID système jusqu'à ce que la configuration MetroCluster revienne à un état normal.
+
+. Si le contrôleur est dans une configuration MetroCluster, en fonction de l'état de la MetroCluster, vérifiez que le champ ID de domicile de la reprise après incident affiche le propriétaire d'origine du disque si le propriétaire d'origine est un contrôleur sur le site de secours.
++
+Ceci est requis si les deux conditions suivantes sont vraies :
+
++
+** La configuration MetroCluster est en état de basculement.
+** Le contrôleur _remplacement_ est le propriétaire actuel des disques sur le site de secours.
++
+https://docs.netapp.com/us-en/ontap-metrocluster/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#disk-ownership-changes-during-ha-takeover-and-metrocluster-switchover-in-a-four-node-metrocluster-configuration["Modification de la propriété des disques lors du basculement haute disponibilité et du basculement du MetroCluster dans une configuration MetroCluster à quatre nœuds"]
+
+
+
+. Si votre système se trouve dans une configuration MetroCluster, vérifiez que chaque contrôleur est configuré : `metrocluster node show - fields configuration-state`
++
+[listing]
+----
+node1_siteA::> metrocluster node show -fields configuration-state
+
+dr-group-id            cluster node           configuration-state
+-----------            ---------------------- -------------- -------------------
+1 node1_siteA          node1mcc-001           configured
+1 node1_siteA          node1mcc-002           configured
+1 node1_siteB          node1mcc-003           configured
+1 node1_siteB          node1mcc-004           configured
+
+4 entries were displayed.
+----
+. Vérifier que les volumes attendus sont présents pour chaque contrôleur : `vol show -node node-name`
+. Si vous avez désactivé le basculement automatique au redémarrage, activez-le à partir du contrôleur sain : `storage failover modify -node replacement-node-name -onreboot true`
+

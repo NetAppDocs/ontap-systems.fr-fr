@@ -1,13 +1,80 @@
 ---
-layout: landing-page 
-sidebar: sidebar 
 permalink: a700/index.html 
-summary: 'La documentation du système de stockage vous permet d"installer, de configurer et de gérer votre système.' 
+sidebar: sidebar 
+keywords: aff A700 maintenance, maintenance, repairing A700, repairing aff A700, replace aff A700 components, replace aff A700 components 
+summary: Conservez le matériel ASA A700 
 ---
-= Documentation système AFF A700
-:hardbreaks:
+= Maintenance du matériel AFF A700
 :allow-uri-read: 
-:linkattrs: 
-:imagesdir: ./media/
+:icons: font
+:imagesdir: ../media/
 
 
+[role="lead"]
+Pour le système de stockage AFF A700, vous pouvez effectuer les procédures de maintenance sur les composants suivants.
+
+
+
+== Support de démarrage
+
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+
+== Châssis
+
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+== Contrôleur
+
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
+
+
+
+== DIMM
+
+Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
+
+
+
+== Lecteur
+
+Un lecteur est un périphérique qui fournit le support de stockage physique pour les données.
+
+
+
+== Ventilateur
+
+Le ventilateur refroidit le contrôleur.
+
+
+
+== Batterie NVDIMM
+
+Une batterie NVDIMM est chargée de maintenir l'alimentation du module NVDIMM.
+
+
+
+== NVDIMM
+
+Le NVDIMM (module de mémoire double en ligne non volatile) gère le transfert de données de la mémoire volatile vers le stockage non volatile et préserve l'intégrité des données en cas de coupure de courant ou d'arrêt du système.
+
+
+
+== Carte PCIe
+
+Une carte PCIe (Peripheral Component Interconnect express) est une carte d'extension qui se branche dans le logement PCIe de la carte mère.
+
+
+
+== Alimentation électrique
+
+Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
+
+
+
+== Pile de l'horloge en temps réel
+
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.

@@ -271,7 +271,7 @@ L'extrémité du module de cache se soulève de l'onglet de déverrouillage.
 
 == Étape 4 : installer le module de contrôleur
 
-Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
+Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour installer le module de contrôleur dans le châssis.
 
@@ -301,7 +301,7 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 
 .. Insérez complètement le module de commande dans le châssis en faisant tourner les loquets de verrouillage vers le haut, en les inclinant de manière à dégager les goupilles de verrouillage, poussez doucement le contrôleur complètement vers l'intérieur, puis abaissez les loquets de verrouillage en position verrouillée.
 +
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
 
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
 .. Interrompez le processus de démarrage normal et démarrez vers LE CHARGEUR en appuyant sur `Ctrl-C`.
@@ -310,46 +310,15 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
 
 .. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et les autres composants.
-.. Interrompez le processus de démarrage et démarrez vers l'invite DU CHARGEUR en appuyant sur `Ctrl-C`.
-+
-Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
 
 
 
 
 
 
+== Étape 5 : rétablir le fonctionnement du module de contrôleur
 
-== Étape 5 : exécutez les diagnostics
-
-Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
-
-Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
-
-Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
-
-.Étapes
-. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node _node_name_`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
-. Sélectionnez *stress-Test System* dans le menu affiché.
-. Sélectionnez **M.2 contrainte entraînement NVMe** dans le menu affiché.
-. Procédez comme suit en fonction du résultat de l'étape précédente :
-+
-** Si le test a échoué, corrigez la défaillance, puis relancez le test.
-** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
-
-
-
-
-
-
-== Étape 6 : rétablir le fonctionnement du module de contrôleur après l'exécution des diagnostics
-
-Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
+Vous devez recâblage du système, remettre le module de contrôleur, puis réactiver le rétablissement automatique.
 
 .Étapes
 . Recâblage du système, selon les besoins.

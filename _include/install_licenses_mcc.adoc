@@ -5,7 +5,9 @@
 Vous devez installer de nouvelles licences pour le _remplacement_ node si le nœud douteux utilisait des fonctions ONTAP qui requièrent une licence standard (nœud verrouillé). Pour les fonctionnalités avec licences standard, chaque nœud du cluster doit avoir sa propre clé pour cette fonctionnalité.
 
 .Description de la tâche
-Jusqu'à ce que vous installiez les clés de licence, les fonctions nécessitant des licences standard restent disponibles pour le _remplacement_ node. Cependant, si le nœud douteux était le seul nœud du cluster avec une licence pour la fonction, aucune modification de configuration de la fonction n'est autorisée. En outre, l'utilisation de fonctions sans licence sur le nœud peut vous mettre hors conformité avec votre contrat de licence. Vous devez donc installer la ou les clés de licence de remplacement sur le _remplacement_ noeud dès que possible.
+Jusqu'à ce que vous installiez les clés de licence, les fonctions nécessitant des licences standard restent disponibles pour le _remplacement_ node. Cependant, si le nœud douteux était le seul nœud du cluster avec une licence pour la fonction, aucune modification de configuration de la fonction n'est autorisée.
+
+En outre, l'utilisation de fonctions sans licence sur le nœud peut vous mettre hors conformité avec votre contrat de licence. Vous devez donc installer la ou les clés de licence de remplacement sur le _remplacement_ noeud dès que possible.
 
 Les clés de licence doivent être au format à 28 caractères.
 
@@ -13,17 +15,12 @@ Vous disposez d'une période de grâce de 90 jours pour installer les clés de l
 
 Si le nœud se trouve dans une configuration MetroCluster et que tous les nœuds d'un site ont été remplacés, des clés de licence doivent être installées sur le ou les nœuds _remplacement_ avant le rétablissement.
 
-. Si vous avez besoin de nouvelles clés de licence, obtenez-les sur le site de support NetApp, dans la section My support (mon support), sous licences logicielles.
-+
-https://mysupport.netapp.com/site/global/dashboard["Support NetApp"]
-
+.Étapes
+. Si vous avez besoin de nouvelles clés de licence, vous pouvez obtenir ces clés sur le https://mysupport.netapp.com/site/global/dashboard["Site de support NetApp"] Dans la section My support (mon support), sous licences logicielles.
 +
 
 NOTE: Les nouvelles clés de licence dont vous avez besoin sont générées automatiquement et envoyées à l'adresse électronique du fichier. Si vous ne recevez pas l'e-mail contenant les clés de licence dans les 30 jours, contactez l'assistance technique.
 
-
-
-.Étapes
 . Installer chaque clé de licence : `+system license add -license-code license-key, license-key...+`
 . Supprimez les anciennes licences, si nécessaire :
 +

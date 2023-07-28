@@ -1,0 +1,229 @@
+= Étape 1 : arrêtez le contrôleur défaillant
+:allow-uri-read: 
+
+
+Pour remplacer une batterie NVMEM du système, vous devez retirer le module de contrôleur du système, l'ouvrir, remplacer la batterie, puis fermer et remplacer le module de contrôleur.
+
+Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID en suivant les instructions de la section link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html["Retour des disques SED en mode non protégé"].
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) Pour la lame SCSI du contrôleur altérée. Le `cluster kernel-service show` commande affiche le nom du nœud, l'état quorum du nœud concerné, l'état de disponibilité de ce nœud et l'état opérationnel de ce nœud.
++
+Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : retirer le module de contrôleur
+
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez un composant dans le module de contrôleur.
+
+Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les blocs d'alimentation du module de contrôleur de la source.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Insérez votre index dans le mécanisme de verrouillage de chaque côté du module de contrôleur, appuyez sur le levier avec votre pouce et tirez doucement le contrôleur à quelques pouces du châssis.
++
+
+NOTE: Si vous avez des difficultés à retirer le module de contrôleur, placez vos doigts à travers les trous des doigts de l'intérieur (en croisant vos bras).
+
++
+image::../media/drw_a250_pcm_remove_install.png[le module de commande du groupe motopropulseur du drw a250 dépose l'installation]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Levier 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Mécanisme de verrouillage
+
+|===
+. À l'aide des deux mains, saisissez les côtés du module de contrôleur et tirez-le doucement hors du châssis et posez-le sur une surface plane et stable.
+. Tournez la vis moletée située à l'avant du module de contrôleur dans le sens anti-horaire et ouvrez le capot du module de contrôleur.
++
+image::../media/drw_a250_open_controller_module_cover.png[ouvrir le couvercle du module de contrôleur drw a250]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Vis moletée 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Capot du module de contrôleur.
+
+|===
+
+
+
+
+== Étape 3 : remplacer la batterie NVMEM
+
+Pour remplacer la batterie NVMEM, vous devez retirer la batterie défectueuse du module de contrôleur et installer la batterie de rechange dans le module de contrôleur.
+
+Utilisez la vidéo suivante ou les étapes tabulées pour remplacer la batterie NVMEM :
+
+.Animation : remplacez la batterie NVMEM
+video::89f6d5c3-1a5b-4500-8ba8-ac5b01653050[panopto]
+. Localisez et remplacez la batterie NVMEM altérée sur votre module de contrôleur.
++
+
+NOTE: Il est recommandé de suivre les instructions illustrées dans l'ordre indiqué.
+
++
+image::../media/drw_a250_replace_nvmem_batt.png[drw a250 remplacer la batterie nvmem]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Pressez le clip sur la face de la prise mâle batterie. 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Débrancher le câble de batterie de la prise.
+
+
+
+ a| 
+image:../media/legend_icon_03.png[""]
+ a| 
+Saisissez la batterie et appuyez sur la languette bleue de verrouillage marquée PUSH.
+
+
+
+ a| 
+image:../media/legend_icon_04.png[""]
+ a| 
+Soulevez la batterie pour la sortir du support et du module de contrôleur.
+
+|===
+. Localisez la fiche mâle batterie et appuyez sur le clip situé sur la face de la fiche mâle batterie pour dégager la fiche mâle de la prise.
+. Saisissez la batterie et appuyez sur la languette bleue de verrouillage, PUIS soulevez la batterie pour la sortir du support et du module de contrôleur et mettez-la de côté.
+. Retirez la batterie NV de rechange du sac d'expédition antistatique et alignez-la sur le support de batterie.
+. Insérez la fiche de remplacement de la batterie NV dans la prise.
+. Faites glisser le bloc-batterie vers le bas le long de la paroi latérale en tôle jusqu'à ce que les pattes de support situées sur le crochet mural latéral s'engagent dans les fentes de la batterie et que le loquet du bloc-batterie s'enclenche et s'enclenche dans l'ouverture de la paroi latérale.
+. Appuyez fermement sur la batterie pour vous assurer qu'elle est bien verrouillée.
+
+
+
+
+== Étape 4 : installer le module de contrôleur
+
+Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis l'amorcer.
+
+Vous pouvez utiliser l'illustration suivante ou les étapes écrites pour installer le module de contrôleur de remplacement dans le châssis.
+
+. Fermez le capot du module de contrôleur et serrez la vis à molette.
++
+image::../media/drw_a250_close_controller_module_cover.png[drw a250 fermer le couvercle du module de commande]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+| Capot du module de contrôleur 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Vis moletée
+
+|===
+. Insérer le module de contrôleur dans le châssis :
++
+.. S'assurer que les bras du mécanisme de verrouillage sont verrouillés en position complètement sortie.
+.. À l'aide des deux mains, alignez et faites glisser doucement le module de commande dans les bras du mécanisme de verrouillage jusqu'à ce qu'il s'arrête.
+.. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
+.. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
+.. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+
+
++
+Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
+
+. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
++
+
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+
+
+
+
+
+== Étape 5 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

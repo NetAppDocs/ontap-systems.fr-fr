@@ -21,56 +21,18 @@ Vous devez remplacer le composant défectueux par un composant FRU de remplaceme
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
-
-.Description de la tâche
-* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID en suivant les instructions de la section link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html["Retour des disques SED en mode non protégé"].
-* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) Pour la lame SCSI du contrôleur altérée. Le `cluster kernel-service show` commande affiche le nom du nœud, l'état quorum du nœud concerné, l'état de disponibilité de ce nœud et l'état opérationnel de ce nœud.
-+
-Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
-
-* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
-
+Recâblage des connexions réseau et de stockage du module de contrôleur.
 
 .Étapes
-. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
+. Recâblage du système.
+. Vérifiez que le câblage est correct à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"].
 +
-Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
-
-. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
-+
-
-NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
-
-. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
-+
-[cols="1,2"]
-|===
-| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+.. Téléchargez et installez Config Advisor.
+.. Entrez les informations du système cible, puis cliquez sur collecter les données.
+.. Cliquez sur l'onglet câblage, puis examinez la sortie. Vérifiez que tous les tiroirs disques sont affichés et que tous les disques apparaissent dans le résultat, en corrigeant les problèmes de câblage que vous rencontrez.
+.. Pour vérifier les autres câbles, cliquez sur l'onglet approprié, puis examinez les résultats de Config Advisor.
 
 
- a| 
-Invite DU CHARGEUR
- a| 
-Passez à la section retrait du module de contrôleur.
-
-
-
- a| 
-Attente du retour...
- a| 
-Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
-
-
-
- a| 
-Invite système ou invite de mot de passe
- a| 
-Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
-
-Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
-
-|===
 
 
 
@@ -260,42 +222,16 @@ Les loquets de verrouillage se montent lorsque le module de contrôleur est bien
 NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
 +
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
 
 .. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
-.. Interrompre le processus de démarrage normal en appuyant sur `Ctrl-C`.
 
 
 
 
 
 
-== Étape 5 : exécutez les diagnostics
-
-Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
-
-Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
-
-Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
-
-. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node node_name`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
-. Sélectionnez *Tester mémoire* dans le menu affiché.
-. Procédez comme suit en fonction du résultat de l'étape précédente :
-+
-** Si le test a échoué, corrigez la défaillance, puis relancez le test.
-** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
-
-
-
-
-
-
-== Étape 6 : renvoyer la pièce défaillante à NetApp
+== Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

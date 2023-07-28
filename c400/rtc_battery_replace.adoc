@@ -21,14 +21,12 @@ Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de cont
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
 ====
 .Option 1 : plupart des configurations
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -84,7 +82,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 --
 .Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -183,8 +180,13 @@ mcc1A::> metrocluster operation show
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
+
+Vous pouvez utiliser les animations, illustrations ou étapes écrites suivantes pour retirer le module de contrôleur du châssis.
+
+.Animation - retirez le module de contrôleur
+video::ca74d345-e213-4390-a599-aae10019ec82[panopto]
+image::../media/drw_A400_Remove_controller.png[drw A400 retirer le contrôleur]
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
@@ -197,26 +199,6 @@ Laissez les câbles dans le périphérique de gestion des câbles de sorte que l
 +
 Le module de contrôleur se déplace légèrement hors du châssis.
 
-+
-image::../media/drw_A400_Remove_controller.png[drw A400 retirer le contrôleur]
-
-+
-|===
-
-
- a| 
-image:../media/legend_icon_01.png[""]
- a| 
-Loquets de verrouillage
-
-
-
- a| 
-image:../media/legend_icon_02.png[""]
- a| 
-Le contrôleur sort légèrement du châssis
-
-|===
 . Faites glisser le module de contrôleur hors du châssis.
 +
 Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
@@ -228,7 +210,6 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 == Étape 3 : remplacer la batterie RTC
 
-[role="lead"]
 Vous devez localiser la batterie RTC à l'intérieur du module de contrôleur, puis suivre la séquence spécifique des étapes. Voir le schéma des FRU à l'intérieur du module de contrôleur pour l'emplacement de la batterie RTC.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer la batterie RTC.
@@ -264,8 +245,13 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 == Étape 4 : réinstaller le module de contrôleur et régler l'heure/la date après le remplacement de la batterie RTC
 
-[role="lead"]
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour installer le module de contrôleur dans le châssis.
+
+.Animation - installez le module de contrôleur
+video::0310fe80-b129-4685-8fef-ab19010e720a[panopto]
+image::../media/drw_A400_Install_controller_source.png[drw A400 installez la source du contrôleur]
 
 . Si ce n'est déjà fait, fermez le conduit d'air ou le couvercle du module de commande.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
@@ -317,7 +303,6 @@ NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option 
 
 == Étape 5 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
-[role="lead"]
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -376,5 +361,4 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 == Étape 6 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

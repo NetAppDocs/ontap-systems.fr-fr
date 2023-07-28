@@ -1,7 +1,7 @@
 ---
 permalink: c400/nvdimm-battery-replace.html 
 sidebar: sidebar 
-keywords: aff c400, aff, c400, replace, nvdimm, battery, remove, controller, module, reinstall, impair, aggregate, switch, back, two-node, metrocluster, configuration, replacement, complete, process, replace the nvdimm battery, shut down the impaired controller, remove the controller module, replace the nvdimm battery, install the controller module, run diagnostics, restore the controller module to operation after running diagnostics, switch back aggregates in a two-node metrocluster configuration, complete the replacement process 
+keywords: aff c400, aff, c400, replace, nvdimm, battery, remove, controller, module, reinstall, impair, aggregate, switch, back, two-node, metrocluster, configuration, replacement, complete, process, replace the nvdimm battery, shut down the impaired controller, remove the controller module, replace the nvdimm battery, install the controller module, restore the controller module to operation, switch back aggregates in a two-node metrocluster configuration, complete the replacement process 
 summary: Pour remplacer la batterie NVDIMM, vous devez retirer le module de contrôleur, retirer la batterie, remplacer la batterie, puis réinstaller le module de contrôleur. 
 ---
 = Remplacez la batterie NVDIMM - AFF C400
@@ -19,14 +19,12 @@ Tous les autres composants du système doivent fonctionner correctement ; si ce 
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
 ====
 .Option 1 : plupart des configurations
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -82,7 +80,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 --
 .Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -181,8 +178,13 @@ mcc1A::> metrocluster operation show
 
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
+
+Vous pouvez utiliser les animations, illustrations ou étapes écrites suivantes pour retirer le module de contrôleur du châssis.
+
+.Animation - retirez le module de contrôleur
+video::ca74d345-e213-4390-a599-aae10019ec82[panopto]
+image::../media/drw_A400_Remove_controller.png[drw A400 retirer le contrôleur]
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
@@ -195,26 +197,6 @@ Laissez les câbles dans le périphérique de gestion des câbles de sorte que l
 +
 Le module de contrôleur se déplace légèrement hors du châssis.
 
-+
-image::../media/drw_A400_Remove_controller.png[drw A400 retirer le contrôleur]
-
-+
-|===
-
-
- a| 
-image:../media/legend_icon_01.png[""]
- a| 
-Loquets de verrouillage
-
-
-
- a| 
-image:../media/legend_icon_02.png[""]
- a| 
-Le contrôleur sort légèrement du châssis
-
-|===
 . Faites glisser le module de contrôleur hors du châssis.
 +
 Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
@@ -226,7 +208,6 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 == Étape 3 : remplacez la batterie NVDIMM
 
-[role="lead"]
 Pour remplacer la batterie NVDIMM, vous devez retirer la batterie défectueuse du module de contrôleur et installer la batterie de rechange dans le module de contrôleur. Consultez le schéma des FRU à l'intérieur du module de contrôleur pour localiser la batterie NVDIMM.
 
 Le voyant NVDIMM clignote pendant l'égrenage du contenu lorsque vous arrêtez le système. Une fois le transfert terminé, le voyant s'éteint.
@@ -255,8 +236,13 @@ image::../media/drw_A400_nvdimm-batt_IEOPS-1004.svg[drw A400 batterie nvdimm IOP
 
 == Étape 4 : installer le module de contrôleur
 
-[role="lead"]
-Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
+Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis l'amorcer.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour installer le module de contrôleur dans le châssis.
+
+.Animation - installez le module de contrôleur
+video::0310fe80-b129-4685-8fef-ab19010e720a[panopto]
+image::../media/drw_A400_Install_controller_source.png[drw A400 installez la source du contrôleur]
 
 . Si ce n'est déjà fait, fermer le conduit d'air.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
@@ -288,46 +274,15 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
 
 .. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et les autres composants.
-.. Interrompez le processus de démarrage et démarrez vers l'invite DU CHARGEUR en appuyant sur `Ctrl-C`.
-+
-Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
 
 
 
 
 
 
+== Étape 5 : rétablir le fonctionnement du module de contrôleur
 
-== Étape 5 : exécutez les diagnostics
-
-[role="lead"]
-Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
-
-Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
-
-Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
-
-. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node node_name`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
-. Sélectionnez *Tester mémoire* dans le menu affiché pour exécuter des tests de diagnostic.
-. Procédez comme suit en fonction du résultat de l'étape précédente :
-+
-** Si l'acquisition montre des problèmes, corrigez le problème, puis relancez l'acquisition.
-** Si l'analyse n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
-
-
-
-
-
-
-== Étape 6 : rétablir le fonctionnement du module de contrôleur après l'exécution des diagnostics
-
-[role="lead"]
-Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
+Vous devez recâblage du système, remettre le module de contrôleur, puis réactiver le rétablissement automatique.
 
 . Recâblage du système, selon les besoins.
 +
@@ -339,9 +294,8 @@ Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas 
 
 
 
-== Étape 7 : retournez les agrégats via une configuration MetroCluster à deux nœuds
+== Étape 6 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
-[role="lead"]
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -398,7 +352,6 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 
 
-== Étape 8 : renvoyer la pièce défaillante à NetApp
+== Étape 7 : renvoyer la pièce défaillante à NetApp
 
-[role="lead"]
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

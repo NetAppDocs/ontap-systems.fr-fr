@@ -1,0 +1,564 @@
+---
+permalink: asa900/nvram_module_or_nvram_dimm_replacement.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Le module NVRAM se compose de l"architecture NVRAM11 et de modules DIMM, et jusqu"à deux modules Flash cache SSD NVMe (Flash cache ou modules de cache) par module NVRAM.' 
+---
+= Remplacez le module NVRAM et les DIMM NVRAM - ASA A900
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le module NVRAM se compose de l'NVRAM11 et de modules DIMM. Vous pouvez remplacer un module NVRAM défectueux ou les modules DIMM à l'intérieur du module NVRAM. Pour remplacer un module NVRAM défectueux, vous devez le retirer du châssis, déplacer les modules DIMM vers le module de remplacement et installer le module NVRAM de remplacement dans le châssis.
+
+Pour remplacer le module DIMM et NVRAM, vous devez retirer le module NVRAM du châssis, remplacer le module DIMM défectueux dans le module, puis réinstaller le module NVRAM.
+
+.Description de la tâche
+Étant donné que l'ID système est dérivé du module NVRAM, si vous remplacez le module, les disques appartenant au système sont réaffectés à un nouvel ID système.
+
+.Avant de commencer
+* Tous les tiroirs disques doivent fonctionner correctement.
+* Si votre système se trouve dans une paire haute disponibilité, le contrôleur partenaire doit pouvoir reprendre le contrôleur associé au module NVRAM qui est remplacé.
+* Cette procédure utilise la terminologie suivante :
++
+** Le contrôleur affecté est le contrôleur sur lequel vous effectuez la maintenance.
+** Le contrôleur en bonne santé est le partenaire de haute disponibilité associé au contrôleur affecté.
+
+
+* Cette procédure comprend les étapes de réaffectation automatique des disques au module de contrôleur associé au nouveau module NVRAM. Vous devez réaffecter les disques lorsqu'il est demandé dans la procédure. La réaffectation du disque avant le retour peut entraîner des problèmes.
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Vous ne pouvez pas changer de disque ou de tiroir disque dans le cadre de cette procédure.
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
+
+[role="tabbed-block"]
+====
+.Option 1 : la plupart des systèmes
+--
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID en suivant les instructions de la section link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html["Retour des disques SED en mode non protégé"].
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) Pour la lame SCSI du contrôleur altérée. Le `cluster kernel-service show` commande affiche le nom du nœud, l'état quorum du nœud concerné, l'état de disponibilité de ce nœud et l'état opérationnel de ce nœud.
++
+Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+--
+.Option 2 : le contrôleur est dans un MetroCluster
+--
+
+NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+--
+====
+
+
+== Étape 2 : remplacer le module NVRAM
+
+Pour remplacer le module NVRAM, localisez-le dans le logement 6 du châssis et suivez la séquence des étapes.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez le module NVRAM cible du châssis :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
++
+Le bouton de came s'éloigne du châssis.
+
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
++
+Le module NVRAM se désengage du châssis et se déplace en quelques pouces.
+
+.. Retirez le module NVRAM du châssis en tirant sur les languettes de traction situées sur les côtés de la face du module.
++
+.Animation : remplacez le module NVRAM
+video::6eb2d864-9d35-4a23-b6c2-adf9016b359f[panopto]
++
+image::../media/drw_a900_move-remove_NVRAM_module.png[drw a900 déplacer déposer le module NVRAM]
+
+
+
++
+[cols="10,90"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Verrou à came numéroté et numéroté
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Verrou de came complètement déverrouillé
+
+|===
+. Placez le module NVRAM sur une surface stable et retirez le capot du module NVRAM en appuyant sur le bouton de verrouillage bleu du capot, puis, tout en maintenant le bouton bleu enfoncé, faites glisser le couvercle hors du module NVRAM.
++
+image::../media/drw_a900_remove_NVRAM_module_contents.png[drw a900 retirer le contenu du module NVRAM]
+
++
+[cols="10,90"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Bouton de verrouillage du couvercle
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Languettes d'éjection du module DIMM et du module DIMM
+
+|===
+. Retirez les modules DIMM, un par un, de l'ancien module NVRAM et installez-les dans le module NVRAM de remplacement.
+. Fermez le capot du module.
+. Installez le module NVRAM de remplacement dans le châssis :
++
+.. Alignez le module sur les bords de l'ouverture du châssis dans le logement 6.
+.. Faites glisser doucement le module dans le logement jusqu'à ce que le loquet de came numéroté commence à s'engager avec l'axe de came d'E/S, puis poussez le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+
+
+
+
+== Étape 3 : remplacer un module DIMM NVRAM
+
+Pour remplacer les modules DIMM NVRAM du module NVRAM, vous devez retirer le module NVRAM, ouvrir le module, puis remplacer le module DIMM cible.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez le module NVRAM cible du châssis :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
++
+Le bouton de came s'éloigne du châssis.
+
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
++
+Le module NVRAM se désengage du châssis et se déplace en quelques pouces.
+
+.. Retirez le module NVRAM du châssis en tirant sur les languettes de traction situées sur les côtés de la face du module.
++
+.Animation - remplacer la mémoire DIMM NVRAM
+video::0ae4e603-c22b-4930-8070-adf2000e38b5[panopto]
++
+image::../media/drw_a900_move-remove_NVRAM_module.png[drw a900 déplacer déposer le module NVRAM]
+
+
+
++
+[cols="10,90"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Verrou à came numéroté et numéroté
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+verrou de came complètement déverrouillé
+
+|===
+. Placez le module NVRAM sur une surface stable et retirez le capot du module NVRAM en appuyant sur le bouton de verrouillage bleu du capot, puis, tout en maintenant le bouton bleu enfoncé, faites glisser le couvercle hors du module NVRAM.
++
+image::../media/drw_a900_remove_NVRAM_module_contents.png[drw a900 retirer le contenu du module NVRAM]
+
++
+[cols="10,90"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Bouton de verrouillage du couvercle
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Languettes d'éjection du module DIMM et du module DIMM
+
+|===
+. Repérez le module DIMM à remplacer à l'intérieur du module NVRAM, puis retirez-le en appuyant sur les languettes de verrouillage du module DIMM et en soulevant le module DIMM pour le sortir du support.
+. Installez le module DIMM de remplacement en alignant le module DIMM avec le support et en poussant doucement le module DIMM dans le support jusqu'à ce que les languettes de verrouillage se verrouillent en place.
+. Fermez le capot du module.
+. Installez le module NVRAM dans le châssis :
++
+.. Alignez le module sur les bords de l'ouverture du châssis dans le logement 6.
+.. Faites glisser doucement le module dans le logement jusqu'à ce que le loquet de came numéroté commence à s'engager avec l'axe de came d'E/S, puis poussez le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+
+
+
+
+== Étape 4 : redémarrer le contrôleur
+
+Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
+
+. Pour démarrer ONTAP à partir de l'invite DU CHARGEUR, entrez `bye`.
+
+
+
+
+== Étape 5 : réaffectation de disques
+
+Vous devez confirmer la modification de l'ID système au démarrage du contrôleur de remplacement, puis vérifier que la modification a été implémentée.
+
+
+NOTE: Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
+
+
+CAUTION: La réaffectation du disque n'est nécessaire que lors du remplacement du module NVRAM.
+
+.Étapes
+. Si le contrôleur de remplacement est en mode maintenance (affiche le `*>` Invite), quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`
+. Dans l'invite DU CHARGEUR sur le contrôleur de remplacement, démarrez le contrôleur et entrez y si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système.
+. Attendre l'attente d'un retour... Un message s'affiche sur la console du contrôleur avec le module de remplacement, puis, depuis le contrôleur en bon état, vérifier que le nouvel ID système partenaire a été automatiquement attribué : `storage failover show`
++
+Dans le résultat de la commande, un message indiquant l'ID système modifié sur le contrôleur associé est affiché, indiquant l'ancien et le nouveau ID corrects. Dans l'exemple suivant, le node2 a fait l'objet d'un remplacement et a un nouvel ID système de 151759706.
+
++
+[listing]
+----
+node1:> storage failover show
+                                    Takeover
+Node              Partner           Possible     State Description
+------------      ------------      --------     -------------------------------------
+node1             node2             false        System ID changed on partner (Old:
+                                                  151759755, New: 151759706), In takeover
+node2             node1             -            Waiting for giveback (HA mailboxes)
+----
+. Remettre le contrôleur :
++
+.. Depuis le contrôleur sain, remettre le stockage du contrôleur remplacé : `storage failover giveback -ofnode replacement_node_name`
++
+Le contrôleur de remplacement reprend son stockage et termine le démarrage.
+
++
+Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système, vous devez entrer `y`.
+
++
+
+NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+
++
+Pour plus d'informations, reportez-vous à la section https://docs.netapp.com/us-en/ontap/high-availability/ha_manual_giveback.html#if-giveback-is-interrupted["Commandes de rétablissement manuel"^] rubrique pour remplacer le droit de veto.
+
+.. Une fois le retour arrière terminé, vérifiez que la paire HA est saine et que le basculement est possible : `storage failover show`
++
+La sortie du `storage failover show` La commande ne doit pas inclure l'ID système modifié dans le message partenaire.
+
+
+
+. Vérifier que les disques ont été correctement affectés : `storage disk show -ownership`
++
+Les disques appartenant au contrôleur de remplacement doivent afficher le nouvel ID système. Dans l'exemple suivant, les disques appartenant au nœud1 affichent alors le nouvel ID système, 151759706 :
+
++
+[listing]
+----
+node1:> storage disk show -ownership
+
+Disk  Aggregate Home  Owner  DR Home  Home ID    Owner ID  DR Home ID Reserver  Pool
+----- ------    ----- ------ -------- -------    -------    -------  ---------  ---
+1.0.0  aggr0_1  node1 node1  -        151759706  151759706  -       151759706 Pool0
+1.0.1  aggr0_1  node1 node1           151759706  151759706  -       151759706 Pool0
+.
+.
+.
+----
+. Si le système se trouve dans une configuration MetroCluster, surveillez l'état du contrôleur : `metrocluster node show`
++
+La configuration MetroCluster prend quelques minutes après le remplacement pour revenir à un état normal. À ce moment, chaque contrôleur affiche un état configuré, avec la mise en miroir reprise sur incident activée et un mode de fonctionnement normal. Le `metrocluster node show -fields node-systemid` Le résultat de la commande affiche l'ancien ID système jusqu'à ce que la configuration MetroCluster revienne à un état normal.
+
+. Si le contrôleur est dans une configuration MetroCluster, en fonction de l'état de la MetroCluster, vérifiez que le champ ID de domicile de la reprise après incident affiche le propriétaire d'origine du disque si le propriétaire d'origine est un contrôleur sur le site de secours.
++
+Ceci est requis si les deux conditions suivantes sont vraies :
+
++
+** La configuration MetroCluster est en état de basculement.
+** Le contrôleur de remplacement est le propriétaire actuel des disques sur le site de reprise sur incident.
++
+Voir https://docs.netapp.com/us-en/ontap-metrocluster/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#disk-ownership-changes-during-ha-takeover-and-metrocluster-switchover-in-a-four-node-metrocluster-configuration["Modification de la propriété des disques lors du basculement haute disponibilité et du basculement du MetroCluster dans une configuration MetroCluster à quatre nœuds"] pour en savoir plus.
+
+
+
+. Si votre système se trouve dans une configuration MetroCluster, vérifiez que chaque contrôleur est configuré : `metrocluster node show - fields configuration-state`
++
+[listing]
+----
+node1_siteA::> metrocluster node show -fields configuration-state
+
+dr-group-id            cluster node           configuration-state
+-----------            ---------------------- -------------- -------------------
+1 node1_siteA          node1mcc-001           configured
+1 node1_siteA          node1mcc-002           configured
+1 node1_siteB          node1mcc-003           configured
+1 node1_siteB          node1mcc-004           configured
+
+4 entries were displayed.
+----
+. Vérifier que les volumes attendus sont présents pour chaque contrôleur : `vol show -node node-name`
+. Si le chiffrement du stockage est activé, vous devez restaurer la fonctionnalité.
+. Si vous avez désactivé le basculement automatique au redémarrage, activez-le à partir du contrôleur sain : `storage failover modify -node replacement-node-name -onreboot true`
+
+
+
+
+== Étape 6 : restauration de la fonctionnalité de cryptage du stockage et du volume
+
+Si le chiffrement du stockage est activé, suivez la procédure appropriée.
+
+[role="tabbed-block"]
+====
+.Option 1 : utilisation du gestionnaire de clés intégré
+--
+.Étapes
+. Démarrez le nœud sur le menu de démarrage.
+. Sélectionnez l'option 10, `Set onboard key management recovery secrets`.
+. Saisissez la phrase de passe du gestionnaire de clés intégré que vous avez obtenue du client.
+. À l'invite, collez les données de la clé de sauvegarde à partir de la sortie de `security key-manager backup show` OU `security key-manager onboard show-backup` commande.
++
+Exemple de données de sauvegarde :
+
++
+--------------------------- COMMENCER LA SAUVEGARDE------------------------------------------------------
+
++
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADuD+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAA QAAAAAAAAAAAAAAAASAA QAAAASAA 1AAAAAMHAAAAMHAAASAA+AAAAAAAAAAAAAAAAAAAAASAA 1AAAAMHAAASAYLAAASAA 1AAAAMHAAAAMHAAASAYLAAASAA 1AAASAA 1AAASAYLAMHAAASAA 1AAASAA . . . H4nPQM0nrDRYRa9SCv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
++
+-------------------------- FIN DE LA SAUVEGARDE-------------------------
+
++
+
+NOTE: Le contrôleur revient au menu de démarrage.
+
+. Sélectionnez l'option 1, `Normal Boot`
+. Renvoyer uniquement les agrégats CFO avec le `storage failover giveback -fromnode local -only-cfo-aggregates true` commande.
++
+** Si la commande échoue en raison d'un disque en panne, désengagez physiquement le disque en panne, mais laissez le disque dans le slot jusqu'à ce qu'un disque de remplacement soit reçu.
+** Si la commande échoue en raison d'une session CIFS ouverte, vérifiez auprès du client comment fermer les sessions CIFS.
++
+
+NOTE: L'arrêt du protocole CIFS peut entraîner la perte de données.
+
+** Si la commande échoue car le partenaire n'est pas prêt, attendez 5 minutes pour que les systèmes NVRAM se synchronisent.
+** Si la commande échoue en raison d'un processus NDMP, SnapMirror ou SnapVault, désactivez le processus. Consultez le contenu approprié pour plus d'informations.
+
+
+. Une fois le retour terminé, vérifiez l'état du basculement et du rétablissement à l'aide du `storage failover show` et `storage failover show-giveback` commandes.
++
+Seuls les agrégats CFO (agrégats racine et agrégats de données de type CFO) seront indiqués.
+
+. Exécutez la synchronisation intégrée du gestionnaire de clés de sécurité :
++
+.. Exécutez le `security key-manager onboard sync` puis entrez la phrase de passe lorsque vous y êtes invité.
+.. Entrez le `security key-manager key-query` commande pour afficher une vue détaillée de toutes les clés stockées dans le gestionnaire de clés intégré et vérifier que `Restored` colonne = `yes/true` pour toutes les clés d'authentification.
++
+
+NOTE: Si le `Restored` colonne = tout autre élément que `yes/true`, Contactez le support client.
+
+.. Attendez 10 minutes que la clé se synchronise sur l'ensemble du cluster.
+
+
+. Déplacez le câble de la console vers le contrôleur partenaire.
+. Renvoyer le contrôleur cible à l'aide du `storage failover giveback -fromnode local` commande.
+. Vérifier le statut de rétablissement, trois minutes après la fin des rapports, à l'aide de `storage failover show` commande.
++
+Si le retour n'est pas effectué au bout de 20 minutes, contactez le support client.
+
+. À l'invite clustershell, entrez la commande net int show -is-home false pour lister les interfaces logiques qui ne sont pas sur leur contrôleur et port de départ.
++
+Si des interfaces sont répertoriées comme `false`, rerestaurez ces interfaces sur leur port de départ à l'aide de la commande net int revert.
+
+. Déplacer le câble de la console vers le contrôleur cible et exécuter le `version -v` Commande pour vérifier les versions de ONTAP.
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Réinitialisez le MSID s'il a été défini précédemment et a été capturé au début de cette procédure :
++
+.. Attribuez une clé d'authentification de données à un lecteur FIPS ou SED à l'aide du `storage encryption disk modify -disk _disk_ID_ -data-key-id _key_ID_` commande.
++
+
+NOTE: Vous pouvez utiliser le `security key-manager key query -key-type NSE-AK` Commande permettant d'afficher les ID de clés.
+
+.. Vérifiez que les clés d'authentification ont été attribuées à l'aide du `storage encryption disk show` commande.
+
+
+
+
+--
+.Option 2 : utilisation du gestionnaire externe
+--
+. Démarrez le contrôleur dans le menu de démarrage.
+. Sélectionnez l'option 11, `Configure node for external key management`.
+. Entrez les informations du certificat de gestion aux invites.
++
+
+NOTE: Une fois les informations du certificat de gestion terminées, le contrôleur revient au menu de démarrage.
+
+. Sélectionnez l'option 1, `Normal Boot`
+. Déplacez le câble de la console vers le contrôleur partenaire et redonnez le stockage du contrôleur cible à l'aide de la commande Storage failover giveback -fromnode local -only-cfo-Aggregates véritable commande locale.
++
+** Si la commande échoue en raison d'un disque en panne, désengagez physiquement le disque en panne, mais laissez le disque dans le slot jusqu'à ce qu'un disque de remplacement soit reçu.
+** Si la commande échoue en raison d'une session CIFS ouverte, vérifiez auprès du client comment fermer les sessions CIFS.
++
+
+NOTE: L'arrêt du protocole CIFS peut entraîner la perte de données.
+
+** Si la commande échoue parce que le partenaire n'est pas prêt, attendez 5 minutes pour que le système NVMEMs se synchronise.
+** Si la commande échoue en raison d'un processus NDMP, SnapMirror ou SnapVault, désactivez le processus. Consultez le contenu approprié pour plus d'informations.
+
+
+. Attendez 3 minutes et vérifiez l'état du basculement à l'aide de la commande Storage failover show.
+. À l'invite clustershell, entrez le `net int show -is-home false` commande pour lister les interfaces logiques qui ne se trouvent pas sur leur contrôleur et son port de base.
++
+Si des interfaces sont répertoriées comme `false`, restaurez ces interfaces à leur port de départ à l'aide de l' `net int revert` commande.
+
+. Déplacer le câble de la console vers le contrôleur cible et exécuter le `version -v` Commande pour vérifier les versions de ONTAP.
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Utilisez le `storage encryption disk show` à l'invite clustershell, pour vérifier la sortie.
+. Utilisez le `security key-manager key-query` commande pour afficher les clés de chiffrement et d'authentification stockées sur les serveurs de gestion des clés.
++
+** Si le `Restored` colonne = `yes/true`, vous avez terminé et pouvez procéder à la procédure de remplacement.
+** Si le `Key Manager type` = `external` et le `Restored` colonne = tout autre élément que `yes/true`, Utilisez la commande de restauration externe du gestionnaire de clés de sécurité pour restaurer les ID de clés des clés d'authentification.
++
+
+NOTE: Si la commande échoue, contactez l'assistance clientèle.
+
+** Si le `Key Manager type` = `onboard` et le `Restored` colonne = tout autre élément que `yes/true`, Utilisez la commande de synchronisation intégrée du gestionnaire de clés de sécurité pour resynchroniser le type de gestionnaire de clés.
++
+Utilisez le `security key-manager key-query` pour vérifier que le `Restored` colonne = `yes/true` pour toutes les clés d'authentification.
+
+
+
+. Branchez le câble de la console au contrôleur partenaire.
+. Renvoyer le contrôleur à l'aide de la commande locale Storage failover giveback -fromnode.
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Réinitialisez le MSID s'il a été défini précédemment et a été capturé au début de cette procédure :
++
+.. Attribuez une clé d'authentification de données à un lecteur FIPS ou SED à l'aide du `storage encryption disk modify -disk _disk_ID_ -data-key-id _key_ID_` commande.
++
+
+NOTE: Vous pouvez utiliser le `security key-manager key query -key-type NSE-AK` Commande permettant d'afficher les ID de clés.
+
+.. Vérifiez que les clés d'authentification ont été attribuées à l'aide du `storage encryption disk show` commande.
+
+
+
+
+--
+====
+
+
+== Étape 7 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

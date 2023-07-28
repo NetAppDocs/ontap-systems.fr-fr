@@ -1,0 +1,21 @@
+---
+permalink: a220/chassis-replace-overview.html 
+sidebar: sidebar 
+keywords: aff a220, replace, chassis, shut down, controller, metrocluster, power, supply, ha, state, controller, configuration, switch, aggregates, replace, move, remove, swap 
+summary: Vous remplacez un châssis endommagé le nouveau châssis du même modèle que le châssis endommagé. 
+---
+= Présentation du remplacement du châssis - AFF A220
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer le châssis, vous devez déplacer les blocs d'alimentation, les disques durs et les modules de contrôleur ou les modules du châssis endommagé vers le nouveau châssis, puis remplacer le châssis endommagé par le rack ou l'armoire système de l'équipement par le nouveau châssis du même modèle que le châssis défaillant.
+
+Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système.
+* Cette procédure est rédigée en supposant que vous déplacez tous les disques et modules de contrôleur vers le nouveau châssis, et que le châssis est un nouveau composant de NetApp.
+* Cette procédure est perturbatrice. Dans le cas d'un cluster à deux contrôleurs, vous devez disposer d'une panne totale du service et d'une panne partielle dans l'un des clusters à plusieurs nœuds.
+

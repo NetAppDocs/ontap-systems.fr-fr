@@ -1,0 +1,109 @@
+---
+permalink: a700/x91148a-modules-with-open-slots-add.html 
+sidebar: sidebar 
+keywords: aff a700, ass, x91148a, module, open, slots, nic, storage 
+summary: Vous pouvez ajouter un module X91148A dans un emplacement de module vide de votre système en tant que carte réseau 100 GbE ou module de stockage pour les tiroirs de stockage NS224. 
+---
+= Ajoutez un module X91148A dans un système doté de connecteurs ouverts - A700
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez ajouter un module X91148A dans un emplacement de module vide de votre système en tant que carte réseau 100 GbE ou module de stockage pour les tiroirs de stockage NS224.
+
+* Votre système doit exécuter ONTAP 9.8 et versions ultérieures.
+* Pour ajouter le module X91148A sans interruption, vous devez prendre le contrôle cible, retirer le cache de l'emplacement cible, ajouter le module, puis rendre le contrôleur cible.
+* Un ou plusieurs emplacements ouverts doivent être disponibles sur votre système.
+* Si plusieurs emplacements sont disponibles, installez le module conformément à la matrice de priorité des logements pour le module X91148A dans le Hardware Universe.
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* Si vous ajoutez le module X91148A en tant que module de stockage, vous devez installer les logements de module 3 et/ou 7.
+* Si vous ajoutez le module X91148A en tant que carte réseau 100 GbE, vous pouvez utiliser n'importe quel emplacement ouvert. Cependant, par défaut, les emplacements 3 et 7 sont définis comme emplacements de stockage. Si vous souhaitez utiliser ces emplacements comme emplacements réseau et n'y ajouter pas de tiroirs NS224, vous devez modifier les emplacements pour une utilisation en réseau avec `storage port modify -node _node name_ -port _port name_ -mode network` commande. Voir le Hardware Universe pour d'autres emplacements pouvant être utilisés par le module X91148A pour la mise en réseau.
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+
+== Option 1 : ajoutez un module X91148A en tant que module NIC dans un système doté de logements ouverts
+
+Pour ajouter un module X91148A en tant que module NIC dans un système avec des emplacements ouverts, vous devez suivre la séquence spécifique des étapes.
+
+.Étapes
+. Arrêter le contrôleur A :
++
+.. Désactiver le rétablissement automatique : `storage failover modify -node local -auto-giveback false`
+.. Reprendre le nœud cible : `storage failover takeover -ofnode _target_node_name_`
++
+La connexion de la console indique que le nœud tombe dans l'invite DU CHARGEUR une fois le basculement terminé.
+
+
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Déposer l'obturateur de fente cible :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
+.. Déposer l'obturateur.
+
+
+. Installer le module X91148A :
++
+.. Alignez le module X91148A sur les bords de l'emplacement.
+.. Faites glisser le module X91148A dans le logement jusqu'à ce que le loquet de came d'E/S numéroté et numéroté commence à s'engager avec la broche de came d'E/S.
+.. Poussez le loquet de came d'E/S complètement vers le haut pour verrouiller le module en place.
+
+
+. Branchez le module sur les commutateurs de données.
+. Redémarrer le contrôleur A : `boot_ontap`
+. Rétablissement du nœud depuis le nœud partenaire : `storage failover giveback -ofnode _target_node_name_`
+. Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
+. Répétez ces étapes pour le contrôleur B.
+
+
+
+
+== Option 2 : ajoutez un module X91148A en tant que module de stockage dans un système doté de logements ouverts
+
+Pour ajouter un module X91148A en tant que module de stockage dans un système avec des emplacements ouverts, vous devez suivre la séquence spécifique des étapes.
+
+* Cette procédure suppose que les logements 3 et/ou 7 sont ouverts.
+
+
+.Étapes
+. Arrêter le contrôleur A :
++
+.. Désactiver le rétablissement automatique : `storage failover modify -node local -auto-giveback false`
+.. Reprendre le nœud cible : `storage failover takeover -ofnode target_node_name`
++
+La connexion de la console indique que le nœud tombe dans l'invite DU CHARGEUR une fois le basculement terminé.
+
+
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Déposer l'obturateur de fente cible :
++
+.. Appuyer sur le bouton à came numéroté et numéroté.
+.. Faites pivoter le loquet de came vers le bas jusqu'à ce qu'il soit en position horizontale.
+.. Déposer l'obturateur.
+
+
+. Installer le module X91148A dans l'emplacement 3 :
++
+.. Alignez le module X91148A sur les bords de l'emplacement.
+.. Faites glisser le module X91148A dans le logement jusqu'à ce que le loquet de came d'E/S numéroté et numéroté commence à s'engager avec la broche de came d'E/S.
+.. Poussez le loquet de came d'E/S complètement vers le haut pour verrouiller le module en place.
+.. Si vous installez un deuxième module X91148A pour le stockage, répétez cette étape pour le module dans le logement 7.
+
+
+. Redémarrer le contrôleur A : `boot_ontap`
+. Rétablissement du nœud depuis le nœud partenaire : `storage failover giveback -ofnode target_node_name`
+. Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
+. Répétez ces étapes pour le contrôleur B.
+. Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud : étagères NS224"].
+

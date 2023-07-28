@@ -1,0 +1,338 @@
+---
+permalink: asa150/controller-replace-recable-reassign-disks.html 
+sidebar: sidebar 
+keywords: asa a150, a150, asa, how to recable the system, how to reassign disks 
+summary: Vous devez recomm le stockage et confirmer la réaffectation des disques. 
+---
+= Recâblage du système et réaffectation des disques - ASA A150
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour effectuer la procédure de remplacement et restaurer entièrement le système en fonctionnement, vous devez récupérer le stockage, confirmer la réaffectation des disques, restaurer la configuration NetApp Storage Encryption (si nécessaire) et installer les licences du nouveau contrôleur. Vous devez effectuer une série de tâches avant de restaurer le système en mode de fonctionnement complet.
+
+
+
+== Étape 1 : recâblage du système
+
+Recâblage des connexions réseau et de stockage du module de contrôleur.
+
+.Étapes
+. Recâblage du système.
+. Vérifiez que le câblage est correct à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"].
++
+.. Téléchargez et installez Config Advisor.
+.. Entrez les informations du système cible, puis cliquez sur collecter les données.
+.. Cliquez sur l'onglet câblage, puis examinez la sortie. Vérifiez que tous les tiroirs disques sont affichés et que tous les disques apparaissent dans le résultat, en corrigeant les problèmes de câblage que vous rencontrez.
+.. Pour vérifier les autres câbles, cliquez sur l'onglet approprié, puis examinez les résultats de Config Advisor.
+
+
+
+
+
+
+== Étape 2 : réaffectation de disques
+
+Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Dans un système autonome, vous devez réattribuer manuellement l'ID aux disques.
+
+Vous devez suivre la procédure correcte pour votre configuration :
+
+[cols="1,2"]
+|===
+| La redondance du contrôleur | Ensuite, suivez cette procédure... 
+
+
+ a| 
+Paire HA
+ a| 
+link:controller_replace_complete_system_restoration.md#["Vérification de la modification de l'ID du système sur un système HA"]
+
+
+
+ a| 
+Autonome
+ a| 
+link:controller_replace_complete_system_restoration.md#["Réaffectation manuelle de l'ID système sur un système autonome dans ONTAP"]
+
+
+
+ a| 
+Configuration MetroCluster à deux nœuds
+ a| 
+link:controller_replace_complete_system_restoration.md#["Réaffectation manuelle de l'ID système sur les systèmes d'une configuration MetroCluster à deux nœuds"]
+
+|===
+
+
+=== Option 1 : vérifiez la modification de l'ID système sur un système HA
+
+Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.
+
+Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
+
+. Si le _remplacement_ contrôleur est en mode Maintenance (affiche le `*>` Invite, quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`
+. À partir de l'invite DU CHARGEUR sur le contrôleur _replace_, démarrez le contrôleur, puis entrez `y` Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système :``boot_ontap``
+. Attendre jusqu'à `Waiting for giveback...` Le message s'affiche sur la console du contrôleur _replace_, puis, à partir du contrôleur sain, vérifiez que le nouvel ID système partenaire a été automatiquement attribué : `storage failover show`
++
+Dans le résultat de la commande, un message indiquant l'ID système modifié sur le contrôleur associé est affiché, indiquant l'ancien et le nouveau ID corrects. Dans l'exemple suivant, le node2 a fait l'objet d'un remplacement et a un nouvel ID système de 151759706.
+
++
+[listing]
+----
+node1> `storage failover show`
+                                    Takeover
+Node              Partner           Possible     State Description
+------------      ------------      --------     -------------------------------------
+node1             node2             false        System ID changed on partner (Old:
+                                                  151759755, New: 151759706), In takeover
+node2             node1             -            Waiting for giveback (HA mailboxes)
+----
+. Depuis le contrôleur sain, vérifier que les « coredumps » sont enregistrés :
++
+.. Changement au niveau de privilège avancé : `set -privilege advanced`
++
+Vous pouvez répondre `Y` lorsque vous êtes invité à passer en mode avancé. L'invite du mode avancé s'affiche (*>).
+
+.. Enregistrez les « coredumps » : `system node run -node _local-node-name_ partner savecore`
+.. Attendez que la commande `savecore'se termine avant d'émettre le retour.
++
+Vous pouvez saisir la commande suivante pour surveiller la progression de la commande savecore : `system node run -node _local-node-name_ partner savecore -s`
+
+.. Retour au niveau de privilège admin : `set -privilege admin`
+
+
+. Si le chiffrement du volume ou du stockage est configuré sur votre système de stockage, vous devez restaurer la fonctionnalité de chiffrement du stockage ou du volume en suivant l'une des procédures suivantes, selon que vous utilisez la gestion des clés intégrée ou externe :
++
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
+
+
+. Remettre le contrôleur :
++
+.. Depuis le contrôleur sain, remettre le stockage du contrôleur remplacé : `storage failover giveback -ofnode _replacement_node_name_`
++
+Le contrôleur _remplacement_ reprend son stockage et termine son démarrage.
+
++
+Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système, vous devez entrer `y`.
+
++
+
+NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+
++
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Recherchez le contenu Configuration haute disponibilité de votre version de ONTAP 9"]
+
+.. Une fois le retour arrière terminé, vérifiez que la paire HA est saine et que le basculement est possible : `storage failover show`
++
+La sortie du `storage failover show` La commande ne doit pas inclure l'ID système modifié dans le message partenaire.
+
+
+
+. Vérifier que les disques ont été correctement affectés : `storage disk show -ownership`
++
+Les disques appartenant au _replace_ Controller doivent afficher le nouvel ID système. Dans l'exemple suivant, les disques appartenant au nœud1 affichent alors le nouvel ID système, 1873775277 :
+
++
+[listing]
+----
+node1> `storage disk show -ownership`
+
+Disk  Aggregate Home  Owner  DR Home  Home ID    Owner ID  DR Home ID Reserver  Pool
+----- ------    ----- ------ -------- -------    -------    -------  ---------  ---
+1.0.0  aggr0_1  node1 node1  -        1873775277 1873775277  -       1873775277 Pool0
+1.0.1  aggr0_1  node1 node1           1873775277 1873775277  -       1873775277 Pool0
+.
+.
+.
+----
+
+
+
+
+=== Option 2 : réaffectez manuellement l'ID système sur un système autonome dans ONTAP
+
+Dans un système autonome, vous devez réaffecter manuellement les disques à l'ID système du nouveau contrôleur avant de rétablir le fonctionnement normal du système.
+
+.Description de la tâche
+
+NOTE: Cette procédure ne s'applique qu'aux systèmes dans une configuration autonome.
+
+.Étapes
+. Si ce n'est déjà fait, redémarrez le _replace_ node, interrompez le processus de démarrage en appuyant sur Ctrl-C, puis sélectionnez l'option permettant de démarrer en mode maintenance dans le menu affiché.
+. Vous devez entrer `Y` Lorsque vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système.
+. Afficher les ID système : `disk show -a`
+. Notez l'ancien ID système, qui s'affiche dans la colonne propriétaire du disque.
++
+L'exemple suivant montre l'ancien ID système de 118073209 :
+
++
+[listing]
+----
+*> disk show -a
+Local System ID: 118065481
+
+  DISK      OWNER                  POOL   SERIAL NUMBER  HOME
+--------    -------------          -----  -------------  -------------
+disk_name    system-1  (118073209)  Pool0  J8XJE9LC       system-1  (118073209)
+disk_name    system-1  (118073209)  Pool0  J8Y478RC       system-1  (118073209)
+.
+.
+.
+
+----
+. Réallouer la propriété du disque à l'aide des informations d'ID système obtenues via la commande disk show : `disk reassign -s old system ID disk reassign -s 118073209`
+. Vérifier que les disques ont été correctement affectés : `disk show -a`
++
+Les disques appartenant au nœud de remplacement doivent afficher le nouvel ID système. L'exemple suivant montre maintenant les disques qui appartiennent à system-1 le nouvel ID système, 118065481 :
+
++
+[listing]
+----
+*> disk show -a
+Local System ID: 118065481
+
+  DISK      OWNER                  POOL   SERIAL NUMBER  HOME
+--------    -------------          -----  -------------  -------------
+disk_name    system-1  (118065481)  Pool0  J8Y0TDZC       system-1  (118065481)
+disk_name    system-1  (118065481)  Pool0  J8Y0TDZC       system-1  (118065481)
+.
+.
+.
+
+----
+. Si le chiffrement du volume ou du stockage est configuré sur votre système de stockage, vous devez restaurer la fonctionnalité de chiffrement du stockage ou du volume en suivant l'une des procédures suivantes, selon que vous utilisez la gestion des clés intégrée ou externe :
++
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
+
+
+. Démarrez le nœud : `boot_ontap`
+
+
+
+
+=== Option 3 : réaffectez manuellement l'ID système sur les systèmes dans une configuration MetroCluster à deux nœuds
+
+Dans une configuration MetroCluster à deux nœuds exécutant ONTAP, vous devez réallouer manuellement des disques vers le nouvel ID système du contrôleur avant de rétablir le fonctionnement normal du système.
+
+.Description de la tâche
+Cette procédure s'applique uniquement aux systèmes d'une configuration MetroCluster à deux nœuds exécutant ONTAP.
+
+Vous devez être sûr d'exécuter les commandes dans cette procédure sur le nœud approprié :
+
+* Le noeud _trouble_ est le noeud sur lequel vous effectuez la maintenance.
+* Le _remplacement_ node est le nouveau noeud qui a remplacé le noeud douteux dans le cadre de cette procédure.
+* Le noeud _Healthy_ est le partenaire DR du noeud douteux.
+
+
+.Étapes
+. Si ce n'est déjà fait, redémarrez le _replace_ node, interrompez le processus d'amorçage en entrant `Ctrl-C`, Puis sélectionnez l'option pour démarrer en mode maintenance à partir du menu affiché.
++
+Vous devez entrer `Y` Lorsque vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système.
+
+. Afficher les anciens ID système du nœud sain : ``metrocluster node show -fields node-systemid`,dr-partenaire-systémid'
++
+Dans cet exemple, le noeud_B_1 est l'ancien noeud, avec l'ancien ID système 118073209:
+
++
+[listing]
+----
+dr-group-id cluster         node                 node-systemid dr-partner-systemid
+ ----------- --------------------- -------------------- ------------- -------------------
+ 1           Cluster_A             Node_A_1             536872914     118073209
+ 1           Cluster_B             Node_B_1             118073209     536872914
+ 2 entries were displayed.
+----
+. Afficher le nouvel ID système à l'invite du mode maintenance sur le nœud pour personnes avec facultés affaiblies : `disk show`
++
+Dans cet exemple, le nouvel ID système est 118065481 :
+
++
+[listing]
+----
+Local System ID: 118065481
+    ...
+    ...
+----
+. Réassigner la propriété des disques (pour les systèmes FAS) ou la propriété LUN (pour les systèmes FlexArray), en utilisant les informations d'ID système obtenues via la commande disk show : `disk reassign -s old system ID`
++
+Dans l'exemple précédent, la commande est : `disk reassign -s 118073209`
+
++
+Vous pouvez répondre `Y` lorsque vous êtes invité à continuer.
+
+. Vérifier que les disques (ou LUN FlexArray) ont été correctement affectés : `disk show -a`
++
+Vérifiez que les disques appartenant au _replace_ node affichent le nouvel ID système pour le _replace_ node. Dans l'exemple suivant, les disques appartenant au système-1 affichent désormais le nouvel ID système, 118065481 :
+
++
+[listing]
+----
+*> disk show -a
+Local System ID: 118065481
+
+  DISK     OWNER                 POOL   SERIAL NUMBER  HOME
+-------    -------------         -----  -------------  -------------
+disk_name   system-1  (118065481) Pool0  J8Y0TDZC       system-1  (118065481)
+disk_name   system-1  (118065481) Pool0  J8Y09DXC       system-1  (118065481)
+.
+.
+.
+----
+. Depuis le nœud sain, vérifier que les « core dumps » sont enregistrés :
++
+.. Changement au niveau de privilège avancé : `set -privilege advanced`
++
+Vous pouvez répondre `Y` lorsque vous êtes invité à passer en mode avancé. L'invite du mode avancé s'affiche (*>).
+
+.. Vérifier que les « coredumps » sont enregistrés : `system node run -node _local-node-name_ partner savecore`
++
+Si la sortie de la commande indique que savecore est en cours, attendez que savecore soit terminé avant d'émettre le retour. Vous pouvez surveiller la progression de la sauvegarde à l'aide du `system node run -node _local-node-name_ partner savecore -s command`.</info>.
+
+.. Retour au niveau de privilège admin : `set -privilege admin`
+
+
+. Si le _remplacement_ node est en mode Maintenance (affichage de l'invite *>), quittez le mode Maintenance et accédez à l'invite DU CHARGEUR : `halt`
+. Démarrez le _remplacement_ node : `boot_ontap`
+. Une fois que le _remplacement_ noeud a été complètement démarré, effectuez un rétablissement : `metrocluster switchback`
+. Vérifiez la configuration MetroCluster : `metrocluster node show - fields configuration-state`
++
+[listing]
+----
+node1_siteA::> metrocluster node show -fields configuration-state
+
+dr-group-id            cluster node           configuration-state
+-----------            ---------------------- -------------- -------------------
+1 node1_siteA          node1mcc-001           configured
+1 node1_siteA          node1mcc-002           configured
+1 node1_siteB          node1mcc-003           configured
+1 node1_siteB          node1mcc-004           configured
+
+4 entries were displayed.
+----
+. Vérifier le fonctionnement de la configuration MetroCluster dans Data ONTAP :
++
+.. Vérifier si des alertes d'intégrité sont disponibles sur les deux clusters : `system health alert show`
+.. Vérifier que le MetroCluster est configuré et en mode normal : `metrocluster show`
+.. Effectuer une vérification MetroCluster : `metrocluster check run`
+.. Afficher les résultats de la vérification MetroCluster : `metrocluster check show`
+.. Exécutez Config Advisor. Accédez à la page Config Advisor du site de support NetApp à l'adresse http://support.netapp.com/NOW/download/tools/config_advisor/["support.netapp.com/NOW/download/tools/config_advisor/"].
++
+Une fois Config Advisor exécuté, vérifiez les résultats de l'outil et suivez les recommandations fournies dans la sortie pour résoudre tous les problèmes détectés.
+
+
+
+. Simuler une opération de basculement :
++
+.. Depuis l'invite de n'importe quel nœud, passez au niveau de privilège avancé : `set -privilege advanced`
++
+Vous devez répondre avec `y` lorsque vous êtes invité à passer en mode avancé et à afficher l'invite du mode avancé (*>).
+
+.. Effectuez l'opération de rétablissement avec le paramètre -Simulate : `metrocluster switchover -simulate`
+.. Retour au niveau de privilège admin : `set -privilege admin`
+
+
+

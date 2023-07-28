@@ -1,7 +1,7 @@
 ---
 permalink: a320/nvdimm-battery-replace.html 
 sidebar: sidebar 
-keywords: aff, a320, aff a320, replace, nvdimm, battery, remove, controller, module, reinstall, shut, down, impair, diagnostic, operation, replace the nvdimm battery, shut down the impaired controller, remove the controller module, replace the nvdimm battery, install the controller module, run diagnostics, restore the controller module to operation after running diagnostics 
+keywords: aff, a320, aff a320, replace, nvdimm, battery, remove, controller, module, reinstall, shut, down, impair, operation, replace the nvdimm battery, shut down the impaired controller, remove the controller module, replace the nvdimm battery, install the controller module, restore the controller module to operation 
 summary: Pour remplacer la batterie NVDIMM, vous devez retirer le module de contrôleur, retirer la batterie, remplacer la batterie, puis réinstaller le module de contrôleur. 
 ---
 = Remplacez la batterie NVDIMM - AFF A320
@@ -126,7 +126,7 @@ image::../media/drw_a320_nvbat_move_animated_gif.png[image gif animée drw a320 
 
 == Étape 4 : installer le module de contrôleur
 
-Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
+Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer.
 
 . Si ce n'est déjà fait, fermez le conduit d'air à l'arrière du module de contrôleur et réinstallez le couvercle sur les cartes PCIe.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
@@ -158,41 +158,15 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 .. Libérer les loquets pour verrouiller le module de contrôleur en place.
 .. Recâblage du bloc d'alimentation.
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
-.. Interrompre le processus de démarrage normal en appuyant sur `Ctrl-C`.
 
 
 
 
 
 
-== Étape 5 : exécutez les diagnostics
+== Étape 5 : rétablir le fonctionnement du module de contrôleur
 
-Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
-
-Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
-
-Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
-
-. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node node_name`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
-. Sélectionnez *Test System* dans le menu affiché pour exécuter les tests de diagnostic.
-. Procédez comme suit en fonction du résultat de l'étape précédente :
-+
-** Si l'acquisition montre des problèmes, corrigez le problème, puis relancez l'acquisition.
-** Si l'analyse n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
-
-
-
-
-
-
-== Étape 6 : rétablir le fonctionnement du module de contrôleur après l'exécution des diagnostics
-
-Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
+Vous devez recâblage du système, remettre le module de contrôleur, puis réactiver le rétablissement automatique.
 
 . Recâblage du système, selon les besoins.
 +
@@ -204,6 +178,6 @@ Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas 
 
 
 
-== Étape 7 : renvoyer la pièce défaillante à NetApp
+== Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

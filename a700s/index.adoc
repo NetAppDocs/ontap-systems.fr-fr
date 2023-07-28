@@ -1,13 +1,79 @@
 ---
-layout: landing-page 
-sidebar: sidebar 
 permalink: a700s/index.html 
-summary: 'La documentation du système AFF A700s permet d"installer, de configurer et de gérer votre système.' 
+sidebar: sidebar 
+keywords: aff A700s maintenance, maintenance, repairing A700s, repairing aff A700s, replace aff A700s components, replace aff A700s components 
+summary: Maintenance du matériel ASA A700s 
 ---
-= Documentation du système AFF A700s
-:hardbreaks:
+= Maintenance du matériel AFF A700s
 :allow-uri-read: 
-:linkattrs: 
-:imagesdir: ./media/
+:icons: font
+:imagesdir: ../media/
 
 
+[role="lead"]
+Concernant le système de stockage AFF A700s, vous pouvez effectuer les procédures de maintenance sur les composants suivants.
+
+
+
+== Support de démarrage
+
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+
+== Châssis
+
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+== Contrôleur
+
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
+
+
+
+== DIMM
+
+Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
+
+
+
+== Lecteur
+
+Un lecteur est un périphérique qui fournit le support de stockage physique pour les données.
+
+
+
+== Ventilateur
+
+Le ventilateur refroidit le contrôleur.
+
+
+
+== Batterie NVRAM
+
+Une batterie NVRAM est chargée de maintenir l'alimentation du module NVRAM.
+
+
+
+== NVRAM
+
+ The NVRAM module (Non-Volatile Random Access Memory) allows the controller to retain data across power cycles or system reboots.
+
+
+== Carte PCIe
+
+Une carte PCIe (Peripheral Component Interconnect express) est une carte d'extension qui se branche dans le logement PCIe de la carte mère.
+
+
+
+== Alimentation électrique
+
+Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
+
+
+
+== Pile de l'horloge en temps réel
+
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.

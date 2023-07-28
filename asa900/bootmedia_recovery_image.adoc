@@ -1,0 +1,125 @@
+---
+permalink: asa900/bootmedia_recovery_image.html 
+sidebar: sidebar 
+keywords:  
+summary: 'La procédure de démarrage du contrôleur défaillant à partir de l"image de récupération dépend du fait que le système se trouve dans une configuration MetroCluster à deux nœuds.' 
+---
+= Démarrer l'image de restauration - ASA A900
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez démarrer l'image ONTAP à partir du lecteur USB, restaurer le système de fichiers et vérifier les variables environnementales.
+
+. À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`
++
+L'image est téléchargée à partir de la clé USB.
+
+. Lorsque vous y êtes invité, entrez le nom de l'image ou acceptez l'image par défaut affichée entre crochets sur votre écran.
+. Restaurez le système de fichiers var :
++
+[cols="1,2"]
+|===
+| Si votre système dispose de... | Alors... 
+
+
+ a| 
+Une connexion réseau
+ a| 
+.. Appuyez sur `y` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. Appuyez sur `y` lorsque vous êtes invité à remplacer `/etc/ssh/ssh_host_ecdsa_key`.
+.. Appuyez sur `y` lorsque vous êtes invité à confirmer si la restauration de la sauvegarde a réussi.
+.. Appuyez sur `Y` lorsque vous êtes invité à restaurer la copie de configuration.
+.. Réglez le contrôleur pour personnes atteintes sur le niveau de privilège avancé : `set -privilege advanced`
+.. Exécutez la commande restore backup : `system node restore-backup -node local -target-address impaired_node_IP_address`
+.. Remettre le contrôleur affecté au niveau admin : `set -privilege admin`
+.. Appuyez sur `y` lorsque vous êtes invité à utiliser la configuration restaurée.
+.. Appuyez sur `y` lorsque vous êtes invité à redémarrer le contrôleur douteux.
+
+
+
+
+ a| 
+Aucune connexion réseau
+ a| 
+.. Appuyez sur `n` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. Redémarrez le système à l'invite du système.
+.. Sélectionnez l'option *mettre à jour Flash dans Backup config* (Sync flash) dans le menu affiché.
++
+Si vous êtes invité à poursuivre la mise à jour, appuyez sur `y`.
+
+
+
+
+
+ a| 
+Aucune connexion réseau et se trouve dans une configuration IP de MetroCluster
+ a| 
+.. Appuyez sur `n` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. Redémarrez le système à l'invite du système.
+.. Attendez que les connexions de stockage iSCSI se connectent.
++
+Vous pouvez continuer après avoir afficher les messages suivants :
+
++
+[listing]
+----
+date-and-time [node-name:iscsi.session.stateChanged:notice]: iSCSI session state is changed to Connected for the target iSCSI-target (type: dr_auxiliary, address: ip-address).
+date-and-time [node-name:iscsi.session.stateChanged:notice]: iSCSI session state is changed to Connected for the target iSCSI-target (type: dr_partner, address: ip-address).
+date-and-time [node-name:iscsi.session.stateChanged:notice]: iSCSI session state is changed to Connected for the target iSCSI-target (type: dr_auxiliary, address: ip-address).
+date-and-time [node-name:iscsi.session.stateChanged:notice]: iSCSI session state is changed to Connected for the target iSCSI-target (type: dr_partner, address: ip-address).
+----
+.. Sélectionnez l'option *mettre à jour Flash dans Backup config* (Sync flash) dans le menu affiché.
++
+Si vous êtes invité à poursuivre la mise à jour, appuyez sur `y`.
+
+
+
+|===
+. Assurez-vous que les variables environnementales sont définies comme prévu :
++
+.. Prenez le contrôleur pour facultés affaiblies jusqu'à l'invite DU CHARGEUR.
+.. Vérifiez les paramètres de la variable d'environnement à l'aide de la commande printenv.
+.. Si une variable d'environnement n'est pas définie comme prévu, modifiez-la à l'aide de la commande setenvEnvironment_variable_name changed_value.
+.. Enregistrez vos modifications à l'aide de la commande saveenv.
+
+
+. Le suivant dépend de la configuration de votre système :
++
+** Si keymanager, NSE ou NVE intégré est configuré sur votre système, rendez-vous sur xref:bootmedia_encryption_restore.adoc[Étapes de remplacement des supports après démarrage pour OKM, NSE et NVE]
+** Si keymanager, NSE ou NVE intégré ne sont pas configurés sur votre système, effectuez les étapes de cette section.
+
+
+. Dans l'invite DU CHARGEUR, entrez la commande boot_ontap.
++
+[cols="1,2"]
+|===
+| Si vous voyez... | Alors... 
+
+
+ a| 
+Invite de connexion
+ a| 
+Passer à l'étape suivante.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+.. Connectez-vous au contrôleur partenaire.
+.. Vérifiez que la cible est prête pour le rétablissement avec le `storage failover show` commande.
+
+
+|===
+. Branchez le câble de la console au contrôleur partenaire.
+. Renvoyer le contrôleur à l'aide de la commande locale Storage failover giveback -fromnode.
+. À l'invite du cluster, vérifiez les interfaces logiques avec la commande net int -is-home false.
++
+Si des interfaces sont répertoriées comme « FALSE », rerestaurez ces interfaces à leur port d'origine à l'aide de la commande net int revert.
+
+. Placez le câble de la console sur l'arrêt réparé ou prenez le contrôle avec facultés affaiblies en suivant la procédure adéquate pour votre configuration. Et exécutez la commande version -v pour vérifier les versions de ONTAP.
+. Restaurez le rétablissement automatique si vous le avez désactivé à l'aide de la commande Storage Failover modify -node local -auto-giveback true.
+

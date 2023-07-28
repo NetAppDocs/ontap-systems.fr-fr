@@ -1,0 +1,74 @@
+---
+permalink: asa150/controller-replace-system-config-restore-and-verify.html 
+sidebar: sidebar 
+keywords: asa a150, a150, asa, restore and verify the system configuration, verify and set the ha state of the controller module 
+summary: Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire. 
+---
+= Restaurez et vérifiez la configuration du système - ASA A150
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
+
+
+
+== Étape 1 : définir et vérifier l'heure du système après le remplacement du contrôleur
+
+Vous devez vérifier l'heure et la date du module de contrôleur de remplacement par rapport au module de contrôleur sain dans une paire haute disponibilité, ou par rapport à un serveur de temps fiable dans une configuration autonome. Si la date et l'heure ne correspondent pas, vous devez les réinitialiser sur le module de contrôleur de remplacement pour éviter toute interruption possible sur les clients en raison de différences de temps.
+
+.Description de la tâche
+Il est important d'appliquer les commandes dans les étapes sur les systèmes appropriés :
+
+* Le _remplacement_ node est le nouveau noeud qui a remplacé le noeud douteux dans le cadre de cette procédure.
+* Le _Healthy_ node est le partenaire HA du _replace_ node.
+
+
+.Étapes
+. Si le _remplacement_ node n'est pas à l'invite DU CHARGEUR, arrêtez le système à l'invite DU CHARGEUR.
+. Sur le noeud _Healthy_, vérifiez l'heure du système : `cluster date show`
++
+La date et l'heure sont basées sur le fuseau horaire configuré.
+
+. À l'invite DU CHARGEUR, vérifiez la date et l'heure sur le noeud _remplacement_ : `show date`
++
+La date et l'heure sont indiquées en GMT.
+
+. Si nécessaire, définissez la date en GMT sur le nœud de remplacement : `set date _mm/dd/yyyy_`
+. Si nécessaire, définissez l'heure en GMT sur le nœud de remplacement : `set time _hh:mm:ss_`
+. À l'invite DU CHARGEUR, confirmez la date et l'heure sur le noeud _remplacement_ : `date`
++
+La date et l'heure sont indiquées en GMT.
+
+
+
+
+
+== Étape 2 : vérifier et définir l'état HA du module de contrôleur
+
+Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
+
+. En mode Maintenance à partir du nouveau module de contrôleur, vérifier que tous les composants affichent la même valeur `HA` état : `ha-config show`
++
+L'état de la HA doit être le même pour tous les composants.
+
+. Si l'état du système affiché pour le châssis ne correspond pas à la configuration de votre système :
++
+.. Définissez l'état haute disponibilité du châssis : `ha-config modify chassis _HA-state_`
++
+La valeur de HA-State peut être l'une des suivantes :
+
++
+*** `ha`
+*** `mcc`
+*** `mcc-2n`
+*** `mccip`
+*** `non-ha`
+
+
+.. Vérifiez que le paramètre a changé : `ha-config show`
+
+
+

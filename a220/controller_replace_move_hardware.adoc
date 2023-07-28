@@ -1,0 +1,275 @@
+---
+permalink: a220/controller-replace-move-hardware.html 
+sidebar: sidebar 
+keywords: a220, move the controller module hardware 
+summary: Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance. 
+---
+= Remplacez le matériel du module de contrôleur - AFF A220
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance.
+
+
+
+== Étape 1 : retirer le module de contrôleur
+
+Pour remplacer le module de contrôleur, vous devez d'abord retirer l'ancien module de contrôleur du châssis.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez et mettez de côté les dispositifs de gestion des câbles des côtés gauche et droit du module de contrôleur.
++
+image::../media/drw_25xx_cable_management_arm.png[ARM de gestion de câble 25xx drw]
+
+. Si vous avez quitté les modules SFP dans le système après avoir retiré les câbles, déplacez-les vers le nouveau module de contrôleur.
+. Appuyez sur le loquet de la poignée de came jusqu'à ce qu'il se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à l'aide de deux mains, retirez le module de contrôleur du châssis.
++
+image::../media/drw_2240_x_opening_cam_latch.png[drw 2240 x verrou de came d'ouverture]
+
+. Retournez le module de contrôleur et placez-le sur une surface plane et stable.
+. Ouvrez le capot en le faisant glisser dans les languettes bleues pour le dégager, puis faites pivoter le couvercle vers le haut et ouvrez-le.
++
+image::../media/drw_2600_opening_pcm_cover.png[couvercle du module de commande du groupe motopropulseur ouvert drw 2600]
+
+
+
+
+
+== Étape 2 : déplacer la batterie NVMEM
+
+Pour déplacer la batterie NVMEM de l'ancien module de contrôleur vers le nouveau module de contrôleur, vous devez effectuer une séquence spécifique d'étapes.
+
+. Vérifiez le voyant NVMEM :
++
+** Si votre système est dans une configuration haute disponibilité, passez à l'étape suivante.
+** Si votre système est dans une configuration autonome, arrêtez correctement le module de contrôleur, puis vérifiez le voyant NVRAM identifié par l'icône NV.
++
+image::../media/drw_hw_nvram_icon.png[icône drw hw nvram]
+
++
+
+NOTE: Le voyant NVRAM clignote lors de l'installation du contenu dans la mémoire flash lorsque vous arrêtez le système. Une fois le transfert terminé, le voyant s'éteint.
+
++
+*** Si l'alimentation est perdue sans arrêt correct, la LED NVMEM clignote jusqu'à ce que le transfert soit terminé, puis la LED s'éteint.
+*** Si le voyant est allumé et que l'alimentation est allumée, les données non écrites sont stockées sur NVMEM.
++
+Cela se produit généralement lors d'un arrêt non contrôlé après le démarrage du système ONTAP.
+
+
+
+
+
+. Recherchez la batterie NVMEM dans le module de contrôleur.
++
+image::../media/drw_2600_nvmem_battery_move_animated_gif.png[image gif animée mouvement de la batterie nvmem drw 2600]
+
+. Localisez la fiche mâle batterie et appuyez sur le clip situé sur la face de la fiche mâle batterie pour libérer la fiche de la prise, puis débranchez le câble de batterie de la prise.
+. Saisissez la batterie et appuyez sur la languette de verrouillage bleue indiquant « POUSSER », puis soulevez la batterie pour la sortir du support et du module de contrôleur.
+. Placer la batterie sur le module de contrôleur de remplacement.
+. Faites passer le câble de la batterie autour de la goulotte du câble sur le côté du support de batterie.
+. Positionnez le bloc-batterie en alignant les rainures de la clé du support de batterie sur les encoches « V » de la paroi latérale en tôle.
+. Faites glisser le bloc-batterie vers le bas le long de la paroi latérale en tôle jusqu'à ce que les pattes de support situées sur le crochet mural latéral s'engagent dans les fentes de la batterie et que le loquet du bloc-batterie s'enclenche et s'enclenche dans l'ouverture de la paroi latérale.
+
+
+
+
+== Étape 3 : déplacer le support de démarrage
+
+Vous devez localiser le support de démarrage et suivre les instructions pour le retirer de l'ancien module de contrôleur et l'insérer dans le nouveau module de contrôleur.
+
+. Recherchez le support de démarrage à l'aide de l'illustration suivante ou du mappage des FRU sur le module de contrôleur :
++
+image::../media/drw_2600_boot_media_repl_animated_gif.png[image gif animée du remplacement du support de démarrage drw 2600]
+
+. Appuyez sur le bouton bleu du logement du support de démarrage pour libérer le support de démarrage de son logement, puis tirez-le doucement hors du support de démarrage.
++
+
+NOTE: Ne faites pas tourner ou tirer le support de démarrage directement vers le haut, car cela pourrait endommager le support ou le support de démarrage.
+
+. Déplacez le support de démarrage vers le nouveau module de contrôleur, alignez les bords du support de démarrage avec le boîtier du support, puis poussez-le doucement dans le support.
+. Vérifiez le support de démarrage pour vous assurer qu'il est bien en place dans le support.
++
+Si nécessaire, retirez le support de démarrage et réinstallez-le dans le support.
+
+. Poussez le support de démarrage vers le bas pour engager le bouton de verrouillage sur le boîtier du support de démarrage.
+
+
+
+
+== Étape 4 : déplacez les modules DIMM
+
+Pour déplacer les modules DIMM, vous devez suivre les instructions pour les localiser et les déplacer de l'ancien module de contrôleur vers le module de contrôleur de remplacement.
+
+Vous devez avoir le nouveau module de contrôleur prêt pour pouvoir déplacer les modules DIMM directement du module de contrôleur défaillant vers les logements correspondants du module de contrôleur de remplacement.
+
+. Localisez les modules DIMM de votre module de contrôleur.
+. Notez l'orientation du module DIMM dans le support afin que vous puissiez insérer le module DIMM dans le module de remplacement dans le bon sens.
+. Éjectez le module DIMM de son logement en écartant lentement les deux languettes de l'éjecteur de DIMM de chaque côté du module DIMM, puis en faisant glisser le module DIMM hors de son logement.
++
+
+NOTE: Tenez soigneusement le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+
++
+Le nombre et le positionnement des modules DIMM du système dépendent du modèle de votre système.
+
++
+L'illustration suivante montre l'emplacement des DIMM système :
+
++
+image::../media/drw_2600_dimms.png[dimm drw 2600]
+
+. Répétez ces étapes pour retirer d'autres modules DIMM si nécessaire.
+. Vérifiez que la batterie NVMEM n'est pas branchée sur le nouveau module de contrôleur.
+. Repérez le logement où vous installez le module DIMM.
+. Assurez-vous que les languettes de l'éjecteur de DIMM sur le connecteur sont en position ouverte, puis insérez le module DIMM directement dans le logement.
++
+Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
+
++
+
+NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
+
+. Répétez ces étapes pour les autres modules DIMM.
+. Localisez la prise de la batterie NVMEM, puis appuyez sur le clip situé sur la face de la fiche du câble de la batterie pour l'insérer dans la prise.
++
+Assurez-vous que la fiche se verrouille sur le module de contrôleur.
+
+
+
+
+
+== Étape 5 : déplacer un module de mise en cache, le cas échéant
+
+Si votre système AFF A220 ou FAS2700 est équipé d'un module de cache, vous devez transférer le module de cache de l'ancien contrôleur vers le module de contrôleur de remplacement. Le module de mise en cache est appelé « carte PCIe M.2 » sur l'étiquette du module de contrôleur.
+
+Vous devez être prêt pour le nouveau module de contrôleur afin de pouvoir déplacer le module de mise en cache directement de l'ancien module de contrôleur vers le slot correspondant dans le nouveau. Tous les autres composants du système de stockage doivent fonctionner correctement. Si ce n'est pas le cas, vous devez contacter le support technique.
+
+. Recherchez le module de mise en cache à l'arrière du module de contrôleur et retirez-le.
++
+.. Appuyez sur la languette de dégagement.
+.. Retirez le dissipateur de chaleur.
+
+
++
+image::../media/drw_2600_fcache.png[drw 2600 fcache]
+
+. Tirez doucement le module de cache hors du boîtier.
+. Déplacez le module de cache vers le nouveau module de contrôleur, puis alignez les bords du module de cache avec le boîtier du support et poussez-le doucement dans le support.
+. Vérifiez que le module de mise en cache est bien placé dans le support.
++
+Si nécessaire, retirez le module de cache et réinstallez-le dans le support.
+
+. Réinstallez et poussez le dissipateur de chaleur vers le bas pour engager le bouton de verrouillage sur le boîtier du module de cache.
+. Fermez le capot du module de contrôleur, si nécessaire.
+
+
+
+
+== Étape 6 : installer le contrôleur
+
+Après avoir installé les composants de l'ancien module de contrôleur dans le nouveau module de contrôleur, vous devez installer le nouveau module de contrôleur dans le châssis du système et démarrer le système d'exploitation.
+
+Pour les paires haute disponibilité avec deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez le module de contrôleur est particulièrement important, car il tente de redémarrer dès que vous le placez entièrement dans le châssis.
+
+
+NOTE: Le système peut mettre à jour le firmware du système lors de son démarrage. N'interrompez pas ce processus. La procédure requiert l'interruption du processus d'amorçage, que vous pouvez généralement faire à tout moment après l'invite à le faire. Toutefois, si le système met à jour le firmware du système lors de son démarrage, vous devez attendre la fin de la mise à jour avant d'interrompre le processus de démarrage.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Si vous ne l'avez pas encore fait, remettez le capot sur le module de contrôleur.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
++
+
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+
+. Terminez la réinstallation du module de contrôleur :
++
+[cols="1,2"]
+|===
+| Si votre système est en... | Ensuite, procédez comme suit... 
+
+
+ a| 
+Une paire haute disponibilité
+ a| 
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
+.. Avec la poignée de came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came en position verrouillée.
++
+
+NOTE: N'appliquez pas une force excessive lorsque vous faites glisser le module de contrôleur dans le châssis ; vous risquez d'endommager les connecteurs.
+
++
+Le contrôleur commence à démarrer dès qu'il est assis dans le châssis.
+
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Fixez les câbles au dispositif de gestion des câbles à l'aide du crochet et de la sangle de boucle.
+.. Interrompre le processus d'amorçage *uniquement* après avoir déterminé le délai correct :
++
+Vous devez rechercher un message de console de mise à jour automatique du micrologiciel. Si le message de mise à jour s'affiche, n'appuyez pas sur `Ctrl-C` pour interrompre le processus de démarrage jusqu'à ce que vous ayez affiché un message confirmant que la mise à jour est terminée.
+
++
+Appuyez uniquement sur `Ctrl-C` lorsque le message s'affiche `Press Ctrl-C for Boot Menu`.
+
++
+
+NOTE: Si la mise à jour du micrologiciel est interrompue, le processus de démarrage se ferme à l'invite DU CHARGEUR. Vous devez exécuter la commande update_flash, puis quitter LE CHARGEUR et démarrer en mode maintenance en appuyant sur `Ctrl-C` Lorsque vous voyez démarrer AUTOBOOT, appuyez sur Ctrl-C pour annuler.
+
++
+Si l'invite et le module de contrôleur ne démarre pas sur ONTAP, entrez `halt`, Puis à l'invite DU CHARGEUR, entrez `boot_ontap`, appuyez sur `Ctrl-C` Lorsque vous y êtes invité, puis démarrez en mode de maintenance.
+
+.. Sélectionnez l'option pour démarrer en mode maintenance dans le menu qui s'affiche.
+
+
+
+
+ a| 
+Une configuration autonome
+ a| 
+.. Avec la poignée de came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came en position verrouillée.
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Fixez les câbles au dispositif de gestion des câbles à l'aide du crochet et de la sangle de boucle.
+.. Rebranchez les câbles d'alimentation aux blocs d'alimentation et aux sources d'alimentation, puis mettez le système sous tension pour démarrer le processus d'amorçage.
+.. Interrompre le processus d'amorçage *uniquement* après avoir déterminé le délai correct :
++
+Vous devez rechercher un message de console de mise à jour automatique du micrologiciel. Si le message de mise à jour s'affiche, n'appuyez pas sur `Ctrl-C` pour interrompre le processus de démarrage jusqu'à ce que vous ayez affiché un message confirmant que la mise à jour est terminée.
+
++
+Appuyez uniquement sur `Ctrl-C` après que vous ayez vu le `Press Ctrl-C for Boot Menu` messagerie.
+
++
+
+NOTE: Si la mise à jour du micrologiciel est interrompue, le processus de démarrage se ferme à l'invite DU CHARGEUR. Vous devez exécuter la commande update_flash, puis quitter LE CHARGEUR et démarrer en mode maintenance en appuyant sur `Ctrl-C` Lorsque vous voyez démarrer AUTOBOOT, appuyez sur Ctrl-C pour annuler.
+
++
+Si l'invite et le module de contrôleur ne démarre pas sur ONTAP, entrez `halt`, Puis à l'invite DU CHARGEUR, entrez `boot_ontap`, appuyez sur `Ctrl-C` Lorsque vous y êtes invité, puis démarrez en mode de maintenance.
+
+.. Dans le menu de démarrage, sélectionner l'option pour le mode maintenance.
+
+
+|===
++
+*Important:* pendant le processus de démarrage, vous pouvez voir les invites suivantes:
+
++
+** Un message d'avertissement indiquant une discordance d'ID système et demandant de remplacer l'ID système.
+** Un avertissement s'affiche lorsque vous passez en mode maintenance dans une configuration HA, vous devez vous assurer que le contrôleur en bon état reste arrêté. Vous pouvez répondre en toute sécurité `y` à ces invites.
+
+
+

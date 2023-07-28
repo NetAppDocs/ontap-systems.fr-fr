@@ -1,0 +1,73 @@
+---
+permalink: a320/maintain-overview.html 
+sidebar: sidebar 
+keywords: aff A4320 maintenance, maintenance, repairing A320, repairing asa A320, replace  A300 components, replace A320 components 
+summary: Maintenance du matériel ASA A400 
+---
+= Maintenance du matériel AFF A320
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour le système de stockage AFF A320, vous pouvez effectuer des procédures de maintenance sur les composants suivants.
+
+
+
+== Support de démarrage
+
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+
+== Châssis
+
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+== Contrôleur
+
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
+
+
+
+== DIMM
+
+Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
+
+
+
+== Ventilateur
+
+Le ventilateur refroidit le contrôleur.
+
+
+
+== NVDIMM
+
+ The NVDIMM (non-volatile dual in-line memory module) manages the data transfer from the volatile memory to the non-volatile storage, and maintains data integrity in the event of a power loss or system shutdown.
+
+
+== Batterie NVDIMM
+
+Une batterie NVDIMM est chargée de maintenir l'alimentation du module NVDIMM.
+
+
+
+== PCIe
+
+Une carte PCIe (Peripheral Component Interconnect express) est une carte d'extension qui se branche dans le logement PCIe de la carte mère.
+
+
+
+== Alimentation électrique
+
+Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
+
+
+
+== Batterie d'horloge en temps réel
+
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.

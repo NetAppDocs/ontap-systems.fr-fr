@@ -1,10 +1,10 @@
 ---
 permalink: fas9000/controller-replace-system-config-restore-and-verify.html 
 sidebar: sidebar 
-keywords: aff a700, fas9000, verify, ha, state, controller, module, system, diagnostics 
+keywords: aff a700, fas9000, verify, ha, state, controller, module 
 summary: Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire. 
 ---
-= Restaurez et vérifiez la configuration du système : AFF A700 et FAS9000
+= Restaurez et vérifiez la configuration système - FAS9000
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,7 +15,7 @@ Après avoir effectué le remplacement du matériel et démarrer en mode mainten
 
 
 
-== Étape 1 : définir et vérifier l'heure du système après le remplacement du contrôleur
+== Étape 1 : définir et vérifier l'heure du système
 
 Vous devez vérifier l'heure et la date du module de contrôleur de remplacement par rapport au module de contrôleur sain dans une paire haute disponibilité, ou par rapport à un serveur de temps fiable dans une configuration autonome. Si la date et l'heure ne correspondent pas, vous devez les réinitialiser sur le module de contrôleur de remplacement pour éviter toute interruption possible sur les clients en raison de différences de temps.
 
@@ -46,7 +46,7 @@ La date et l'heure sont indiquées en GMT.
 
 
 
-== Étape 2 : vérifier et définir l'état HA du module de contrôleur
+== Étape 2 : vérification et définition de l'état de haute disponibilité du contrôleur
 
 Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
 
@@ -67,200 +67,4 @@ La valeur de HA-State peut être l'une des suivantes :
 
 
 
-
-
-
-
-== Étape 3 : exécutez les diagnostics au niveau du système
-
-Chaque fois que vous remplacez le contrôleur, vous devez exécuter des tests de diagnostic complets ou précis pour des composants et sous-systèmes spécifiques.
-
-Toutes les commandes des procédures de diagnostic sont émises depuis le nœud sur lequel le composant est remplacé.
-
-.Étapes
-. Si le nœud à entretenir n'est pas à l'invite DU CHARGEUR, redémarrez le nœud : `halt`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-+
-Au cours du processus de démarrage, vous pouvez répondre en toute sécurité `y` Aux invites jusqu'à ce que l'invite du mode Maintenance (*>) s'affiche.
-
-. Afficher et noter les périphériques disponibles sur le module de contrôleur : `sldiag device show -dev mb`
-+
-Les périphériques et ports du module de contrôleur affichés peuvent être les suivants :
-
-+
-** `bootmedia` est le périphérique de démarrage du système.
-** `cna` Est un adaptateur réseau convergé ou une interface non connectée à un réseau ou à un périphérique de stockage.
-** `fcal` Est un périphérique Fibre Channel-Arbitrated Loop non connecté à un réseau Fibre Channel.
-** `env` spécifications environnementales de la carte mère
-** `mem` mémoire système.
-** `nic` est une carte d'interface réseau.
-** `nvram` Est une mémoire RAM non volatile.
-** `nvmem` Est une solution hybride de NVRAM et de mémoire système.
-** `sas` Est un périphérique SCSI connecté en série non connecté à un tiroir disque.
-
-
-. Exécutez les diagnostics comme souhaité.
-+
-[cols="1,2"]
-|===
-| Si vous voulez exécuter des tests de diagnostic sur... | Alors... 
-
-
- a| 
-Composants individuels
- a| 
-.. Effacez les journaux d'état : `sldiag device clearstatus`
-.. Afficher les tests disponibles pour les périphériques sélectionnés : `sldiag device show -dev __dev_name_`
-+
-`dev_name` peut être l'un des ports et périphériques identifiés à l'étape précédente.
-
-.. Examinez la sortie et, le cas échéant, sélectionnez uniquement les tests que vous souhaitez exécuter : `sldiag device modify -dev _dev_name_ -selection only`
-+
-`-selection only` désactive tous les autres tests que vous ne souhaitez pas exécuter pour le périphérique.
-
-.. Exécutez les tests sélectionnés : `sldiag device run -dev _dev_name_`
-+
-Une fois le test terminé, le message suivant s'affiche :
-
-+
-[listing]
-----
-*> <SLDIAG:_ALL_TESTS_COMPLETED>
-----
-.. Vérifiez qu'aucun test n'a échoué : `sldiag device status -dev _dev_name_ -long -state failed`
-+
-Les diagnostics au niveau du système vous renvoie à l'invite s'il n'y a pas d'échec de test ou répertorie l'état complet des échecs résultant du test du composant.
-
-
-
-
-
- a| 
-Plusieurs composants en même temps
- a| 
-.. Examinez les périphériques activés et désactivés dans la sortie de la procédure précédente et déterminez ceux que vous souhaitez exécuter simultanément.
-.. Lister les tests individuels du périphérique : `sldiag device show -dev _dev_name_`
-.. Examinez la sortie et, le cas échéant, sélectionnez uniquement les tests que vous souhaitez exécuter : `sldiag device modify -dev _dev_name_ -selection only`
-+
-`-selection only` désactive tous les autres tests que vous ne souhaitez pas exécuter pour le périphérique.
-
-.. Vérifier que les tests ont été modifiés : `sldiag device show`
-.. Répétez ces sous-étapes pour chaque périphérique que vous souhaitez exécuter simultanément.
-.. Exécutez les tests de diagnostic sur tous les périphériques : `sldiag device run`
-+
-
-NOTE: Ne pas ajouter ou modifier vos entrées après avoir lancé les diagnostics.
-
-+
-Une fois le test terminé, le message suivant s'affiche :
-
-+
-[listing]
-----
-*> <SLDIAG:_ALL_TESTS_COMPLETED>
-----
-.. Vérifiez qu'il n'y a aucun problème matériel sur le nœud : `sldiag device status -long -state failed`
-+
-Les diagnostics au niveau du système vous renvoie à l'invite s'il n'y a pas d'échec de test ou répertorie l'état complet des échecs résultant du test du composant.
-
-
-
-|===
-. Procédez comme suit en fonction du résultat de l'étape précédente :
-+
-[cols="1,2"]
-|===
-| Si les tests de diagnostic au niveau du système... | Alors... 
-
-
- a| 
-Ont été achevés sans défaillance
- a| 
-.. Effacez les journaux d'état : `sldiag device clearstatus`
-.. Vérifiez que le journal a été effacé : `sldiag device status`
-+
-La réponse par défaut suivante est affichée :
-
-+
-[listing]
-----
-SLDIAG: No log messages are present.
-----
-.. Quitter le mode Maintenance : `halt`
-+
-Le nœud affiche l'invite DU CHARGEUR.
-
-.. Démarrez le nœud depuis l'invite DU CHARGEUR : `bye`
-.. Rétablir le fonctionnement normal du nœud :
-
-
-
-
- a| 
-Une paire haute disponibilité
- a| 
-Effectuer un retour : `storage failover giveback -ofnode _replacement_node_name_`
-
-
-NOTE: Si vous avez désactivé le rétablissement automatique, réactivez-le à l'aide de `storage failover modify` commande.
-
-
-
- a| 
-Configuration MetroCluster à deux nœuds
- a| 
-Passez à l'étape suivante.
-
-La procédure de rétablissement MetroCluster est effectuée lors de la prochaine tâche du processus de remplacement.
-
-
-
- a| 
-Une configuration autonome
- a| 
-Passez à l'étape suivante.
-
-Aucune action n'est requise.
-
-Vous avez terminé les diagnostics au niveau du système.
-
-
-
- a| 
-A entraîné des échecs de test
- a| 
-Déterminez la cause du problème :
-
-.. Quitter le mode Maintenance : `halt`
-+
-Une fois que vous avez terminé d'exécuter la commande, attendez que le système s'arrête à l'invite DU CHARGEUR.
-
-.. Mettez les blocs d'alimentation hors tension ou laissez-les hors tension, en fonction du nombre de modules de contrôleur présents dans le châssis :
-+
-*** Si le châssis comporte deux modules de contrôleur, laissez les blocs d'alimentation sous tension afin de fournir l'alimentation à l'autre module de contrôleur.
-*** Si le châssis comporte un module de contrôleur, mettez les blocs d'alimentation hors tension et débranchez-les des sources d'alimentation.
-
-
-.. Vérifier que vous avez bien remarqué tous les facteurs à prendre en compte pour l'exécution des diagnostics au niveau du système, que les câbles sont correctement connectés et que les composants matériels sont correctement installés dans le système de stockage.
-.. Démarrez le module de contrôleur que vous effectuez le service, interrompant le démarrage en appuyant sur `Ctrl-C` Lorsque vous êtes invité à accéder au menu de démarrage :
-+
-*** Si le châssis comporte deux modules de contrôleur, asseoir complètement le module de contrôleur que vous effectuez l'entretien dans le châssis.
-+
-Le module de contrôleur s'amorce lorsqu'il est bien en place.
-
-*** Si vous avez un module de contrôleur dans le châssis, connectez les blocs d'alimentation, puis mettez-les sous tension.
-
-
-.. Dans le menu, sélectionnez Boot to maintenance mode.
-.. Quittez le mode maintenance en saisissant la commande suivante : `halt`
-+
-Une fois que vous avez terminé d'exécuter la commande, attendez que le système s'arrête à l'invite DU CHARGEUR.
-
-.. Exécutez à nouveau le test de diagnostic au niveau du système.
-
-
-|===
 

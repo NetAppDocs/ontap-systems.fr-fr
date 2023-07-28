@@ -1,7 +1,7 @@
 ---
 permalink: a320/dimm-replace.html 
 sidebar: sidebar 
-keywords: aff, a320, aff a320, replace, dimm, controller, module, system, register, increase, increasing, number, correctable, error, correction, code, ecc, failure, system, panic, shut, down, impair, system, install, diagnostic, complete, process, replace a dimm, shut down the impaired controller, remove the controller module, replace system dimms, install the controller module, run diagnostics, complete the replacement process 
+keywords: aff, a320, aff a320, replace, dimm, controller, module, system, register, increase, increasing, number, correctable, error, correction, code, ecc, failure, system, panic, shut, down, impair, system, install,  complete, process, replace a dimm, shut down the impaired controller, remove the controller module, replace system dimms, install the controller module, complete the replacement process 
 summary: 'Vous devez remplacer un module DIMM dans le module de contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d"erreurs (ECC) pouvant être corrigés ; dans le cas contraire, le système risque de se trouver en panne.' 
 ---
 = Remplacez un module DIMM - AFF A320
@@ -163,7 +163,7 @@ NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien align�
 
 == Étape 4 : installer le module de contrôleur
 
-Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
+Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis.
 
 . Si ce n'est déjà fait, fermez le conduit d'air à l'arrière du module de contrôleur et réinstallez le couvercle sur les cartes PCIe.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
@@ -195,42 +195,15 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 .. Libérer les loquets pour verrouiller le module de contrôleur en place.
 .. Recâblage du bloc d'alimentation.
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
-.. Interrompre le processus de démarrage normal en appuyant sur `Ctrl-C`.
 
 
 
 
 
 
-== Étape 5 : exécutez les diagnostics
+== Étape 5 : rétablir le fonctionnement du module de contrôleur
 
-Après avoir remplacé un module DIMM système de votre système, vous devez exécuter des tests de diagnostic sur ce composant.
-
-Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
-
-Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
-
-. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node node_name`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
-. Sélectionnez *stress-Test System* dans le menu affiché.
-. Sélectionnez une option dans le sous-menu affiché et exécutez le test.
-. Procédez comme suit en fonction du résultat de l'étape précédente :
-+
-** Si le test a échoué, corrigez la défaillance, puis relancez le test.
-** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
-
-
-
-
-
-
-== Étape 6 : rétablir le fonctionnement du module de contrôleur après l'exécution des diagnostics
-
-Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
+Vous devez recâblage du système, remettre le module de contrôleur, puis réactiver le rétablissement automatique.
 
 . Recâblage du système, selon les besoins.
 +
@@ -242,6 +215,6 @@ Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas 
 
 
 
-== Étape 7 : renvoyer la pièce défaillante à NetApp
+== Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

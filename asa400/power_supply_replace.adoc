@@ -1,0 +1,68 @@
+---
+permalink: asa400/power-supply-replace.html 
+sidebar: sidebar 
+keywords: asa a400, asa, a400, replace, replacing, power, supply, psu, disconnect, target, psu, unplug, power, cable, removing, remove, replacement, source, replace a power supply 
+summary: 'Le remplacement d"un bloc d"alimentation \(PSU\) consiste à déconnecter le bloc d"alimentation cible de la source d"alimentation, à débrancher le câble d"alimentation, à retirer l"ancien bloc d"alimentation et à installer le bloc d"alimentation de remplacement, puis à reconnecter le bloc d"alimentation de remplacement à la source d"alimentation.' 
+---
+= Remplacement d'une alimentation - ASA A400
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le remplacement d'un bloc d'alimentation consiste à déconnecter le bloc d'alimentation cible de la source d'alimentation, à débrancher le câble d'alimentation, à retirer l'ancien bloc d'alimentation et à installer le bloc d'alimentation de remplacement, puis à reconnecter le bloc d'alimentation de remplacement à la source d'alimentation.
+
+* Les blocs d'alimentation sont redondants et échangeables à chaud.
+* Cette procédure permet de remplacer une alimentation à la fois.
++
+
+NOTE: Il est recommandé de remplacer le bloc d'alimentation dans les deux minutes qui suivent le retrait du châssis. Le système continue de fonctionner, mais ONTAP envoie des messages à la console concernant l'alimentation défectueuse jusqu'à ce que le bloc d'alimentation soit remplacé.
+
++
+
+IMPORTANT: Ne mélangez pas les blocs d'alimentation avec différents niveaux d'efficacité. Toujours remplacer comme pour similaire.
+
+
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer le bloc d'alimentation.
+
+.Animation - remplacer une alimentation
+video::60567649-288a-48b7-bc90-aae100199959[panopto]
+image::../media/drw_A400_psu.png[psu drw A400]
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Identifiez le bloc d'alimentation que vous souhaitez remplacer, en fonction des messages d'erreur de la console ou des LED des alimentations.
+. Débrancher l'alimentation électrique :
++
+.. Ouvrez le dispositif de retenue du câble d'alimentation, puis débranchez le câble d'alimentation du bloc d'alimentation.
+.. Débranchez le câble d'alimentation de la source d'alimentation.
+
+
+. Retirer l'alimentation électrique :
++
+.. Faites pivoter la poignée de came de façon à ce qu'elle puisse être utilisée pour extraire le bloc d'alimentation du châssis.
+.. Appuyez sur la languette de verrouillage bleue pour dégager le bloc d'alimentation du châssis.
+.. A l'aide des deux mains, retirez le bloc d'alimentation du châssis, puis mettez-le de côté.
+
+
+. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module de contrôleur, puis poussez doucement le bloc d'alimentation dans le module de contrôleur jusqu'à ce que la languette de verrouillage s'enclenche.
++
+Les blocs d'alimentation ne s'enclenteront correctement qu'avec le connecteur interne et se verrouillent d'une seule manière.
+
++
+
+NOTE: Pour éviter d'endommager le connecteur interne, ne pas exercer de force excessive lors du glissement du bloc d'alimentation dans le système.
+
+. Faites tourner la poignée de came de façon à ce qu'elle soit au même niveau que le bloc d'alimentation.
+. Rebranchez le câblage du bloc d'alimentation :
++
+.. Rebranchez le câble d'alimentation au bloc d'alimentation et à la source d'alimentation.
+.. Fixez le câble d'alimentation à l'alimentation à l'aide de la retenue du câble d'alimentation.
+
+
++
+Une fois l'alimentation rétablie, la LED d'état doit être verte.
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"^] pour plus d'informations.
+

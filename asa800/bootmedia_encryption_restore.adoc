@@ -1,0 +1,275 @@
+---
+permalink: asa800/bootmedia-encryption-restore.html 
+sidebar: sidebar 
+keywords: asa a800, post boot media replacement steps for okm, nse, and nve 
+summary: 'Une fois les variables d"environnement vérifiées, vous devez effectuer une procédure spécifique aux systèmes sur lesquels Onboard Key Manager \(OKM\), NetApp Storage Encryption \(NSE\) ou NetApp Volume Encryption \(NVE\) est activé.' 
+---
+= Restaurez OKM, NSE et NVE - ASA A800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois les variables d'environnement vérifiées, vous devez effectuer une procédure spécifique aux systèmes sur lesquels OKM (Onboard Key Manager), NetApp Storage Encryption (NSE) ou NetApp Volume Encryption (NVE) sont activés.
+
+Déterminez la section à laquelle vous devez utiliser pour restaurer vos configurations OKM, NSE ou NVE :
+
+Si NSE ou NVE sont activés avec le gestionnaire de clés intégré, vous devez restaurer les paramètres que vous avez capturés au début de cette procédure.
+
+* Si NSE ou NVE sont activés et que le gestionnaire de clés intégré est activé, rendez-vous sur <<Option 1 : restaurez NVE ou NSE lorsque le gestionnaire de clés intégré est activé>>.
+* Si NSE ou NVE sont activés pour ONATP 9.5, rendez-vous sur <<Option 2 : restaurez NSE/NVE sur les systèmes exécutant ONTAP 9.5 et versions antérieures>>.
+* Si NSE ou NVE sont activés pour ONTAP 9.6, rendez-vous sur le site <<Option 3 : restaurez NSE/NVE sur les systèmes qui exécutent ONTAP 9.6 et versions ultérieures>>.
+
+
+
+
+== Option 1 : restaurez NVE ou NSE lorsque le gestionnaire de clés intégré est activé
+
+.Étapes
+. Branchez le câble de la console au contrôleur cible.
+. Utilisez le `boot_ontap` Commande à l'invite DU CHARGEUR pour démarrer le contrôleur.
+. Vérifiez la sortie de la console :
++
+[cols="1,3"]
+|===
+| *Si la console affiche...* | *Alors...* 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Démarrer le contrôleur sur le menu de démarrage : `boot_ontap menu`
+
+
+
+ a| 
+Attente du retour...
+ a| 
+.. Entrez `Ctrl-C` à l'invite
+.. Au message: Voulez-vous arrêter ce contrôleur plutôt que d'attendre [y/n]? , entrez : `y`
+.. À l'invite DU CHARGEUR, entrez le `boot_ontap menu` commande.
+
+
+|===
+. Dans le menu de démarrage, entrez la commande masquée, `recover_onboard_keymanager` et répondre `y` à l'invite.
+. Saisissez la phrase de passe du gestionnaire de clés intégré que vous avez obtenue du client au début de cette procédure.
+. Lorsque vous êtes invité à saisir les données de sauvegarde, collez les données de sauvegarde que vous avez saisies au début de cette procédure, lorsque vous y êtes invité. Coller la sortie de `security key-manager backup show` OU `security key-manager onboard show-backup` commande.
++
+
+NOTE: Les données sont issues de l'une ou l'autre `security key-manager backup show` ou `security key-manager onboard show-backup` commande.
+
++
+Exemple de données de sauvegarde :
+
++
+[]
+====
+----------------------- COMMENCER LA SAUVEGARDE------------------------ TmV0QXBwIEtleSBCbG9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAUAAUAAUAAUAAAQAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUZUAAUAAUAAUZUAAUAAUAAUAAUAAUAAUAAUZUAAUAAUAAUAAUAAUAAUAAUAAUAAUAAUAA . . . H4nPQM0nrDRYRa9SCv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+-------------------------- FIN DE LA SAUVEGARDE-------------------------
+
+====
+. Dans le menu de démarrage, sélectionnez l'option démarrage normal.
++
+Le système démarre à `Waiting for giveback...` à l'invite.
+
+. Déplacez le câble de la console vers le contrôleur partenaire et connectez-vous en tant qu'administrateur.
+. Vérifiez que le contrôleur cible est prêt pour le rétablissement à l'aide du `storage failover show` commande.
+. Renvoyer uniquement les agrégats CFO avec le rétablissement du basculement du stockage `-fromnode local -only-cfo-aggregates true` commande.
++
+** Si la commande échoue en raison d'un disque en panne, désengagez physiquement le disque en panne, mais laissez le disque dans le slot jusqu'à ce qu'un disque de remplacement soit reçu.
+** Si la commande échoue en raison d'une session CIFS ouverte, vérifiez auprès du client comment fermer les sessions CIFS.
++
+
+NOTE: L'arrêt du protocole CIFS peut entraîner la perte de données.
+
+** Si la commande échoue parce que le partenaire n'est pas prêt, attendez 5 minutes pour que le système NVMEMs se synchronise.
+** Si la commande échoue en raison d'un processus NDMP, SnapMirror ou SnapVault, désactivez le processus. Consultez le centre de documentation approprié pour plus d'informations.
+
+
+. Une fois le retour terminé, vérifiez l'état du basculement et du rétablissement à l'aide du `storage failover show` et ``storage failover show`commandes -giveback».
++
+Seuls les agrégats CFO (agrégats racine et agrégats de données de type CFO) seront indiqués.
+
+. Déplacez le câble de la console vers le contrôleur cible.
+. Si vous exécutez ONTAP 9.5 ou une version antérieure, exécutez l'assistant de configuration du gestionnaire de clés :
++
+.. Démarrez l'assistant à l'aide de `security key-manager setup -nodenodename` entrez la phrase d'authentification pour la gestion intégrée des clés lorsque vous y êtes invité.
+.. Entrez le `key-manager key show -detail` commande pour afficher une vue détaillée de toutes les clés stockées dans le gestionnaire de clés intégré et vérifier que `Restored` colonne = `yes` pour toutes les clés d'authentification.
++
+
+NOTE: Si le `Restored` colonne = tout autre élément que `yes`, Contactez le support client.
+
+.. Attendez 10 minutes que la clé se synchronise sur l'ensemble du cluster.
+
+
+. Si vous exécutez ONTAP 9.6 ou version ultérieure :
++
+.. Exécutez le `security key-manager onboard sync` puis entrez la phrase de passe lorsque vous y êtes invité.
+.. Entrez le `security key-manager key query` commande pour afficher une vue détaillée de toutes les clés stockées dans le gestionnaire de clés intégré et vérifier que `Restored` colonne = `yes/true` pour toutes les clés d'authentification.
++
+
+NOTE: Si le `Restored` colonne = tout autre élément que `yes/true`, Contactez le support client.
+
+.. Attendez 10 minutes que la clé se synchronise sur l'ensemble du cluster.
+
+
+. Déplacez le câble de la console vers le contrôleur partenaire.
+. Renvoyer le contrôleur cible à l'aide du `storage failover giveback -fromnode local` commande.
+. Vérifier le statut de rétablissement, 3 minutes après la fin des rapports, à l'aide de `storage failover show` commande.
++
+Si le retour n'est pas effectué au bout de 20 minutes, contactez le support client.
+
+. À l'invite clustershell, entrez le `net int show -is-home false` commande pour lister les interfaces logiques qui ne se trouvent pas sur leur contrôleur et son port de base.
++
+Si des interfaces sont répertoriées comme `false`, restaurez ces interfaces à leur port de départ à l'aide de l' `net int revert -vserver Cluster -lif _nodename_` commande.
+
+. Déplacer le câble de la console vers le contrôleur cible et exécuter le `version -v` Commande pour vérifier les versions de ONTAP.
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+
+
+
+
+== Option 2 : restaurez NSE/NVE sur les systèmes exécutant ONTAP 9.5 et versions antérieures
+
+.Étapes
+. Branchez le câble de la console au contrôleur cible.
+. Utilisez le `boot_ontap` Commande à l'invite DU CHARGEUR pour démarrer le contrôleur.
+. Vérifiez la sortie de la console :
++
+[cols="1,3"]
+|===
+| *Si la console affiche...* | *Alors...* 
+
+
+ a| 
+Invite de connexion
+ a| 
+Passez à l'étape 7.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+.. Connectez-vous au contrôleur partenaire.
+.. Vérifiez que le contrôleur cible est prêt pour le rétablissement à l'aide du `storage failover show` commande.
+
+
+|===
+. Déplacez le câble de la console vers le contrôleur partenaire et redonnez le stockage du contrôleur cible à l'aide du `storage failover giveback -fromnode local -only-cfo-aggregates true local` commande.
++
+** Si la commande échoue en raison d'un disque en panne, désengagez physiquement le disque en panne, mais laissez le disque dans le slot jusqu'à ce qu'un disque de remplacement soit reçu.
+** Si la commande échoue en raison d'une session CIFS ouverte, vérifiez auprès du client comment fermer les sessions CIFS.
++
+
+NOTE: L'arrêt du protocole CIFS peut entraîner la perte de données.
+
+** Si la commande échoue parce que le partenaire "n'est pas prêt", attendre 5 minutes pour que les NVMEMs se synchronisent.
+** Si la commande échoue en raison d'un processus NDMP, SnapMirror ou SnapVault, désactivez le processus. Consultez le centre de documentation approprié pour plus d'informations.
+
+
+. Attendre 3 minutes et vérifier l'état du basculement à l'aide du `storage failover show` commande.
+. À l'invite clustershell, entrez le `net int show -is-home false` commande pour lister les interfaces logiques qui ne se trouvent pas sur leur contrôleur et son port de base.
++
+Si des interfaces sont répertoriées comme `false`, restaurez ces interfaces à leur port de départ à l'aide de l' `net int revert -vserver Cluster -lif _nodename_` commande.
+
+. Déplacez le câble de la console vers le contrôleur cible et exécutez la version `-v command` Pour vérifier les versions ONTAP.
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Utilisez le `storage encryption disk show` à l'invite clustershell, pour vérifier la sortie.
++
+
+NOTE: Cette commande ne fonctionne pas si NVE (NetApp Volume Encryption) est configuré
+
+. Utilisez la requête Security Key-Manager pour afficher les ID de clé des clés d'authentification stockées sur les serveurs de gestion des clés.
++
+** Si le `Restored` colonne = `yes` Et tous les gestionnaires clés rapportent un état disponible, allez à _compléter le processus de remplacement_.
+** Si le `Restored` colonne = tout autre élément que `yes`, et/ou un ou plusieurs gestionnaires de clés ne sont pas disponibles, utilisez le `security key-manager restore -address` Commande permettant de récupérer et de restaurer toutes les clés d'authentification (ACK) et tous les ID de clé associés à tous les nœuds à partir de tous les serveurs de gestion de clés disponibles.
++
+Vérifiez à nouveau la sortie de la requête du gestionnaire de clés de sécurité pour vous assurer que `Restored` colonne = `yes` et tous les responsables clés se déclarent dans un état disponible
+
+
+
+. Si la gestion intégrée des clés est activée :
++
+.. Utilisez le `security key-manager key show -detail` pour obtenir une vue détaillée de toutes les clés stockées dans le gestionnaire de clés intégré.
+.. Utilisez le `security key-manager key show -detail` et vérifiez que le `Restored` colonne = `yes` pour toutes les clés d'authentification.
++
+Si le `Restored` colonne = tout autre élément que `yes`, utilisez l' `security key-manager setup -node _Repaired_(Target)_node_` Commande permettant de restaurer les paramètres de gestion intégrée des clés. Exécutez à nouveau le `security key-manager key show -detail` commande à vérifier `Restored` colonne = `yes` pour toutes les clés d'authentification.
+
+
+
+. Branchez le câble de la console au contrôleur partenaire.
+. Reaccordez le contrôleur à l'aide du `storage failover giveback -fromnode local` commande.
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+
+
+
+
+== Option 3 : restaurez NSE/NVE sur les systèmes qui exécutent ONTAP 9.6 et versions ultérieures
+
+.Étapes
+. Branchez le câble de la console au contrôleur cible.
+. Utilisez le `boot_ontap` Commande à l'invite DU CHARGEUR pour démarrer le contrôleur.
+. Vérifiez la sortie de la console :
++
+[cols="1,3"]
+|===
+| Si la console affiche... | Alors... 
+
+
+ a| 
+Invite de connexion
+ a| 
+Passez à l'étape 7.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+.. Connectez-vous au contrôleur partenaire.
+.. Vérifiez que le contrôleur cible est prêt pour le rétablissement à l'aide du `storage failover show` commande.
+
+
+|===
+. Déplacez le câble de la console vers le contrôleur partenaire et redonnez le stockage du contrôleur cible à l'aide du `storage failover giveback -fromnode local -only-cfo-aggregates true local` commande.
++
+** Si la commande échoue en raison d'un disque en panne, désengagez physiquement le disque en panne, mais laissez le disque dans le slot jusqu'à ce qu'un disque de remplacement soit reçu.
+** Si la commande échoue en raison d'une session CIFS ouverte, vérifiez auprès du client comment fermer les sessions CIFS.
++
+
+NOTE: L'arrêt du protocole CIFS peut entraîner la perte de données.
+
+** Si la commande échoue parce que le partenaire n'est pas prêt, attendez 5 minutes pour que le système NVMEMs se synchronise.
+** Si la commande échoue en raison d'un processus NDMP, SnapMirror ou SnapVault, désactivez le processus. Consultez le centre de documentation approprié pour plus d'informations.
+
+
+. Attendre 3 minutes et vérifier l'état du basculement à l'aide du `storage failover show` commande.
+. À l'invite clustershell, entrez le `net int show -is-home false` commande pour lister les interfaces logiques qui ne se trouvent pas sur leur contrôleur et son port de base.
++
+Si des interfaces sont répertoriées comme `false`, restaurez ces interfaces à leur port de départ à l'aide de l' `net int revert -vserver Cluster -lif _nodename_` commande.
+
+. Déplacer le câble de la console vers le contrôleur cible et exécuter le `version -v` Commande pour vérifier les versions de ONTAP.
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Utilisez le `storage encryption disk show` à l'invite clustershell, pour vérifier la sortie.
+. Utilisez le `security key-manager key query` Commande pour afficher les ID de clé des clés d'authentification stockées sur les serveurs de gestion des clés.
++
+** Si le `Restored` colonne = `yes/true`, vous avez terminé et pouvez procéder à la procédure de remplacement.
+** Si le `Key Manager type` = `external` et le `Restored` colonne = tout autre élément que `yes/true`, utilisez l' `security key-manager external restore` Commande permettant de restaurer les ID de clé des clés d'authentification.
++
+
+NOTE: Si la commande échoue, contactez l'assistance clientèle.
+
+** Si le `Key Manager type` = `onboard` et le `Restored` colonne = tout autre élément que `yes/true`, utilisez l' `security key-manager onboard sync` Commande permettant de resynchroniser le type de gestionnaire de clés.
++
+Utilisez la requête de clé de sécurité du gestionnaire de clés pour vérifier que l' `Restored` colonne = `yes/true` pour toutes les clés d'authentification.
+
+
+
+. Branchez le câble de la console au contrôleur partenaire.
+. Reaccordez le contrôleur à l'aide du `storage failover giveback -fromnode local` commande.
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Restaurez AutoSupport s'il a été désactivé à l'aide de `system node autosupport invoke -node * -type all -message MAINT=END`
+

@@ -1,8 +1,8 @@
 ---
 permalink: a900/chassis_replace_complete_system_restore_rma.html 
 sidebar: sidebar 
-keywords: aff a900, verify and set HA state, run diagnostics, complete the replacement process 
-summary: 'Vous devez vérifier l"état haute disponibilité du châssis, exécuter des diagnostics et renvoyer la pièce défectueuse à NetApp, comme décrit dans les instructions RMA livrées avec le kit.' 
+keywords: aff a900, verify and set HA state, complete the replacement process 
+summary: 'Vous devez vérifier l"état HA du châssis et renvoyer la pièce défectueuse à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.' 
 ---
 = Restaurez et vérifiez la configuration - AFF A900
 :allow-uri-read: 
@@ -15,7 +15,7 @@ Pour effectuer le remplacement du châssis, vous devez effectuer des tâches sp�
 
 
 
-== Étape 1 : vérification et paramétrage de l'état HA du châssis
+== Étape 1 : vérifier et définir l'état de haute disponibilité du châssis
 
 Vous devez vérifier l'état HA du châssis et, le cas échéant, mettre à jour l'état pour qu'il corresponde à la configuration de votre système.
 
@@ -66,122 +66,6 @@ NOTE: En tant que pratique exemplaire, vous devez effectuer les actions suivante
 ====
 
 
-== Étape 3 : exécutez les diagnostics au niveau du système
-
-Après avoir installé un nouveau châssis, exécutez les diagnostics d'interconnexion.
-
-.Avant de commencer
-Votre système doit être à l'invite DU CHARGEUR pour démarrer System Level Diagnostics.
-
-Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
-
-. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, effectuez la procédure suivante :
-+
-.. Sélectionnez l'option mode Maintenance dans le menu affiché.
-.. Une fois le contrôleur démarré en mode maintenance, arrêtez le contrôleur : `halt`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-+
-
-NOTE: Au cours du processus de démarrage, vous pouvez répondre en toute sécurité `y` pour demander :
-
-
-
-. Répétez l'étape précédente sur le second contrôleur si vous êtes dans une configuration haute disponibilité.
-+
-
-NOTE: Les deux contrôleurs doivent être en mode maintenance pour exécuter le test d'interconnexion.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-+
-Au cours du processus de démarrage, vous pouvez répondre en toute sécurité `y` Aux invites jusqu'à ce que l'invite du mode Maintenance (*>) s'affiche.
-
-. Activez les tests de diagnostic d'interconnexion à partir de l'invite du mode maintenance : `sldiag device modify -dev interconnect -sel enable`
-+
-Les tests d'interconnexion sont désactivés par défaut et doivent être activés séparément.
-
-. Exécutez le test de diagnostic d'interconnexion à partir de l'invite du mode maintenance : `sldiag device run -dev interconnect`
-+
-Vous ne devez exécuter le test d'interconnexion qu'à partir d'un seul contrôleur.
-
-. Vérifiez qu'aucun problème matériel ne provient du remplacement du châssis : `sldiag device status -dev interconnect -long -state failed`
-+
-Les diagnostics au niveau du système vous renvoie à l'invite s'il n'y a pas d'échec de test ou répertorie l'état complet des échecs résultant du test du composant.
-
-. Procéder selon le résultat de l'étape précédente.
-
-
-|===
-| Si les tests de diagnostic au niveau du système... | Alors... 
-
-
- a| 
-Ont été achevés sans défaillance
- a| 
-. Effacez les journaux d'état : `sldiag device clearstatus`
-. Vérifiez que le journal a été effacé : `sldiag device status`
-+
-La réponse par défaut suivante est affichée :
-
-+
-[listing]
-----
-SLDIAG: No log messages are present.
-----
-. Quitter le mode maintenance sur les deux contrôleurs : `halt`
-+
-Le système affiche l'invite DU CHARGEUR.
-
-+
-
-NOTE: Vous devez quitter le mode de maintenance sur les deux contrôleurs avant de poursuivre l'opération.
-
-. Entrez la commande suivante sur les deux contrôleurs à l'invite DU CHARGEUR : `bye`
-. Rétablir le fonctionnement normal du contrôleur.
-
-
-|===
-|===
-| Si votre système exécute ONTAP... | Alors... 
-
-
- a| 
-Avec deux nœuds dans le cluster
- a| 
-Exécutez les commandes suivantes : `node::> cluster ha modify -configured true``node::> storage failover modify -node node0 -enabled true`
-
-
-
- a| 
-Avec plus de deux nœuds dans le cluster
- a| 
-Exécutez cette commande :``node::> storage failover modify -node node0 -enabled true``
-
-
-
- a| 
-Dans une configuration autonome
- a| 
-Vous n'avez pas d'autres étapes dans cette tâche particulière. Vous avez terminé les diagnostics au niveau du système.
-
-
-
- a| 
-A entraîné des échecs de test
- a| 
-Déterminer la cause du problème.
-
-. Quitter le mode Maintenance : `halt`
-. Procéder à un arrêt correct, puis débrancher les alimentations.
-. Vérifier que vous avez bien remarqué tous les facteurs à prendre en compte pour l'exécution des diagnostics au niveau du système, que les câbles sont correctement connectés et que les composants matériels sont correctement installés dans le système de stockage.
-. Rebranchez les blocs d'alimentation, puis mettez le système de stockage sous tension.
-. Exécutez à nouveau le test de diagnostic au niveau du système. + si le test de diagnostic au niveau du système échoue à nouveau, contacter link:http://mysupport.netapp.com/["mysupport.netapp.com"^].
-
-
-|===
-
-
-== Étape 4 : renvoyer la pièce défaillante à NetApp
+== Étape 3 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.
