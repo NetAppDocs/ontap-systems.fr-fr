@@ -8356,4 +8356,80 @@ SFP+ (cible/initiateur)</block>
   <block id="9287ab39836157b975fad28f9782a821" category="sidebar">Alimentation FAS2800</block>
   <block id="3dfd3fa9bee4e9b9ad14ec588c8e9ed4" category="sidebar">Batterie d'horloge en temps réel FAS2800</block>
   <block id="f298a7570713e4b8f24128c2f7dcc05c" category="sidebar">Outils et support</block>
+  <block id="0a90cb9b1ee5610139d0e39856363c8c" category="summary">Vous pouvez contrôler l'état du tiroir disque en indiquant son emplacement et son état.</block>
+  <block id="039c72bbf63892ab7a9a7d88f01d9ef1" category="doc">Contrôlez les LED du tiroir disque - tiroirs NS224</block>
+  <block id="4c1e87d961b7abad7899274630f1a96a" category="list-text">Les LED de localisation (bleues) sur le panneau d'affichage de l'opérateur (ODP) d'un tiroir et les deux modules NSM peuvent être activées pour faciliter la localisation physique du tiroir nécessitant une intervention :<block ref="d6bcc7ed2edc5b8ad7e7188bba8189eb" prefix=" " category="inline-code"></block></block>
+  <block id="3417b5f666a273fe6204a90a40cd960a" category="paragraph">Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant le<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> option.</block>
+  <block id="90c4ae9a3664954df72efa181f417914" category="list-text">L'état d'un voyant peut être :</block>
+  <block id="5f77ac1006b54df5d09a24404a213642" category="list-text">« Allumé » : l'éclairage par LED est fixe/fixe</block>
+  <block id="ca49a7e42f16a88fc179226bfe0edde8" category="list-text">« Off » : la LED n'est pas allumée</block>
+  <block id="117106b46f3b11e3bbfc40ae15a1f678" category="list-text">« Clignotement » : la LED s'allume et s'éteint à différents intervalles selon l'état de la FRU</block>
+  <block id="e3248bada0dd8141e2ab87552806328f" category="list-text">« Tout état » : le voyant peut être allumé, éteint ou clignotant.</block>
+  <block id="6afbd49803e44c3aa6797e42828fd734" category="paragraph">Les LED situées sur le panneau d'affichage de l'opérateur (ODP) avant du tiroir disque indiquent si votre tiroir disque fonctionne normalement ou s'il y a des problèmes matériels.</block>
+  <block id="98b358c9e04e87becfb72379a2b4c9d5" category="paragraph">L'illustration et le tableau suivants décrivent les trois voyants du panneau de commande :</block>
+  <block id="138149667750b6d9b839cc79c8d6b29a" category="image-alt">led odp drw ns224 IOPS 1262</block>
+  <block id="6984fd43f67a1bf48379d74906b421c0" category="cell">Nom et couleur DE LA LED</block>
+  <block id="89a44a0e4b47aa8032cdb05ec66374e8" category="paragraph">Alimentation (vert)</block>
+  <block id="521c36a31c2762741cf0f8890cbe05e3" category="paragraph">Marche</block>
+  <block id="7ab85b9335b729ddfdd50939907e5626" category="paragraph">Une ou plusieurs alimentations alimentent le tiroir disque.</block>
+  <block id="7ad8ba1fe94fd72fd9f74d14e7037f4a" category="paragraph">Attention (orange)</block>
+  <block id="e83364f6cc636130c2c04e44b8f47f19" category="list-text">Une erreur s'est produite avec la fonction de l'une des unités remplaçables sur site.</block>
+  <block id="792a0f450d52c98560941fc89bf34430" category="list-text">Si l'ID de tiroir à deux chiffres clignote également, l'ID de tiroir est en attente.</block>
+  <block id="c71218e03c7b1d130d35a210073b7500" category="paragraph">Mettez le tiroir disque sous tension afin que l'ID de tiroir soit affecté.</block>
+  <block id="fdb5296df84be4098a8bcf7a2eafe291" category="paragraph">Emplacement (bleu)</block>
+  <block id="fa5f455b4bf3d012d2777718991d0440" category="paragraph">L'administrateur système a activé cette fonction LED.</block>
+  <block id="745d735db3f2e8f31dbbfa30d77113d9" category="section-title">Voyants du module NSM</block>
+  <block id="2abced28d6da640242f441beadbf8ee0" category="paragraph">Les voyants d'un module NSM indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il y a des problèmes avec le matériel.</block>
+  <block id="eb21c45722f5ff9bf64973b0ac209180" category="paragraph">L'illustration et les tableaux suivants décrivent les LED du module NSM associées à la fonction d'un module et à la fonction de chaque port NVMe d'un module.</block>
+  <block id="68f54317fa8b23ea7098189416f011eb" category="image-alt">led nsm drw ns224 IOPS 1270</block>
+  <block id="a5b225465f65d6810c16d66ba3172319" category="cell">Appel sortant</block>
+  <block id="cb5feb1b7314637725a2e73bdc9f7295" category="cell">Couleur</block>
+  <block id="9594eec95be70e7b1710f730fdda33d9" category="paragraph">Bleu</block>
+  <block id="6d9957aa3906726ca4d7614d877977df" category="paragraph">Module NSM : emplacement</block>
+  <block id="88068e33c78eb72f1b371c7110846085" category="paragraph">Ambre</block>
+  <block id="1903810490ad85ac105168a3e90068d0" category="paragraph">Module NSM : attention</block>
+  <block id="e5b3a965934bf3ca0a50c8cda04e1b3f" category="paragraph">Port/liaison NVMe : état</block>
+  <block id="e03b09748657a5b63a0374112f96cef8" category="paragraph">Port/liaison NVMe : attention</block>
+  <block id="ec53a8c4f07baed5d8825072c89799be" category="cell">État</block>
+  <block id="5767ccac8b9ab75a17e52eb709fb26e8" category="cell">Attention NSM (orange)</block>
+  <block id="a2164070412e695d73fc2ab64c01f149" category="cell">Port LNK (vert)</block>
+  <block id="5a1dea4ae3ffb6c0ab8f9acbbf3c4fda" category="cell">Port attention (orange)</block>
+  <block id="f7461aec7fcfa3f30f604927ef643ebc" category="paragraph">NSM normal</block>
+  <block id="d60fd197e540446192f328624ebc9be2" category="paragraph">Quel que soit l'état</block>
+  <block id="956b8d84f48336f2a0e561c66edb7f07" category="paragraph">Défaut NSM</block>
+  <block id="7e5905b08296770ebd816f86cfb84b60" category="paragraph">Erreur VPD NSM</block>
+  <block id="ec280b965c05518ec9a4070c43b19c7f" category="paragraph">Aucune connexion au port hôte</block>
+  <block id="1401dfc837785ee5fb45ba2c53fd991b" category="paragraph">Liaison de connexion du port hôte active</block>
+  <block id="923a074db98ee6d8f18ca11712164fff" category="paragraph">Allumé/clignote en cas d'activité</block>
+  <block id="25570bb9d9339942629f14699f8f977e" category="paragraph">Connexion du port hôte avec défaillance</block>
+  <block id="4402fe228b0b8a78da9019341eb36b7f" category="paragraph">Marche/arrêt si toutes les voies sont défectueuses</block>
+  <block id="ae56bf029d48aa72a5f72c3a20e780b9" category="paragraph">Démarrage du BIOS à partir de l'image du BIOS après la mise sous tension</block>
+  <block id="cfad0a7419f44ea0c64db24197abbf70" category="paragraph">Clignote</block>
+  <block id="6b6aa0b6d9b620cfef1de19db2c781e5" category="paragraph">Les voyants d'un bloc d'alimentation CA ou CC indiquent si le bloc d'alimentation fonctionne normalement ou s'il y a des problèmes matériels.</block>
+  <block id="ddf6d4204e991f952d5f65cedae767ce" category="paragraph">L'illustration et les tableaux suivants décrivent le voyant d'un bloc d'alimentation. (L'illustration est une alimentation CA ; cependant, l'emplacement du voyant est le même sur l'alimentation CC) :</block>
+  <block id="cb64a8852ed883dfc686d51492e31bfa" category="image-alt">led d'alimentation drw ns224 IOPS 1261</block>
+  <block id="7609b319dac3aca8b9d7c805388fc5e6" category="paragraph">Le voyant bicolore indique l'alimentation/l'activité lorsque le voyant est vert et une panne lorsque le voyant est orange.</block>
+  <block id="0cb6b469a5da43eb5225c25fab0b5ff0" category="cell">Alimentation/activité (vert)</block>
+  <block id="cd5f6c10b859eea6eaed71a2e494c0db" category="paragraph">Pas d'alimentation CA/CC vers le boîtier</block>
+  <block id="aade40c62d1308360c2f119536da1c63" category="paragraph">Aucune alimentation CA/CC vers le bloc d'alimentation</block>
+  <block id="cf335ef3413e902db7461d8f15450cae" category="paragraph">Alimentation CA/CC sous tension, mais bloc d'alimentation pas dans le boîtier</block>
+  <block id="215c6f78a1c194e6228514ff7bdd71cd" category="paragraph">Le bloc d'alimentation fonctionne correctement</block>
+  <block id="3f01099f03de6897d7388ee1c31f6770" category="paragraph">Panne du bloc d'alimentation</block>
+  <block id="0da2a2ed379c0a511e6346492e61a8e8" category="paragraph">Panne du ventilateur</block>
+  <block id="d78c48ba978ed998f8c4aaf41f2003a1" category="paragraph">Mode de mise à jour du micrologiciel</block>
+  <block id="0485558d80ce3f9e356a60181cefb758" category="section-title">LED du disque</block>
+  <block id="ec2086f8c8aa32f4039431accf799e7e" category="paragraph">Les LED d'un disque NVMe indiquent s'il fonctionne normalement ou s'il présente des problèmes au niveau du matériel.</block>
+  <block id="1789a93f2267580a7b3d61d32fd8de64" category="paragraph">L'illustration et les tableaux suivants décrivent les deux LED d'un disque NVMe :</block>
+  <block id="82e7f0e876b2809cacccfffb630802cf" category="image-alt">led de lecteur drw ns224 IEOPS 1263</block>
+  <block id="31eef7712c15110e77d39c33fa6398b8" category="paragraph">Alimentation/activité</block>
+  <block id="4f64599448fa0ed6d8c8631c9c782051" category="cell">Alimentation/activité (vert)</block>
+  <block id="d24aa27125c051e29098493eceace539" category="cell">LED ODP associée</block>
+  <block id="73adb82b35cf9e200ec112cf75d968b7" category="paragraph">Disque installé et opérationnel</block>
+  <block id="382b0f5185773fa0f67a8ed8056c7759" category="paragraph">S/O</block>
+  <block id="04e450c5eabdbe5208c912ed16aa5c5f" category="paragraph">Panne de disque</block>
+  <block id="81c36a08fce93b18a65d7e5214ab26cb" category="paragraph">Ensemble d'identification de périphérique ses</block>
+  <block id="0adb6ff7f0bdadd155910f204b3330d5" category="paragraph">Clignote</block>
+  <block id="cc818334a12195812c946efa74959a44" category="paragraph">Attention (orange) désactivée</block>
+  <block id="830de589dead0df6a61213a5dc116efd" category="paragraph">Bit de panne du périphérique ses défini</block>
+  <block id="2475cae13a65975fd4da631c78689624" category="paragraph">Défaillance du circuit de commande d'alimentation</block>
 </blocks>
