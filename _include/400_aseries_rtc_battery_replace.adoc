@@ -1,28 +1,18 @@
----
-permalink: a400/nvdimm-replace.html 
-sidebar: sidebar 
-keywords: aff a400, aff, a400, replace, nvdimm, controller, module, system, register, flash, lifetime, healthy, system, panic, shut, down, impair, two-node, metrocluster, complete, replacement, process, replace an nvdimm, shut down the impaired controller, remove the controller module, replace the nvdimm, install the controller module, restore the controller module to operation, switch back aggregates in a two-node metrocluster configuration, complete the replacement process 
-summary: 'Vous devez remplacer le NVDIMM dans le module de contrôleur lorsque votre système enregistre que la durée de vie du flash est presque à la fin ou que le NVDIMM identifié n"est pas en bon état en général ; si vous ne le faites pas, vous pouvez provoquer une panique du système.' 
----
-= Remplacez un NVDIMM - AFF A400
+= Étape 1 : arrêtez le contrôleur défaillant
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-400_nvdimm_replace.adoc
-Vous devez remplacer le NVDIMM dans le module de contrôleur lorsque votre système enregistre que la durée de vie du flash est presque à la fin ou que le NVDIMM identifié n'est pas en bon état en général ; si vous ne le faites pas, vous pouvez provoquer une panique du système.
+Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de contrôleur afin que les services et applications de votre système qui dépendent d'une synchronisation précise de l'heure continuent de fonctionner.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
 
-Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
 
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
+Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
 ====
@@ -223,141 +213,94 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
-== Étape 3 : remplacez le NVDIMM
+== Étape 3 : remplacer la batterie RTC
 
-Pour remplacer le NVDIMM, vous devez le localiser dans le module de contrôleur à l'aide du plan des FRU situé sur le dessus du conduit d'air ou du plan des FRU situé sur le dessus de la carte de montage du logement 1.
+Vous devez localiser la batterie RTC à l'intérieur du module de contrôleur, puis suivre la séquence spécifique des étapes. Voir le schéma des FRU à l'intérieur du module de contrôleur pour l'emplacement de la batterie RTC.
 
-* Le voyant NVDIMM clignote pendant l'égrenage du contenu lorsque vous arrêtez le système. Une fois le transfert terminé, le voyant s'éteint.
-* Bien que le contenu du NVDIMM soit crypté, il est recommandé d'effacer le contenu du NVDIMM avant de le remplacer. Pour plus d'informations, reportez-vous à la section https://mysupport.netapp.com/info/web/ECMP1132988.html["Rapport de volatilité"] Sur le site de support NetApp.
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer la batterie RTC.
+
+.Animation - remplacer la batterie RTC
+video::12ea4bc1-75e2-43e7-be91-b0310000fd34[panopto]
+image::../media/drw_c400_rtc_batt_IEOPS-1239.svg[batterie rtc drw c400 IOPS 1239]
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Ouvrir le conduit d'air :
++
+.. Appuyer sur les pattes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de commande.
+.. Faites glisser le conduit d'air vers l'arrière du module de commande, puis faites-le pivoter vers le haut jusqu'à sa position complètement ouverte.
+
+
+. Localisez, retirez et remplacez la batterie RTC :
++
+.. A l'aide du plan des FRU, localiser la batterie RTC sur le module de contrôleur.
+.. Poussez doucement la batterie hors du support, faites-la pivoter pour l'éloigner du support, puis retirez-la du support.
 +
 
-NOTE: Vous devez vous connecter sur le site de support NetApp pour afficher le _Statement of Volatility_ pour votre système.
+NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La batterie est signalée par un signe plus et doit être correctement positionnée dans le support. Un signe plus près du support indique comment la batterie doit être positionnée.
+
+.. Retirez la batterie de rechange du sac d'expédition antistatique.
+.. Notez la polarité de la batterie RTC, puis insérez-la dans le support en inclinant la batterie et en la poussant vers le bas.
 
 
-
-Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer le NVDIMM.
-
-
-NOTE: L'animation montre des emplacements vides pour les sockets sans DIMM. Ces supports vides sont remplis de caches.
-
-.Animation : remplacez le NVDIMM
-video::7dfe09d8-eff8-41e3-9eb4-b03100032579[panopto]
-image::../media/drw_A400_Replace-NVDIMM-DIMM_IEOPS-1009.svg[drw A400 remplacer NVDIMM IOPS 1009]
-
-. Ouvrez le conduit d'air, puis localisez le NVDIMM dans le logement 11 de votre module de contrôleur.
-+
-
-NOTE: L'aspect NVDIMM est très différent de celui des DIMM système.
-
-. Éjectez le NVDIMM de son logement en écartant lentement les deux languettes d'éjection NVDIMM de chaque côté du NVDIMM, puis faites glisser le NVDIMM hors du support et mettez-le de côté.
-+
-
-NOTE: Tenez soigneusement le NVDIMM par les bords pour éviter toute pression sur les composants de la carte de circuit imprimé NVDIMM.
-
-. Retirez le NVDIMM de remplacement du sac d'expédition antistatique, tenez le NVDIMM par les coins, puis alignez-le sur le logement.
-+
-L'encoche entre les broches du NVDIMM doit être alignée avec la languette du support.
-
-. Localisez le logement où vous installez le NVDIMM.
-. Insérez le NVDIMM directement dans le logement.
-+
-Le NVDIMM s'insère fermement dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le NVDIMM avec le logement et réinsérez-le.
-
-+
-
-NOTE: Inspectez visuellement le NVDIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
-
-. Poussez délicatement, mais fermement, sur le bord supérieur du NVDIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent au-dessus des encoches aux extrémités du NVDIMM.
+. Inspectez visuellement la batterie pour vous assurer qu'elle est complètement installée dans le support et que la polarité est correcte.
 . Fermer le conduit d'air.
 
 
 
 
-== Étape 4 : installer le module de contrôleur
+== Étape 4 : réinstaller le module de contrôleur et régler l'heure/la date après le remplacement de la batterie RTC
 
-Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
+Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
 
-. Si ce n'est déjà fait, fermer le conduit d'air.
+. Si ce n'est déjà fait, fermez le conduit d'air ou le couvercle du module de commande.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
+N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 
-NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
-
-. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
+. Recâblage du système, selon les besoins.
 +
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
 
-NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
-
+. Si les blocs d'alimentation ont été débranchés, rebranchez-les et réinstallez les dispositifs de retenue du câble d'alimentation.
 . Terminez l'installation du module de contrôleur :
 +
-.. Branchez le cordon d'alimentation dans le bloc d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis connectez le bloc d'alimentation à la source d'alimentation.
-.. A l'aide des loquets de verrouillage, poussez fermement le module de contrôleur dans le châssis jusqu'à ce que les loquets de verrouillage commencent à se relever.
+.. A l'aide des loquets de verrouillage, poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
 +
 
 NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
-.. Insérez complètement le module de commande dans le châssis en faisant tourner les loquets de verrouillage vers le haut, en les inclinant de manière à dégager les goupilles de verrouillage, poussez doucement le contrôleur complètement vers l'intérieur, puis abaissez les loquets de verrouillage en position verrouillée.
 +
 Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
 
+.. Insérez complètement le module de commande dans le châssis en faisant tourner les loquets de verrouillage vers le haut, en les inclinant de manière à dégager les goupilles de verrouillage, poussez doucement le contrôleur complètement vers l'intérieur, puis abaissez les loquets de verrouillage en position verrouillée.
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
 .. Interrompez le processus de démarrage normal et démarrez vers LE CHARGEUR en appuyant sur `Ctrl-C`.
 +
 
 NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
 
-.. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et les autres composants.
-.. Interrompez le processus de démarrage et démarrez vers l'invite DU CHARGEUR en appuyant sur `Ctrl-C`.
+
+
+. Réinitialiser l'heure et la date sur le contrôleur :
 +
-Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
+.. Vérifiez la date et l'heure sur le contrôleur en bon état à l'aide du `show date` commande.
+.. À l'invite DU CHARGEUR sur le contrôleur cible, vérifier l'heure et la date.
+.. Si nécessaire, modifiez la date avec le `set date mm/dd/yyyy` commande.
+.. Si nécessaire, réglez l'heure, en GMT, à l'aide du `set time hh:mm:ss` commande.
+.. Confirmez la date et l'heure sur le contrôleur cible.
 
 
-
-
-
-
-
-== Étape 5 : exécutez les diagnostics
-
-Après avoir remplacé le NVDIMM de votre système, exécutez des tests de diagnostic sur ce composant.
-
-Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
-
-Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
-
-. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node node_name`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
-. Sélectionnez *Tester mémoire* dans le menu affiché.
-. Sélectionnez *Test NVDIMM* dans le menu affiché.
-. Procédez comme suit en fonction du résultat de l'étape précédente :
-+
-** Si le test a échoué, corrigez la défaillance, puis relancez le test.
-** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
-
-
-
-
-
-
-== Étape 6 : rétablir le fonctionnement du module de contrôleur après l'exécution des diagnostics
-
-Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
-
-. Recâblage du système, selon les besoins.
-+
-Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
-
+. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et d'autres composants et laisser le contrôleur redémarrer.
 . Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
 . Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
 
 
 
 
-== Étape 7 : retournez les agrégats via une configuration MetroCluster à deux nœuds
+== Étape 5 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
@@ -415,6 +358,6 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 
 
-== Étape 8 : renvoyer la pièce défaillante à NetApp
+== Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

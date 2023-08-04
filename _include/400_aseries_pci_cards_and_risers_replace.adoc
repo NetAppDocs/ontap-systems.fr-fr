@@ -1,33 +1,25 @@
----
-permalink: a400/nvdimm-replace.html 
-sidebar: sidebar 
-keywords: aff a400, aff, a400, replace, nvdimm, controller, module, system, register, flash, lifetime, healthy, system, panic, shut, down, impair, two-node, metrocluster, complete, replacement, process, replace an nvdimm, shut down the impaired controller, remove the controller module, replace the nvdimm, install the controller module, restore the controller module to operation, switch back aggregates in a two-node metrocluster configuration, complete the replacement process 
-summary: 'Vous devez remplacer le NVDIMM dans le module de contrôleur lorsque votre système enregistre que la durée de vie du flash est presque à la fin ou que le NVDIMM identifié n"est pas en bon état en général ; si vous ne le faites pas, vous pouvez provoquer une panique du système.' 
----
-= Remplacez un NVDIMM - AFF A400
+= Étape 1 : arrêtez le contrôleur défaillant
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-400_nvdimm_replace.adoc
-Vous devez remplacer le NVDIMM dans le module de contrôleur lorsque votre système enregistre que la durée de vie du flash est presque à la fin ou que le NVDIMM identifié n'est pas en bon état en général ; si vous ne le faites pas, vous pouvez provoquer une panique du système.
+Pour remplacer une carte PCIe ou mezzanine, déconnectez les câbles et tous les modules SFP et QSFP des cartes, remplacez la carte PCIe ou mezzanine défectueuse, puis recâble les cartes.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
 
-Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
 
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
+[role="lead"]
+Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
 ====
 .Option 1 : plupart des configurations
 --
+[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -83,6 +75,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 --
 .Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
 --
+[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -181,6 +174,7 @@ mcc1A::> metrocluster operation show
 
 == Étape 2 : retirer le module de contrôleur
 
+[role="lead"]
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -223,57 +217,97 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
-== Étape 3 : remplacez le NVDIMM
+== Étape 3 : remplacer une carte PCIe
 
-Pour remplacer le NVDIMM, vous devez le localiser dans le module de contrôleur à l'aide du plan des FRU situé sur le dessus du conduit d'air ou du plan des FRU situé sur le dessus de la carte de montage du logement 1.
+[role="lead"]
+Pour remplacer une carte PCIe, vous devez localiser la carte PCIe défectueuse, retirer la carte de montage qui contient la carte du module de contrôleur, remplacer la carte, puis réinstaller la carte de montage PCIe dans le module de contrôleur.
 
-* Le voyant NVDIMM clignote pendant l'égrenage du contenu lorsque vous arrêtez le système. Une fois le transfert terminé, le voyant s'éteint.
-* Bien que le contenu du NVDIMM soit crypté, il est recommandé d'effacer le contenu du NVDIMM avant de le remplacer. Pour plus d'informations, reportez-vous à la section https://mysupport.netapp.com/info/web/ECMP1132988.html["Rapport de volatilité"] Sur le site de support NetApp.
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer une carte PCIe.
+
+.Animation - remplacer une carte PCIe
+video::ed42334e-8eb2-48dd-b447-b0300189230f[panopto]
+image:../media/drw_c400_replace_PCIe_cards_IEOPS-1235.svg["largeur=500 px"]
+
+. Retirez la carte de montage contenant la carte à remplacer :
 +
-
-NOTE: Vous devez vous connecter sur le site de support NetApp pour afficher le _Statement of Volatility_ pour votre système.
-
-
-
-Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer le NVDIMM.
-
-
-NOTE: L'animation montre des emplacements vides pour les sockets sans DIMM. Ces supports vides sont remplis de caches.
-
-.Animation : remplacez le NVDIMM
-video::7dfe09d8-eff8-41e3-9eb4-b03100032579[panopto]
-image::../media/drw_A400_Replace-NVDIMM-DIMM_IEOPS-1009.svg[drw A400 remplacer NVDIMM IOPS 1009]
-
-. Ouvrez le conduit d'air, puis localisez le NVDIMM dans le logement 11 de votre module de contrôleur.
+.. Ouvrez le conduit d'air en appuyant sur les pattes de verrouillage situées sur les côtés du conduit d'air, faites-le glisser vers l'arrière du module de contrôleur, puis faites-le tourner jusqu'à sa position complètement ouverte.
+.. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
+.. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers le conduit d'air.
 +
+La carte de montage se soulève légèrement du module de contrôleur.
 
-NOTE: L'aspect NVDIMM est très différent de celui des DIMM système.
+.. Soulevez le montant droit et mettez-le de côté sur une surface plane stable,
 
-. Éjectez le NVDIMM de son logement en écartant lentement les deux languettes d'éjection NVDIMM de chaque côté du NVDIMM, puis faites glisser le NVDIMM hors du support et mettez-le de côté.
+
+. Retirez la carte PCIe de la carte de montage :
 +
+.. Tournez la carte de montage pour accéder à la carte PCIe.
+.. Appuyez sur le support de verrouillage situé sur le côté de la carte de montage PCIe, puis faites-le pivoter en position ouverte.
+.. Pour les surmontoirs 2 et 3 uniquement, faites pivoter le panneau latéral vers le haut.
+.. Retirez la carte PCIe de la carte de montage en poussant doucement vers le haut sur le support et en la soulevant hors du support.
 
-NOTE: Tenez soigneusement le NVDIMM par les bords pour éviter toute pression sur les composants de la carte de circuit imprimé NVDIMM.
 
-. Retirez le NVDIMM de remplacement du sac d'expédition antistatique, tenez le NVDIMM par les coins, puis alignez-le sur le logement.
+. Installez la carte PCIe de remplacement dans la carte de montage en alignant la carte avec le support, appuyez sur la carte dans le support, puis fermez le panneau latéral de la carte de montage, le cas échéant.
 +
-L'encoche entre les broches du NVDIMM doit être alignée avec la languette du support.
-
-. Localisez le logement où vous installez le NVDIMM.
-. Insérez le NVDIMM directement dans le logement.
-+
-Le NVDIMM s'insère fermement dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le NVDIMM avec le logement et réinsérez-le.
+Assurez-vous d'aligner correctement la carte dans la fente et d'exercer une pression uniforme sur la carte lorsqu'elle est insérée dans la prise. La carte PCIe doit être complètement et uniformément insérée dans le logement.
 
 +
 
-NOTE: Inspectez visuellement le NVDIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
+NOTE: Si vous installez une carte dans le logement inférieur et que vous ne voyez pas bien le support de carte, retirez la carte supérieure de sorte que vous puissiez voir le support de carte, installer la carte, puis réinstaller la carte que vous avez retirée du logement supérieur.
 
-. Poussez délicatement, mais fermement, sur le bord supérieur du NVDIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent au-dessus des encoches aux extrémités du NVDIMM.
-. Fermer le conduit d'air.
+. Réinstallez la carte de montage :
++
+.. Alignez la carte de montage avec les broches sur le côté du support de montage, abaissez la carte de montage sur les broches.
+.. Poussez la carte de montage directement dans la prise de la carte mère.
+.. Faites pivoter le loquet vers le bas au ras de la tôle de la rehausse.
 
 
 
 
-== Étape 4 : installer le module de contrôleur
+
+
+== Étape 4 : remplacer la carte mezzanine
+
+[role="lead"]
+La carte mezzanine se trouve sous la carte de montage numéro 3 (logements 4 et 5). Vous devez retirer cette carte de montage pour accéder à la carte mezzanine, remplacer la carte mezzanine, puis réinstaller le numéro de montage 3. Voir le mappage des FRU sur le module de contrôleur pour plus d'informations.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer la carte mezzanine.
+
+.Animation : remplacez la carte mezzanine
+video::e3fd32b6-bdbb-4c53-b666-b030018a5744[panopto]
+image::../media/drw_c400_replace-mezz-card_IEOPS-1236.svg[drw c400 remplacer la carte mezz IOPS 1236]
+
+. Retirez la carte de montage numéro 3 (emplacements 4 et 5) :
++
+.. Ouvrez le conduit d'air en appuyant sur les pattes de verrouillage situées sur les côtés du conduit d'air, faites-le glisser vers l'arrière du module de contrôleur, puis faites-le tourner jusqu'à sa position complètement ouverte.
+.. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
+.. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers le conduit d'air.
++
+La carte de montage se soulève légèrement du module de contrôleur.
+
+.. Soulevez la rehausse, puis mettez-la de côté sur une surface plane et stable.
+
+
+. Remplacez la carte mezzanine :
++
+.. Retirez tous les modules QSFP ou SFP de la carte.
+.. Desserrez les vis moletées de la carte mezzanine, soulevez doucement la carte pour la retirer du support et mettez-la de côté.
+.. Alignez la carte mezzanine de remplacement sur le support et les broches de guidage, puis poussez doucement la carte dans le support.
+.. Serrez les vis moletées sur la carte mezzanine.
+
+
+. Réinstallez la carte de montage :
++
+.. Alignez la carte de montage avec les broches sur le côté du support de montage, abaissez la carte de montage sur les broches.
+.. Poussez la carte de montage directement dans la prise de la carte mère.
+.. Faites pivoter le loquet vers le bas au ras de la tôle de la rehausse.
+
+
+
+
+
+
+== Étape 5 : installer le module de contrôleur
 
 Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
 
@@ -283,69 +317,43 @@ Après avoir remplacé le composant du module de contrôleur, vous devez réinst
 
 NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 
-. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
+. Recâblage du système, selon les besoins.
 +
-
-NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
 
 . Terminez l'installation du module de contrôleur :
 +
 .. Branchez le cordon d'alimentation dans le bloc d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis connectez le bloc d'alimentation à la source d'alimentation.
-.. A l'aide des loquets de verrouillage, poussez fermement le module de contrôleur dans le châssis jusqu'à ce que les loquets de verrouillage commencent à se relever.
+.. A l'aide des loquets de verrouillage, poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
 +
 
 NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
-.. Insérez complètement le module de commande dans le châssis en faisant tourner les loquets de verrouillage vers le haut, en les inclinant de manière à dégager les goupilles de verrouillage, poussez doucement le contrôleur complètement vers l'intérieur, puis abaissez les loquets de verrouillage en position verrouillée.
 +
 Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
 
+.. Insérez complètement le module de commande dans le châssis en faisant tourner les loquets de verrouillage vers le haut, en les inclinant de manière à dégager les goupilles de verrouillage, poussez doucement le contrôleur complètement vers l'intérieur, puis abaissez les loquets de verrouillage en position verrouillée.
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
 .. Interrompez le processus de démarrage normal et démarrez vers LE CHARGEUR en appuyant sur `Ctrl-C`.
 +
 
 NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
 
-.. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et les autres composants.
-.. Interrompez le processus de démarrage et démarrez vers l'invite DU CHARGEUR en appuyant sur `Ctrl-C`.
-+
-Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
+.. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et d'autres composants et laisser le contrôleur redémarrer.
+
+
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
 
 
 
 
+== Étape 6 : rétablir le fonctionnement du module de contrôleur
 
-
-
-== Étape 5 : exécutez les diagnostics
-
-Après avoir remplacé le NVDIMM de votre système, exécutez des tests de diagnostic sur ce composant.
-
-Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
-
-Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
-
-. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, redémarrez le contrôleur : `system node halt -node node_name`
-+
-Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
-
-. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
-. Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
-. Sélectionnez *Tester mémoire* dans le menu affiché.
-. Sélectionnez *Test NVDIMM* dans le menu affiché.
-. Procédez comme suit en fonction du résultat de l'étape précédente :
-+
-** Si le test a échoué, corrigez la défaillance, puis relancez le test.
-** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
-
-
-
-
-
-
-== Étape 6 : rétablir le fonctionnement du module de contrôleur après l'exécution des diagnostics
-
-Une fois les diagnostics complets, vous devez recâter le système, remettre le module de contrôleur et réactiver le rétablissement automatique.
+Pour restaurer le contrôleur, vous devez refaire le système, remettre le module de contrôleur, puis réactiver le rétablissement automatique.
 
 . Recâblage du système, selon les besoins.
 +

@@ -1,18 +1,8 @@
----
-permalink: a400/nvdimm-replace.html 
-sidebar: sidebar 
-keywords: aff a400, aff, a400, replace, nvdimm, controller, module, system, register, flash, lifetime, healthy, system, panic, shut, down, impair, two-node, metrocluster, complete, replacement, process, replace an nvdimm, shut down the impaired controller, remove the controller module, replace the nvdimm, install the controller module, restore the controller module to operation, switch back aggregates in a two-node metrocluster configuration, complete the replacement process 
-summary: 'Vous devez remplacer le NVDIMM dans le module de contrôleur lorsque votre système enregistre que la durée de vie du flash est presque à la fin ou que le NVDIMM identifié n"est pas en bon état en général ; si vous ne le faites pas, vous pouvez provoquer une panique du système.' 
----
-= Remplacez un NVDIMM - AFF A400
+= Étape 1 : arrêtez le contrôleur défaillant
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-400_nvdimm_replace.adoc
-Vous devez remplacer le NVDIMM dans le module de contrôleur lorsque votre système enregistre que la durée de vie du flash est presque à la fin ou que le NVDIMM identifié n'est pas en bon état en général ; si vous ne le faites pas, vous pouvez provoquer une panique du système.
+Vous devez remplacer un module DIMM dans le module de contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d'erreurs (ECC) pouvant être corrigés ; dans le cas contraire, le système risque de se trouver en panne.
 
 Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
 
@@ -223,51 +213,47 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
-== Étape 3 : remplacez le NVDIMM
+== Étape 3 : remplacez les DIMM système
 
-Pour remplacer le NVDIMM, vous devez le localiser dans le module de contrôleur à l'aide du plan des FRU situé sur le dessus du conduit d'air ou du plan des FRU situé sur le dessus de la carte de montage du logement 1.
+Le remplacement d'un module DIMM système implique l'identification du module DIMM cible par le message d'erreur associé, la localisation du module DIMM cible à l'aide de la carte des FRU sur le conduit d'air, puis le remplacement du module DIMM.
 
-* Le voyant NVDIMM clignote pendant l'égrenage du contenu lorsque vous arrêtez le système. Une fois le transfert terminé, le voyant s'éteint.
-* Bien que le contenu du NVDIMM soit crypté, il est recommandé d'effacer le contenu du NVDIMM avant de le remplacer. Pour plus d'informations, reportez-vous à la section https://mysupport.netapp.com/info/web/ECMP1132988.html["Rapport de volatilité"] Sur le site de support NetApp.
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer un module DIMM système.
+
+
+NOTE: L'animation et l'illustration montrent des emplacements vides pour les emplacements sans DIMM. Ces supports vides sont remplis de caches.
+
+.Animation : remplacez un module DIMM système
+video::93025369-2f61-46b1-bd51-b03100040fe6[panopto]
+image::../media/drw_A400_Replace-NVDIMM-DIMM.png[drw A400 remplacez NVDIMM]
+
+Les modules DIMM sont situés dans les logements 2, 4, 13 et 15. Le NVDIMM est situé dans le logement 11.
+
+. Ouvrir le conduit d'air :
++
+.. Appuyer sur les pattes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de commande.
+.. Faites glisser le conduit d'air vers l'arrière du module de commande, puis faites-le pivoter vers le haut jusqu'à sa position complètement ouverte.
+
+
+. Localisez les modules DIMM de votre module de contrôleur.
+. Notez l'orientation du module DIMM dans le support afin que vous puissiez insérer le module DIMM de remplacement dans le bon sens.
+. Éjectez le module DIMM de son support en écartant lentement les deux languettes d'éjection du module DIMM de chaque côté du module DIMM, puis en faisant glisser le module DIMM hors du support.
 +
 
-NOTE: Vous devez vous connecter sur le site de support NetApp pour afficher le _Statement of Volatility_ pour votre système.
+NOTE: Tenez soigneusement le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
 
-
-
-Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer le NVDIMM.
-
-
-NOTE: L'animation montre des emplacements vides pour les sockets sans DIMM. Ces supports vides sont remplis de caches.
-
-.Animation : remplacez le NVDIMM
-video::7dfe09d8-eff8-41e3-9eb4-b03100032579[panopto]
-image::../media/drw_A400_Replace-NVDIMM-DIMM_IEOPS-1009.svg[drw A400 remplacer NVDIMM IOPS 1009]
-
-. Ouvrez le conduit d'air, puis localisez le NVDIMM dans le logement 11 de votre module de contrôleur.
+. Retirez le module DIMM de remplacement du sac d'expédition antistatique, tenez le module DIMM par les coins et alignez-le sur le logement.
 +
+L'encoche entre les broches du DIMM doit être alignée avec la languette du support.
 
-NOTE: L'aspect NVDIMM est très différent de celui des DIMM système.
-
-. Éjectez le NVDIMM de son logement en écartant lentement les deux languettes d'éjection NVDIMM de chaque côté du NVDIMM, puis faites glisser le NVDIMM hors du support et mettez-le de côté.
+. Assurez-vous que les languettes de l'éjecteur de DIMM sur le connecteur sont en position ouverte, puis insérez le module DIMM directement dans le logement.
 +
-
-NOTE: Tenez soigneusement le NVDIMM par les bords pour éviter toute pression sur les composants de la carte de circuit imprimé NVDIMM.
-
-. Retirez le NVDIMM de remplacement du sac d'expédition antistatique, tenez le NVDIMM par les coins, puis alignez-le sur le logement.
-+
-L'encoche entre les broches du NVDIMM doit être alignée avec la languette du support.
-
-. Localisez le logement où vous installez le NVDIMM.
-. Insérez le NVDIMM directement dans le logement.
-+
-Le NVDIMM s'insère fermement dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le NVDIMM avec le logement et réinsérez-le.
+Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
 
 +
 
-NOTE: Inspectez visuellement le NVDIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
+NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
 
-. Poussez délicatement, mais fermement, sur le bord supérieur du NVDIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent au-dessus des encoches aux extrémités du NVDIMM.
+. Poussez délicatement, mais fermement, sur le bord supérieur du module DIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent sur les encoches situées aux extrémités du module DIMM.
 . Fermer le conduit d'air.
 
 
@@ -319,7 +305,7 @@ Si votre système s'arrête au menu de démarrage, sélectionnez l'option de dé
 
 == Étape 5 : exécutez les diagnostics
 
-Après avoir remplacé le NVDIMM de votre système, exécutez des tests de diagnostic sur ce composant.
+Après avoir remplacé un module DIMM système de votre système, vous devez exécuter des tests de diagnostic sur ce composant.
 
 Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
 
@@ -332,7 +318,7 @@ Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que
 . À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
 . Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
 . Sélectionnez *Tester mémoire* dans le menu affiché.
-. Sélectionnez *Test NVDIMM* dans le menu affiché.
+. Sélectionnez une option dans le sous-menu affiché et exécutez le test.
 . Procédez comme suit en fonction du résultat de l'étape précédente :
 +
 ** Si le test a échoué, corrigez la défaillance, puis relancez le test.

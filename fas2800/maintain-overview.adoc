@@ -1,0 +1,74 @@
+---
+permalink: fas2800/maintain-overview.html 
+sidebar: sidebar 
+keywords: fas2800 maintenance, maintenance, repairing, repairing fas2700, replace fas2800 components, replace fas2800 components 
+summary: Maintenance du matériel FAS2800 
+---
+= Maintenance du matériel FAS2800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour le système de stockage FAS2800, vous pouvez effectuer les procédures de maintenance sur les composants suivants.
+
+
+
+== Support de démarrage
+
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+
+== Module de cache
+
+Vous devez remplacer le module de cache du contrôleur lorsque votre système enregistre un seul message AutoSupport (ASUP) indiquant que le module est hors ligne.
+
+
+
+== Châssis
+
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+== Contrôleur
+
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
+
+
+
+== DIMM
+
+Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
+
+
+
+== Lecteur
+
+Un lecteur est un périphérique qui fournit le support de stockage physique pour les données.
+
+
+
+== Batterie NVMEM
+
+Une batterie est fournie avec le contrôleur et conserve les données en cache en cas de panne de courant alternatif.
+
+
+
+== Carte mezzanine
+
+Une carte mezzanine est une carte d'extension conçue pour être insérée dans un emplacement spécialisé de la carte mère.
+
+
+
+== Alimentation électrique
+
+Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
+
+
+
+== Pile de l'horloge en temps réel
+
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.

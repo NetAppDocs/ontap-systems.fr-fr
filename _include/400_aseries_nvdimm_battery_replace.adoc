@@ -1,28 +1,16 @@
----
-permalink: a400/nvdimm-replace.html 
-sidebar: sidebar 
-keywords: aff a400, aff, a400, replace, nvdimm, controller, module, system, register, flash, lifetime, healthy, system, panic, shut, down, impair, two-node, metrocluster, complete, replacement, process, replace an nvdimm, shut down the impaired controller, remove the controller module, replace the nvdimm, install the controller module, restore the controller module to operation, switch back aggregates in a two-node metrocluster configuration, complete the replacement process 
-summary: 'Vous devez remplacer le NVDIMM dans le module de contrôleur lorsque votre système enregistre que la durée de vie du flash est presque à la fin ou que le NVDIMM identifié n"est pas en bon état en général ; si vous ne le faites pas, vous pouvez provoquer une panique du système.' 
----
-= Remplacez un NVDIMM - AFF A400
+= Étape 1 : arrêtez le contrôleur défaillant
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-400_nvdimm_replace.adoc
-Vous devez remplacer le NVDIMM dans le module de contrôleur lorsque votre système enregistre que la durée de vie du flash est presque à la fin ou que le NVDIMM identifié n'est pas en bon état en général ; si vous ne le faites pas, vous pouvez provoquer une panique du système.
+Pour remplacer la batterie NVDIMM, vous devez retirer le module de contrôleur, retirer la batterie, remplacer la batterie, puis réinstaller le module de contrôleur.
 
 Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
-
-Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
 
 
 == Étape 1 : arrêtez le contrôleur défaillant
 
-Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
+Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
 ====
@@ -223,52 +211,30 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
-== Étape 3 : remplacez le NVDIMM
+== Étape 3 : remplacez la batterie NVDIMM
 
-Pour remplacer le NVDIMM, vous devez le localiser dans le module de contrôleur à l'aide du plan des FRU situé sur le dessus du conduit d'air ou du plan des FRU situé sur le dessus de la carte de montage du logement 1.
+Pour remplacer la batterie NVDIMM, vous devez retirer la batterie défectueuse du module de contrôleur et installer la batterie de rechange dans le module de contrôleur. Consultez le schéma des FRU à l'intérieur du module de contrôleur pour localiser la batterie NVDIMM.
 
-* Le voyant NVDIMM clignote pendant l'égrenage du contenu lorsque vous arrêtez le système. Une fois le transfert terminé, le voyant s'éteint.
-* Bien que le contenu du NVDIMM soit crypté, il est recommandé d'effacer le contenu du NVDIMM avant de le remplacer. Pour plus d'informations, reportez-vous à la section https://mysupport.netapp.com/info/web/ECMP1132988.html["Rapport de volatilité"] Sur le site de support NetApp.
+Le voyant NVDIMM clignote pendant l'égrenage du contenu lorsque vous arrêtez le système. Une fois le transfert terminé, le voyant s'éteint.
+
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer la batterie NVDIMM.
+
+.Animation : remplacez la batterie NVDIMM
+video::0521b0f4-8b58-4aa7-aaf2-b03100020356[panopto]
+image::../media/drw_c400_nvdimm_batt_IEOPS-1227.svg[batterie drw c400 nvdimm IOPS 1227]
+
+. Ouvrir le conduit d'air :
 +
-
-NOTE: Vous devez vous connecter sur le site de support NetApp pour afficher le _Statement of Volatility_ pour votre système.
-
-
-
-Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer le NVDIMM.
+.. Appuyer sur les pattes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de commande.
+.. Faites glisser le conduit d'air vers l'arrière du module de commande, puis faites-le pivoter vers le haut jusqu'à sa position complètement ouverte.
 
 
-NOTE: L'animation montre des emplacements vides pour les sockets sans DIMM. Ces supports vides sont remplis de caches.
-
-.Animation : remplacez le NVDIMM
-video::7dfe09d8-eff8-41e3-9eb4-b03100032579[panopto]
-image::../media/drw_A400_Replace-NVDIMM-DIMM_IEOPS-1009.svg[drw A400 remplacer NVDIMM IOPS 1009]
-
-. Ouvrez le conduit d'air, puis localisez le NVDIMM dans le logement 11 de votre module de contrôleur.
-+
-
-NOTE: L'aspect NVDIMM est très différent de celui des DIMM système.
-
-. Éjectez le NVDIMM de son logement en écartant lentement les deux languettes d'éjection NVDIMM de chaque côté du NVDIMM, puis faites glisser le NVDIMM hors du support et mettez-le de côté.
-+
-
-NOTE: Tenez soigneusement le NVDIMM par les bords pour éviter toute pression sur les composants de la carte de circuit imprimé NVDIMM.
-
-. Retirez le NVDIMM de remplacement du sac d'expédition antistatique, tenez le NVDIMM par les coins, puis alignez-le sur le logement.
-+
-L'encoche entre les broches du NVDIMM doit être alignée avec la languette du support.
-
-. Localisez le logement où vous installez le NVDIMM.
-. Insérez le NVDIMM directement dans le logement.
-+
-Le NVDIMM s'insère fermement dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le NVDIMM avec le logement et réinsérez-le.
-
-+
-
-NOTE: Inspectez visuellement le NVDIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
-
-. Poussez délicatement, mais fermement, sur le bord supérieur du NVDIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent au-dessus des encoches aux extrémités du NVDIMM.
-. Fermer le conduit d'air.
+. Localisez la batterie NVDIMM dans le module de contrôleur.
+. Localisez la fiche mâle batterie et appuyez sur le clip situé sur la face de la fiche mâle batterie pour libérer la fiche de la prise, puis débranchez le câble de batterie de la prise.
+. Saisissez la batterie et appuyez sur la languette de verrouillage bleue indiquant « POUSSER », puis soulevez la batterie pour la sortir du support et du module de contrôleur.
+. Retirez la batterie de rechange de son emballage.
+. Alignez le module de batterie avec l'ouverture de la batterie, puis poussez doucement la batterie dans son logement jusqu'à ce qu'elle s'enclenche.
+. Rebranchez le connecteur de la batterie dans le module du contrôleur, puis fermez le conduit d'air.
 
 
 
@@ -319,7 +285,7 @@ Si votre système s'arrête au menu de démarrage, sélectionnez l'option de dé
 
 == Étape 5 : exécutez les diagnostics
 
-Après avoir remplacé le NVDIMM de votre système, exécutez des tests de diagnostic sur ce composant.
+Après avoir remplacé un composant du système, effectuer des tests de diagnostic sur ce composant.
 
 Le système doit être à l'invite DU CHARGEUR pour démarrer les diagnostics.
 
@@ -331,12 +297,11 @@ Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que
 
 . À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
 . Sélectionnez *Scan System* dans le menu affiché pour activer l'exécution des tests de diagnostic.
-. Sélectionnez *Tester mémoire* dans le menu affiché.
-. Sélectionnez *Test NVDIMM* dans le menu affiché.
+. Sélectionnez *Tester mémoire* dans le menu affiché pour exécuter des tests de diagnostic.
 . Procédez comme suit en fonction du résultat de l'étape précédente :
 +
-** Si le test a échoué, corrigez la défaillance, puis relancez le test.
-** Si le test n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
+** Si l'acquisition montre des problèmes, corrigez le problème, puis relancez l'acquisition.
+** Si l'analyse n'a signalé aucune défaillance, sélectionnez redémarrer dans le menu pour redémarrer le système.
 
 
 
