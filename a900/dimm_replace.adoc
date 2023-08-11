@@ -191,6 +191,9 @@ Bouton de verrouillage du couvercle du module de commande
 
 Pour remplacer les modules DIMM, localisez-les à l'intérieur du contrôleur et suivez l'ordre des étapes.
 
+
+NOTE: Le contrôleur VER2 a moins de sockets DIMM. Il n'y a pas de réduction du nombre de modules DIMM pris en charge ou de modification de la numérotation des connecteurs DIMM. Lorsque vous déplacez les modules DIMM vers le nouveau module de contrôleur, installez les modules DIMM dans le même numéro de support/emplacement que le module de contrôleur défectueux.  Pour connaître les emplacements des connecteurs DIMM, reportez-vous au schéma de mappage des FRU sur le module de contrôleur VER2.
+
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Localisez les modules DIMM de votre module de contrôleur.
 
@@ -312,15 +315,123 @@ Les loquets de verrouillage se montent lorsque le module de contrôleur est bien
 IMPORTANT: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
 +
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
 
 .. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
+.. Interrompez le processus de démarrage en appuyant sur `Ctrl-C` Lorsque vous voyez appuyez sur Ctrl-C pour le menu de démarrage.
+.. Sélectionnez l'option pour démarrer en mode maintenance dans le menu qui s'affiche.
 
 
 
 
 
 
-== Étape 5 : renvoyer la pièce défaillante à NetApp
+== Étape 5 : exécutez les diagnostics au niveau du système
+
+Après avoir installé un nouveau module DIMM, exécutez les tests de diagnostic.
+
+Votre système doit être à l'invite DU CHARGEUR pour démarrer System Level Diagnostics.
+
+Toutes les commandes des procédures de diagnostic sont émises par le contrôleur où le composant est remplacé.
+
+. Si le contrôleur à réparer n'est pas à l'invite DU CHARGEUR, effectuez la procédure suivante :
++
+.. Sélectionnez l'option mode Maintenance dans le menu affiché.
+.. Une fois le contrôleur démarré en mode maintenance, arrêtez le contrôleur : `halt`
++
+Une fois que vous avez terminé d'exécuter la commande, vous devez attendre que le système s'arrête à l'invite DU CHARGEUR.
+
++
+
+IMPORTANT: Au cours du processus de démarrage, vous pouvez répondre en toute sécurité `y` à des invites.
+
++
+*** Si une invite s'affiche, avertissement indiquant que lors de votre passage en mode maintenance dans une configuration HA, vous devez vous assurer que le contrôleur en bon état reste arrêté.
+
+
+
+
+. À l'invite DU CHARGEUR, accédez aux pilotes spéciaux spécialement conçus pour les diagnostics au niveau du système afin de fonctionner correctement : `boot_diags`
++
+Au cours du processus de démarrage, vous pouvez répondre en toute sécurité `y` Aux invites jusqu'à ce que l'invite du mode Maintenance (*>) s'affiche.
+
+. Exécutez les tests de diagnostic de la mémoire système : `sldiag device run -dev mem`
+. Vérifiez qu'aucun problème matériel ne provient du remplacement des modules DIMM : `sldiag device status -dev mem -long -state failed`
++
+Les diagnostics au niveau du système vous renvoie à l'invite s'il n'y a pas d'échec de test ou répertorie l'état complet des échecs résultant du test du composant.
+
+. Procédez comme suit en fonction du résultat de l'étape précédente :
++
+[cols="1,2"]
+|===
+| Si les tests de diagnostic au niveau du système... | Alors... 
+
+
+ a| 
+Ont été achevés sans défaillance
+ a| 
+.. Effacez les journaux d'état : `sldiag device clearstatus`
+.. Vérifiez que le journal a été effacé : `sldiag device status`
++
+La réponse par défaut suivante est affichée :
+
++
+SLDIAG : aucun message de journal n'est présent.
+
+.. Quitter le mode Maintenance : `halt`
++
+Le contrôleur affiche l'invite DU CHARGEUR.
+
+.. Démarrez le contrôleur à partir de l'invite DU CHARGEUR : `bye`
+.. Faire revenir le contrôleur en mode de fonctionnement normal :
+
+
+|===
++
+[cols="1,2"]
+|===
+| Si votre contrôleur est en... | Alors... 
+
+
+ a| 
+Une paire haute disponibilité
+ a| 
+Effectuer un retour : `storage failover giveback -ofnode replacement_node_name`        *Remarque :* si vous avez désactivé le rétablissement automatique, réactivez-le avec la commande Storage failover modify.
+
+
+
+ a| 
+A entraîné des échecs de test
+ a| 
+Déterminez la cause du problème :
+
+.. Quitter le mode Maintenance : `halt`
++
+Une fois que vous avez terminé d'exécuter la commande, attendez que le système s'arrête à l'invite DU CHARGEUR.
+
+.. Vérifier que vous avez bien remarqué tous les facteurs à prendre en compte pour l'exécution des diagnostics au niveau du système, que les câbles sont correctement connectés et que les composants matériels sont correctement installés dans le système de stockage.
+.. Démarrez le module de contrôleur que vous effectuez le service, interrompant le démarrage en appuyant sur `Ctrl-C` Lorsque vous êtes invité à accéder au menu de démarrage :
++
+*** Si le châssis comporte deux modules de contrôleur, asseoir complètement le module de contrôleur que vous effectuez l'entretien dans le châssis.
++
+Le module de contrôleur s'amorce lorsqu'il est bien en place.
+
+*** Si vous avez un module de contrôleur dans le châssis, connectez les blocs d'alimentation, puis mettez-les sous tension.
+
+
+.. Dans le menu, sélectionnez Boot to maintenance mode.
+.. Quittez le mode maintenance en saisissant la commande suivante : `halt`
++
+Une fois que vous avez terminé d'exécuter la commande, attendez que le système s'arrête à l'invite DU CHARGEUR.
+
+.. Exécutez à nouveau le test de diagnostic au niveau du système.
+
+
+|===
+
+
+
+
+== Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

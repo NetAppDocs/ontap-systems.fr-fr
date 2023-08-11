@@ -13,17 +13,28 @@ summary: 'Vous devez connecter les composants du système aux PDU, acheminer les
 [role="lead"]
 Vous devez connecter les composants du système aux PDU, acheminer les câbles de la PDU vers les sources d'alimentation CA, les connecter aux sources d'alimentation et mettre le système sous tension.
 
+
+IMPORTANT: Pour éviter une panne du système en cas de défaillance d'une unité de distribution électrique, ne branchez pas les deux câbles d'alimentation d'un composant dans une unité de distribution électrique. Répartissez la charge sur le PDS qui sont branchés sur différents circuits, comme illustré.
+
 Vous devez disposer de circuits d'alimentation séparés pour chaque PDU de votre armoire système.
 
-. Connectez votre équipement aux PDU, en vous assurant de connecter les alimentations de chaque composant à une PDU située de part et d'autre de l'armoire système.
-. Faites passer les câbles d'alimentation de la PDU par une ouverture dans l'armoire système.
+. Connectez votre équipement aux PDU :
 +
-Utilisez l'une des ouvertures suivantes :
+.. Connectez les alimentations du contrôleur à différentes PDU connectées à différentes sources d'alimentation.
+.. Connectez les alimentations du tiroir disque à différentes PDU connectées à différentes sources d'alimentation.
+.. Connectez toute alimentation de commutateur à différentes PDU connectées à différentes sources d'alimentation.
++
+image::../media/cabinet_power_cabling_IEOPS-1320.svg[Câblage de l'alimentation de l'armoire IEOPS 1320]
 
 +
-** Le haut de l'armoire système
-** Entre le bas de la porte arrière et le châssis de l'armoire du système
-** Par l'ouverture au sol et sous l'armoire du système
+Faites passer les câbles d'alimentation de la PDU par l'une des ouvertures suivantes dans l'armoire système :
+
++
+*** Le haut de l'armoire système
+*** Entre le bas de la porte arrière et le châssis de l'armoire du système
+*** Par l'ouverture au sol et sous l'armoire du système
+
+
 
 
 . Coupez les interrupteurs d'alimentation ou les disjoncteurs des unités de distribution d'alimentation.
