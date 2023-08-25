@@ -41,7 +41,6 @@ Le message AutoSupport suivant supprime la création automatique de dossiers pen
 
 == Option 1 : vérifiez NVE ou NSE sur les systèmes qui exécutent ONTAP 9.5 ou une version antérieure
 
-[role="lead"]
 Avant d'arrêter le contrôleur défaillant, vérifiez si NetApp Volume Encryption (NVE) ou NetApp Storage Encryption (NSE) sont activés sur le système. Si c'est le cas, vous devez vérifier la configuration.
 
 .Étapes
@@ -176,7 +175,6 @@ NOTE: Assurez-vous que les informations OKM sont enregistrées dans votre fichie
 
 == Option 2 : vérifiez NVE ou NSE sur les systèmes qui exécutent ONTAP 9.6 ou version ultérieure
 
-[role="lead"]
 Avant d'arrêter le contrôleur défaillant, vérifiez si NetApp Volume Encryption (NVE) ou NetApp Storage Encryption (NSE) sont activés sur le système. Si c'est le cas, vous devez vérifier la configuration.
 
 . Vérifiez que NVE est utilisé pour n'importe quel volume du cluster : `volume show -is-encrypted true`

@@ -19,7 +19,6 @@ Si vous disposez d'une configuration MetroCluster, utilisez https://docs.netapp.
 
 == Étape 1 : préparer l'installation
 
-[role="lead"]
 Pour installer votre système, créez un compte sur le site de support NetApp, enregistrez votre système et obtenez vos clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
 
 .Avant de commencer
@@ -40,7 +39,7 @@ Pour installer votre système, créez un compte sur le site de support NetApp, e
 . Déballez le contenu de toutes les boîtes.
 . Notez le numéro de série du système depuis les contrôleurs.
 +
-image::../media/drw_ssn_label.png[etiquette drw ssn]
+image::../media/drw_ssn_label.png[Exemple de numéro de série du système indiquant l'emplacement du numéro]
 
 . Configurez votre compte :
 +
@@ -96,7 +95,7 @@ X6536-R6 (112-00090), 5 m
 
 X6554-R6(112-00189), 15 m
  a| 
-image:../media/oie_cable_fiber_lc_connector.png[""]
+image:../media/oie_cable_fiber_lc_connector.png["Illustration montrant un connecteur LC à fibre optique"]
  a| 
 Réseau hôte FC
 
@@ -137,7 +136,7 @@ Câble de console micro-USB
  a| 
 Sans objet
  a| 
-image:../media/oie_cable_micro_usb.png[""]
+image:../media/oie_cable_micro_usb.png["Illustration montrant un connecteur micro USB"]
  a| 
 Connexion de la console pendant la configuration du logiciel sur un ordinateur portable/console autre que Windows ou Mac
 
@@ -160,7 +159,6 @@ Mise sous tension du système
 
 == Étape 2 : installer le matériel de fixation
 
-[role="lead"]
 Installez le système dans un rack à 4 montants ou une armoire système NetApp, le cas échéant.
 
 .Étapes
@@ -184,7 +182,6 @@ image::../media/drw_cable_management_arm_install.png[installation du ARM de gest
 
 == Étape 3 : connectez les contrôleurs au réseau
 
-[role="lead"]
 Reliez les contrôleurs au réseau en utilisant la méthode cluster sans commutateur à 2 nœuds ou la méthode réseau d'interconnexion de cluster.
 
 Le réseau de gestion, le réseau de données UTA2, le réseau de données Ethernet et les ports de gestion des contrôleurs sont connectés aux switchs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
@@ -232,7 +229,7 @@ Configurations réseau de données UTA2:: Utilisez l'un des types de câble suiv
 ** Pour un hôte FC, utilisez 0c et 0d *ou* 0e et 0f.
 ** Pour un système 10GbE, utiliser e0c et e0d *ou* e0e et e0f.
 +
-image:../media/drw_c190_u_fc_10gbe_cbling.png[""]
+image:../media/drw_c190_u_fc_10gbe_cbling.png["Illustration montrant les connexions des ports de données comme décrit dans le texte qui les entoure"]
 
 +
 Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports en tant que FC, ou vous pouvez connecter les deux paires de ports en tant que CNA ou les deux paires de ports en tant que FC.
@@ -302,7 +299,7 @@ Configurations réseau de données UTA2:: Utilisez l'un des types de câble suiv
 ** Pour un hôte FC, utilisez 0c et 0d **ou** 0e et 0f.
 ** Pour un système 10GbE, utiliser e0c et e0d **ou** e0e et e0f.
 +
-image:../media/drw_c190_u_fc_10gbe_cbling.png[""]
+image:../media/drw_c190_u_fc_10gbe_cbling.png["Illustration montrant les connexions des ports de données comme décrit dans le texte qui les entoure"]
 
 +
 Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports en tant que FC, ou vous pouvez connecter les deux paires de ports en tant que CNA ou les deux paires de ports en tant que FC.
@@ -384,7 +381,6 @@ Si vous disposez de plusieurs piles de tiroirs disques, reportez-vous à la sect
 
 == Étape 5 : terminez la configuration du système
 
-[role="lead"]
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 [role="tabbed-block"]
