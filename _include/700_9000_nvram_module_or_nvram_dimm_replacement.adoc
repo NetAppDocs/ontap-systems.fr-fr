@@ -384,7 +384,8 @@ Sélectionnez l'une des options suivantes pour obtenir des instructions sur la r
 .La vérification de la modification de l'ID système sur un système HA
 Vous devez confirmer la modification de l'ID système lors du démarrage du _replace_ node, puis vérifier que la modification a été implémentée.
 
-Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
+
+CAUTION: La réaffectation de disque n'est nécessaire que lors du remplacement du module NVRAM et ne s'applique pas au remplacement du module DIMM NVRAM.
 
 .Étapes
 . Si le nœud de remplacement est en mode maintenance (affiche le `*>` Invite, quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`
