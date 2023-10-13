@@ -50,7 +50,7 @@ Avant de procéder à l'arrêt, vous devez :
 . Connectez-vous au cluster via SSH ou connectez-vous à un nœud du cluster à l'aide d'un câble de console local et d'un ordinateur portable/d'une console.
 . Désactivez AutoSupport et indiquez la durée pendant laquelle vous vous attendez à ce que le système soit hors ligne :
 +
-`system node autosupport invoke -node * -type all -messages "MAINT=8h Power Maintenance"`
+`system node autosupport invoke -node * -type all -message "MAINT=8h Power Maintenance"`
 
 . Identifiez l'adresse SP/BMC de tous les nœuds :
 +

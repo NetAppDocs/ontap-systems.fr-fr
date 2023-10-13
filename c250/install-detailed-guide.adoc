@@ -251,6 +251,9 @@ IMPORTANT: NE branchez PAS les cordons d'alimentation à ce stade.
 
 Vous disposez d'un câblage en option dépendant de la configuration pour les réseaux hôtes Fibre Channel ou iSCSI ou pour le stockage à connexion directe. Ce câblage n'est pas exclusif ; vous pouvez disposer d'un câblage vers un réseau hôte et un stockage.
 
+
+NOTE: link:https://hwu.netapp.com["NetApp Hardware Universe"^] La priorité de slot pour les cartes réseau hôte (Fibre Channel ou 25GbE) est le slot 2. Toutefois, si vous disposez des deux cartes, la carte Fibre Channel se place dans le logement 2 et la carte 25GbE dans le logement 1 (comme indiqué dans les options ci-dessous). Si vous disposez d'un tiroir externe, la carte de stockage se place dans le logement 1, le seul logement pris en charge pour les tiroirs.
+
 [role="tabbed-block"]
 ====
 .Option 1 : câble vers le réseau hôte Fibre Channel
