@@ -1,0 +1,236 @@
+---
+permalink: asa-c250/bootmedia-replace.html 
+sidebar: sidebar 
+keywords: asa c250, replace the boot media 
+summary: 'Vous recherchez le support de démarrage défectueux dans le module de contrôleur en retirant le conduit d"air du module de contrôleur avant de pouvoir remplacer le support de démarrage.' 
+---
+= Remplacez le support de démarrage - ASA C250
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
+
+
+
+== Étape 1 : retirer le module de contrôleur
+
+Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les blocs d'alimentation du module de contrôleur de la source.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Insérez votre index dans le mécanisme de verrouillage de chaque côté du module de contrôleur, appuyez sur le levier avec votre pouce et tirez doucement le contrôleur à quelques pouces du châssis.
++
+
+NOTE: Si vous avez des difficultés à retirer le module de contrôleur, placez vos doigts à travers les trous des doigts de l'intérieur (en croisant vos bras).
+
++
+image::../media/drw_a250_pcm_remove_install.png[le module de commande du groupe motopropulseur du drw a250 dépose l'installation]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png["Légende numéro 1"]
+ a| 
+Levier
+
+
+
+ a| 
+image:../media/legend_icon_02.png["Légende numéro 2"]
+ a| 
+Mécanisme de verrouillage
+
+|===
+. À l'aide des deux mains, saisissez les côtés du module de contrôleur et tirez-le doucement hors du châssis et posez-le sur une surface plane et stable.
+. Tournez la vis moletée située à l'avant du module de contrôleur dans le sens anti-horaire et ouvrez le capot du module de contrôleur.
++
+image::../media/drw_a250_open_controller_module_cover.png[ouvrir le couvercle du module de contrôleur drw a250]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png["Légende numéro 1"]
+ a| 
+Vis moletée
+
+
+
+ a| 
+image:../media/legend_icon_02.png["Légende numéro 2"]
+ a| 
+Capot du module de contrôleur.
+
+|===
+. Soulever le couvercle du conduit d'air.
++
+image::../media/drw_a250_remove_airduct_cover.png[drw a250 déposer le couvercle du conduit d'air]
+
+
+
+
+
+== Étape 2 : remplacer le support de démarrage
+
+Vous recherchez le support de démarrage défectueux dans le module de contrôleur en retirant le conduit d'air du module de contrôleur avant de pouvoir remplacer le support de démarrage.
+
+Vous avez besoin d'un tournevis à tête cruciforme magnétique n° 1 pour retirer la vis qui maintient le support de démarrage en place. En raison des contraintes d'espace dans le module de contrôleur, vous devez également disposer d'un aimant pour transférer la vis à afin de ne pas la perdre.
+
+Vous pouvez utiliser la vidéo suivante ou les étapes tabulées pour remplacer le support de démarrage :
+
+.Animation : remplacez le support de démarrage
+video::7c2cad51-dd95-4b07-a903-ac5b015c1a6d[panopto]
+. Localisez et remplacez le support de démarrage pour facultés affaiblies du module de contrôleur.
++
+image::../media/drw_a250_replace_boot_media.png[drw a250 remplace le support de démarrage]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png["Légende numéro 1"]
+ a| 
+Retirez la vis fixant le support d'amorçage à la carte mère du module de contrôleur.
+
+
+
+ a| 
+image:../media/legend_icon_02.png["Légende numéro 2"]
+ a| 
+Soulevez le support de démarrage pour le sortir du module de contrôleur.
+
+|===
+. À l'aide du tournevis magnétique n° 1, retirez la vis du support de coffre pour malvoyants et mettez-la de côté en toute sécurité sur l'aimant.
+. Soulevez doucement le support de coffre pour malvoyants et mettez-le de côté.
+. Retirez le support de démarrage de remplacement du sac de transport antistatique et alignez-le en place sur le module de contrôleur.
+. A l'aide du tournevis magnétique n° 1, insérez et serrez la vis sur le support de démarrage.
++
+
+NOTE: Ne pas exercer de force lors du serrage de la vis sur le support de soufflet ; vous pouvez le fissurer.
+
+
+
+
+
+== Étape 3 : transférez l'image de démarrage sur le support de démarrage
+
+Le support de démarrage de remplacement que vous avez installé est sans image de démarrage, donc vous devez transférer une image de démarrage à l'aide d'une clé USB.
+
+* Vous devez disposer d'une clé USB, formatée en MBR/FAT32, avec au moins 4 Go de capacité
+* Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section Downloads du site de support NetApp
++
+** Si NVE est activé, téléchargez l'image avec NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+** Si NVE n'est pas activé, téléchargez l'image sans NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+
+
+* Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau.
+* Si votre système est un système autonome, vous n'avez pas besoin d'une connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
++
+.. Téléchargez et copiez l'image de service appropriée depuis le site de support NetApp vers le lecteur Flash USB.
+.. Téléchargez l'image du service sur votre espace de travail sur votre ordinateur portable.
+.. Décompressez l'image du service.
++
+
+NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas winzip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
+
++
+Le fichier image du service décompressé contient deux dossiers :
+
++
+*** démarrage
+*** efi
+
+
+.. Copiez le dossier efi dans le répertoire supérieur du lecteur flash USB.
++
+Le lecteur flash USB doit avoir le dossier efi et la même version BIOS (Service image) de ce que le contrôleur douteux est en cours d'exécution.
+
+.. Retirez la clé USB de votre ordinateur portable.
+.. Si ce n'est déjà fait, installez le conduit d'air.
++
+image::../media/drw_a250_install_airduct_cover.png[drw a250 installer le couvercle de la conduite d'air]
+
+.. Fermez le capot du module de contrôleur et serrez la vis à molette.
++
+image::../media/drw_a250_close_controller_module_cover.png[drw a250 fermer le couvercle du module de commande]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png["Légende numéro 1"]
+ a| 
+Capot du module de contrôleur
+
+
+
+ a| 
+image:../media/legend_icon_02.png["Légende numéro 2"]
+ a| 
+Vis moletée
+
+|===
+.. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+.. Branchez le câble d'alimentation dans le bloc d'alimentation et réinstallez le dispositif de retenue du câble d'alimentation.
+.. Insérez la clé USB dans le logement USB du module de contrôleur.
++
+Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
+
+.. Poussez entièrement le module de contrôleur dans le châssis :
+.. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
+.. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
+.. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
++
+Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
+
+.. Interrompez le processus de démarrage pour qu'il s'arrête à l'invite DU CHARGEUR en appuyant sur Ctrl-C lorsque vous voyez démarrer L'AUTOBOOT, appuyez sur Ctrl-C pour annuler
++
+Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
+
+.. Pour les systèmes équipés d'un contrôleur dans le châssis, reconnectez les blocs d'alimentation et mettez les blocs d'alimentation sous tension.
++
+Le système commence à démarrer et s'arrête à l'invite DU CHARGEUR.
+
+.. Définissez le type de connexion réseau à l'invite DU CHARGEUR :
++
+*** Si vous configurez DHCP : `ifconfig e0a -auto`
++
+
+NOTE: Le port cible que vous configurez est le port cible que vous utilisez pour communiquer avec le contrôleur douteux à partir du contrôleur en bon état pendant la restauration du système de fichiers var avec une connexion réseau. Vous pouvez également utiliser le port e0M dans cette commande.
+
+*** Si vous configurez des connexions manuelles : `ifconfig e0a -addr=filer_addr -mask=netmask -gw=gateway-dns=dns_addr-domain=dns_domain`
++
+**** `filer_addr` Est l'adresse IP du système de stockage.
+**** `netmask` Est le masque de réseau du réseau de gestion connecté au partenaire HA.
+**** `gateway` est la passerelle du réseau.
+**** `dns_addr` Est l'adresse IP d'un serveur de noms sur votre réseau.
+**** `dns_domain` Est le nom de domaine DNS (Domain Name System).
++
+Si vous utilisez ce paramètre facultatif, vous n'avez pas besoin d'un nom de domaine complet dans l'URL du serveur netboot. Vous avez uniquement besoin du nom d'hôte du serveur.
+
+
+
+
+
+
+
++
+
+NOTE: D'autres paramètres peuvent être nécessaires pour votre interface. Vous pouvez entrer `help ifconfig` à l'invite du micrologiciel pour plus de détails.
+
+

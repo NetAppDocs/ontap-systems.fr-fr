@@ -1,0 +1,143 @@
+---
+permalink: asa-c800/chassis-replace-move-hardware.html 
+sidebar: sidebar 
+keywords: asa c800, move hardware components, replace the chassis 
+summary: 'Déplacez les blocs d"alimentation, les disques durs et le module de contrôleur ou les modules du châssis défaillant vers le nouveau châssis, puis remplacez le châssis douteux par le rack d"équipement ou l"armoire système avec le nouveau châssis du même modèle que le châssis douteux.' 
+---
+= Déplacer et remplacer le matériel - ASA C800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Déplacez les blocs d'alimentation, les disques durs et le module de contrôleur du châssis défectueux vers le nouveau châssis, puis remplacez le châssis défectueux par le nouveau châssis du même modèle que le châssis défectueux.
+
+
+
+== Étape 1 : retirez les modules de contrôleur
+
+Pour remplacer le châssis, vous devez retirer les modules de contrôleur de l'ancien châssis.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système du module de contrôleur, en gardant la trace de l'emplacement où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a800_pcm_remove.png[dépose du module de commande du groupe motopropulseur du drw a800]
+
++
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png["Légende numéro 1"]
+| Loquet de verrouillage 
+
+
+ a| 
+image:../media/legend_icon_02.png["Légende numéro 2"]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Mettez le module de contrôleur de côté en lieu sûr et répétez ces étapes pour l'autre module de contrôleur du châssis.
+
+
+
+
+== Étape 2 : déplacez les disques vers le nouveau châssis
+
+Vous devez déplacer les lecteurs de chaque ouverture de baie de l'ancien châssis vers la même ouverture de baie dans le nouveau châssis.
+
+. Retirez délicatement le cadre de l'avant du système.
+. Retirez les lecteurs :
++
+.. Appuyez sur le bouton de dégagement situé en haut de la face du support, sous les voyants.
+.. Tirez la poignée de came jusqu'à sa position d'ouverture complète pour dégager le lecteur du fond de panier central, puis faites glisser doucement le lecteur hors du châssis.
++
+Le lecteur doit se désengager du châssis, ce qui lui permet de glisser hors du châssis.
+
++
+
+NOTE: Lors de la dépose d'un entraînement, toujours utiliser deux mains pour soutenir son poids.
+
++
+
+NOTE: Les disques sont fragiles. Manipulez-les le moins possible pour éviter d'endommager ces derniers.
+
+
+
+. Alignez le lecteur de l'ancien châssis avec la même ouverture de baie dans le nouveau châssis.
+. Poussez doucement le lecteur dans le châssis aussi loin que possible.
++
+La poignée de came s'engage et commence à tourner vers le haut.
+
+. Poussez fermement le lecteur dans le châssis, puis verrouillez la poignée de came en la poussant vers le haut et contre le support de lecteur.
++
+Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur l'avant du support d'entraînement. Les données sont sécurisées en quelques clics.
+
+. Répétez la procédure pour les autres lecteurs du système.
+
+
+
+
+== Étape 3 : remplacer un châssis depuis le rack d'équipement ou l'armoire système
+
+Vous devez retirer le châssis existant du rack ou de l'armoire système de l'équipement avant de pouvoir installer le châssis de remplacement.
+
+. Retirez les vis des points de montage du châssis.
+. De deux personnes, faites glisser l'ancien châssis hors des rails du rack dans une armoire système ou un rack d'équipement, puis mettez-le de côté.
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Deux personnes utilisent pour installer le châssis de remplacement dans le rack ou l'armoire système en guidant le châssis sur les rails de rack d'une armoire système ou d'un rack d'équipement.
+. Faites glisser le châssis complètement dans le rack de l'équipement ou l'armoire système.
+. Fixez l'avant du châssis sur le rack ou l'armoire système de l'équipement à l'aide des vis que vous avez retirées de l'ancien châssis.
+. Si ce n'est déjà fait, installez le cadre.
+
+
+
+
+== Étape 4 : installer les modules de contrôleur
+
+Après avoir installé les modules de contrôleur dans le nouveau châssis, vous devez le démarrer.
+
+Pour les paires haute disponibilité avec deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez le module de contrôleur est particulièrement important, car il tente de redémarrer dès que vous le placez entièrement dans le châssis.
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage de la console sur le module contrôleur, puis reconnexion du port de gestion.
+. Branchez les câbles d'alimentation dans les blocs d'alimentation et réinstallez les dispositifs de retenue des câbles d'alimentation.
+. Terminez la réinstallation du module de contrôleur :
++
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
+.. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Interrompre le processus de démarrage normal en appuyant sur `Ctrl-C`.
+
+
+. Répétez la procédure précédente pour installer le second contrôleur dans le nouveau châssis.
+
