@@ -1149,8 +1149,6 @@
   <block id="aeef38b8f860290dfafd28f807c628f7" category="admonition">Le format de l'adresse est +https://x.x.x.x+.</block>
   <block id="abda447c368c0080cdf2af6a77ea3d22" category="list-text">Configurez le système à l'aide des données que vous avez collectées dans <block ref="571ad76602d16a750ecd1119ab38063c" category="inline-link-macro-rx"></block>.</block>
   <block id="7103ae2dc232b897a89408d0cd914f59" category="doc">Vérifiez les clés de chiffrement intégrées : AFF A800</block>
-  <block id="5fb89931e5b269129a2ad5936878a851" category="list-text">Si &lt;lno-DARE&gt; n'est pas affiché dans la sortie de la commande et que le système exécute ONTAP 9.5, passer à <block ref="b9f6f8746149f87def14842273c93bfe" category="inline-xref-macro-rx"></block>.</block>
-  <block id="70c3e5c6b05722334dd3cfb521d9e159" category="list-text">Si &lt;lno-DARE&gt; ne s'affiche pas dans la sortie de la commande et si le système exécute ONTAP 9.6 ou une version ultérieure, passer à <block ref="e0569187fa90a6ae4bbbe053355b82c8" category="inline-xref-macro-rx"></block>.</block>
   <block id="b8238a1ffeb288edb4606d4cee1cdf5c" category="doc">Arrêter les contrôleurs - AFF A800</block>
   <block id="03163c4d180c5b6d6482efa550043cd8" category="doc">Arrêter le contrôleur - AFF A800</block>
   <block id="f0623f3de563d7ac67a984a76c53803d" category="paragraph">Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement. Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.</block>
@@ -2345,8 +2343,6 @@
   <block id="e55f609f99ca89d1e0364e07cd66a1ac" category="paragraph">Une fois que le nœud douteux affiche le<block ref="fd66c964768074eb90f4f1426229bf3e" prefix=" " category="inline-code"></block> message, effectuer un retour à partir du nœud en bon état :</block>
   <block id="9829cc73f1aa57fe4c8f650070116d1b" category="list-text">Depuis le nœud sain :<block ref="d3bfc2dd4e9b253edab550e9f4890345" prefix=" " category="inline-code"></block></block>
   <block id="6ccdc0e53e02a4d771ffb485d5c0df6c" category="paragraph">Le nœud défaillant reprend son stockage, termine son démarrage, puis redémarre et le nœud en bon état.</block>
-  <block id="3804b132271e47a4db7521e977b43625" category="inline-link">Guide de configuration de la solution haute disponibilité ONTAP 9</block>
-  <block id="08ca2eade8768d4ee7e1752168f719ac" category="paragraph"><block ref="08ca2eade8768d4ee7e1752168f719ac" category="inline-link-rx"></block></block>
   <block id="889c078e9cfb9c17ddcfadb4d5c9759c" category="list-text">Surveiller la progression de l'opération de rétablissement à l'aide du<block ref="852ce55a153bc728405ba8a2c95bcdf1" prefix=" " category="inline-code"></block> commande.</block>
   <block id="2e2dd412417cfab75b0340fc82c0c08b" category="list-text">Une fois l'opération de rétablissement terminée, vérifiez que la paire HA est saine et que le basculement est possible à l'aide du<block ref="ddf400f1cb6b8b9330ed6c79c508123c" prefix=" " category="inline-code"></block> commande.</block>
   <block id="d2438a9a8b88afff0b59df6c125b3884" category="list-text">Restaurez le rétablissement automatique si vous le avez désactivé à l'aide de la commande Storage Failover modify.</block>
@@ -3956,7 +3952,6 @@
   <block id="825f13ad9fc8dc2bdd837adbced6f40f" category="paragraph">La procédure de démarrage du contrôleur défaillant à partir de l'image de récupération dépend du fait que le système se trouve dans une configuration MetroCluster à deux contrôleurs.</block>
   <block id="75e670af7a515907420be152e288dc75" category="doc">Remplacez un ventilateur - AFF A300</block>
   <block id="57392ef77b666ec53aa7b24253ca15d7" category="doc">Restaurez et vérifiez la configuration - AFF A300</block>
-  <block id="3746182c68f1f041a5f57979560a0566" category="list-text">Accédez à <block ref="1665eb69960f5979fe40ff23600bffd1" category="inline-xref-macro-rx"></block>.</block>
   <block id="e90917eb1ade74fea4468ecec1b0dfd3" category="doc">Remplacez le support de démarrage - AFF A300</block>
   <block id="31681f3abbed1ceeaf397023a488e2e2" category="section-title">Étape 2 : remplacer le support de démarrage - AFF A300</block>
   <block id="889b878f17fd664e744718e80f4d60de" category="doc">Arrêtez le contrôleur pour facultés affaiblies - AFF A300</block>
@@ -6585,16 +6580,8 @@
   <block id="7befdc0c8cc35d0c1711e11bd7feb970" category="list-text">Effacer les données du module de cache :<block ref="6daf7f4112fcf7c7be366c44ff70faf2" prefix=" " category="inline-code"></block></block>
   <block id="236dd84b9226dbf8dfd98a6c46b59972" category="list-text">Vérifiez que les données ont été effacées du module de cache :<block ref="55030d884a341e8f95d06478b61fbec9" prefix=" " category="inline-code"></block></block>
   <block id="af41b619bf9d50ddae2454efc001e4dd" category="paragraph">La sortie doit afficher l'état du module de cache comme effacé.</block>
-  <block id="376b1cae869bbe8ab1cce68fdb30b696" category="inline-link-macro">Remplacez les modules DIMM</block>
-  <block id="91e13f2779cb51174165fa30eaba7e5b" category="list-text">Revenir à <block ref="cf268cc4bc5a73daf7348170b397c07d" category="inline-link-macro-rx"></block> De cette procédure pour vérifier à nouveau la LED NVMEM.</block>
   <block id="1a9ae2b5eb296d614bebfdc33f389268" category="doc">Vérifiez les clés de cryptage intégrées - AFF A150</block>
   <block id="3bf6a2921f0e655ea4d2b6b2851e02df" category="doc">Recâblage du système et réaffectation des disques - AFF A150</block>
-  <block id="91b91feeb88498e7be1c10bbbb6db4c2" category="inline-link-macro">Vérification de la modification de l'ID du système sur un système HA</block>
-  <block id="4e87b3c0f415f46d36e8fa6bd32a6ff7" category="paragraph"><block ref="4e87b3c0f415f46d36e8fa6bd32a6ff7" category="inline-link-macro-rx"></block></block>
-  <block id="465740a443e85d455a90494615d629b9" category="inline-link-macro">Réaffectation manuelle de l'ID système sur un système autonome dans ONTAP</block>
-  <block id="7070195bf98baff2e0462461db9cb074" category="paragraph"><block ref="7070195bf98baff2e0462461db9cb074" category="inline-link-macro-rx"></block></block>
-  <block id="734e28e3c6b715a48c7043347210471e" category="inline-link-macro">Réaffectation manuelle de l'ID système sur les systèmes d'une configuration MetroCluster à deux nœuds</block>
-  <block id="ca5a5e07d656cff35da2184538cfc5fb" category="paragraph"><block ref="ca5a5e07d656cff35da2184538cfc5fb" category="inline-link-macro-rx"></block></block>
   <block id="1cd8a39839471e937855a3c54b6b84d9" category="doc">Présentation du remplacement du support de démarrage - AFF A150</block>
   <block id="35db388e4e99e4a7488ab682126d7fa6" category="doc">Remplacez la batterie NVMEM - AFF A150</block>
   <block id="2867a72512f6330f74fb93ac9f93f07d" category="doc">Déplacer et remplacer la boulonnerie - AFF A150</block>
@@ -7372,7 +7359,6 @@
   <block id="60564c6a5dbb582ea0f8b967540d266c" category="paragraph">Les étiquettes indiquent le numéro de pile, par exemple *Loop ou Stack #: 1* et *Loop ou Stack #: 2*. Les tiroirs disques qui ne contiennent pas d'agrégats racine indiquent uniquement le numéro de série du tiroir disque sur les étiquettes.</block>
   <block id="e50b176d298cced2ec9cfd5bbe516332" category="list-text">IBACP (Alternate Control Path) intrabande est automatiquement activé.</block>
   <block id="e5db155980df3ce33a16c9ed4af83e4e" category="paragraph">IBACP n'est pas pris en charge dans les configurations à voie unique haute disponibilité ou à voie unique.</block>
-  <block id="ba809f57bc3e36546d8a47b82a5d995c" category="paragraph"><block ref="ba809f57bc3e36546d8a47b82a5d995c" category="inline-link-rx"></block></block>
   <block id="d37bef5353b917df46bc5ea30882b3a9" category="paragraph">Vous devez répondre aux exigences décrites dans la section <block ref="45a94b67f53095b9a49e00311fb0216a" category="inline-xref-macro-rx"></block> et ont installé les tiroirs disques sur le rack.</block>
   <block id="59e65b256ff4505ae2cefd9f9a823d8b" category="paragraph">Vous câblez une configuration à chemins d'accès multiples, haute disponibilité à trois chemins, chemins d'accès multiples, haute disponibilité à chemin unique ou chemin unique</block>
   <block id="7e8bbc30dce4dc23bd053149c93370be" category="inline-link-macro">Fiches de câblage contrôleur à pile et exemples de câblage pour les configurations haute disponibilité multivoie</block>
@@ -7383,7 +7369,6 @@
   <block id="a9965269fc2882517b2f7404230818ad" category="list-text">Si vous ajoutez à chaud un ou plusieurs tiroirs disques à une extrémité (le premier ou le dernier tiroir disque logique) d'une pile existante, suivez les sous-étapes applicables à votre configuration. Dans le cas contraire, passez à l'étape suivante.</block>
   <block id="ca067501330c228a786fd00d17229575" category="paragraph">Ajout à chaud d'un tiroir disque à l'extrémité d'une pile offrant une connectivité multivoie haute disponibilité, à trois chemins d'accès, à chemins d'accès multiples, à quatre chemins d'accès haute disponibilité ou à quatre chemins vers les contrôleurs</block>
   <block id="fa3d4e5360018aa45e5104272d43148c" category="paragraph">La pile doit répondre aux exigences indiquées dans le <block ref="d7ead9d51e0253f97f9c0ae83a2ee9eb" category="inline-xref-macro-rx"></block> section de cette procédure.</block>
-  <block id="2aaf80f49dd70b27832d7aa8d96090d0" category="list-text">Si &lt;lno-DARE&gt; ou &lt;1Ono-DARE&gt; s'affiche dans le résultat de la commande, le système ne prend pas en charge NVE, passez à l'étape <block ref="89ef15e2cd441b6b5852f79de56e5549" category="inline-xref-macro-rx"></block>.</block>
   <block id="78fe270cb69c9ecda90d7e049a571c28" category="list-text">Si &lt;lno-DARE&gt; ne s'affiche pas dans le résultat de la commande et que le système exécute ONTAP 9.6 ou une version ultérieure, passez à la section suivante, <block ref="a913f4e8384864716d5146884ff27f0e" category="inline-xref-macro-rx"></block>.</block>
   <block id="d9b691280dde7c1805e39052719c9c29" category="list-text">Désactiver le rétablissement automatique à partir du contrôleur sain :
 storage failover modify -node local -auto-giveback false`
@@ -7592,7 +7577,6 @@ Installez la batterie de rechange :</block>
   <block id="0da3888f81e8e56d2de2a92a42b512a3" category="doc">Démarrez l'image de restauration - FAS2800</block>
   <block id="c5ad83e174ba7727e76fc50c8366e589" category="list-text">Restaurez le système de fichiers var :</block>
   <block id="e51ecd8f185715278ef737fd290e62f5" category="list-text">Appuyez sur<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à restaurer la copie de configuration.</block>
-  <block id="17fb1354460acbac7ab4abe6c27a24a2" category="list-text">Si keymanager, NSE ou NVE intégré est configuré sur votre système, rendez-vous sur <block ref="4b98be10d46a75a522880bc01a177aa5" category="inline-xref-macro-rx"></block></block>
   <block id="1a037944aedbce3040a5314200246858" category="list-text">À l'invite du cluster, vérifiez les interfaces logiques avec le<block ref="55cf88a325a6e0574aef732566cc984c" prefix=" " category="inline-code"></block> commande.</block>
   <block id="8c4cb494b75288cf3ce1e7ce1dee3c9d" category="paragraph">Si l'une des interfaces est indiquée comme « FALSE », restaurez ces interfaces à son port d'origine à l'aide de l'<block ref="ffbe7d182280173cba10c83ec9992974" prefix=" " category="inline-code"></block> commande.</block>
   <block id="fcb4d3b1f229bc036dc2280a7c1d29c4" category="list-text">Si vous n'utilisez pas le chiffrement du stockage, restaurez le rétablissement automatique et AutoSupport :</block>
@@ -8694,4 +8678,19 @@ Cette section fournit des instructions détaillées pour l'installation d'un sys
   <block id="052bc2e859c31b84b04f42db7b60abff" category="sidebar">Support de démarrage ASA C800</block>
   <block id="801fdf5b112137a107d3f17390e4042d" category="sidebar">Châssis ASA C800</block>
   <block id="ca7dce9cd06f0f2ef6e548c8c26d54d9" category="sidebar">Module de contrôleur ASA C800</block>
+  <block id="664f9c52f93e2fbf6e801148b0f573ad" category="inline-link">Gestion des paires HAUTE DISPONIBILITÉ</block>
+  <block id="665a2533bb5f8d55add7fd24df29e614" category="paragraph"><block ref="665a2533bb5f8d55add7fd24df29e614" category="inline-link-rx"></block></block>
+  <block id="8fa572d5dfdbff8c60e791d349eca279" category="list-text">Si &lt;lno-DARE&gt; ou &lt;1Ono-DARE&gt; s'affiche dans le résultat de la commande, le système ne prend pas en charge NVE, passez à l'étape<block ref="c2302bfb39f1e6b6fccfd9207e94da44" category="inline-link-rx"></block>.</block>
+  <block id="7d52b24114e5d676f50874574fb29878" category="paragraph">Tous les autres composants du système doivent fonctionner correctement ; dans le cas contraire, vous devez contacter<block ref="eb2c61027d5e6c8b35692c1e74187026" category="inline-link-rx"></block>.</block>
+  <block id="6cca151867efbcb742b6e15efec51760" category="list-text">Appuyez sur le loquet de la poignée de came jusqu'à ce qu'elle se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à deux mains, tirez le module de contrôleur à mi-chemin hors du châssis.</block>
+  <block id="92edeac7b5b629f5e93e2de4ba2adf43" category="list-text">Vérifiez le voyant NVMEM situé à l'arrière du module de contrôleur.  Recherchez l'icône NV :</block>
+  <block id="bb49ab711ab9d79c58c90ff674747f54" category="admonition">Le voyant vert NV situé sur la façade clignote lorsque le contrôleur est mis hors tension si le système était en état « en attente de rétablissement » ou si le système n'a pas été repris ou arrêté correctement (données non validées).  Si le module de contrôleur défectueux n'a pas été repris avec succès par le module de contrôleur partenaire, contactez<block ref="eb2c61027d5e6c8b35692c1e74187026" category="inline-link-rx"></block></block>
+  <block id="fab80bc3fcd8eac48cd9c319017190f7" category="list-text">Si le voyant vert d'état NV commence à clignoter lorsque le module de contrôleur est retiré du châssis :</block>
+  <block id="db20b5f8713e5397c5c04ce0ebd834fd" category="list-text">Vérifiez que le contrôleur a subi un basculement net par le module de contrôleur partenaire ou que le contrôleur défectueux affiche _waiting for giveback_, le voyant clignotant peut être ignoré et vous pouvez terminer le retrait du contrôleur défectueux du châssis.</block>
+  <block id="b3fb52770d8a327ed5d79c25e8d2d8fe" category="list-text">Si le voyant vert NV est éteint, vous pouvez terminer le retrait du contrôleur défectueux du châssis.</block>
+  <block id="30f4d9cc74028fcb25b044f8d09f0cdd" category="list-text">Retirez le module de commande du châssis.</block>
+  <block id="6476f2f5425248b422cb30658323cbae" category="list-text">Revenir à <block ref="c67cdb63ab5b46180d9910dcb0f03689" category="inline-xref-macro-rx"></block> De cette procédure pour vérifier à nouveau la LED NVMEM.</block>
+  <block id="699b31ad01a325baded3de0b74220957" category="list-text"><block ref="56abd8a9e334744fb66750bee3a52178" category="inline-xref-macro-rx"></block></block>
+  <block id="74e404c1f33731e0a999a4fc54ab33df" category="list-text"><block ref="893f29ac32188f4c8d29836a3587e127" category="inline-xref-macro-rx"></block></block>
+  <block id="a192a372cc891c7f0839a86b1b42a3e2" category="list-text">Accédez à <block ref="39ef488856eb21b3aaabcded4bff7c5d" category="inline-xref-macro-rx"></block>.</block>
 </blocks>

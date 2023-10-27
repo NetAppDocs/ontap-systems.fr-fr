@@ -13,7 +13,7 @@ summary: 'Pour remplacer une batterie NVMEM du système, vous devez retirer le m
 [role="lead"]
 Pour remplacer une batterie NVMEM du système, vous devez retirer le module de contrôleur du système, l'ouvrir, remplacer la batterie, puis fermer et remplacer le module de contrôleur.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+Tous les autres composants du système doivent fonctionner correctement ; dans le cas contraire, vous devez contacter https://mysupport.netapp.com/site/global/dashboard["Support NetApp"].
 
 
 
@@ -73,14 +73,26 @@ Retirez et ouvrez le module de contrôleur.
 Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
 
 . Retirez et mettez de côté les dispositifs de gestion des câbles des côtés gauche et droit du module de contrôleur.
-. Appuyez sur le loquet de la poignée de came jusqu'à ce qu'il se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à l'aide de deux mains, retirez le module de contrôleur du châssis.
+. Appuyez sur le loquet de la poignée de came jusqu'à ce qu'elle se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à deux mains, tirez le module de contrôleur à mi-chemin hors du châssis.
 +
 image::../media/drw_2850_pcm_remove_install_IEOPS-694.svg[drw 2850 pcm déposer l'installation IOPS 694]
 
-. Retournez le module de contrôleur et placez-le sur une surface plane et stable.
-. Ouvrez le capot en appuyant sur les boutons bleus situés sur les côtés du module de contrôleur pour libérer le capot, puis faites pivoter le capot vers le haut et hors du module de contrôleur.
+. Vérifiez le voyant NVMEM situé à l'arrière du module de contrôleur.  Recherchez l'icône NV :
 +
-image::../media/drw_2850_open_controller_module_cover_IEOPS-695.svg[couvercle du module de contrôleur ouvert drw 2850 IOPS 695]
+image::../media/drw_hw_nvram_icon.svg[icône drw hw nvram]
+
++
+
+NOTE: Le voyant vert NV situé sur la façade clignote lorsque le contrôleur est mis hors tension si le système était en état « en attente de rétablissement » ou si le système n'a pas été repris ou arrêté correctement (données non validées).  Si le module de contrôleur défectueux n'a pas été repris avec succès par le module de contrôleur partenaire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"]
+
++
+** Si le voyant vert d'état NV commence à clignoter lorsque le module de contrôleur est retiré du châssis :
++
+*** Vérifiez que le contrôleur a subi un basculement net par le module de contrôleur partenaire ou que le contrôleur défectueux affiche _waiting for giveback_, le voyant clignotant peut être ignoré et vous pouvez terminer le retrait du contrôleur défectueux du châssis.
+
+
+** Si le voyant vert NV est éteint, vous pouvez terminer le retrait du contrôleur défectueux du châssis.
+
 
 
 
@@ -92,26 +104,11 @@ Retirez la batterie NVMEM défectueuse du système et remplacez-la par une nouve
 
 .Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Vérifiez le voyant NVMEM :
+. Retirez le module de commande du châssis.
+. Retournez le module de contrôleur et placez-le sur une surface plane et stable.
+. Ouvrez le capot en appuyant sur les boutons bleus situés sur les côtés du module de contrôleur pour libérer le capot, puis faites pivoter le capot vers le haut et hors du module de contrôleur.
 +
-** Si votre système est dans une configuration haute disponibilité, passez à l'étape suivante.
-** Si votre système est dans une configuration autonome, arrêtez correctement le module de contrôleur, puis vérifiez le voyant NVRAM identifié par l'icône NV.
-+
-image::../media/drw_hw_nvram_icon.svg[icône drw hw nvram]
-
-+
-
-NOTE: Le voyant NVRAM clignote lors de l'installation du contenu dans la mémoire flash lorsque vous arrêtez le système. Une fois le transfert terminé, le voyant s'éteint.
-
-+
-*** Si l'alimentation est perdue sans arrêt correct, la LED NVMEM clignote jusqu'à ce que le transfert soit terminé, puis la LED s'éteint.
-*** Si le voyant est allumé et que l'alimentation est allumée, les données non écrites sont stockées sur NVMEM.
-+
-Cela se produit généralement lors d'un arrêt non contrôlé après le démarrage du système ONTAP.
-
-
-
-
+image::../media/drw_2850_open_controller_module_cover_IEOPS-695.svg[couvercle du module de contrôleur ouvert drw 2850 IOPS 695]
 
 . Recherchez la batterie NVMEM dans le module de contrôleur.
 +
