@@ -1,8 +1,8 @@
 ---
 permalink: fas2800/install-detailed-guide.html 
 sidebar: sidebar 
-keywords: fas2800, detailed, guide, prepare, install, hardware, cable, controllers, node, switchless, cluster, network, configuration, system, setup, discovery 
-summary: 'Ce guide fournit des instructions détaillées vous permettant d"installer un système NetApp classique.' 
+keywords: fas2800, detailed, guide, prepare, install, hardware, cable, controllers, node, switchless, cluster, network, configuration, system, storage system, setup, discovery 
+summary: 'Ce processus fournit des instructions détaillées pour l"installation d"un système de stockage NetApp classique.' 
 ---
 = Étapes détaillées - FAS2800
 :allow-uri-read: 
@@ -11,42 +11,51 @@ summary: 'Ce guide fournit des instructions détaillées vous permettant d"insta
 
 
 [role="lead"]
-Ce guide fournit des instructions détaillées vous permettant d'installer un système NetApp classique. Utilisez ce guide si vous souhaitez obtenir des instructions d'installation plus détaillées.
+Cette procédure fournit des instructions détaillées étape par étape pour l'installation d'un système de stockage NetApp classique. Utilisez cette procédure pour obtenir des instructions d'installation plus détaillées.
 
 
 
 == Étape 1 : préparer l'installation
 
-Pour installer votre système FAS2800, vous devez créer un compte sur le site du support NetApp, enregistrer votre système et obtenir des clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
-
-Vous devez avoir accès au https://hwu.netapp.com["NetApp Hardware Universe"] pour plus d'informations sur les exigences du site ainsi que sur les informations supplémentaires sur votre système configuré. Vous pouvez également avoir accès au http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Notes de version pour votre version de ONTAP 9"] Pour votre version de ONTAP pour plus d'informations sur ce système.
-
+.Avant de commencer
 Vous devez fournir les informations suivantes sur votre site :
 
-* Espace rack pour le système de stockage
+* Espace rack du système de stockage dans un rack Telco ou une armoire système.
++
+** 2U pour le système de stockage
+** 2U ou 4U par tiroir disque de votre système
+
+
 * Tournevis Phillips n°2
-* Câbles réseau supplémentaires pour connecter votre système à votre commutateur réseau et à votre ordinateur portable ou console avec un navigateur Web
+* Câbles réseau supplémentaires pour connecter votre système de stockage à votre commutateur réseau et à votre ordinateur portable ou à votre console à l'aide d'un navigateur Web
 * Ordinateur portable ou console avec connexion RJ-45 et accès à un navigateur Web
++
+** Accès au https://hwu.netapp.com["NetApp Hardware Universe"] pour plus d'informations sur les exigences du site et sur le système de stockage configuré.
+** Vous pouvez également avoir accès au http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Notes de version pour votre version de ONTAP 9"] Pour votre version de ONTAP pour plus d'informations sur ce système de stockage.
+
+
 
 
 .Étapes
-. Déballez le contenu de toutes les boîtes.
-. Notez le numéro de série du système depuis les contrôleurs.
+. Déballez toutes les boîtes et faites l'inventaire du contenu.
++
+
+IMPORTANT: Les clients ayant des besoins spécifiques en alimentation doivent les vérifier https://hwu.netapp.com["NetApp Hardware Universe"] pour leurs options de configuration.
+
+. Accédez au https://docs.netapp.com/us-en/ontap/task_configure_ontap.html#assign-a-node-management-ip-address["Configurez ONTAP sur un nouveau cluster avec System Manager"^]
++
+.. Passez en revue les étapes de la procédure amd requises.
+.. Collectez des informations sur votre système de stockage en complétant le https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Feuille de travail de configuration^ (URL nécessaire pour accéder à la fiche)"].
+.. Notez le numéro de série du système de stockage provenant des contrôleurs.
 +
 image::../media/drw_ssn_label.svg[etiquette drw ssn]
 
-. Configurez votre compte :
-+
-.. Connectez-vous à votre compte existant ou créez un compte.
-.. Enregistrez votre système via  https://mysupport.netapp.com/eservice/registerSNoAction.do?moduleName=RegisterMyProduct["Enregistrement de produit NetApp"]
 
 
-. Téléchargez et installez https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Config Advisor"] sur votre ordinateur portable.
-. Faites un inventaire et notez le nombre et le type de câbles que vous avez reçus.
-+
+
+
 Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la section https://hwu.netapp.com["NetApp Hardware Universe"] pour localiser le câble et identifier son utilisation.
 
-+
 [cols="1,2,1,2"]
 |===
 | Type de câble... | Numéro de pièce et longueur | Type de connecteur | Pour... 
@@ -127,7 +136,7 @@ Stockage
  a| 
 Câble de console USB-C.
  a| 
-Sans objet
+Aucune étiquette de référence
  a| 
 image::../media/oie_cable_micro_usb.svg[câble oie micro usb]
  a| 
@@ -138,11 +147,11 @@ Connexion de la console pendant la configuration du logiciel sur un ordinateur p
  a| 
 Câbles d'alimentation
  a| 
-Sans objet
+Aucune étiquette de référence
  a| 
 image::../media/oie_cable_power.svg[alimentation du câble de l'oie]
  a| 
-Mise sous tension du système
+Mise sous tension du système de stockage
 
 
 
@@ -156,21 +165,18 @@ image::../media/oie_cable_fiber_lc_connector.svg[connecteur lc pour câble oie]
 Câble réseau FC supplémentaire
 
 |===
-. Téléchargez et complétez les feuilles de calcul disponibles dans le  https://docs.netapp.com/us-en/ontap/software_setup/concept_set_up_the_cluster.html#cluster-setup-worksheets["Configuration du cluster via l'interface de ligne de commandes ONTAP"^].
-
-
 
 
 == Étape 2 : installer le matériel de fixation
 
-Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
+Installez votre système de stockage dans un rack de télécommunications ou une armoire de système de stockage NetApp, le cas échéant.
 
 .Étapes
 . Installez les kits de rails, au besoin.
-. Installez et sécurisez votre système en suivant les instructions fournies avec le kit de rails.
+. Installez et sécurisez votre système de stockage en suivant les instructions fournies avec le kit de rails.
 +
 
-NOTE: Vous devez être conscient des problèmes de sécurité associés au poids du système.
+NOTE: Vous devez être conscient des problèmes de sécurité associés au poids du système de stockage.
 
 +
 image::../media/oie_fas2800_weight_caution_IEOPS-1070.svg[oie fas2800 attention au poids IEOPS 1070]
@@ -179,16 +185,16 @@ image::../media/oie_fas2800_weight_caution_IEOPS-1070.svg[oie fas2800 attention 
 +
 image::../media/drw_cable_management_arm_install.svg[installation du ARM de gestion des câbles drw]
 
-. Placez le panneau à l'avant du système.
+. Placez le panneau à l'avant du système de stockage.
 
 
 
 
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
 
-Reliez les contrôleurs au réseau à l'aide de la méthode cluster sans commutateur à deux nœuds ou de la méthode réseau d'interconnexion de cluster.
+Reliez les contrôleurs au réseau en tant que cluster à 2 nœuds sans commutateur ou avec commutateur.
 
-Le tableau suivant identifie le type de câble avec le numéro d'appel et la couleur de câble sur les illustrations pour le câblage réseau à deux nœuds sans commutateur et le câblage réseau à cluster commuté.
+Le tableau suivant identifie le type de câble avec le numéro d'appel et la couleur de câble sur les illustrations pour un cluster à deux nœuds sans commutateur et un cluster avec commutateur.
 
 [cols="20%,80%"]
 |===
@@ -215,27 +221,26 @@ image::../media/oie_legend_icon_3_o.svg[icône de légende de l'oie 3 o]
 Switchs réseau de l'hôte
 
 |===
+.Avant de commencer
+* Pour plus d'informations sur la connexion du système de stockage aux commutateurs, contactez votre administrateur réseau.
+* Vérifiez la flèche de l'illustration pour connaître l'orientation correcte de la languette de retrait du connecteur de câble.
++
+** Lorsque vous insérez le connecteur, vous devez le sentir en place. Si vous ne le sentez pas, retirez-le, retournez la tête du câble et réessayez.
+** Si vous vous connectez à un commutateur optique, insérez le SFP dans le port du contrôleur avant de procéder au câblage vers le port.
+
+
+
+
+image::../media/oie_cable_pull_tab_down.svg[languette de traction du câble oie vers le bas]
+
 [role="tabbed-block"]
 ====
 .Option 1 : câler un cluster à deux nœuds sans commutateur
 --
 Reliez les connexions réseau et les ports d'interconnexion de cluster à un cluster sans commutateur à deux nœuds.
 
-.Avant de commencer
-Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
-
-Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
-
-image::../media/oie_cable_pull_tab_down.svg[languette de traction du câble oie vers le bas]
-
-
-NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place. Si vous ne le sentez pas, retirez-le, retournez la tête du câble et réessayez.
-
-
-NOTE: Si vous vous connectez à un commutateur optique, insérez le SFP dans le port du contrôleur avant de procéder au câblage vers le port.
-
 .Description de la tâche
-Vous pouvez utiliser le graphique ou les instructions détaillées pour effectuer le câblage entre les contrôleurs et les commutateurs.
+Utilisez l'animation ou les instructions détaillées pour effectuer le câblage entre les contrôleurs et les commutateurs.
 
 .Animation - câblage d'un câblage de cluster sans commutateur à deux nœuds
 video::90577508-fa79-46cf-b18a-afe8016325af[panopto]
@@ -315,18 +320,8 @@ IMPORTANT: NE branchez PAS les cordons d'alimentation.
 --
 Reliez les connexions réseau et les ports d'interconnexion de cluster à un cluster commuté.
 
-
-NOTE: Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
-
-Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
-
-image::../media/oie_cable_pull_tab_down.svg[languette de traction du câble oie vers le bas]
-
-
-NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place. Si vous ne le sentez pas, retirez-le, retournez la tête du câble et réessayez.
-
 .Description de la tâche
-Vous pouvez utiliser le graphique ou les instructions détaillées pour effectuer le câblage entre les contrôleurs et les commutateurs.
+Utilisez l'animation ou les instructions détaillées pour effectuer le câblage entre les contrôleurs et les commutateurs.
 
 .Animation - câblage commuté du cluster
 video::6553a3db-57dd-4247-b34a-afe8016315d4[panopto]
@@ -403,22 +398,10 @@ IMPORTANT: NE branchez PAS les cordons d'alimentation.
 
 Connectez les contrôleurs à un système de stockage externe.
 
+Le tableau suivant identifie le type de câble à l'aide du numéro d'appel et de la couleur des câbles illustrés pour le câblage des tiroirs disques à votre système de stockage.
 
-NOTE: L'exemple utilise DS224C. Le câblage est similaire à celui des autres tiroirs disques pris en charge.
 
-Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
-
-image::../media/oie_cable_pull_tab_down.svg[languette de traction du câble oie vers le bas]
-
-.Description de la tâche
-Vous pouvez utiliser le graphique ou les instructions détaillées pour terminer le câblage entre les contrôleurs et les tiroirs disques.
-
-.Animation : câblage du tiroir disque
-video::b2a7549d-8141-47dc-9e20-afe8016f4386[panopto]
-
-NOTE: Ne pas utiliser le port 0b2 sur un FAS2800. Ce port SAS n'est pas utilisé par ONTAP et est toujours désactivé. Voir https://docs.netapp.com/us-en/ontap-systems/sas3/install-new-system.html["Installez un tiroir sur un nouveau système de stockage"^] pour en savoir plus.
-
-Le tableau suivant identifie le type de câble avec le numéro d'appel et la couleur de câble sur les illustrations pour le câblage réseau à deux nœuds sans commutateur et le câblage réseau à cluster commuté.
+NOTE: L'exemple utilise DS224C. Le câblage est similaire à celui des autres tiroirs disques pris en charge. Voir https://docs.netapp.com/us-en/ontap-systems/sas3/install-new-system.html["Installez et reliez les étagères pour une nouvelle installation du système - étagères avec modules IOM12/IOM12B"^] pour en savoir plus.
 
 [cols="20%,80%"]
 |===
@@ -428,23 +411,35 @@ Le tableau suivant identifie le type de câble avec le numéro d'appel et la cou
  a| 
 image::../media/oie_legend_icon_1_lo.svg[icône de légende oie 1 lo]
  a| 
-Interconnexion de cluster
+Le câblage tiroir à tiroir
 
 
 
  a| 
 image::../media/oie_legend_icon_2_mb.svg[icône de légende oie 2 mb]
  a| 
-Switch réseau de gestion
+Contrôleur A vers les tiroirs disques
 
 
 
  a| 
 image::../media/oie_legend_icon_3_t.svg[icône de légende de l'oie 3 t]
  a| 
-Switchs réseau de l'hôte
+Contrôleur B vers les tiroirs disques
 
 |===
+Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
+
+image::../media/oie_cable_pull_tab_down.svg[languette de traction du câble oie vers le bas]
+
+.Description de la tâche
+Utilisez l'animation ou les instructions détaillées pour terminer le câblage entre les contrôleurs et les tiroirs disques.
+
+
+IMPORTANT: Ne pas utiliser le port 0b2 sur un FAS2800. Ce port SAS n'est pas utilisé par ONTAP et est toujours désactivé. Voir https://docs.netapp.com/us-en/ontap-systems/sas3/install-new-system.html["Installez un tiroir sur un nouveau système de stockage"^] pour en savoir plus.
+
+.Animation : câblage du tiroir disque
+video::b2a7549d-8141-47dc-9e20-afe8016f4386[panopto]
 .Étapes
 . Reliez les ports tiroir à tiroir.
 +
@@ -495,39 +490,40 @@ image::../media/dwr-2800_controller2-to shelves_IEOPS-897.svg[Contrôleur dwr 28
 
 
 
-== Étape 5 : installation et configuration complètes du système
+== Étape 5 : installation et configuration complètes du système de stockage
 
-Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
+Terminez l'installation et la configuration de votre système de stockage en utilisant l'option 1 : si la détection du réseau est activée ou l'option 2 : si la détection du réseau n'est pas activée.
 
 [role="tabbed-block"]
 ====
 .Option 1 : si la détection réseau est activée
 --
-Si la détection de réseau est activée sur votre ordinateur portable, effectuez la configuration du système à l'aide de la détection automatique de cluster.
+Si la détection de réseau est activée sur votre ordinateur portable, effectuez la configuration et la configuration du système de stockage à l'aide de la détection automatique de cluster.
 
 .Étapes
-. Utilisez l'animation suivante pour définir un ou plusieurs ID de tiroir disque
+. Utilisez l'animation suivante pour mettre sous tension et définir les ID de tiroir.
 +
 .Animation : définissez les ID de tiroir disque
 video::c600f366-4d30-481a-89d9-ab1b0066589b[panopto]
-. Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
-. Mettez les boutons marche/arrêt sur les deux nœuds.
+. Mettez les contrôleurs sous tension
 +
-image::../media/dwr_2800_turn_on_power_IEOPS-898.svg[dwr 2800 mettre sous tension IEOPS 898]
-
+.. Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
+.. Mettez les boutons marche/arrêt sur les deux nœuds.
 +
 
 NOTE: Le démarrage initial peut prendre jusqu'à huit minutes.
+
++
+image::../media/dwr_2800_turn_on_power_IEOPS-898.svg[dwr 2800 mettre sous tension IEOPS 898]
+
+
 
 . Assurez-vous que la détection réseau de votre ordinateur portable est activée.
 +
 Consultez l'aide en ligne de votre ordinateur portable pour plus d'informations.
 
-. Utilisez l'animation suivante pour connecter votre ordinateur portable au commutateur de gestion.
-+
-.Animation : connectez votre ordinateur portable au commutateur de gestion
-video::d61f983e-f911-4b76-8b3a-ab1b0066909b[panopto]
-. Sélectionnez une icône ONTAP pour découvrir :
+. Connectez votre ordinateur portable au commutateur de gestion.
+. Utilisez le graphique ou les étapes pour découvrir le nœud du système de stockage à configurer :
 +
 image::../media/drw_autodiscovery_controler_select.svg[sélection du contrôleur de découverte automatique drw]
 
@@ -538,16 +534,27 @@ image::../media/drw_autodiscovery_controler_select.svg[sélection du contrôleur
 .. Double-cliquez sur l'une des icônes ONTAP et acceptez les certificats affichés à l'écran.
 +
 
-NOTE: XXXXX est le numéro de série du système du nœud cible.
+NOTE: XXXXX est le numéro de série du système de stockage du nœud cible.
 
 +
 System Manager s'ouvre.
 
 
 
-. Utilisez la configuration assistée de System Manager pour configurer votre système à l'aide des données collectées dans le https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"]
-. Vérifiez l'état de santé de votre système en exécutant Config Advisor.
-. Une fois la configuration initiale terminée, passez à la https://www.netapp.com/data-management/oncommand-system-documentation/["ONTAP  ; Ressources de documentation ONTAP System Manager"] Pour plus d'informations sur la configuration de fonctionnalités supplémentaires dans ONTAP.
+. Utilisez la configuration guidée de System Manager pour configurer votre système de stockage à l'aide des données collectées dans <<Étape 1 : préparer l'installation>>.
+. Créez un compte ou connectez-vous à votre compte.
++
+.. Cliquez sur https://mysupport.netapp.com["mysupport.netapp.com"]
+.. Cliquez sur _Créer un compte_ si vous devez créer un compte ou vous connecter à votre compte.
+
+
+. Téléchargez et installez https://mysupport.netapp.com/site/tools["Active IQ Config Advisor"]
++
+.. Vérifiez l'état de santé de votre système de stockage en exécutant Active IQ Config Advisor.
+
+
+. Enregistrez votre système à l'adresse https://mysupport.netapp.com/site/systems/register[].
+. Une fois la configuration initiale terminée, passez à la https://www.netapp.com/support-and-training/documentation/["Ressources NetApp ONTAP"] Pour plus d'informations sur la configuration de fonctionnalités supplémentaires dans ONTAP.
 
 
 --
@@ -563,7 +570,7 @@ Si la détection réseau n'est pas activée sur votre ordinateur portable, effec
 
 NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console pour savoir comment configurer le port de console.
 
-.. Connectez le câble de la console à l'ordinateur portable ou à la console, puis connectez le port console du contrôleur à l'aide du câble de console fourni avec le système, puis cConnectez l'ordinateur portable ou la console au commutateur du sous-réseau de gestion.
+.. Connectez le câble de la console à l'ordinateur portable ou à la console, puis le port console du contrôleur à l'aide du câble de console fourni avec le système de stockage, puis cConnectez l'ordinateur portable ou la console au commutateur du sous-réseau de gestion.
 +
 image::../media/drw_2800_laptop_to_switch_to_controller_IEOPS-1084.svg[PC portable drw 2800 pour passer au contrôleur IOPS 1084]
 
@@ -616,11 +623,22 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console
 
 NOTE: Le format de l'adresse est https://x.x.x.x[].
 
-.. Configurez le système à l'aide des données que vous avez collectées dans https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"].
+.. Configurez le système de stockage à l'aide des données collectées dans <<Étape 1 : préparer l'installation>>..
 
 
-. Vérifiez l'état de santé de votre système en exécutant Config Advisor.
-. Une fois la configuration initiale terminée, passez à l'  https://www.netapp.com/data-management/oncommand-system-documentation/["ONTAP  ; Ressources de documentation ONTAP System Manager"] Pour plus d'informations sur la configuration de fonctions supplémentaires dans ONTAP.
+. Créez un compte ou connectez-vous à votre compte.
++
+.. Cliquez sur https://mysupport.netapp.com["mysupport.netapp.com"]
+.. Cliquez sur _Créer un compte_ si vous devez créer un compte ou vous connecter à votre compte.
+
+
+. Téléchargez et installez https://mysupport.netapp.com/site/tools["Active IQ Config Advisor"]
++
+.. Vérifiez l'état de santé de votre système de stockage en exécutant Active IQ Config Advisor.
+
+
+. Enregistrez votre système à l'adresse https://mysupport.netapp.com/site/systems/register[].
+. Une fois la configuration initiale terminée, passez à la https://www.netapp.com/support-and-training/documentation/["Ressources NetApp ONTAP"] Pour plus d'informations sur la configuration de fonctionnalités supplémentaires dans ONTAP.
 
 
 --
