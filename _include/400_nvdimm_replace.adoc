@@ -173,27 +173,6 @@ mcc1A::> metrocluster operation show
 
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
 
-Vous pouvez utiliser les animations, illustrations ou étapes écrites suivantes pour retirer le module de contrôleur du châssis.
-
-.Animation - retirez le module de contrôleur
-video::ca74d345-e213-4390-a599-aae10019ec82[panopto]
-image::../media/drw_A400_Remove_controller.png[drw A400 retirer le contrôleur]
-
-[cols="10,90"]
-|===
-
-
- a| 
-image:../media/legend_icon_01.png["Légende numéro 1"]
- a| 
-Loquets de verrouillage
-
-
-
- a| 
-image:../media/legend_icon_02.png["Légende numéro 2"]
-| Le contrôleur sort légèrement du châssis 
-|===
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
 . Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
@@ -205,6 +184,27 @@ Laissez les câbles dans le périphérique de gestion des câbles de sorte que l
 +
 Le module de contrôleur se déplace légèrement hors du châssis.
 
++
+image::../media/drw_c400_remove_controller_IEOPS-1216.svg[drw c400 retirer le contrôleur IEOPS 1216]
+
++
+[cols="10,90"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png[""]
+ a| 
+Loquets de verrouillage
+
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Le contrôleur sort légèrement du châssis
+
+|===
 . Faites glisser le module de contrôleur hors du châssis.
 +
 Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
@@ -232,7 +232,7 @@ Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivant
 NOTE: L'animation montre des emplacements vides pour les sockets sans DIMM. Ces supports vides sont remplis de caches.
 
 .Animation : remplacez le NVDIMM
-video::e0afec49-0953-4dcc-b9d0-aadb01578e1b[panopto]
+video::7dfe09d8-eff8-41e3-9eb4-b03100032579[panopto]
 image::../media/drw_A400_Replace-NVDIMM-DIMM_IEOPS-1009.svg[drw A400 remplacer NVDIMM IOPS 1009]
 
 [cols="10,90"]
@@ -290,7 +290,7 @@ NOTE: Inspectez visuellement le NVDIMM pour vérifier qu'il est bien aligné et 
 
 == Étape 4 : installer le module de contrôleur
 
-Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis l'amorcer.
+Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
 
 . Si ce n'est déjà fait, fermer le conduit d'air.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
@@ -322,6 +322,10 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
 
 .. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et les autres composants.
+.. Interrompez le processus de démarrage et démarrez vers l'invite DU CHARGEUR en appuyant sur `Ctrl-C`.
++
+Si votre système s'arrête au menu de démarrage, sélectionnez l'option de démarrage pour DÉMARRER le CHARGEUR.
+
 
 
 
