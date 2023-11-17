@@ -174,11 +174,11 @@ https://docs.netapp.com/us-en/ontap-systems/platform-supplemental/superrail-inst
 NOTE: Vous devez être conscient des problèmes de sécurité associés au poids du système.
 
 +
-image::../media/drw_asac800_weight_caution.png[avertissement poids drw asac800]
+image::../media/drw_affa800_weight_caution.png[attention de poids du drw affa800]
 
 . Fixez les dispositifs de gestion des câbles (comme illustré).
 +
-image::../media/drw_asac800_install_cable_mgmt.png[drw asac800 installation de la gestion des câbles]
+image::../media/drw_affc800_install_cable_mgmt.png[drw affc800 installation de la gestion des câbles]
 
 . Placez le panneau à l'avant du système.
 
@@ -228,8 +228,7 @@ image:../media/oie_legend_icon_1_dp.png[""]
 Câconnectez les ports d'interconnexion haute disponibilité :
 
 ** e0b à e0b
-** e1b à e1b
-image:../media/drw_asac800_ha_pair_cabling.png[""]
+** e1b à e1bimage:../media/drw_affa800_ha_pair_cabling.png[""]
 
 
 
@@ -240,8 +239,7 @@ image:../media/oie_legend_icon_2_lg.png[""]
 Câconnectez les ports d'interconnexion de cluster :
 
 ** e0a à e0a
-** e1a à e1a
-image:../media/drw_asac800_tnsc_clust_cabling.png[""]
+** e1a à e1aimage:../media/drw_affa800_tnsc_clust_cabling.png[""]
 
 
 
@@ -249,7 +247,7 @@ image:../media/drw_asac800_tnsc_clust_cabling.png[""]
  a| 
 image:../media/oie_legend_icon_3_lp.png[""]
  a| 
-Reliez les ports de gestion aux switchs réseau de gestion    image:../media/drw_asac800_mgmt_cabling.png["Illustration de l'emplacement des ports de gestion à l'arrière du système"]
+Reliez les ports de gestion aux switchs réseau de gestion    image:../media/drw_affa800_mgmt_cabling.png["Illustration de l'emplacement des ports de gestion à l'arrière du système"]
 
 
 
@@ -303,8 +301,7 @@ image:../media/oie_legend_icon_1_dp.png[""]
 Câconnectez les ports d'interconnexion haute disponibilité :
 
 ** e0b à e0b
-** e1b à e1b
-image:../media/drw_asac800_ha_pair_cabling.png[""]
+** e1b à e1bimage:../media/drw_affa800_ha_pair_cabling.png[""]
 
 
 
@@ -312,17 +309,14 @@ image:../media/drw_asac800_ha_pair_cabling.png[""]
  a| 
 image:../media/oie_legend_icon_2_lg.png[""]
  a| 
-Reliez les ports d'interconnexion de cluster aux commutateurs d'interconnexion de cluster 100 GbE.
-** e0a
-** e1a
-image:../media/drw_asac800_switched_clust_cabling.png[""]
+Reliez les ports d'interconnexion de cluster aux commutateurs d'interconnexion de cluster 100 GbE. ** e0a ** e1aimage:../media/drw_affa800_switched_clust_cabling.png[""]
 
 
 
  a| 
 image:../media/oie_legend_icon_3_lp.png[""]
  a| 
-Reliez les ports de gestion aux switchs réseau de gestion    image:../media/drw_asac800_mgmt_cabling.png["Illustration de l'emplacement des ports de gestion à l'arrière du système"]
+Reliez les ports de gestion aux switchs réseau de gestion    image:../media/drw_affa800_mgmt_cabling.png["Illustration de l'emplacement des ports de gestion à l'arrière du système"]
 
 
 
@@ -373,7 +367,7 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
  a| 
 1
  a| 
-Reliez les ports 2a à 2d aux commutateurs hôte FC.image:../media/drw_asac800_fc_host_cabling.png[""]
+Reliez les ports 2a à 2d aux commutateurs hôte FC.image:../media/drw_affa800_fc_host_cabling.png[""]
 
 
 
@@ -418,7 +412,7 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
  a| 
 1
  a| 
-Reliez les ports e4a à e4d aux commutateurs du réseau hôte 10GbE.image:../media/drw_asac800_10gbe_host_cabling.png[""]
+Reliez les ports e4a à e4d aux commutateurs du réseau hôte 10GbE.image:../media/drw_affa800_10gbe_host_cabling.png[""]
 
 
 
@@ -465,14 +459,14 @@ video::09dade4f-00bd-4d41-97d7-ab0c0123a0b4[panopto]
  a| 
 image:../media/oie_legend_icon_1_mb.png[""]
  a| 
-Connectez les câbles du contrôleur A au tiroir :    image:../media/drw_asac800_1shelf_cabling_a.png[""]
+Connectez les câbles du contrôleur A au tiroir : image:../media/drw_affa800_1shelf_cabling_a.png[""]
 
 
 
  a| 
 image:../media/oie_legend_icon_2_lo.png[""]
  a| 
-Câble du contrôleur B vers le tiroir :    image:../media/drw_asac800_1shelf_cabling_b.png[""]
+Câble du contrôleur B vers le tiroir : image:../media/drw_affa800_1shelf_cabling_b.png[""]
 
 |===
 Pour terminer la configuration de votre système, reportez-vous à la section link:install-detailed-guide.html#step-4-complete-system-setup-and-configuration["Étape 4 : installation et configuration complètes du système"].
@@ -503,14 +497,14 @@ video::fe50ac38-9375-4e6b-85af-ab0c0123a0e0[panopto]
  a| 
 image:../media/oie_legend_icon_1_mb.png[""]
  a| 
-Connectez les câbles du contrôleur A aux tiroirs.    image:../media/drw_asac800_2shelf_cabling_a.png[""]
+Connectez les câbles du contrôleur A aux tiroirs. image:../media/drw_affa800_2shelf_cabling_a.png[""]
 
 
 
  a| 
 image:../media/oie_legend_icon_2_lo.png[""]
  a| 
-Connectez les câbles du contrôleur B aux tiroirs.    image:../media/drw_asac800_2shelf_cabling_b.png[""]
+Connectez les câbles du contrôleur B aux tiroirs. image:../media/drw_affa800_2shelf_cabling_b.png[""]
 
 |===
 Pour terminer la configuration de votre système, reportez-vous à la section link:install-detailed-guide.html#step-4-complete-system-setup-and-configuration["Étape 4 : installation et configuration complètes du système"].
@@ -579,11 +573,11 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console
 
 .. Connectez le câble de la console à l'ordinateur portable ou à la console, et connectez le port de console du contrôleur à l'aide du câble de console fourni avec votre système.
 +
-image::../media/drw_console_connect_asac800.png[la console drw se connecte à asac800]
+image::../media/drw_console_connect_affa800.png[console drw connecter affa800]
 
 .. Connectez l'ordinateur portable ou la console au commutateur du sous-réseau de gestion.
 +
-image::../media/drw_client_mgmt_subnet_asac800.png[sous-réseau de gestion du client drw asac800]
+image::../media/drw_client_mgmt_subnet_affa800.png[sous-réseau de gestion client drw affa800]
 
 .. Attribuez une adresse TCP/IP à l'ordinateur portable ou à la console à l'aide d'une adresse située sur le sous-réseau de gestion.
 
