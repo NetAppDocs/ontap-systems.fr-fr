@@ -16,22 +16,16 @@ Vous pouvez ajouter un module X91148A dans un emplacement de module vide de votr
 * Votre système doit exécuter ONTAP 9.8 et versions ultérieures.
 * Pour ajouter le module X91148A sans interruption, vous devez prendre le contrôle cible, retirer le cache de l'emplacement cible, ajouter le module, puis rendre le contrôleur cible.
 * Un ou plusieurs emplacements ouverts doivent être disponibles sur votre système.
-* Si plusieurs emplacements sont disponibles, installez le module conformément à la matrice de priorité des logements pour le module X91148A dans le Hardware Universe.
-+
-https://hwu.netapp.com["NetApp Hardware Universe"]
-
+* Si plusieurs emplacements sont disponibles, installez le module conformément à la matrice de priorité des emplacements pour le module X91148A dans le https://hwu.netapp.com["NetApp Hardware Universe"^].
 * Si vous ajoutez le module X91148A en tant que module de stockage, vous devez installer les logements de module 3 et/ou 7.
-* Si vous ajoutez le module X91148A en tant que carte réseau 100 GbE, vous pouvez utiliser n'importe quel emplacement ouvert. Cependant, par défaut, les emplacements 3 et 7 sont définis comme emplacements de stockage. Si vous souhaitez utiliser ces emplacements comme emplacements réseau et n'y ajouter pas de tiroirs NS224, vous devez modifier les emplacements pour une utilisation en réseau avec `storage port modify -node _node name_ -port _port name_ -mode network` commande. Voir le Hardware Universe pour d'autres emplacements pouvant être utilisés par le module X91148A pour la mise en réseau.
-+
-https://hwu.netapp.com["NetApp Hardware Universe"]
-
+* Si vous ajoutez le module X91148A en tant que carte réseau 100 GbE, vous pouvez utiliser n'importe quel emplacement ouvert. Cependant, par défaut, les emplacements 3 et 7 sont définis comme emplacements de stockage. Si vous souhaitez utiliser ces emplacements comme emplacements réseau et n'y ajouter pas de tiroirs NS224, vous devez modifier les emplacements pour une utilisation en réseau avec `storage port modify -node _node name_ -port _port name_ -mode network` commande. Voir la https://hwu.netapp.com["NetApp Hardware Universe"^] Pour les autres emplacements pouvant être utilisés par le module X91148A pour la mise en réseau.
 * Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
 
 
-
-
-== Option 1 : ajoutez un module X91148A en tant que module NIC dans un système doté de logements ouverts
-
+[role="tabbed-block"]
+====
+--
+.Option 1 : ajoutez un module X91148A en tant que module NIC
 Pour ajouter un module X91148A en tant que module NIC dans un système avec des emplacements ouverts, vous devez suivre la séquence spécifique des étapes.
 
 .Étapes
@@ -60,16 +54,19 @@ La connexion de la console indique que le nœud tombe dans l'invite DU CHARGEUR 
 
 
 . Branchez le module sur les commutateurs de données.
-. Redémarrer le contrôleur A : `boot_ontap`
+. Redémarrez le contrôleur A à partir de l'invite du CHARGEUR : `bye`
++
+
+NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+
 . Rétablissement du nœud depuis le nœud partenaire : `storage failover giveback -ofnode _target_node_name_`
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
 . Répétez ces étapes pour le contrôleur B.
 
 
-
-
-== Option 2 : ajoutez un module X91148A en tant que module de stockage dans un système doté de logements ouverts
-
+--
+.Option 2 : ajout d'un module X91148A en tant que module de stockage
+--
 Pour ajouter un module X91148A en tant que module de stockage dans un système avec des emplacements ouverts, vous devez suivre la séquence spécifique des étapes.
 
 * Cette procédure suppose que les logements 3 et/ou 7 sont ouverts.
@@ -101,9 +98,26 @@ La connexion de la console indique que le nœud tombe dans l'invite DU CHARGEUR 
 .. Si vous installez un deuxième module X91148A pour le stockage, répétez cette étape pour le module dans le logement 7.
 
 
-. Redémarrer le contrôleur A : `boot_ontap`
+. Redémarrer le contrôleur A :
++
+** Si le module de remplacement n'est pas du même modèle que l'ancien module, redémarrez le contrôleur BMC :
++
+... Dans l'invite DU CHARGEUR, passez en mode de privilège avancé : `set -privilege advanced`
+... Redémarrez le contrôleur BMC : `sp reboot`
+
+
+** Si le module de remplacement est identique à l'ancien module, démarrez à partir de l'invite du CHARGEUR : `bye`
++
+
+NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+
+
+
 . Rétablissement du nœud depuis le nœud partenaire : `storage failover giveback -ofnode target_node_name`
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
 . Répétez ces étapes pour le contrôleur B.
-. Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud : étagères NS224"].
+. Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf.html["Ajout à chaud : étagères NS224"^].
 
+
+--
+====
