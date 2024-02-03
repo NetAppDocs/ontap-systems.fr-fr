@@ -4490,7 +4490,6 @@
   <block id="8555f8973ccc4539a56ac495380c89d5" category="inline-link">Retrait des cartes de montage vides du module de contrôleur de remplacement</block>
   <block id="d5e62cab20ddc280f38e9a81562855fc" category="paragraph"><block ref="d5e62cab20ddc280f38e9a81562855fc" category="inline-link-rx"></block></block>
   <block id="b8f99a879bdae690f650b2171355b5bb" category="image-alt">drw 8300 retirer la rehausse vide</block>
-  <block id="ae17f8ad6d4ad0752e9da66715863b23" category="paragraph">Vous pouvez utiliser les animations et illustrations suivantes. Ou les étapes écrites pour déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.</block>
   <block id="6976de191bb895bccff42aea7f5ef312" category="section-title">Étape 6 : déplacer les modules de cache</block>
   <block id="1e6c27613480cee2fca639b93121fd62" category="paragraph">Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer les modules de cache vers le nouveau module de contrôleur.</block>
   <block id="1d3cf3e64d50da3c959f6c6aefc86da4" category="video-title">Animation : déplacez les modules de cache</block>
@@ -8792,4 +8791,9 @@ SFP+ (cible/initiateur)</block>
   <block id="f0770a756304b05e8fc4f321e0babe43" category="open-title">Option 2 : ajout d'un module X91148A en tant que module de stockage</block>
   <block id="9e41ec46d0af5ba1b01d8b3bde9b4f52" category="list-text">Si vous ajoutez un module X91148A en tant que module de stockage dans les logements 3 et/ou 7 dans un emplacement doté d'un module NIC existant, utilisez System Manager pour migrer définitivement les LIF vers différents ports d'accueil, comme décrit dans la section<block ref="8a81e44d8701c7e0abd4b6ad328792f0" category="inline-link-rx"></block>.</block>
   <block id="c81f78014b983d44adbb454f838c2ae9" category="list-text">Installez et connectez les câbles de vos étagères NS224, comme indiqué dans la section<block ref="a84558faf7b836b9db418a291f2462b5" category="inline-link-rx"></block>.</block>
+  <block id="68439e6a6b3d21f29b1f4c3391b0fc9d" category="admonition">Le module de contrôleur ver2 n'a qu'un seul support de module de cache (emplacement 6) dans le FAS8300. Le modèle FAS8700 ne dispose pas d'un module de contrôleur VER2. La fonctionnalité du module de cache n'est pas affectée par le retrait du socket.</block>
+  <block id="c70a0b227334f67f05309732ae67641e" category="paragraph">Vous pouvez utiliser les animations, illustrations, la carte de FOURRURES du système ou les étapes écrites suivantes pour déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur défectueux vers le module de contrôleur de remplacement.</block>
+  <block id="e0b36bb653f20c62f1b87229ea86e61e" category="admonition">Il n'est pas nécessaire de retirer les cartes PCIe des cartes de montage. Transférez les cartes de montage, avec les cartes PCIe toujours installées, vers le module de contrôleur de remplacement.</block>
+  <block id="569455efa28fef99f37a55bfd832334e" category="admonition">Le module de contrôleur ver2 ne dispose que d'un seul support de module de cache dans le FAS8300. Le modèle FAS8700 ne dispose pas d'un module de contrôleur VER2. La fonctionnalité du module de cache n'est pas affectée par le retrait du socket.</block>
+  <block id="f30c92bb3a7434fbf14bd27327ab95f7" category="admonition">Le slot 6 est uniquement disponible dans le contrôleur FAS8300 VER2.</block>
 </blocks>

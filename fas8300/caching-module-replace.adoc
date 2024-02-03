@@ -13,6 +13,9 @@ summary: 'Vous devez remplacer le module de cache du module de contrôleur lorsq
 [role="lead"]
 Vous devez remplacer le module de cache du module de contrôleur lorsque votre système enregistre un message AutoSupport (ASUP) unique que le module a mis hors ligne. Dans le cas contraire, les performances s'en trouvent affectées.
 
+
+NOTE: Le module de contrôleur ver2 ne dispose que d'un seul support de module de cache dans le FAS8300. Le modèle FAS8700 ne dispose pas d'un module de contrôleur VER2. La fonctionnalité du module de cache n'est pas affectée par le retrait du socket.
+
 * Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
 
@@ -213,6 +216,9 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 == Étape 3 : remplacer un module de cache
 
 Pour remplacer un module de mise en cache, appelé Flash cache sur l'étiquette de votre contrôleur, recherchez le slot dans le contrôleur et suivez la séquence d'étapes spécifiques. Reportez-vous au mappage des FRU sur le module de contrôleur pour connaître l'emplacement de Flash cache.
+
+
+NOTE: Le slot 6 est uniquement disponible dans le contrôleur FAS8300 VER2.
 
 Votre système de stockage doit répondre à certains critères en fonction de votre situation :
 

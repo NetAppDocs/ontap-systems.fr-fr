@@ -14,6 +14,9 @@ summary: Pour remplacer le matériel du module de contrôleur, vous devez retire
 Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance.
 
 
+NOTE: Le module de contrôleur ver2 n'a qu'un seul support de module de cache (emplacement 6) dans le FAS8300. Le modèle FAS8700 ne dispose pas d'un module de contrôleur VER2. La fonctionnalité du module de cache n'est pas affectée par le retrait du socket.
+
+
 
 == Étape 1 : retirer le module de contrôleur
 
@@ -156,7 +159,10 @@ Si nécessaire, retirez le support de démarrage et réinstallez-le dans le supp
 
 Dans le cadre du processus de remplacement du contrôleur, vous devez déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
 
-Vous pouvez utiliser les animations et illustrations suivantes. Ou les étapes écrites pour déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+Vous pouvez utiliser les animations, illustrations, la carte de FOURRURES du système ou les étapes écrites suivantes pour déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur défectueux vers le module de contrôleur de remplacement.
+
+
+NOTE: Il n'est pas nécessaire de retirer les cartes PCIe des cartes de montage. Transférez les cartes de montage, avec les cartes PCIe toujours installées, vers le module de contrôleur de remplacement.
 
 Déplacement des cartes de montage PCIe 1 et 2 (redresseurs gauche et central) :
 
@@ -202,6 +208,9 @@ La carte de montage se soulève légèrement du module de contrôleur.
 == Étape 6 : déplacer les modules de cache
 
 Vous devez déplacer les modules de cache des modules de contrôleur douteux vers le module de contrôleur de remplacement lors du remplacement d'un module de contrôleur.
+
+
+NOTE: Le module de contrôleur ver2 ne dispose que d'un seul support de module de cache dans le FAS8300. Le modèle FAS8700 ne dispose pas d'un module de contrôleur VER2. La fonctionnalité du module de cache n'est pas affectée par le retrait du socket.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer les modules de cache vers le nouveau module de contrôleur.
 
