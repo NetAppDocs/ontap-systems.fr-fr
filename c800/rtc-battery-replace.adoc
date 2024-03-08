@@ -150,11 +150,13 @@ Tourner la conduite d'air vers les modules de ventilation
 
 
 
-== Étape 3 : retirez les cartes de montage PCIe
+== Étape 3 : remplacer la batterie RTC
 
-Vous devez retirer une ou plusieurs cartes de montage PCIe lors du remplacement de composants matériels spécifiques dans le module de contrôleur.
-
-. Retirez la carte de montage PCIe du module de contrôleur :
+[role="tabbed-block"]
+====
+.Contrôleur d'origine
+--
+. Retirez la carte de montage PCIe 2 (carte de montage centrale) du module de contrôleur :
 +
 .. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
 .. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers les modules de ventilateur.
@@ -182,14 +184,6 @@ Loquet de verrouillage de la rehausse 2 (rehausse centrale)
 
 |===
 
-
-
-
-
-
-== Étape 4 : remplacer la batterie RTC
-
-Pour remplacer la batterie RTC, la placer à l'intérieur du contrôleur et suivre l'ordre des étapes.
 
 . Localisez la batterie RTC sous la rehausse 2.
 +
@@ -226,14 +220,6 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 . Retirez la batterie de rechange du sac d'expédition antistatique.
 . Notez la polarité de la batterie RTC, puis insérez-la dans le support en inclinant la batterie et en la poussant vers le bas.
 . Inspectez visuellement la batterie pour vous assurer qu'elle est complètement installée dans le support et que la polarité est correcte.
-
-
-
-
-== Étape 5 : installez les cartes de montage PCIe
-
-Vous réinstallez les cartes de montage PCIe après avoir remplacé les composants matériels du contrôleur douteux.
-
 . Installez la carte de montage dans le module de contrôleur :
 +
 .. Alignez la lèvre de la carte de montage avec la partie inférieure de la tôle du module de contrôleur.
@@ -247,9 +233,44 @@ Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de
 
 
 
+--
+.Contrôleur VER2
+--
+. Localisez la batterie RTC près des modules DIMM.
++
+image::../media/drw_a800_rtc_battery_replace_v2.png[remplacement de la batterie rtc du drw a800 v2]
+
++
+[cols="1,4"]
+|===
 
 
-== Étape 6 : réinstaller le module de contrôleur et régler l'heure/la date après le remplacement de la batterie RTC
+ a| 
+image:../media/legend_icon_01.png[""]
+| Conduit d'air 
+
+
+ a| 
+image:../media/legend_icon_02.png[""]
+ a| 
+Batterie RTC et boîtier
+
+|===
+. Poussez doucement la batterie hors du support, faites-la pivoter pour l'éloigner du support, puis retirez-la du support.
++
+
+NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La batterie est signalée par un signe plus et doit être correctement positionnée dans le support. Un signe plus près du support indique comment la batterie doit être positionnée.
+
+. Retirez la batterie de rechange du sac d'expédition antistatique.
+. Notez la polarité de la batterie RTC, puis insérez-la dans le support en inclinant la batterie et en la poussant vers le bas.
+. Inspectez visuellement la batterie pour vous assurer qu'elle est complètement installée dans le support et que la polarité est correcte.
+
+
+--
+====
+
+
+== Étape 4 : réinstallez le module de contrôleur
 
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
 
@@ -297,6 +318,6 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 
 
 
-== Étape 7 : renvoyer la pièce défaillante à NetApp
+== Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.
