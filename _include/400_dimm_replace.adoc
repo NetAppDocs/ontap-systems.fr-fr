@@ -21,7 +21,6 @@ Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropri�
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
-* Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID en suivant les instructions de la section link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/return-seds-unprotected-mode-task.html["Retour des disques SED en mode non protégé"].
 * Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) Pour la lame SCSI du contrôleur altérée. Le `cluster kernel-service show` commande affiche le nom du nœud, l'état quorum du nœud concerné, l'état de disponibilité de ce nœud et l'état opérationnel de ce nœud.
 +
 Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.

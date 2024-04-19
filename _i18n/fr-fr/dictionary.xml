@@ -6390,8 +6390,6 @@
   <block id="7d60346fb854755b0fc4b8486f2e5769" category="section-title">Étape 1 : installation des licences pour le _remplacement_ contrôleur dans ONTAP</block>
   <block id="541648f14089765ba6e8c3198be32507" category="section-title">Étape 2 : remplacer le support de démarrage</block>
   <block id="6fdf23777adc5b39f52f2829b69833e5" category="inline-link-macro">Synchroniser un nœud avec le cluster</block>
-  <block id="692418fcc9983296fd6b89b4072b99d2" category="inline-link-macro">Retour des disques SED en mode non protégé</block>
-  <block id="aa641c641cc4509747c629778ceba1e6" category="list-text">Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID en suivant les instructions de la section <block ref="deeaf76d485e47e462d03c774bc2ca5e" category="inline-link-macro-rx"></block>.</block>
   <block id="dca9d9d34ff973dbf261373e223aa9e4" category="list-text">Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement <block ref="090678c8ba0a25df800d3d4eeaf19522" prefix="(" category="inline-code"></block>) Pour la lame SCSI du contrôleur altérée. Le<block ref="090678c8ba0a25df800d3d4eeaf19522" prefix=" " category="inline-code"></block> commande affiche le nom du nœud, l'état quorum du nœud concerné, l'état de disponibilité de ce nœud et l'état opérationnel de ce nœud.</block>
   <block id="03733c422db2a03d86659ae5a1e923dc" category="paragraph">Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :<block ref="387708b955ccf034fcf9197ad51ba879" prefix=" " category="inline-code"></block></block>
   <block id="f1f0ba04096d04407de2d15a11510ac1" category="paragraph">Invite système ou invite de mot de passe</block>
@@ -7141,7 +7139,6 @@
   <block id="eba4465f65ac7360936f8f238b09999c" category="list-text">Câbles réseau supplémentaires pour connecter votre système à votre commutateur réseau et à votre ordinateur portable ou à votre console à l'aide d'un navigateur Web.</block>
   <block id="c7e4a9edbb9ec3bb0052efd3332763a3" category="section-title">Étape 3 : câblage des contrôleurs au cluster</block>
   <block id="089103029c56ad66034dfe6bd70cfdcb" category="paragraph">Utilisez l'animation ou les étapes tabulées pour terminer le câblage entre les contrôleurs et les commutateurs. Effectuez les étapes sur chaque contrôleur.</block>
-  <block id="38e134ad6d648c53626268f8b6a82510" category="list-text">Reliez les ports d'interconnexion de cluster e0c à e0c et e0d à e0 à l'aide du câble d'interconnexion de cluster 25 GbE<block ref="6b6a40b68f5814cad1750bfff7e3b927" category="inline-image-macro-rx" type="image"></block>:</block>
   <block id="5d8d8fe980b572286e75db6ff18d3cbc" category="paragraph"><block ref="5d8d8fe980b572286e75db6ff18d3cbc" category="inline-image-macro-rx" type="image"></block></block>
   <block id="84e68180cd83b83ca12149fed857f1ac" category="list-text">Reliez les ports d'interconnexion de cluster e0c et e0d aux commutateurs d'interconnexion de cluster 25 GbE.</block>
   <block id="ee3f9d0ec20204c7d48b52d859e31c4d" category="paragraph"><block ref="ee3f9d0ec20204c7d48b52d859e31c4d" category="inline-image-macro-rx" type="image"></block></block>
@@ -7751,7 +7748,6 @@ SFP+ (cible/initiateur)</block>
   <block id="fbc33e94068f7206fe1f29c2cdd767fe" category="paragraph">Une carte mezzanine est une carte d'extension conçue pour être insérée dans un emplacement spécialisé de la carte mère.</block>
   <block id="e8bc49790ccdd5f485eb537cc7b3081d" category="summary">Vous devez vérifier l'état HA du châssis et renvoyer la pièce défectueuse à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.</block>
   <block id="9260991b91fdf449af1f97b5d09a9db6" category="summary">Les tiroirs NS224 et SAS sont spécialement conçus pour les systèmes NetApp AFF et FAS afin de répondre aux divers besoins de votre entreprise et de vos applications.</block>
-  <block id="0add3a06a3c8079fac5caa294ad21965" category="doc">Tiroirs disques pour les systèmes AFF et FAS</block>
   <block id="4de4b37af472f8b6bb5aa5b5732538f0" category="summary">Entretenir le matériel ASA C250</block>
   <block id="80b77aae28ed3360a8b704371f5188e1" category="doc">Entretenir le matériel AFF C250</block>
   <block id="ab253cf54adf6fdbb65cbb0ed70cb2cf" category="paragraph">Pour le système de stockage AFF C250, vous pouvez effectuer des procédures de maintenance sur les composants suivants.</block>
@@ -8792,4 +8788,8 @@ SFP+ (cible/initiateur)</block>
   <block id="4169d3d04b863ba6044225d783c8511c" category="paragraph">Utilisez le <block ref="760faf2edba83a3b2dfe198c423cd5ec" category="inline-link-macro-rx"></block> Si vous connaissez déjà l'installation des systèmes NetApp,</block>
   <block id="230fb764922530d0d527b96fb40d15f8" category="paragraph"><block ref="230fb764922530d0d527b96fb40d15f8" category="inline-link-macro-rx"></block></block>
   <block id="9e4682a37df843156979b712e93e942d" category="paragraph"><block ref="9e4682a37df843156979b712e93e942d" category="inline-link-macro-rx"></block></block>
+  <block id="370d65afeef540ea21d331a7da8675ec" category="list-text">Reliez les ports d'interconnexion de cluster e0c à e0c et e0d à e0d à l'aide de câbles d'interconnexion de cluster 25 GbE.</block>
+  <block id="45c0f160ca0efa09fc0b198986db5e31" category="image-alt">câblage de l'interrupteur de la pince drw affa250</block>
+  <block id="5407ed45e4a9085a4f72a4611d202d7c" category="sidebar">Les tiroirs NS224 et les tiroirs SAS de NetApp vous aident à obtenir les performances, la résilience et la flexibilité dont vous avez besoin pour votre transformation digitale.</block>
+  <block id="432ba2d883505b11fa27f305c25abca9" category="sidebar">Tiroirs disques pour les systèmes matériels ONTAP</block>
 </blocks>
