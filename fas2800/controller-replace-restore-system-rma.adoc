@@ -44,26 +44,7 @@ NOTE: Les nouvelles clés de licence dont vous avez besoin sont générées auto
 
 
 
-== Étape 2 : restaurez les fonctionnalités de chiffrement du volume et du stockage
-
-Pour les systèmes de stockage que vous avez déjà configurés pour utiliser le chiffrement du stockage ou des volumes, vous devez effectuer des étapes supplémentaires pour assurer une fonctionnalité de chiffrement sans interruption. Vous pouvez ignorer cette tâche sur les systèmes de stockage sur lesquels le chiffrement du volume ou du stockage n'est pas activé.
-
-
-NOTE: Cette étape n'est pas requise lors du remplacement d'un module DIMM.
-
-.Étapes
-. Choisissez l'une des procédures suivantes selon que vous utilisez la gestion intégrée ou externe des clés :
-+
-** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Restaurez les clés de chiffrement intégrées de gestion des clés"^]
-** https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Restaurez les clés de chiffrement externes pour la gestion des clés"^]
-
-
-. Réinitialisez le MSID SED
-
-
-
-
-== Étape 3 : vérifier les LIFs et enregistrer le numéro de série
+== Étape 2 : vérifier les LIF et enregistrer le numéro de série
 
 Avant de renvoyer le _replace_ node au service, vérifiez que les LIF se trouvent sur leurs ports de rattachement, puis enregistrez le numéro de série du _replace_ node si AutoSupport est activé et réinitialisez le rétablissement automatique.
 
@@ -84,6 +65,6 @@ Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de hom
 
 
 
-== Étape 4 : renvoyer la pièce défaillante à NetApp
+== Étape 3 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.

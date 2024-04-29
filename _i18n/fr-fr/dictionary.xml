@@ -182,7 +182,6 @@
   <block id="6d21dbcd6d30fc2426dd0b077d719da5" category="summary">Avant d'arrêter le contrôleur douteux et de vérifier le statut des clés de cryptage intégrées, vous devez vérifier le statut de ce contrôleur, désactiver le giveback automatique et vérifier quelle version de ONTAP le système fonctionne.</block>
   <block id="120d4b04cada3ad4213234c2437fb645" category="doc">Vérifiez les clés de chiffrement intégrées - FAS2600</block>
   <block id="d1614290531967ae3b3623d71b4ed961" category="paragraph">Avant d'arrêter le contrôleur douteux et de vérifier le statut des clés de cryptage intégrées, vous devez vérifier le statut de ce contrôleur, désactiver le giveback automatique et vérifier la version de ONTAP en cours d'exécution.</block>
-  <block id="518d2076bf387a28038f7558530bb987" category="inline-link-macro">Présentation du chiffrement NetApp avec l'interface de ligne de commande</block>
   <block id="6d4079af860d745f44d13bfe9834115d" category="list-text">Vérifier l'état du contrôleur détérioré :</block>
   <block id="6f0786e478994e04512bb55e945ab79c" category="list-text">Si le contrôleur douteux se trouve à l'invite de connexion, connectez-vous en tant que<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block>.</block>
   <block id="1f543f99cb43496b3a35f9786089c979" category="list-text">Si le contrôleur associé est au niveau de l'invite DU CHARGEUR et qu'il fait partie de la configuration HA, connectez-vous en tant que<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block> sur le contrôleur sain.</block>
@@ -571,7 +570,6 @@
   <block id="a0f829e8eae692ba3841ace71f629760" category="list-text">Assurez-vous que les variables environnementales sont définies comme prévu :</block>
   <block id="324e677465a3eca81c578dca79975d76" category="list-text">Prenez le contrôleur vers l'invite DU CHARGEUR.</block>
   <block id="eeed9c2f829091b08810156d7ed4433e" category="list-text">Vérifiez les paramètres de la variable d'environnement à l'aide de l'<block ref="d3bc32150d1d972afca2cd16da79c694" prefix=" " category="inline-code"></block> commande.</block>
-  <block id="30748b1b116d9335e2b8cdb6ec3038d0" category="list-text">Si une variable d'environnement n'est pas définie comme prévu, modifiez-la avec le<block ref="c9518832c08f9faecfc35f8473eb7398" prefix=" " category="inline-code"></block> commande.</block>
   <block id="414efa7edc26a4a7b5a28ac4965ea178" category="list-text">Enregistrez vos modifications à l'aide du<block ref="8d7578ebf6b1d6483a876337d887a337" prefix=" " category="inline-code"></block> commande.</block>
   <block id="b9eb862c5caa1201eee15d474b3217ef" category="list-text">Le suivant dépend de la configuration de votre système :</block>
   <block id="7a7b698215037ec83cf3c3bc1f775001" category="inline-xref-macro">OKM, NSE et NVE si besoin</block>
@@ -3509,7 +3507,6 @@
   <block id="d48c73102976c851dd07cb5e9103a138" category="doc">Remplacement d'une carte PCIe - FAS8200</block>
   <block id="b829b8b1be5636c7bcd3a7828593e11e" category="open-title">Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds</block>
   <block id="0c2cb7a10e04116783dbfedc59540a50" category="paragraph">Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.</block>
-  <block id="063a6c27f42a062a6ece0163f4444fc3" category="list-text">Si vous utilisez NetApp Storage Encryption, vous devez avoir réinitialisé le MSID à l'aide des instructions de la section « Return a FIPS drive or SED to Unprotected mode » de <block ref="bb6c6af86c0c41920e9753bb15981800" category="inline-link-macro-rx"></block>.</block>
   <block id="230cc8b63d72a2bf47b7c87ead7ab0b8" category="list-text">Vous devez laisser les alimentations allumées à l'issue de cette procédure pour fournir une alimentation au contrôleur en état.</block>
   <block id="eec0e5f9d553c7b70402acd4568f1ec7" category="list-text">Vérifiez l'état du contrôleur MetroCluster pour déterminer si le contrôleur défectueux a automatiquement basculé sur le contrôleur en bon état :<block ref="0d51371cbb850772d2130a36f4368df4" prefix=" " category="inline-code"></block></block>
   <block id="a4d3e0e884bda08238ebcf294cd22173" category="list-text">Selon qu'un basculement automatique s'est produit, suivre le tableau suivant :</block>
@@ -3727,7 +3724,6 @@
   <block id="1e2a0fcc2986a119062540d6a8a9681f" category="inline-link">Recherchez le Guide de configuration haute disponibilité de votre version de ONTAP 9</block>
   <block id="8761710e49b8b20d4b6cc2adb064a0b2" category="paragraph"><block ref="8761710e49b8b20d4b6cc2adb064a0b2" category="inline-link-rx"></block></block>
   <block id="a5d68caf62cce2afa4e8ca12ce07943a" category="open-title">Option 2 : réattribuer un ID (configuration MetroCluster)</block>
-  <block id="3bf4c288b20a882f54f61cd8cb0618a7" category="section-title">Étape 6 : restauration de la fonctionnalité de cryptage du stockage et du volume</block>
   <block id="4991af82e8fdfcd13eef2c656f16d4c4" category="doc">Arrêtez le contrôleur défaillant</block>
   <block id="6444f932b3d3398ef847475f65dde87a" category="paragraph">Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.</block>
   <block id="68f1a7b941dc9e6a48709297bda51c0f" category="doc">Présentation de l'ajout d'un module X91148A - AFF A9000</block>
@@ -5942,7 +5938,6 @@
   <block id="fc86636cc733253cec13dbbddcd9f251" category="list-text">Appuyez sur<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à redémarrer le contrôleur douteux.</block>
   <block id="35e25520eae4191769a5f17749607c22" category="list-text">Prenez le contrôleur pour facultés affaiblies jusqu'à l'invite DU CHARGEUR.</block>
   <block id="2ddd54a208744ec5e2ccb1b7ac83aa05" category="list-text">Vérifiez les paramètres de la variable d'environnement à l'aide de la commande printenv.</block>
-  <block id="edb5a1f64879356169f323de78b718be" category="list-text">Si une variable d'environnement n'est pas définie comme prévu, modifiez-la à l'aide de la commande setenvEnvironment_variable_name changed_value.</block>
   <block id="eeacd9b31ab0c2f60f1d13e5632f7f13" category="list-text">Enregistrez vos modifications à l'aide de la commande saveenv.</block>
   <block id="b52d8d1d987722da12d16df8a0a63541" category="list-text">Dans l'invite DU CHARGEUR, entrez la commande boot_ontap.</block>
   <block id="5d5be5511db4bca75b01ab22c4adf4ce" category="list-text">Vérifiez que la cible est prête pour le rétablissement avec le<block ref="ddf400f1cb6b8b9330ed6c79c508123c" prefix=" " category="inline-code"></block> commande.</block>
@@ -6441,12 +6436,6 @@
   <block id="1422875ceb77c2edc7c07474b11b3c6f" category="list-text">Ouvrir le conduit d'air du module de contrôleur :</block>
   <block id="43ae4ee714a69574b12c2b05c54410b5" category="list-text">Appuyez sur le bouton de déverrouillage en terre cuite de la poignée du module, puis faites glisser le module DCPM hors du châssis.</block>
   <block id="0721343ac8e5e32a5122775fda62e4d0" category="doc">Restaurez et vérifiez la configuration - AFF A900</block>
-  <block id="2c35abfceaabbce6e9a2f24491d249c0" category="open-title">Option 1 : utilisation du gestionnaire de clés intégré</block>
-  <block id="86b112e5aa1ced4fbffb09dded147e9f" category="list-text">Démarrez le nœud sur le menu de démarrage.</block>
-  <block id="e07ae2ef2fbd56f8a3ced5a2ab602ded" category="list-text">Sélectionnez l'option 10,<block ref="cdca34dc3d7defb03d741a65d78de01c" prefix=" " category="inline-code"></block>.</block>
-  <block id="0a2404583aab34668c1c8004bddabbaa" category="list-text">Sélectionnez l'option 1,<block ref="e6922a1788401c5ef431db829a2c387b" prefix=" " category="inline-code"></block></block>
-  <block id="c566d4828cd295258aa8097a90880602" category="open-title">Option 2 : utilisation du gestionnaire externe</block>
-  <block id="0a05a9975c9259ea331a85366e41d3ce" category="list-text">Sélectionnez l'option 11,<block ref="0dd518498ab98fe1fd543910856e6153" prefix=" " category="inline-code"></block>.</block>
   <block id="a5462faa34b6cf806cb49f24d84b02a7" category="list-text">Si votre système est configuré pour prendre en charge l'interconnexion de cluster 10 GbE et les connexions de données sur les cartes réseau 40 GbE, convertissez ces ports en connexions 10 GbE à l'aide de la commande nicadmin convert en mode maintenance. Voir<block ref="2d808a662d9493bde97b50913a25a294" category="inline-link-rx"></block> pour en savoir plus.</block>
   <block id="c56809d9cff2ea190c6fb9d67e804b42" category="paragraph">Vous devez retirer les six modules de ventilation, situés à l'avant du châssis, lors du remplacement du châssis.</block>
   <block id="e9e9a6de5e421dfe8a5ccc0b156ecc94" category="admonition">Si les étiquettes de port de la carte ne sont pas visibles, vérifiez l'orientation de l'installation de la carte (le connecteur PCIe se trouve sur le côté gauche de l'emplacement de carte dans les A400 et FAS8300/8700), puis recherchez la carte, puis recherchez la carte, par numéro de pièce, dans le<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour obtenir un graphique du panneau indiquant les étiquettes des ports. Le numéro de référence de la carte se trouve à l'aide du<block ref="432345ed72f5509f18312f01d4f08dff" prefix=" " category="inline-code"></block> ou sur la liste d'emballage du système.</block>
@@ -6462,17 +6451,6 @@
   <block id="192e7ded6d54e3ac04596dc33b9c67cf" category="paragraph">Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système.</block>
   <block id="741ade379895992f2a574e8e60de1571" category="section-title">Étape 2 : ajout de modules d'E/S.</block>
   <block id="31ac56c0f673cbef254563f6a8a32626" category="paragraph">Si votre système est entièrement rempli, vous pouvez changer un module d'E/S dans un slot d'E/S en retirant un module d'E/S existant et en le remplaçant par un autre module d'E/S.</block>
-  <block id="74458273e576f4b2da617a6e0e209a5f" category="paragraph">Si le chiffrement du stockage est activé, suivez la procédure appropriée.</block>
-  <block id="23620cc2fa7491aefb480afbef75dac2" category="list-text">Saisissez la phrase de passe du gestionnaire de clés intégré que vous avez obtenue du client.</block>
-  <block id="15247f97704eb964c60d179c321c1370" category="list-text">À l'invite, collez les données de la clé de sauvegarde à partir de la sortie de<block ref="6b6f6c1a8bc1fede794cda92ed140953" prefix=" " category="inline-code"></block> OU<block ref="32ba7af89b7557f6e3e6d80a922080ce" prefix=" " category="inline-code"></block> commande.</block>
-  <block id="8726b2ef66dc0e734b269a3191597e11" category="paragraph">--------------------------- COMMENCER LA SAUVEGARDE------------------------------------------------------</block>
-  <block id="328f6eaec3741c1d0f9558d6c40c1da4" category="paragraph">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADuD+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAA QAAAAAAAAAAAAAAAASAA QAAAASAA 1AAAAAMHAAAAMHAAASAA+AAAAAAAAAAAAAAAAAAAAASAA 1AAAAMHAAASAYLAAASAA 1AAAAMHAAAAMHAAASAYLAAASAA 1AAASAA 1AAASAYLAMHAAASAA 1AAASAA . . . H4nPQM0nrDRYRa9SCv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</block>
-  <block id="1e4d7cab6ce42bcab6973efa42fc0b2c" category="list-text">Exécutez la synchronisation intégrée du gestionnaire de clés de sécurité :</block>
-  <block id="377fca3965b001b9bcc8843e1b287fe7" category="list-text">Réinitialisez le MSID s'il a été défini précédemment et a été capturé au début de cette procédure :</block>
-  <block id="a967d40ef247a202e5f1ce7a9626a0ca" category="list-text">Attribuez une clé d'authentification de données à un lecteur FIPS ou SED à l'aide du<block ref="8fc59e93e98503b6d1b1230269b06192" prefix=" " category="inline-code"></block> commande.</block>
-  <block id="551eb7af7cdc6ae3394d506bd47a783d" category="admonition">Vous pouvez utiliser le<block ref="eb3cf23f0c9c60ca759ddca34bbfbf56" prefix=" " category="inline-code"></block> Commande permettant d'afficher les ID de clés.</block>
-  <block id="6f44d6d36af2c0294f4e53a2e6947b94" category="list-text">Vérifiez que les clés d'authentification ont été attribuées à l'aide du<block ref="46353f4e0bb2c136591c37c9eeedcf40" prefix=" " category="inline-code"></block> commande.</block>
-  <block id="960bc5d7d199e0e148cd3dd0e517250d" category="list-text">Entrez les informations du certificat de gestion aux invites.</block>
   <block id="037baf09c7ddcc7c38f81e7dbe35fa87" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système en ajoutant un nouveau module d'E/S à un système doté de slots vides ou en remplaçant un module d'E/S par un nouveau dans un système entièrement rempli.</block>
   <block id="55f1569cdcfb82612fcf293f23db4f6f" category="list-text">Vérifier le<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block> Pour vérifier que le nouveau module d'E/S est compatible avec votre système et la version de ONTAP que vous utilisez.</block>
   <block id="6e4968851f4373ab9764e16cffb39389" category="list-text">Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block> Et utiliser la meilleure solution disponible pour votre module d'E/S.</block>
@@ -6496,9 +6474,6 @@
   <block id="85445cdcf89edd32e9cf4cb8554898a3" category="image-alt">drw A400 remplacer NVDIMM IOPS 1009</block>
   <block id="f5a5a95a5282486c3989ed932401b693" category="image-alt">drw A900 câble console contrôleur de commutateur IEOPS 953</block>
   <block id="0ea0d47e034118a7f063c35eaf67ebd2" category="list-text">Si le chiffrement du stockage est activé, vous devez restaurer la fonctionnalité.</block>
-  <block id="718ea359d9cc2d2bff619909d16ec537" category="admonition">Le contrôleur revient au menu de démarrage.</block>
-  <block id="a9cbabd3f42c5ad7f4796dbf5e384b08" category="list-text">Démarrez le contrôleur dans le menu de démarrage.</block>
-  <block id="1e37c9a4ea44b0a302091f02c74564c1" category="admonition">Une fois les informations du certificat de gestion terminées, le contrôleur revient au menu de démarrage.</block>
   <block id="34dbbed571bcfe30f4b9897172116b74" category="list-text">Pour câbler votre espace de stockage, reportez-vous à la section <block ref="4261ea2b75c295a1978f7924667f1c11" category="inline-xref-macro-rx"></block></block>
   <block id="90d49fcc83418b049803a1b2081f3c6b" category="list-text">Pour terminer la configuration de votre système, reportez-vous à la section <block ref="53346fef0c147b551f530d05bbad2e41" category="inline-xref-macro-rx"></block></block>
   <block id="14fa1a86493af188cbb574d402b31f1b" category="list-text">Revenir à <block ref="c67cdb63ab5b46180d9910dcb0f03689" category="inline-xref-macro-rx"></block> Dans cette procédure, vérifier à nouveau la LED NVMEM.</block>
@@ -7339,7 +7314,6 @@ ou<block ref="1d2c479b57949de891a15e148e1ebcf5" prefix=" " category="inline-code
   <block id="ab18556462377223339c421c568ab231" category="paragraph"><block ref="ab18556462377223339c421c568ab231" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6b6e58fb741960f0300c7783438276a5" category="paragraph">Languette de verrouillage du support de démarrage</block>
   <block id="fa8b2d8b91c1c89065d3652288dbddc1" category="list-text">Retirez la carte mezzanine à l'aide de l'illustration suivante ou du mappage FRU sur le module de contrôleur :</block>
-  <block id="c684d6ba7251084d87edf6423b1ebd24" category="list-text">Retirez le cadre de la carte mezzanine en le faisant glisser hors du module de contrôleur.</block>
   <block id="d62aede9e33b9cbeca49d6fcc6de78c2" category="list-text">Desserrez les vis à molette de la carte mezzanine.</block>
   <block id="db1a320c26dfcefe739a659ae4724890" category="admonition">Vous pouvez desserrer les vis moletées avec vos doigts ou un tournevis. Si vous utilisez vos doigts, vous devrez peut-être faire pivoter la batterie NV vers le haut pour obtenir un meilleur achat de doigts sur la vis à molette située à côté de celle-ci.</block>
   <block id="1a64138e0b66965c80b909462ba9543f" category="list-text">Soulevez la carte mezzanine.</block>
@@ -7350,7 +7324,6 @@ Vérifiez le support de démarrage pour vous assurer qu'il est correctement ins�
   <block id="d29b17eb668c51029bfa0626ffe7500f" category="list-text">Réinstallez la carte mezzanine :</block>
   <block id="834f618686de8125c24ea965ba281757" category="list-text">Alignez le connecteur de la carte mère avec le connecteur de la carte mezzanine, puis insérez doucement la carte dans le support.</block>
   <block id="361016e8b59dfa6e2e2f28d3e38835e1" category="list-text">Serrez les trois vis à molette de la carte mezzanine.</block>
-  <block id="31276a19caaffd6d8a485978edefcae8" category="list-text">Réinstallez le cadre de la mezzanine.</block>
   <block id="eef513f5198b93971d313eb80e4da6fb" category="list-text">Réinstallez le capot du module de contrôleur et verrouillez-le en place.</block>
   <block id="1aecc8a01c9fc90b26bed0f39865bc18" category="paragraph">Installez l'image système sur le support de démarrage de remplacement à l'aide d'une clé USB sur laquelle l'image est installée. Vous devez restaurer le système de fichiers var au cours de cette procédure.</block>
   <block id="4c10168d5e2592171ac54097149079b0" category="list-text">Vous devez disposer d'une clé USB, formatée en MBR/FAT32, d'une capacité minimale de 4 Go.</block>
@@ -7373,7 +7346,6 @@ Voir<block ref="087e4d006962c8ba6c4d8fdb71ff8e38" category="inline-link-rx"></bl
   <block id="cf6800eb49ae54456676c105c115a1fa" category="section-title">Étape 3 : remplacez la carte mezzanine</block>
   <block id="6918dd1d1ecfa7a18a047a925c4f30ee" category="paragraph">Remplacez la carte mezzanine.</block>
   <block id="808ce573561d6717a3c0cc395df3a504" category="image-alt">drw 2850 remplace HIC IEOPS 700</block>
-  <block id="b98f82c68dbd20395815986320582ec2" category="paragraph">Cadre de la carte de montage</block>
   <block id="83b54898f0ac014b1e217ee413643205" category="paragraph">Carte mezzanine PCIe</block>
   <block id="64016c063cf6b470fdcccc5a97f852b1" category="list-text">Desserrez les vis à molette de la carte mezzanine et soulevez la carte mezzanine.</block>
   <block id="4bca5310f65e82fe5c4eec2c7a1c6c17" category="list-text">Alignez le connecteur de la fiche de la carte mezzanine de remplacement sur le support de la carte mère, puis insérez doucement la carte dans le support.</block>
@@ -7383,8 +7355,6 @@ Voir<block ref="087e4d006962c8ba6c4d8fdb71ff8e38" category="inline-link-rx"></bl
   <block id="d32890221c5529cefc96a956073d9844" category="list-text">Restaurez le rétablissement automatique à l'aide de<block ref="6f0c6616b99fea33a3020e0e0dcbe3c6" prefix=" " category="inline-code"></block> commande.</block>
   <block id="e2306cfc3634594ca9e5483d541a9eb2" category="doc">Restauration complète du système - FAS2800</block>
   <block id="954e375575b9fbd9370aa08dd503d453" category="paragraph">Restaurez le fonctionnement complet de votre système en restaurant les configurations NetApp Storage Encryption ou Volume Encryption (si nécessaire) et en installant les licences pour le contrôleur de remplacement, puis en retournant la pièce défectueuse à NetApp, comme décrit dans les instructions RMA fournies avec le kit.</block>
-  <block id="ff3a1a304de699b15bd2a5a39798c5a8" category="section-title">Étape 2 : restaurez les fonctionnalités de chiffrement du volume et du stockage</block>
-  <block id="332c846459ecae57b885b30c41482384" category="section-title">Étape 3 : vérifier les LIFs et enregistrer le numéro de série</block>
   <block id="458c640b6a96cac4ef20be523ebb7f89" category="doc">Remplacez la batterie NVMEM - FAS2800</block>
   <block id="26e700524d9a1c0b6c28c8ad2d207679" category="section-title">Étape 2 : retirez et ouvrez le module de contrôleur</block>
   <block id="2a0805526339647b20ef0fc7df37dd6f" category="paragraph">Retirez et ouvrez le module de contrôleur.</block>
@@ -7420,8 +7390,6 @@ Installez la batterie de rechange :</block>
   <block id="2549b95d18de43d1c8602f07ed634585" category="list-text">Déplacez la batterie vers le module de contrôleur de remplacement et installez-la :</block>
   <block id="350a3cd01c92197375fa1dd80773199d" category="admonition">Ne branchez pas encore la batterie.  Vous le branchez une fois que les autres composants sont déplacés vers le module de contrôleur de remplacement.</block>
   <block id="ba9da6f2122b24c495dd034a4a5ec818" category="section-title">Étape 3 : retirez la carte mezzanine</block>
-  <block id="853a9f16e976ca6346fa38e81f8476a8" category="paragraph">Retirez le cadre de la carte mezzanine et la carte mezzanine PCIe du module de contrôleur défectueux.</block>
-  <block id="539df95ed4f8e5993f75e19be1a36f64" category="list-text">Retirez le cadre de la carte mezzanine en le faisant glisser hors du module de contrôleur.</block>
   <block id="7bb524aff91b85838c807523fc1e4828" category="admonition">Vous pouvez desserrer les vis moletées avec vos doigts ou un tournevis.</block>
   <block id="099cf7f6040f65b3c9d7fb3f7393d4c3" category="list-text">Soulevez la carte mezzanine et mettez-la de côté sur une surface antistatique.</block>
   <block id="3356d87e196ed94acd2635f8d405e53f" category="paragraph">Retirez le support de démarrage du module de contrôleur défectueux et installez-le dans le module de contrôleur de remplacement.</block>
@@ -7437,7 +7405,6 @@ Installez la batterie de rechange :</block>
   <block id="a00bf690f9db0be90ea5ab9cde9db677" category="paragraph">Installez la carte mezzanine dans le module de contrôleur de remplacement.</block>
   <block id="507e7243ab4a1d0bdbfa4edd5c9733d3" category="list-text">Alignez la carte mezzanine sur le support de la carte mère.</block>
   <block id="fc7fc35188ad3f7c32f3328839f4dff2" category="list-text">Poussez doucement la carte vers le bas pour la placer dans le support.</block>
-  <block id="803bc905348545eacfc8739f67ee6fc2" category="list-text">Réinstallez le cadre de la carte mezzanine.</block>
   <block id="ec782fd2b49f0e4d6edd263c0d30d7f7" category="paragraph">Retirez les modules DIMM du module de contrôleur défectueux et installez-les dans le module de contrôleur de remplacement.</block>
   <block id="64b66263e264f63be40a6135bb7e5f04" category="image-alt">drw 2850 remplacez les modules dimm IOPS 699</block>
   <block id="2a7c25f4f62d559672aaa2da18086b65" category="paragraph">Loquets de verrouillage DIMM</block>
@@ -8380,7 +8347,6 @@ SFP+ (cible/initiateur)</block>
   <block id="d5fe92183ddfd6502c92a350a2928047" category="list-text">e0b à e0b
 <block ref="23c439b7ef31021d610e4d3b988f3cd1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="10fbfa6320d8e7c72e731fbd9a6e6c69" category="admonition">La réaffectation de disque n'est nécessaire que lors du remplacement du module NVRAM et ne s'applique pas au remplacement du module DIMM NVRAM.</block>
-  <block id="099f7b942e4e89631784891716949599" category="admonition">Cette étape ne s'applique pas au remplacement du module DIMM NVRAM.</block>
   <block id="ce75c7b2bf3b15b7659cc85a9c36c6f8" category="admonition">Saisissez la phrase de passe alphanumérique de gestion des clés intégrée de 32 caractères du client à l'invite. Si cette phrase secrète ne peut pas être fournie, contactez le support NetApp.<block ref="28649c93049a329043d206ec7fa0c6f8" category="inline-link-rx"></block></block>
   <block id="2f061f16ff1dc3668b0b979718bcf140" category="paragraph">Saisissez la phrase de passe alphanumérique de gestion des clés intégrée de 32 caractères du client à l'invite. Si cette phrase secrète ne peut pas être fournie, contactez le support NetApp.</block>
   <block id="f44ae95a820a7e92672103acdefa1387" category="paragraph"><block ref="5e48dfc079c01fd7f817337abb01a320" prefix="" category="inline-code"></block></block>
@@ -8792,4 +8758,11 @@ SFP+ (cible/initiateur)</block>
   <block id="45c0f160ca0efa09fc0b198986db5e31" category="image-alt">câblage de l'interrupteur de la pince drw affa250</block>
   <block id="5407ed45e4a9085a4f72a4611d202d7c" category="sidebar">Les tiroirs NS224 et les tiroirs SAS de NetApp vous aident à obtenir les performances, la résilience et la flexibilité dont vous avez besoin pour votre transformation digitale.</block>
   <block id="432ba2d883505b11fa27f305c25abca9" category="sidebar">Tiroirs disques pour les systèmes matériels ONTAP</block>
+  <block id="4ab265d37ededf839a389d0b0bedcb7f" category="paragraph">30 cm</block>
+  <block id="70f83c59fcbb747c1a869b38caf783e3" category="list-text">Si une variable d'environnement n'est pas définie comme prévu, modifiez-la avec le<block ref="ac4028a4cb48838c0a22ab27fa6e6920" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="f0c3921d8aabdebf1548d35d830083d9" category="list-text">Retirez la plaque d'E/S en la faisant glisser hors du module de contrôleur.</block>
+  <block id="4dfabb2b4515ceefb323f4a3eb8d4a32" category="list-text">Réinstallez la plaque d'E/S.</block>
+  <block id="ed991b7c3c7e4af5c89a603772f54dd1" category="paragraph">Retirez la plaque d'E/S et la carte mezzanine PCIe du module de contrôleur défectueux.</block>
+  <block id="eeb8f13cb25825752e216fedcd65a6b1" category="paragraph">Plaque d'E/S.</block>
+  <block id="c746ae924024283281476c33315a4598" category="list-text">Retirez la plaque d'E/S en la faisant glisser hors du module de contrôleur.</block>
 </blocks>
