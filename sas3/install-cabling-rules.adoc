@@ -90,7 +90,7 @@ Par exemple, si des HBA SAS occupaient les connecteurs PCI physiques 3, 5 et 7, 
 Dans ce document, les logements et les ports de logement sont représentés comme suit :
 
 +
-image::../media/slot0_rules.png[règles slot0]
+image::../media/slot0_rules.png[slot et slot [congressions de port]
 
 
 
@@ -116,7 +116,7 @@ Du premier tiroir logique au dernier tiroir logique d'une pile, vous connectez l
 
 
 
-image::../media/drw_shelf_to_shelf_standard.gif[tablette drw à étagère standard]
+image::../media/drw_shelf_to_shelf_standard.gif[connectivité tiroir à tiroir standard]
 
 
 
@@ -132,7 +132,7 @@ Du premier tiroir logique au dernier tiroir logique d'une pile, vous connectez l
 
 
 
-image::../media/drw_shelf_to_shelf_double_wide.gif[tablette drw à tablette double largeur]
+image::../media/drw_shelf_to_shelf_double_wide.gif[connectivité tiroir à tiroir double largeur]
 
 
 
@@ -164,7 +164,7 @@ Le port 2 du module d'E/S est utilisé uniquement pour les configurations à qua
 
 L'illustration suivante montre comment les ports a et C du contrôleur se connectent dans une configuration haute disponibilité multivoie avec une carte HBA à quatre ports et deux piles de tiroirs disques. Les connexions à la pile 1 sont indiquées en bleu. Les connexions à la pile 2 sont indiquées en orange.
 
-image::../media/drw_controller_to_stack_rules_ports_a_and_c_example.gif[exemple de contrôleur drw pour empiler les ports de règles a et c]
+image::../media/drw_controller_to_stack_rules_ports_a_and_c_example.gif[Règles de connexion des ports des contrôleurs A et C pour les plates-formes sans stockage interne]
 
 
 
@@ -183,7 +183,7 @@ Le port 4 du module d'E/S est utilisé uniquement pour les configurations à qua
 
 L'illustration suivante montre comment les ports B et D du contrôleur se connectent dans une configuration haute disponibilité multivoie avec une carte HBA à quatre ports et deux piles de tiroirs disques. Les connexions à la pile 1 sont indiquées en bleu. Les connexions à la pile 2 sont indiquées en orange.
 
-image::../media/drw_controller_to_stack_rules_ports_b_and_d_example.gif[contrôleur drw pour empiler les ports b et d exemple]
+image::../media/drw_controller_to_stack_rules_ports_b_and_d_example.gif[Règles de connexion des ports des contrôleurs B et D pour les plates-formes sans stockage interne]
 
 
 
@@ -211,7 +211,7 @@ Par exemple : 1b, 2b, 3b, 1D, 2d, 3d
 
 .. Réécrire la liste des ports D et B de sorte que le premier port de la liste soit déplacé à la fin de la liste.
 +
-Par exemple : image:../media/drw_gen_sas_cable_step2.png[""]
+Par exemple : image:../media/drw_gen_sas_cable_step2.png["Réécrivez la liste des ports D et B."]
 
 +
 Le décalage de l'ordre des connecteurs par un équilibre les paires de ports sur plusieurs emplacements (emplacements PCI physiques et connecteurs intégrés) lorsque plusieurs emplacements de ports SAS sont disponibles, ce qui empêche le câblage d'une pile vers une seule carte HBA SAS.
@@ -240,7 +240,7 @@ Par exemple, si vous avez identifié six paires de ports pour votre système et 
 Par exemple, si vous avez identifié six paires de ports pour votre système et que vous disposez de trois piles à connecter comme chemins d'accès multiples, vous connectez les deux autres paires de ports de votre liste :
 
 +
-image::../media/drw_portpair_connection_rules_list_skip.gif[ignorer la liste des règles de connexion de portpair drw]
+image::../media/drw_portpair_connection_rules_list_skip.gif[option pour ignorer les paires de ports]
 
 +
 
@@ -290,7 +290,7 @@ NOTE: Si vous ne connectez pas le port 0b/0b1 au domaine approprié (domaines à
 
 L'illustration suivante met en évidence la connectivité de domaine du port de stockage interne (0b/0b1) à une pile de tiroirs externe :
 
-image::../media/drw_fas2600_mpha_domain_example_IEOPS-1172.svg[exemple de domaine mpha drw fas2600 IEOPS 1172]
+image::../media/drw_fas2600_mpha_domain_example_IEOPS-1172.svg[connectivité de domaine du port de stockage interne 0b/0b1]
 
 
 
@@ -307,7 +307,7 @@ Les ports 0a et 0b1 sont câblés sur les deux contrôleurs en l'absence de tiro
 
 La figure suivante présente les connexions internes et le câblage externe du contrôleur permettant une connectivité haute disponibilité à trois chemins :
 
-image::../media/drw_fas2800_concept_tpha_IEOPS-950.svg[drw fas2800 concept tpha IEOPS 950]
+image::../media/drw_fas2800_concept_tpha_IEOPS-950.svg[Connectivité haute disponibilité à trois chemins d'accès]
 
 Ports SAS externes FAS2800 :
 
@@ -316,7 +316,7 @@ Ports SAS externes FAS2800 :
 * Le port 0b2 n'est pas utilisé. Il est désactivé. Si un câble y est connecté, un message d'erreur est généré.
 
 
-image::../media/drw_sas3_ports_on_fas2800_IEOPS-946 (1).svg[drw sas3 ports sur fas2800 IEOPS 946 (1)]
+image::../media/drw-sas3-ports-on-fas2800.svg[drw sas3 ports sur fas2800]
 
 Des exemples de câblage de paires haute disponibilité FAS2800 sont disponibles dans le link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes avec stockage interne"] section.
 
