@@ -62,7 +62,7 @@ X6566B-05-R6 (112-00297), 0,5 m
 
 X6566B-2-R6 (112-00299), 2 m
  a| 
-image:../media/oie_cable_sfp_gbe_copper.png[""]
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
  a| 
 Réseau d'interconnexion de cluster
 
@@ -103,7 +103,7 @@ X6585-R6 (112-00291), 3 m
 
 X6562-R6 (112-00196), 5 m
  a| 
-image:../media/oie_cable_rj45.png[""]
+image:../media/oie_cable_rj45.png["Connecteur de câble RJ-45"]
  a| 
 Réseau d'hôte et de gestion Ethernet
 
@@ -125,7 +125,7 @@ Câbles d'alimentation
  a| 
 Sans objet
  a| 
-image:../media/oie_cable_power.png[""]
+image:../media/oie_cable_power.png["Câbles d'alimentation"]
  a| 
 Mise sous tension du système
 
@@ -147,11 +147,11 @@ Installez le système dans un rack à 4 montants ou une armoire système NetApp,
 NOTE: Vous devez être conscient des problèmes de sécurité associés au poids du système.
 
 +
-image::../media/drw_oie_fas2700_weight_caution.png[attention de poids du drw oie fas2700]
+image::../media/drw_oie_fas2700_weight_caution.png[Précaution de levage pour deux personnes]
 
 . Fixez les dispositifs de gestion des câbles (comme illustré).
 +
-image::../media/drw_cable_management_arm_install.png[installation du ARM de gestion des câbles drw]
+image::../media/drw_cable_management_arm_install.png[Connexion de périphériques de gestion des câbles]
 
 . Placez le panneau à l'avant du système.
 
@@ -200,7 +200,7 @@ Pour plus d'informations sur la connexion du système aux commutateurs, contacte
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
 
-image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie vers le bas]
+image::../media/oie_cable_pull_tab_down.png[Connecteur de câble avec languette de traction en bas]
 
 
 NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
@@ -228,7 +228,9 @@ image::../media/drw_c190_tnsc_ethernet_network_cabling_animated_gif.png[image gi
 Effectuez les étapes suivantes sur chaque module de contrôleur.
 
 .Étapes
-. Reliez les ports d'interconnexion de cluster e0a à e0a et e0b à e0b à l'aide du câble d'interconnexion de cluster. +image:../media/drw_c190_u_tnsc_clust_cbling.png[""]
+. Reliez les ports d'interconnexion de cluster e0a à e0a et e0b à e0b à l'aide du câble d'interconnexion de cluster.
+ +
+image:../media/drw_c190_u_tnsc_clust_cbling.png["Câblage d'interconnexion de cluster"]
 . Reliez les contrôleurs à un réseau de données UTA2 ou à un réseau Ethernet.
 +
 Configurations réseau de données UTA2:: Utilisez l'un des types de câble suivants pour relier les ports de données e0c/0C et e0d/0d ou e0e/0e et e0f/0f au réseau hôte.
@@ -240,14 +242,14 @@ image:../media/drw_c190_u_fc_10gbe_cbling.png["Illustration montrant les connexi
 Configurations réseau Ethernet:: Utilisez le câble RJ45 de catégorie 6 pour relier le e0c aux ports e0f du réseau hôte. dans l'illustration suivante.
 +
 --
-image:../media/drw_c190_e_rj45_cbling.png[""]
+image:../media/drw_c190_e_rj45_cbling.png["Câblage réseau de l'hôte"]
 
 --
 
 
 . Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45.
 +
-image:../media/drw_c190_u_mgmt_cbling.png[""]
+image:../media/drw_c190_u_mgmt_cbling.png["Câblage du port de gestion"]
 
 
 
@@ -264,7 +266,7 @@ Pour plus d'informations sur la connexion du système aux commutateurs, contacte
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
 
-image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie vers le bas]
+image::../media/oie_cable_pull_tab_down.png[Connecteur de câble avec languette de traction en bas]
 
 
 NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
@@ -294,7 +296,7 @@ Effectuez les étapes suivantes sur chaque module de contrôleur.
 .Étapes
 . Reliez les câbles e0a et e0b aux commutateurs d'interconnexion de cluster à l'aide du câble d'interconnexion de cluster.
 +
-image:../media/drw_c190_u_switched_clust_cbling.png[""]
+image:../media/drw_c190_u_switched_clust_cbling.png["Câblage ClusterInterconnect"]
 
 . Reliez les contrôleurs à un réseau de données UTA2 ou à un réseau Ethernet.
 +
@@ -307,14 +309,14 @@ image:../media/drw_c190_u_fc_10gbe_cbling.png["Illustration montrant les connexi
 Configurations réseau Ethernet:: Utilisez le câble RJ45 de catégorie 6 pour relier le e0c aux ports e0f du réseau hôte.
 +
 --
-image:../media/drw_c190_e_rj45_cbling.png[""]
+image:../media/drw_c190_e_rj45_cbling.png["Câblage réseau de l'hôte"]
 
 --
 
 
 . Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45.
 +
-image:../media/drw_c190_u_mgmt_cbling.png[""]
+image:../media/drw_c190_u_mgmt_cbling.png["Câblage du port de gestion"]
 
 
 
@@ -339,7 +341,7 @@ Apprenez à terminer la configuration du système si la détection réseau est a
 . Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
 . Mettez les boutons marche/arrêt sur les deux nœuds.
 +
-image::../media/drw_turn_on_power_switches_to_psus.png[drw allumez les interrupteurs d'alimentation des blocs d'alimentation]
+image::../media/drw_turn_on_power_switches_to_psus.png[Mise sous tension]
 
 +
 
@@ -356,7 +358,7 @@ image::../media/dwr_laptop_to_switch_only.svg[ordinateur portable dwr pour chang
 
 . Sélectionnez une icône ONTAP pour découvrir :
 +
-image::../media/drw_autodiscovery_controler_select.png[sélection du contrôleur de découverte automatique drw]
+image::../media/drw_autodiscovery_controler_select.png[Sélectionnez une icône ONTAP]
 
 +
 .. Ouvrez l'Explorateur de fichiers.
@@ -396,11 +398,11 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console
 
 .. Connectez le câble de la console à l'ordinateur portable ou à la console, et connectez le port de console du contrôleur à l'aide du câble de console fourni avec votre système.
 +
-image::../media/drw_console_connect_fas2700_affa200.png[console drw connecter le fas2700 affa200]
+image::../media/drw_console_connect_fas2700_affa200.png[Connexion au port console]
 
 .. Connectez l'ordinateur portable ou la console au commutateur du sous-réseau de gestion.
 +
-image::../media/drw_client_to_mgmt_subnet_fas2700_affa220.png[du client drw à la gestion du sous-réseau fas2700 affa220]
+image::../media/drw_client_to_mgmt_subnet_fas2700_affa220.png[Connexion au sous-réseau de gestion]
 
 .. Attribuez une adresse TCP/IP à l'ordinateur portable ou à la console à l'aide d'une adresse située sur le sous-réseau de gestion.
 
@@ -408,7 +410,7 @@ image::../media/drw_client_to_mgmt_subnet_fas2700_affa220.png[du client drw à l
 . Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
 . Mettez les boutons marche/arrêt sur les deux nœuds.
 +
-image::../media/drw_turn_on_power_switches_to_psus.png[drw allumez les interrupteurs d'alimentation des blocs d'alimentation]
+image::../media/drw_turn_on_power_switches_to_psus.png[Mise sous tension]
 
 +
 

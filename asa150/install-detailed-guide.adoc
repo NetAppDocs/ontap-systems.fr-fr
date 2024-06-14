@@ -65,7 +65,7 @@ X6566B-05-R6 (112-00297), 0,5 m
 
 X6566B-2-R6 (112-00299), 2 m
  a| 
-image:../media/oie_cable_sfp_gbe_copper.png[""]
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
  a| 
 Réseau d'interconnexion de cluster
 
@@ -80,7 +80,7 @@ Ou X6566B-3-R6 (112-00300), 3 m
 
 X6566B-5-R6 (112-00301), 5 m
  a| 
-image:../media/oie_cable_sfp_gbe_copper.png[""]
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
  a| 
 Les données
 
@@ -108,7 +108,7 @@ Références X6585-R6 (112-00291), 3 m
 
 X6562-R6 (112-00196), 5 m
  a| 
-image:../media/oie_cable_rj45.png[""]
+image:../media/oie_cable_rj45.png["Connecteur de câble RJ-45"]
  a| 
 Réseau de gestion et données Ethernet
 
@@ -125,7 +125,7 @@ X66032A (112-00437), 2 M.
 
 X66033A (112-00438), 3 M.
  a| 
-image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png[""]
+image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png["Connecteur mini-SAS vers mini-SAS"]
  a| 
 Stockage
 
@@ -147,7 +147,7 @@ Câbles d'alimentation
  a| 
 Sans objet
  a| 
-image:../media/oie_cable_power.png[""]
+image:../media/oie_cable_power.png["Câbles d'alimentation"]
  a| 
 Mise sous tension du système
 
@@ -169,11 +169,11 @@ Installez le système dans un rack à 4 montants ou une armoire système NetApp,
 NOTE: Vous devez être conscient des problèmes de sécurité associés au poids du système.
 
 +
-image::../media/drw_oie_fas2700_weight_caution.png[attention de poids du drw oie fas2700]
+image::../media/drw_oie_fas2700_weight_caution.png[Précaution de levage pour deux personnes]
 
 . Fixez les dispositifs de gestion des câbles (comme illustré).
 +
-image::../media/drw_cable_management_arm_install.png[installation du ARM de gestion des câbles drw]
+image::../media/drw_cable_management_arm_install.png[Connexion de périphériques de gestion des câbles]
 
 . Placez le panneau à l'avant du système.
 
@@ -195,7 +195,7 @@ Découvrez comment câbler un cluster à 2 nœuds sans commutateur.
 .Avant de commencer
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
 
-image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie vers le bas]
+image::../media/oie_cable_pull_tab_down.png[Connecteur de câble avec languette de traction en bas]
 
 
 NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
@@ -206,13 +206,13 @@ Vous pouvez utiliser les ports de réseau de données UTA2 ou les ports de rése
 Configurations réseau de données UTA2::
 +
 --
-image::../media/drw_2700_tnsc_unified_network_cabling_animated_gif.png[image gif animée câblage réseau unifié drw 2700 tnsc]
+image::../media/drw_2700_tnsc_unified_network_cabling_animated_gif.png[Câblage en cluster à 2 nœuds sans commutateur dans une configuration réseau unifiée]
 
 --
 Configurations réseau Ethernet::
 +
 --
-image::../media/drw_2700_tnsc_ethernet_network_cabling_animated_gif.png[image gif animée câblage réseau ethernet drw 2700 tnsc]
+image::../media/drw_2700_tnsc_ethernet_network_cabling_animated_gif.png[Câblage réseau à 2 nœuds sans commutateur]
 
 --
 
@@ -220,7 +220,9 @@ image::../media/drw_2700_tnsc_ethernet_network_cabling_animated_gif.png[image gi
 Effectuez les étapes suivantes sur chaque module de contrôleur.
 
 .Étapes
-. Reliez les ports d'interconnexion de cluster e0a à e0a et e0b à e0b à l'aide du câble d'interconnexion de cluster. +image:../media/drw_c190_u_tnsc_clust_cbling.png[""]
+. Reliez les ports d'interconnexion de cluster e0a à e0a et e0b à e0b à l'aide du câble d'interconnexion de cluster.
+ +
+image:../media/drw_c190_u_tnsc_clust_cbling.png["Câblage d'interconnexion de cluster"]
 . Effectuez l'une des opérations suivantes :
 +
 Configurations réseau de données UTA2:: Utilisez l'un des types de câble suivants pour relier les ports de données UTA2 au réseau hôte.
@@ -240,14 +242,14 @@ Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports e
 Configurations réseau Ethernet:: Utilisez le câble RJ45 de catégorie 6 pour relier le e0c aux ports e0f du réseau hôte. dans l'illustration suivante.
 +
 --
-image:../media/drw_c190_e_rj45_cbling.png[""]
+image:../media/drw_c190_e_rj45_cbling.png["Câblage réseau de l'hôte"]
 
 --
 
 
 . Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45.
 +
-image:../media/drw_c190_u_mgmt_cbling.png[""]
+image:../media/drw_c190_u_mgmt_cbling.png["Câblage du port de gestion"]
 
 
 
@@ -262,7 +264,7 @@ Apprenez à câbler un cluster commuté.
 .Avant de commencer
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
 
-image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie vers le bas]
+image::../media/oie_cable_pull_tab_down.png[Connecteur de câble avec languette de traction en bas]
 
 
 NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
@@ -273,13 +275,13 @@ Vous pouvez utiliser les ports de réseau de données UTA2 ou les ports de rése
 Câblage réseau unifié::
 +
 --
-image::../media/drw_2700_switched_unified_network_cabling_animated_gif.png[image gif animée câblage réseau unifié commuté drw 2700]
+image::../media/drw_2700_switched_unified_network_cabling_animated_gif.png[Câblage réseau unifié en cluster commuté]
 
 --
 Câblage réseau Ethernet::
 +
 --
-image::../media/drw_2700_switched_ethernet_network_cabling_animated_gif.png[image gif animée câblage réseau ethernet commuté drw 2700]
+image::../media/drw_2700_switched_ethernet_network_cabling_animated_gif.png[Câblage Ethernet commuté]
 
 --
 
@@ -289,7 +291,7 @@ Effectuez les étapes suivantes sur chaque module de contrôleur.
 .Étapes
 . Pour chaque module de contrôleur, reliez les câbles e0a et e0b aux commutateurs d'interconnexion de cluster à l'aide du câble d'interconnexion de cluster.
 +
-image:../media/drw_c190_u_switched_clust_cbling.png[""]
+image:../media/drw_c190_u_switched_clust_cbling.png["Câblage ClusterInterconnect"]
 
 . Effectuez l'une des opérations suivantes :
 +
@@ -310,14 +312,14 @@ Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports e
 Configurations réseau Ethernet:: Utilisez le câble RJ45 de catégorie 6 pour relier le e0c aux ports e0f du réseau hôte.
 +
 --
-image:../media/drw_c190_e_rj45_cbling.png[""]
+image:../media/drw_c190_e_rj45_cbling.png["Câblage réseau de l'hôte"]
 
 --
 
 
 . Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45.
 +
-image:../media/drw_c190_u_mgmt_cbling.png[""]
+image:../media/drw_c190_u_mgmt_cbling.png["Câblage du port de gestion"]
 
 
 
@@ -339,7 +341,7 @@ Vous devez connecter le câble des connexions du tiroir à celui du tiroir, puis
 
 Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette.
 
-image::../media/oie_cable_pull_tab_down.png[languette de traction du câble oie vers le bas]
+image::../media/oie_cable_pull_tab_down.png[Connecteur de câble avec languette de traction en bas]
 
 .Étapes
 . Reliez la paire haute disponibilité à des tiroirs disques externes.
@@ -354,7 +356,7 @@ image::../media/drw_a150_ha_storage_cabling_IEOPS-1032.svg[drw a150 HA de câbla
 ** Le port 3 du module d'E/S A sur le port 1 du module d'E/S A du tiroir directement en dessous.
 ** Le port 3 de l'IOM B vers le port 1 sur le IOM B du shelf directement en dessous.
 +
-image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png[""] Câbles HD Mini-SAS vers mini-SAS HD
+image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png["Connecteur mini-SAS vers mini-SAS"]     Câbles HD Mini-SAS vers mini-SAS HD
 
 
 
@@ -363,14 +365,15 @@ image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png[""] Câbles HD Mini-SAS 
 ** Port 0b du contrôleur 1 vers le port Iom A 3 sur le dernier tiroir de disque de la pile.
 ** Port 0a du contrôleur 2 vers le port 1 du module d'E/S sur le premier tiroir de disque de la pile.
 +
-image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png[""] Câbles HD Mini-SAS vers mini-SAS HD
+image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png["Connecteur mini-SAS vers mini-SAS"]     Câbles HD Mini-SAS vers mini-SAS HD
 
 
 
 . Connectez chaque nœud au module d'E/S B de la pile
 +
 ** Du port 0a du contrôleur 1 au port 1 du module d'E/S sur le premier tiroir de disque de la pile.
-** Contrôleur 2, port 0b vers le port B IOM 3 sur le dernier tiroir de disque de la pile.image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png[""] Câbles HD Mini-SAS vers mini-SAS HD
+** Contrôleur 2, port 0b vers le port B IOM 3 sur le dernier tiroir de disque de la pile.
+image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png["Connecteur mini-SAS vers mini-SAS"]     Câbles HD Mini-SAS vers mini-SAS HD
 
 
 
@@ -397,7 +400,7 @@ video::c600f366-4d30-481a-89d9-ab1b0066589b[panopto]
 . Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
 . Mettez les boutons marche/arrêt sur les deux nœuds.
 +
-image::../media/drw_turn_on_power_switches_to_psus.png[drw allumez les interrupteurs d'alimentation des blocs d'alimentation]
+image::../media/drw_turn_on_power_switches_to_psus.png[Mise sous tension]
 
 +
 
@@ -413,7 +416,7 @@ Consultez l'aide en ligne de votre ordinateur portable pour plus d'informations.
 video::d61f983e-f911-4b76-8b3a-ab1b0066909b[panopto]
 . Sélectionnez une icône ONTAP pour découvrir :
 +
-image::../media/drw_autodiscovery_controler_select.png[sélection du contrôleur de découverte automatique drw]
+image::../media/drw_autodiscovery_controler_select.png[Sélectionnez une icône ONTAP]
 
 +
 .. Ouvrez l'Explorateur de fichiers.
@@ -455,11 +458,11 @@ Consultez l'aide en ligne de votre ordinateur portable ou de votre console pour 
 
 .. Connectez le câble de la console à l'ordinateur portable ou à la console, et connectez le port de console du contrôleur à l'aide du câble de console fourni avec votre système.
 +
-image::../media/drw_console_connect_fas2700_affa200.png[console drw connecter le fas2700 affa200]
+image::../media/drw_console_connect_fas2700_affa200.png[Connexion au port console]
 
 .. Connectez l'ordinateur portable ou la console au commutateur du sous-réseau de gestion.
 +
-image::../media/drw_client_to_mgmt_subnet_fas2700_affa220.png[du client drw à la gestion du sous-réseau fas2700 affa220]
+image::../media/drw_client_to_mgmt_subnet_fas2700_affa220.png[Connexion au sous-réseau de gestion]
 
 .. Attribuez une adresse TCP/IP à l'ordinateur portable ou à la console à l'aide d'une adresse située sur le sous-réseau de gestion.
 
@@ -471,7 +474,7 @@ video::c600f366-4d30-481a-89d9-ab1b0066589b[panopto]
 . Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
 . Mettez les boutons marche/arrêt sur les deux nœuds.
 +
-image::../media/drw_turn_on_power_switches_to_psus.png[drw allumez les interrupteurs d'alimentation des blocs d'alimentation]
+image::../media/drw_turn_on_power_switches_to_psus.png[Mise sous tension]
 
 +
 
@@ -508,7 +511,7 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console
 .. Indiquez l'adresse IP de gestion des nœuds dans votre navigateur.
 +
 
-NOTE: Le format de l'adresse est https://x.x.x.x[].
+NOTE: Le format de l'adresse est +https://x.x.x.x.+
 
 .. Configurez le système à l'aide des données que vous avez collectées dans https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"].
 
