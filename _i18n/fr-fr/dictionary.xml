@@ -740,7 +740,6 @@
   <block id="3b746021467b635137eb94fcf5c83573" category="section-title">Étape 3 : remplacer la batterie RTC</block>
   <block id="f663c131d87c9bf95d21d63d6579dfb8" category="paragraph">Pour remplacer la batterie RTC, la placer à l'intérieur du contrôleur et suivre l'ordre des étapes.</block>
   <block id="65c45f25b11ef516aa4180bd435460a0" category="list-text">Localisez la batterie RTC.</block>
-  <block id="78cdea792972b347c50369463c3d2407" category="image-alt">batterie rtc drw 2600</block>
   <block id="e789dadff6ab02fe418b101bca452d66" category="list-text">Poussez doucement la batterie hors du support, faites-la pivoter pour l'éloigner du support, puis retirez-la du support.</block>
   <block id="9e5b0cf96e39c07e340d8e7e3f98141d" category="admonition">Notez la polarité de la batterie lorsque vous la retirez du support. La batterie est signalée par un signe plus et doit être correctement positionnée dans le support. Un signe plus près du support indique comment la batterie doit être positionnée.</block>
   <block id="ea4330063aff847ec18a76ddefbeb737" category="list-text">Retirez la batterie de rechange du sac d'expédition antistatique.</block>
@@ -3256,19 +3255,14 @@
   <block id="aeb2812c06ee13b853570b310f30d6da" category="paragraph">Câbles de réseau optique (selon la commande)</block>
   <block id="f0b8dbf961f93d5d136181b058ae6f49" category="paragraph">X6536-R6 (112-00090), 5 m</block>
   <block id="ddac2f549f656aa8118a6bcb0bd45703" category="paragraph">X6554-R6(112-00189), 15 m</block>
-  <block id="caaa8a847335f7164117894cfe79e731" category="paragraph"><block ref="caaa8a847335f7164117894cfe79e731" category="inline-image-macro-rx" type="image"></block></block>
   <block id="fea037cb34a319bd3b823395ee5fdd07" category="paragraph">Réseau hôte SFP+ FC</block>
   <block id="490cb76fd3c75ff8166e251d789f799e" category="paragraph">Réseau d'hôte et de gestion Ethernet</block>
   <block id="78b39d88cb979ddb300a4cf2c6cdb1be" category="image-alt">installation du ARM de gestion des câbles drw</block>
   <block id="fcca883f68c4e92b98d0f294614cda60" category="admonition">Si vous vous connectez à un commutateur optique, insérez le SFP dans le port du contrôleur avant de procéder au câblage vers le port.</block>
-  <block id="73da34bccb5db786798534ea5b6eb1d6" category="image-alt">image gif animée câblage réseau unifié tnsc de l'analyseur drw c190</block>
   <block id="29232642e257cc5bf9288d51db5b38a1" category="paragraph">Reliez les ports d'interconnexion de cluster entre eux grâce au câble d'interconnexion de cluster :</block>
   <block id="c0a9eb11c9962c2eb967f53a4845bf1a" category="paragraph">Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 :</block>
-  <block id="d7d7ce9a70c375da7dd9edb7b21a9134" category="image-alt">image gif animée câblage réseau unifié commuté drw c190</block>
   <block id="81b22135a51aae23b34a49fb4dc95ad2" category="paragraph">Connectez les câbles e0a et e0b aux commutateurs d'interconnexion des clusters avec le câble d'interconnexion des clusters :</block>
-  <block id="0df32eef6f99f6d05877f5da86a45063" category="image-alt">image gif animée câblage réseau ethernet tnsc du modèle c190</block>
   <block id="836e597d16643401627d14a351ba6a9c" category="paragraph">Utilisez le câble RJ45 Cat 6 pour raccorder les ports e0c à e0f à votre réseau hôte :</block>
-  <block id="ac3d560a40b4d6d28fac097677ecaa8d" category="image-alt">animation du câblage réseau ethernet commuté drw c190</block>
   <block id="e54c29276af1d0eb8b609db7484efd71" category="admonition">Le démarrage initial peut prendre jusqu'à huit minutes.</block>
   <block id="c148c3a234659fa32cba3b91e58f84d2" category="admonition">La configuration de ports par défaut des systèmes de configuration unifiée est en mode CNA. Si vous vous connectez à un réseau hôte FC, vous devez modifier les ports pour le mode FC.</block>
   <block id="81b014b89575d4c2c10465dcae392a39" category="doc">Vérifiez les clés de chiffrement intégrées : AFF C190</block>
@@ -3377,7 +3371,6 @@
   <block id="f53e901ff746fe820463f62ff93fcef4" category="paragraph">Vous devez déplacer les modules de cache des modules de contrôleur douteux vers le module de contrôleur de remplacement lors du remplacement d'un module de contrôleur.</block>
   <block id="29fe2fec672e63081cef240547ac4ab3" category="list-text">Recherchez le module de mise en cache à l'arrière du module de contrôleur et retirez-le :</block>
   <block id="72899bf5d7c3e86a01a078b9f3c1b933" category="paragraph">Le système de stockage est fourni avec deux emplacements disponibles pour le module de cache et un seul emplacement est occupé, par défaut.</block>
-  <block id="407e11715a937f08e831c6ea7ba60d89" category="image-alt">fcache drw rxl</block>
   <block id="06c9138c9dda8dce357c29f596493704" category="list-text">Vérifiez que le module de mise en cache est bien placé dans le support. Si nécessaire, retirez le module de cache et réinstallez-le dans le support.</block>
   <block id="8f5132f3a780453031116d8c02ee992d" category="list-text">Répétez les étapes si vous avez un deuxième module de cache. Fermez le capot du module de contrôleur.</block>
   <block id="c15449579d92fa124a659aa412ed32be" category="section-title">Étape 7 : installer le contrôleur</block>
@@ -4064,7 +4057,6 @@
   <block id="a6c279177bd30a0d3ee3363a3679bffa" category="doc">Remplacez la pile de l'horloge en temps réel - AFF A400</block>
   <block id="4f4fd54acab309f1a5e65fa28f282bda" category="paragraph">Vous devez localiser la batterie RTC à l'intérieur du module de contrôleur, puis suivre la séquence spécifique des étapes. Voir le schéma des FRU à l'intérieur du module de contrôleur pour l'emplacement de la batterie RTC.</block>
   <block id="1d865762dc572ea89458b46f1d146cdf" category="paragraph">Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer la batterie RTC.</block>
-  <block id="ec83112a8c30bb826b259d5c77a3c3ca" category="image-alt">batterie rtc drw A400</block>
   <block id="194dc21e36278742769698a4affe1491" category="list-text"><block ref="194dc21e36278742769698a4affe1491" category="inline-link-macro-rx"></block></block>
   <block id="919b02614abb383c9e0d986bd496190f" category="list-text"><block ref="919b02614abb383c9e0d986bd496190f" category="inline-link-macro-rx"></block></block>
   <block id="6b9a3fa7bbe5a7acd3b913b48966aec6" category="list-text"><block ref="6b9a3fa7bbe5a7acd3b913b48966aec6" category="inline-link-macro-rx"></block></block>
@@ -4302,11 +4294,9 @@
   <block id="406be05f374ba93dabeb2514a008179a" category="doc">Remplacez le matériel du module de contrôleur - FAS8300 et FAS8700</block>
   <block id="8555f8973ccc4539a56ac495380c89d5" category="inline-link">Retrait des cartes de montage vides du module de contrôleur de remplacement</block>
   <block id="d5e62cab20ddc280f38e9a81562855fc" category="paragraph"><block ref="d5e62cab20ddc280f38e9a81562855fc" category="inline-link-rx"></block></block>
-  <block id="b8f99a879bdae690f650b2171355b5bb" category="image-alt">drw 8300 retirer la rehausse vide</block>
   <block id="6976de191bb895bccff42aea7f5ef312" category="section-title">Étape 6 : déplacer les modules de cache</block>
   <block id="1e6c27613480cee2fca639b93121fd62" category="paragraph">Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer les modules de cache vers le nouveau module de contrôleur.</block>
   <block id="1d3cf3e64d50da3c959f6c6aefc86da4" category="video-title">Animation : déplacez les modules de cache</block>
-  <block id="98e31120864bf3bc3ac05e5585fc2718" category="image-alt">drw A400 - remplacer les flashcache</block>
   <block id="6ce420982732936565ee6cdc23281310" category="list-text">Déplacez les modules de cache du module de contrôleur défaillant vers le module de contrôleur de remplacement :</block>
   <block id="37532f61023625948a2dff3e87ad659d" category="list-text">Appuyez sur la languette de dégagement bleue à l'extrémité du module de cache, faites pivoter le module vers le haut, puis retirez-le du support.</block>
   <block id="d84a3f8a48a291e94be45b2446ab30e1" category="list-text">Déplacez le module de mise en cache vers le même support sur le module de contrôleur de remplacement.</block>
@@ -4319,10 +4309,7 @@
   <block id="3a08488c499949ce994ce7beebe666ee" category="doc">Remplacez une alimentation - FAS8300 et FAS8700</block>
   <block id="fe0879209afd1fc2f28d40077ccda980" category="doc">Arrêtez le contrôleur pour facultés affaiblies - FAS8300 et FAS8700</block>
   <block id="f406838ab1af1615895d90b4b0439c67" category="doc">Guide détaillé - FAS8300 et FAS8700</block>
-  <block id="0082203fcfff94aab099c16763176076" category="image-alt">Câblage réseau TNSC drw fas8300</block>
-  <block id="507f9f4c8680d2c9a9bcba815a7976e8" category="image-alt">câblage réseau commuté drw fas8300</block>
   <block id="598ec2ec2714b9a699a42898b690e48d" category="section-title">Option 1 : câblage des contrôleurs aux tiroirs disques SAS</block>
-  <block id="56cbc310abb53560871f37318fe0636d" category="image-alt">drw fas8300 trois étagères ds224c</block>
   <block id="b35abadbe34f4c4e5f4b2befaba8124d" category="doc">Vérifiez les clés de cryptage intégrées : AFF fas8300 et FAS8700</block>
   <block id="e9c29b2069e0c6c237cd1e2a30e9c48b" category="doc">Arrêter les contrôleurs - FAS8300 et FAS8700</block>
   <block id="ed8e6ac65f869dd5cec262d6da357514" category="doc">Procédez au remplacement des systèmes FAS8300 et FAS8700</block>
@@ -4342,7 +4329,6 @@
   <block id="70edce28424200208b28981e9b221707" category="list-text">Bien que le contenu du module de cache soit crypté, il est préférable d'effacer le contenu du module avant de le remplacer. Pour plus d'informations, reportez-vous à la section<block ref="89de74d6a86df9137b0ef3fb03a43036" category="inline-link-rx"></block> De votre système sur le site de support NetApp.</block>
   <block id="bb90eba065615f7ac639d1758ba84812" category="paragraph">Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer un module de mise en cache.</block>
   <block id="dd6deb08e1adc766a156e3146f0b65e7" category="video-title">Animation - remplacer le module de mise en cache</block>
-  <block id="540a3a140ba4c7da7729d8bbfbe06861" category="image-alt">drw 8300 Remplacement des flashcache</block>
   <block id="b08a9c5bee019bb00ec5f4f00b59819e" category="list-text">À l'aide du mappage des FRU sur le module de contrôleur, localisez le module de cache défectueux et retirez-le :</block>
   <block id="2ceb6141859316070c657f406135cd1c" category="paragraph">Selon votre configuration, il peut y avoir zéro, un ou deux modules de cache dans le module de contrôleur. Utilisez la carte des FRU dans le module de contrôleur pour localiser le module de cache.</block>
   <block id="58a5256eec02e1fef80c02b3deffc3f5" category="list-text">Appuyez sur la languette de dégagement bleue.</block>
@@ -5560,7 +5546,6 @@
   <block id="5cee811338d57ecf44d6f22dca7fcd4b" category="list-text">Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers les ventilateurs.</block>
   <block id="62b41ad108afe6b4d651d8da18394eea" category="paragraph">La carte de montage NVRAM s'élève légèrement du module de contrôleur.</block>
   <block id="d3110f91324e5f8cfcd28600df5ac2d9" category="list-text">Soulevez la carte de montage NVRAM, déplacez-la vers les ventilateurs de manière à ce que la lèvre métallique de la carte de montage se dégage du bord du module de contrôleur, soulevez la carte de montage pour la sortir du module de contrôleur. Puis placez-le sur une surface stable et plane afin de pouvoir accéder à la carte NVRAM.</block>
-  <block id="2d0b5667d44ad59ef139c09efe0999d0" category="image-alt">remplacement nvme drw a700s</block>
   <block id="f3be4d98894ffbfb83050debf5045c14" category="paragraph">Loquet de verrouillage de la rehausse 1</block>
   <block id="ae936646ba28c5499caf8ff8a09c1158" category="paragraph">Prise du câble de la batterie NVRAM reliant la carte NVRAM</block>
   <block id="2466ce84e0b8be725ba14bd0f97ac7cc" category="paragraph">Carte NVRAM</block>
@@ -5580,7 +5565,6 @@
   <block id="25e84b8b11804a262c8f96f5c0494341" category="list-text">Faites pivoter le loquet de verrouillage du module sur le côté gauche de la rehausse vers le haut et vers les modules de ventilateur.</block>
   <block id="9b87501921d55169b6d5df97c4ac5eff" category="paragraph">La carte de montage PCIe s'élève légèrement du module de contrôleur.</block>
   <block id="2995e2f5de5ab5f7e237aaaca60f083f" category="list-text">Soulevez la carte de montage PCIe, déplacez-la vers les ventilateurs de manière à ce que la lèvre métallique de la carte de montage se dégage du bord du module de contrôleur, soulevez la carte de montage pour la sortir du module de contrôleur, puis placez-la sur une surface plane et stable.</block>
-  <block id="8301780f2b7742ba6677d0c2900a7256" category="image-alt">remplacement pcie de l'analyseur drw a700s</block>
   <block id="2bc8b7df71c8cc78b90710217056fad5" category="paragraph">Carte de montage 2 (carte de montage centrale) et cartes PCI dans les logements de montage 2 et 3.</block>
   <block id="e3560786e78900dd0335bb4a2a6903bd" category="list-text">Retirez la carte de montage correspondante du module de contrôleur de remplacement.</block>
   <block id="a8d388baf53b90495c7c71be1ec89798" category="list-text">Installez la carte PCIe dans le même logement dans la carte de montage PCIe :</block>
@@ -5590,12 +5574,9 @@
   <block id="37574ed52700f32d94a2d5116467a266" category="paragraph">Le support de démarrage se trouve sous la carte de montage 2, le module de montage PCIe central. Ce module PCIe doit être retiré pour accéder au support de démarrage.</block>
   <block id="ea47f8c3d75d0ae8c63333493732e287" category="list-text">Ouvrir le conduit d'air, si nécessaire.</block>
   <block id="95b0ed2bf52614c4803a52c7bfbc4da6" category="list-text">Si nécessaire, retirez la carte de montage 2, le module PCIe central, en déverrouillant le loquet de verrouillage, puis en retirant la carte de montage du module de contrôleur.</block>
-  <block id="c5f3456e0fd8df43b4786bdc636b23b4" category="image-alt">remplacement du support de démarrage drw a700s</block>
   <block id="3e4e796f89697f9552e6f9741f53026c" category="paragraph">Carte de montage 2 (module PCIe central)</block>
   <block id="b7dbb1be616fad247b3d6aed3164e853" category="admonition">Installez le support de démarrage sur le même support dans le module de contrôleur de remplacement que celui installé dans le module de contrôleur pour facultés affaiblies, le support de démarrage principal (logement 1) sur le support de démarrage principal et le support de démarrage secondaire (emplacement 2) sur le support de démarrage secondaire.</block>
   <block id="db804e965118c7ddc7ce55f19a1af1bc" category="section-title">Étape 5 : déplacer les ventilateurs</block>
-  <block id="fe45ee98537552d5aae5b293496a5f0f" category="image-alt">le drw a700s remplace le ventilateur</block>
-  <block id="36ac39cea070e713b0fb0a0f54db88b7" category="image-alt">remplacement du module dimm drw a700s</block>
   <block id="ce1a3d7dcbc5b34bf0ed36bacde61766" category="paragraph">Carte de montage 1 et rangée de barrettes DIMM 1-4</block>
   <block id="ac5ffb09cd704fd27e86246b89dcd4aa" category="paragraph">Carte de montage 2 et barrettes DIMM rangées 5-8 et 9-12</block>
   <block id="b305092c73b0e314321c71b8240b1516" category="paragraph">Carte de montage 3 et barrette DIMM 13-16</block>
@@ -5603,7 +5584,6 @@
   <block id="2661d1dab3604450ea36f1821fc318d9" category="paragraph">Pour installer le module NVRAM, vous devez suivre la séquence spécifique des étapes.</block>
   <block id="2a5bbbb0357d478c8456cba18161381d" category="section-title">Étape 8 : déplacer la batterie NVRAM</block>
   <block id="50596866677de4b15c95c4f2ac253894" category="list-text">Repérez la batterie NVRAM sur le côté gauche du module de montage, le surmontoir 1.</block>
-  <block id="cad0b5b8d9a3a648fed2d2cf9843ff68" category="image-alt">remplacement de la batterie nvme drw a700s</block>
   <block id="5a66fe4f16ba9a8ec80a9b48be30d41b" category="cell">Fiche de la batterie NVRAM</block>
   <block id="8e50b634b9172df00520f757e65899a2" category="paragraph">Languette bleue de verrouillage de la batterie NVRAM</block>
   <block id="8e6813e3f06c43ddb9bc42125675fecb" category="list-text">Placez la batterie dans le module de contrôleur de remplacement, puis installez-la dans la carte de montage NVRAM :</block>
@@ -5612,7 +5592,6 @@
   <block id="d74d29cbadd2a2644ab75e283955e9e6" category="paragraph">Pour installer une carte de montage PCIe, vous devez suivre une séquence spécifique d'étapes.</block>
   <block id="139ce749ffad6c982ef3cddf9637b110" category="section-title">Étape 10 : déplacer le bloc d'alimentation</block>
   <block id="00fa8cc29d7e57d138649204e3e51f5a" category="paragraph">Lorsque vous remplacez un module de contrôleur, vous devez déplacer le cache de l'alimentation et du bloc d'alimentation du module de contrôleur endommagé vers le module de contrôleur de remplacement.</block>
-  <block id="c27a73d454940b40747d6959d070735e" category="image-alt">le drw a700s remplace le bloc d'alimentation</block>
   <block id="21b899b642982e6355b933dbbe5ae8d0" category="list-text">Retirez le panneau de propreté du bloc d'alimentation du module de contrôleur défaillant, puis installez-le dans le module de contrôleur de remplacement.</block>
   <block id="fda53941888fba701f57352c8efaee65" category="section-title">Étape 11 : installer le module de contrôleur</block>
   <block id="3da447ebdb632dcafa2eee47ac09d128" category="paragraph">Après avoir déplacé tous les composants du module de contrôleur défaillant vers le module de contrôleur de remplacement, vous devez installer le module de contrôleur de remplacement dans le châssis, puis le démarrer en mode maintenance.</block>
@@ -5708,7 +5687,6 @@
   <block id="39d85e49c5dadc98a9a1f6eaef4229dc" category="doc">OKM, NSE et NVE si besoin : AFF A700s</block>
   <block id="feb6e7b3091c7242849233efd75d8a7e" category="doc">Renvoyez la pièce défectueuse à NetApp - AFF A700s</block>
   <block id="28746dbce7c4fc8053d035e3b2295bde" category="doc">Remplacer la batterie de l'horloge en temps réel - AFF A700s</block>
-  <block id="6199e9ac737bb64b5d2e7bfb2a3da5a0" category="image-alt">remplacement de la batterie rtc du drw a700s</block>
   <block id="2e7119d7d654a51006d39261079ed460" category="doc">Retirer le module de contrôleur - AFF A700s</block>
   <block id="d00782da692bd9ebe9130b9b13318aa8" category="doc">Restaurez et vérifiez la configuration du système - AFF A900</block>
   <block id="b35a00e75330322eefd710713ca83b02" category="doc">Systèmes AFF A900</block>
@@ -8790,4 +8768,36 @@ SFP+ (cible/initiateur)</block>
   <block id="360e760cf4c2611f24bef9936525c878" category="image-alt">Disposition horizontale du support de disque</block>
   <block id="9302993f1cbe0a62b1c08bac8ff42e30" category="image-alt">LED d'activité des disques</block>
   <block id="6daeeb8640b388bf728f2d3fa2ceac68" category="image-alt">LED d'avertissement du disque</block>
+  <block id="3d01b4425d5fa4915f6e209ff5ebc5fa" category="image-alt">Remplacez la carte NVRAM</block>
+  <block id="1471ac39cb9785883e4f8e0156141768" category="image-alt">Remplacez une carte PCIe</block>
+  <block id="d41ba6049ada491c1bedd4e982b5a12a" category="image-alt">Remplacer un ventilateur</block>
+  <block id="732cb0105e10dcf3046c4f8dd9a5a991" category="image-alt">Remplacez la batterie NVRAM</block>
+  <block id="ca80c728e158c474fa562e4e6fe53868" category="image-alt">Remplacez un bloc d'alimentation</block>
+  <block id="ba465a4963e9d81b0df00697f6765e53" category="image-alt">Remplacez la batterie RTC</block>
+  <block id="b64d12e71baab796101791fd15a05a3d" category="image-alt">Câblage pour cluster à 2 nœuds sans commutateur</block>
+  <block id="9405a4b49345c23900c5d7b5d872d67a" category="image-alt">Câblage réseau commuté du cluster</block>
+  <block id="2808a423f10e955f0c8304464c9f2414" category="image-alt">Reliez les tiroirs NS224 aux contrôleurs</block>
+  <block id="c0ec9acb24ae98cfebde995d130a61a6" category="image-alt">Reliez trois tiroirs NS224 aux contrôleurs</block>
+  <block id="92f7f93ee79f5a69c599aa1657e9464d" category="inline-image-macro">Câble de réseau optique SFP</block>
+  <block id="2fd2c03db6de3bb625cb5f3d864f2dc0" category="paragraph"><block ref="2fd2c03db6de3bb625cb5f3d864f2dc0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="40583e3c9e34e396cefb248dc9173b2d" category="image-alt">Câble réseau LC Fibre Channel</block>
+  <block id="c81e616187fdaca7623c438cb82e7556" category="image-alt">Animation sur le câblage réseau unifié en cluster à 2 nœuds sans commutateur</block>
+  <block id="44fd0bb5c642a9c9019ef389713404b7" category="image-alt">Animation sur le câblage réseau Eternet en cluster à 2 nœuds sans commutateur</block>
+  <block id="ed839f063b04ef2bf205198607e99c45" category="image-alt">Animation sur le câblage réseau unifié en cluster commuté</block>
+  <block id="9aa93e3b751066980500f1c3a9b9a3ad" category="image-alt">Animation sur le câblage réseau Ethernet avec commutateur de cluster</block>
+  <block id="a288981c3d3562c19205360c4a1975aa" category="image-alt">Remplacer la batterie RTC</block>
+  <block id="080a22aca65cc690a4adc58019e01c5b" category="image-alt">Retrait des bras de gestion des câbles</block>
+  <block id="415d68191d2fba8f12396142cd83b078" category="image-alt">Retrait ou remplacement du module de cache</block>
+  <block id="fc29ed0d741870e4e8c36ca82510cf9a" category="image-alt">Retirer et remplacer le module de cache</block>
+  <block id="6bc6ce8422771329317122532e3badfd" category="image-alt">Retirez et remplacez le module de cache</block>
+  <block id="88d9a1b17863a743c5d31333c8bd6c82" category="image-alt">Retirez la carte de montage vide</block>
+  <block id="8edb2beda5152e63e95d47b37fce7aa7" category="image-alt">Retirez la carte mezzanine</block>
+  <block id="3e86dd6511e223ecedd044d86cd934bf" category="image-alt">Schéma de câblage d'un cluster sans commutateur à 2 nœuds</block>
+  <block id="2d2cf47916959433721b7cc7d46cdea2" category="image-alt">Schéma de câblage réseau du cluster commuté</block>
+  <block id="f9fdbcb98f873b6faf3dd8bc1752740e" category="image-alt">Diagramme de câblage de trois tiroirs DS224C</block>
+  <block id="4af594348d1cc40a4fa6849ea04fd49a" category="image-alt">Etiquette de mise en garde relative au poids de levage</block>
+  <block id="3f4027780297605ef158a649078063e9" category="image-alt">Fixez les bras de gestion des câbles</block>
+  <block id="e84bd7a7cafaabc7b1743876dcc73c70" category="image-alt">Schéma de câblage composite d'un cluster sans commutateur à 2 nœuds</block>
+  <block id="0372c9caab5ee11faf1ffac3ef3c46fa" category="inline-image-macro">Schéma de câblage composite du cluster commuté</block>
+  <block id="009e65f17aa2f40deb1c718bea3bf98b" category="paragraph"><block ref="009e65f17aa2f40deb1c718bea3bf98b" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
