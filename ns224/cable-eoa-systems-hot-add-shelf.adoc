@@ -1,0 +1,179 @@
+---
+permalink: ns224/cable-eoa-systems-hot-add-shelf.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, cable, hot-add an ns224 drive shelf 
+summary: Vous câblez chaque tiroir NS224 que vous ajoutez à chaud de sorte que chaque tiroir dispose de deux connexions à chaque contrôleur de la paire haute disponibilité. 
+---
+= Connectez les tiroirs aux systèmes en fin de disponibilité - tiroirs NS224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous câblez chaque tiroir NS224 que vous ajoutez à chaud de sorte que chaque tiroir dispose de deux connexions à chaque contrôleur de la paire haute disponibilité.
+
+.Chemin de câbles vers le système AFF A320
+[%collapsible]
+====
+Vous pouvez ajouter un second tiroir à chaud à une paire haute disponibilité existante lorsque du stockage supplémentaire est nécessaire.
+
+.Avant de commencer
+* Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
+* Vous devez avoir effectué les procédures applicables dans link:prepare-hot-add-shelf.html["Préparez l'ajout à chaud d'une étagère"].
+* Vous devez avoir installé les tiroirs, les mettre sous tension et définir les ID de tiroir comme décrit dans la section link:prepare-hot-add-shelf.html["Installation d'un tiroir pour ajouter à chaud"].
+
+
+.Étapes
+. Reliez le tiroir aux contrôleurs.
++
+.. Reliez le port E0A du NSM A au port e0e du contrôleur.
+.. Câble port A NSM e0b sur le port B du contrôleur e0b.
+.. Reliez le port E0A du NSM B au port e0e du contrôleur B.
+.. Reliez le port B du NSM e0b au port De contrôleur A e0b. + l'illustration suivante montre le câblage du tiroir à chaud (tiroir 2) :
++
+image::../media/drw_ns224_a320_2shelves_direct_attached.png[Câblage d'un système AFF A320 avec deux tiroirs NS224 et trois jeux de ports intégrés]
+
+
+
+. Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+
+
+.Et la suite ?
+Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire. Allez à link:complete-hot-add-shelf.html["Terminez l'ajout à chaud"].
+
+Sinon, vous effectuez l'ajout à chaud d'un tiroir.
+
+====
+.Reliez le tiroir au AFF A700
+[%collapsible]
+====
+La façon dont vous connectez un tiroir NS224 à une paire HA AFF A700 dépend du nombre de tiroirs que vous ajoutez à chaud et du nombre de ports compatibles RoCE (un ou deux) que vous utilisez sur les contrôleurs.
+
+.Avant de commencer
+* Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
+* Vous devez avoir effectué les procédures applicables dans link:prepare-hot-add-shelf.html["Préparez l'ajout à chaud d'une étagère"].
+* Vous devez avoir installé les tiroirs, les mettre sous tension et définir les ID de tiroir comme décrit dans la section link:prepare-hot-add-shelf.html["Installation d'un tiroir pour ajouter à chaud"].
+* Si vous ajoutez à chaud le tiroir NS224 initial (aucun tiroir NS224 n'existe dans votre paire haute disponibilité), vous devez installer un module core dump (X9170A, SSD NVMe 1 To) dans chaque contrôleur pour prendre en charge les « core dumps » (stockage des fichiers core).
++
+Voir link:../fas9000/caching-module-and-core-dump-module-replace.html["Remplacez le module de mise en cache ou ajoutez/remplacez un module « core dump » - AFF A700 et FAS9000"^].
+
+
+
+.Étapes
+. Si vous ajoutez un tiroir à chaud à l'aide d'un ensemble de ports compatibles RoCE (un module d'E/S compatible RoCE) sur chaque contrôleur, et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.
++
+Dans le cas contraire, passez à l'étape suivante.
+
++
+
+NOTE: Cette étape suppose que vous avez installé le module d'E/S compatible RoCE dans le slot 3, au lieu du slot 7, sur chaque contrôleur.
+
++
+.. Reliez le port E0a du NSM A du tiroir au contrôleur A slot 3 port a.
+.. Port e0b du tiroir de câbles NSM A vers le connecteur 3 du contrôleur B b.
+.. Reliez le port e0a du NSM B de la tablette au connecteur 3 du contrôleur B
+.. Port e0b du tiroir de câbles NSM B vers le connecteur 3 du contrôleur A, port b.
++
+L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant un module d'E/S compatible RoCE dans chaque contrôleur :
+
++
+image::../media/drw_ns224_a700_1shelf.png[Câblage d'un système AFF A700 avec un tiroir NS224 et un ensemble de ports de module d'E/S.]
+
+
+
+. Si vous ajoutez un ou deux tiroirs à chaud à l'aide de deux ensembles de ports compatibles RoCE (deux modules d'E/S compatibles RoCE) dans chaque contrôleur, suivez les sous-étapes applicables.
++
+[cols="1,3"]
+|===
+| Tiroirs | Câblage 
+
+
+ a| 
+Etagère 1
+ a| 
+
+NOTE: Ces sous-étapes supposent que le câblage commence par le câblage du port de tiroir e0a du module d'E/S compatible RoCE dans le connecteur 3, au lieu du connecteur 7.
+
+.. Reliez le port E0A du NSM A au contrôleur A slot 3 port a.
+.. Reliez le port e0b NSM A au connecteur B du contrôleur 7, port b.
+.. Reliez le port E0A du NSM B au connecteur 3 du contrôleur B
+.. Reliez le port e0b du NSM B au connecteur 7 du contrôleur A b.
+.. Si vous ajoutez à chaud une deuxième étagère, complétez les sous-étapes "shellf 2" ; sinon, passez à l'étape 3.
+
+
+
+
+ a| 
+Etagère 2
+ a| 
+
+NOTE: Ces sous-étapes supposent que vous commencez le câblage en câbler le port de tiroir e0a au module d'E/S compatible RoCE dans le slot 7, au lieu du slot 3 (qui correspond aux sous-étapes de câblage du tiroir 1).
+
+.. Reliez le port E0A du NSM A au contrôleur A slot 7 port a.
+.. Reliez le port e0b NSM A au connecteur B du contrôleur 3, port b.
+.. Reliez le port E0A du NSM B au connecteur 7 du contrôleur B
+.. Reliez le port e0b du NSM B au connecteur 3 du contrôleur A b.
+.. Passez à l'étape 3.
+
+
+|===
++
+L'illustration suivante présente le câblage des premier et second tiroirs ajoutés à chaud :
+
++
+image::../media/drw_ns224_a700_2shelves.png[Câblage d'un système AFF A700 avec deux tiroirs NS224 et deux ensembles de ports de module d'E/S.]
+
+. Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+
+
+.Et la suite ?
+Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire. Allez à link:complete-hot-add-shelf.html["Terminez l'ajout à chaud"].
+
+Sinon, vous effectuez l'ajout à chaud d'un tiroir.
+
+====
+.Câblez le tiroir au FAS500f
+[%collapsible]
+====
+Lorsque vous avez besoin de stockage supplémentaire, vous pouvez ajouter à chaud un tiroir NS224 à une paire haute disponibilité FAS500f.
+
+.Avant de commencer
+* Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
+* Vous devez avoir effectué les procédures applicables dans link:prepare-hot-add-shelf.html["Préparez l'ajout à chaud d'une étagère"].
+* Vous devez avoir installé les tiroirs, les mettre sous tension et définir les ID de tiroir comme décrit dans la section link:prepare-hot-add-shelf.html["Installation d'un tiroir pour ajouter à chaud"].
+
+
+.Description de la tâche
+Vu de l'arrière du châssis de la plateforme, le port de la carte compatible RoCE sur la gauche est le port « a » (e1a) et le port de droite est le port « b » (e1b).
+
+.Étapes
+. Connectez les câbles du tiroir :
++
+.. Reliez le port E0a du NSM A du tiroir du contrôleur à l'emplacement 1 du port a (e1a).
+.. Reliez le port e0b du tiroir NSM A au port 1 b du contrôleur B (e1b).
+.. Reliez le port e0a du NSM B du tiroir du contrôleur B au port a (e1a) du connecteur 1 du contrôleur.
+.. Reliez le port e0b du tiroir NSM B au port b (e1b) du contrôleur A. + l'illustration suivante montre le câblage du tiroir une fois l'opération terminée.
++
+image::../media/drw_ns224_a250_c250_f500f_1shelf_ieops-1824.svg[Câblage d'un système FAS500f AFF A250 ou AFF C250 avec un tiroir NS224 et un ensemble de ports]
+
+
+
+. Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+
+
+.Et la suite ?
+Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire. Allez à link:complete-hot-add-shelf.html["Terminez l'ajout à chaud"].
+
+Sinon, vous effectuez l'ajout à chaud d'un tiroir.
+
+====

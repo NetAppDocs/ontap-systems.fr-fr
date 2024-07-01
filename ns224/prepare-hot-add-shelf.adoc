@@ -1,0 +1,299 @@
+---
+permalink: ns224/prepare-hot-add-shelf.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, requirement, preparation, applicable, complete, drive, hot-add an ns224 drive shelf 
+summary: Vous pouvez ajouter à chaud un tiroir disque NS224 une fois que votre paire haute disponibilité satisfait à certaines exigences, et une fois les tâches de préparation applicables à votre paire haute disponibilité terminées. 
+---
+= Préparez-vous à ajouter à chaud des tiroirs NS224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Effectuez les tâches de préparation applicables à votre paire haute disponibilité avant d'ajouter à chaud un tiroir NS224.
+
+Lorsque vous avez terminé les tâches de préparation applicables, passez à link:prepare-hot-add-shelf.html["Installation d'un tiroir pour ajouter à chaud"]l' .
+
+
+
+== Installez des cartes PCIe ou des modules d'E/S compatibles RoCE
+
+Si le modèle de votre plateforme prend en charge l'utilisation de cartes PCIe ou de modules d'E/S compatibles RoCE, votre paire haute disponibilité doit disposer de suffisamment de ports Ethernet compatibles RoCE pour prendre en charge le nombre de tiroirs que vous ajoutez à chaud.
+
+.Étapes
+. Pour chaque tiroir que vous ajoutez à chaud, vérifiez qu'il existe deux ports compatibles RoCE sur chaque contrôleur.
++
+Ces ports peuvent intégrer les contrôleurs, sur des cartes PCIe compatibles RoCE, une combinaison des deux ou des modules d'E/S compatibles RoCE, comme pris en charge par votre modèle de plateforme.
+
+. Si votre paire haute disponibilité ne dispose pas de suffisamment de ports compatibles RoCE, installez les cartes PCIe ou modules d'E/S supplémentaires dans les connecteurs de contrôleur appropriés, comme pris en charge par le modèle de plateforme.
++
+.. Identifiez les emplacements de contrôleur adaptés à votre modèle de plate-forme. Voir https://hwu.netapp.com["NetApp Hardware Universe"^].
+.. Consultez la documentation du modèle de plateforme pour obtenir des instructions d'installation de la carte PCIe ou du module d'E/S.
+
+
+
+
+
+
+== Configurez les ports compatibles RoCE pour l'utilisation du stockage
+
+Si votre paire haute disponibilité dispose de ports Ethernet RoCE non dédiés que vous utilisez pour ajouter à chaud un tiroir NS224, vous devez configurer les ports pour une utilisation du stockage (pas pour une utilisation de réseau).
+
+.Avant de commencer
+* Assurez-vous d'avoir installé des cartes PCIe ou des modules d'E/S compatibles RoCE supplémentaires dans chaque contrôleur.
+
+
+.Description de la tâche
+* Pour certains modèles de plateforme, lorsqu'une carte PCIe ou un module d'E/S compatible RoCE est installé dans un slot pris en charge sur un contrôleur, les ports utilisent automatiquement le stockage par défaut (au lieu de la mise en réseau). toutefois, il est recommandé de suivre la procédure suivante pour vérifier que les ports compatibles RoCE sont configurés pour l'utilisation du stockage.
+* Si vous déterminez que les ports non dédiés compatibles RoCE dans votre paire haute disponibilité ne sont pas configurés pour l'utilisation du stockage, il s'agit d'une procédure de configuration sans interruption.
++
+Selon la version d'ONTAP exécutée par votre paire haute disponibilité, vous devrez peut-être redémarrer les contrôleurs :
+
++
+** Si votre paire haute disponibilité exécute une version de ONTAP 9.6, vous devez redémarrer les contrôleurs, un à la fois.
+** Si votre paire haute disponibilité exécute ONTAP 9.7 ou version ultérieure, vous n'avez pas besoin de redémarrer les contrôleurs, sauf si un ou les deux contrôleurs sont en mode de maintenance. Cette procédure suppose que ni le contrôleur n'est en mode de maintenance.
+
+
+* Si, à l'avenir, vous devez modifier les ports pour passer de l'utilisation du stockage à l'utilisation du réseau, entrez la commande, `storage port modify -node _node_name_ -port _port_name_ -mode network`.
+
+
+.Étapes
+. Connectez-vous au cluster à l'aide d'une connexion SSH ou du port série console.
+. Entrez la commande suivante pour vérifier si les ports non dédiés de la paire HA sont configurés pour l'utilisation du stockage :
++
+`storage port show`
+
++
+** Si votre paire haute disponibilité exécute ONTAP 9.8 ou une version ultérieure, les ports non dédiés s'affichent `storage` dans le `Mode` colonne.
+** Si votre paire haute disponibilité exécute ONTAP 9.7 ou 9.6, les ports non dédiés qui s'affichent `false` dans le `Is Dedicated?` s'affiche également `enabled` dans le `State` colonne.
++
+[NOTE]
+====
+Lorsque les ports non dédiés ne sont pas configurés pour l'utilisation du stockage, la sortie de la commande affiche les éléments suivants :
+
+*** Si votre paire haute disponibilité exécute ONTAP 9.8 ou une version ultérieure, les ports non dédiés s'affichent `network` dans le `Mode` colonne.
+*** Si votre paire haute disponibilité exécute ONTAP 9.7 ou 9.6, les ports non dédiés qui s'affichent `false` dans le `Is Dedicated?`` s'affiche également `disabled` dans le `State` colonne.
+
+
+====
+
+
+. Si les ports non dédiés sont configurés pour le stockage, cette procédure est effectuée.
++
+Sinon, vous devez configurer les ports en effectuant les étapes 4 à 7.
+
+. Configurer les ports non dédiés pour l'utilisation du stockage, sur l'un des contrôleurs :
++
+Vous devez répéter la commande applicable pour chaque port que vous configurez.
+
++
+[cols="1,3"]
+|===
+| Si votre paire haute disponibilité est en cours d'exécution... | Utilisez cette commande... 
+
+
+ a| 
+ONTAP 9.8 ou version ultérieure
+ a| 
+`storage port modify -node _node_name_ -port _port_name_ -mode storage`
+
+
+
+ a| 
+ONTAP 9.7 ou 9.6
+ a| 
+`storage port enable -node _node_name_ -port _port_name_`
+
+|===
+. Si votre paire haute disponibilité exécute ONTAP 9.6, redémarrez le contrôleur pour que les modifications apportées au port prennent effet : `system node reboot -node _node_name_ -reason _reason_for_the_reboot_`.
++
+Dans le cas contraire, passez à l'étape suivante.
+
++
+
+NOTE: Le redémarrage peut prendre jusqu'à 15 minutes.
+
+. Répéter les étapes pour le second contrôleur :
++
+[cols="1,3"]
+|===
+| Si votre paire haute disponibilité est en cours d'exécution... | Alors... 
+
+
+ a| 
+ONTAP 9.7 ou version ultérieure
+ a| 
+.. Répétez l'étape 4.
+.. Passez à l'étape 7.
+
+
+
+
+ a| 
+ONTAP 9.6
+ a| 
+.. Répétez les étapes 4 et 5.
++
+
+NOTE: Le premier contrôleur doit déjà avoir terminé son redémarrage.
+
+.. Passez à l'étape 7.
+
+
+|===
+. Vérifiez que les ports non dédiés des deux contrôleurs sont configurés pour l'utilisation du stockage : `storage port show`
++
+** Si votre paire haute disponibilité exécute ONTAP 9.8 ou une version ultérieure, les ports non dédiés s'affichent `storage` dans le `Mode` colonne.
+** Si votre paire haute disponibilité exécute ONTAP 9.7 ou 9.6, les ports non dédiés qui s'affichent `false` dans le `Is Dedicated?` s'affiche également `enabled` dans le `State` colonne.
+
+
+
+
+
+
+== Recâblage des étagères existantes
+
+Avant d'ajouter à chaud des tiroirs supplémentaires, selon le modèle de votre plateforme, il peut être nécessaire de récupérer un tiroir existant (après avoir installé les cartes PCIe ou modules d'E/S compatibles RoCE supplémentaires) sur deux ensembles de ports dans différents connecteurs pour assurer la résilience en cas de défaillance des connecteurs.
+
+.Avant de commencer
+* Assurez-vous d'avoir installé des cartes PCIe ou des modules d'E/S compatibles RoCE supplémentaires dans chaque contrôleur.
+* Vérifiez que les ports non dédiés des cartes PCIe ou des modules d'E/S compatibles RoCE que vous avez installés sont configurés pour le stockage.
+
+
+.Description de la tâche
+* La désactivation des connexions des ports s'effectue sans interruption lorsque votre tiroir est doté d'une connectivité multivoie haute disponibilité.
+* Lors de cette procédure, vous déplacez un câble à la fois pour maintenir la connectivité au tiroir.
++
+
+NOTE: Le déplacement d'un câble ne nécessite pas de temps d'attente entre le débranchement du câble d'un port et le branchement sur un autre port.
+
+* Si nécessaire, reportez-vous aux illustrations de câblage des étagères correspondant au modèle de plate-forme de votre link:cable-overview-hot-add-shelf.html["Présentation du câblage d'un ajout à chaud"].
+
+
+.Étapes
+. Recâblage des connexions du tiroir existant sur deux ensembles de ports compatibles RoCE dans différents connecteurs, selon le modèle de plateforme utilisé.
+
+
+[role="tabbed-block"]
+====
+.AFF A1K
+--
+Procédez de l'une des manières suivantes si vous ajoutez un deuxième ou un quatrième tiroir à chaud.
+
+
+NOTE: Si vous disposez d'une paire HA AFF A1K et que vous ajoutez un troisième tiroir à chaud et que vous installez un troisième ou quatrième module d'E/S compatible RoCE dans chaque contrôleur, le troisième tiroir n'est câblé qu'aux troisième, troisième et quatrième modules d'E/S. Vous n'avez pas besoin de recâblage des tiroirs existants.
+
+* Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 11 et le slot 10 de chaque contrôleur.
++
+Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 11 de chaque contrôleur.
+
++
+.. Sur le contrôleur A, déplacer le câble du connecteur 11 port b (e11b) vers le connecteur 10 port b (e10b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+* Si vous ajoutez un quatrième tiroir à chaud, recentrez le troisième tiroir sur les modules d'E/S compatibles RoCE dans le slot 9 et le slot 8 de chaque contrôleur.
++
+Dans les sous-étapes, supposons que le troisième tiroir est câblé à un module d'E/S compatible RoCE dans le connecteur 9 de chaque contrôleur.
+
++
+.. Sur le contrôleur A, déplacer le câble du connecteur 9 port b (e9b) vers le connecteur 8 port b (e8b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+--
+.AFF A70 ou AFF A90
+--
+Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 11 et le slot 8 de chaque contrôleur.
+
+Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 11 de chaque contrôleur.
+
+. Sur le contrôleur A, déplacer le câble du connecteur 11 port b (e11b) vers le connecteur 8 port b (e8b).
+. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+--
+.AFF A800 ou AFF C800
+--
+Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les deux ensembles de ports compatibles RoCE dans le slot 5 et le slot 3 de chaque contrôleur.
+
+Les sous-étapes supposent que le tiroir existant est câblé aux cartes PCIe compatibles RoCE dans le connecteur 5 de chaque contrôleur.
+
+. Sur le contrôleur A, déplacer le câble du connecteur 5 port b (e5b) vers le connecteur 3 port b (e3b).
+. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+--
+.AFF A700
+--
+Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les deux ensembles de ports compatibles RoCE dans le slot 3 et le slot 7 de chaque contrôleur.
+
+Les sous-étapes supposent que le tiroir existant est câblé aux modules d'E/S compatibles RoCE dans le connecteur 3 de chaque contrôleur.
+
+. Sur le contrôleur A, déplacer le câble du connecteur 3, port b (e3b), vers le connecteur 7, port b (e7b).
+. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+--
+.AFF A400 ou AFF C400
+--
+Si vous ajoutez un second tiroir à chaud, selon le modèle de votre plateforme, effectuez l'une des opérations suivantes :
+
+* Sur le modèle AFF A400 :
++
+Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE, sur les ports e0c/e0d intégrés et dans le slot 5, sur chaque contrôleur
+
++
+Les sous-étapes supposent que le tiroir existant est câblé aux ports intégrés compatibles RoCE e0c/e0d de chaque contrôleur.
+
++
+.. Sur le contrôleur A, déplacer le câble du port e0d vers le connecteur 5 Port b (e5b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+* Sur le AFF C400 :
++
+Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE dans les connecteurs 4 et 5, sur chaque contrôleur
+
++
+Dans les sous-étapes, supposons que le tiroir existant est câblé aux ports compatibles RoCE dans le connecteur 4 de chaque contrôleur.
+
++
+.. Sur le contrôleur A, déplacez le câble de l'emplacement 4, port a (e4a), vers l'emplacement 5, port b (e5b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+--
+====
+. Vérifiez que le shelf recabled est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+
+
+
+
+== Désactiver l'affectation automatique de l'entraînement
+
+Si vous attribuez manuellement la propriété de disque au tiroir NS224 que vous ajoutez à chaud, vous devez désactiver l'affectation automatique de disque si elle est activée.
+
+Si vous ne savez pas si vous devez attribuer manuellement la propriété des disques ou si vous souhaitez comprendre l'affectation automatique des règles de propriété des disques pour votre système de stockage, rendez-vous sur https://docs.netapp.com/us-en/ontap/disks-aggregates/disk-autoassignment-policy-concept.html["À propos de l'assignation automatique de Disk Ownership"^].
+
+.Étapes
+. Vérifiez si l'affectation automatique des disques est activée : `storage disk option show`
++
+Vous pouvez saisir la commande sur l'un ou l'autre nœud.
+
++
+Si l'affectation automatique des disques est activée, le résultat apparaît `on` dans la `Auto Assign` colonne (pour chaque nœud).
+
+. Si l'affectation automatique des disques est activée, désactivez-la : `storage disk option modify -node _node_name_ -autoassign off`
++
+Vous devez désactiver l'affectation automatique des disques sur les deux nœuds.
+
+

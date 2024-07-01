@@ -1,0 +1,35 @@
+---
+permalink: ns224/complete-hot-add-shelf.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, complete, drive, hot-add an ns224 drive shelf 
+summary: 'Si vous avez désactivé l"affectation automatique de disque dans le cadre de la préparation du tiroir disque NS224 à chaud, vous devez attribuer manuellement la propriété des disques, puis réactiver l"affectation automatique de disque, si nécessaire.' 
+---
+= Complétez les tiroirs NS224 à ajout à chaud
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous avez désactivé l'affectation automatique des disques dans le cadre de la préparation du tiroir NS224 à chaud, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique des disques, si nécessaire.
+
+.Avant de commencer
+Vous devez avoir déjà câblé votre tiroir selon les instructions de la paire haute disponibilité. Voir link:cable-overview-hot-add-shelf.html["Présentation du câblage d'un ajout à chaud"].
+
+.Étapes
+. Afficher tous les disques non propriétaires : `storage disk show -container-type unassigned`
++
+Vous pouvez saisir la commande sur l'un ou l'autre contrôleur.
+
+. Affectez chaque disque : `storage disk assign -disk _disk_name_ -owner _owner_name_`
++
+Vous pouvez saisir la commande sur l'un ou l'autre contrôleur.
+
++
+Vous pouvez utiliser le caractère générique pour attribuer plusieurs lecteurs à la fois.
+
+. Réactivez l'affectation automatique des disques si nécessaire : `storage disk option modify -node _node_name_ -autoassign on`
++
+Vous devez réactiver l'affectation automatique des disques sur les deux contrôleurs.
+
+

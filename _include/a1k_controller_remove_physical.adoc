@@ -1,0 +1,62 @@
+= 
+:allow-uri-read: 
+
+
+Vous devez retirer le module de contrôleur du boîtier lorsque vous remplacez le module de contrôleur ou un composant à l'intérieur du module de contrôleur.
+
+. Vérifiez le voyant d'état de la mémoire NVRAM situé dans le logement 4/5 du système. Une LED NVRAM est également présente sur le panneau avant du module contrôleur. Recherchez l'icône NV :
++
+image::../media/drw_a1K-70-90_nvram-led_ieops-1463.svg[Emplacement graphique de la LED d'avertissement et d'état de la NVRAM]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["Légende numéro 1, largeur = 30 px"]
+ a| 
+LED d'état NVRAM
+
+
+
+ a| 
+image:../media/legend_icon_02.svg["Légende numéro 1, largeur = 30 px"]
+ a| 
+LED d'avertissement NVRAM
+
+|===
++
+
+NOTE: Si la LED d'état de la mémoire NVRAM clignote, cela peut signifier que le module de contrôleur n'a pas été repris ou arrêté correctement (données non validées). Si le module de contrôleur défectueux n'a pas été repris avec succès par le module de contrôleur partenaire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
++
+Le comportement général de la LED d'état NVRAM sur le module de contrôleur défectueux est le suivant :
+
++
+** La LED d'état de la NVRAM clignote lorsque le module de contrôleur est mis hors tension et que le module de contrôleur est dans l'état « en attente de rétablissement » ou que le module de contrôleur n'est pas repris ou arrêté correctement (données non validées).
+** Le voyant d'état NVRAM clignote lorsque le module de contrôleur est retiré du boîtier et peut signifier que le module de contrôleur n'est pas pris en charge ou arrêté correctement (données non validées). Vérifiez que le module de contrôleur a été correctement pris en charge par le module de contrôleur partenaire ou que le module de contrôleur défectueux affiche `waiting for giveback`. Le voyant clignotant peut alors être ignoré (et le contrôleur peut être retiré du boîtier).
+
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. À l'avant de l'unité, accrochez vos doigts dans les trous des cames de verrouillage, appuyez sur les languettes des leviers de came et faites doucement, mais fermement pivoter les deux loquets vers vous en même temps.
++
+Le module de contrôleur se déplace légèrement hors du boîtier.
+
++
+image::../media/drw_a1k_pcm_remove_replace_ieops-1375.svg[Supprimer le graphique du contrôleur]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["Légende numéro 1, largeur = 30 px"]
+| Une came de verrouillage s'enclenche 
+|===
+. Faites glisser le module de contrôleur hors du boîtier et placez-le sur une surface plane et stable.
++
+Assurez-vous de soutenir le bas du module de contrôleur lorsque vous le faites glisser hors du boîtier.
+
+

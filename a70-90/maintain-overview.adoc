@@ -1,0 +1,86 @@
+---
+permalink: a70-90/maintain-overview.html 
+sidebar: sidebar 
+keywords: aff a70 aff a90 maintenance, maintenance, repairing aff a70 aff a90, repairing a70 aff a90, replace a70 aff a90 components 
+summary: Entretenir le matériel AFF A70, AFF A90 
+---
+= Maintenance du matériel AFF A70, AFF A90
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour les systèmes de stockage AFF A70 et AFF A90, vous pouvez effectuer les procédures de maintenance des composants suivants.
+
+
+
+== Support de démarrage
+
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+
+== Châssis
+
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+== Contrôleur
+
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
+
+
+
+== DIMM
+
+Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
+
+
+
+== Lecteur
+
+Un lecteur est un périphérique qui fournit le support de stockage physique pour les données.
+
+
+
+== Ventilateur
+
+Le ventilateur refroidit le contrôleur.
+
+
+
+== NVRAM
+
+La mémoire NVRAM (mémoire vive non volatile) est un module qui permet au contrôleur de protéger et d'enregistrer les données à la volée en cas de coupure de courant du système. L'ID système réside dans le module NVRAM. Lorsqu'il est remplacé, le contrôleur utilise le nouvel ID système du module NVRAM de remplacement.
+
+
+
+== Batterie NV
+
+La batterie NVRAM est chargée d'alimenter le module NVRAM alors que les données à la volée sont déchargées vers la mémoire Flash après une coupure de courant.
+
+
+
+== Module d'E/S.
+
+Le module d'E/S (module d'entrée/sortie) est un composant matériel qui sert d'intermédiaire entre le contrôleur et divers dispositifs ou systèmes qui doivent échanger des données avec le contrôleur.
+
+
+
+== Alimentation électrique
+
+Une alimentation fournit une source d'alimentation redondante dans un contrôleur.
+
+
+
+== Pile de l'horloge en temps réel
+
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.
+
+
+
+== Module de gestion du système
+
+Le module de gestion du système fournit l'interface entre le contrôleur et une console ou un ordinateur portable à des fins de maintenance du contrôleur ou du système. Le module de gestion du système contient le support de démarrage et stocke le numéro de série du système (SSN).

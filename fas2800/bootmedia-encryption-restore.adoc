@@ -78,5 +78,5 @@ Utilisez la requête de clé de sécurité du gestionnaire de clés pour vérifi
 . Branchez le câble de la console au contrôleur partenaire.
 . Reaccordez le contrôleur à l'aide du `storage failover giveback -fromnode local` commande.
 . Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
-. Restaurez AutoSupport s'il a été désactivé à l'aide de `system node autosupport invoke -node * -type all -message MAINT=END`
+. Si AutoSupport est activé, restaurez/annulez la suppression automatique de la création de cas à l'aide du `system node autosupport invoke -node * -type all -message MAINT=END`
 

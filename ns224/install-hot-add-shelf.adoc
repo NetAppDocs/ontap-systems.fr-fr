@@ -1,0 +1,86 @@
+---
+permalink: ns224/install-hot-add-shelf.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, install, hot-add an ns224 drive shelf 
+summary: Vous pouvez ajouter à chaud un tiroir disque NS224 une fois que votre paire haute disponibilité satisfait à certaines exigences, et une fois les tâches de préparation applicables à votre paire haute disponibilité terminées. 
+---
+= Installation d'un tiroir pour ajouter à chaud : tiroirs NS224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez installer un tiroir NS224 dans une armoire ou un rack telco, connecter les cordons d'alimentation (qui se mettent automatiquement sous tension) et définir l'ID de tiroir.
+
+.Avant de commencer
+* Assurez-vous d'avoir un trombone avec un côté redressé ou un stylo à bille à pointe étroite.
++
+Pour modifier l'ID de tablette, utilisez le trombone ou le stylo à bille pour accéder au bouton d'ID de tablette situé derrière le panneau de commande de l'écran (ODP) de l'étape de modification de l'ID de tablette.
+
+* Comprendre qu'une étagère NS224 entièrement chargée peut peser jusqu'à 30.29 kg (66.78 lb) et nécessite deux personnes pour soulever ou utiliser un dispositif de levage hydraulique. Évitez de retirer les composants des étagères (à l'avant ou à l'arrière du shelf) afin de réduire le poids des étagères car le poids des étagères ne sera pas équilibré.
+
+
+.Étapes
+. Installez le kit de rails pour la tablette, si nécessaire, en suivant les instructions fournies avec le kit.
++
+
+NOTE: Ne montez pas la tablette à bride.
+
+. Installez le shelf :
++
+.. Placez l'arrière de la tablette sur les rails, puis soutenez la tablette par le bas et faites-la glisser dans l'armoire ou le rack de télécommunications.
++
+Si vous installez plusieurs tiroirs, placez le premier tiroir directement au-dessus des contrôleurs. Placez le second shelf directement sous les contrôleurs. Répétez cette procédure pour toutes les étagères supplémentaires.
+
+.. Fixez l'étagère à l'armoire ou au rack de télécommunications à l'aide des vis de montage fournies dans le kit.
+
+
+. Connectez l'alimentation :
++
+.. Branchez les câbles d'alimentation au shelf et fixez-les en place.
++
+S'il s'agit d'une alimentation secteur, fixez-les en place à l'aide du dispositif de retenue du cordon d'alimentation.
+
++
+S'il s'agit d'une alimentation CC, fixez-les en place à l'aide des deux vis à oreilles.
+
+.. Pour plus de résilience, connectez les cordons d'alimentation à différentes sources d'alimentation.
++
+Une étagère se met sous tension lorsqu'elle est connectée à une source d'alimentation ; elle n'a pas de commutateurs d'alimentation. Lorsqu'elle fonctionne correctement, la LED bicolore d'un bloc d'alimentation s'allume en vert.
+
+
+
+. Définissez l'ID du tiroir sur un nombre unique dans la paire HA :
++
+Pour des instructions plus détaillées, voir link:change-shelf-id.html["Modifiez l'ID de tiroir NS224"^].
+
++
+.. Déposer le capuchon d'extrémité gauche et localiser le petit trou à droite des LED.
+.. Insérez l'extrémité d'un trombone ou d'un outil similaire dans le petit trou pour atteindre le bouton d'identification de la tablette.
+.. Appuyez sur le bouton et maintenez-le enfoncé (jusqu'à 15 secondes) jusqu'à ce que le premier chiffre de l'écran numérique clignote, puis relâchez le bouton.
++
+Si l'ID prend plus de 15 secondes pour clignoter, appuyez de nouveau sur le bouton et maintenez-le enfoncé, en veillant à l'appuyer complètement.
+
+.. Appuyez sur le bouton et relâchez-le pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité de 0 à 9.
+.. Répétez les sous-étapes 4c et 4d pour définir le second numéro de l'ID de tablette.
++
+Le chiffre peut clignoter pendant trois secondes au lieu de 15 secondes.
+
+.. Appuyez sur le bouton et maintenez-le enfoncé jusqu'à ce que le second chiffre ne clignote plus.
++
+Au bout de cinq secondes environ, les deux chiffres commencent à clignoter et le voyant orange s'allume sur le ODP.
+
+.. Mettez le tiroir hors tension puis sous tension afin de valider l'ID.
++
+Vous devez débrancher les deux cordons d'alimentation du shelf, attendre 10 secondes, puis les rebrancher.
+
++
+Lorsque l'alimentation est rétablie, les LED bicolores s'allument en vert.
+
+
+
+
+
+.Et la suite ?
+Branchez les câbles du tiroir à ajouter à chaud. Allez à link:cable-overview-hot-add-shelf.html["Présentation du câblage d'un ajout à chaud"].

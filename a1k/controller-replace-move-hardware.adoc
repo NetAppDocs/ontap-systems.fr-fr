@@ -1,0 +1,219 @@
+---
+permalink: a1k/controller-replace-move-hardware.html 
+sidebar: sidebar 
+keywords: aff a1k, move the controller module hardware 
+summary: Pour remplacer un module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance. 
+---
+= Remplacez le matériel du module de contrôleur - AFF A1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer le contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le boîtier, puis démarrer le système en mode maintenance.
+
+
+
+== Étape 1 retirez le module de contrôleur
+
+Vous devez retirer le module de contrôleur du boîtier lorsque vous remplacez le module de contrôleur ou un composant à l'intérieur du module de contrôleur.
+
+. Vérifiez le voyant d'état de la mémoire NVRAM situé dans le logement 4/5 du système. Une LED NVRAM est également présente sur le panneau avant du module contrôleur. Recherchez l'icône NV :
++
+image::../media/drw_a1K-70-90_nvram-led_ieops-1463.svg[Emplacement graphique de la LED d'avertissement et d'état de la NVRAM]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["Légende numéro 1, largeur = 30 px"]
+ a| 
+LED d'état NVRAM
+
+
+
+ a| 
+image:../media/legend_icon_02.svg["Légende numéro 1, largeur = 30 px"]
+ a| 
+LED d'avertissement NVRAM
+
+|===
++
+
+NOTE: Si la LED d'état de la mémoire NVRAM clignote, cela peut signifier que le module de contrôleur n'a pas été repris ou arrêté correctement (données non validées). Si le module de contrôleur défectueux n'a pas été repris avec succès par le module de contrôleur partenaire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
++
+Le comportement général de la LED d'état NVRAM sur le module de contrôleur défectueux est le suivant :
+
++
+** La LED d'état de la NVRAM clignote lorsque le module de contrôleur est mis hors tension et que le module de contrôleur est dans l'état « en attente de rétablissement » ou que le module de contrôleur n'est pas repris ou arrêté correctement (données non validées).
+** Le voyant d'état NVRAM clignote lorsque le module de contrôleur est retiré du boîtier et peut signifier que le module de contrôleur n'est pas pris en charge ou arrêté correctement (données non validées). Vérifiez que le module de contrôleur a été correctement pris en charge par le module de contrôleur partenaire ou que le module de contrôleur défectueux affiche `waiting for giveback`. Le voyant clignotant peut alors être ignoré (et le contrôleur peut être retiré du boîtier).
+
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. À l'avant de l'unité, accrochez vos doigts dans les trous des cames de verrouillage, appuyez sur les languettes des leviers de came et faites doucement, mais fermement pivoter les deux loquets vers vous en même temps.
++
+Le module de contrôleur se déplace légèrement hors du boîtier.
+
++
+image::../media/drw_a1k_pcm_remove_replace_ieops-1375.svg[Supprimer le graphique du contrôleur]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["Légende numéro 1, largeur = 30 px"]
+| Une came de verrouillage s'enclenche 
+|===
+. Faites glisser le module de contrôleur hors du boîtier et placez-le sur une surface plane et stable.
++
+Assurez-vous de soutenir le bas du module de contrôleur lorsque vous le faites glisser hors du boîtier.
+
+
+
+
+
+== Étape 2 : déplacer les ventilateurs
+
+Vous devez retirer les cinq modules de ventilation du module de contrôleur défectueux au module de contrôleur de remplacement.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez le cadre (si nécessaire) à deux mains, en saisissant les ouvertures de chaque côté du cadre, puis en le tirant vers vous jusqu'à ce que le cadre se dégage des goujons à rotule du châssis.
+. Appuyez sur le bouton de verrouillage gris du module de ventilation et tirez le module de ventilation hors du châssis, en vous assurant de le soutenir avec votre main libre.
++
+
+NOTE: Les modules de ventilation sont courts. Soutenez toujours la partie inférieure du module de ventilation avec votre main libre pour qu'il ne tombe pas brusquement du châssis et vous blesse.
+
++
+image::../media/drw_a1k_fan_remove_replace_ieops-1376.svg[Ventilateur déposer AFF A1K]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[Légende numéro 1]
+ a| 
+Bouton de verrouillage noir
+
+|===
+. Installez le ventilateur dans le module de contrôleur de remplacement :
++
+.. Alignez les bords du boîtier du ventilateur avec l'ouverture située à l'avant du module de contrôleur de remplacement.
+.. Faites glisser doucement le module de ventilation à fond dans le module de contrôleur de remplacement jusqu'à ce qu'il s'enclenche.
+
+
+. Répétez les étapes précédentes pour les autres modules de ventilation.
+
+
+
+
+== Étape 3 : déplacez la batterie NV
+
+Déplacez la batterie NV vers le contrôleur de remplacement.
+
+. Ouvrez le couvercle du conduit d'air de la batterie NV et localisez la batterie NV.
++
+image::../media/drw_a1k_remove_replace_nvmembat_ieops-1379.svg[Batterie NV retirer AFF A1K]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[Légende numéro 1]
+| Couvercle du conduit d'air de la batterie NV 
+
+
+ a| 
+image::../media/legend_icon_02.svg[Légende numéro 2]
+ a| 
+Fiche mâle batterie NV
+
+
+
+ a| 
+image::../media/legend_icon_03.svg[Numéro de légende 3]
+ a| 
+Batterie NV
+
+|===
+. Soulevez la batterie pour accéder à la prise mâle batterie.
+. Appuyez sur le clip situé à l'avant de la fiche mâle batterie pour la débrancher de la prise, puis débranchez le câble de batterie de la prise.
+. Soulever la batterie hors du conduit d'air et du module de contrôleur.
+. Déplacez la batterie vers le module de contrôleur de remplacement, puis installez-la dans le conduit d'air de la batterie NV :
++
+.. Ouvrez le conduit d'air de la batterie NV dans le module de contrôleur de remplacement.
+.. Branchez la fiche de la batterie dans la prise et assurez-vous que la fiche se verrouille en place.
+.. Insérez la batterie dans son logement et appuyez fermement sur la batterie pour vous assurer qu'elle est bien verrouillée.
+.. Fermer le couvercle du conduit d'air.
+
+
+
+
+
+
+== Étape 4 : déplacement des DIMM système
+
+Déplacez les modules DIMM vers le module de contrôleur de remplacement.
+
+. Ouvrez le conduit d'air de la carte mère et localisez les modules DIMM.
++
+image::../media/drw_a1k_dimms_ieops-1512.svg[DIMM retirez AFF A1K]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[Légende numéro 1]
+ a| 
+DIMM système
+
+|===
+. Notez l'orientation du module DIMM dans le support afin que vous puissiez insérer le module DIMM dans le module de remplacement dans le bon sens.
+. Éjectez le module DIMM de son logement en écartant lentement les deux languettes de l'éjecteur de DIMM de chaque côté du module DIMM, puis en faisant glisser le module DIMM hors de son logement.
++
+
+NOTE: Tenez soigneusement le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+
+. Repérez le logement dans lequel vous installez le module DIMM dans le module de contrôleur de remplacement.
+. Insérez le module DIMM directement dans le logement.
++
+Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
+
++
+
+NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
+
+. Poussez délicatement, mais fermement, sur le bord supérieur du module DIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent sur les encoches situées aux extrémités du module DIMM.
+. Répétez ces étapes pour les autres modules DIMM. Fermez le conduit d'air de la carte mère.
+
+
+
+
+== Étape 5 : installer le module de contrôleur
+
+Réinstallez le module de contrôleur et démarrez-le.
+
+. Si ce n'est déjà fait, fermer le conduit d'air.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du boîtier, puis faites glisser le module de contrôleur dans le châssis, les leviers tournés vers l'avant du système.
+. Une fois que le module de contrôleur vous empêche de le faire glisser plus loin, faites pivoter les poignées de came vers l'intérieur jusqu'à ce qu'elles se reverrouillent sous les ventilateurs
++
+
+NOTE: N'appliquez pas une force excessive lorsque vous faites glisser le module de contrôleur dans le boîtier pour éviter d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le boîtier.
+
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la `system node autosupport invoke -node * -type all -message MAINT=END` commande.
+

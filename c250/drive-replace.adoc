@@ -36,7 +36,7 @@ La procédure de remplacement du disque dépend de l'utilisation du lecteur. Si 
 .Description de la tâche
 Le firmware des disques est automatiquement mis à jour (sans interruption) sur les nouveaux disques dont les versions de micrologiciel ne sont pas à jour.
 
-Lors du remplacement de plusieurs disques, vous devez attendre une minute entre le retrait de chaque disque défectueux et l'insertion du lecteur de disque de remplacement pour permettre au système de stockage de reconnaître l'existence de chaque nouveau disque.
+Lors du remplacement de plusieurs lecteurs de disque, vous devez attendre 70 secondes entre le retrait de chaque lecteur de disque défectueux et l'insertion du lecteur de disque de remplacement pour permettre au système de stockage de reconnaître l'existence de chaque nouveau disque.
 
 .Étapes
 . Si vous souhaitez attribuer manuellement la propriété des disques de remplacement, vous devez désactiver le disque de remplacement d'affectation automatique des disques, s'il est activé
@@ -81,7 +81,7 @@ Ceci permet au système de reconnaître qu'un lecteur a été retiré.
 +
 .. Avec la poignée de came en position ouverte, insérer l'entraînement de remplacement à l'aide des deux mains.
 .. Poussez jusqu'à ce que l'entraînement s'arrête.
-.. Fermez la poignée de came de façon à ce que le lecteur soit bien en place dans le plan médian et que la poignée s'enclenche.
+.. Fermez la poignée de la came de sorte que le lecteur soit bien en place dans le fond de panier central et que la poignée s'enclenche.
 +
 Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur la face de l'entraînement.
 
@@ -98,7 +98,7 @@ Lorsque le voyant d'activité du lecteur est allumé, cela signifie que le lecte
 +
 Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
 
-.. Affectez chaque disque : `storage disk assign -disk disk_name -owner owner_name`
+.. Attribuez chaque lecteur : `storage disk assign -disk disk_name -owner node_name`
 +
 Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
 

@@ -1,0 +1,147 @@
+= Étape 1 : remplacer le support de démarrage
+:allow-uri-read: 
+
+
+Pour remplacer le support de démarrage, vous devez retirer le module de gestion du système de l'arrière du système, retirer le support de démarrage défectueux, installer le support de démarrage de remplacement dans le module de gestion du système et transférer l'image ONTAP d'une clé USB vers le support de démarrage de remplacement.
+
+
+
+== Étape 1 : remplacer le support de démarrage
+
+Le support de démarrage se trouve à l'intérieur du module de gestion du système et est accessible en retirant le module du système.
+
+image::../media/drw_a1k_boot_media_remove_replace_ieops-1377.svg[Remplacement du support de démarrage]
+
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[Légende numéro 1]
+ a| 
+Loquet de came du module de gestion du système
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[Légende numéro 2]
+ a| 
+Bouton de verrouillage du support de démarrage
+
+
+
+ a| 
+image::../media/legend_icon_03.svg[Numéro de légende 3]
+ a| 
+Support de démarrage
+
+|===
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les câbles d'alimentation des unités d'alimentation du contrôleur.
++
+
+NOTE: Si votre système de stockage est équipé d'une alimentation CC, déconnectez le bloc de câbles d'alimentation des unités d'alimentation.
+
++
+.. Retirez tous les câbles connectés au module de gestion du système. Assurez-vous d'étiqueter l'emplacement de connexion des câbles afin de pouvoir les connecter aux ports appropriés lorsque vous réinstallez le module.
+.. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
+.. Appuyez sur le bouton CAM de gestion du système. Le levier de came s'éloigne du boîtier.
+.. Faites pivoter le loquet de came le plus loin possible.
+.. Retirez le module de gestion du système du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du boîtier.
+.. Placez le module de gestion du système sur un tapis antistatique, de manière à ce que le support de démarrage soit accessible.
+
+
+. Retirez le support de démarrage du module de gestion :
++
+.. Appuyez sur le bouton de verrouillage bleu.
+.. Faites pivoter le support de démarrage vers le haut, faites-le glisser hors du support et mettez-le de côté.
+
+
+. Installez le support de démarrage de remplacement dans le module de gestion du système :
++
+.. Alignez les bords du support de coffre avec le logement de la prise, puis poussez-le doucement d'équerre dans le support.
+.. Faites pivoter le support de démarrage vers le bas, vers le bouton de verrouillage.
+.. Appuyez sur le bouton de verrouillage, faites pivoter le support de démarrage complètement vers le bas, puis relâchez le bouton de verrouillage.
+
+
+. Réinstallez le module de gestion du système.
++
+.. Alignez le module avec les bords de l'ouverture du logement du boîtier.
+.. Faites glisser doucement le module dans le logement jusqu'à l'intérieur du boîtier, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
++
+.. Recâblage du module de gestion du système.
+
+
+
+
+
+
+== Étape 2 : transférez l'image ONTAP sur le support de démarrage
+
+Le support de démarrage de remplacement que vous avez installé est sans image ONTAP, vous devez donc transférer une image ONTAP à l'aide d'une clé USB.
+
+.Avant de commencer
+* Vous devez disposer d'une clé USB vide, formatée en FAT32, d'une capacité minimale de 4 Go.
+* Vous devez disposer d'une copie de la même version d'image de ONTAP que celle utilisée par le contrôleur défectueux. Vous pouvez télécharger l'image appropriée depuis la https://support.netapp.com/downloads["Téléchargements"] section du site de support NetApp
++
+** Si NVE est pris en charge, téléchargez l'image avec le chiffrement de volume NetApp, comme indiqué sur le bouton de téléchargement.
+** Si NVE n'est pas pris en charge, téléchargez l'image sans chiffrement de volume NetApp, comme indiqué sur le bouton de téléchargement.
+
+
+* Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau entre les ports de gestion des nœuds des contrôleurs (en général, les interfaces e0M).
+
+
+.Étapes
+. Téléchargez et copiez l'image de service appropriée du https://mysupport.netapp.com/["Site de support NetApp"] sur la clé USB.
++
+.. Téléchargez l'image de service à partir du lien Téléchargements de la page, vers votre espace travail sur votre ordinateur portable.
+.. Décompressez l'image du service.
++
+
+NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas WinZip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
+
+
+
++
+Le lecteur flash USB doit avoir l'image ONTAP appropriée de ce que le contrôleur défectueux fonctionne.
+
++
+.. Retirez la clé USB de votre ordinateur portable.
+
+
+. Insérez la clé USB dans le logement USB du module de gestion du système.
++
+Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
+
+. Branchez les câbles d'alimentation aux blocs d'alimentation et réinstallez le dispositif de retenue du câble d'alimentation.
++
+Le contrôleur commence à démarrer dès que l'alimentation est reconnectée au système.
+
+. Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
++
+Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
+
+. Définissez le type de connexion réseau à l'invite DU CHARGEUR :
++
+** Si vous configurez DHCP : `ifconfig e0M -auto`
++
+
+NOTE: Le port cible que vous configurez est le port cible que vous utilisez pour communiquer avec le contrôleur douteux à partir du contrôleur en bon état pendant la restauration du système de fichiers var avec une connexion réseau. Vous pouvez également utiliser le port e0M dans cette commande.
+
+** Si vous configurez des connexions manuelles : `ifconfig e0M -addr=filer_addr -mask=netmask -gw=gateway`
++
+*** Filer_addr est l'adresse IP du système de stockage.
+*** Le masque de réseau est le masque de réseau du réseau de gestion connecté au partenaire haute disponibilité.
+*** passerelle est la passerelle du réseau.
+
+
+
+
++
+
+NOTE: D'autres paramètres peuvent être nécessaires pour votre interface. Vous pouvez entrer l'aide ifconfig à l'invite du micrologiciel pour plus de détails.
+
+

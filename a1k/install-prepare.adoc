@@ -1,0 +1,153 @@
+---
+permalink: a1k/install-prepare.html 
+sidebar: sidebar 
+keywords: aff a1k, prepare installation 
+summary: 'Préparez l"installation de votre plate-forme AFF A1K.' 
+---
+= Préparation de l'installation - AFF A1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Préparez l'installation de votre plate-forme AFF A1K.
+
+.Avant de commencer
+* Utilisez le https://docs.netapp.com/us-en/ontap/software_setup/index.html["fiche technique de configuration du cluster"] pour enregistrer les valeurs dont vous avez besoin lorsque vous link:complete-install.html#step-3-configure-your-cluster["configurez votre cluster"]. Si une valeur par défaut est fournie, vous pouvez utiliser cette valeur ou saisir votre propre valeur.
+* Vérifiez que vous disposez de tous les équipements et outils supplémentaires dont vous avez besoin pour terminer l'installation du matériel.
++
+** Tournevis Phillips n°2
+** Lampe de poche
+** Bracelet ESD
+** Un trombone ou un stylo à pointe sphérique à pointe étroite pour la mise en place des ID de tablette NS224
+** Ordinateur portable ou console avec connexion USB/série
+** Accès à un navigateur Web pour configurer votre système de stockage
+
+
+* Vous devez être conscient des problèmes de sécurité associés au poids de la plate-forme.
++
+Une plate-forme A1K entièrement chargée peut peser jusqu'à 28.5 kg (62.83 lb) et nécessite deux personnes pour soulever ou utiliser un relevage hydraulique.
+
++
+image::../media/drw_a1k_weight_caution_ieops-1698.svg[AFF A1K icône d'avertissement de levage]
+
+* Vous devez être conscient des problèmes de sécurité associés au poids de la tablette.
++
+Une étagère entièrement chargée peut peser jusqu'à 30.29 kg (66.78 lb) et nécessite deux personnes pour soulever ou utiliser un dispositif de levage hydraulique. Évitez de retirer les composants des étagères (à l'avant ou à l'arrière du shelf) afin de réduire le poids des étagères car le poids des étagères ne sera pas équilibré.
+
++
+image::../media/drw_ns224_lifting_weight_ieops-1716.svg[Avertissement de levage NS224]
+
+* Le flux d'air qui traverse le système de stockage pénètre par l'avant, à l'endroit où le cadre ou les capuchons d'extrémité sont installés et s'échappe par l'arrière, à l'endroit où se trouvent les ports.
+
+
+
+
+== Étape 1 : préparer le site
+
+Assurez-vous que le site et l'armoire ou le rack que vous prévoyez d'utiliser sont conformes aux spécifications de votre système de stockage.
+
+.Étapes
+. Vérifiez que votre site répond aux exigences environnementales et électriques de votre plate-forme, comme indiqué dans le https://hwu.netapp.com["NetApp Hardware Universe"^].
+. Assurez-vous de disposer d'un espace de rack adéquat :
++
+** 4U en configuration HA pour la plateforme
+** 2U pour chaque tiroir NS224
+
+
+. Installez tous les commutateurs réseau requis à proximité de la plateforme.
++
+Reportez-vous https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentation du commutateur"] au pour obtenir des instructions d'installation et link:https://hwu.netapp.com["NetApp Hardware Universe"^] des informations sur la compatibilité.
+
+
+
+
+
+== Étape 2 : déballez les boîtes
+
+Déballez toutes les boîtes et comparez le contenu aux articles figurant sur le bordereau d'expédition.
+
+. Ouvrez soigneusement toutes les boîtes et disposez le contenu de manière organisée.
+. Comparez le contenu que vous avez déballé avec la liste sur le bordereau d'expédition.
++
+
+NOTE: Vous pouvez obtenir votre liste d'emballage en scannant le code QR sur le côté du carton d'expédition.
+
++
+Les éléments suivants sont quelques-uns des contenus que vous pouvez voir dans les boîtes.
+
++
+Assurez-vous que tous les éléments contenus dans les boîtes correspondent à la liste figurant sur le bordereau d'expédition. En cas d'écarts, notez-les pour prendre des mesures supplémentaires.
+
++
+[cols="12,9,4"]
+|===
+
+
+| *Matériel* | *Câbles* |  
+
+
+ a| 
+** Plateforme
+** Tiroir
+** Kits de rails avec instructions (en option)
+** Dispositif de gestion des câbles
+** Panneau
+
+ a| 
+** Cordons d'alimentation
+** Câbles réseau
+** Câbles Ethernet de gestion (câbles RJ-45)
+** Câble du port série USB-C.
+** Câbles de stockage (si un espace de stockage supplémentaire est commandé)
+
+|  
+|===
+
+
+
+
+== Étape 3 : enregistrez votre matériel
+
+L'enregistrement de votre plate-forme offre des avantages en matière de support.
+
+.Étapes
+. Recherchez le numéro de série du système correspondant à votre plate-forme.
++
+Vous trouverez le numéro sur le bordereau d'expédition, dans votre e-mail de confirmation ou sur le module de gestion du système du contrôleur après le déballage.
+
++
+image::../media/drw_ssn_label.svg[Exemple de numéro de série du système indiquant l'emplacement du numéro]
+
+. Accédez au site de support NetApp à l'adresse http://mysupport.netapp.com/["mysupport.netapp.com"^].
+. Enregistrez le matériel :
++
+[cols="1a,2a"]
+|===
+| Si vous êtes... | Suivez ces étapes... 
+
+
+ a| 
+Client NetApp existant
+ a| 
+.. Connectez-vous à l'aide de votre nom d'utilisateur et de votre mot de passe.
+.. Sélectionnez *systèmes* > *Mes systèmes*.
+.. Vérifiez que le nouveau numéro de série du système est répertorié.
+.. Si ce n'est pas le cas, suivez les instructions destinées aux nouveaux clients NetApp.
+
+
+
+
+ a| 
+Nouveau client NetApp
+ a| 
+.. Cliquez sur *s'inscrire maintenant* et créez un compte.
+.. Sélectionnez *systèmes* > *Enregistrer systèmes*.
+.. Entrez le numéro de série du système du produit et les détails demandés.
+
+
+Une fois votre inscription approuvée, vous pouvez télécharger tout logiciel requis. La procédure d'approbation peut prendre jusqu'à 24 heures.
+
+|===
+

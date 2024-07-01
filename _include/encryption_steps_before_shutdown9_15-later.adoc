@@ -1,0 +1,33 @@
+= 
+:allow-uri-read: 
+
+
+Avant d'arrêter le contrôleur douteux et de vérifier le statut des clés de cryptage intégrées, vous devez vérifier le statut de ce contrôleur, désactiver le giveback automatique et vérifier la version de ONTAP en cours d'exécution.
+
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+.Étapes
+. Vérifier l'état du contrôleur détérioré :
++
+** Si le contrôleur douteux se trouve à l'invite de connexion, connectez-vous en tant que `admin`.
+** Si le contrôleur associé est au niveau de l'invite DU CHARGEUR et qu'il fait partie de la configuration HA, connectez-vous en tant que `admin` sur le contrôleur sain.
+
+
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+Le message AutoSupport suivant supprime la création automatique de cas pendant deux heures : `cluster1:*> nœud système AutoSupport Invoke -node * -type all -message maint=2h
+
+. Vérifiez la version de ONTAP que le système fonctionne sur le contrôleur défaillant, si c'est le cas, ou sur le contrôleur partenaire si le contrôleur défaillant est en panne, à l'aide du `version -v` commande :
++
+** Si <lno-DARE> ou <1Ono-DARE> s'affiche dans le résultat de la commande, le système ne prend pas en charge NVE, passez à l'étape https://docs.netapp.com/us-en/ontap-systems/fas2800/bootmedia-impaired-controller-shutdown.html["Arrêtez le contrôleur défaillant"].
+** Si <lno-DARE> ne s'affiche pas dans le résultat de la commande et que le système exécute ONTAP 9.6 ou une version ultérieure, passez à la section suivante, <<Vérifiez NVE ou NSE sur les systèmes qui exécutent ONTAP 9.6 et versions ultérieures>>.
+
+
+. Désactiver le rétablissement automatique à partir du contrôleur sain :
++
+....
+`storage failover modify -node local -auto-giveback false`
+or
+`storage failover modify -node local -auto-giveback-after-panic false`
+....
+

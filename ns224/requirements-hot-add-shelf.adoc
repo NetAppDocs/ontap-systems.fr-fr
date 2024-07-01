@@ -1,0 +1,60 @@
+---
+permalink: ns224/requirements-hot-add-shelf.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, requirement 
+summary: Pour ajouter un tiroir disque NS224 à chaud, votre paire haute disponibilité doit répondre à certaines exigences. 
+---
+= Configuration requise et meilleures pratiques pour ajouter à chaud des tiroirs NS224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'ajouter un tiroir à chaud, passez en revue les exigences et les bonnes pratiques.
+
+
+
+== De formation
+
+Pour ajouter un tiroir NS224 à chaud, votre paire haute disponibilité doit répondre à certaines exigences.
+
+* *Version ONTAP prise en charge* : le modèle de votre plate-forme et la version de ONTAP doivent prendre en charge le tiroir NS224 et les disques que vous ajoutez à chaud. Voir https://hwu.netapp.com["NetApp Hardware Universe"^]
+* *Nombre de tiroirs* : votre paire haute disponibilité doit avoir moins que le nombre maximum de tiroirs pris en charge, d'au moins le nombre de tiroirs que vous prévoyez d'ajouter à chaud.
++
+Vous ne pouvez pas avoir dépassé le nombre maximal de tiroirs pris en charge par votre paire haute disponibilité après l'ajout de tiroirs à chaud. Voir https://hwu.netapp.com["NetApp Hardware Universe"^].
+
+* *Câblage* :
++
+** Assurez-vous de disposer du nombre et du type de câbles corrects pour connecter le shelf. Voir https://hwu.netapp.com["NetApp Hardware Universe"^].
+** Si vous ajoutez un tiroir à chaud à une paire haute disponibilité déjà équipée d'un tiroir NS224, votre paire haute disponibilité ne peut pas afficher de messages d'erreur relatifs au câblage du stockage, et il doit être câblé en tant que haute disponibilité multivoie.
++
+Vous pouvez exécuter  https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^] pour afficher tous les messages d'erreur relatifs au câblage du stockage, ainsi que les actions correctives à mettre en œuvre.
+
+
+
+
+
+
+
+== Et des meilleures pratiques
+
+Familiarisez-vous avec les bonnes pratiques suivantes avant d'ajouter à chaud un tiroir NS224.
+
+* *Meilleure pratique:* la meilleure pratique est d'avoir la version actuelle du https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Disk qualification Package"^] installé avant d'ajouter à chaud un tiroir.
++
+Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser de nouveaux lecteurs qualifiés. Cela permet d'éviter que les messages d'événement du système ne soient pas à jour sur les disques et évite le partitionnement de disque car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
+
+* *Meilleure pratique:* la meilleure pratique est de fonctionner https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^] avant et après l'ajout à chaud d'une étagère.
++
+L'exécution de Active IQ Config Advisor avant l'ajout à chaud d'un tiroir procure une capture d'écran de la connectivité Ethernet du tiroir (ENET) existante, vérifie les versions de firmware du module de tiroir NVMe (NSM) et vous permet de vérifier l'ID de tiroir déjà utilisé dans la paire haute disponibilité.
+
++
+Une fois Active IQ Config Advisor le tiroir ajouté à chaud, vous pouvez vérifier que les tiroirs sont correctement câblés et que leurs ID sont uniques dans la paire haute disponibilité.
+
+* *Meilleure pratique :* avant d'ajouter un nouveau tiroir, il est recommandé d'avoir les versions actuelles de https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Micrologiciel du module de tiroir NVMe (NSM)"^] et https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["le firmware du disque"^] sur votre système de stockage.
++
+
+NOTE: Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
+
+

@@ -1,0 +1,27 @@
+= 
+:allow-uri-read: 
+
+
+.Avant de commencer
+* Si ONTAP est opérationnel (les modules de contrôleur sont disponibles pour servir les données), vous devez avoir vérifié que tous les disques du tiroir ne sont pas détenus, Spares ou font partie d'un ou de plusieurs agrégats de mise hors ligne.
++
+Vous pouvez vérifier l'état des disques à l'aide de la `storage disk show -shelf _shelf_number_` commande. Sortie dans le `Container Type` la colonne doit s'afficher `spare` ou `broken` s'il s'agit d'un disque défectueux. De plus, le `Container Name` et `Owner` les colonnes doivent comporter un tiret.
+
+* Vous avez besoin d'un trombone avec un côté redressé ou d'un stylo à bille à pointe étroite.
++
+Utilisez le trombone ou le stylo à bille pour accéder au bouton d'identification de la tablette par le petit trou, à droite des voyants, dans le panneau de commande (ODP).
+
+
+
+.Description de la tâche
+* Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99.
+* Ils doivent être uniques dans chaque paire HA.
+* Vous devez mettre un tiroir hors tension/remettre sous tension (débrancher les deux câbles d'alimentation, attendre la durée appropriée, puis les rebrancher) afin que l'ID de tiroir prenne effet.
++
+Le délai d'attente avant de rebrancher les cordons d'alimentation dépend de l'état du ONTAP, comme décrit plus loin dans cette procédure.
+
++
+
+NOTE: Les tiroirs NS224 n'ont pas de commutateur d'alimentation sur les blocs d'alimentation.
+
+

@@ -1,0 +1,37 @@
+= 
+:allow-uri-read: 
+
+
+Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chaud un maximum d'un tiroir NS224 à une paire haute disponibilité AFF A250 ou AFF C250.
+
+.Avant de commencer
+* Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
+* Vous devez avoir effectué les procédures applicables dans link:prepare-hot-add-shelf.html["Préparez l'ajout à chaud d'une étagère"].
+* Vous devez avoir installé les tiroirs, les mettre sous tension et définir les ID de tiroir comme décrit dans la section link:prepare-hot-add-shelf.html["Installation d'un tiroir pour ajouter à chaud"].
+
+
+.Description de la tâche
+Vu de l'arrière du châssis de la plateforme, le port de la carte compatible RoCE sur la gauche est le port « a » (e1a) et le port de droite est le port « b » (e1b).
+
+.Étapes
+. Connectez les câbles du tiroir :
++
+.. Reliez le port E0a du NSM A du tiroir du contrôleur à l'emplacement 1 du port a (e1a).
+.. Reliez le port e0b du tiroir NSM A au port 1 b du contrôleur B (e1b).
+.. Reliez le port e0a du NSM B du tiroir du contrôleur B au port a (e1a) du connecteur 1 du contrôleur.
+.. Reliez le port e0b du tiroir NSM B au port b (e1b) du contrôleur A. + l'illustration suivante montre le câblage du tiroir une fois l'opération terminée.
++
+image::../media/drw_ns224_a250_c250_f500f_1shelf_ieops-1824.svg[Câblage pour un AFF A250]
+
+
+
+. Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+
+
+.Et la suite ?
+Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire. Allez à link:complete-hot-add-shelf.html["Terminez l'ajout à chaud"].
+
+Sinon, vous effectuez l'ajout à chaud d'un tiroir.

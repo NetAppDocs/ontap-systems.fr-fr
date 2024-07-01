@@ -1,0 +1,61 @@
+---
+permalink: ns224/cable-overview-hot-add-shelf.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, cable, hot-add an ns224 drive shelf 
+summary: Vous câblez chaque tiroir NS224 que vous ajoutez à chaud de sorte que chaque tiroir dispose de deux connexions à chaque contrôleur de la paire haute disponibilité. 
+---
+= Présentation du câblage pour les tiroirs NS224 à chaud
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous câblez chaque tiroir NS224 que vous ajoutez à chaud de sorte que chaque tiroir dispose de deux connexions à chaque contrôleur de la paire haute disponibilité.
+
+Cette section décrit le câblage du tiroir NS224 aux systèmes de stockage suivants :
+
+* link:cable-aff-systems-hot-add-shelf.html["Câblage vers les systèmes AFF"]
+* link:cable-asa-systems-hot-add-shelf.html["Câblage vers les systèmes ASA"]
+* link:cable-eoa-systems-hot-add-shelf.html["Câble vers les systèmes de fin de disponibilité"]
+
+
+
+
+== Description de la tâche
+
+* Familiarisez-vous avec l'orientation correcte des connecteurs de câble, ainsi qu'avec l'emplacement et l'étiquetage des ports sur les modules de tiroir NS224 NSM100.
++
+** Les câbles sont insérés avec la languette de retrait du connecteur orientée vers le haut.
++
+Lorsqu'un câble est inséré correctement, il s'enclenche.
+
++
+Une fois que vous avez connecté les deux extrémités du câble, les LED vertes du tiroir et du port du contrôleur LNK s'allument. Si le voyant LNK d'un port ne s'allume pas, réinstallez le câble.
+
++
+image::../media/oie_cable_pull_tab_up.png[Les câbles sont insérés avec la languette de retrait du connecteur orientée vers le haut]
+
+** L'illustration suivante vous aide à identifier physiquement les ports NSM100 des tiroirs, e0a et e0b.
++
+Un tiroir NS224 contient deux modules NSM100. Le module supérieur est placé dans le logement A (NSM A) et le module inférieur dans le logement B (NSM B).
+
++
+Chaque module NSM100 comprend 2 ports QSFP28 100 GbE : e0a et e0b.
+
++
+image::../media/drw_ns224_back_ports.png[Ports de module NS224 NSM100 e0a et e0b]
+
+
+
+* Une fois le câblage d'un tiroir ajouté à chaud, ONTAP reconnaît ce dernier :
++
+** La propriété du disque est attribuée si l'affectation automatique du disque est activée.
+** Le firmware des disques et du firmware des tiroirs NSM doivent être mis à jour automatiquement, si nécessaire.
++
+
+NOTE: Les mises à jour du micrologiciel peuvent prendre jusqu'à 30 minutes.
+
+
+
+

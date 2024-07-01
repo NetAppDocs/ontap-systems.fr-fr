@@ -1,0 +1,33 @@
+---
+permalink: ns224/hot-add-shelf-overview.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, overview 
+summary: Pour ajouter un tiroir disque NS224 à chaud, votre paire haute disponibilité doit répondre à certaines exigences. 
+---
+= Workflow d'ajout à chaud - tiroirs NS224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Procédez comme suit pour ajouter à chaud votre tiroir NS224.
+
+.Avant de commencer
+Pour ajouter un tiroir NS224 à chaud, votre paire haute disponibilité doit répondre à certaines exigences. Examinez le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:prepare-hot-add-shelf.html["Préparez-vous à ajouter votre étagère à chaud"]
+[role="quick-margin-para"]
+Selon le modèle de votre plateforme, vous devrez peut-être installer des cartes PCIe ou des modules d'E/S compatibles RoCE supplémentaires, configurer les ports Ethernet non dédiés compatibles RoCE pour l'utilisation du stockage, récupérer un tiroir existant sur deux jeux de ports dans différents connecteurs pour la résilience en cas de défaillance des connecteurs. et désactivez l'affectation automatique des lecteurs si vous attribuez manuellement la propriété des lecteurs.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-hot-add-shelf.html["Installez votre tablette"]
+[role="quick-margin-para"]
+Pour installer l'étagère, installez le kit de rails pour l'étagère, puis installez et fixez l'étagère dans le rack ou l'armoire de télécommunications. Branchez ensuite les câbles d'alimentation sur le tiroir, puis attribuez un ID de tiroir unique pour vous assurer que le tiroir se trouve dans la paire haute disponibilité.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:cable-overview-hot-add-shelf.html["Branchez les câbles du shelf"]
+[role="quick-margin-para"]
+Reliez le tiroir que vous ajoutez à chaud de sorte qu'il dispose de deux connexions à chaque contrôleur de la paire haute disponibilité.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:complete-hot-add-shelf.html["Terminez votre ajout à chaud"]
+[role="quick-margin-para"]
+Si vous avez désactivé l'affectation automatique des disques dans le cadre de la préparation de l'ajout à chaud, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique des disques, si nécessaire.

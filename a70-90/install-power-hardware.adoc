@@ -1,0 +1,159 @@
+---
+permalink: a70-90/install-power-hardware.html 
+sidebar: sidebar 
+keywords: aff a70, a90, power controllers 
+summary: 'Branchez les câbles d"alimentation et mettez les tiroirs et les contrôleurs sous tension.' 
+---
+= Mettez le système de stockage sous tension - AFF A70, AFF A90
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois le réseau connecté aux câbles des tiroirs, vous pouvez mettre les contrôleurs et les tiroirs supplémentaires sous tension.
+
+
+NOTE: Les tiroirs NS224 externes sont facultatifs.
+
+
+
+== Étape 1 : mettez le tiroir sous tension et attribuez l'ID de tiroir
+
+Dans les systèmes de stockage ONTAP, chaque tiroir NS224 se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage. Par défaut, les ID de tiroir sont généralement attribués aux noms « 00 » et « 01 ». Toutefois, vous devrez peut-être les ajuster pour maintenir le caractère unique de votre système de stockage.
+
+
+NOTE: L'ID du tiroir du châssis du contrôleur est codé en dur en « 00 ». N'utilisez pas l'ID de tiroir « 00 » pour les tiroirs NS224 reliés à la plateforme.
+
+.Description de la tâche
+* Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99.
+* Vous devez mettre un tiroir hors tension puis sous tension (débranchez les deux cordons d'alimentation, attendez la durée appropriée, puis rebranchez-les) pour que l'ID de tiroir prenne effet.
+
+
+.Étapes
+. Mettez le shelf sous tension en connectant d'abord les cordons d'alimentation au shelf, en les fixant à l'aide du dispositif de retenue du cordon d'alimentation, puis en connectant les cordons d'alimentation aux sources d'alimentation de différents circuits.
++
+Le tiroir se met sous tension et démarre automatiquement lorsqu'il est branché à la source d'alimentation.
+
+. Retirez le capuchon d'extrémité gauche pour accéder au bouton d'ID du shelf derrière le cache.
++
+image::../media/drw_a900_oie_change_ns224_shelf_id_ieops-836.svg[Modifiez l'ID de tiroir NS224]
+
++
+[cols="20%,80%"]
+|===
+
+
+ a| 
+image::../media/legend_icon_01.svg[Légende numéro 1]
+ a| 
+Capuchon d'extrémité de tablette
+
+
+
+ a| 
+image::../media/legend_icon_02.svg[Légende numéro 2]
+ a| 
+Plateau de tablette
+
+
+
+ a| 
+image::../media/legend_icon_03.svg[Numéro de légende 3]
+ a| 
+Numéro ID du tiroir
+
+
+
+ a| 
+image::../media/legend_icon_04.svg[Numéro de légende 4]
+ a| 
+Bouton d'accès à l'ID de tiroir
+
+|===
+. Modifier le premier numéro de l'ID de tiroir :
++
+.. Insérez l'extrémité droite d'un trombone ou d'un stylo à pointe sphérique à pointe étroite dans le petit trou.
+.. Appuyez sur le bouton et maintenez-le enfoncé jusqu'à ce que le premier chiffre de l'écran numérique clignote, puis relâchez le bouton.
++
+Un chiffre peut clignoter pendant 15 secondes. Cela active le mode de programmation de l'ID de tiroir.
+
++
+
+NOTE: Si l'ID prend plus de 15 secondes pour clignoter, appuyez de nouveau sur le bouton et maintenez-le enfoncé, en veillant à l'appuyer complètement.
+
+.. Appuyez sur le bouton et relâchez-le pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité de 0 à 9.
++
+La durée de chaque pression et de chaque relâchement peut être aussi courte qu'une seconde.
+
++
+Le premier chiffre continue de clignoter.
+
+
+
+. Modifier le second numéro de l'ID de tiroir :
++
+.. Appuyez sur le bouton et maintenez-le enfoncé jusqu'à ce que le second chiffre de l'écran numérique clignote.
++
+Il peut prendre jusqu'à trois secondes pour que le chiffre clignote.
+
++
+Le premier chiffre de l'écran numérique cesse de clignoter.
+
+.. Appuyez sur le bouton et relâchez-le pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité de 0 à 9.
++
+Le second chiffre continue de clignoter.
+
+
+
+. Verrouillez le chiffre souhaité et quittez le mode de programmation en appuyant sur le bouton et en le maintenant enfoncé jusqu'à ce que le second chiffre cesse de clignoter.
++
+Un chiffre qui ne clignote plus pendant trois secondes peut s'arrêter.
+
++
+Les deux chiffres de l'écran numérique commencent à clignoter et le voyant orange de l'écran ODP s'allume au bout de cinq secondes environ pour vous avertir que l'ID de tiroir en attente n'est pas encore pris en compte.
+
+. Mettez le tiroir sous tension pendant au moins 10 secondes pour valider l'ID de tiroir.
++
+.. Débranchez le cordon d'alimentation des deux blocs d'alimentation du shelf.
+.. Attendre 10 secondes.
+.. Rebranchez les câbles d'alimentation aux blocs d'alimentation du tiroir pour terminer la mise hors/sous tension.
++
+Une alimentation est mise sous tension dès que le cordon d'alimentation est branché. Sa LED bicolore doit s'allumer en vert.
+
+
+
+. Remettez le capuchon d'extrémité gauche en place.
+
+
+
+
+== Étape 2 : mettez les contrôleurs sous tension
+
+. Connectez votre ordinateur portable au port série console pour surveiller la séquence d'amorçage lorsque les contrôleurs sont mis sous tension.
++
+.. Définissez le port série console de l'ordinateur portable sur 115,200 bauds avec le N-8-1.
++
+
+NOTE: Consultez l'aide en ligne de votre ordinateur portable pour obtenir des instructions sur la configuration du port série console.
+
+.. Connectez le câble de la console à l'ordinateur portable et le port série console du contrôleur à l'aide du câble de console fourni avec la plateforme.
+.. Connectez l'ordinateur portable au commutateur du sous-réseau de gestion.
++
+image::../media/drw_a1k_70-90_console_connection_ieops-1702.svg[Connexions de la console]
+
+.. Attribuez une adresse TCP/IP à l'ordinateur portable, en utilisant une adresse située sur le sous-réseau de gestion.
+
+
+. Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
++
+image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Schéma générique de connexion de l'alimentation]
+
++
+** La plate-forme commence à démarrer. Le démarrage initial peut prendre jusqu'à huit minutes.
+** Les LED clignotent et les ventilateurs démarrent, ce qui indique que les contrôleurs sont sous tension.
+** Les ventilateurs peuvent être très bruyants lorsqu'ils démarrent pour la première fois. Le bruit fort du ventilateur au démarrage est normal.
+
+
+. Fixez les câbles d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation.
+
