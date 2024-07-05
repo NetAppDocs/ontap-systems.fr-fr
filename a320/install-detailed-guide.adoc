@@ -100,7 +100,7 @@ X66250-5 (112-00328), 5 m
 
 X66250-30 (112-00331), 30 m
  a| 
-image:../media/oie_cable_etherned_mpo.png[""]
+image:../media/oie_cable_etherned_mpo.png["Câble Ethernet - MPO"]
  a| 
 Câble Ethernet (selon la commande)
 
@@ -186,11 +186,11 @@ Vous devez installer votre système sur un rack de 4 montants ou une armoire sys
 NOTE: Vous devez être conscient des problèmes de sécurité associés au poids du système.
 
 +
-image::../media/drw_a320_weight_label.png[etiquette de poids drw a320]
+image::../media/drw_a320_weight_label.png[Avertissement de poids de levage du système]
 
 . Fixez les dispositifs de gestion des câbles (comme illustré).
 +
-image::../media/drw_a320_cable_management_arms.png[Retrait ou installation des bras de gestion des câbles]
+image::../media/drw_a320_cable_management_arms.png[Retirez ou installez les bras de gestion des câbles]
 
 . Placez le panneau à l'avant du système.
 
@@ -218,7 +218,7 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 
 . Vous pouvez utiliser l'illustration ou les instructions pas à pas pour terminer le câblage entre les contrôleurs et vers les commutateurs :
 +
-image::../media/drw_a320_tnsc_network_cabling_composite_animated_gif.png[image gif animée : câblage réseau du réseau du smsc a320 du drw]
+image::../media/drw_a320_tnsc_network_cabling_composite_animated_gif.png[Composite câblage/câblage en cluster sans commutateur à 2 nœuds]
 
 +
 [cols="1,2"]
@@ -232,7 +232,7 @@ image:../media/oie_legend_icon_1_lg.png["Étape 1"]
 Connectez les ports cluster/HA les uns aux autres via un câble 100 GbE (QSFP28) :
 
 ** e0a à e0a
-** e0d à e0dimage:../media/drw_a320_tnsc_cluster_ha_connection_step1a.png[""]
+** e0d à e0d image:../media/drw_a320_tnsc_cluster_ha_connection_step1a.png["Un cluster à 2 nœuds sans commutateur permet de connecter les connexions haute disponibilité du cluster"]
 
 
 
@@ -242,7 +242,7 @@ image:../media/oie_legend_icon_2_o.png["Étape 2"]
  a| 
 Si vous utilisez vos ports intégrés pour une connexion au réseau de données, connectez les câbles 100 GbE ou 40 GbE aux switchs réseau de données appropriés :
 
-** e0g et e0himage:../media/drw_a320_onboard_data_connection_step2.png[""]
+** e0g et e0h image:../media/drw_a320_onboard_data_connection_step2.png["Connectez les connexions du réseau de données intégré"]
 
 
 
@@ -252,7 +252,7 @@ image:../media/oie_legend_icon_3_dr.png["Étape 3"]
  a| 
 Si vous utilisez vos cartes NIC pour des connexions Ethernet ou FC, connectez la ou les cartes NIC aux commutateurs appropriés :
 
-image::../media/drw_a320_nic_connections_step3.png[connexions de la carte réseau drw a320 étape3]
+image::../media/drw_a320_nic_connections_step3.png[Un cluster à 2 nœuds sans commutateur connecte les cartes réseau]
 
 
 
@@ -261,7 +261,7 @@ image:../media/oie_legend_icon_4_lp.png["Étape 4"]
  a| 
 Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45.
 
-image:../media/drw_a320_management_port_connection_step4.png[""]
+image:../media/drw_a320_management_port_connection_step4.png["Connectez le port de gestion"]
 
 
 
@@ -291,7 +291,7 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 
 . Vous pouvez utiliser l'illustration ou les instructions pas à pas pour terminer le câblage entre les contrôleurs et vers les commutateurs :
 +
-image::../media/drw_a320_switched_network_cabling_composite_animated_GIF.png[Film GIF animé composite de câblage réseau commuté drw a320]
+image::../media/drw_a320_switched_network_cabling_composite_animated_GIF.png[Composite de câblage de cluster commuté]
 
 +
 [cols="1,3"]
@@ -305,7 +305,7 @@ image:../media/oie_legend_icon_1_lg.png["Étape 1"]
 Connectez les ports cluster/HA au switch cluster/HA avec le câble 100 GbE (QSFP28) :
 
 ** e0a sur les deux contrôleurs au commutateur cluster/HA
-** E0d des deux contrôleurs au commutateur cluster/HAimage:../media/drw_a320_switched_cluster_ha_connection_step1b.png[""]
+** E0d sur les deux contrôleurs vers le commutateur cluster/HA image:../media/drw_a320_switched_cluster_ha_connection_step1b.png["Connexions cluster-haute disponibilité commutées"]
 
 
 
@@ -315,7 +315,7 @@ image:../media/oie_legend_icon_2_o.png["Étape 2"]
  a| 
 Si vous utilisez vos ports intégrés pour une connexion au réseau de données, connectez les câbles 100 GbE ou 40 GbE aux switchs réseau de données appropriés :
 
-** e0g et e0himage:../media/drw_a320_onboard_data_connection_step2.png[""]
+** e0g et e0h image:../media/drw_a320_onboard_data_connection_step2.png["Connexions réseau intégrées au cluster commuté"]
 
 
 
@@ -325,7 +325,7 @@ image:../media/oie_legend_icon_3_dr.png["Étape 3"]
  a| 
 Si vous utilisez vos cartes NIC pour des connexions Ethernet ou FC, connectez la ou les cartes NIC aux commutateurs appropriés :
 
-image::../media/drw_a320_nic_connections_step3.png[connexions de la carte réseau drw a320 étape3]
+image::../media/drw_a320_nic_connections_step3.png[Connexions réseau commutées du cluster]
 
 
 
@@ -334,7 +334,7 @@ image:../media/oie_legend_icon_4_lp.png["Étape 4"]
  a| 
 Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45.
 
-image:../media/drw_a320_management_port_connection_step4.png[""]
+image:../media/drw_a320_management_port_connection_step4.png["Connexions réseau commutées de gestion de cluster"]
 
 
 
@@ -368,7 +368,7 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 
 . Vous pouvez utiliser l'illustration ou les instructions pas à pas pour connecter les câbles des contrôleurs à un seul tiroir.
 +
-image::../media/drw_a320_single_shelf_connections_animated_gif.png[image gif animée des connexions à une étagère du drw a320]
+image::../media/drw_a320_single_shelf_connections_animated_gif.png[Câblage composite pour un tiroir disque]
 
 +
 [cols="1,3"]
@@ -379,14 +379,14 @@ image::../media/drw_a320_single_shelf_connections_animated_gif.png[image gif ani
  a| 
 image:../media/oie_legend_icon_1_mb.png["Légende numéro 1"]
  a| 
-Reliez le contrôleur A au tiroir image:../media/drw_a320_storage_cabling_controller_a_single_shelf.png[""]
+Reliez le contrôleur A au tiroir image:../media/drw_a320_storage_cabling_controller_a_single_shelf.png["Reliez le contrôleur A au tiroir"]
 
 
 
  a| 
 image:../media/oie_legend_icon_2_lo.png["Légende numéro 2"]
  a| 
-Câble du contrôleur B vers le tiroir : image:../media/drw_a320_storage_cabling_controller_b_single_shelf.png[""]
+Reliez le contrôleur B au tiroir : image:../media/drw_a320_storage_cabling_controller_b_single_shelf.png["Connectez le contrôleur B à un seul tiroir"]
 
 |===
 . Pour terminer la configuration de votre système, reportez-vous à la section <<Installation et configuration du système complètes>>
@@ -407,7 +407,7 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 
 . Vous pouvez utiliser l'illustration suivante ou les étapes écrites pour connecter les contrôleurs à deux tiroirs disques.
 +
-image::../media/drw_a320_2_shevles_cabling_animated_gif.png[gif animé de câblage de l'analyseur drw a320 2]
+image::../media/drw_a320_2_shevles_cabling_animated_gif.png[Câbler l'animation de deux étagères]
 
 +
 [cols="1-3"]
@@ -418,14 +418,14 @@ image::../media/drw_a320_2_shevles_cabling_animated_gif.png[gif animé de câbla
  a| 
 image:../media/oie_legend_icon_1_mb.png["Légende numéro 1"]
  a| 
-Connectez les câbles du contrôleur A aux tiroirs. image:../media/drw_a320_2_shelves_cabling_controller_a.png[""]
+Câblez le contrôleur A aux tiroirs : image:../media/drw_a320_2_shelves_cabling_controller_a.png["Reliez deux tiroirs au contrôleur A"]
 
 
 
  a| 
 image:../media/oie_legend_icon_2_lo.png["Légende numéro 2"]
  a| 
-Connectez les câbles du contrôleur B aux tiroirs. image:../media/drw_a320_2_shelves_cabling_controller_b.png[""]
+Câblez le contrôleur B aux tiroirs : image:../media/drw_a320_2_shelves_cabling_controller_b.png["Relier les étagères teo au contrôleur B."]
 
 |===
 . Pour terminer la configuration de votre système, reportez-vous à la section <<Installation et configuration du système complètes>>
@@ -460,7 +460,7 @@ video::d61f983e-f911-4b76-8b3a-ab1b0066909b[panopto]
 image::../media/drw_autodiscovery_controler_select.png[Sélectionnez une icône ONTAP]
 
 +
-.. Ouvrez l'Explorateur de fichiers.
+.. Ouvrez l'Explorateur de fichiers .
 .. Cliquez sur réseau dans le volet gauche.
 .. Cliquez avec le bouton droit de la souris et sélectionnez Actualiser.
 .. Double-cliquez sur l'une des icônes ONTAP et acceptez les certificats affichés à l'écran.
@@ -496,7 +496,7 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console
 
 .. Connectez le câble de la console à l'ordinateur portable ou à la console à l'aide du câble de console fourni avec le système, puis connectez l'ordinateur portable au commutateur de gestion du sous-réseau de gestion.
 +
-image::../media/drw_a320_laptop_to_switch_and_controller.png[ordinateur portable drw a320 pour le commutateur et le contrôleur]
+image::../media/drw_a320_laptop_to_switch_and_controller.png[Connectez l'ordinateur portable au commutateur de sous-réseau de gestion]
 
 .. Attribuez une adresse TCP/IP à l'ordinateur portable ou à la console à l'aide d'une adresse située sur le sous-réseau de gestion.
 

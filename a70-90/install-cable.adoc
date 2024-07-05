@@ -47,20 +47,24 @@ Reliez les câbles de vos connexions de cluster sans commutateur.
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques.
 
 +
-image::../media/oie_cable_25Gb_Ethernet_SFP28_IEOPS-1069.svg[Câble haute disponibilité du cluster]
-
+.. Reliez le port e1a du contrôleur A au port E1A du contrôleur B.
+.. Reliez le port e7a du contrôleur A au port E1A du contrôleur B.
 +
 *Câbles d'interconnexion cluster/haute disponibilité*
 
-+
-image::../media/drw_70-90_tnsc_cluster_cabling_ieops-1653.svg[Schéma de câblage d'un cluster sans commutateur à 2 nœuds]
 
-. Reliez les ports du module Ethernet à votre réseau hôte.
-+
-Voici quelques exemples types de câblage réseau hôte. Reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître la configuration spécifique de votre système.
 
-+
-.. Reliez les ports e9a et e9b à votre commutateur de réseau de données Ethernet, comme illustré.
+
+
+image::../media/oie_cable_25Gb_Ethernet_SFP28_IEOPS-1069.svg[Câble haute disponibilité du cluster]
+
++ image ::../media/drw_70-90_tnsc_cluster_Cabling_ieops-1653.svg[diagramme de câblage de cluster sans commutateur à deux nœuds, largeur=500px]
+
++ . Reliez les ports du module Ethernet à votre réseau hôte.
+
++ Voici quelques exemples types de câblage réseau hôte. Reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître la configuration spécifique de votre système.
+
+. Reliez les ports e9a et e9b à votre commutateur de réseau de données Ethernet, comme illustré.
 +
 
 NOTE: Pour optimiser les performances du système pour le trafic de cluster et haute disponibilité, il est recommandé de ne pas utiliser les ports e1b et e7b pour les connexions réseau hôte. Utilisez une carte hôte séparée pour optimiser les performances.
@@ -74,7 +78,7 @@ image::../media/oie_cable_sfp_gbe_copper.svg[Câble Ethernet 100 Gb]
 +
 image::../media/drw_70-90_network_cabling1_ieops-1654.svg[Câble vers un réseau Ethernet 100 Gb]
 
-.. Reliez les switchs réseau hôte 10/25 GbE.
+. Reliez les switchs réseau hôte 10/25 GbE.
 +
 *4 ports, hôte 10/25 GbE*
 
@@ -84,9 +88,8 @@ image::../media/oie_cable_sfp_gbe_copper.svg[Câble de 10/25 Go]
 +
 image::../media/drw_70-90_network_cabling2_ieops-1655.svg[Câble vers un réseau Ethernet 100 Gb]
 
-
-
-. Reliez les ports de gestion (clés) du contrôleur aux switchs réseau de gestion à l'aide de câbles RJ-45 1000BASE-T.
++
+.. Reliez les ports de gestion (clés) du contrôleur aux switchs réseau de gestion à l'aide de câbles RJ-45 1000BASE-T.
 +
 image::../media/oie_cable_rj45.svg[Câbles RJ45]
 
@@ -99,7 +102,9 @@ image::../media/drw_70-90_management_connection_ieops-1656.svg[Connectez-vous à
 
 
 
-IMPORTANT: NE branchez PAS encore les cordons d'alimentation.
+
+
+IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
 
 --
 .Option 2 : tableau de bord avec câbles commutés
@@ -170,7 +175,7 @@ image::../media/drw_70-90_management_connection_ieops-1656.svg[Connectez-vous à
 
 
 
-IMPORTANT: NE branchez PAS encore les cordons d'alimentation.
+IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
 
 --
 ====
