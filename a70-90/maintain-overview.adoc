@@ -11,76 +11,100 @@ summary: Entretenir le matériel AFF A70, AFF A90
 
 
 [role="lead"]
-Pour les systèmes de stockage AFF A70 et AFF A90, vous pouvez effectuer les procédures de maintenance des composants suivants.
+Vous devrez peut-être effectuer des procédures de maintenance sur votre matériel. Les procédures spécifiques à la maintenance des composants du système AFF A70 et AFF A90 sont décrites dans cette section.
+
+Les procédures décrites dans cette section supposent que les systèmes AFF A70 et AFF A90 ont déjà été déployés en tant que nœud de stockage dans l'environnement ONTAP.
 
 
 
-== Support de démarrage
+== Composants du système
 
-Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+Pour les systèmes de stockage ASA A70 et ASA A90, vous pouvez effectuer les procédures de maintenance des composants suivants.
+
+[cols="25,65"]
+|===
+
+
+ a| 
+link:bootmedia-replace-workflow.html["Support de démarrage"]
+ a| 
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système utilise lors du démarrage.
 
 
 
-== Châssis
-
+ a| 
+link:chassis-replace-workflow.html["Châssis"]
+ a| 
 Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
 
 
 
-== Contrôleur
-
-Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
-
-
-
-== DIMM
-
-Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
+ a| 
+link:controller-replace-workflow.html["Contrôleur"]
+ a| 
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les lecteurs et exécute le logiciel du système d'exploitation ONTAP.
 
 
 
-== Lecteur
-
-Un lecteur est un périphérique qui fournit le support de stockage physique pour les données.
-
-
-
-== Ventilateur
-
-Le ventilateur refroidit le contrôleur.
+ a| 
+link:dimm-replace.html["DIMM"]
+ a| 
+Un module de mémoire en ligne double (DIMM) est un type de mémoire d'ordinateur. Ils sont installés pour ajouter de la mémoire système à une carte mère du contrôleur.
 
 
 
-== NVRAM
+ a| 
+link:drive-replace.html["Lecteur"]
+ a| 
+Un lecteur est un périphérique qui fournit le stockage physique nécessaire aux données.
 
+
+
+ a| 
+link:fan-replace.html["Ventilateur"]
+ a| 
+Un ventilateur refroidit le contrôleur.
+
+
+
+ a| 
+link:nvram-replace.html["NVRAM"]
+ a| 
 La mémoire NVRAM (mémoire vive non volatile) est un module qui permet au contrôleur de protéger et d'enregistrer les données à la volée en cas de coupure de courant du système. L'ID système réside dans le module NVRAM. Lorsqu'il est remplacé, le contrôleur utilise le nouvel ID système du module NVRAM de remplacement.
 
 
 
-== Batterie NV
+ a| 
+link:nvdimm-battery-replace.html["Batterie NV"]
+ a| 
+La batterie NV est chargée d'alimenter le module NVRAM alors que les données en cours de transfert vers la mémoire Flash après une coupure de courant.
 
-La batterie NVRAM est chargée d'alimenter le module NVRAM alors que les données à la volée sont déchargées vers la mémoire Flash après une coupure de courant.
 
 
-
-== Module d'E/S.
-
+ a| 
+link:io-module-overview.html["Module d'E/S."]
+ a| 
 Le module d'E/S (module d'entrée/sortie) est un composant matériel qui sert d'intermédiaire entre le contrôleur et divers dispositifs ou systèmes qui doivent échanger des données avec le contrôleur.
 
 
 
-== Alimentation électrique
-
+ a| 
+link:power-supply-replace.html["Alimentation électrique"]
+ a| 
 Une alimentation fournit une source d'alimentation redondante dans un contrôleur.
 
 
 
-== Pile de l'horloge en temps réel
+ a| 
+link:rtc-battery-replace.html["Pile de l'horloge en temps réel"]
+ a| 
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'appareil est éteint.
 
-Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.
 
 
-
-== Module de gestion du système
-
+ a| 
+link:system-management-replace.html["Module de gestion du système"]
+ a| 
 Le module de gestion du système fournit l'interface entre le contrôleur et une console ou un ordinateur portable à des fins de maintenance du contrôleur ou du système. Le module de gestion du système contient le support de démarrage et stocke le numéro de série du système (SSN).
+
+|===

@@ -20,13 +20,15 @@ entries:
 - title: Maintenance
   pdf-filename: AFF A70, AFF A90 entretien
   entries:
-  - title: Présentation
+  - title: Présentation de la maintenance
     url: "/a70-90/maintain-overview.html"
   - title: Support de démarrage
     pdf-filename: Support de démarrage AFF A70, AFF A90
     entries:
-    - title: Présentation du remplacement des supports de démarrage
-      url: "/a70-90/bootmedia-replace-overview.html"
+    - title: Procédure de remplacement du support de démarrage
+      url: "/a70-90/bootmedia-replace-workflow.html"
+    - title: Configuration requise et considérations
+      url: "/a70-90/bootmedia-replace-requirements.html"
     - title: Vérifiez les clés de chiffrement intégrées
       url: "/a70-90/bootmedia-encryption-preshutdown-checks.html"
     - title: Arrêtez le contrôleur douteux
@@ -35,15 +37,17 @@ entries:
       url: "/a70-90/bootmedia-replace.html"
     - title: Image de récupération de démarrage
       url: "/a70-90/bootmedia-recovery-image-boot.html"
-    - title: Restauration du chiffrement
+    - title: Restaurez le chiffrement
       url: "/a70-90/bootmedia-encryption-restore.html"
     - title: Renvoyer la pièce défectueuse à NetApp
       url: "/a70-90/bootmedia-complete-rma.html"
   - title: Châssis
     pdf-filename: Châssis AFF A70, AFF A90
     entries:
-    - title: Vue d'ensemble du remplacement du châssis
-      url: "/a70-90/chassis-replace-overview.html"
+    - title: Workflow de remplacement du châssis
+      url: "/a70-90/chassis-replace-workflow.html"
+    - title: Configuration requise et considérations
+      url: "/a70-90/chassis-replace-requirements.html"
     - title: Arrêtez le contrôleur douteux
       url: "/a70-90/chassis-replace-shutdown.html"
     - title: Remplacez le châssis
@@ -53,8 +57,10 @@ entries:
   - title: Contrôleur
     pdf-filename: AFF A70, module de contrôleur AFF A90
     entries:
-    - title: Vue d'ensemble du remplacement du module de contrôleur
-      url: "/a70-90/controller-replace-overview.html"
+    - title: Procédure de remplacement du contrôleur
+      url: "/a70-90/controller-replace-workflow.html"
+    - title: Configuration requise et considérations
+      url: "/a70-90/controller-replace-requirements.html"
     - title: Arrêtez le contrôleur douteux
       url: "/a70-90/controller-replace-shutdown.html"
     - title: Remplacer le contrôleur
@@ -77,11 +83,11 @@ entries:
     url: "/a70-90/nvdimm-battery-replace.html"
   - title: Module d'E/S.
     entries:
-    - title: Présentation de l'ajout ou du remplacement de module d'E/S.
+    - title: Présentation du module d'E/S.
       url: "/a70-90/io-module-overview.html"
-    - title: Ajoutez un module d'E/S.
+    - title: Ajout d'un module d'E/S.
       url: "/a70-90/io-module-add.html"
-    - title: Remplacez un module d'E/S.
+    - title: Remplacez le module d'E/S.
       url: "/a70-90/io-module-replace.html"
   - title: Alimentation électrique
     url: "/a70-90/power-supply-replace.html"

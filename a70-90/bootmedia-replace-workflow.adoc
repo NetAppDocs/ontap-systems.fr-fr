@@ -1,0 +1,41 @@
+---
+permalink: a70-90/bootmedia-replace-workflow.html 
+sidebar: sidebar 
+keywords: aff a70, a90, replace the boot media 
+summary: Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur. 
+---
+= Procédure de remplacement des supports de démarrage - AFF A70, AFF A90
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Procédez comme suit pour remplacer votre support de démarrage.
+
+.Avant de commencer
+Pour remplacer le support de démarrage, votre doit répondre à certaines exigences. Examinez le link:bootmedia-replace-requirements.html["configuration requise et considérations relatives aux supports de démarrage"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:bootmedia-encryption-preshutdown-checks.html["Vérifiez les clés de chiffrement intégrées"]
+[role="quick-margin-para"]
+Vérifiez si le gestionnaire de clés de sécurité est activé sur le système ou si des disques cryptés sont présents.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:bootmedia-shutdown.html["Arrêtez le contrôleur défaillant"]
+[role="quick-margin-para"]
+Arrêtez ou prenez le contrôle du contrôleur défaillant pour que le contrôleur fonctionnel continue à transmettre des données à partir du stockage défectueux.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:bootmedia-replace.html["Remplacez le support de démarrage"]
+[role="quick-margin-para"]
+Retirez le support de démarrage défectueux du module de gestion du système, installez le support de démarrage de remplacement, puis transférez une image ONTAP à l'aide d'une clé USB sur le support de démarrage de remplacement.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:bootmedia-recovery-image-boot.html["Démarrez l'image de récupération"]
+[role="quick-margin-para"]
+Démarrez l'image ONTAP à partir du lecteur USB, restaurez le système de fichiers et vérifiez les variables d'environnement.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:bootmedia-encryption-restore.html["Restaurez le chiffrement"]
+[role="quick-margin-para"]
+Restaurez la configuration du gestionnaire de clés intégré ou le gestionnaire de clés externe à partir du menu d’amorçage ONAT.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:bootmedia-complete-rma.html["Renvoyez la pièce défectueuse à NetApp"]
+[role="quick-margin-para"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
