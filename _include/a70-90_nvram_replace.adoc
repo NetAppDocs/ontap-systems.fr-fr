@@ -128,10 +128,11 @@ Pour remplacer le module NVRAM, localisez-le dans le logement 4/5 du châssis et
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Entraînement drw a800 assis IEOPS 960]
 
 . Aller à l'arrière du châssis. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Débranchez le cordon d'alimentation des deux blocs d'alimentation.
+. Débranchez l'alimentation du module de contrôleur en tirant le module de contrôleur vers l'extérieur d'environ trois pouces :
 +
+.. Appuyez sur les deux loquets de verrouillage du module de contrôleur, puis faites pivoter les deux loquets vers le bas en même temps.
+.. Retirez le module de contrôleur d'environ 3 pouces du châssis pour le mettre hors tension.
 
-NOTE: Si votre système est équipé d'une alimentation CC, déconnectez le bloc du câble d'alimentation de l'unité d'alimentation.
 
 . Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés à l'intérieur du chemin de câbles et en le faisant pivoter vers le bas.
 . Retirez le module NVRAM cible du châssis :
@@ -173,10 +174,18 @@ Languettes de verrouillage DIMM
 .. Faites glisser doucement le module dans son logement jusqu'à ce qu'il soit complètement en place, puis poussez le loquet de la came jusqu'à ce qu'il soit complètement en place.
 
 
-. Recâblage du bloc d'alimentation.
+. Rebranchez l'alimentation au module de contrôleur :
++
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
+.. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
+
+
 +
 
-NOTE: Si votre système est équipé d'une alimentation CC, reconnectez le bloc du câble d'alimentation au bloc d'alimentation.
+NOTE: Le contrôleur redémarre dès qu'il est complètement inséré dans le châssis.
 
 . Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
 
@@ -187,11 +196,16 @@ NOTE: Si votre système est équipé d'une alimentation CC, reconnectez le bloc 
 
 Pour remplacer les barrettes DIMM NVRAM dans le module NVRAM, vous devez retirer le module NVRAM, puis remplacer le module DIMM cible.
 
-. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Débranchez le cordon d'alimentation des deux blocs d'alimentation.
+. À l'avant du châssis, enfoncez fermement chaque disque jusqu'à ce que vous sentiez un arrêt positif. Cela permet de s'assurer que les disques sont fermement installés contre le fond de panier central du châssis.
 +
+image::../media/drw_a800_drive_seated_IEOPS-960.svg[Entraînement drw a800 assis IEOPS 960]
 
-NOTE: Si votre système est équipé d'une alimentation CC, déconnectez le bloc du câble d'alimentation de l'unité d'alimentation.
+. Aller à l'arrière du châssis. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez l'alimentation du module de contrôleur en tirant le module de contrôleur vers l'extérieur d'environ trois pouces :
++
+.. Appuyez sur les deux loquets de verrouillage du module de contrôleur, puis faites pivoter les deux loquets vers le bas en même temps.
+.. Retirez le module de contrôleur d'environ 3 pouces du châssis pour le mettre hors tension.
+
 
 . Faites pivoter le chemin de câbles vers le bas en tirant doucement les broches situées aux extrémités du bac et en faisant pivoter le bac vers le bas.
 . Retirez le module NVRAM cible du châssis :
@@ -236,26 +250,25 @@ NOTE: Consultez l'étiquette FRU map située sur le côté du module NVRAM pour 
 .. Faites glisser doucement le module dans le logement jusqu'à ce que le loquet de came commence à s'engager avec la broche de came d'E/S, puis faites tourner le loquet de came complètement vers le haut pour verrouiller le module en place.
 
 
-. Recâblage du bloc d'alimentation.
+. Rebranchez l'alimentation au module de contrôleur :
++
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
+.. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
+
+
 +
 
-NOTE: Si votre système est équipé d'une alimentation CC, reconnectez le bloc du câble d'alimentation au bloc d'alimentation.
+NOTE: Le contrôleur redémarre dès qu'il est complètement inséré dans le châssis.
 
 . Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
 
 
 
 
-== Étape 4 : redémarrer le contrôleur
-
-Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
-
-. Pour démarrer ONTAP à partir de l'invite du CHARGEUR, entrez _bye_.
-
-
-
-
-== Étape 5 : réaffectation de disques
+== Étape 4 : réaffectation de disques
 
 Vous devez confirmer la modification de l'ID système au démarrage du contrôleur, puis vérifier que la modification a été implémentée.
 
@@ -358,6 +371,6 @@ dr-group-id            cluster node           configuration-state
 
 
 
-== Étape 6 : renvoyer la pièce défaillante à NetApp
+== Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièce et amp ; remplacements"] pour plus d'informations.
