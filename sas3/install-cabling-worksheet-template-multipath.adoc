@@ -31,7 +31,7 @@ Pour les exemples de feuille de travail, vous pouvez utiliser une configuration 
 * Si nécessaire, après avoir terminé la fiche, vous pouvez vous reporter à link:install-cabling-worksheets-how-to-read-multipath.html["Comment lire une fiche technique pour relier les connexions du contrôleur à la pile pour assurer une connectivité multipathed"]
 
 
-image::../media/drw_worksheet_mpha_template.gif[modèle mpha de fiche de travail drw]
+image::../media/drw_worksheet_mpha_template.gif[Modèle de fiche de câblage du contrôleur MPHA à la pile]
 
 .Étapes
 . Dans les cases au-dessus des cases grises, répertoriez tous les ports SAS A de votre système, puis tous les ports SAS C de votre système en séquence d'emplacements (0, 1, 2, 3, etc.).
@@ -54,7 +54,7 @@ Lorsque toutes les paires de ports sont utilisées pour raccorder les piles de v
 Par exemple, dans une configuration haute disponibilité multivoie avec huit ports SAS et quatre piles, la paire de ports 1a/2b est câblée sur la pile 1, la paire de ports 2a/1D est câblée sur la pile 2, la paire de ports 1c/2d est câblée sur stack3 et la paire de ports 2c/1b est câblée sur la pile 4.
 
 +
-image::../media/drw_worksheet_mpha_slots_1_and_2_two_4porthbas_two_stacks.gif[fiche technique drw mpha logements 1 et 2 deux 4porthbas deux piles]
+image::../media/drw_worksheet_mpha_slots_1_and_2_two_4porthbas_two_stacks.gif[La fiche de câblage haute disponibilité des chemins d'accès multiples est remplie]
 
 +
 Lorsque toutes les paires de ports ne sont pas nécessaires pour raccorder les piles de votre système, ignorez les paires de ports (utilisez toutes les autres paires de ports).
@@ -67,14 +67,14 @@ Par exemple, dans une configuration haute disponibilité multivoie avec huit por
 NOTE: Lorsque vous avez plus de paires de ports que nécessaire pour connecter les piles du système, il est recommandé d'ignorer les paires de ports pour optimiser les ports SAS de votre système. Grâce à l'optimisation des ports SAS, vous optimisez les performances de votre système.
 
 +
-image::../media/drw_worksheet_mpha_skipped_template.gif[modèle mpha de fiche de travail drw ignoré]
+image::../media/drw_worksheet_mpha_skipped_template.gif[Fiche de câblage haute disponibilité multivoie indiquant les paires de ports ignorées]
 
 +
 Vous pouvez utiliser la fiche complétée pour connecter les câbles de votre système.
 
 . Si vous disposez d'une configuration à un seul contrôleur (multivoie), cross les informations du contrôleur 2.
 +
-image::../media/drw_worksheet_mp_template.gif[modèle mp de fiche de travail drw]
+image::../media/drw_worksheet_mp_template.gif[Fiche technique de câblage à chemins d'accès multiples remplie]
 
 +
 Vous pouvez utiliser la fiche complétée pour connecter les câbles de votre système.

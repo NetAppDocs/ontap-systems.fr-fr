@@ -19,11 +19,11 @@ NOTE: Ces informations ne s'appliquent pas aux plateformes FAS250.
 * Si nécessaire, vous pouvez vous reporter à link:install-cabling-rules.html["Concepts et règles de câblage SAS"] pour plus d'informations sur les configurations prises en charge, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir.
 * Les exemples de câblage montrent que les câbles reliant le contrôleur à la pile sont continus ou en pointillés pour distinguer les connexions des ports 0b/0b1 du contrôleur des connexions des ports 0a du contrôleur.
 +
-image::../media/drw_fas2600_controller_to_stack_cable_type_key_IEOPS-947.svg[Clé de type de câble de type contrôleur à pile drw fas2600 IEOPS 947]
+image::../media/drw_fas2600_controller_to_stack_cable_type_key_IEOPS-947.svg[Clé de type de câble pour plates-formes avec stockage intégré]
 
 * Des exemples de câblage montrent les connexions du contrôleur à la pile et des connexions tiroir à tiroir dans deux couleurs différentes pour distinguer la connectivité via l'IOM A (domaine A) et l'IOM B (domaine B).
 +
-image::../media/drw_fas2600_cable_color_key.png[clé couleur du câble drw fas2600]
+image::../media/drw_fas2600_cable_color_key.png[Clé de couleur de câble pour les plateformes avec stockage intégré]
 
 
 
@@ -33,7 +33,7 @@ image::../media/drw_fas2600_cable_color_key.png[clé couleur du câble drw fas26
 
 L'exemple suivant montre qu'aucun câblage n'est nécessaire pour obtenir la connectivité haute disponibilité multivoie :
 
-image::../media/drw_fas2800_noshelf_mpha_IEOPS-954.svg[drw fas2800 mpha noshelf IEOPS 954]
+image::../media/drw_fas2800_noshelf_mpha_IEOPS-954.svg[Multivoie haute disponibilité FAS2800 sans tiroirs externes]
 
 
 
@@ -41,7 +41,7 @@ image::../media/drw_fas2800_noshelf_mpha_IEOPS-954.svg[drw fas2800 mpha noshelf 
 
 L'exemple de câblage suivant montre le câblage requis entre les deux contrôleurs pour obtenir une connectivité à trois chemins :
 
-image::../media/drw_fas2800_noshelf_tpha_IEOPS-955.svg[drw fas2800 tpha noshelf IEOPS 955]
+image::../media/drw_fas2800_noshelf_tpha_IEOPS-955.svg[Fas2800 exemple de câblage haute disponibilité à trois chemins sans tiroirs externes]
 
 
 
@@ -49,9 +49,9 @@ image::../media/drw_fas2800_noshelf_tpha_IEOPS-955.svg[drw fas2800 tpha noshelf 
 
 La feuille de calcul et l'exemple de câblage suivants utilisent la paire de ports 0a/0b1 :
 
-image::../media/drw_fas2800_worksheet_IEOPS-948.svg[Feuille de travail drw fas2800 IEOPS 948]
+image::../media/drw_fas2800_worksheet_IEOPS-948.svg[Fiche de câblage haute disponibilité à trois chemins FAS2800 montrant les paires de ports pour la pile 1]
 
-image::../media/drw_fas2800_withshelves_tpha_IEOPS-949.svg[drw fas2800 avec étagères tpha IEOPS 949]
+image::../media/drw_fas2800_withshelves_tpha_IEOPS-949.svg[Exemple de câblage haute disponibilité à trois chemins FAS2800 pour une seule pile]
 
 
 
@@ -62,9 +62,9 @@ Les exemples de fiche et de câblage suivants utilisent la paire de ports 0a/0b 
 
 NOTE: Cette section ne s'applique pas aux systèmes FAS2800 ou FAS25XX.
 
-image::../media/drw_fas2600_mpha_worksheet_IEOPS-1255.svg[feuille de travail drw fas2600 mpha IEOPS 1255]
+image::../media/drw_fas2600_mpha_worksheet_IEOPS-1255.svg[Fiche de câblage haute disponibilité multivoie pour les plateformes avec stockage interne et une seule pile]
 
-image::../media/drw_fas2600_mpha_IEOPS-1256.svg[drw fas2600 mpha IOPS 1256]
+image::../media/drw_fas2600_mpha_IEOPS-1256.svg[Exemple de câblage haute disponibilité multivoie pour les plateformes avec stockage interne]
 
 
 
@@ -74,12 +74,12 @@ Les feuilles de calcul et exemples de câblage suivants utilisent la paire de po
 
 Dans cet exemple, le contrôleur est installé dans le slot A du châssis. Lorsqu'un contrôleur se trouve dans le slot A du châssis, son port de stockage interne (0b) se trouve dans le domaine A (IOM A). Par conséquent, le port 0b doit se connecter au domaine A (IOM A) de la pile.
 
-image::../media/drw_fas2600_mp_slot_a_worksheet.png[fiche de travail de l'emplacement a drw fas2600 mp]
+image::../media/drw_fas2600_mp_slot_a_worksheet.png[Fiche de câblage des FAS2600 montrant la paire de ports pour une configuration multivoie]
 
-image::../media/drw_fas2600_mp_slot_a.png[emplacement a du module drw fas2600 mp]
+image::../media/drw_fas2600_mp_slot_a.png[Exemple de câblage multivoie FAS2600 avec le contrôleur dans le slot de châssis 1]
 
 Dans cet exemple, le contrôleur est installé dans le slot B du châssis. Lorsqu'un contrôleur se trouve dans le slot B du châssis, son port de stockage interne (0b) se trouve dans le domaine B (IOM B). Par conséquent, le port 0b doit se connecter au domaine B (IOM B) de la pile.
 
-image::../media/drw_fas2600_mp_slot_b_worksheet.png[fiche de travail de l'emplacement b drw fas2600 mp]
+image::../media/drw_fas2600_mp_slot_b_worksheet.png[Fiche de câblage des FAS2600 montrant la paire de ports pour une configuration multivoie]
 
-image::../media/drw_fas2600_mp_slot_b.png[fente b du module drw fas2600 mp]
+image::../media/drw_fas2600_mp_slot_b.png[Exemple de câblage multivoie FAS2600 avec le contrôleur dans le slot 2 du châssis]
