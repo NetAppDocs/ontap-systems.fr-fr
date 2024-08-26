@@ -48,7 +48,7 @@ IMPORTANT: Les clients ayant des besoins spécifiques en alimentation doivent le
 .. Collectez des informations sur votre système de stockage en complétant le https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Feuille de travail de configuration^ (URL nécessaire pour accéder à la fiche)"].
 .. Notez le numéro de série du système de stockage provenant des contrôleurs.
 +
-image::../media/drw_ssn_label.svg[etiquette drw ssn]
+image::../media/drw_ssn_label.svg[Exemple de numéro de série du système indiquant l'emplacement du numéro]
 
 
 
@@ -401,7 +401,7 @@ Connectez les contrôleurs à un système de stockage externe.
 Le tableau suivant identifie le type de câble à l'aide du numéro d'appel et de la couleur des câbles illustrés pour le câblage des tiroirs disques à votre système de stockage.
 
 
-NOTE: L'exemple utilise DS224C. Le câblage est similaire à celui des autres tiroirs disques pris en charge. Voir https://docs.netapp.com/us-en/ontap-systems/sas3/install-new-system.html["Installez et reliez les étagères pour une nouvelle installation du système - étagères avec modules IOM12/IOM12B"^] pour en savoir plus.
+NOTE: L'exemple utilise DS224C. Le câblage est similaire à celui des autres tiroirs disques pris en charge. Voir link:../sas3/install-new-system.html["Installez et reliez les étagères pour une nouvelle installation du système - étagères avec modules IOM12/IOM12B"] pour plus d'informations.
 
 [cols="20%,80%"]
 |===
@@ -436,7 +436,7 @@ image::../media/oie_cable_pull_tab_down.svg[languette de traction du câble oie 
 Utilisez l'animation ou les instructions détaillées pour terminer le câblage entre les contrôleurs et les tiroirs disques.
 
 
-IMPORTANT: Ne pas utiliser le port 0b2 sur un FAS2800. Ce port SAS n'est pas utilisé par ONTAP et est toujours désactivé. Voir https://docs.netapp.com/us-en/ontap-systems/sas3/install-new-system.html["Installez un tiroir sur un nouveau système de stockage"^] pour en savoir plus.
+IMPORTANT: Ne pas utiliser le port 0b2 sur un FAS2800. Ce port SAS n'est pas utilisé par ONTAP et est toujours désactivé. Voir link:../sas3/install-new-system.html["Installez un tiroir sur un nouveau système de stockage"^] pour plus d'informations.
 
 .Animation : câblage du tiroir disque
 video::b2a7549d-8141-47dc-9e20-afe8016f4386[panopto]

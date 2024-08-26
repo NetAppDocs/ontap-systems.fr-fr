@@ -162,7 +162,7 @@ NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
 . Si vous utilisez des connecteurs 3 et/ou 7 pour la mise en réseau, utilisez le `storage port modify -node __<node name>__ -port __<port name>__ -mode network` commande permettant de convertir le logement pour une utilisation en réseau.
 . Répétez ces étapes pour le contrôleur B.
-. Si vous avez installé un module d'E/S de stockage, installez et connectez les câbles de vos tiroirs SAS, comme indiqué dans la https://docs.netapp.com/us-en/ontap-systems/sas3/install-hot-add-shelf.html["Ajout à chaud d'un tiroir SAS"^].
+. Si vous avez installé un module d'E/S de stockage, installez et câblez vos tiroirs SAS, comme décrit à la section link:../sas3/install-hot-add-shelf.html["Ajout à chaud d'un tiroir SAS"].
 
 
 
@@ -387,7 +387,7 @@ NOTE: Si vous rencontrez un problème pendant le redémarrage, reportez-vous à 
 
 
  a| 
-Module NIC dans les emplacements 3 ou 7,
+Module NIC dans les emplacements 3 ou 7
  a| 
 Utilisez le `storage port modify -node *_<node name>__ -port *_<port name>__ -mode network` commande pour chaque port.
 
@@ -396,7 +396,7 @@ Utilisez le `storage port modify -node *_<node name>__ -port *_<port name>__ -mo
  a| 
 Module de stockage
  a| 
-Installez et connectez les câbles de vos tiroirs SAS, comme décrit dans lahttps://docs.netapp.com/us-en/ontap-systems/sas3/install-hot-add-shelf.html["Ajout à chaud d'un tiroir SAS"^].
+Installez et connectez les tiroirs SAS comme décrit dans la section link:../sas3/install-hot-add-shelf.html["Ajout à chaud d'un tiroir SAS"].
 
 |===
 . Répétez ces étapes pour le contrôleur B.

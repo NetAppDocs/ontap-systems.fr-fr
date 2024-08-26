@@ -162,7 +162,7 @@ NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
 . Si vous utilisez des connecteurs 3 et/ou 7 pour la mise en réseau, utilisez le `storage port modify -node __<node name>__ -port __<port name>__ -mode network` commande permettant de convertir le logement pour une utilisation en réseau.
 . Répétez ces étapes pour le contrôleur B.
-. Si vous avez installé un module d'E/S de stockage, installez et câblez vos tiroirs NS224, comme décrit à la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf-overview.html["Workflow d'ajout à chaud"^].
+. Si vous avez installé un module d'E/S de stockage, installez et câblez vos tiroirs NS224, comme décrit link:../ns224/hot-add-shelf-overview.html["Workflow d'ajout à chaud"]à la section .
 
 
 
@@ -392,7 +392,7 @@ Utilisez le `storage port modify -node *_<node name>__ -port *_<port name>__ -mo
  a| 
 Module de stockage
  a| 
-Installez et câblez vos étagères NS224, comme décrit à la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf-overview.html["Workflow d'ajout à chaud"^].
+Installez et câblez vos étagères NS224, comme décrit à la section link:../ns224/hot-add-shelf-overview.html["Workflow d'ajout à chaud"].
 
 |===
 . Répétez ces étapes pour le contrôleur B.

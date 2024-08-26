@@ -19,8 +19,8 @@ Le message AutoSupport suivant supprime la création automatique de cas pendant 
 
 . Vérifiez la version de ONTAP que le système fonctionne sur le contrôleur défaillant, si c'est le cas, ou sur le contrôleur partenaire si le contrôleur défaillant est en panne, à l'aide du `version -v` commande :
 +
-** Si <lno-DARE> ou <1Ono-DARE> s'affiche dans le résultat de la commande, le système ne prend pas en charge NVE, passez à l'étape https://docs.netapp.com/us-en/ontap-systems/fas2800/bootmedia-impaired-controller-shutdown.html["Arrêtez le contrôleur défaillant"].
-** Si <lno-DARE> ne s'affiche pas dans le résultat de la commande et que le système exécute ONTAP 9.6 ou une version ultérieure, passez à la section suivante, <<Vérifiez NVE ou NSE sur les systèmes qui exécutent ONTAP 9.6 et versions ultérieures>>.
+** Si <lno-DARE> ou <1Ono-DARE> s'affiche dans le résultat de la commande, le système ne prend pas en charge NVE, passez à link:../fas2800/bootmedia-impaired-controller-shutdown.html["Arrêtez le contrôleur défaillant"]l' .
+** Si <lno-DARE> n'est pas affiché dans la sortie de la commande et que le système exécute ONTAP 9.6 ou une version ultérieure, passez à la section suivantelink:../fas2800/bootmedia-encryption-preshutdown-checks.html#check-nve-or-nse-on-systems-running-ontap-9-6-and-later["Vérifiez NVE ou NSE sur les systèmes qui exécutent ONTAP 9.6 et versions ultérieures"], .
 
 
 . Désactiver le rétablissement automatique à partir du contrôleur sain :

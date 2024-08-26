@@ -35,7 +35,7 @@ Vous devez fournir les informations suivantes sur votre site :
 . Déballez le contenu de toutes les boîtes.
 . Notez le numéro de série du système depuis les contrôleurs.
 +
-image::../media/drw_ssn_label.svg[etiquette drw ssn]
+image::../media/drw_ssn_label.svg[Exemple de numéro de série du système indiquant l'emplacement du numéro]
 
 . Faites un inventaire et notez le nombre et le type de câbles que vous avez reçus.
 +
@@ -181,18 +181,18 @@ Vous devez installer votre système sur un rack de 4 montants ou une armoire sys
 NOTE: Vous devez être conscient des problèmes de sécurité associés au poids du système.
 
 +
-image::../media/drw_9500_lifting_icon.svg[icône de levage drw 9500]
+image::../media/drw_9500_lifting_icon.svg[Étiquette de mise en garde relative au poids]
 
 . Fixez les dispositifs de gestion des câbles (comme illustré).
 +
-image::../media/drw_9500_cable_management_arms.svg[bras de gestion de câbles drw 9500]
+image::../media/drw_9500_cable_management_arms.svg[Installez le ARM de gestion des câbles]
 
 . Placez le panneau à l'avant du système.
 
 
 Le schéma suivant illustre à quoi ressemble un système type et où se trouvent les principaux composants à l'arrière du système :
 
-image::../media/drw_a900_controller_in _chassis_ID_IEOPS-856.svg[Contrôleur drw a900 dans l'ID châssis IEOPS 856]
+image::../media/drw_a900_controller_in _chassis_ID_IEOPS-856.svg[Configuration type de cluster]
 
 
 
@@ -211,7 +211,7 @@ Vous devez avoir contacté votre administrateur réseau pour obtenir des informa
 
 Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de fixation des câbles sont destinées à tous les ports de module réseau.
 
-image::../media/oie_cable_pull_tab_up.svg[tirer la languette du câble de l'oie vers le haut]
+image::../media/oie_cable_pull_tab_up.svg[direction de la languette de tirage du câble]
 
 
 NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
@@ -221,7 +221,7 @@ NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vo
 .Animation : câblé à un cluster sans commutateur à deux nœuds
 video::37419c37-f56f-48e5-8e6c-afa600095444[panopto]
 +
-image::../media/drw_a900_tnsc_network_cabling_IEOPS-933.svg[drw a900 câblage réseau sc IEOPS 933]
+image::../media/drw_a900_tnsc_network_cabling_IEOPS-933.svg[Câblage réseau à 2 nœuds sans commutateur]
 
 +
 |===
@@ -300,7 +300,7 @@ Vous devez avoir contacté votre administrateur réseau pour obtenir des informa
 
 Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de fixation des câbles sont destinées à tous les ports de module réseau.
 
-image::../media/oie_cable_pull_tab_up.svg[tirer la languette du câble de l'oie vers le haut]
+image::../media/oie_cable_pull_tab_up.svg[direction de la languette de tirage du câble]
 
 
 NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
@@ -397,7 +397,7 @@ Vous devez connecter chaque contrôleur aux modules NSM du tiroir disque NS224 s
 * Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait des câbles des modules de stockage est vers le haut, tandis que les languettes de retrait des étagères sont vers le bas.
 
 
-image::../media/oie_cable_pull_tab_up.svg[tirer la languette du câble de l'oie vers le haut]
+image::../media/oie_cable_pull_tab_up.svg[direction de la languette de tirage du câble]
 
 image::../media/oie_cable_pull_tab_down.svg[languette de traction du câble oie vers le bas]
 
@@ -452,7 +452,7 @@ Vous devez connecter chaque contrôleur aux modules NSM des tiroirs disques NS22
 * Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait des câbles des modules de stockage est vers le haut, tandis que les languettes de retrait des étagères sont vers le bas.
 
 
-image::../media/oie_cable_pull_tab_up.svg[tirer la languette du câble de l'oie vers le haut]
+image::../media/oie_cable_pull_tab_up.svg[direction de la languette de tirage du câble]
 
 image::../media/oie_cable_pull_tab_down.svg[languette de traction du câble oie vers le bas]
 
@@ -521,13 +521,13 @@ Si la détection réseau est activée sur votre ordinateur portable, vous pouvez
 
 . Utilisez l'animation ou la mise en plan suivante pour définir un ou plusieurs ID de tiroir disque :
 +
-Les étagères NS224 sont pré-définies pour les ID de tiroir 00 et 01. Si vous souhaitez modifier les ID de tiroir, vous devez créer un outil pour les insérer dans le trou où se trouve le bouton. voir https://docs.netapp.com/us-en/ontap-systems/ns224/change-shelf-id.html["Modifiez l'ID de tiroir NS224"] pour des instructions détaillées.
+Les étagères NS224 sont pré-définies pour les ID de tiroir 00 et 01. Si vous souhaitez modifier les ID de tiroir, vous devez créer un outil pour l'insérer dans le trou où se trouve le bouton. Pour link:../ns224/change-shelf-id.html["Modifiez l'ID de tiroir NS224"]des instructions détaillées, reportez-vous à la section.
 
 +
 .Animation : définissez les ID de tiroirs de disques NVMe
 video::95a29da1-faa3-4ceb-8a0b-ac7600675aa6[panopto]
 +
-image::../media/drw_a900_oie_change_ns224_shelf ID_IEOPS-836.svg[drw a900 changement de l'oie ns224 ID d'étagère IEHo 836]
+image::../media/drw_a900_oie_change_ns224_shelf_ID_IEOPS-836.svg[drw a900 changement de l'oie ns224 ID d'étagère IEHo 836]
 
 +
 [cols="20%,80%"]
@@ -643,13 +643,13 @@ image::../media/drw_A900_cable_console_switch_controller_IEOPS-953.svg[drw A900 
 
 . Utilisez l'animation suivante pour définir un ou plusieurs ID de tiroir disque :
 +
-Les étagères NS224 sont pré-définies pour les ID de tiroir 00 et 01. Si vous souhaitez modifier les ID de tiroir, vous devez créer un outil pour les insérer dans le trou où se trouve le bouton. voir https://docs.netapp.com/us-en/ontap-systems/ns224/change-shelf-id.html["Modifiez l'ID de tiroir NS224"] pour des instructions détaillées.
+Les étagères NS224 sont pré-définies pour les ID de tiroir 00 et 01. Si vous souhaitez modifier les ID de tiroir, vous devez créer un outil pour l'insérer dans le trou où se trouve le bouton. Pour link:../ns224/change-shelf-id.html["Modifiez l'ID de tiroir NS224"]des instructions détaillées, reportez-vous à la section.
 
 +
 .Animation : définissez les ID de tiroirs de disques NVMe
 video::95a29da1-faa3-4ceb-8a0b-ac7600675aa6[panopto]
 +
-image::../media/drw_a900_oie_change_ns224_shelf ID_IEOPS-836.svg[drw a900 changement de l'oie ns224 ID d'étagère IEHo 836]
+image::../media/drw_a900_oie_change_ns224_shelf_ID_IEOPS-836.svg[drw a900 changement de l'oie ns224 ID d'étagère IEHo 836]
 
 +
 [cols="20%,80%"]
