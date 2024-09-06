@@ -338,8 +338,11 @@ Faire glisser le plongeur
 
 NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 
-. Recâblage du système, selon les besoins.
-. Branchez les câbles d'alimentation dans les blocs d'alimentation et réinstallez les dispositifs de retenue des câbles d'alimentation.
+. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
++
+
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+
 . Terminez la réinstallation du module de contrôleur :
 +
 .. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
@@ -350,12 +353,17 @@ Les loquets de verrouillage se montent lorsque le module de contrôleur est bien
 
 NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
-+
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
-
 .. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
-.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
 
+
+. Branchez les câbles système et les modules émetteurs-récepteurs dans le module de contrôleur et réinstallez le périphérique de gestion des câbles.
+. Branchez les câbles d'alimentation dans les blocs d'alimentation et réinstallez les dispositifs de retenue des câbles d'alimentation.
++
+Le module de contrôleur commence à démarrer dès qu'il est connecté à l'alimentation. Soyez prêt à interrompre le processus de démarrage.
+
++
+
+NOTE: Si votre système est équipé de blocs d'alimentation CC, assurez-vous que les vis à molette du câble du bloc d'alimentation sont serrées.
 
 . Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
 . Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
