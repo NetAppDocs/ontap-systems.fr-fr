@@ -1,27 +1,46 @@
 ---
 sidebar: sidebar 
 permalink: whats-new.html 
-keywords: new, features,aff, asa,  fas, legacy, end-of-support 
-summary: 'Découvrez les nouvelles fonctionnalités des systèmes AFF, ASA et FAS, ainsi que le matériel existant qui n"est plus pris en charge.' 
+keywords: new, features, asa r2, aff, asa, fas, legacy, end-of-support 
+summary: Découvrez les nouvelles fonctionnalités des systèmes matériels ONTAP. 
 ---
-= Nouveautés des systèmes AFF, ASA et FAS
+= Nouveautés des systèmes matériels ONTAP
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-Découvrez les nouvelles fonctionnalités des systèmes AFF, ASA et FAS.
+Découvrez les nouvelles fonctionnalités des systèmes matériels ONTAP.
 
 Pour plus d'informations sur les problèmes connus, les limites et les mises en garde de mise à niveau dans les versions ONTAP 9, reportez-vous au https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["Notes de version de ONTAP 9"]. Vous devez vous connecter avec votre compte NetApp ou créer un compte pour accéder aux notes de version.
 
 
 
-== Prise en charge de la nouvelle plateforme
+== Prise en charge de la plateforme
 
 [cols="2*"]
 |===
-| Plateformes (avec liens vers les fiches techniques) | Disponible au début 
+| Plateformes | Disponible au début 
+
+
+ a| 
+https://docs.netapp.com/us-en/asa-r2/get-started/learn-about.html["Systèmes ASA r2"]
+
+* ASA A1K
+* ASA A70
+* ASA A90
+
+ a| 
+ONTAP 9.16.1
+
+
+
+ a| 
+https://www.netapp.com/data-storage/fas/["FAS70 et FAS90"]
+ a| 
+ONTAP 9.16.1
+
 
 
  a| 
@@ -212,7 +231,7 @@ ONTAP 9.6
 |===
 
 
-== Nouveau support de commutateur
+== Support de commutateur
 
 [cols="20,65,15"]
 |===
@@ -296,53 +315,7 @@ ONTAP 9.5P8
 |===
 
 
-== Nouvelle prise en charge de l'adaptateur
-
-[cols="4*"]
-|===
-| Référence de l'adaptateur | Description | Catégorie | Disponible au début 
-
-
- a| 
-https://hwu.netapp.com/adapter/index["X91148A"]
- a| 
-2 ports RoCE 100 GbE QSFP28
- a| 
-* Stockage
-* Mise en réseau
-* HAUTE DISPONIBILITÉ/MetroCluster
-
- a| 
-ONTAP 9.8
-
-
-
- a| 
-https://hwu.netapp.com/adapter/index["X91122A"]
- a| 
-2 ports RoCE 25 GbE QSFP28
- a| 
-* Mise en réseau
-* HAUTE DISPONIBILITÉ/MetroCluster
-
- a| 
-ONTAP 9.8
-
-
-
- a| 
-https://hwu.netapp.com/adapter/index["X9170A"]
- a| 
-Module SSD NVMe (1 To)
- a| 
-Système de vidage de mémoire
- a| 
-ONTAP 9.8
-
-|===
-
-
-== Nouveau support de tablette
+== Support de tablette
 
 [cols="2*"]
 |===
@@ -357,7 +330,7 @@ ONTAP 9.6
 |===
 
 
-== Nouvelles mises à jour matérielles
+== Mises à jour matérielles
 
 [cols="25h,~,~"]
 |===

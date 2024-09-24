@@ -1,0 +1,205 @@
+---
+permalink: asa-r2-70-90/chassis-replace-move-hardware.html 
+sidebar: sidebar 
+keywords: asa r2 a70, asa r2 a90, move hardware components, replace the chassis 
+summary: 'Déplacez les blocs d"alimentation, les disques durs et le module de contrôleur ou les modules du châssis défaillant vers le nouveau châssis, puis remplacez le châssis douteux par le rack d"équipement ou l"armoire système avec le nouveau châssis du même modèle que le châssis douteux.' 
+---
+= Déplacer et remplacer le matériel de fixation - ASA A70 et ASA A90
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Déplacez les disques durs et le module de contrôleur du châssis défectueux vers le nouveau châssis, puis remplacez le châssis défectueux par le nouveau châssis du même modèle que le châssis défectueux.
+
+
+
+== Étape 1 : retirer le module de contrôleur
+
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+
+. À l'avant du châssis, enfoncez fermement chaque disque jusqu'à ce que vous sentiez un arrêt positif. Cela permet de s'assurer que les disques sont fermement installés contre le fond de panier central du châssis.
++
+image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
+
+. Vérifiez la mémoire NVRAM orange que le voyant d'état situé dans le logement 4/5 à l'arrière du module de contrôleur défectueux est éteint. Recherchez l'icône NV.
++
+image::../media/drw_a1K-70-90_nvram-led_ieops-1463.svg[Emplacement graphique de la LED d'avertissement et d'état de la NVRAM]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["Légende numéro 1, largeur = 30 px"]
+ a| 
+LED d'état NVRAM
+
+
+
+ a| 
+image:../media/legend_icon_02.svg["Légende numéro 1, largeur = 30 px"]
+ a| 
+LED d'avertissement NVRAM
+
+|===
++
+
+NOTE: Si la LED d'état de la mémoire NVRAM clignote, cela peut signifier que le module de contrôleur n'a pas été repris ou arrêté correctement (données non validées). Si le module de contrôleur défectueux n'a pas été repris avec succès par le module de contrôleur partenaire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
++
+Le comportement général de la LED d'état NVRAM sur le module de contrôleur défectueux est le suivant :
+
++
+** La LED d'état de la NVRAM clignote lorsque le module de contrôleur est mis hors tension et que le système de stockage est à l'état « en attente de rétablissement », ou que le module de contrôleur n'est pas repris ou arrêté correctement (données non validées).
+** La LED d'état de la NVRAM clignote lorsque le module de contrôleur est retiré du châssis et peut signifier que le module de contrôleur n'est pas pris en charge ou arrêté correctement (données non validées). Vérifiez que le module de contrôleur a été correctement pris en charge par le module de contrôleur partenaire ou que le module de contrôleur défectueux affiche `waiting for giveback`. Le voyant clignotant peut alors être ignoré (et le module de contrôleur peut être retiré du châssis).
+
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les câbles d'alimentation du module de contrôleur des blocs d'alimentation.
++
+
+NOTE: Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
+
+. Débranchez les câbles système et les modules SFP et QSFP (si nécessaire) du module de contrôleur, en respectant la trace de l'endroit où les câbles ont été connectés.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez le périphérique de gestion des câbles du module de contrôleur.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a70-90_pcm_remove_replace_ieops-1365.svg[Supprimer le graphique du contrôleur]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["Légende numéro 1, largeur = 30 px"]
+| Un loquet de verrouillage 
+
+
+ a| 
+image:../media/legend_icon_02.svg["Légende numéro 2, largeur = 30 px"]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis et placez-le sur une surface plane et stable.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Répétez ces étapes pour l'autre module de contrôleur du châssis.
+
+
+
+
+== Étape 2 : déplacez les disques vers le nouveau châssis
+
+Vous devez déplacer les lecteurs de chaque ouverture de baie de l'ancien châssis vers la même ouverture de baie dans le nouveau châssis.
+
+. Retirez délicatement le cadre de l'avant du système.
+. Retirez les lecteurs :
++
+.. Appuyez sur le bouton de dégagement situé en haut de la face du support, sous les voyants.
+.. Tirez la poignée de came jusqu'à sa position d'ouverture complète pour dégager le lecteur du fond de panier central, puis faites glisser doucement le lecteur hors du châssis.
++
+Le lecteur doit se désengager du châssis, ce qui lui permet de glisser hors du châssis.
+
++
+
+NOTE: Lors de la dépose d'un entraînement, toujours utiliser deux mains pour soutenir son poids.
+
++
+
+NOTE: Les disques sont fragiles. Manipulez-les le moins possible pour éviter d'endommager ces derniers.
+
+
+
+. Gardez un trace de la baie de lecteur de chaque disque et mettez les disques de côté sur un chariot ou une table sans électricité statique.
+
+
+
+
+== Étape 3 : remplacez le châssis depuis le rack d'équipement ou l'armoire système
+
+Vous devez retirer le châssis existant du rack ou de l'armoire système de l'équipement avant de pouvoir installer le châssis de remplacement.
+
+. Retirez les vis des points de montage du châssis.
+. De deux personnes, faites glisser l'ancien châssis hors des rails du rack dans une armoire système ou un rack d'équipement, puis mettez-le de côté.
+. Deux personnes utilisent pour installer le châssis de remplacement dans le rack ou l'armoire système en guidant le châssis sur les rails de rack d'une armoire système ou d'un rack d'équipement.
+. Faites glisser le châssis complètement dans le rack de l'équipement ou l'armoire système.
+. Fixez l'avant du châssis sur le rack ou l'armoire système de l'équipement à l'aide des vis que vous avez retirées de l'ancien châssis.
+. Installez les lecteurs de l'ancien châssis dans le châssis de remplacement :
++
+.. Alignez le lecteur de l'ancien châssis avec la même ouverture de baie dans le nouveau châssis.
+
+
+. Poussez doucement le lecteur dans le châssis aussi loin que possible.
++
+La poignée de came s'engage et commence à tourner vers le haut.
+
++
+.. Poussez fermement le disque le reste dans le châssis, puis verrouillez la poignée de came en la poussant vers le haut et contre le support de disque.
++
+Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur l'avant du support d'entraînement. Les données sont sécurisées en quelques clics.
+
+.. Répétez la procédure pour les autres lecteurs du système.
+
+
+. Si ce n'est déjà fait, installez le cadre.
+
+
+
+
+== Étape 4 : réinstallez les modules de contrôleur
+
+Réinstallez le module de contrôleur et redémarrez-le.
+
+. Assurez-vous que le conduit d'air est complètement fermé en le faisant tourner jusqu'en butée.
++
+Il doit être aligné sur la tôle du module de contrôleur.
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Terminez la réinstallation du module de contrôleur :
++
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
+
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
++
+.. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
+
+
+. Branchez les cordons d'alimentation aux blocs d'alimentation.
++
+
+NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
+
++
+Le module de contrôleur démarre une fois l'alimentation rétablie. Si elle démarre à l'invite DU CHARGEUR, redémarrez le contrôleur avec la `boot_ontap` commande.
+
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la `system node autosupport invoke -node * -type all -message MAINT=END` commande.
+. Répétez la procédure précédente pour installer le second contrôleur dans le nouveau châssis.
+

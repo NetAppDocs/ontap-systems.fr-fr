@@ -1,0 +1,139 @@
+= Étape 1 : arrêtez le nœud douteux
+:allow-uri-read: 
+
+
+Utilisez cette procédure pour remplacer un module d'E/S défectueux.
+
+* Vous pouvez utiliser cette procédure avec toutes les versions de ONTAP prises en charge par votre système de stockage.
+* Tous les autres composants du système de stockage doivent fonctionner correctement. Si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+
+== Étape 1 : arrêtez le nœud douteux
+
+Arrêtez ou prenez le contrôle du contrôleur défectueux.
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande de message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Arrêtez ou prenez le contrôle du contrôleur défectueux à partir du contrôleur sain : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+== Étape 2 : remplacez un module d'E/S défectueux
+
+Pour remplacer un module d'E/S, localisez-le dans le boîtier et suivez la séquence spécifique des étapes.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez tout câblage du module d'E/S cible.
+. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
++
+
+NOTE: L'illustration suivante illustre le retrait d'un module d'E/S horizontal et vertical. En général, vous ne retirez qu'un seul module d'E/S.
+
++
+image:../media/drw_a1k_io_remove_replace_ieops-1382.svg["Retirez le module d'E/S."]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["Légende numéro 1,largeur=30px"]
+ a| 
+Loquet de came d'E/S.
+
+|===
++
+Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
+
+. Retirez le module d'E/S cible du boîtier :
++
+.. Appuyer sur le bouton de came du module cible.
+.. Faites tourner le loquet de came aussi loin que possible du module.
+.. Retirez le module du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du boîtier.
++
+Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
+
+
+
+. Mettez le module d'E/S de côté.
+. Installez le module d'E/S de remplacement dans le boîtier :
++
+.. Alignez le module avec les bords de l'ouverture du logement du boîtier.
+.. Faites glisser doucement le module dans le logement jusqu'à l'intérieur du boîtier, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+. Branchez le câble du module d'E/S.
+. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+
+
+
+
+== Étape 3 : redémarrer le contrôleur
+
+Après avoir remplacé un module d'E/S, vous devez redémarrer le module de contrôleur.
+
+
+NOTE: Si le nouveau module d'E/S n'est pas le même modèle que le module défaillant, vous devez d'abord redémarrer le contrôleur BMC.
+
+.Étapes
+. Redémarrez le contrôleur BMC si le module de remplacement n'est pas du même modèle que l'ancien module :
++
+.. À partir de l'invite du CHARGEUR, passez en mode de privilège avancé : _set Privilege Advanced_
+.. Redémarrez le contrôleur BMC : _sp reboot_
+
+
+. À partir de l'invite du CHARGEUR, redémarrez le nœud : _bye_
++
+
+NOTE: Ceci réinitialise les cartes d'E/S et les autres composants et redémarre le nœud.
+
+. Retournez le nœud en mode de fonctionnement normal : _Storage failover giveback -ofnode albridred_node_name_
+. Si le rétablissement automatique a été désactivé, réactivez-le : _Storage failover modify -node local -auto-giveback true_
+
+
+
+
+== Étape 4 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

@@ -4,26 +4,20 @@ sidebar: sidebar
 keywords: aff a70, a90, power controllers 
 summary: 'Branchez les câbles d"alimentation et mettez les tiroirs et les contrôleurs sous tension.' 
 ---
-= Mettez le système de stockage sous tension - AFF A70, AFF A90
+= Mettez le système de stockage sous tension : AFF A70 et AFF A90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Une fois le réseau connecté aux câbles des tiroirs, vous pouvez mettre les contrôleurs et les tiroirs supplémentaires sous tension.
-
-
-NOTE: Les tiroirs NS224 externes sont facultatifs.
+Une fois que vous avez installé le matériel rack du système de stockage AFF A70 ou AFF A90 et que vous avez installé les câbles des contrôleurs et des tiroirs de stockage, vous devez mettre vos tiroirs et contrôleurs de stockage sous tension.
 
 
 
 == Étape 1 : mettez le tiroir sous tension et attribuez l'ID de tiroir
 
-Dans les systèmes de stockage ONTAP, chaque tiroir NS224 se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage. Par défaut, les ID de tiroir sont généralement attribués aux noms « 00 » et « 01 ». Toutefois, vous devrez peut-être les ajuster pour maintenir le caractère unique de votre système de stockage.
-
-
-NOTE: L'ID du tiroir du châssis du contrôleur est codé en dur en « 00 ». N'utilisez pas l'ID de tiroir « 00 » pour les tiroirs NS224 reliés à la plateforme.
+Chaque tiroir NS224 se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage. Par défaut, les ID de tiroir sont attribués aux noms « 00 » et « 01 ». Toutefois, vous devrez peut-être les ajuster pour maintenir le caractère unique de votre système de stockage.
 
 .Description de la tâche
 * Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99.
@@ -37,7 +31,7 @@ Le tiroir se met sous tension et démarre automatiquement lorsqu'il est branché
 
 . Retirez le capuchon d'extrémité gauche pour accéder au bouton d'ID du shelf derrière le cache.
 +
-image:drw_a900_oie_change_ns224_shelf_id_ieops-836.svg["Modifier l'ID de l'étagère NS224, largeur=300px"]
+image::../media/drw_a900_oie_change_ns224_shelf_id_ieops-836.svg[Modifiez l'ID de tiroir NS224]
 
 +
 [cols="20%,80%"]
@@ -45,44 +39,48 @@ image:drw_a900_oie_change_ns224_shelf_id_ieops-836.svg["Modifier l'ID de l'étag
 
 
  a| 
-image:legend_icon_01.svg["Légende numéro 1, largeur=20"]
+image::../media/legend_icon_01.svg[Légende numéro 1]
  a| 
 Capuchon d'extrémité de tablette
 
 
 
  a| 
-image:legend_icon_02.svg["Légende numéro 2, largeur=20"]
+image::../media/legend_icon_02.svg[[Légende numéro 2]
  a| 
 Plateau de tablette
 
 
 
  a| 
-image:legend_icon_03.svg["Légende numéro 3, largeur=20"]
+image::../media/legend_icon_03.svg[[Légende numéro 3]
  a| 
 Numéro ID du tiroir
 
 
 
  a| 
-image:legend_icon_04.svg["Légende numéro 4, largeur=20"]
+image::../media/legend_icon_04.svg[[Légende numéro 4]
  a| 
-Bouton d'accès à l'ID de tiroir
+Bouton de l'ID de tiroir
 
 |===
 . Modifier le premier numéro de l'ID de tiroir :
 +
-.. Insérez l'extrémité droite d'un trombone ou d'un stylo à pointe sphérique à pointe étroite dans le petit trou.
-.. Appuyez sur le bouton et maintenez-le enfoncé jusqu'à ce que le premier chiffre de l'écran numérique clignote, puis relâchez le bouton.
+.. Insérez l'extrémité droite d'un trombone ou d'un stylo à pointe sphérique à pointe étroite dans le petit trou pour appuyer sur le bouton d'identification de la tablette.
++
+
+NOTE: Sur les étagères de la série DS, le bouton d'ID de tablette est accessible directement au bas de l'oreille de tablette.
+
+.. Appuyez sur le bouton d'ID du tiroir et maintenez-le enfoncé jusqu'à ce que le premier chiffre de l'écran numérique clignote, puis relâchez le bouton.
 +
 Un chiffre peut clignoter pendant 15 secondes. Cela active le mode de programmation de l'ID de tiroir.
 
 +
 
-NOTE: Si l'ID prend plus de 15 secondes pour clignoter, appuyez de nouveau sur le bouton et maintenez-le enfoncé, en veillant à l'appuyer complètement.
+NOTE: Si l'ID nécessite plus de 15 secondes, appuyez de nouveau sur le bouton d'ID du tiroir et maintenez-le enfoncé, en veillant à appuyer sur le bouton.
 
-.. Appuyez sur le bouton et relâchez-le pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité de 0 à 9.
+.. Appuyez sur le bouton d'ID du tiroir et relâchez-le pour avancer le chiffre jusqu'à ce que vous atteigniez le chiffre souhaité de 0 à 9.
 +
 La durée de chaque pression et de chaque relâchement peut être aussi courte qu'une seconde.
 
@@ -100,18 +98,18 @@ Il peut prendre jusqu'à trois secondes pour que le chiffre clignote.
 +
 Le premier chiffre de l'écran numérique cesse de clignoter.
 
-.. Appuyez sur le bouton et relâchez-le pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité de 0 à 9.
+.. Appuyez sur le bouton d'ID du tiroir et relâchez-le pour avancer le chiffre jusqu'à ce que vous atteigniez le chiffre souhaité de 0 à 9.
 +
 Le second chiffre continue de clignoter.
 
 
 
-. Verrouillez le chiffre souhaité et quittez le mode de programmation en appuyant sur le bouton et en le maintenant enfoncé jusqu'à ce que le second chiffre cesse de clignoter.
+. Verrouillez le chiffre souhaité et quittez le mode de programmation en appuyant sur le bouton d'ID du tiroir et en le maintenant enfoncé jusqu'à ce que le second chiffre ne clignote plus.
 +
 Un chiffre qui ne clignote plus pendant trois secondes peut s'arrêter.
 
 +
-Les deux chiffres de l'écran numérique commencent à clignoter et le voyant orange de l'écran ODP s'allume au bout de cinq secondes environ pour vous avertir que l'ID de tiroir en attente n'est pas encore pris en compte.
+Les deux chiffres de l'écran numérique commencent à clignoter et le voyant orange s'allume au bout de cinq secondes environ pour vous avertir que l'ID du tiroir en attente n'a pas encore pris effet.
 
 . Mettez le tiroir sous tension pendant au moins 10 secondes pour valider l'ID de tiroir.
 +
@@ -130,7 +128,10 @@ Une alimentation est mise sous tension dès que le cordon d'alimentation est bra
 
 == Étape 2 : mettez les contrôleurs sous tension
 
-. Connectez votre ordinateur portable au port série console pour surveiller la séquence d'amorçage lorsque les contrôleurs sont mis sous tension.
+Une fois que vous avez allumé vos tiroirs de stockage et attribué des ID uniques, mettez les contrôleurs de stockage sous tension.
+
+.Étapes
+. Connectez votre ordinateur portable au port série console. Cela vous permettra de surveiller la séquence d'amorçage lorsque les contrôleurs sont sous tension.
 +
 .. Définissez le port série console de l'ordinateur portable sur 115,200 bauds avec le N-8-1.
 +
@@ -140,20 +141,23 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable pour obtenir des in
 .. Connectez le câble de la console à l'ordinateur portable et le port série console du contrôleur à l'aide du câble de console fourni avec la plateforme.
 .. Connectez l'ordinateur portable au commutateur du sous-réseau de gestion.
 +
-image:drw_a1k_70-90_console_connection_ieops-1702.svg["Connexions de la console"]
+image::../media/drw_a1k_70-90_console_connection_ieops-1702.svg[Connexions de la console]
 
 .. Attribuez une adresse TCP/IP à l'ordinateur portable, en utilisant une adresse située sur le sous-réseau de gestion.
 
 
 . Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
 +
-image:drw_affa1k_power_source_icon_ieops-1700.svg["Schéma générique de connexion de l'alimentation"]
+image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Schéma générique de connexion de l'alimentation]
 
 +
 ** La plate-forme commence à démarrer. Le démarrage initial peut prendre jusqu'à huit minutes.
 ** Les LED clignotent et les ventilateurs démarrent, ce qui indique que les contrôleurs sont sous tension.
-** Les ventilateurs peuvent être très bruyants lorsqu'ils démarrent pour la première fois. Le bruit fort du ventilateur au démarrage est normal.
+** Les ventilateurs sont peut-être très bruyants lors du premier démarrage. Le bruit du ventilateur au démarrage est normal.
 
 
 . Fixez les câbles d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation.
 
+
+.Et la suite ?
+Après avoir allumé votre système de stockage AFF A70 ou AFF A90, vous link:install-complete.html["terminez l'installation et la configuration du système"].

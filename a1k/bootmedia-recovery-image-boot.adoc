@@ -23,19 +23,18 @@ L'image est téléchargée à partir de la clé USB.
 +
 [cols="1,2"]
 |===
-| Si votre système dispose de... | Alors... 
+| Si votre système est en cours d'exécution... | Alors... 
 
 
  a| 
-Une connexion réseau
+ONTAP 9.16.0 ou version antérieure
  a| 
 .. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez `Do you want to restore the backup configuration now?`
 .. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à écraser `/etc/ssh/ssh_host_ecdsa_key`.
 .. Sur le contrôleur sain, définissez le contrôleur défectueux sur le niveau de privilège avancé : _set -Privilege Advanced_.
 .. Sur le contrôleur partenaire sain, exécutez la commande restore backup : _system node restore-backup -node local -target-address alghed_node_IP_address_.
 +
-
-NOTE: Si vous voyez un message autre qu'une restauration réussie, contactez https://support.netapp.com["Support NetApp"].
+*REMARQUE :* si vous voyez un message autre qu'une restauration réussie, contactez https://support.netapp.com["Support NetApp"].
 
 .. Sur le contrôleur partenaire sain, remettez le contrôleur défectueux au niveau admin: _Set -Privilege admin_.
 .. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez `Was the restore backup procedure successful?`.
@@ -44,26 +43,35 @@ NOTE: Si vous voyez un message autre qu'une restauration réussie, contactez htt
 .. Si le système n'utilise pas de chiffrement, sélectionnez _option 1 démarrage normal._, sinon passez à link:bootmedia-encryption-restore.html["Restaurer les gestionnaires de clés"].
 .. Branchez le câble de la console au contrôleur partenaire.
 .. Remettez le contrôleur en place en utilisant la commande _Storage failover giveback -fromnode local_.
-+
-... Restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la commande _Storage failover modify -node local -auto-giveback true_.
-
-
+.. Restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la commande _Storage failover modify -node local -auto-giveback true_.
 .. Si AutoSupport est activé, restaurez/annulez la suppression de la création automatique de cas en utilisant le noeud système AutoSupport Invoke -node * -type all -message maint=END_ command.
++
+*REMARQUE :* si le processus échoue, contactez https://support.netapp.com["Support NetApp"].
 
 
-
-
- a| 
-Aucune connexion réseau
- a| 
-Contactez https://support.netapp.com["Support NetApp"].
 
 
 
  a| 
-Aucune connexion réseau et se trouve dans une configuration IP de MetroCluster
+ONTAP 9.16.1 ou version ultérieure
  a| 
-Contactez https://support.netapp.com["Support NetApp"].
+.. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à restaurer la configuration de sauvegarde.
++
+Une fois la procédure de restauration réussie, ce message s'affiche sur la console - `syncflash_partner: Restore from partner complete`.
+
+.. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à confirmer si la sauvegarde de restauration a réussi.
+.. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à utiliser la configuration restaurée.
+.. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à redémarrer le nœud.
+.. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à redémarrer le contrôleur défectueux et appuyez sur _ctrl-c_ pour accéder au menu de démarrage.
+.. Si le système n'utilise pas de chiffrement, sélectionnez _option 1 démarrage normal._, sinon passez à link:bootmedia-encryption-restore.html["Restaurer les gestionnaires de clés"].
+.. Branchez le câble de la console au contrôleur partenaire.
+.. Remettez le contrôleur en place en utilisant la commande _Storage failover giveback -fromnode local_.
+.. Restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la commande _Storage failover modify -node local -auto-giveback true_.
+.. Si AutoSupport est activé, restaurez/annulez la suppression de la création automatique de cas en utilisant le noeud système AutoSupport Invoke -node * -type all -message maint=END_ command.
++
+*REMARQUE :* si le processus échoue, contactez https://support.netapp.com["Support NetApp"].
+
+
 
 |===
 

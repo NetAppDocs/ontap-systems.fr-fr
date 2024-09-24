@@ -1,0 +1,47 @@
+---
+permalink: asa-r2-a1k/controller-replace-recable-reassign-disks.html 
+sidebar: sidebar 
+keywords: asa r2 a1k, how to recable the system, how to reassign disks 
+summary: Redémarrez le système. 
+---
+= Remettre le contrôleur - ASA A1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Renvoyer la propriété des ressources de stockage vers le contrôleur de remplacement.
+
+.Étapes
+. Si le chiffrement est configuré sur votre système de stockage, vous devez restaurer la fonctionnalité de chiffrement de volume ou de stockage en procédant comme suit pour redémarrer le système :
++
+.. Démarrez le menu et exécutez l'option 10
+.. Saisissez la phrase de passe et sauvegardez les données, puis effectuez un démarrage normal. Voir https://kb.netapp.com/on-prem/ontap/DM/Encryption/Encryption-KBs/Restore_onboard_key_management_encryption_keys["Restaurez les clés de chiffrement intégrées de gestion des clés"].
+.. Effectuer un rétablissement CFO uniquement
+.. Effectuez la synchronisation intégrée et vérifiez que le SVM-KEK est défini sur « true », voir https://kb.netapp.com/on-prem/ontap/DM/Encryption/Encryption-KBs/Onboard_keymanager_sync_fails_after_motherboard_replacement["Échec de la remise en service après le remplacement du module MB - l'opération a été mise en veto par keymanager"]
+.. SFO Giveback, (aucune force)
+
+
+. Si le chiffrement n'est pas configuré sur votre système, procédez comme suit pour redémarrer le système :
++
+.. Démarrez le menu et exécutez l'option 1.
+.. Remettre le contrôleur :
+.. Depuis le contrôleur sain, remettre le stockage du contrôleur remplacé : `storage failover giveback -ofnode _replacement_node_name_`
++
+Le contrôleur _remplacement_ reprend son stockage et termine son démarrage.
+
++
+
+NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+
++
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["Recherchez le contenu Configuration haute disponibilité de votre version de ONTAP 9"]
+
+.. Une fois le retour arrière terminé, vérifiez que la paire HA est saine et que le basculement est possible : `storage failover show`
+
+
+. Vérifier que les volumes attendus sont présents pour chaque contrôleur : `vol show -node node-name`
+. Si vous avez désactivé le basculement automatique au redémarrage, activez-le à partir du contrôleur sain : `storage failover modify -node replacement-node-name -onreboot true`
+. Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la `system node autosupport invoke -node * -type all -message MAINT=END` commande.
+

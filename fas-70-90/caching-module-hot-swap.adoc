@@ -1,0 +1,333 @@
+---
+permalink: fas-70-90/caching-module-hot-swap.html 
+sidebar: sidebar 
+keywords: fas70, fas90, hot swap, replace, FlashCache module carrier, caching module, FlashCache 
+summary: 'Le support de module NVMe SSD FlashCache contient un ou deux modules FlashCache (modules de cache) avec un seul disque de cache SSD intégré dans chaque module de cache. Les modules de cache peuvent être échangés à chaud, mais le support de module FlashCache n"est pas remplaçable à chaud.' 
+---
+= Remplacez le support du module FlashCache ou un module de cache - FAS70 et FAS90
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le support de module NVMe SSD FlashCache contient un ou deux modules FlashCache (modules de cache) avec un seul disque SSD FlashCache intégré dans chaque module de cache.
+
+Le système FAS70 prend en charge les modules de cache de 2 To et le système FAS90 prend en charge les modules de cache de 4 To. Vous ne pouvez pas combiner des modules de cache de capacité différente dans le support du module FlashCache.
+
+Vous pouvez effectuer l'une des procédures suivantes en fonction de ce qui doit être remplacé : l'ensemble du support de module Flashcache ou un module de cache.
+
+* <<Remplacez le support du module FlashCache>>
+* <<Remplacez le module de cache>>
+
+
+
+
+== Remplacez le support du module FlashCache
+
+Le support du module FlashCache se trouve dans le logement 6 et peut accueillir jusqu'à deux modules FlashCache. Vous ne pouvez pas remplacer à chaud le support du module FlashCache
+
+.Avant de commencer
+* Vérifiez que votre système de stockage dispose du système d'exploitation approprié pour le support du module FlashCache de remplacement.
+* Vérifiez que tous les autres composants fonctionnent correctement. Si ce n'est pas le cas, vous devez contacter le support technique.
+
+
+
+
+=== Étape 1 : arrêtez le nœud douteux
+
+Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
+
+.Option 1 la plupart des systèmes
+[%collapsible]
+====
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande de message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Arrêtez ou prenez le contrôle du contrôleur défectueux à partir du contrôleur sain : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+====
+.Option 2 Configuration MetroCluster
+[%collapsible]
+====
+
+NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passer à l'étape suivante.
+
+
+
+ a| 
+Attente du retour...
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Arrêtez ou prenez le contrôle du contrôleur défectueux à partir du contrôleur sain : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+====
+
+
+=== Étape 2 : remplacez le support du module FlashCache
+
+Procédez comme suit pour remplacer le support du module FlashCache.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Repérez le support du module FlashCache défectueux, dans le logement 6, près du voyant d'avertissement orange allumé à l'avant du support du module FlashCache.
++
+image::../media/drw_fas70-90_remove_caching_module_carrier_ieops-1772.svg[Retirez le support du module FlashCache]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["Légende numéro 1, largeur = 30 px"]
+ a| 
+Support du module FlashCache
+
+
+
+ a| 
+image:../media/legend_icon_02.svg["Légende numéro 2, largeur = 30 px"]
+ a| 
+Numéros d'emplacement des modules de cache
+
+
+
+ a| 
+image:../media/legend_icon_03.svg["Légende numéro 3, largeur = 30 px"]
+ a| 
+Poignée de came du support du module FlashCache
+
+
+
+ a| 
+image:../media/legend_icon_04.svg["Légende numéro 4, largeur = 30 px"]
+ a| 
+LED de panne du support du module FlashCache
+
+|===
+. Retirez le support du module FlashCache défectueux :
++
+.. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
+.. Pincez la languette bleue au bas du support du module FlashCache.
+.. Faites pivoter la languette pour l'éloigner du module.
+
+
+. Retirez le support du module FlashCache du module de contrôleur et placez-le sur un tapis antistatique.
+. Déplacez les modules de cache vers le support du module FlashCache de remplacement :
++
+.. Pincez la languette Terra Cotta en haut du module de cache et faites pivoter la poignée de came pour l'éloigner du module de cache.
+.. Retirez le module du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du support du module FlashCache.
+.. Installez le module de cache dans le même emplacement du support du module FlashCache de remplacement et faites pivoter la poignée de came en position fermée sur le module de cache pour le verrouiller en place.
+
+
+. Répétez ces étapes s'il existe un second module de cache.
+. Installez le support du module FlashCache de remplacement dans le système :
++
+.. Alignez le module avec les bords de l'ouverture du logement du boîtier.
+.. Faites glisser doucement le module dans le logement jusqu'à l'intérieur du boîtier, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
+.. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+
+
+
+
+
+
+=== Étape 3 : redémarrer le contrôleur
+
+Après avoir remplacé le support du module FlashCache, vous devez redémarrer le module contrôleur.
+
+.Étapes
+. À partir de l'invite du CHARGEUR, redémarrez le nœud : _bye_
++
+
+NOTE: Ceci réinitialise les cartes d'E/S et les autres composants et redémarre le nœud.
+
+. Retournez le nœud en mode de fonctionnement normal : _Storage failover giveback -ofnode albridred_node_name_
+. Si le rétablissement automatique a été désactivé, réactivez-le : _Storage failover modify -node local -auto-giveback true_
+
+
+
+
+=== Étape 4 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.
+
+
+
+== Remplacez le module de cache
+
+.Avant de commencer
+Les modules FlashCache (modules de cache) se trouvent dans le logement 6-1 ou 6-2 ou dans le logement 6-1 et le logement 6-2.
+
+Vous pouvez remplacer à chaud des modules de cache individuels par des modules de cache de même capacité provenant du même fournisseur ou d'un autre fournisseur.
+
+.Avant de commencer
+* Assurez-vous que le module de cache de remplacement possède la même capacité que le module défaillant, provenant du même fournisseur ou d'un autre fournisseur pris en charge.
+* Vérifiez que tous les autres composants fonctionnent correctement. Si ce n'est pas le cas, vous devez contacter le support technique.
+* Les disques des modules de cache ne sont pas des unités remplaçables sur site (FRU). Vous devez remplacer l'ensemble du module de cache.
+
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Localisez le module de cache défectueux, dans le logement 6, par le voyant d'avertissement orange allumé à l'avant du module de cache.
+. Préparez le logement du module de cache pour le remplacement comme suit :
++
+.. Notez la capacité du module de cache, la référence et le numéro de série sur le nœud cible : _system node run local sysconfig -av 6_
+.. Au niveau de privilège admin, préparez l'emplacement du module de cache cible pour le retrait, en répondant à `y` l'invite suivante : _system Controller slot module remove -node nom_noeud -slot numéro_emplacement_ la commande suivante prépare l'emplacement 6-1 sur le nœud 1 pour le retrait et affiche un message indiquant qu'il est sûr de le supprimer :
++
+[listing]
+----
+::> system controller slot module remove -node node1 -slot 6-1
+
+Warning: SSD module in slot 6-1 of the node node1 will be powered off for removal.
+Do you want to continue? (y|n): _y_
+The module has been successfully removed from service and powered off. It can now be safely removed.
+----
+.. Affiche l'état du slot avec le `system controller slot module show` commande.
++
+L'état de l'emplacement du module de cache s'affiche `powered-off` dans la sortie d'écran du module de cache qui doit être remplacé.
+
+
+
++
+
+NOTE: Voir la https://docs.netapp.com/us-en/ontap-cli-9121/["Pages de manuel sur les commandes"^] Pour plus d'informations, consultez votre version de ONTAP.
+
+. Retirez le module de mise en cache :
++
+image::../media/drw_fas70-90_caching_module_remove_ieops-1773.svg[Retirez le module de cache]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.svg["Légende numéro 1, largeur = 30 px"]
+ a| 
+Poignée de came du module de cache
+
+
+
+ a| 
+image:../media/legend_icon_02.svg["Légende numéro 2, largeur = 30 px"]
+ a| 
+LED de panne du module de cache
+
+|===
++
+.. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
+.. Appuyez sur le bouton de déverrouillage en terre cuite situé à l'avant du module de mise en cache.
+.. Tournez la poignée de came aussi loin que possible.
+.. Retirez le module de cache du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du support du module FlashCache.
++
+Assurez-vous de prendre en charge le module de cache lorsque vous le retirez du support du module FlashCache.
+
+
+
+. Installez le module de mise en cache de remplacement :
++
+.. Alignez les bords du module de cache avec l'ouverture du module de contrôleur.
+.. Poussez doucement le module de cache dans la baie jusqu'à ce que la poignée de came s'enclenche.
+.. Tourner la poignée de came jusqu'à ce qu'elle s'enclenche.
+.. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+
+
+. Mettre le module de cache de remplacement en ligne à l'aide du `system controller slot module insert` commande comme suit :
++
+La commande suivante prépare le slot 6-1 sur le nœud 1 pour la mise sous tension et affiche un message qu'il est mis sous tension :
+
++
+[listing]
+----
+::> system controller slot module insert -node node1 -slot 6-1
+
+Warning: NVMe module in slot 6-1 of the node localhost will be powered on and initialized.
+Do you want to continue? (y|n): `y`
+
+The module has been successfully powered on, initialized and placed into service.
+----
+. Vérifiez l'état du logement à l'aide du `system controller slot module show` commande.
++
+Assurez-vous que la sortie de commande indique l'état pour le sous-système `powered-on` et prêt à l'emploi.
+
+. Vérifiez que le module de mise en cache de remplacement est en ligne et reconnu, puis vérifiez visuellement que le voyant d'avertissement orange n'est pas allumé : `sysconfig -av slot_number`
++
+
+NOTE: Si vous remplacez le module de cache par un module de cache d'un autre fournisseur, le nom du nouveau fournisseur est affiché dans la sortie de la commande.
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"^] page pour plus d'informations.
+

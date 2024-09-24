@@ -13,25 +13,26 @@ summary: Vous devez remplacer le composant défectueux par un composant FRU de r
 [role="lead lead"]
 Procédez comme suit pour remplacer votre module de contrôleur.
 
-.Avant de commencer
-Pour remplacer le module de contrôleur, vous devez répondre à certaines exigences. Examinez le link:controller-replace-requirements.html["exigences et considérations relatives au remplacement des contrôleurs"].
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:controller-replace-requirements.html["Vérifiez les conditions requises pour remplacer le contrôleur"]
+[role="quick-margin-para"]
+Pour remplacer le module de contrôleur, vous devez répondre à certaines exigences.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:controller-replace-shutdown.html["Arrêtez le contrôleur défaillant"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:controller-replace-shutdown.html["Arrêtez le contrôleur défaillant"]
 [role="quick-margin-para"]
 Arrêtez ou prenez le contrôle du contrôleur défaillant pour que le contrôleur fonctionnel continue à transmettre des données à partir du stockage défectueux.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:controller-replace-move-hardware.html["Remplacer le contrôleur"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:controller-replace-move-hardware.html["Remplacer le contrôleur"]
 [role="quick-margin-para"]
 Le remplacement du contrôleur inclut le retrait du contrôleur défectueux, le déplacement des composants FRU vers le module de contrôleur de remplacement, puis l'installation du module de contrôleur de remplacement dans le boîtier.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:controller-replace-system-config-restore-and-verify.html["Restaurez et vérifiez la configuration du système"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:controller-replace-system-config-restore-and-verify.html["Restaurez et vérifiez la configuration du système"]
 [role="quick-margin-para"]
 Vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:controller-replace-recable-reassign-disks.html["Remettez le contrôleur en place"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:controller-replace-recable-reassign-disks.html["Remettez le contrôleur en place"]
 [role="quick-margin-para"]
 Renvoyer la propriété des ressources de stockage vers le contrôleur de remplacement.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:controller-replace-restore-system-rma.html["Remplacement complet du contrôleur"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:controller-replace-restore-system-rma.html["Remplacement complet du contrôleur"]
 [role="quick-margin-para"]
 Vérifier les LIF, vérifier l'état du cluster et renvoyer la pièce défectueuse à NetApp.

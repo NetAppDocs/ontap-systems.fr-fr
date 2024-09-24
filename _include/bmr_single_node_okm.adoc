@@ -1,0 +1,83 @@
+= 
+:allow-uri-read: 
+
+
+Vous pouvez restaurer l'image ONTAP (récupération du support de démarrage) à partir du nœud partenaire à l'aide du système `boot_recovery -partner` avec les plateformes ASA r2 exécutant ONTAP 9.16.0 et versions ultérieures.
+
+.Avant de commencer
+Lorsque vous démarrez un nœud et que le support de démarrage sur ce nœud est corrompu, vous verrez les messages suivants et le processus de démarrage avec STOP à l'invite Loader :
+
+....
+
+Can't find primary boot device u0a.0
+Can't find backup boot device u0a.1
+ACPI RSDP Found at 0x777fe014
+
+
+Starting AUTOBOOT press Ctrl-C to abort...
+Could not load fat://boot0/X86_64/freebsd/image1/kernel:Device not found
+
+ERROR: Error booting OS on: 'boot0' file: fat://boot0/X86_64/Linux/image1/vmlinuz (boot0,fat)
+
+
+ERROR: Error booting OS on: 'boot0' file: fat://boot0/X86_64/freebsd/image1/kernel (boot0,fat)
+
+
+Autoboot of PRIMARY image failed. Device not found (-6)
+LOADER-A>
+
+....
+Si ce message s'affiche, vous devez restaurer l'image ONTAP
+
+.Étapes
+. À partir de l'invite Loader, entrez la commande _boot_Recovery -Partner_.
++
+L'écran affiche le message `Starting boot media recovery (BMR) process press Ctrl-C to abort...` et commence les vérifications initiales et l'installation des fichiers de récupération d'amorçage.
+
++
+.. Si le gestionnaire de clés intégré (OKM) est configuré, les éléments suivants s'affichent :
++
+....
+key manager is configured.
+Entering Bootmenu Option 10...
+
+This option must be used only in disaster recovery procedures. Are you sure? (y or n):
+....
+
+
+. Entrez _y_ à l'invite.
+. Saisissez la phrase de passe du gestionnaire de clés intégré lorsque vous voyez `Enter the passphrase for onboard key management:`
+. Entrez à nouveau la phrase secrète du gestionnaire de clés intégré lorsque vous êtes invité à confirmer la phrase de passe.
++
+....
+Enter the passphrase for onboard key management:
+Enter the passphrase again to confirm:
+Enter the backup data:
+TmV0QXBwIEtleSBCbG9iAAECAAAEAAAAcAEAAAAAAAA3yR6UAAAAACEAAAAAAAAA
+QAAAAAAAAACJz1u2AAAAAPX84XY5AU0p4Jcb9t8wiwOZoqyJPJ4L6/j5FHJ9yj/w
+RVDO1sZB1E4HO79/zYc82nBwtiHaSPWCbkCrMWuQQDsiAAAAAAAAACgAAAAAAAAA
+3WTh7gAAAAAAAAAAAAAAAAIAAAAAAAgAZJEIWvdeHr5RCAvHGclo+wAAAAAAAAAA
+IgAAAAAAAAAoAAAAAAAAAEOTcR0AAAAAAAAAAAAAAAACAAAAAAAJAGr3tJA/LRzU
+QRHwv+1aWvAAAAAAAAAAACQAAAAAAAAAgAAAAAAAAABHVFpxAAAAAHUgdVq0EKNp
+.
+.
+.
+.
+....
++
+Une fois le processus de restauration terminé, vous verrez les éléments suivants :
+
++
+....
+Trying to recover keymanager secrets....
+Setting recovery material for the onboard key manager
+Recovery secrets set successfully
+Trying to delete any existing km_onboard.wkeydb file.
+
+Successfully recovered keymanager secrets.
+....
+. Surveillez le processus BMR lors de l'exécution de la restauration de la configuration de sauvegarde, du fichier env, de la base de données mdb et du rdb à partir du partenaire.
++
+Une fois la restauration terminée, le nœud redémarre pour terminer le processus.
+
+

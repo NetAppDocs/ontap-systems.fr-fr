@@ -1,0 +1,38 @@
+---
+permalink: fas-70-90/install-overview.html 
+sidebar: sidebar 
+keywords: Installation, deployment, Install, deploy, Installing, deploying, a1k 
+summary: Suivez ces étapes générales pour installer et configurer votre système de stockage FAS70 et FAS90, et le déployer comme nœud dans votre système ONTAP. 
+---
+= Workflow d'installation et de configuration - FAS70 et FAS90
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour installer et configurer votre système FAS70 ou FAS90, vous passez en revue la configuration matérielle requise, vous préparez votre site, installez et câblez les composants matériels, mettez le système sous tension et configurez votre cluster ONTAP.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:install-requirements.html["Vérifiez les conditions requises pour l'installation"]
+[role="quick-margin-para"]
+Passez en revue l'équipement et les outils nécessaires à l'installation de votre système de stockage et des étagères de stockage, puis passez en revue les précautions de levage et de sécurité.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-prepare.html["Préparer l'installation du système de stockage FAS70 ou FAS90"]
+[role="quick-margin-para"]
+Pour préparer l'installation de votre système, vous devez préparer le site, vérifier les exigences environnementales et électriques et vous assurer qu'il y a suffisamment d'espace dans le rack. Déballez ensuite l'équipement, comparez son contenu au bordereau d'expédition et enregistrez le matériel pour bénéficier des avantages de l'assistance.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:install-hardware.html["Installer le matériel du système de stockage FAS70 ou FAS90"]
+[role="quick-margin-para"]
+Pour installer le matériel, installez les kits de rails pour votre système de stockage et vos tiroirs, puis installez et sécurisez votre système de stockage dans l'armoire ou le rack de télécommunications. Ensuite, faites glisser les tablettes sur les rails. Enfin, fixez des périphériques de gestion des câbles à l'arrière du système de stockage pour organiser le routage des câbles.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-cable.html["Reliez les contrôleurs et les tiroirs de stockage au système de stockage FAS70 ou FAS90"]
+[role="quick-margin-para"]
+Pour connecter les câbles du matériel, commencez par connecter les contrôleurs de stockage à votre réseau, puis connectez les contrôleurs à vos tiroirs de stockage.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:install-power-hardware.html["Mettez le système de stockage FAS70 ou FAS90 sous tension"]
+[role="quick-margin-para"]
+Avant de mettre les contrôleurs sous tension, mettez chaque tiroir sous tension et attribuez un ID de tiroir unique pour vous assurer que chaque tiroir est identifié de manière unique dans la configuration.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:install-complete.html["Configuration complète du système de stockage"]
+[role="quick-margin-para"]
+Pour terminer la configuration du système, accédez à ONTAP System Manager en pointant un navigateur vers l'adresse IP du contrôleur. Un assistant d'installation vous aide à terminer la configuration du cluster pour votre système de stockage.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: aff 70, 90, replace the chassis workflow 
 summary: Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur. 
 ---
-= Procédure de remplacement du châssis - AFF A70, AFF A90
+= Workflow de remplacement du châssis - AFF A70 et AFF A90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,17 +13,18 @@ summary: Vous devez remplacer le composant défectueux par un composant FRU de r
 [role="lead"]
 Procédez comme suit pour remplacer votre châssis.
 
-.Avant de commencer
-Pour remplacer le châssis, vous devez répondre à certaines exigences. Examinez le link:controller-replace-requirements.html["exigences et considérations relatives au remplacement du châssis"].
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:chassis-replace-requirements.html["Vérifiez les exigences de remplacement du châssis"]
+[role="quick-margin-para"]
+Pour remplacer le châssis, vous devez répondre à certaines exigences.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:chassis-replace-shutdown.html["Arrêtez les contrôleurs"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:chassis-replace-shutdown.html["Arrêtez les contrôleurs"]
 [role="quick-margin-para"]
 Arrêtez les contrôleurs afin d'effectuer des opérations de maintenance sur le châssis.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:chassis-replace-move-hardware.html["Remplacez le châssis"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:chassis-replace-move-hardware.html["Remplacez le châssis"]
 [role="quick-margin-para"]
 Le remplacement du châssis inclut le déplacement des blocs d'alimentation, des disques durs et du module de contrôleur du châssis défectueux vers le nouveau châssis, et le remplacement du châssis défectueux par le nouveau châssis du même modèle que le châssis défectueux.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:chassis-replace-complete-system-restore-rma.html["Remplacement complet du châssis"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:chassis-replace-complete-system-restore-rma.html["Remplacement complet du châssis"]
 [role="quick-margin-para"]
 Vérifiez l'état haute disponibilité du châssis et renvoyez la pièce défectueuse à NetApp.

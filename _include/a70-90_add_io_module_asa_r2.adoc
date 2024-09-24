@@ -1,0 +1,297 @@
+= Option 1 : ajoutez un module d'E/S à un système de stockage avec des emplacements vides
+:allow-uri-read: 
+
+
+Vous pouvez ajouter un module d'E/S à votre système de stockage en ajoutant un nouveau module d'E/S à un système de stockage avec des emplacements vides ou en remplaçant un module d'E/S par un nouveau dans un système de stockage plein.
+
+.Avant de commencer
+* Vérifiez que le https://hwu.netapp.com/["NetApp Hardware Universe"^] nouveau module d'E/S est compatible avec votre système de stockage et la version de ONTAP que vous exécutez.
+* Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans https://hwu.netapp.com/["NetApp Hardware Universe"^] Et utiliser la meilleure solution disponible pour votre module d'E/S.
+* S'assurer que tous les autres composants fonctionnent correctement.
+
+
+
+
+== Option 1 : ajoutez un module d'E/S à un système de stockage avec des emplacements vides
+
+Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système de stockage.
+
+
+
+=== Étape 1 : arrêtez le module de contrôleur défectueux
+
+Arrêtez ou prenez le contrôle du module de contrôleur défectueux.
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande de message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Arrêtez ou prenez le contrôle du contrôleur défectueux à partir du contrôleur sain : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+=== Étape 2 : ajout de modules d'E/S.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
+. Retirez le module d'obturation du logement cible du châssis :
++
+
+NOTE: L'illustration suivante montre le retrait d'un module d'E/S horizontal et vertical. En général, vous ne retirez qu'un seul module d'E/S.
+
++
+image::../media/drw_a70_90_io_remove_replace_ieops-1532.svg[Retirez un module d'E/S.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png["Légende numéro 1"]
+ a| 
+Bouton de verrouillage de came
+
+|===
++
+.. Appuyez sur le loquet de came du module d'obturation dans le logement cible.
+.. Faites tourner le loquet de came aussi loin que possible du module.
+.. Déposer le module d'obturation.
+
+
+. Installez le module d'E/S :
++
+.. Alignez le module d'E/S sur les bords de l'ouverture du logement du module de contrôleur.
+.. Faites glisser doucement le module complètement dans le logement, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+. Branchez le câble du module d'E/S.
++
+Si le module d'E/S est une carte réseau, reliez-le aux commutateurs de données.
+
++
+Si le module d'E/S est un module de stockage, connectez-le au tiroir NS224.
+
++
+
+NOTE: Assurez-vous que des espaces vides sont installés dans les emplacements d'E/S inutilisés afin d'éviter tout problème thermique.
+
+. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+. Redémarrez le contrôleur à partir de l'invite DU CHARGEUR : _bye_
++
+
+NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+
+. Remettez le contrôleur en place à partir du contrôleur partenaire : _Storage failover giveback -ofnode target_node_name_
+. Répétez ces étapes pour le contrôleur B.
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la `system node autosupport invoke -node * -type all -message MAINT=END` commande.
+. Si vous avez installé un module d'E/S de stockage, installez et câblez vos tiroirs NS224, comme décrit link:../ns224/hot-add-shelf-overview.html["Workflow d'ajout à chaud"]à la section .
+
+
+
+
+== Option 2 : ajoutez un module d'E/S dans un système de stockage sans emplacements vides
+
+Vous pouvez modifier un module d'E/S dans un connecteur d'E/S d'un système entièrement rempli en retirant un module d'E/S existant et en le remplaçant par un autre module d'E/S.
+
+. Si vous êtes :
++
+[cols="1,2"]
+|===
+| Remplacement... | Alors... 
+
+
+ a| 
+Module d'E/S NIC avec le même nombre de ports
+ a| 
+Les LIF migrent automatiquement lorsque son module de contrôleur est arrêté.
+
+
+
+ a| 
+Module d'E/S NIC avec moins de ports
+ a| 
+Réaffectez de manière permanente les LIF ASAected à un autre port de base. Pour plus d'informations sur l'utilisation de System Manager pour le déplacement permanent des LIF, reportez-vous à la section https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^] .
+
+
+
+ a| 
+Module d'E/S NIC avec module d'E/S de stockage
+ a| 
+Utilisez System Manager pour migrer définitivement les LIF vers différents ports de base, comme décrit dans la https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^].
+
+|===
+
+
+
+
+=== Étape 1 : arrêtez le module de contrôleur défectueux
+
+Arrêtez ou prenez le contrôle du module de contrôleur défectueux.
+
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande de message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
++
+La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Arrêtez ou prenez le contrôle du contrôleur défectueux à partir du contrôleur sain : `storage failover takeover -ofnode _impaired_node_name_`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+
+
+
+
+=== Étape 2 : remplacez un module d'E/S.
+
+Pour remplacer un module d'E/S, localisez-le dans le module de contrôleur et suivez la séquence spécifique des étapes.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez tout câblage du module d'E/S cible.
+. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés à l'intérieur du chemin de câbles et en le faisant pivoter vers le bas.
+. Retirez le module d'E/S cible du châssis :
++
+
+NOTE: L'illustration suivante montre le retrait d'un module d'E/S horizontal et vertical. En général, vous ne retirez qu'un seul module d'E/S.
+
++
+image::../media/drw_a70_90_io_remove_replace_ieops-1532.svg[Retirez un module d'E/S.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/legend_icon_01.png["Légende numéro 1"]
+| Bouton de verrouillage de came 
+|===
++
+.. Appuyer sur le bouton de verrouillage de came.
+.. Faites tourner le loquet de came aussi loin que possible du module.
+.. Retirez le module du châssis en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du châssis.
++
+Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
+
+
+
+. Installez le module d'E/S dans le logement cible :
++
+.. Alignez le module d'E/S sur les bords du logement.
+.. Faites glisser doucement le module dans le logement jusqu'à l'intérieur du châssis, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+. Branchez le câble du module d'E/S.
+. Répétez les étapes de dépose et de pose pour remplacer les modules supplémentaires du module de contrôleur.
+. Faites pivoter le chemin de câbles en position verrouillée.
+. Redémarrez le module de contrôleur à partir de l'invite du CHARGEUR :_bye_
++
+.. Vérifiez la version du contrôleur BMC sur le contrôleur : _system service-processor show_
+.. Mettez à jour le micrologiciel du contrôleur BMC si nécessaire : _system service-processor image update_
+.. Redémarrez le nœud : _bye_
++
+
+NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+
++
+
+NOTE: Si vous rencontrez un problème pendant le redémarrage, reportez-vous à la section https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1494308["BURT 1494308 - l'arrêt de l'environnement peut être déclenché lors du remplacement du module d'E/S."]
+
+
+
+. Remettez le module de contrôleur du module de contrôleur partenaire. _storage failover giveback -ofnode nom_noeud_cible_
+. Activez le rétablissement automatique s'il a été désactivé : _Storage failover modify -node local -auto-giveback true_
+. Si vous avez ajouté :
++
+[cols="1,2"]
+|===
+| Si le module d'E/S est un... | Alors... 
+
+
+ a| 
+Module NIC
+ a| 
+Utilisez le `storage port modify -node *_<node name>__ -port *_<port name>__ -mode network` commande pour chaque port.
+
+
+
+ a| 
+Module de stockage
+ a| 
+Installez et câblez vos étagères NS224, comme décrit à la section link:../ns224/hot-add-shelf-overview.html["Workflow d'ajout à chaud"].
+
+|===
+. Répétez ces étapes pour le contrôleur B.
+
+
+--
+
+--

@@ -1,0 +1,24 @@
+---
+permalink: asa-r2-a1k/bootmedia-replace-requirements-bmr.html 
+sidebar: sidebar 
+keywords: asa r2 a1k, replace the boot media 
+summary: Découvrez la configuration requise pour le remplacement du support de démarrage. 
+---
+= Exigences de remplacement du support de démarrage - ASA A1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de remplacer le support de démarrage, vérifiez les conditions suivantes.
+
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Il est important d'appliquer les commandes au cours de la procédure suivante sur le contrôleur approprié :
++
+** Le contrôleur _trouble_ est le contrôleur sur lequel vous effectuez la maintenance.
+** Le contrôleur _Healthy_ est le partenaire HA du contrôleur déficient.
+
+
+* Il ne doit y avoir aucun port de cluster défectueux sur le contrôleur défectueux.
+

@@ -1,0 +1,22 @@
+---
+permalink: asa-r2-70-90/chassis-replace-requirements.html 
+sidebar: sidebar 
+keywords: asa r2 a70, asa r2 a90, replace the chassis 
+summary: Vous remplacez un châssis défectueux par le nouveau châssis du même modèle que le châssis défectueux. 
+---
+= Exigences de remplacement du châssis - ASA A70 et ASA A90
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+Avant de remplacer le châssis, vérifiez les conditions suivantes.
+
+* Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.
+* Vous pouvez utiliser la procédure de remplacement du châssis avec toutes les versions de ONTAP prises en charge par votre système.
+* La procédure de remplacement du châssis suppose que vous déplacez le panneau, les disques NVMe et les modules de contrôleur vers le nouveau châssis, et que le châssis de remplacement est un nouveau composant de NetApp.
+* *La procédure de remplacement du châssis est perturbatrice.* Dans le cas d'un cluster à deux nœuds, la panne totale du service et une panne partielle dans un cluster multinœud sont associés.
+

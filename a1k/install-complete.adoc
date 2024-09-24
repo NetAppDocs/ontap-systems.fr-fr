@@ -2,7 +2,7 @@
 permalink: a1k/install-complete.html 
 sidebar: sidebar 
 keywords: aff a1k, prepare installation 
-summary: 'Effectuez l"installation et la configuration de la plateforme à l"aide de la détection de cluster uniquement via une connexion au commutateur et à l"ordinateur portable, ou en vous connectant directement à un contrôleur du système de stockage, puis au commutateur de gestion.' 
+summary: 'Effectuez l"installation et la configuration à l"aide de la détection de cluster uniquement via une connexion au commutateur et à l"ordinateur portable, ou en vous connectant directement à un contrôleur du système de stockage, puis au commutateur de gestion.' 
 ---
 = Configuration et configuration complètes du système de stockage - AFF A1K
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Effectuez l"installation et la configuration de la plateforme à l"aid
 
 
 [role="lead"]
-Une fois le matériel installé, utilisez le logiciel ONTAP pour configurer et gérer votre système de stockage.
+Une fois que vous avez activé votre système de stockage, vous êtes prêt à détecter votre réseau en cluster et à configurer un cluster ONTAP.
 
 
 
@@ -19,7 +19,7 @@ Une fois le matériel installé, utilisez le logiciel ONTAP pour configurer et g
 
 Si ce n'est pas déjà fait, rassemblez les informations dont vous avez besoin pour configurer votre cluster, telles que le port et l'adresse IP de l'interface de gestion du cluster.
 
-Utilisez les https://docs.netapp.com/us-en/ontap/software_setup/index.html["fiche technique de configuration du cluster"] pour enregistrer les valeurs dont vous avez besoin pendant le processus de configuration du cluster. Si une valeur par défaut est fournie, vous pouvez utiliser cette valeur ou saisir votre propre valeur.
+Utilisez les https://docs.netapp.com/us-en/ontap/software_setup/index.html["fiche technique de configuration du cluster"^] pour enregistrer les valeurs dont vous avez besoin pendant le processus de configuration du cluster. Si une valeur par défaut est fournie, vous pouvez utiliser cette valeur ou saisir votre propre valeur.
 
 
 
@@ -60,7 +60,7 @@ System Manager s'ouvre.
 Si la détection réseau n'est pas activée sur votre ordinateur portable, effectuez la configuration et l'installation à l'aide de l'assistant d'installation du cluster de l'interface de ligne de commande ONTAP.
 
 .Avant de commencer
-Assurez-vous que votre ordinateur portable est connecté au port série console et que les contrôleurs sont sous tension. Voir link:install-power-hardware.html#step-2-power-on-the-controllers["Mettez les contrôleurs sous tension"] pour obtenir des instructions.
+Assurez-vous que votre ordinateur portable est connecté au port série console et que les contrôleurs sont sous tension. Voir link:install-power-hardware.html#step-2-power-on-the-controllers["mettez le système de stockage sous tension"] pour obtenir des instructions.
 
 .Étapes
 Attribuez une adresse IP initiale de gestion des nœuds à l'un des nœuds.
@@ -99,9 +99,9 @@ Le nœud démarre, puis l'assistant de configuration du cluster démarre sur la 
 
 == Étape 3 : configuration du cluster
 
-NetApp vous recommande d'utiliser System Manager pour configurer de nouveaux clusters. Reportez-vous https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] à pour obtenir des instructions de configuration.
+NetApp vous recommande d'utiliser System Manager pour configurer de nouveaux clusters. Reportez-vous https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"^] à pour obtenir des instructions de configuration.
 
 System Manager simplifie et simplifie l'installation et la configuration du cluster, notamment l'attribution d'une adresse IP de gestion de nœud, l'initialisation du cluster, la création d'un niveau local, la configuration des protocoles et le provisionnement initial du stockage connecté.
 
-
-NOTE: Une fois le cluster initialisé, téléchargez-le et exécutez-le  https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"] pour confirmer votre configuration.
+.Et la suite ?
+Une fois le cluster initialisé, téléchargez-le et exécutez-le  https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^] pour confirmer votre configuration.

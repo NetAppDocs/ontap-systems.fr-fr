@@ -1,0 +1,123 @@
+= 
+:allow-uri-read: 
+
+
+Vous pouvez restaurer l'image ONTAP (récupération du support de démarrage) à partir du nœud partenaire à l'aide du système `boot_recovery -partner` avec les plateformes ASA r2 exécutant ONTAP 9.16.0 et versions ultérieures.
+
+Lorsque vous démarrez un nœud et que le support de démarrage sur ce nœud est corrompu, vous verrez les messages suivants et le processus de démarrage avec STOP à l'invite Loader :
+
+....
+
+Can't find primary boot device u0a.0
+Can't find backup boot device u0a.1
+ACPI RSDP Found at 0x777fe014
+
+
+Starting AUTOBOOT press Ctrl-C to abort...
+Could not load fat://boot0/X86_64/freebsd/image1/kernel:Device not found
+
+ERROR: Error booting OS on: 'boot0' file: fat://boot0/X86_64/Linux/image1/vmlinuz (boot0,fat)
+
+
+ERROR: Error booting OS on: 'boot0' file: fat://boot0/X86_64/freebsd/image1/kernel (boot0,fat)
+
+
+Autoboot of PRIMARY image failed. Device not found (-6)
+LOADER-A>
+....
+Si ce message s'affiche, vous devez restaurer l'image ONTAP.
+
+.Étapes
+. À partir de l'invite Loader, entrez la commande _boot_Recovery -Partner_.
++
+L'écran affiche le message `Starting boot media recovery (BMR) process press Ctrl-C to abort...` et commence les vérifications initiales et l'installation des fichiers de récupération d'amorçage.
+
++
+.. Si External Key Manager (EKM) est configuré, les éléments suivants s'affichent :
++
+....
+Error when fetching key manager config from partner 169.254.139.209: 28
+Has key manager been configured on this system? {y|n}
+....
+.. Entrez _y_ si un gestionnaire de clés a été configuré.
++
+....
+key manager is configured.
+Entering Bootmenu Option 11...
+....
+
+
++
+L'option bootmenu 11 invite l'utilisateur à fournir toutes les informations de configuration EKM afin que les fichiers de configuration puissent être recréés.
+
+. Saisissez la configuration EKM à chaque invite.
++
+*NOTE:* la plupart de ces informations ont été saisies lorsque EKM a été activé à l'origine. Vous devez entrer les mêmes informations que celles saisies lors de la configuration initiale d'EKM.
+
+. Vérifier que les `Keystore UUID` et `Cluster UUID` sont corrects.
++
+.. Sur le nœud partenaire, récupérez l'UUID du cluster à l'aide de la  `cluster identity show` commande.
+.. Sur le nœud partenaire, récupérez l'UUID du magasin de clés à l'aide de la `vserver show -type admin` commande et `key-manager keystore show -vserver <nodename>` de la commande.
+.. Entrez les valeurs de l'UUID de magasin de clés et de l'UUID de cluster lorsque vous y êtes invité.
++
+*REMARQUE :* si le nœud partenaire n'est pas disponible, l'UUID du magasin de clés et l'UUID du cluster peuvent être obtenus à partir de la clé Mroot-AK située sur le serveur de clés configuré.
+
++
+Vérifiez les `x-NETAPP-ClusterName: <cluster name>` `x-NETAPP-KeyUsage: "MROOT-AK"` attributs UUID du cluster et UUID du magasin de clés pour vous assurer que vous disposez des clés correctes.
+
+
+
+. Surveiller la récupération et la restauration de Mroot-AK dans le nœud ONTAP.
+. Si le processus ne peut pas restaurer la clé, vous verrez le message suivant et vous devez configurer e0M à partir du menu System shell :
++
+....
+ERROR: kmip_init: halting this system with encrypted mroot...
+WARNING: kmip_init: authentication keys might not be available.
+********************************************************
+*                 A T T E N T I O N                    *
+*                                                      *
+*       System cannot connect to key managers.         *
+*                                                      *
+********************************************************
+ERROR: kmip_init: halting this system with encrypted mroot...
+.
+Terminated
+
+Uptime: 11m32s
+System halting...
+
+LOADER-B>
+
+....
++
+.. Exécutez la `boot_recovery -partner` commande sur le noeud de récupération.
+.. Lorsque vous êtes invité à exécuter (y ou n) les options pour EKM, sélectionnez _n_ pour tous.
++
+Après avoir sélectionné l'option _n_ pour les invites 8, le système s'arrête au menu de démarrage.
+
+.. Collectez les informations du fichier /cfcard/kmip/servers.cfg à partir d'un autre nœud du cluster. Vous collecterez les informations suivantes :
++
+*** Adresse du serveur KMIP.
+*** Port KMIP.
+*** UUID du magasin de clés.
+*** Copie du certificat client du fichier /cfcard/kmip/certs/client.crt.
+*** Copie de la clé client du fichier /cfcard/kmip/certs/client.key.
+*** Copie des CA du serveur KMIP à partir du fichier /cfcard/kmip/certs/CA.pem.
+
+
+.. Entrez systemshell dans bootmenu en entrant _systemshell_ à l’invite.
+.. Configurez le réseau à partir du menu systemshell pour e0M, le masque de réseau et la passerelle.
+.. Quittez le menu systemshell avec la commande _exit_.
+.. Le menu de démarrage s'affiche. Sélectionnez option `11` pour poursuivre la restauration EKM.
+.. Répondez `y` aux questions suivantes et entrez les informations requises que vous avez précédemment recueillies lorsque vous y êtes invité :
++
+*** Disposez-vous d'une copie du fichier /cfcard/kmip/certs/client.crt ? {y/n}
+*** Possédez-vous une copie du fichier /cfcard/kmip/certs/client.key ? {y/n}
+*** Possédez-vous une copie du fichier /cfcard/kmip/certs/CA.pem ? {y/n}
+*** Possédez-vous une copie du fichier /cfcard/kmip/servers.cfg ? {y/n}
+
+
+
+
+. Si la clé est restaurée correctement, le processus de restauration continue et redémarre le nœud.
+

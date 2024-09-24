@@ -4,13 +4,19 @@ sidebar: sidebar
 keywords: aff a70, aff a90, post boot media replacement steps for okm, nse, and nve 
 summary: 'Une fois les variables d"environnement vérifiées, vous devez effectuer une procédure spécifique aux systèmes sur lesquels Onboard Key Manager \(OKM\), NetApp Storage Encryption \(NSE\) ou NetApp Volume Encryption \(NVE\) est activé.' 
 ---
-= Restaurez le chiffrement - AFF A70, AFF A90
+= Restaurez le chiffrement - AFF A70 et AFF A90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Restaurez le chiffrement sur le support de démarrage de remplacement.
+
+
+
+== Étape 1 : restaurez le gestionnaire de clés intégré
+
 Vous devez effectuer les étapes spécifiques aux systèmes pour lesquels le gestionnaire de clés intégré (OKM), le chiffrement de stockage NetApp (NSE) ou le chiffrement de volume NetApp (NVE) sont activés à l'aide des paramètres que vous avez capturés au début de cette procédure.
 
 
@@ -18,6 +24,7 @@ NOTE: Si NSE ou NVE sont activés et que le gestionnaire de clés intégré ou e
 
 .Étapes
 . Branchez le câble de la console au contrôleur cible.
+. Sélectionnez l'une des options suivantes pour restaurer la configuration du gestionnaire de clés intégré à partir du menu d'amorçage ONAT.
 
 
 [role="tabbed-block"]
@@ -53,7 +60,7 @@ Please choose one of the following:
 (9)  Configure Advanced Drive Partitioning.
 (10) Set Onboard Key Manager recovery secrets.
 (11) Configure node for external key management.
-Selection (1-11)? _10_
+Selection (1-11)? 10
 
 ----
 . Confirmez la poursuite du processus.
@@ -330,7 +337,7 @@ Selection (1-11)? 1
 ====
 
 
-== Terminez le remplacement du support de démarrage
+== Étape 2 : terminez le remplacement du support de démarrage
 
 Terminez le processus de remplacement du support de démarrage après le démarrage normal en effectuant les vérifications finales et en donnant du stockage supplémentaire.
 

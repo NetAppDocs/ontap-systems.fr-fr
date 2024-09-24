@@ -1,0 +1,24 @@
+= 
+:allow-uri-read: 
+
+
+Vous devez vérifier la configuration requise pour la procédure de remplacement du contrôleur et sélectionner celle qui convient à votre version du système d'exploitation ONTAP.
+
+* Tous les tiroirs disques doivent fonctionner correctement.
+* Le contrôleur sain doit pouvoir reprendre le contrôleur qui est remplacé (appelé « contrôleur défectueux » dans cette procédure).
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Vous devez remplacer un module de contrôleur par un module de contrôleur du même type de modèle. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le module de contrôleur.
+* Vous ne pouvez pas modifier de disques ou de tiroirs disques dans le cadre de cette procédure.
+* Comme le périphérique d'amorçage se trouve sur le module de gestion du système installé à l'arrière du système, vous n'avez pas besoin de déplacer le périphérique d'amorçage lors du remplacement d'un module de contrôleur.
+* Il est important d'appliquer les commandes au cours des étapes suivantes sur les systèmes appropriés :
++
+** Le contrôleur _trouble_ est le contrôleur qui est en cours de remplacement.
+** Le contrôleur _remplacement_ est le nouveau contrôleur qui remplace le contrôleur défaillant.
+** Le contrôleur _Healthy_ est le contrôleur survivant.
+
+
+* Vous devez toujours capturer la sortie de la console du contrôleur dans un fichier journal texte.
++
+Vous disposez ainsi d'un enregistrement de la procédure afin de pouvoir résoudre tout problème que vous pourriez rencontrer pendant le processus de remplacement.
+
+

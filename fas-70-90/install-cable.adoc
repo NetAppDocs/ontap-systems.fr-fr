@@ -1,0 +1,292 @@
+---
+permalink: fas-70-90/install-cable.html 
+sidebar: sidebar 
+keywords: fas70, fas90, prepare installation 
+summary: 'Les ports du réseau de gestion situés sur les contrôleurs sont connectés aux commutateurs. Les ports d"interconnexion haute disponibilité et d"interconnexion de cluster sont câblés sur les deux contrôleurs. Les modules de contrôleur sont connectés au stockage externe, si commandé.' 
+---
+= Câblez le matériel - FAS70 et FAS90
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir installé le matériel rack du système de stockage FAS70 ou FAS90, installez les câbles réseau des contrôleurs et connectez les câbles entre les contrôleurs et les tiroirs de stockage.
+
+.Avant de commencer
+Vérifiez la flèche d'illustration dans les schémas de câblage pour connaître l'orientation correcte de la languette de retrait du connecteur de câble.
+
+image::../media/drw_cable_pull_tab_direction_ieops-1699.svg[Exemple d'orientation de la languette de retrait de câble]
+
+* Lorsque vous insérez le connecteur, vous devez le sentir en place. Si vous ne le sentez pas, retirez-le, retournez la tête du câble et réessayez.
+* Si vous vous connectez à un commutateur optique, insérez le module SFP dans le port du contrôleur avant de procéder au câblage du port.
+
+
+
+
+== Étape 1 : connectez les contrôleurs de stockage à votre réseau
+
+Connectez les contrôleurs de stockage à votre réseau hôte.
+
+.Avant de commencer
+Pour plus d'informations sur la connexion du système de stockage aux commutateurs, contactez votre administrateur réseau.
+
+.Description de la tâche
+Ces procédures présentent les configurations courantes. N'oubliez pas que le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour obtenir des détails complets sur la configuration et la priorité des emplacements, reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+
+[role="tabbed-block"]
+====
+.Option 1 : connexion des contrôleurs à un cluster ONTAP sans commutateur
+--
+Connectez vos contrôleurs de stockage pour créer des connexions de cluster ONTAP, puis connectez les ports Ethernet de chaque contrôleur au réseau hôte.
+
+.Étapes
+. Utilisez le câble d'interconnexion cluster/haute disponibilité pour connecter les ports e1a à e1a et les ports e7a à e7a.
++
+
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques.
+
++
+.. Connectez le port e1a du contrôleur A au port e1a du contrôleur B.
+.. Connectez le port e7a du contrôleur A au port e7a du contrôleur B.
++
+*Câbles d'interconnexion cluster/haute disponibilité*
+
++
+image::../media/oie_cable_25Gb_Ethernet_SFP28_IEOPS-1069.svg[Câble haute disponibilité du cluster]
+
++
+image::../media/drw_a1k_tnsc_cluster_cabling_ieops-1648.svg[Schéma de câblage d'un cluster sans commutateur à 2 nœuds]
+
+
+
+. Connectez les ports du module Ethernet à votre réseau hôte.
++
+Voici quelques exemples types de câblage réseau hôte. Reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître la configuration spécifique de votre système.
+
++
+.. Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet, comme illustré.
++
+
+NOTE: Pour optimiser les performances du système pour le trafic de cluster et haute disponibilité, n'utilisez pas les ports e1b et e7b pour les connexions réseau hôte. Utilisez une carte hôte séparée pour optimiser les performances.
+
++
+*Câble 100 GbE*
+
++
+image::../media/oie_cable_sfp_gbe_copper.svg[Câble Ethernet 100 Gb]
+
++
+image::../media/drw_a1k_network_cabling1_ieops-1649.svg[Câble vers un réseau Ethernet 100 Gb]
+
+.. Connectez vos commutateurs de réseau hôte 10/25 GbE.
++
+*Hôte 10/25 GbE*
+
++
+image::../media/oie_cable_sfp_gbe_copper.svg[Câble Ethernet 10 Gb]
+
++
+image::../media/drw_a1k_network_cabling2_ieops-1650.svg[Câble vers un réseau Ethernet 10 Gb]
+
+
+
+. Utilisez les câbles 1000BASE-T RJ-45 pour connecter les ports de gestion du contrôleur (clé anglaise) aux commutateurs du réseau de gestion.
++
+image::../media/oie_cable_rj45.svg[Câbles RJ-45]
+
++
+*CÂBLES 1000BASE-T RJ-45*
+
++
+image::../media/drw_a1k_management_connection_ieops-1651.svg[Connectez-vous à votre réseau de gestion]
+
+
+
+
+IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
+
+--
+.Option 2 : connexion des contrôleurs à un cluster ONTAP commuté
+--
+Connectez vos contrôleurs de stockage aux switchs réseau en cluster pour créer les connexions en cluster ONTAP, puis connectez les ports Ethernet de chaque contrôleur au réseau hôte.
+
+.Étapes
+. Effectuez les connexions de câblage suivantes :
++
+
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques.
+
++
+.. Connectez le port e1a du contrôleur A et le port e1a du contrôleur B au commutateur a du réseau du cluster
+.. Connectez le port e7a du contrôleur A et le port e7a du contrôleur B au commutateur de réseau du cluster B.
++
+*Câble 100 GbE*
+
++
+image::../media/oie_cable100_gbe_qsfp28.svg[Câble de 100 Go]
+
++
+image::../media/drw_a1k_switched_cluster_cabling_ieops-1652.svg[Reliez les connexions du cluster au réseau du cluster]
+
+
+
+. Connectez les ports du module Ethernet à votre réseau hôte.
++
+Voici quelques exemples types de câblage réseau hôte. Reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître la configuration spécifique de votre système.
+
++
+.. Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet, comme illustré.
++
+
+NOTE: Pour optimiser les performances du système pour le trafic de cluster et haute disponibilité, n'utilisez pas les ports e1b et e7b pour les connexions réseau hôte. Utilisez une carte hôte séparée pour optimiser les performances.
+
++
+*Câble 100 GbE*
+
++
+image::../media/oie_cable_sfp_gbe_copper.svg[Câble Ethernet 100 Gb]
+
++
+image::../media/drw_a1k_network_cabling1_ieops-1649.svg[Câble vers un réseau Ethernet 100 Gb]
+
+.. Connectez vos commutateurs de réseau hôte 10/25 GbE.
++
+*4 ports, hôte 10/25 GbE*
+
++
+image::../media/oie_cable_sfp_gbe_copper.svg[Câble Ethernet 10 Gb]
+
++
+image::../media/drw_a1k_network_cabling2_ieops-1650.svg[Câble vers un réseau Ethernet 10 Gb]
+
+
+
+. Connectez les ports de gestion du contrôleur (clé anglaise) aux commutateurs du réseau de gestion à l'aide de câbles 1000BASE-T RJ-45.
++
+image::../media/oie_cable_rj45.svg[Câbles RJ-45]
+
++
+*CÂBLES 1000BASE-T RJ-45*
+
++
+image::../media/drw_a1k_management_connection_ieops-1651.svg[Connectez-vous à votre réseau de gestion]
+
+
+
+
+IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
+
+--
+====
+
+
+== Étape 2 : connectez les contrôleurs aux tiroirs
+
+Connectez les contrôleurs au tiroir ou aux tiroirs.
+
+Ces procédures montrent comment connecter les contrôleurs à un ou deux tiroirs NS224 ou à deux ou quatre tiroirs DS460C. Vous pouvez connecter directement jusqu'à quatre tiroirs NS224 à vos contrôleurs.
+
+[role="tabbed-block"]
+====
+.Option 1 : connexion à un tiroir de stockage NS224
+--
+Reliez chaque contrôleur aux modules NSM du tiroir NS224. Le graphique présente le câblage depuis chacun des contrôleurs : le câblage du contrôleur A en bleu et le câblage du contrôleur B en jaune.
+
+*Câbles en cuivre QSFP28 100 GbE*
+
+image::../media/oie_cable100_gbe_qsfp28.svg[Câble en cuivre QSFP28 à 100 GbE]
+
+.Étapes
+. Sur le contrôleur A, connecter les ports suivants :
++
+.. Connectez le port e11a au port NSM A e0a.
+.. Connectez le port e11b au port NSM B e0b.
++
+image:../media/drw_a1k_1shelf_cabling_a_ieops-1703.svg["Contrôleur A e11a et e11b vers un seul tiroir NS224"]
+
+
+
+. Sur le contrôleur B, connecter les ports suivants :
++
+.. Connectez le port e11a au port NSM B e0a.
+.. Connectez le port e11b au port e0b de NSM A.
+
+
++
+image:../media/drw_a1k_1shelf_cabling_b_ieops-1704.svg["Reliez les ports e11a et e11b du contrôleur B à un seul tiroir NS224"]
+
+
+
+--
+.Option 2 : connexion à deux tiroirs de stockage NS224
+--
+Reliez chaque contrôleur aux modules NSM des deux tiroirs NS224. Le graphique présente le câblage depuis chacun des contrôleurs : le câblage du contrôleur A en bleu et le câblage du contrôleur B en jaune.
+
+*Câbles en cuivre QSFP28 100 GbE*
+
+image::../media/oie_cable100_gbe_qsfp28.svg[Câble en cuivre QSFP28 à 100 GbE]
+
+.Étapes
+. Sur le contrôleur A, connecter les ports suivants :
++
+.. Connectez le port e11a au port e0a NSM A du tiroir 1.
+.. Connectez le port e11b au port e0b du tiroir 2 NSM B.
+.. Connectez le port e10a au port e0a NSM A du tiroir 2.
+.. Connectez le port e10b au port e0b du tiroir 1 NSM A.
+
+
++
+image:../media/drw_a1k_2shelf_cabling_a_ieops-1705.svg["Les ports e11a e11b e10a et e10b du contrôleur de câbles A sont destinés à deux étagères NS224"]
+
+. Sur le contrôleur B, connecter les ports suivants :
++
+.. Connectez le port e11a au port e0a NSM B du tiroir 1.
+.. Connectez le port e11b au port e0b du tiroir 2 NSM A.
+.. Connectez le port e10a au port e0a NSM B du tiroir 2.
+.. Connectez le port e10b au port e0b du tiroir 1 NSM A.
+
+
++
+image:../media/drw_a1k_2shelf_cabling_b_ieops-1706.svg["Les ports e11a e11b e10a et e10b du contrôleur de câbles B sont destinés à deux étagères NS224"]
+
+
+
+--
+.Option 3 : câble vers deux tiroirs DS460C
+--
+Reliez chaque contrôleur aux modules IOM des deux tiroirs DS460C. Le graphique présente le câblage depuis chacun des contrôleurs : le câblage du contrôleur A en bleu et le câblage du contrôleur B en jaune.
+
+*Câble HD mini-SAS*
+
+image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Câble HD Mini-SAS]
+
+.Étapes
+. Sur le contrôleur A, câblez les connexions suivantes :
++
+.. Connectez le port e10a au port 1 du module d'E/S A du tiroir 1.
+.. Connectez le port e10c au port 1 du tiroir 2 IOM A
+.. Connectez le port e11b au port 3 du module d'E/S du tiroir 1.
+.. Connectez le port e11d au port 3 du module d'E/S B du tiroir 2.
+
+
++
+image:../media/drw_fas70-90_twoshelf_ds460c_cabling_controller1_ieops-1918.svg["Les ports e10a e10c et e11b et e11d du contrôleur de câbles A sont destinés à deux étagères DS460C"]
+
+. Sur le contrôleur B, câblez les connexions suivantes :
++
+.. Connectez le port e10a au port 1 IOM B du shelf 1.
+.. Connectez le port e10c au port 1 du module d'E/S B du tiroir 2.
+.. Connectez le port e11b au port 3 du module d'E/S du tiroir 1.
+.. Connectez le port e11d au port 3 du module d'E/S du tiroir 2.
+
+
++
+image:../media/drw_fas70-90_twoshelf_ds460c_cabling_controller2_ieops-1919.svg["Ports B du contrôleur de câbles e10a e10c et e11b et e11d à deux étagères DS460C"]
+
+
+
+--
+====
+.Et la suite ?
+Après avoir câblé le matériel de votre système FAS70 ou FAS90, vous link:install-power-hardware.html["Mettez le système de stockage FAS70 ou FAS90 sous tension"].

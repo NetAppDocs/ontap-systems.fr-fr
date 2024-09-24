@@ -18,9 +18,9 @@ Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre sys
 
 
 
-=== Étape 1 : arrêtez le nœud douteux
+=== Étape 1 : arrêtez le module de contrôleur défectueux
 
-Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
+Arrêtez ou prenez le contrôle du module de contrôleur défectueux.
 
 [role="tabbed-block"]
 ====
@@ -71,6 +71,9 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 --
 .Option 2 : le contrôleur est dans un MetroCluster
 --
+
+NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
+
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 * Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
@@ -78,9 +81,9 @@ Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du cont
 
 
 .Étapes
-. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
+. Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
 +
-Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
 
 . Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
 . Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
@@ -93,7 +96,7 @@ Le message AutoSupport suivant supprime la création automatique de dossiers pen
  a| 
 Invite DU CHARGEUR
  a| 
-Passez à l'étape suivante.
+Passer à l'étape suivante.
 
 
 
@@ -107,7 +110,7 @@ Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
  a| 
 Invite système ou invite de mot de passe (entrer le mot de passe système)
  a| 
-Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+Arrêtez ou prenez le contrôle du contrôleur défectueux à partir du contrôleur sain : `storage failover takeover -ofnode _impaired_node_name_`
 
 Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
 
@@ -141,7 +144,7 @@ image:../media/legend_icon_01.png["Légende numéro 1"]
 |===
 +
 .. Appuyez sur le loquet de came du module d'obturation dans le logement cible.
-.. Faites pivoter le loquet de came le plus loin possible. Pour les modules horizontaux, faites pivoter la came à l'écart du module aussi loin que possible.
+.. Faites tourner le loquet de came aussi loin que possible du module.
 .. Retirez le module du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du boîtier.
 
 
@@ -212,9 +215,9 @@ Utilisez System Manager pour migrer définitivement les LIF vers différents por
 
 
 
-=== Étape 1 : arrêtez le nœud douteux
+=== Étape 1 : arrêtez le module de contrôleur défectueux
 
-Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
+Arrêtez ou prenez le contrôle du module de contrôleur défectueux.
 
 [role="tabbed-block"]
 ====
@@ -339,10 +342,7 @@ image:../media/legend_icon_01.png["Légende numéro 1"]
 |===
 +
 .. Appuyer sur le bouton de verrouillage de came.
-+
-Le loquet de came s'éloigne du châssis.
-
-.. Faites pivoter le loquet de came le plus loin possible. Pour les modules horizontaux, faites pivoter la came à l'écart du module aussi loin que possible.
+.. Faites tourner le loquet de came aussi loin que possible du module.
 .. Retirez le module du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du boîtier.
 +
 Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
