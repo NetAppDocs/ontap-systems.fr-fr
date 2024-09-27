@@ -2,32 +2,7 @@
 :allow-uri-read: 
 
 
-Vous pouvez restaurer l'image ONTAP (récupération du support de démarrage) à partir du nœud partenaire à l'aide du système `boot_recovery -partner` avec les plateformes ASA r2 exécutant ONTAP 9.16.0 et versions ultérieures.
-
-.Avant de commencer
-Lorsque vous démarrez un nœud et que le support de démarrage sur ce nœud est corrompu, vous verrez les messages suivants et le processus de démarrage avec STOP à l'invite Loader :
-
-....
-
-Can't find primary boot device u0a.0
-Can't find backup boot device u0a.1
-ACPI RSDP Found at 0x777fe014
-
-
-Starting AUTOBOOT press Ctrl-C to abort...
-Could not load fat://boot0/X86_64/freebsd/image1/kernel:Device not found
-
-ERROR: Error booting OS on: 'boot0' file: fat://boot0/X86_64/Linux/image1/vmlinuz (boot0,fat)
-
-
-ERROR: Error booting OS on: 'boot0' file: fat://boot0/X86_64/freebsd/image1/kernel (boot0,fat)
-
-
-Autoboot of PRIMARY image failed. Device not found (-6)
-LOADER-A>
-
-....
-Si ce message s'affiche, vous devez restaurer l'image ONTAP
+Restaurez l'image du support de démarrage.
 
 .Étapes
 . À partir de l'invite Loader, entrez la commande _boot_Recovery -Partner_.

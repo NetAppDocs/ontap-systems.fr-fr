@@ -28,3 +28,5 @@ Instructions en ligne détaillées avec liens en direct vers du contenu supplém
 
 
 Si votre système est dans une configuration MetroCluster IP, reportez-vous à la section https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["Installez la configuration IP de MetroCluster"] instructions.
+
+*Avertissement :* si votre système est installé avec ONTAP 9.13.1P8 - 9.13.1P11, ONTAP 9.14.1P1 - 9.14.1P7 ou ONTAP 9.15.1 - 9.15.1P2 et que votre système contient au moins 10 lecteurs SSD internes, vous devez prendre des mesures supplémentaires pour préparer le système à l'installation. Voir problème  https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-285173["ONTAP-285173 - ADP ne laisse pas de partition racine de rechange sur un AFF A150 avec 10 disques internes ou plus"^].
