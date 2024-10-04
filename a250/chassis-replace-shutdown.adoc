@@ -11,30 +11,28 @@ summary: Pour remplacer le châssis, vous devez arrêter les contrôleurs.
 
 
 [role="lead"]
-Cette procédure concerne uniquement les configurations à 2 nœuds non MetroCluster. Si votre système comporte plus de deux nœuds, reportez-vous à la section https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_perform_a_graceful_shutdown_and_power_up_of_one_HA_pair_in_a_4__node_cluster["Comment effectuer un arrêt normal et mettre sous tension une paire haute disponibilité dans un cluster à 4 nœuds"^].
+Arrêtez les contrôleurs afin d'effectuer des opérations de maintenance sur le châssis.
+
+Cette procédure concerne les systèmes ayant des configurations à deux nœuds. Si votre système comporte plus de deux nœuds, reportez-vous à la section https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_perform_a_graceful_shutdown_and_power_up_of_one_HA_pair_in_a_4__node_cluster["Comment effectuer un arrêt normal et mettre sous tension une paire haute disponibilité dans un cluster à quatre nœuds"^].
 
 .Avant de commencer
-Éléments requis :
-
-* Informations d'identification de l'administrateur local pour ONTAP.
-* Phrase secrète pour la gestion des clés intégrée NetApp à l'échelle du cluster en cas d'utilisation du chiffrement du stockage ou de NVE/NAE.
-* Accès BMC pour chaque contrôleur.
 * Empêchez tous les clients/hôtes d'accéder aux données sur le système NetApp.
 * Suspendre les tâches de sauvegarde externes.
-* Outils et équipements nécessaires au remplacement.
+* Vérifiez que vous disposez des autorisations et des informations d'identification nécessaires :
++
+** Informations d'identification de l'administrateur local pour ONTAP.
+** Phrase secrète pour la gestion des clés intégrée NetApp à l'échelle du cluster en cas d'utilisation du chiffrement du stockage ou de NVE/NAE.
+** Accès BMC pour chaque contrôleur.
 
 
+* Assurez-vous de disposer des outils et de l'équipement nécessaires pour le remplacement.
+* Avant de procéder à l'arrêt, vous devez :
++
+** Effectuer des opérations supplémentaires https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["vérifications de l'état du système"].
+** Mettez à niveau ONTAP vers une version recommandée pour le système.
+** Résoudre tout https://activeiq.netapp.com/["Alertes et risques liés au bien-être Active IQ"]. Notez toutes les anomalies présentes sur le système, telles que les voyants des composants du système.
 
-NOTE: Si le système est un système NetApp StorageGRID ou ONTAP S3 utilisé en tant que Tier cloud FabricPool, reportez-vous au https://kb.netapp.com/onprem/ontap/hardware/What_is_the_procedure_for_graceful_shutdown_and_power_up_of_a_storage_system_during_scheduled_power_outage#["Arrêtez et mettez votre système de stockage sous tension en toute simplicité"] après avoir effectué cette procédure.
 
-
-NOTE: Si vous utilisez des disques SSD, reportez-vous à la section https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU490["SU490 : meilleures pratiques relatives aux SSD (impact : critique) : évitez les risques de panne disque et de perte de données si vous les mettez hors tension pendant plus de deux mois"]
-
-Avant de procéder à l'arrêt, vous devez :
-
-* Effectuer des opérations supplémentaires https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["vérifications de l'état du système"].
-* Mettez à niveau ONTAP vers une version recommandée pour le système.
-* Résoudre tout https://activeiq.netapp.com/["Alertes et risques liés au bien-être Active IQ"]. Notez toutes les anomalies présentes sur le système, telles que les voyants des composants du système.
 
 
 .Étapes
@@ -56,7 +54,7 @@ Si votre utilise une console ou un ordinateur portable, connectez-vous au contr�
 
 NOTE: Ouvrez une session SSH sur chaque connexion SP/BMC afin de pouvoir surveiller la progression.
 
-. Arrêtez les 2 nœuds situés dans le châssis défectueux :
+. Arrêtez les deux nœuds situés dans le châssis défectueux :
 +
 `system node halt -node <node>,<node2> -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true`
 
@@ -67,4 +65,9 @@ NOTE: Pour les clusters qui utilisent SnapMirror en mode synchrone : `system nod
 . Entrez *y* pour chaque contrôleur du cluster lorsque vous voyez `_Warning: Are you sure you want to halt node "cluster <node-name> number"?
 {y|n}:_`
 . Attendez que chaque contrôleur s'arrête et affichez l'invite DU CHARGEUR.
+
+
+.Et la suite ?
+* Si le système est un NetApp StorageGRID ou ONTAP S3 utilisé en tant que Tier cloud FabricPool, reportez-vous à la section https://kb.netapp.com/onprem/ontap/hardware/What_is_the_procedure_for_graceful_shutdown_and_power_up_of_a_storage_system_during_scheduled_power_outage#["Arrêtez et mettez votre système de stockage sous tension en toute simplicité"] après avoir effectué cette procédure d'arrêt.
+* Si vous utilisez des disques SSD, reportez-vous à la section https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU490["SU490 : meilleures pratiques relatives aux SSD (impact : critique) : évitez les risques de panne disque et de perte de données si vous les mettez hors tension pendant plus de deux mois"] après avoir réalisé cette procédure d'arrêt.
 

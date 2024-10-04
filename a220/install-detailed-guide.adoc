@@ -102,7 +102,7 @@ X6536-R6 (112-00090), 5 m
 
 X6554-R6(112-00189), 15 m
  a| 
-image:../media/oie_cable_fiber_lc_connector.png["Illustration montrant un connecteur LC à fibre optique"]
+image:../media/oie_cable_fiber_lc_connector.png["Connecteur à fibre LC"]
  a| 
 Réseau hôte FC
 
@@ -143,7 +143,7 @@ Câble de console micro-USB
  a| 
 Sans objet
  a| 
-image:../media/oie_cable_micro_usb.png["Illustration montrant un connecteur micro USB"]
+image:../media/oie_cable_micro_usb.png["Connecteur micro USB"]
  a| 
 Connexion de la console pendant la configuration du logiciel sur un ordinateur portable/console autre que Windows ou Mac
 
@@ -221,7 +221,7 @@ image::../media/drw_2700_tnsc_unified_network_cabling_animated_gif.png[Câblage 
 
 
  a| 
-image:../media/oie_legend_icon_1_lg.png["Étape 1"]
+image:../media/icon_square_1_green.png["Étape 1"]
  a| 
 Reliez les ports d'interconnexion de cluster entre eux grâce au câble d'interconnexion de cluster :
 
@@ -233,7 +233,7 @@ image:../media/drw_c190_u_tnsc_clust_cbling.png["Câblage d'interconnexion de cl
 
 
  a| 
-image:../media/oie_legend_icon_2_o.png["Étape 2"]
+image:../media/icon_square_2_orange.png["Étape 2"]
  a| 
 Utilisez l'un des types de câbles suivants pour relier les ports de données UTA2 au réseau hôte :
 
@@ -248,16 +248,16 @@ Un hôte FC
 
 NOTE: Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports en tant que FC, ou vous pouvez connecter les deux paires de ports en tant que CNA ou les deux paires de ports en tant que FC.
 
-image:../media/drw_c190_u_fc_10gbe_cbling.png["Illustration montrant les connexions des ports de données comme décrit dans le texte qui les entoure"]
+image:../media/drw_c190_u_fc_10gbe_cabling.png["Connexions des ports de données"]
 
 
 
  a| 
-image:../media/oie_legend_icon_3_lp.png["Étape 3"]
+image:../media/icon_square_3_purple.png["Étape 3"]
  a| 
 Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 :
 
-image:../media/drw_c190_u_mgmt_cbling.png["Câblage du port de gestion"]
+image:../media/drw_c190_u_mgmt_cabling.png["Câblage du port de gestion"]
 
 
 
@@ -297,7 +297,7 @@ image::../media/drw_2700_switched_unified_network_cabling_animated_gif.png[Câbl
 
 
  a| 
-image:../media/oie_legend_icon_1_lg.png["Étape 1"]
+image:../media/icon_square_1_green.png["Étape 1"]
  a| 
 Connectez les câbles e0a et e0b aux commutateurs d'interconnexion des clusters avec le câble d'interconnexion des clusters :
 
@@ -306,7 +306,7 @@ image:../media/drw_c190_u_switched_clust_cbling.png["Câblage ClusterInterconnec
 
 
  a| 
-image:../media/oie_legend_icon_2_o.png["Étape 2"]
+image:../media/icon_square_2_orange.png["Étape 2"]
  a| 
 Utilisez l'un des types de câbles suivants pour relier les ports de données UTA2 au réseau hôte :
 
@@ -325,16 +325,16 @@ Une liaison 10 GbE
 
 NOTE: Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports en tant que FC, ou vous pouvez connecter les deux paires de ports en tant que CNA ou les deux paires de ports en tant que FC.
 
-image:../media/drw_c190_u_fc_10gbe_cbling.png["Illustration montrant les connexions des ports de données comme décrit dans le texte qui les entoure"]
+image:../media/drw_c190_u_fc_10gbe_cabling.png["Connexions des ports de données"]
 
 
 
  a| 
-image:../media/oie_legend_icon_3_lp.png["Étape 3"]
+image:../media/icon_square_3_purple.png["Étape 3"]
  a| 
 Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 :
 
-image:../media/drw_c190_u_mgmt_cbling.png["Câblage du port de gestion"]
+image:../media/drw_c190_u_mgmt_cabling.png["Câblage du port de gestion"]
 
 
 
@@ -374,19 +374,18 @@ image::../media/drw_2700_tnsc_ethernet_network_cabling_animated_gif.png[Câblage
 
 
  a| 
-image:../media/oie_legend_icon_1_lg.png["Étape 1"]
+image:../media/icon_square_1_green.png["Étape 1"]
  a| 
 Reliez les ports d'interconnexion de cluster entre eux grâce au câble d'interconnexion de cluster :
 
 ** e0a à e0a
-** e0b à e0b
-image:../media/drw_c190_e_tnsc_clust_cbling.png["Illustration montrant l'interconnexion de cluster entre les ports à l'arrière des contrôleurs"]
+** e0b à e0b image:../media/drw_c190_e_tnsc_clust_cbling.png["Les interconnexions de cluster entre les ports situés à l'arrière des contrôleurs"]
 
 
 
 
  a| 
-image:../media/oie_legend_icon_2_o.png["Étape 2"]
+image:../media/icon_square_2_yellow.png["Étape 2"]
  a| 
 Utilisez le câble RJ45 Cat 6 pour raccorder les ports e0c à e0f à votre réseau hôte :
 
@@ -395,7 +394,7 @@ image:../media/drw_c190_e_rj45_cbling.png["Câblage réseau de l'hôte"]
 
 
  a| 
-image:../media/oie_legend_icon_3_lp.png["Étape 3"]
+image:../media/icon_square_3_orange.png["Étape 3"]
  a| 
 Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 :
 
@@ -439,7 +438,7 @@ image::../media/drw_2700_switched_ethernet_network_cabling_animated_gif.png[Câb
 
 
  a| 
-image:../media/oie_legend_icon_1_lg.png["Étape 1"]
+image:../media/icon_square_1_green.png["Étape 1"]
  a| 
 Connectez les câbles e0a et e0b aux commutateurs d'interconnexion des clusters avec le câble d'interconnexion des clusters :
 
@@ -448,7 +447,7 @@ image:../media/drw_c190_e_switched_clust_cbling.png["Câblage d'interconnexion d
 
 
  a| 
-image:../media/oie_legend_icon_2_o.png["Étape 2"]
+image:../media/icon_square_2_orange.png["Étape 2"]
  a| 
 Utilisez le câble RJ45 Cat 6 pour raccorder les ports e0c à e0f à votre réseau hôte :
 
@@ -457,7 +456,7 @@ image:../media/drw_c190_e_rj45_cbling.png["Câblage réseau de l'hôte"]
 
 
  a| 
-image:../media/oie_legend_icon_3_lp.png["Étape 3"]
+image:../media/icon_square_3_purple.png["Étape 3"]
  a| 
 Reliez les ports e0M aux switchs réseau de gestion avec les câbles RJ45 :
 
@@ -506,7 +505,7 @@ image::../media/drw_2700_ha_storage_cabling_animated_gif.png[Câblage des tiroir
 
 
  a| 
-image:../media/oie_legend_icon_1_lo.png["Légende numéro 1"]
+image:../media/icon_square_1_blue.png["Légende numéro 1"]
  a| 
 Reliez les ports tiroir à tiroir.
 
@@ -520,7 +519,7 @@ image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png["Connecteur mini-SAS ver
 
 
  a| 
-image:../media/oie_legend_icon_2_mb.png["Étape 2"]
+image:../media/icon_square_2_yellow.png["Étape 2"]
  a| 
 Connectez chaque nœud au module d'E/S A de la pile.
 
@@ -534,7 +533,7 @@ image:../media/oie_cable_mini_sas_hd_to_mini_sas_hd.png["Connecteur mini-SAS ver
 
 
  a| 
-image:../media/oie_legend_icon_3_t.png["Étape 3"]
+image:../media/icon_square_3_teal.png["Étape 3"]
  a| 
 Connectez chaque nœud au module d'E/S B de la pile
 

@@ -11,81 +11,57 @@ summary: 'Vous pouvez restaurer l"image sur le support de démarrage à partir d
 
 
 [role="lead"]
-Vous pouvez restaurer l'image ONTAP (récupération du support de démarrage) à partir du nœud partenaire à l'aide du système `boot_recovery -partner` avec les systèmes ASA r2 exécutant ONTAP 9.16.0 et versions ultérieures.
+Restaurez l'image ONTAP à partir du nœud partenaire lorsque le support de démarrage est corrompu.
 
-.Avant de commencer
-Lorsque vous démarrez un nœud et que le support de démarrage sur ce nœud est corrompu, vous verrez les messages suivants et le processus de démarrage avec STOP à l'invite Loader :
+.Description de la tâche
+Si le support de démarrage d'un nœud est corrompu, le processus de démarrage s'arrête à l'invite DU Loader et affiche les messages d'erreur de démarrage.
 
+Lorsque ces messages d'erreur de démarrage s'affichent, vous devez restaurer l'image ONTAP à partir du nœud partenaire.
+
+.Affiche un exemple de messages d'erreur de démarrage
+[%collapsible]
+====
 ....
-
 Can't find primary boot device u0a.0
 Can't find backup boot device u0a.1
 ACPI RSDP Found at 0x777fe014
 
-
 Starting AUTOBOOT press Ctrl-C to abort...
-Could not load fat://boot0/X86_64/freebsd/image1/kernel:Device not found
+Could not load fat://boot0/X86_64/freebsd/image1/kernel: Device not found
 
-ERROR: Error booting OS on: 'boot0' file: fat://boot0/X86_64/Linux/image1/vmlinuz (boot0,fat)
-
-
-ERROR: Error booting OS on: 'boot0' file: fat://boot0/X86_64/freebsd/image1/kernel (boot0,fat)
-
+ERROR: Error booting OS on: 'boot0' file: fat://boot0/X86_64/Linux/image1/vmlinuz (boot0, fat)
+ERROR: Error booting OS on: 'boot0' file: fat://boot0/X86_64/freebsd/image1/kernel (boot0, fat)
 
 Autoboot of PRIMARY image failed. Device not found (-6)
 LOADER-A>
-
 ....
-Si ce message s'affiche, vous devez restaurer l'image ONTAP
+====
+.Étapes
+. Dans l'invite Loader, entrez la commande :
++
+`boot_recovery -partner`
 
-Sélectionnez l'option de restauration automatisée à nœud unique correspondant à votre configuration.
++
+L'écran affiche le message suivant :
 
++
+`Starting boot media recovery (BMR) process. Press Ctrl-C to abort…`
+
+. Surveillez le processus de récupération des supports de démarrage pendant que Loader configure les ports de cluster locaux et s'exécute `netboot` à partir du nœud partenaire.
++
+Lorsque netboot est en cours d'exécution, le `Starting BMR` message s'affiche.
+
+. Selon la méthode de chiffrement, sélectionnez l'option correspondant à votre configuration à un seul nœud :
++
 [role="tabbed-block"]
 ====
-.Option 1 : restauration sans chiffrement
+.Pas de cryptage
 --
-Restaurez l'image du support de démarrage.
+Si aucun chiffrement n'est détecté, le processus de récupération du support de démarrage se poursuit sans nécessiter de gestion des clés.
 
-.Étapes
-. À partir de l'invite Loader, entrez la commande _boot_Recovery -Partner_.
-+
-L'écran affiche le message `Starting boot media recovery (BMR) process press Ctrl-C to abort...` et commence les vérifications initiales.
+Continuez à surveiller le processus de restauration lors de la restauration de la configuration de sauvegarde, du fichier env, de la base de données mdb et du rdb à partir du nœud partenaire.
 
-. Surveillez le processus pendant que Loader configure les ports de cluster locaux et exécute netboot via `\http://<remote-partner-IP>:65530/recoverydisk/image.tgz`.
-+
-Une fois netboot en cours d'exécution, `Starting BMR ...` s'affiche à l'écran et le processus termine l'installation.
-
-+
-.. Si le gestionnaire de clés n'est pas configuré, le message suivant s'affiche :
-+
-....
-key manager is not configured. Exiting.
-....
-.. Si le message suivant s'affiche, le gestionnaire de clés intégré (OKM) est configuré :
-+
-....
-
-key manager is configured.
-Entering Bootmenu Option 10...
-
-This option must be used only in disaster recovery procedures. Are you sure? (y or n):
-
-....
-+
-Passez à la section pour terminer le processus de récupération.
-
-.. Si le message suivant s'affiche, le gestionnaire de clés externe (EKM) est configuré. Allez à la rubrique EKM et terminez le processus de restauration :
-+
-....
-Error when fetching key manager config from partner 169.254.139.209: 28
-Has key manager been configured on this system? {y|n}
-
-....
-
-
-. Surveillez le processus BMR lors de l'exécution de la restauration de la configuration de sauvegarde, du fichier env, de la base de données mdb et du rdb à partir du partenaire.
-. Le nœud redémarre et le BMR est terminé lorsque vous voyez les éléments suivants :
-
+Une fois le processus de restauration terminé, le nœud redémarre. Les messages suivants indiquent une récupération réussie :
 
 ....
 
@@ -100,30 +76,22 @@ varfs_backup_restore: bootarg.abandon_varfs is set! Skipping /var backup.
 
 ....
 --
-.Option 2 : récupération avec gestionnaire de clés intégré présent
+.Gestionnaire de clés intégré Onboard Key Manager (OKM)
 --
-Restaurez l'image du support de démarrage.
+Si OKM (Onboard Key Manager) est détecté, le système affiche l'invite suivante.
 
-.Étapes
-. À partir de l'invite Loader, entrez la commande _boot_Recovery -Partner_.
-+
-L'écran affiche le message `Starting boot media recovery (BMR) process press Ctrl-C to abort...` et commence les vérifications initiales et l'installation des fichiers de récupération d'amorçage.
-
-+
-.. Si le gestionnaire de clés intégré (OKM) est configuré, les éléments suivants s'affichent :
-+
 ....
 key manager is configured.
 Entering Bootmenu Option 10...
 
 This option must be used only in disaster recovery procedures. Are you sure? (y or n):
 ....
-
-
-. Entrez _y_ à l'invite.
-. Saisissez la phrase de passe du gestionnaire de clés intégré lorsque vous voyez `Enter the passphrase for onboard key management:`
-. Entrez à nouveau la phrase secrète du gestionnaire de clés intégré lorsque vous êtes invité à confirmer la phrase de passe.
+.. Dans l'invite d'option bootmenu, entrez `Y` pour confirmer que vous souhaitez utiliser l'option de récupération de bootmedia.
+.. Entrez la phrase de passe du gestionnaire de clés intégré lorsque vous y êtes invité, puis saisissez à nouveau la phrase de passe pour confirmer.
 +
+.Affiche un exemple d'invites de phrase de passe
+[%collapsible]
+=====
 ....
 Enter the passphrase for onboard key management:
 Enter the passphrase again to confirm:
@@ -139,8 +107,10 @@ QRHwv+1aWvAAAAAAAAAAACQAAAAAAAAAgAAAAAAAAABHVFpxAAAAAHUgdVq0EKNp
 .
 .
 ....
+=====
+.. Continuez à surveiller le processus de restauration lors de la restauration de la configuration de sauvegarde, du fichier env, de la base de données mdb et du rdb à partir du nœud partenaire.
 +
-Une fois le processus de restauration terminé, vous verrez les éléments suivants :
+Une fois le processus de restauration terminé, le nœud redémarre. Les messages suivants indiquent une récupération réussie :
 
 +
 ....
@@ -151,59 +121,90 @@ Trying to delete any existing km_onboard.wkeydb file.
 
 Successfully recovered keymanager secrets.
 ....
-. Surveillez le processus BMR lors de l'exécution de la restauration de la configuration de sauvegarde, du fichier env, de la base de données mdb et du rdb à partir du partenaire.
-+
-Une fois la restauration terminée, le nœud redémarre pour terminer le processus.
-
 
 
 --
-.Option 3 : récupération avec gestionnaire de clés externe présent
+.Gestionnaire de clés externe (EKM)
 --
-Restaurez l'image du support de démarrage.
+Si EKM est configuré, le système affiche l'invite suivante.
 
-.Étapes
-. À partir de l'invite Loader, entrez la commande _boot_Recovery -Partner_.
-+
-L'écran affiche le message `Starting boot media recovery (BMR) process press Ctrl-C to abort...` et commence les vérifications initiales et l'installation des fichiers de récupération d'amorçage.
-
-+
-.. Si External Key Manager (EKM) est configuré, les éléments suivants s'affichent :
-+
 ....
-Error when fetching key manager config from partner 169.254.139.209: 28
+Error when fetching key manager config from partner <IP>: 28
+
 Has key manager been configured on this system? {y|n}
 ....
-.. Entrez _y_ si un gestionnaire de clés a été configuré.
+.. Saisissez `Y` si EKM a été configuré.
 +
 ....
 key manager is configured.
 Entering Bootmenu Option 11...
 ....
++
+Vous serez invité à entrer les paramètres EKM initialement utilisés lors de la configuration.
 
+.. Entrez chaque paramètre de configuration EKM lorsque vous y êtes invité.
+.. Vérifiez que les attributs de l'UUID de cluster et de l'UUID de magasin de clés sont corrects.
++
+*** Sur le nœud partenaire, récupérez l'UUID du cluster à l'aide de la commande suivante.
++
+`cluster identity show`
+
+*** Sur le nœud partenaire, récupérez l'UUID de magasin de clés à l'aide des commandes suivantes.
++
+`vserver show -type admin`
 
 +
-L'option bootmenu 11 invite l'utilisateur à fournir toutes les informations de configuration EKM afin que les fichiers de configuration puissent être recréés.
+`key-manager keystore show -vserver <nodename>`
 
-. Saisissez la configuration EKM à chaque invite.
+*** Si le nœud partenaire n'est pas disponible, utiliser la clé Mroot-AK pour récupérer l'UUID :
 +
-*NOTE:* la plupart de ces informations ont été saisies lorsque EKM a été activé à l'origine. Vous devez entrer les mêmes informations que celles saisies lors de la configuration initiale d'EKM.
+**** Pour l'UUID de cluster, saisissez la commande suivante :
++
+`x-NETAPP-ClusterName: <cluster name>`
 
-. Vérifier que les `Keystore UUID` et `Cluster UUID` sont corrects.
+**** Pour l'UUID de magasin de clés, entrez la commande suivante :
 +
-.. Sur le nœud partenaire, récupérez l'UUID du cluster à l'aide de la  `cluster identity show` commande.
-.. Sur le nœud partenaire, récupérez l'UUID du magasin de clés à l'aide de la `vserver show -type admin` commande et `key-manager keystore show -vserver <nodename>` de la commande.
+`x-NETAPP-KeyUsage: MROOT-AK`
+
+
+
+
+
 .. Entrez les valeurs de l'UUID de magasin de clés et de l'UUID de cluster lorsque vous y êtes invité.
+.. Selon que la clé a été restaurée avec succès, effectuez l'une des actions suivantes :
 +
-*REMARQUE :* si le nœud partenaire n'est pas disponible, l'UUID du magasin de clés et l'UUID du cluster peuvent être obtenus à partir de la clé Mroot-AK située sur le serveur de clés configuré.
-
+*** Si la clé a été restaurée avec succès, le processus de restauration se poursuit et redémarre le nœud. Passez à l'étape 4.
+*** Si la clé n'est pas restaurée, le système s'arrête et affiche des messages d'erreur et d'avertissement. Relancez le processus de restauration.
 +
-Vérifiez les `x-NETAPP-ClusterName: <cluster name>` `x-NETAPP-KeyUsage: "MROOT-AK"` attributs UUID du cluster et UUID du magasin de clés pour vous assurer que vous disposez des clés correctes.
+.Montrer un exemple d'erreur de récupération de clé et de messages d'avertissement
+[%collapsible]
+=====
+....
+
+ERROR: kmip_init: halting this system with encrypted mroot...
+
+WARNING: kmip_init: authentication keys might not be available.
+
+System cannot connect to key managers.
+
+ERROR: kmip_init: halting this system with encrypted mroot...
+
+Terminated
+
+Uptime: 11m32s
+
+System halting...
+
+LOADER-B>
+....
+=====
 
 
-
-. Si la clé est restaurée correctement, le processus de restauration continue et redémarre le nœud.
 
 
 --
 ====
+
+
+. Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.
+
