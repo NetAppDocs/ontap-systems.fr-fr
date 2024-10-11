@@ -11,7 +11,7 @@ summary: 'Vous devez retirer et ouvrir le module de contrôleur, localiser et re
 
 
 [role="lead"]
-Vous devez retirer et ouvrir le module de contrôleur, localiser et remplacer le support de démarrage du contrôleur, puis transférer l'image vers le support de démarrage de remplacement.
+Vous devez débrancher le module de contrôleur, retirer et ouvrir le module de contrôleur, localiser et remplacer le support de démarrage du contrôleur, puis transférer l'image sur le support de démarrage de remplacement.
 
 
 
@@ -122,16 +122,29 @@ Vous pouvez installer l'image système sur le support de démarrage de remplacem
 
 .Avant de commencer
 * Vous devez disposer d'une clé USB, formatée en FAT32, avec au moins 4 Go de capacité.
-* Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section Downloads du site de support NetApp
+* Téléchargez une copie de la même version d'image de ONTAP que celle utilisée par le contrôleur défectueux. Vous pouvez télécharger l'image appropriée à partir de la section Téléchargements du site de support NetApp. Utilisez `version -v` la commande pour afficher si votre version de ONTAP prend en charge NVE. Si le résultat de la commande affiche `<10no- DARE>`, votre version de ONTAP ne prend pas en charge NVE.
 +
-** Si NVE est activé, téléchargez l'image avec NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
-** Si NVE n'est pas activé, téléchargez l'image sans NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
+** Si NVE est pris en charge par votre version de ONTAP, téléchargez l'image avec le chiffrement de volume NetApp, comme indiqué sur le bouton de téléchargement.
+** Si NVE n'est pas pris en charge, téléchargez l'image sans chiffrement de volume NetApp, comme indiqué sur le bouton de téléchargement.
 
 
 * Si votre système est un système autonome, vous n'avez pas besoin d'une connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
 
 
 .Étapes
+. Si ce n'est pas le cas, téléchargez et copiez l'image de maintenance appropriée du https://mysupport.netapp.com/["Site de support NetApp"] sur la clé USB.
++
+.. Téléchargez l'image de service à partir du lien Téléchargements de la page, vers votre espace travail sur votre ordinateur portable.
+.. Décompressez l'image du service.
++
+
+NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas WinZip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
+
++
+Le lecteur flash USB doit avoir l'image ONTAP appropriée de ce que le contrôleur défectueux fonctionne.
+
+
+
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 . Recâblage du module de contrôleur, selon les besoins.
 . Insérez la clé USB dans le logement USB du module de contrôleur.

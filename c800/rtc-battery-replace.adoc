@@ -24,7 +24,7 @@ Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de cont
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
-* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) pour le serveur lame SCSI du contrôleur défectueux.  `cluster kernel-service show`La commande (depuis la commande priv en mode avancé) affiche le nom du nœud, l'état de quorum de ce nœud, l'état de disponibilité de ce nœud ainsi que l'état opérationnel de ce nœud.
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) pour le serveur lame SCSI du contrôleur défectueux.  `cluster kernel-service show`La commande (from priv mode Advanced) affiche le nom du nœud, son état de disponibilité et link:https://docs.netapp.com/us-en/ontap/system-admin/display-nodes-cluster-task.html["état du quorum"]son état de fonctionnement.
 +
 Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
 

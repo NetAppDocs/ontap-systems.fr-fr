@@ -26,9 +26,13 @@ Pour les systèmes de stockage ASA A70 et ASA A90, vous pouvez effectuer les pro
 
 
  a| 
-link:bootmedia-overview.html["Support de démarrage"]
+link:bootmedia-overview.html["Support de démarrage - récupération manuelle"]
+
+link:bootmedia-overview-bmr.html["Support de démarrage - récupération automatique"]
  a| 
-Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système utilise lors du démarrage.
+Vous pouvez remplacer manuellement un support d'amorçage défectueux en utilisant le module USB pour l'image d'amorçage.
+
+Le remplacement automatique des supports de démarrage utilise l'image de démarrage du nœud partenaire et exécute automatiquement l'option de menu de démarrage appropriée pour installer l'image de démarrage sur le support de démarrage de remplacement.
 
 
 

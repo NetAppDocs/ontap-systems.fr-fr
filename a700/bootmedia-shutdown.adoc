@@ -1,10 +1,10 @@
 ---
-permalink: a900/bootmedia_impaired_controller_shutdown.html 
+permalink: a700/bootmedia-shutdown.html 
 sidebar: sidebar 
-keywords:  
+keywords: aff a700, fas9000, shut, down, impaired, controller, take, over 
 summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage. 
 ---
-= Arrêtez le contrôleur défaillant - AFF A900
+= Arrêtez le contrôleur défectueux - AFF A700
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,32 +13,67 @@ summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant
 [role="lead"]
 Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
 
-[role="tabbed-block"]
-====
-.La plupart des configurations
---
+
+
+== Option 1 : la plupart des systèmes
+
 Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
+
+.Étapes
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à la section retrait du module de contrôleur.
+
+
+
+ a| 
+`Waiting for giveback...`
+ a| 
+Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
+
+
+
+ a| 
+Invite système ou invite de mot de passe (entrer le mot de passe système)
+ a| 
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode impaired_node_name`
+
+Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+
+|===
+. Dans l'invite DU CHARGEUR, entrez : `printenv` pour capturer toutes les variables environnementales de démarrage. Enregistrez le résultat dans votre fichier journal.
++
+
+NOTE: Cette commande peut ne pas fonctionner si le périphérique d'amorçage est corrompu ou non fonctionnel.
+
+
+
+
+
+=== Option 2 : le contrôleur est dans un MetroCluster
+
+Une fois les tâches NVE ou NSE effectuées, vous devez arrêter le nœud douteux. REMARQUE : n'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
-.Description de la tâche
-* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) pour le serveur lame SCSI du contrôleur défectueux.  `cluster kernel-service show`La commande (depuis la commande priv en mode avancé) affiche le nom du nœud, l'état de quorum de ce nœud, l'état de disponibilité de ce nœud ainsi que l'état opérationnel de ce nœud.
-+
-Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
-
 * Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
 
 
 .Étapes
-. Si AutoSupport est activé, supprimez la création automatique de cas en appelant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=<# of hours>h`
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
 +
-Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
 
 . Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
-+
-
-NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
-
 . Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
 +
 [cols="1,2"]
@@ -61,7 +96,7 @@ Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
 
 
  a| 
-Invite système ou invite de mot de passe
+Invite système ou invite de mot de passe (entrer le mot de passe système)
  a| 
 Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
 
@@ -70,10 +105,11 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 |===
 
 
---
-.Le contrôleur réside dans un MetroCluster
---
-Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
+
+
+== Option 3 : le contrôleur est intégré à un MetroCluster à deux nœuds
+
+Une fois les tâches NVE ou NSE effectuées, vous devez arrêter le nœud douteux.
 
 
 NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
@@ -120,6 +156,3 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 |===
 
-
---
-====

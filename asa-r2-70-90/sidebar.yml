@@ -1,49 +1,49 @@
 ---
 section: asa-r2-a70-90-maintain
 title: Systèmes ASA A70 et ASA A90
-pdf-filename: ASA A70, ASA A90 entretien
+pdf-filename: ASA A70 et ASA A90 maintiennent
 entries:
 - title: Présentation de la maintenance
   url: "/asa-r2-70-90/maintain-overview.html"
-- title: Support de démarrage
-  pdf-filename: Support de démarrage ASA A70, ASA A90
+- title: Support de démarrage - récupération automatique
+  pdf-filename: Support de démarrage ASA A70 et ASA A90
+  entries:
+  - title: Présentation des supports de démarrage
+    url: "/asa-r2-70-90/bootmedia-overview-bmr.html"
+  - title: Procédure de remplacement du support de démarrage
+    url: "/asa-r2-70-90/bootmedia-replace-workflow-bmr.html"
+  - title: Examen des conditions requises
+    url: "/asa-r2-70-90/bootmedia-replace-requirements-bmr.html"
+  - title: Arrêtez le contrôleur douteux
+    url: "/asa-r2-70-90/bootmedia-shutdown-bmr.html"
+  - title: Remplacez le support de démarrage
+    url: "/asa-r2-70-90/bootmedia-replace-bmr.html"
+  - title: Restaurer l'image sur le support de démarrage
+    url: "/asa-r2-70-90/bootmedia-recovery-image-boot-bmr.html"
+  - title: Renvoyer la pièce défectueuse à NetApp
+    url: "/asa-r2-70-90/bootmedia-complete-rma-bmr.html"
+- title: Support de démarrage - récupération manuelle
   entries:
   - title: Présentation des supports de démarrage
     url: "/asa-r2-70-90/bootmedia-overview.html"
-  - title: Méthode automatisée
-    entries:
-    - title: Procédure de remplacement du support de démarrage
-      url: "/asa-r2-70-90/bootmedia-replace-workflow-bmr.html"
-    - title: Examen des conditions requises
-      url: "/asa-r2-70-90/bootmedia-replace-requirements-bmr.html"
-    - title: Arrêtez le contrôleur douteux
-      url: "/asa-r2-70-90/bootmedia-shutdown-bmr.html"
-    - title: Remplacez le support de démarrage
-      url: "/asa-r2-70-90/bootmedia-replace-bmr.html"
-    - title: Restaurer l'image sur le support de démarrage
-      url: "/asa-r2-70-90/bootmedia-recovery-image-boot-bmr.html"
-    - title: Renvoyer la pièce défectueuse à NetApp
-      url: "/asa-r2-70-90/bootmedia-complete-rma-bmr.html"
-  - title: Méthode manuelle
-    entries:
-    - title: Procédure de remplacement du support de démarrage
-      url: "/asa-r2-70-90/bootmedia-replace-workflow.html"
-    - title: Examen des conditions requises
-      url: "/asa-r2-70-90/bootmedia-replace-requirements.html"
-    - title: Vérifiez les clés de chiffrement intégrées
-      url: "/asa-r2-70-90/bootmedia-encryption-preshutdown-checks.html"
-    - title: Arrêtez le contrôleur douteux
-      url: "/asa-r2-70-90/bootmedia-shutdown.html"
-    - title: Remplacez le support de démarrage
-      url: "/asa-r2-70-90/bootmedia-replace.html"
-    - title: Image de récupération de démarrage
-      url: "/asa-r2-70-90/bootmedia-recovery-image-boot.html"
-    - title: Restaurez le chiffrement
-      url: "/asa-r2-70-90/bootmedia-encryption-restore.html"
-    - title: Renvoyer la pièce défectueuse à NetApp
-      url: "/asa-r2-70-90/bootmedia-complete-rma.html"
+  - title: Procédure de remplacement du support de démarrage
+    url: "/asa-r2-70-90/bootmedia-replace-workflow.html"
+  - title: Examen des conditions requises
+    url: "/asa-r2-70-90/bootmedia-replace-requirements.html"
+  - title: Vérifiez les clés de cryptage
+    url: "/asa-r2-70-90/bootmedia-encryption-preshutdown-checks.html"
+  - title: Arrêtez le contrôleur douteux
+    url: "/asa-r2-70-90/bootmedia-shutdown.html"
+  - title: Remplacez le support de démarrage
+    url: "/asa-r2-70-90/bootmedia-replace.html"
+  - title: Image de récupération de démarrage
+    url: "/asa-r2-70-90/bootmedia-recovery-image-boot.html"
+  - title: Restaurez le chiffrement
+    url: "/asa-r2-70-90/bootmedia-encryption-restore.html"
+  - title: Renvoyer la pièce défectueuse à NetApp
+    url: "/asa-r2-70-90/bootmedia-complete-rma.html"
 - title: Châssis
-  pdf-filename: Châssis ASA A70, ASA A90
+  pdf-filename: Châssis ASA A70 et ASA A90
   entries:
   - title: Workflow de remplacement du châssis
     url: "/asa-r2-70-90/chassis-replace-workflow.html"
@@ -56,14 +56,14 @@ entries:
   - title: Remplacement complet du châssis
     url: "/asa-r2-70-90/chassis-replace-complete-system-restore-rma.html"
 - title: Contrôleur
-  pdf-filename: ASA A70, module de contrôleur ASA A90
+  pdf-filename: Contrôleur ASA A70 et ASA A90
   entries:
   - title: Procédure de remplacement du contrôleur
     url: "/asa-r2-70-90/controller-replace-workflow.html"
   - title: Examen des conditions requises
     url: "/asa-r2-70-90/controller-replace-requirements.html"
   - title: Arrêtez le contrôleur douteux
-    url: "/asa-r2-70-90/controller-replace-shutdown-asa-r2.html"
+    url: "/asa-r2-70-90/controller-replace-shutdown-nomcc.html"
   - title: Remplacer le contrôleur
     url: "/asa-r2-70-90/controller-replace-move-hardware.html"
   - title: Restaurez la configuration du système
@@ -83,6 +83,7 @@ entries:
 - title: Batterie NV
   url: "/asa-r2-70-90/nvdimm-battery-replace.html"
 - title: Module d'E/S.
+  pdf-filename: Module d'E/S ASA A70 et ASA A90
   entries:
   - title: Présentation du module d'E/S.
     url: "/asa-r2-70-90/io-module-overview.html"

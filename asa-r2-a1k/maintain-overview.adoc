@@ -21,14 +21,18 @@ Les procédures décrites dans cette section supposent que le système A1K a dé
 
 Pour le système de stockage ASA A1K, vous pouvez effectuer des procédures de maintenance sur les composants suivants.
 
-[cols="25,65"]
+[cols="30,70"]
 |===
 
 
  a| 
-link:bootmedia-overview.html["Support de démarrage"]
+link:bootmedia-overview.html["Support de démarrage - récupération manuelle"]
+
+link:bootmedia-overview-bmr.html["Support de démarrage - récupération automatique"]
  a| 
-Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système utilise lors du démarrage.
+Vous pouvez remplacer manuellement un support d'amorçage défectueux en utilisant le module USB pour l'image d'amorçage.
+
+Le remplacement automatique des supports de démarrage utilise l'image de démarrage du nœud partenaire et exécute automatiquement l'option de menu de démarrage appropriée pour installer l'image de démarrage sur le support de démarrage de remplacement.
 
 
 

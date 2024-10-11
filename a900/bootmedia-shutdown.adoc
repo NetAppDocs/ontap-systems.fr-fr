@@ -1,10 +1,10 @@
 ---
-permalink: fas2700/bootmedia-impaired-controller-shutdown.html 
+permalink: a900/bootmedia-shutdown.html 
 sidebar: sidebar 
-keywords: fas2700, aff a220, shut, down, impaired, controller, take, over 
+keywords:  
 summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage. 
 ---
-= Arrêtez le contrôleur défaillant - AFF A220 et FAS2700
+= Arrêtez le contrôleur défaillant - AFF A900
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,13 +13,32 @@ summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant
 [role="lead"]
 Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
 
-
-
-== Option 1 : plupart des configurations
-
+[role="tabbed-block"]
+====
+.La plupart des configurations
+--
 Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
 
+Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+
+.Description de la tâche
+* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) pour le serveur lame SCSI du contrôleur défectueux.  `cluster kernel-service show`La commande (from priv mode Advanced) affiche le nom du nœud, son état de disponibilité et link:https://docs.netapp.com/us-en/ontap/system-admin/display-nodes-cluster-task.html["état du quorum"]son état de fonctionnement.
++
+Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
+
+* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+
 .Étapes
+. Si AutoSupport est activé, supprimez la création automatique de cas en appelant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=<# of hours>h`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
 . Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
 +
 [cols="1,2"]
@@ -30,36 +49,30 @@ Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur p
  a| 
 Invite DU CHARGEUR
  a| 
-Passez à la section retrait du module de contrôleur.
+Passez à l'étape suivante.
 
 
 
  a| 
-`Waiting for giveback...`
+Attente du retour...
  a| 
 Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
 
 
 
  a| 
-Invite système ou invite de mot de passe (entrer le mot de passe système)
+Invite système ou invite de mot de passe
  a| 
-Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode impaired_node_name`
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
 
 Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
 
 |===
-. Dans l'invite DU CHARGEUR, entrez : `printenv` pour capturer toutes les variables environnementales de démarrage. Enregistrez le résultat dans votre fichier journal.
-+
-
-NOTE: Cette commande peut ne pas fonctionner si le périphérique d'amorçage est corrompu ou non fonctionnel.
 
 
-
-
-
-== Option 2 : le contrôleur est dans un MetroCluster
-
+--
+.Le contrôleur réside dans un MetroCluster
+--
 Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
 
 
@@ -107,3 +120,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 |===
 
+
+--
+====

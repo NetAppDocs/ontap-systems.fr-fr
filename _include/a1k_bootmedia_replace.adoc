@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-Pour remplacer le support de démarrage, vous devez retirer le module de gestion du système de l'arrière du système, retirer le support de démarrage défectueux et installer le support de démarrage de remplacement dans le module de gestion du système.
+Vous devez débrancher le module de contrôleur, retirer le module de gestion du système à l'arrière du système, retirer le support de démarrage défectueux et installer le support de démarrage de remplacement dans le module de gestion du système.
 
 
 
@@ -81,13 +81,13 @@ NOTE: Si votre système de stockage est équipé d'une alimentation CC, déconne
 
 == Étape 2 : transférez l'image ONTAP sur le support de démarrage
 
-Le support de démarrage de remplacement que vous avez installé est sans image ONTAP. Vous pouvez transférer l'image ONTAP sur le support de démarrage de remplacement en téléchargeant l'image de service ONTAP appropriée du https://mysupport.netapp.com/["Site de support NetApp"] sur une clé USB, puis sur le support de démarrage de remplacement.
+Le support de démarrage de remplacement que vous avez installé est sans image ONTAP. Vous pouvez transférer l'image ONTAP sur le support de démarrage de remplacement en téléchargeant l'image de service ONTAP appropriée du https://mysupport.netapp.com/["Site de support NetApp"] vers une clé USB, puis vers le support de démarrage de remplacement.
 
 .Avant de commencer
 * Vous devez disposer d'une clé USB vide, formatée en FAT32, d'une capacité minimale de 4 Go.
-* Vous devez disposer d'une copie de la même version d'image de ONTAP que celle utilisée par le contrôleur défectueux. Vous pouvez télécharger l'image appropriée depuis la https://support.netapp.com/downloads["Téléchargements"] section du site de support NetApp
+* Téléchargez une copie de la même version d'image de ONTAP que celle utilisée par le contrôleur défectueux. Vous pouvez télécharger l'image appropriée à partir de la section Téléchargements du site de support NetApp. Utilisez `version -v` la commande pour afficher si votre version de ONTAP prend en charge NVE. Si le résultat de la commande affiche `<10no- DARE>`, votre version de ONTAP ne prend pas en charge NVE.
 +
-** Si NVE est pris en charge, téléchargez l'image avec le chiffrement de volume NetApp, comme indiqué sur le bouton de téléchargement.
+** Si NVE est pris en charge par votre version de ONTAP, téléchargez l'image avec le chiffrement de volume NetApp, comme indiqué sur le bouton de téléchargement.
 ** Si NVE n'est pas pris en charge, téléchargez l'image sans chiffrement de volume NetApp, comme indiqué sur le bouton de téléchargement.
 
 
@@ -103,12 +103,9 @@ Le support de démarrage de remplacement que vous avez installé est sans image 
 
 NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas WinZip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
 
-
-
 +
 Le lecteur flash USB doit avoir l'image ONTAP appropriée de ce que le contrôleur défectueux fonctionne.
 
-+
 .. Retirez la clé USB de votre ordinateur portable.
 
 
