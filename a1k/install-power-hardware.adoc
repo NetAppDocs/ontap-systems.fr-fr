@@ -17,10 +17,13 @@ Une fois que vous avez installé le matériel en rack du système de stockage AF
 
 == Étape 1 : mettez le tiroir sous tension et attribuez l'ID de tiroir
 
-Chaque tiroir NS224 se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage. Par défaut, les ID de tiroir sont attribués aux noms « 00 » et « 01 ». Toutefois, vous devrez peut-être les ajuster pour maintenir le caractère unique de votre système de stockage.
+Chaque tiroir se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage.
 
 .Description de la tâche
-* Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99.
+* Remarque : pour être valides, les ID de tiroir externe doivent être compris entre 01 et 99.
++
+Si vous disposez de tiroirs internes (de stockage) intégrés aux contrôleurs, l'ID de tiroir fixe est 00.
+
 * Vous devez mettre un tiroir hors tension puis sous tension (débranchez les deux cordons d'alimentation, attendez la durée appropriée, puis rebranchez-les) pour que l'ID de tiroir prenne effet.
 
 
@@ -98,7 +101,7 @@ Il peut prendre jusqu'à trois secondes pour que le chiffre clignote.
 +
 Le premier chiffre de l'écran numérique cesse de clignoter.
 
-.. Appuyez sur le bouton d'ID du tiroir et relâchez-le pour avancer le chiffre jusqu'à ce que vous atteigniez le chiffre souhaité de 0 à 9.
+.. Appuyez sur le bouton d'ID du tiroir et relâchez-le pour avancer le chiffre jusqu'à atteindre le chiffre souhaité de 0 à 9, ou de 1 à 9 si le système est équipé d'un système de stockage intégré.
 +
 Le second chiffre continue de clignoter.
 

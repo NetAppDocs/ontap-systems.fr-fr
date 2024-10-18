@@ -394,9 +394,13 @@ Il doit être aligné sur la tôle du module de contrôleur.
 
 NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 
-. Recâblage du système, selon les besoins.
+. Recâblage du système de stockage, selon les besoins.
 +
 Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
++
+
+NOTE: Assurez-vous que le câble de la console est connecté au module de contrôleur réparé afin de recevoir des messages de la console lorsqu'il redémarre. Le contrôleur réparé est alimenté par le contrôleur sain et commence à redémarrer dès qu'il est complètement installé dans le châssis.
 
 . Terminez la réinstallation du module de contrôleur :
 +
@@ -404,23 +408,21 @@ Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de 
 +
 Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
 
-
-
 +
 
 NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
-+
 .. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
 
+
++
+
+NOTE: Si le contrôleur démarre à l'invite Loader, redémarrez-le avec la `boot_ontap` commande.
 
 . Branchez les cordons d'alimentation aux blocs d'alimentation.
 +
 
 NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
-
-+
-Le module de contrôleur démarre une fois l'alimentation rétablie. Si elle démarre à l'invite DU CHARGEUR, redémarrez le contrôleur avec la `boot_ontap` commande.
 
 . Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
 . Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la `system node autosupport invoke -node * -type all -message MAINT=END` commande.

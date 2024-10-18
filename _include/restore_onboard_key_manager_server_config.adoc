@@ -2,21 +2,35 @@
 :allow-uri-read: 
 
 
-Restaurez la configuration du gestionnaire de clés intégré à partir du menu de démarrage ONAT.
+Restaurez la configuration du gestionnaire de clés intégré (OKM) à partir du menu de démarrage ONTAP.
 
 .Avant de commencer
-Vous avez besoin des informations suivantes lors de la restauration de la configuration de OKM :
+* Assurez-vous de disposer des informations suivantes lors de la restauration de la configuration de OKM :
++
+** Phrase de passe à l'échelle du cluster entrée https://docs.netapp.com/us-en/ontap/encryption-at-rest/enable-onboard-key-management-96-later-nse-task.html["tout en activant la gestion intégrée des clés"].
+** https://docs.netapp.com/us-en/ontap/encryption-at-rest/backup-key-management-information-manual-task.html["Informations de sauvegarde pour le gestionnaire de clés intégré"].
 
-* Phrase de passe à l'échelle du cluster entrée https://docs.netapp.com/us-en/ontap/encryption-at-rest/enable-onboard-key-management-96-later-nse-task.html["tout en activant la gestion intégrée des clés"].
-* https://docs.netapp.com/us-en/ontap/encryption-at-rest/backup-key-management-information-manual-task.html["Informations de sauvegarde pour le gestionnaire de clés intégré"].
+
 * Effectuer la https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_verify_onboard_key_management_backup_and_cluster-wide_passphrase["Comment vérifier la sauvegarde de gestion intégrée des clés et la phrase secrète au niveau du cluster"] procédure avant de continuer.
 
 
 .Étapes
+. Branchez le câble de la console au contrôleur cible.
 . Dans le menu de démarrage ONTAP, sélectionnez l'option appropriée :
 +
-** Pour ONTAP 9.8 et versions ultérieures, sélectionnez l'option 10 :
-+
+[cols="1a,2a"]
+|===
+| Version ONTAP | Sélectionnez cette option 
+
+
+ a| 
+ONTAP 9.8 ou version ultérieure
+ a| 
+Sélectionnez l'option 10.
+
+.Affiche un exemple de menu de démarrage
+[%collapsible]
+====
 ....
 
 Please choose one of the following:
@@ -35,8 +49,17 @@ Please choose one of the following:
 Selection (1-11)? 10
 
 ....
-** Pour ONTAP 9.7 et les versions antérieures, entrez la commande d'option masquée `recover_onboard_keymanager`.
-+
+====
+
+
+ a| 
+ONTAP 9.7 et versions antérieures
+ a| 
+Sélectionnez l'option cachée `recover_onboard_keymanager`
+
+.Affiche un exemple de menu de démarrage
+[%collapsible]
+====
 ....
 
 Please choose one of the following:
@@ -53,29 +76,37 @@ Please choose one of the following:
 Selection (1-19)? recover_onboard_keymanager
 
 ....
+====
+|===
+. Confirmez que vous souhaitez poursuivre le processus de restauration.
++
+.Afficher l'exemple d'invite
+[%collapsible]
+====
+`This option must be used only in disaster recovery procedures. Are you sure? (y or n):`
 
-
-. Confirmez la poursuite du processus.
-`This option must be used only in disaster recovery procedures. Are you sure? (y or n): `y`
+====
 . Saisissez deux fois la phrase de passe au niveau du cluster.
 +
-
-NOTE: Lorsque vous saisissez la phrase de passe, la console n'affiche aucune entrée.
+Lorsque vous saisissez la phrase de passe, la console n'affiche aucune entrée.
 
 +
+.Afficher l'exemple d'invite
+[%collapsible]
+====
 `Enter the passphrase for onboard key management:`
 
-+
 `Enter the passphrase again to confirm:`
 
-. Entrez les informations de sauvegarde. Collez l'intégralité du contenu de la ligne de DÉBUT DE SAUVEGARDE à travers la ligne de FIN DE SAUVEGARDE.
+====
+. Entrez les informations de sauvegarde.
 +
-Appuyez deux fois sur la touche entrée à la fin de l'entrée.
-
+.. Collez l'intégralité du contenu de la ligne de DÉBUT DE SAUVEGARDE à travers la ligne de FIN DE SAUVEGARDE.
 +
+.Afficher l'exemple d'invite
+[%collapsible]
+====
 ....
-
-
 Enter the backup data:
 
 --------------------------BEGIN BACKUP--------------------------
@@ -112,9 +143,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ---------------------------END BACKUP---------------------------
 
 ....
-. Le processus de récupération sera terminé.
+====
+.. Appuyez deux fois sur la touche entrée à la fin de l'entrée.
 +
+Le processus de récupération est terminé.
+
++
+.Afficher l'exemple d'invite
+[%collapsible]
+====
 ....
+
+Enter the backup data:
 
 Trying to recover keymanager secrets....
 Setting recovery material for the onboard key manager
@@ -130,12 +170,18 @@ Successfully recovered keymanager secrets.
 ***********************************************************************************
 
 ....
+====
+
+
 +
 
 WARNING: Ne continuez pas si la sortie affichée est autre que `Successfully recovered keymanager secrets`. Effectuez le dépannage pour corriger l'erreur.
 
 . Sélectionnez l'option 1 dans le menu de démarrage pour poursuivre le démarrage dans ONTAP.
 +
+.Afficher l'exemple d'invite
+[%collapsible]
+====
 ....
 
 ***********************************************************************************
@@ -158,11 +204,24 @@ WARNING: Ne continuez pas si la sortie affichée est autre que `Successfully rec
 Selection (1-11)? 1
 
 ....
-. Vérifier que la console du contrôleur affiche `Waiting for giveback...(Press Ctrl-C to abort wait)`
-. Depuis le nœud partenaire, rendre le contrôleur partenaire : `storage failover giveback -fromnode local -only-cfo-aggregates true`.
-. Une fois démarré uniquement avec l'agrégat CFO, exécutez la commande _Security Key-Manager Onboard sync​​​​​​​_.
+====
+. Vérifier que la console du contrôleur affiche les éléments suivants :
++
+`Waiting for giveback...(Press Ctrl-C to abort wait)`
+
+. Depuis le nœud partenaire, rendre le contrôleur partenaire :
++
+`storage failover giveback -fromnode local -only-cfo-aggregates true`.
+
+. Après le démarrage avec un agrégat CFO uniquement, exécutez la commande suivante :
++
+`security key-manager onboard sync` commande.
+
 . Saisissez la phrase secrète pour l'ensemble du cluster pour le gestionnaire de clés intégré.
 +
+.Afficher l'exemple d'invite
+[%collapsible]
+====
 ....
 
 Enter the cluster-wide passphrase for the Onboard Key Manager:
@@ -170,11 +229,15 @@ Enter the cluster-wide passphrase for the Onboard Key Manager:
 All offline encrypted volumes will be brought online and the corresponding volume encryption keys (VEKs) will be restored automatically within 10 minutes. If any offline encrypted volumes are not brought online automatically, they can be brought online manually using the "volume online -vserver <vserver> -volume <volume_name>" command.
 
 ....
+====
 +
 
 NOTE: Si la synchronisation réussit, l'invite du cluster est renvoyée sans message supplémentaire. Si la synchronisation échoue, un message d'erreur s'affiche avant de revenir à l'invite du cluster. Ne continuez pas tant que l'erreur n'a pas été corrigée et que la synchronisation a réussi.
 
-. Assurez-vous que toutes les clés sont synchronisées : `security key-manager key query -restored false`.
+. Assurez-vous que toutes les clés sont synchronisées :
++
+`security key-manager key query -restored false`.
+
 +
 `There are no entries matching your query.`
 
@@ -182,5 +245,16 @@ NOTE: Si la synchronisation réussit, l'invite du cluster est renvoyée sans mes
 
 NOTE: Aucun résultat ne doit apparaître lors du filtrage de FALSE dans le paramètre restauré.
 
-. Retour du nœud depuis le partenaire : `storage failover giveback -fromnode local`
+. Giveback le nœud du partenaire :
++
+`storage failover giveback -fromnode local`
+
+. Si vous l'avez désactivée, restaurez le rétablissement automatique en saisissant la commande suivante :
++
+`storage failover modify -node local -auto-giveback true`
+
+. Si AutoSupport est activé, restaurez la création automatique de dossiers en saisissant la commande suivante :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
 
