@@ -160,48 +160,28 @@ Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s
 
 == Étape 4 : réinstallez les modules de contrôleur
 
-Réinstallez le module de contrôleur et redémarrez-le.
+Réinstallez les modules de contrôleur dans le châssis et redémarrez-les.
 
-. Assurez-vous que le conduit d'air est complètement fermé en le faisant tourner jusqu'en butée.
+. Si vous avez ouvert le conduit d'air, fermez-le en le faisant tourner jusqu'en butée.
 +
 Il doit être aligné sur la tôle du module de contrôleur.
 
-. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le contrôleur jusqu'à son insertion complète dans le châssis.
 +
-
-NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
-
-. Recâblage du système de stockage, selon les besoins.
-+
-Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
-
-+
-
-NOTE: Assurez-vous que le câble de la console est connecté au module de contrôleur réparé afin de recevoir des messages de la console lorsqu'il redémarre. Le contrôleur réparé est alimenté par le contrôleur sain et commence à redémarrer dès qu'il est complètement installé dans le châssis.
-
-. Terminez la réinstallation du module de contrôleur :
-+
-.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
-+
-Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
-
-+
-
-NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
-
 .. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
-
-
+.. Si vous ne l'avez pas déjà fait, réinstallez le périphérique de gestion des câbles et recentrez le contrôleur.
 +
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
 
-NOTE: Si le contrôleur démarre à l'invite Loader, redémarrez-le avec la `boot_ontap` commande.
 
+
+. Répétez la procédure précédente pour installer le second contrôleur dans le nouveau châssis.
 . Branchez les cordons d'alimentation aux blocs d'alimentation.
 +
 
 NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
 
-. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
-. Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la `system node autosupport invoke -node * -type all -message MAINT=END` commande.
-. Répétez la procédure précédente pour installer le second contrôleur dans le nouveau châssis.
++
+Le module de contrôleur commence à démarrer dès qu'il est installé et que l'alimentation est rétablie. Si elle démarre à l'invite DU CHARGEUR, redémarrez le contrôleur avec la `boot_ontap` commande.
+
 

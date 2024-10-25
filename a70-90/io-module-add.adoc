@@ -186,7 +186,6 @@ NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et
 . Répétez ces étapes pour le contrôleur B.
 . Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
 . Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la `system node autosupport invoke -node * -type all -message MAINT=END` commande.
-. Si vous avez installé un module d'E/S de stockage, installez et câblez vos tiroirs NS224, comme décrit link:../ns224/hot-add-shelf-overview.html["Workflow d'ajout à chaud"]à la section .
 
 
 
@@ -212,7 +211,7 @@ Les LIF migrent automatiquement lorsque son module de contrôleur est arrêté.
  a| 
 Module d'E/S NIC avec moins de ports
  a| 
-Réaffectez de manière permanente les LIF ASAected à un autre port de base. Pour plus d'informations sur l'utilisation de System Manager pour le déplacement permanent des LIF, reportez-vous à la section https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^] .
+Réallouer de manière définitive les LIF affectées à un autre port de départ. Voir https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^] Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF.
 
 
 

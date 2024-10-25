@@ -195,6 +195,9 @@ Les loquets de verrouillage se montent lorsque le module de contrôleur est bien
 NOTE: Le contrôleur redémarre dès qu'il est complètement inséré dans le châssis.
 
 . Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
+. Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true` .
+. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
 
 
 
@@ -269,6 +272,9 @@ Les loquets de verrouillage se montent lorsque le module de contrôleur est bien
 NOTE: Le contrôleur redémarre dès qu'il est complètement inséré dans le châssis.
 
 . Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
+. Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`.
+. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
 
 
 
@@ -370,8 +376,9 @@ dr-group-id            cluster node           configuration-state
 ----
 . Vérifier que les volumes attendus sont présents pour chaque contrôleur : `vol show -node node-name`
 . Si le chiffrement du stockage est activé, vous devez restaurer la fonctionnalité.
-. Si vous avez désactivé le basculement automatique au redémarrage, activez-le à partir du contrôleur sain : _Storage failover modify -node remplacement-node-name -onreboot true_
-. Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la `system node autosupport invoke -node * -type all -message MAINT=END` commande.
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
+. Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`.
+. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
 
 
 
