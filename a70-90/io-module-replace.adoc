@@ -191,10 +191,6 @@ NOTE: Si le nouveau module d'E/S n'est pas le même modèle que le module défai
 
 NOTE: Ceci réinitialise les cartes d'E/S et les autres composants et redémarre le nœud.
 
-+
-
-NOTE: Assurez-vous de quitter le mode Maintenance après avoir terminé la conversion.
-
 . Retournez le nœud en mode de fonctionnement normal : _Storage failover giveback -ofnode albridred_node_name_
 . Si le rétablissement automatique a été désactivé, réactivez-le : _Storage failover modify -node local -auto-giveback true_
 

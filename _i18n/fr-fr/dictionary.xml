@@ -4955,7 +4955,6 @@
   <block id="c614b3d5d45f850c2de661cead70f602" category="list-text">Réactivez l'affectation automatique des disques si nécessaire :<block ref="468cd0e5a15e85c7790fc4f543542ad2" prefix=" " category="inline-code"></block></block>
   <block id="f838a919336ed5d0c1d74549f6259a40" category="paragraph">Si vous disposez d'une paire haute disponibilité, vous devez réactiver l'affectation automatique des disques sur les deux modules de contrôleur.</block>
   <block id="5b07090bafdc58182b6f01852ecbad05" category="summary">Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pour connecter les contrôleurs aux piles de tiroirs disques avec des modules IOM12/IOM12B afin d'obtenir une connectivité à quatre ports dans une paire haute disponibilité ou une configuration à un seul contrôleur. Vous pouvez également utiliser la fiche de travail complétée pour vous guider à travers le câblage des connexions à quatre ports pour votre configuration.</block>
-  <block id="5d57c73dbe661f28ff4ab36825900d40" category="doc">Modèle de fiche de câblage contrôleur à pile pour la connectivité à quatre chemins d'accès - tiroirs avec modules IOM1/IOM12B2</block>
   <block id="f8688b55e48596e9efbee0294dc9b0af" category="list-title">Sur sa tâche</block>
   <block id="0410b8cb4945f84623b17f2f6249cf4a" category="list-text">Ce modèle de procédure et de fiche est applicable au câblage de la connectivité à quatre chemins d'accès pour une configuration haute disponibilité à quatre chemins d'accès ou à quatre chemins avec une ou plusieurs piles.</block>
   <block id="70c45a3fea4e20bf8f37ec9e02cb575c" category="paragraph">Vous trouverez des exemples de feuilles de calcul terminées pour les configurations à quatre chemins d'accès haute disponibilité et à quatre chemins d'accès.</block>
@@ -6696,7 +6695,6 @@ SFP+ (cible/initiateur)</block>
   <block id="cfad0a7419f44ea0c64db24197abbf70" category="paragraph">Clignote</block>
   <block id="6b6aa0b6d9b620cfef1de19db2c781e5" category="paragraph">Les voyants d'un bloc d'alimentation CA ou CC indiquent si le bloc d'alimentation fonctionne normalement ou s'il y a des problèmes matériels.</block>
   <block id="ddf6d4204e991f952d5f65cedae767ce" category="paragraph">L'illustration et les tableaux suivants décrivent le voyant d'un bloc d'alimentation. (L'illustration est une alimentation CA ; cependant, l'emplacement du voyant est le même sur l'alimentation CC) :</block>
-  <block id="7609b319dac3aca8b9d7c805388fc5e6" category="paragraph">Le voyant bicolore indique l'alimentation/l'activité lorsque le voyant est vert et une panne lorsque le voyant est orange.</block>
   <block id="0cb6b469a5da43eb5225c25fab0b5ff0" category="cell">Alimentation/activité (vert)</block>
   <block id="cd5f6c10b859eea6eaed71a2e494c0db" category="paragraph">Pas d'alimentation CA/CC vers le boîtier</block>
   <block id="aade40c62d1308360c2f119536da1c63" category="paragraph">Aucune alimentation CA/CC vers le bloc d'alimentation</block>
@@ -9290,35 +9288,7 @@ SFP+ (cible/initiateur)</block>
   <block id="cf91b43675e7187d6e724e7c312e336a" category="list-text">Faites tourner le loquet de came pour l'éloigner du module aussi loin que possible.</block>
   <block id="f5c1d99a4f032f30d087e32fbbbdb994" category="paragraph">Arrêtez ou prenez le contrôle du contrôleur défectueux. - Pour arrêter le contrôleur défectueux, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle du contrôleur afin que celui-ci continue à transmettre les données provenant du stockage du contrôleur défectueux.</block>
   <block id="5050dae1093a80a257a1d121ca5f3b0f" category="section-title">Étape 4 : vérifiez l'état du contrôleur</block>
-  <block id="dbc253985631ee33fc6976832d319aa9" category="list-text">À partir de l'invite Loader, entrez la commande _boot_Recovery -Partner_.</block>
-  <block id="9071774e0d4e739ca2fe57b55c805c89" category="paragraph">L'écran affiche le message<block ref="a42d5407fe60b5716cd9fdd4d4063f27" prefix=" " category="inline-code"></block> et commence les vérifications initiales et l'installation des fichiers de récupération d'amorçage.</block>
-  <block id="c3fcf34a186ddf28b42002ccdea5bb89" category="list-text">Si External Key Manager (EKM) est configuré, les éléments suivants s'affichent :</block>
-  <block id="e41b0fa291ba7a2f8d02db37d829dfe6" category="list-text">Entrez _y_ si un gestionnaire de clés a été configuré.</block>
-  <block id="8652886cdac2e198b58233db3fe44eb6" category="paragraph">L'option bootmenu 11 invite l'utilisateur à fournir toutes les informations de configuration EKM afin que les fichiers de configuration puissent être recréés.</block>
-  <block id="3fd9d3baae5e410a98ba4eb52a03ab26" category="list-text">Saisissez la configuration EKM à chaque invite.</block>
-  <block id="4cbdd1cac9566795166b3d9206cbcf86" category="paragraph">*NOTE:* la plupart de ces informations ont été saisies lorsque EKM a été activé à l'origine. Vous devez entrer les mêmes informations que celles saisies lors de la configuration initiale d'EKM.</block>
-  <block id="b5a73f8c93bdb89882d1ca9e462b0e2a" category="list-text">Vérifier que les<block ref="1cc9af734f039af6fc9db1cd2f09ad05" prefix=" " category="inline-code"></block> et<block ref="878efc5de6def52e25be6f622fb5a7ee" prefix=" " category="inline-code"></block> sont corrects.</block>
-  <block id="5fb974d016811ca21ebd195d4c257e8e" category="list-text">Sur le nœud partenaire, récupérez l'UUID du cluster à l'aide de la <block ref="73bad5beeda4a2a6bd01d97def1d4e67" prefix=" " category="inline-code"></block> commande.</block>
-  <block id="923bf1a61097d8e90a02dbe1a7df32ad" category="list-text">Sur le nœud partenaire, récupérez l'UUID du magasin de clés à l'aide de la<block ref="2f710df81fb8b58c1792ebb010c82902" prefix=" " category="inline-code"></block> commande et<block ref="f2892b1a90652446a2c8a2dce1d42eee" prefix=" " category="inline-code"></block> de la commande.</block>
   <block id="6d194eccb9cd88bfbcde1df65103cbb4" category="list-text">Entrez les valeurs de l'UUID de magasin de clés et de l'UUID de cluster lorsque vous y êtes invité.</block>
-  <block id="dc96ebaefbca0b39bdff8d2d09a5fc61" category="paragraph">*REMARQUE :* si le nœud partenaire n'est pas disponible, l'UUID du magasin de clés et l'UUID du cluster peuvent être obtenus à partir de la clé Mroot-AK située sur le serveur de clés configuré.</block>
-  <block id="a1af56a72048fea6d9e9cfde4d42ba60" category="paragraph">Vérifiez les<block ref="b8bbecc4d00a5d5b7dc368313818ee3e" prefix=" " category="inline-code"></block><block ref="8a298935cfa9f81db49083081a35f190" prefix=" " category="inline-code"></block> attributs UUID du cluster et UUID du magasin de clés pour vous assurer que vous disposez des clés correctes.</block>
-  <block id="d887305d2b2206bc86e35b35a47e130f" category="list-text">Si la clé est restaurée correctement, le processus de restauration continue et redémarre le nœud.</block>
-  <block id="e4b7511a00ba0effd6c938bde56c85b1" category="paragraph">L'écran affiche le message<block ref="a42d5407fe60b5716cd9fdd4d4063f27" prefix=" " category="inline-code"></block> et commence les vérifications initiales.</block>
-  <block id="d1de7a2b347063926ee7045aa2c0d40f" category="list-text">Surveillez le processus pendant que Loader configure les ports de cluster locaux et exécute netboot via<block ref="41e7db54f2498671a212595a5bc3f9c4" prefix=" " category="inline-code"></block>.</block>
-  <block id="7d7167e676e301c377a23cf821f58e87" category="paragraph">Une fois netboot en cours d'exécution,<block ref="78a0f5e144f919e879f7037c4f29865c" prefix=" " category="inline-code"></block> s'affiche à l'écran et le processus termine l'installation.</block>
-  <block id="e9bdba49a952b52d8fc36e6ae32295bf" category="list-text">Si le gestionnaire de clés n'est pas configuré, le message suivant s'affiche :</block>
-  <block id="233309cf2a420789e8fcc1627010277c" category="list-text">Si le message suivant s'affiche, le gestionnaire de clés intégré (OKM) est configuré :</block>
-  <block id="0062654a58ca10b6a4b1ffce37755e67" category="paragraph">Passez à la section pour terminer le processus de récupération.</block>
-  <block id="e6424e7ff2e258bc2ce037ee38b77931" category="list-text">Si le message suivant s'affiche, le gestionnaire de clés externe (EKM) est configuré. Allez à la rubrique EKM et terminez le processus de restauration :</block>
-  <block id="b5b024aba6aeeef11aba1df77e7bc935" category="list-text">Surveillez le processus BMR lors de l'exécution de la restauration de la configuration de sauvegarde, du fichier env, de la base de données mdb et du rdb à partir du partenaire.</block>
-  <block id="1fd38840c77d72c3a907f5a961467b12" category="list-text">Le nœud redémarre et le BMR est terminé lorsque vous voyez les éléments suivants :</block>
-  <block id="76e65f6de5f0ef338defad156e9302d6" category="list-text">Si le gestionnaire de clés intégré (OKM) est configuré, les éléments suivants s'affichent :</block>
-  <block id="16881782fee9167d362ad031a7bd4efa" category="list-text">Entrez _y_ à l'invite.</block>
-  <block id="efdeb95716fc588d0e0896e9945962d6" category="list-text">Saisissez la phrase de passe du gestionnaire de clés intégré lorsque vous voyez<block ref="2b673e138bf62e9f201d2fe3f4e48e85" prefix=" " category="inline-code"></block></block>
-  <block id="d1da2db4d465ceb969bae13f9a2c1665" category="list-text">Entrez à nouveau la phrase secrète du gestionnaire de clés intégré lorsque vous êtes invité à confirmer la phrase de passe.</block>
-  <block id="d6b5f802b07df1179c13649ed53524f0" category="paragraph">Une fois le processus de restauration terminé, vous verrez les éléments suivants :</block>
-  <block id="c6980bbd79483c6809cc84795b7d14d6" category="paragraph">Une fois la restauration terminée, le nœud redémarre pour terminer le processus.</block>
   <block id="417968dd9c410e2ebdf82236e2a6f1d8" category="doc">Étape 1 : connectez les contrôleurs de stockage à votre réseau</block>
   <block id="c0b05ac617b77a5c10f26756e6ef04f2" category="list-text">Si vous vous connectez à un commutateur optique, insérez l'émetteur-récepteur enfichable à petit facteur de forme (SFP) dans le port du contrôleur avant de le connecter au port.</block>
   <block id="1463138ead0bd5def70e2d744eddfc0a" category="paragraph">Connectez vos contrôleurs directement les uns aux autres et à votre réseau hôte.</block>
@@ -9898,7 +9868,6 @@ SFP+ (cible/initiateur)</block>
   <block id="6aa2bbbbcd863a688ecea951a078cc57" category="sidebar">Module FlashCache</block>
   <block id="9d6e68abc86ef52726565c7e52c9dea7" category="image-alt">Exemple de numéro de série du système</block>
   <block id="acaf98d7d873f9a7ee774034dc1440fc" category="image-alt">Icône d'avertissement de poids AFF A90 et AFF A70</block>
-  <block id="edd9ce1e4d9cc655a3b0e8c6c36049db" category="paragraph">Restaurez l'image du support de démarrage.</block>
   <block id="54425f945644281ccaf6201b998f169f" category="paragraph"><block ref="54425f945644281ccaf6201b998f169f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e41a410f85201d7cc87e022e1f2daf34" category="paragraph">Si la détection de réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration à l'aide de la détection automatique de cluster.</block>
   <block id="637d6f599c1184d1c5de273700d7924f" category="list-text">Connectez le câble de la console à l'ordinateur portable et le port série console du contrôleur à l'aide du câble de console fourni avec le système de stockage.</block>
@@ -10055,7 +10024,6 @@ SFP+ (cible/initiateur)</block>
   <block id="cd5ec5f3586869573f3f0b3112426052" category="sidebar">Tr-4290 : SAP HANA sur les systèmes NetApp FAS avec NFS</block>
   <block id="1e4893fc6c634f02ace3ba7beb78d669" category="inline-link-macro">état du quorum</block>
   <block id="8df1727c16aa446d0622abe8cab177ae" category="list-text">Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement <block ref="090678c8ba0a25df800d3d4eeaf19522" prefix="(" category="inline-code"></block>) pour le serveur lame SCSI du contrôleur défectueux. <block ref="090678c8ba0a25df800d3d4eeaf19522" prefix=" " category="inline-code"></block>La commande (from priv mode Advanced) affiche le nom du nœud, son état de disponibilité et <block ref="8650efa63daff32c831511388978454c" category="inline-link-macro-rx"></block>son état de fonctionnement.</block>
-  <block id="35f2b79f2ef05c6cbaae401c14dbe36d" category="list-text">Sur le contrôleur sain, définissez le contrôleur défectueux sur le niveau de privilège avancé :<block ref="0a654c13d63710f829bc02c4cbec79ee" prefix=" " category="inline-code"></block>.</block>
   <block id="8ad44b8e0ede0abb18fd1d9732ea1fec" category="list-text">Sur le contrôleur partenaire sain, exécutez la commande restore backup :<block ref="44d388b27236c791c5fe1d30cc29bc43" prefix=" " category="inline-code"></block>.</block>
   <block id="3fef721e9c365db9acdcf0c6462afc1d" category="list-text">Sur le contrôleur partenaire sain, remettez le contrôleur défectueux au niveau admin:<block ref="0a654c13d63710f829bc02c4cbec79ee" prefix=" " category="inline-code"></block>.</block>
   <block id="eb907bd5c32aa1799bf0e27e04819907" category="list-text">Si le système n'utilise pas de chiffrement, sélectionnez _option 1 démarrage normal._, sinon passez à <block ref="9946ce0c7c3feb5cc0b8738324cc4807" category="inline-link-macro-rx"></block>.</block>
@@ -10331,4 +10299,18 @@ SFP+ (cible/initiateur)</block>
   <block id="3d7237c5aa2d20431d9cae1d4abbadb9" category="doc">Restaurer le chiffrement - FAS9000</block>
   <block id="13e7cf07309f0d95eee5aa49b6842dc0" category="doc">Vérifier la prise en charge et l'état des clés de cryptage - FAS9500</block>
   <block id="e4d9374bc79ce9095fb021e03551599f" category="doc">Restaurer le chiffrement - FAS9500</block>
+  <block id="bd5c047c4a41e95a8a9424888875e56a" category="list-text">Reliez le module d'E/S au périphérique désigné.</block>
+  <block id="2d8241a8fe54414b6494b29d26d8b251" category="list-text">Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la<block ref="6f0c6616b99fea33a3020e0e0dcbe3c6" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="9d462bd05672844aeab0d3d5d323d66a" category="list-text">Réinstallez le contrôleur et reconnectez l'alimentation au module de contrôleur :</block>
+  <block id="4d872659b015ad414d5e68440a7ddfd6" category="paragraph">Le contrôleur commence à démarrer dès qu'il est installé et que l'alimentation est rétablie.</block>
+  <block id="6f3fa8086df2fa20b3e903512f693396" category="list-text">Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :</block>
+  <block id="c2e17c0358bcab54416e83b4418be536" category="paragraph"><block ref="30edaf7c9fa43c78aeaf4b8fabb7af1a" prefix="" category="inline-code"></block>.</block>
+  <block id="32c032e6d73023a7bc6955f5bc422d4d" category="list-text">Si le retour automatique a été désactivé, réactivez-le :</block>
+  <block id="929b41baf89e2c5975631c98cabedd59" category="paragraph"><block ref="6f0c6616b99fea33a3020e0e0dcbe3c6" prefix="" category="inline-code"></block>.</block>
+  <block id="af4b4d5cc6a7f6d9937999949dd33233" category="list-text">Si AutoSupport est activé, restaurez la création automatique de dossiers :</block>
+  <block id="0306ff5f8ff1d760b409c6f7f1b3b8bd" category="paragraph"><block ref="9ac424c0d7b432975df36a19daf50c9c" prefix="" category="inline-code"></block>.</block>
+  <block id="e48348202fcdb5533fd8d224264fdc58" category="paragraph">Directive non résolue dans &lt;stdin&gt; - include:../_include/bootmedia_Recovery_image.adoc[]</block>
+  <block id="1ae221b034a7bacf99b88892279c2462" category="paragraph">Le voyant bicolore indique l'alimentation/l'activité lorsqu'il est vert et un défaut s'il est rouge.</block>
+  <block id="7ea17d80896a391ffe01665c36e03909" category="cell">Attention (rouge)</block>
+  <block id="ede3a6bd0f0cd8205608f251691a19e1" category="doc">Modèle de fiche de câblage contrôleur à pile pour la connectivité à quatre chemins d'accès - tiroirs avec modules IOM12/IOM12B</block>
 </blocks>

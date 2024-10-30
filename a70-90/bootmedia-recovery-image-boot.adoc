@@ -14,7 +14,7 @@ summary: 'Vous devez démarrer l"image ONTAP à partir du lecteur USB, restaurer
 Vous devez démarrer l'image ONTAP à partir du lecteur USB, restaurer le système de fichiers et vérifier les variables environnementales.
 
 .Étapes
-. À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`
+. À partir de l'invite du CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : _boot_Recovery_
 +
 L'image est téléchargée à partir de la clé USB.
 
@@ -31,8 +31,8 @@ ONTAP 9.16.0 ou version antérieure
  a| 
 .. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez `Do you want to restore the backup configuration now?`
 .. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à écraser `/etc/ssh/ssh_host_ecdsa_key`.
-.. Sur le contrôleur sain, définissez le contrôleur défectueux sur le niveau de privilège avancé : `set -privilege admin`.
-.. Sur le contrôleur partenaire sain, exécutez la commande restore backup : `system node restore-backup -node local -target-address impaired_node_IP_address`.
+.. Sur le contrôleur sain, définissez le contrôleur défectueux sur le niveau de privilège avancé : _set -Privilege Advanced_.
+.. Sur le contrôleur partenaire sain, exécutez la commande restore backup : `system node restore-backup -node local -target-address impaired_node_IP_address` .
 +
 *REMARQUE :* si vous voyez un message autre qu'une restauration réussie, contactez https://support.netapp.com["Support NetApp"].
 

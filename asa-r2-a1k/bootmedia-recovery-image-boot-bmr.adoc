@@ -207,4 +207,16 @@ LOADER-B>
 
 
 . Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
+
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`.
+
+. Si AutoSupport est activé, restaurez la création automatique de dossiers :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`.
+
 

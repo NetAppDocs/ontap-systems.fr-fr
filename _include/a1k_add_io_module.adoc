@@ -154,13 +154,7 @@ image:../media/icon_round_1.png["Légende numéro 1"]
 .. Faites glisser doucement le module dans le logement jusqu'à l'intérieur du boîtier, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
 
 
-. Branchez le câble du module d'E/S.
-+
-Si le module d'E/S est une carte réseau, reliez-le aux commutateurs de données.
-
-+
-Si le module d'E/S est un module de stockage, connectez-le au tiroir NS224.
-
+. Reliez le module d'E/S au périphérique désigné.
 +
 
 NOTE: Assurez-vous que des espaces vides sont installés dans les emplacements d'E/S inutilisés afin d'éviter tout problème thermique.
@@ -173,7 +167,7 @@ NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et
 
 . Remettez le contrôleur en place à partir du contrôleur partenaire : _Storage failover giveback -ofnode target_node_name_
 . Répétez ces étapes pour le contrôleur B.
-. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la `storage failover modify -node local -auto-giveback true` commande.
 . Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la `system node autosupport invoke -node * -type all -message MAINT=END` commande.
 . Si vous avez installé un module d'E/S de stockage, installez et câblez vos tiroirs NS224, comme décrit link:../ns224/hot-add-shelf-overview.html["Workflow d'ajout à chaud"]à la section .
 
@@ -355,7 +349,7 @@ Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le mod
 .. Faites glisser doucement le module dans le logement jusqu'à l'intérieur du boîtier, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
 
 
-. Branchez le câble du module d'E/S.
+. Reliez le module d'E/S au périphérique désigné.
 . Répéter les étapes de dépose et de pose pour remplacer les modules supplémentaires du contrôleur.
 . Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
 . Redémarrez le contrôleur à partir de l'invite du CHARGEUR :_bye_
