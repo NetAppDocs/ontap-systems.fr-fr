@@ -1,0 +1,50 @@
+= 
+:allow-uri-read: 
+
+
+Réinstallez le module de contrôleur et redémarrez-le.
+
+. Assurez-vous que le conduit d'air est complètement fermé en le faisant tourner jusqu'en butée.
++
+Il doit être aligné sur la tôle du module de contrôleur.
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Réinstallez le ARM de gestion des câbles, s'il a été retiré, mais ne reconnectez aucun câble au contrôleur de remplacement.
+. Branchez le câble de la console dans le port console du module de contrôleur de remplacement et reconnectez-le à l'ordinateur portable de manière à recevoir les messages de la console lorsqu'il redémarre. Le contrôleur de remplacement est alimenté par le contrôleur en bon état et commence à redémarrer dès qu'il est complètement installé dans le châssis.
+. Terminez la réinstallation du module de contrôleur :
++
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
+.. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
+
+
++
+
+NOTE: Le contrôleur démarre à l'invite DU Loader dès qu'il est complètement installé.
+
+. Dans l'invite Loader, entrez `show date` pour afficher la date et l'heure sur le contrôleur de remplacement. La date et l'heure sont en GMT.
++
+
+NOTE: L'heure affichée est l'heure locale, pas toujours GMT, et est affichée en mode 24 heures.
+
+. Définissez l'heure actuelle en GMT à l'aide de la `set time hh:mm:ss` commande. Vous pouvez obtenir le GMT actuel à partir du nœud partenaire la commande `date -u`.
+. Recâblage du système de stockage, selon les besoins.
++
+Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Branchez les cordons d'alimentation aux blocs d'alimentation.
++
+
+NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
+
+

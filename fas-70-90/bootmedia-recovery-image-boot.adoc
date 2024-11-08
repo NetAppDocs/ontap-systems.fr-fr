@@ -14,41 +14,54 @@ summary: 'Vous devez démarrer l"image ONTAP à partir du lecteur USB, restaurer
 Vous devez démarrer l'image ONTAP à partir du lecteur USB, restaurer le système de fichiers et vérifier les variables environnementales.
 
 .Étapes
-. À partir de l'invite du CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : _boot_Recovery_
+. À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`
 +
 L'image est téléchargée à partir de la clé USB.
 
 . Lorsque vous y êtes invité, entrez le nom de l'image ou acceptez l'image par défaut affichée entre crochets sur votre écran.
 . Restaurez le système de fichiers var :
 +
-[cols="1,2"]
-|===
-| Si votre système est en cours d'exécution... | Alors... 
-
-
- a| 
-ONTAP 9.16.0 ou version antérieure
- a| 
-.. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez `Do you want to restore the backup configuration now?`
-.. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à écraser `/etc/ssh/ssh_host_ecdsa_key`.
-.. Sur le contrôleur sain, définissez le contrôleur défectueux sur le niveau de privilège avancé : _set -Privilege Advanced_.
+[role="tabbed-block"]
+====
+.Option 1 : ONTAP 9.16.0 ou version antérieure
+--
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous voyez `Do you want to restore the backup configuration now?`
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à remplacer _/etc/ssh/ssh_host_ecdsa_key_.
+.. Sur le contrôleur sain, définissez le contrôleur défectueux sur le niveau de privilège avancé : `set -privilege advanced`.
 .. Sur le contrôleur partenaire sain, exécutez la commande restore backup : `system node restore-backup -node local -target-address impaired_node_IP_address` .
 +
 *REMARQUE :* si vous voyez un message autre qu'une restauration réussie, contactez https://support.netapp.com["Support NetApp"].
 
 .. Sur le contrôleur partenaire sain, remettez le contrôleur défectueux au niveau admin: `set -privilege admin`.
-.. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez `Was the restore backup procedure successful?`.
-.. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez `...would you like to use this restored copy now?`.
-.. Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à redémarrer le contrôleur défectueux et appuyez sur _ctrl-c_ pour accéder au menu de démarrage.
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous voyez `Was the restore backup procedure successful?`.
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous voyez `...would you like to use this restored copy now?`.
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à redémarrer le contrôleur défectueux et appuyez sur `ctrl-c` pour accéder au menu de démarrage.
 .. Si le système n'utilise pas de chiffrement, sélectionnez _option 1 démarrage normal._, sinon passez à link:bootmedia-encryption-restore.html["Restaurer les gestionnaires de clés"].
-.. Branchez le câble de la console au contrôleur partenaire.
-.. Remettez le contrôleur en place en utilisant la commande _Storage failover giveback -fromnode local_.
-.. Restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la commande _Storage failover modify -node local -auto-giveback true_.
-.. Si AutoSupport est activé, restaurez/annulez la suppression de la création automatique de cas en utilisant le noeud système AutoSupport Invoke -node * -type all -message maint=END_ command.
+
+
+--
+.Option 2 : ONTAP 9.16.1 ou version ultérieure
+--
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
++
+Une fois la procédure de restauration réussie, ce message s'affiche sur la console - `syncflash_partner: Restore from partner complete`.
+
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous y êtes invité pour confirmer si la sauvegarde de restauration a réussi.
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à utiliser la configuration restaurée.
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à redémarrer le nœud.
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à redémarrer le contrôleur défectueux et appuyez sur `ctrl-c` pour accéder au menu de démarrage.
+.. Si le système n'utilise pas de chiffrement, sélectionnez _option 1 démarrage normal._, sinon passez à link:bootmedia-encryption-restore.html["Restaurer les gestionnaires de clés"].
+
+
+--
+====
+
+
+. Branchez le câble de la console au contrôleur partenaire.
+. Reaccordez le contrôleur à l'aide du `storage failover giveback -fromnode local` commande.
+. Restaurez le retour automatique si vous le désactivez à l'aide de `storage failover modify -node local -auto-giveback true` commande.
+. Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la `system node autosupport invoke -node * -type all -message MAINT=END` commande.
 +
 *REMARQUE :* si le processus échoue, contactez https://support.netapp.com["Support NetApp"].
 
-
-
-|===
 

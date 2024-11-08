@@ -134,7 +134,9 @@ image:../media/drw_a1k_io_remove_replace_ieops-1382.svg["Retirez le module d'E/S
 
  a| 
 image:../media/icon_round_1.png["Légende numéro 1"]
-| Loquet de came d'E/S. 
+ a| 
+Loquet de came d'E/S.
+
 |===
 +
 Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
@@ -178,8 +180,7 @@ NOTE: Si le nouveau module d'E/S n'est pas le même modèle que le module défai
 
 . À partir de l'invite du CHARGEUR, redémarrez le nœud : _bye_
 +
-
-NOTE: Ceci réinitialise les cartes d'E/S et les autres composants et redémarre le nœud.
+Ceci réinitialise les cartes d'E/S et les autres composants et redémarre le nœud.
 
 . Retournez le nœud en mode de fonctionnement normal : _Storage failover giveback -ofnode albridred_node_name_
 . Si le rétablissement automatique a été désactivé, réactivez-le : _Storage failover modify -node local -auto-giveback true_

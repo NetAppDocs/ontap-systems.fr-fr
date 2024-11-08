@@ -46,15 +46,8 @@ LED d'avertissement NVRAM
 
 |===
 +
-
-NOTE: Si la LED d'état de la mémoire NVRAM clignote, cela peut signifier que le module de contrôleur n'a pas été repris ou arrêté correctement (données non validées). Si le module de contrôleur défectueux n'a pas été repris avec succès par le module de contrôleur partenaire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
-
-+
-Le comportement général de la LED d'état NVRAM sur le module de contrôleur défectueux est le suivant :
-
-+
-** La LED d'état de la NVRAM clignote lorsque le module de contrôleur est mis hors tension et que le système de stockage est à l'état « en attente de rétablissement », ou que le module de contrôleur n'est pas repris ou arrêté correctement (données non validées).
-** La LED d'état de la NVRAM clignote lorsque le module de contrôleur est retiré du châssis et peut signifier que le module de contrôleur n'est pas pris en charge ou arrêté correctement (données non validées). Vérifiez que le module de contrôleur a été correctement pris en charge par le module de contrôleur partenaire ou que le module de contrôleur défectueux affiche `waiting for giveback`. Le voyant clignotant peut alors être ignoré (et le module de contrôleur peut être retiré du châssis).
+** Si le voyant NV est éteint, passez à l'étape suivante.
+** Si le voyant NV clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
 
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -82,7 +75,9 @@ image::../media/drw_a70-90_pcm_remove_replace_ieops-1365.svg[Supprimer le graphi
 
  a| 
 image:../media/icon_round_1.png["Légende numéro 1"]
-| Un loquet de verrouillage 
+ a| 
+Loquet de verrouillage
+
 
 
  a| 
@@ -361,14 +356,18 @@ image::../media/drw_a70-90_nvram12_remove_replace_ieops-1370.svg[Retirez le modu
 |===
 
 
-| image:../media/icon_round_1.png["Légende numéro 1"]  a| 
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
 Bouton de verrouillage de came
 
 
 
  a| 
 image:../media/icon_round_2.png["Légende numéro 2"]
-| Languette de verrouillage DIMM 
+ a| 
+Languette de verrouillage DIMM
+
 |===
 . Retirez le module NVRAM du module de contrôleur défectueux :
 +
@@ -403,14 +402,8 @@ Il doit être aligné sur la tôle du module de contrôleur.
 
 NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 
-. Recâblage du système de stockage, selon les besoins.
-+
-Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
-
-+
-
-NOTE: Assurez-vous que le câble de la console est connecté au module de contrôleur réparé afin de recevoir des messages de la console lorsqu'il redémarre. Le contrôleur réparé est alimenté par le contrôleur sain et commence à redémarrer dès qu'il est complètement installé dans le châssis.
-
+. Réinstallez le ARM de gestion des câbles, s'il a été retiré, mais ne reconnectez aucun câble au contrôleur de remplacement.
+. Branchez le câble de la console dans le port console du module de contrôleur de remplacement et reconnectez-le à l'ordinateur portable de manière à recevoir les messages de la console lorsqu'il redémarre. Le contrôleur de remplacement est alimenté par le contrôleur en bon état et commence à redémarrer dès qu'il est complètement installé dans le châssis.
 . Terminez la réinstallation du module de contrôleur :
 +
 .. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
@@ -426,15 +419,21 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 
 +
 
-NOTE: Si le contrôleur démarre à l'invite Loader, redémarrez-le avec la `boot_ontap` commande.
+NOTE: Le contrôleur démarre à l'invite DU Loader dès qu'il est complètement installé.
+
+. Dans l'invite Loader, entrez `show date` pour afficher la date et l'heure sur le contrôleur de remplacement. La date et l'heure sont en GMT.
++
+
+NOTE: L'heure affichée est l'heure locale, pas toujours GMT, et est affichée en mode 24 heures.
+
+. Définissez l'heure actuelle en GMT à l'aide de la `set time hh:mm:ss` commande. Vous pouvez obtenir le GMT actuel à partir du nœud partenaire la commande `date -u`.
+. Recâblage du système de stockage, selon les besoins.
++
+Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
 
 . Branchez les cordons d'alimentation aux blocs d'alimentation.
 +
 
 NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
 
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
-. Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`.
-. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
-. Si vous ne l'avez pas déjà fait, réinstallez le périphérique de gestion des câbles et recentrez le contrôleur.
 

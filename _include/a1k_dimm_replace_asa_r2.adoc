@@ -95,15 +95,8 @@ LED d'avertissement NVRAM
 
 |===
 +
-
-NOTE: Si la LED d'état de la mémoire NVRAM clignote, cela peut signifier que le module de contrôleur n'a pas été repris ou arrêté correctement (données non validées). Si le module de contrôleur défectueux n'a pas été repris avec succès par le module de contrôleur partenaire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
-
-+
-Le comportement général de la LED d'état NVRAM sur le module de contrôleur défectueux est le suivant :
-
-+
-** La LED d'état de la NVRAM clignote lorsque le module de contrôleur est mis hors tension et que le module de contrôleur est dans l'état « en attente de rétablissement » ou que le module de contrôleur n'est pas repris ou arrêté correctement (données non validées).
-** Le voyant d'état NVRAM clignote lorsque le module de contrôleur est retiré du boîtier et peut signifier que le module de contrôleur n'est pas pris en charge ou arrêté correctement (données non validées). Vérifiez que le module de contrôleur a été correctement pris en charge par le module de contrôleur partenaire ou que le module de contrôleur défectueux affiche `waiting for giveback`. Le voyant clignotant peut alors être ignoré (et le contrôleur peut être retiré du boîtier).
+** Si le voyant NV est éteint, passez à l'étape suivante.
+** Si le voyant NV clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
 
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -184,7 +177,10 @@ IMPORTANT: Inspectez visuellement le module DIMM pour vérifier qu'il est bien a
 
 Réinstallez le module de contrôleur et démarrez-le.
 
-. Si ce n'est déjà fait, fermer le conduit d'air.
+. Assurez-vous que le conduit d'air est complètement fermé en le faisant tourner jusqu'en butée.
++
+Il doit être aligné sur la tôle du module de contrôleur.
+
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du boîtier, puis faites glisser le module de contrôleur dans le châssis, les leviers tournés vers l'avant du système.
 . Une fois que le module de contrôleur vous empêche de le faire glisser plus loin, faites pivoter les poignées de came vers l'intérieur jusqu'à ce qu'elles se reverrouillent sous les ventilateurs
 +

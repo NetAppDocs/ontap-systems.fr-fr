@@ -50,7 +50,7 @@ Cette procédure concerne les systèmes ayant des configurations à deux nœuds.
 . Quitter le cluster shell : `exit`
 . Connectez-vous au processeur de service/contrôleur BMC via SSH en utilisant l'adresse IP de l'un des nœuds répertoriés dans le résultat de l'étape précédente.
 +
-Si votre utilise une console ou un ordinateur portable, connectez-vous au contrôleur à l'aide des mêmes informations d'identification d'administrateur de cluster.
+Si vous utilisez une console ou un ordinateur portable, connectez-vous au contrôleur à l'aide des mêmes informations d'identification d'administrateur de cluster.
 
 +
 
@@ -67,9 +67,4 @@ NOTE: Pour les clusters qui utilisent SnapMirror en mode synchrone : `system nod
 . Entrez *y* pour chaque contrôleur du cluster lorsque vous voyez `_Warning: Are you sure you want to halt node "cluster <node-name> number"?
 {y|n}:_`
 . Attendez que chaque contrôleur s'arrête et affichez l'invite DU CHARGEUR.
-
-
-.Et la suite ?
-* Si le système est un NetApp StorageGRID ou ONTAP S3 utilisé en tant que Tier cloud FabricPool, reportez-vous à la section https://kb.netapp.com/onprem/ontap/hardware/What_is_the_procedure_for_graceful_shutdown_and_power_up_of_a_storage_system_during_scheduled_power_outage#["Arrêtez et mettez votre système de stockage sous tension en toute simplicité"] après avoir effectué cette procédure d'arrêt.
-* Si vous utilisez des disques SSD, reportez-vous à la section https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU490["SU490 : meilleures pratiques relatives aux SSD (impact : critique) : évitez les risques de panne disque et de perte de données si vous les mettez hors tension pendant plus de deux mois"] après avoir réalisé cette procédure d'arrêt.
 

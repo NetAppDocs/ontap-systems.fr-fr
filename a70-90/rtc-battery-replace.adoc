@@ -159,15 +159,8 @@ LED d'avertissement NVRAM
 
 |===
 +
-
-NOTE: Si la LED d'état de la mémoire NVRAM clignote, cela peut signifier que le module de contrôleur n'a pas été repris ou arrêté correctement (données non validées). Si le module de contrôleur défectueux n'a pas été repris avec succès par le module de contrôleur partenaire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
-
-+
-Le comportement général de la LED d'état NVRAM sur le module de contrôleur défectueux est le suivant :
-
-+
-** La LED d'état de la NVRAM clignote lorsque le module de contrôleur est mis hors tension et que le système de stockage est à l'état « en attente de rétablissement », ou que le module de contrôleur n'est pas repris ou arrêté correctement (données non validées).
-** La LED d'état de la NVRAM clignote lorsque le module de contrôleur est retiré du châssis et peut signifier que le module de contrôleur n'est pas pris en charge ou arrêté correctement (données non validées). Vérifiez que le module de contrôleur a été correctement pris en charge par le module de contrôleur partenaire ou que le module de contrôleur défectueux affiche `waiting for giveback`. Le voyant clignotant peut alors être ignoré (et le module de contrôleur peut être retiré du châssis).
+** Si le voyant NV est éteint, passez à l'étape suivante.
+** Si le voyant NV clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
 
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -195,7 +188,9 @@ image::../media/drw_a70-90_pcm_remove_replace_ieops-1365.svg[Supprimer le graphi
 
  a| 
 image:../media/icon_round_1.png["Légende numéro 1"]
-| Un loquet de verrouillage 
+ a| 
+Loquet de verrouillage
+
 
 
  a| 
@@ -231,7 +226,11 @@ image::../media/drw_a70-90_rtc_bat_remove_replace_ieops-1371.svg[Remplacez la ba
 |===
 
 
-| image:../media/icon_round_1.png["Légende numéro 1"] | Batterie RTC et boîtier 
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Batterie RTC et boîtier
+
 |===
 . Poussez doucement la batterie hors du support, faites-la pivoter pour l'éloigner du support, puis retirez-la du support.
 +
@@ -300,7 +299,7 @@ NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation
 
 NOTE: Après le remplacement de la batterie RTC, l'insertion du contrôleur et la mise sous tension de la première réinitialisation du BIOS, les messages d'erreur suivants s'affichent :
 `RTC date/time error. Reset date/time to default`
-`RTC power failure error` ces messages sont transmis et vous pouvez poursuivre cette procédure.
+`RTC power failure error` ces messages sont attendus et vous pouvez poursuivre cette procédure.
 
 . Vérifier la date et l'heure sur le contrôleur sain avec la `cluster date show` commande.
 

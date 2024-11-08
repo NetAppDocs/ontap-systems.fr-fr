@@ -1,23 +1,19 @@
 ---
-permalink: asa900/bootmedia_impaired_controller_shutdown.html 
+permalink: fas9500/bootmedia-shutdown.html 
 sidebar: sidebar 
 keywords:  
 summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage. 
 ---
-= Arrêter le contrôleur défectueux - ASA A900
+= Arrêtez le contrôleur défaillant - FAS9500
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
+Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
 
-[role="tabbed-block"]
-====
-.La plupart des configurations
---
-Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
+Une fois les tâches NVE ou NSE effectuées, vous devez arrêter le nœud douteux.
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
@@ -69,57 +65,3 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 |===
 
-
---
-.Le contrôleur réside dans un MetroCluster
---
-Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
-
-
-NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
-
-Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
-
-* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
-* Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).
-
-
-.Étapes
-. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
-+
-Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
-
-. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
-. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
-+
-[cols="1,2"]
-|===
-| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
-
-
- a| 
-Invite DU CHARGEUR
- a| 
-Passez à l'étape suivante.
-
-
-
- a| 
-Attente du retour...
- a| 
-Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
-
-
-
- a| 
-Invite système ou invite de mot de passe (entrer le mot de passe système)
- a| 
-Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
-
-Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
-
-|===
-
-
---
-====

@@ -47,9 +47,9 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 * Les configurations des paires HAUTE DISPONIBILITÉ doivent être câblées en tant que configurations haute disponibilité à chemins d'accès multiples ou à quatre chemins, à l'exception des cas suivants :
 +
 ** Les plateformes avec stockage interne ne prennent pas en charge la connectivité haute disponibilité à quatre chemins.
-** Une paire haute disponibilité FAS2800 peut être câblée sous forme de haute disponibilité à trois chemins.
+** Une paire haute disponibilité FAS2820 peut être câblée sous forme de haute disponibilité à trois chemins.
 +
-Vous trouverez des informations sur la connectivité FAS2800 dans le <<Connectivité haute disponibilité à trois chemins d'accès>> section.
+Vous trouverez des informations sur la connectivité FAS2820 dans la <<Connectivité haute disponibilité à trois chemins d'accès>> section.
 
 ** Les plateformes avec stockage interne peuvent être câblées en tant que configurations haute disponibilité à chemin unique (du port 0b/0b1 aux tiroirs externes) pour prendre en charge la connectivité à un périphérique de sauvegarde sur bande SAS externe (à partir du port 0a).
 
@@ -58,7 +58,7 @@ Vous trouverez des informations sur la connectivité FAS2800 dans le <<Connectiv
 
 [NOTE]
 ====
-Pour les paires haute disponibilité FAS2800, bien que le câblage à des tiroirs externes soit à chemin unique, la haute disponibilité est due à la connexion interne de chaque contrôleur du port 0b à son expandeur local (IOM12G) et du port 0C au expandeur de son partenaire, la configuration des paires haute disponibilité est multivoie.
+Pour les paires haute disponibilité FAS2820, bien que le câblage à des tiroirs externes soit à chemin unique, la haute disponibilité est due à la connexion interne de chaque contrôleur du port 0b à son expandeur local (IOM12G) et du port 0C au expandeur de son partenaire, la configuration des paires haute disponibilité est multivoie.
 
 ====
 * Les configurations à un contrôleur unique doivent être câblées en tant que configurations à chemins d'accès multiples ou à quatre chemins, à l'exception des cas suivants :
@@ -296,7 +296,7 @@ image::../media/drw_fas2600_mpha_domain_example_IEOPS-1172.svg[Connectivité de 
 
 === Connectivité haute disponibilité à trois chemins d'accès
 
-La connectivité haute disponibilité à trois chemins est disponible sur les paires haute disponibilité FAS2800. La connectivité haute disponibilité à trois chemins d'accès existe entre chaque contrôleur et les tiroirs internes (IOM12G) et externes :
+La connectivité haute disponibilité à trois chemins est disponible sur les paires haute disponibilité FAS2820. La connectivité haute disponibilité à trois chemins d'accès existe entre chaque contrôleur et les tiroirs internes (IOM12G) et externes :
 
 * La connexion interne de chaque contrôleur du port 0b à son IOM12G local et du port 0C à l'IOM12G de son partenaire assure une connectivité haute disponibilité multivoie par paire haute disponibilité.
 * Le câblage des ports de stockage externes de chaque contrôleur, 0a et 0b1, assure une connectivité haute disponibilité à trois chemins par paire haute disponibilité.
@@ -309,16 +309,16 @@ La figure suivante présente les connexions internes et le câblage externe du c
 
 image::../media/drw_fas2800_concept_tpha_IEOPS-950.svg[Connectivité haute disponibilité à trois chemins]
 
-Ports SAS externes FAS2800 :
+Ports SAS externes FAS2820 :
 
 * Le port 0a provient de l'adaptateur HBA interne (comme les autres plateformes avec un tiroir interne).
 * Le port 0b1 provient du shelf interne (comme les ports 0b sur d'autres plateformes avec un shelf interne).
 * Le port 0b2 n'est pas utilisé. Il est désactivé. Si un câble y est connecté, un message d'erreur est généré.
 
 
-image::../media/drw_sas3_ports_on_fas2800_IEOPS-946.svg[Ports sas externes FAS2800]
+image::../media/drw_sas3_ports_on_fas2800_IEOPS-946.svg[Ports sas externes FAS2820]
 
-Des exemples de câblage de paires haute disponibilité FAS2800 sont disponibles dans le link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes avec stockage interne"] section.
+Des exemples de câblage des paires haute disponibilité FAS2820 sont disponibles dans la link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage contrôleur à pile et exemples de câblage pour les plateformes avec stockage interne"] section.
 
 
 
