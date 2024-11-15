@@ -122,23 +122,13 @@ Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le mod
 
 Après avoir remplacé un module d'E/S, vous devez redémarrer le module de contrôleur.
 
-
-NOTE: Si le nouveau module d'E/S n'est pas le même modèle que le module défaillant, vous devez d'abord redémarrer le contrôleur BMC.
-
 .Étapes
-. Redémarrez le contrôleur BMC si le module de remplacement n'est pas du même modèle que l'ancien module :
+. Depuis l'invite DU CHARGEUR, redémarrez le nœud : `bye`
 +
-.. À partir de l'invite du CHARGEUR, passez en mode de privilège avancé : _set Privilege Advanced_
-.. Redémarrez le contrôleur BMC : _sp reboot_
+Ceci réinitialise les cartes d'E/S et les autres composants et redémarre le nœud.
 
-
-. À partir de l'invite du CHARGEUR, redémarrez le nœud : _bye_
-+
-
-NOTE: Ceci réinitialise les cartes d'E/S et les autres composants et redémarre le nœud.
-
-. Retournez le nœud en mode de fonctionnement normal : _Storage failover giveback -ofnode albridred_node_name_
-. Si le rétablissement automatique a été désactivé, réactivez-le : _Storage failover modify -node local -auto-giveback true_
+. Rétablir le fonctionnement normal du nœud : `storage failover giveback -ofnode impaired_node_name`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
 
 
 

@@ -178,17 +178,8 @@ Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le mod
 
 Après avoir remplacé un module d'E/S, vous devez redémarrer le module de contrôleur.
 
-
-NOTE: Si le nouveau module d'E/S n'est pas le même modèle que le module défaillant, vous devez d'abord redémarrer le contrôleur BMC.
-
 .Étapes
-. Redémarrez le contrôleur BMC si le module de remplacement n'est pas du même modèle que l'ancien module :
-+
-.. À partir de l'invite du CHARGEUR, passez en mode de privilège avancé : _set Privilege Advanced_
-.. Redémarrez le contrôleur BMC : _sp reboot_
-
-
-. À partir de l'invite du CHARGEUR, redémarrez le nœud : _bye_
+. Depuis l'invite DU CHARGEUR, redémarrez le nœud : `bye`
 +
 
 NOTE: Ceci réinitialise les cartes d'E/S et les autres composants et redémarre le nœud.

@@ -2283,7 +2283,6 @@
   <block id="3a0f07d1b89f0d857d68c3c47a03e14d" category="list-text">Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans<block ref="bf137fbaca3418d969a7cbbc6acb278c" category="inline-link-rx"></block> Et utiliser la meilleure solution disponible pour votre module d'E/S.</block>
   <block id="e01b6c84aaebe2321eef7b7a933b171f" category="list-text">Pour ajouter un module d'E/S sans interruption, vous devez reprendre le contrôleur cible, retirer l'obturateur de logement dans le slot cible ou retirer un module d'E/S existant, ajouter le nouveau ou le module d'E/S de remplacement, puis renvoyer le contrôleur cible.</block>
   <block id="91b094c45d5351d209f688ccfd548bf7" category="list-text">S'assurer que tous les autres composants fonctionnent correctement.</block>
-  <block id="329fe7c89a525def535e03c6dbc6f98f" category="section-title">Option 1 : ajoutez le module d'E/S à un système doté de logements ouverts</block>
   <block id="ff028db00edc198dd85f97eaa8795079" category="list-text">Arrêter le contrôleur A :</block>
   <block id="e775b99f0018ec21dcdd858b620ec674" category="list-text">Désactiver le rétablissement automatique :<block ref="f454cdc7efb7d9bfad8109c4264a3a1b" prefix=" " category="inline-code"></block></block>
   <block id="074dd277824bef9c902209214f2118d7" category="list-text">Reprendre le nœud cible :<block ref="f6af6f0f6b5049f82a62be536b4ed9c4" prefix=" " category="inline-code"></block></block>
@@ -2302,7 +2301,6 @@
   <block id="05648a23fc430a3dcc4fb4c1fbb040cd" category="list-text">Si vous utilisez des connecteurs 3 et/ou 7 pour la mise en réseau, utilisez le<block ref="476ed8a8b3d60ed59cf37fb920c49f89" prefix=" " category="inline-code"></block> commande permettant de convertir le logement pour une utilisation en réseau.</block>
   <block id="d6c7a664e3819be9a0869782e685c75b" category="list-text">Répétez ces étapes pour le contrôleur B.</block>
   <block id="6f8193ca6bfb281db32afbcc9e285f79" category="inline-link">Ajout à chaud d'un tiroir SAS</block>
-  <block id="3e0887648c519f4a3c16a1c61b2e8ec3" category="section-title">Option 2 : ajout d'un module d'E/S dans un système sans emplacements ouverts</block>
   <block id="cebb0168d5bfd94a91f0da51501ba6b8" category="list-text">Si vous êtes :</block>
   <block id="e818b574f8a890f6c21405d9164bb6ef" category="cell">Remplacement...</block>
   <block id="d6737fd4fc838900efec68220d9b62d5" category="paragraph">Module d'E/S NIC avec le même nombre de ports</block>
@@ -5660,10 +5658,7 @@
   <block id="6f189db9f1b1dfc1be838de48c805168" category="video-title">Animation : définissez les ID de tiroirs de disques NVMe</block>
   <block id="1f583998630e94806bf5b9e059227dd4" category="paragraph"><block ref="1f583998630e94806bf5b9e059227dd4" category="inline-link-rx"></block></block>
   <block id="9b0500b65158795cfc5abb2becae4e80" category="paragraph">Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la section<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour localiser le câble et identifier son utilisation.</block>
-  <block id="192e7ded6d54e3ac04596dc33b9c67cf" category="paragraph">Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système.</block>
   <block id="741ade379895992f2a574e8e60de1571" category="section-title">Étape 2 : ajout de modules d'E/S.</block>
-  <block id="31ac56c0f673cbef254563f6a8a32626" category="paragraph">Si votre système est entièrement rempli, vous pouvez changer un module d'E/S dans un slot d'E/S en retirant un module d'E/S existant et en le remplaçant par un autre module d'E/S.</block>
-  <block id="037baf09c7ddcc7c38f81e7dbe35fa87" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système en ajoutant un nouveau module d'E/S à un système doté de slots vides ou en remplaçant un module d'E/S par un nouveau dans un système entièrement rempli.</block>
   <block id="55f1569cdcfb82612fcf293f23db4f6f" category="list-text">Vérifier le<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block> Pour vérifier que le nouveau module d'E/S est compatible avec votre système et la version de ONTAP que vous utilisez.</block>
   <block id="6e4968851f4373ab9764e16cffb39389" category="list-text">Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block> Et utiliser la meilleure solution disponible pour votre module d'E/S.</block>
   <block id="757216293ea1da04339a2c9b8eaa2641" category="admonition">Le fichier tar.gz doit être placé sur une partition au format FAT32 d'au moins 4 Go. Bien que les partitions FAT32 puissent être de 2 To, les outils intégrés Windows (par exemple, diskpart) ne peuvent pas formater les partitions FAT32 supérieures à 32 Go.</block>
@@ -6509,11 +6504,6 @@ Installez la batterie de rechange :</block>
   <block id="fb7c806d17ac05daec934e824397154e" category="list-text">Répétez les étapes précédentes pour le second module de contrôleur du châssis de remplacement.</block>
   <block id="5a78b16de65a946feda8c56392de99d0" category="paragraph">Une fois le remplacement du matériel terminé et le démarrage du contrôleur de remplacement, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.</block>
   <block id="3fc70ee0f25a2808ad9e1ace34edd095" category="list-text">Si l'état système affiché pour le contrôleur ne correspond pas à la configuration de votre système, définissez l'état haute disponibilité du module de contrôleur de remplacement :<block ref="83ac5421ebdbb8b86762e96ecda44c4a" prefix=" " category="inline-code"></block></block>
-  <block id="c5ad83e174ba7727e76fc50c8366e589" category="list-text">Restaurez le système de fichiers var :</block>
-  <block id="e51ecd8f185715278ef737fd290e62f5" category="list-text">Appuyez sur<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à restaurer la copie de configuration.</block>
-  <block id="1a037944aedbce3040a5314200246858" category="list-text">À l'invite du cluster, vérifiez les interfaces logiques avec le<block ref="55cf88a325a6e0574aef732566cc984c" prefix=" " category="inline-code"></block> commande.</block>
-  <block id="8c4cb494b75288cf3ce1e7ce1dee3c9d" category="paragraph">Si l'une des interfaces est indiquée comme « FALSE », restaurez ces interfaces à son port d'origine à l'aide de l'<block ref="ffbe7d182280173cba10c83ec9992974" prefix=" " category="inline-code"></block> commande.</block>
-  <block id="fcb4d3b1f229bc036dc2280a7c1d29c4" category="list-text">Si vous n'utilisez pas le chiffrement du stockage, restaurez le rétablissement automatique et AutoSupport :</block>
   <block id="82374f90663d7205d26c38028c93cb8d" category="inline-link">Notes de version pour votre version de ONTAP 9</block>
   <block id="202c6b9676e6e0879f99a323aacdd76b" category="paragraph">Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la section<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block> pour localiser le câble et identifier son utilisation.</block>
   <block id="21d9a13ac1bf780b5a88db05a215c05d" category="paragraph">10 GbE, SFP28 (en fonction de la commande)</block>
@@ -7196,8 +7186,6 @@ SFP+ (cible/initiateur)</block>
   <block id="678386553f74beb2b1838a6f503572a1" category="sidebar">Alimentation A150 ASA</block>
   <block id="3b407a01f87e8a92694c7e38e00bfea0" category="sidebar">Batterie d'horloge en temps réel A150 de ASA</block>
   <block id="88caadba05eccaaf5df5206e6c67f90b" category="sidebar">Systèmes AFF C-Series</block>
-  <block id="0ebe6df8a3ac338e0512acc741823fdb" category="sidebar">Remplacement</block>
-  <block id="ec211f7c20af43e742bf2570c3cb84f9" category="sidebar">Autres</block>
   <block id="880e70d8b15ad919e463072506581a9a" category="sidebar">Systèmes ASA A400</block>
   <block id="9d524e3b80cdb8b322945f9b3acd0611" category="sidebar">Installation et configuration du système ASA A400</block>
   <block id="34dd7f09476a68e4a11cace464b55609" category="sidebar">ASA A400 maintenir</block>
@@ -8011,9 +7999,6 @@ SFP+ (cible/initiateur)</block>
   <block id="7b71c8c5341c95139930e1f1748956d7" category="list-text">Alignez le module avec les bords de l'ouverture du logement du boîtier.</block>
   <block id="0169e44348295d5766b174aa4c296a62" category="list-text">Répéter les étapes de dépose et de pose pour remplacer les modules supplémentaires du contrôleur.</block>
   <block id="7c99497119e4bb81fd50dbd906dfde72" category="list-text">Redémarrez le contrôleur à partir de l'invite du CHARGEUR :_bye_</block>
-  <block id="270bbec39f8392e251637a1b86bbf5c3" category="list-text">Vérifiez la version du contrôleur BMC sur le contrôleur : _system service-processor show_</block>
-  <block id="d6b96e8ac8bc341aa87626c9a7f76ffd" category="list-text">Mettez à jour le micrologiciel du contrôleur BMC si nécessaire : _system service-processor image update_</block>
-  <block id="3ff703e913550c7687a9cef2aa4f646d" category="list-text">Redémarrez le nœud : _bye_</block>
   <block id="db89594b0a0cbb483395a2641220f1fe" category="list-text">Activez le rétablissement automatique s'il a été désactivé : _Storage failover modify -node local -auto-giveback true_</block>
   <block id="4e0b6dc04aaa383038bc23130a17cb25" category="cell">Si le module d'E/S est...</block>
   <block id="09c2cf2531a14305542e6aff93e691c5" category="paragraph">Module NIC</block>
@@ -8148,8 +8133,6 @@ SFP+ (cible/initiateur)</block>
   <block id="2f4150c3867bbf0ce9e1aa56330f576b" category="list-text">Appuyer sur le bouton de came du module cible.</block>
   <block id="53843c5eb3759758de138cf301af27c3" category="paragraph">Le bouton de came s'éloigne du boîtier.</block>
   <block id="cb6d0d31a2a110b0d07c657262474a40" category="list-text">Installez le module d'E/S de remplacement dans le boîtier :</block>
-  <block id="1ac1a67458bf621b04e5e87511601b9c" category="list-text">À partir de l'invite du CHARGEUR, passez en mode de privilège avancé : _set Privilege Advanced_</block>
-  <block id="10c3a425fded9589c238301aa82be35e" category="list-text">Redémarrez le contrôleur BMC : _sp reboot_</block>
   <block id="8c2fb795497456b969ba9307ef6f84c8" category="list-text">À partir de l'invite du CHARGEUR, redémarrez le nœud : _bye_</block>
   <block id="7abd890d238c51ed2801454d1144b6c2" category="admonition">Ceci réinitialise les cartes d'E/S et les autres composants et redémarre le nœud.</block>
   <block id="f39bcef8471a9193d70395e440c5c30f" category="list-text">Retournez le nœud en mode de fonctionnement normal : _Storage failover giveback -ofnode albridred_node_name_</block>
@@ -10375,4 +10358,38 @@ SFP+ (cible/initiateur)</block>
   <block id="2f9958347081d2ce185d76c702380979" category="sidebar">Carte mezzanine FAS2820</block>
   <block id="6283d5729bdaa96d13760bf62bbe62f2" category="sidebar">Alimentation FAS2820</block>
   <block id="e8a44fb416b30e755ecaf489baacfd39" category="sidebar">Batterie d'horloge en temps réel FAS2820</block>
+  <block id="227398eddfb6e692fd89b8302d75c666" category="paragraph">Si le système de stockage dispose de logements vides, installez le nouveau module d'E/S dans l'un des logements disponibles. Si tous les emplacements sont occupés, retirez un module d'E/S existant pour libérer de l'espace, puis installez le nouveau.</block>
+  <block id="a76aaa38baa5ae3b2ab41cc1b875078f" category="open-title">Ajoutez un module d'E/S à un emplacement vide</block>
+  <block id="f2cc9125d85f992590d6b8f3fbd46de6" category="paragraph">Vous pouvez ajouter un nouveau module d'E/S dans un système de stockage avec des emplacements vides disponibles.</block>
+  <block id="c0f2e030aecd4084592ca2454ad9a524" category="open-title">Ajoutez un module d'E/S à un système entièrement rempli</block>
+  <block id="6408704f957fafc42e96a37aa68b10ce" category="paragraph">Vous pouvez ajouter un module d'E/S à un système entièrement rempli en retirant un module d'E/S existant et en installant un nouveau à sa place.</block>
+  <block id="d9c0fee19239cdba61031cde184c8d74" category="paragraph">Veillez à bien comprendre les scénarios suivants pour ajouter un nouveau module d'E/S à un système entièrement rempli :</block>
+  <block id="54861efdd06fc309e1c9a420feff98eb" category="cell">Scénario</block>
+  <block id="3d6623b8d5249788a0d797d4bbc5e5a1" category="cell">Action requise</block>
+  <block id="6be20647be40341586dcfb1dbbefcbcc" category="paragraph">NIC à NIC (même nombre de ports)</block>
+  <block id="09109aaca603d8ac1da46aa588c46f63" category="paragraph">NIC à NIC (nombre différent de ports)</block>
+  <block id="4e7b2ae169cb37276347e7c88d211db4" category="paragraph">Réaffectez de manière permanente les LIF sélectionnées à un autre port de attache. Voir<block ref="8a81e44d8701c7e0abd4b6ad328792f0" category="inline-link-rx"></block> pour plus d'informations.</block>
+  <block id="0c3f64052572f9d13d9b078656a055e4" category="paragraph">Carte réseau vers module d'E/S de stockage</block>
+  <block id="deaf42dafc1e4522c0ccf86ad58f237e" category="list-text">Remettez le contrôleur en place à partir du contrôleur partenaire :`stockage failover giveback -ofnode target_node_name`</block>
+  <block id="c1d0761e549ef1ce873a404f8d41a2d5" category="list-text">Redémarrez le contrôleur à partir de l'invite Loader :<block ref="bfa99df33b137bc8fb5f5407d7e58da8" prefix=" " category="inline-code"></block></block>
+  <block id="5d831aef00c06eb087aebfb790f041b7" category="section-title">Étape 2 : ajout d'un nouveau module d'E/S.</block>
+  <block id="68c06f8f4688078ddfe1ceedef798cae" category="list-text">Remettre le contrôleur du contrôleur partenaire :</block>
+  <block id="523f5a38bba8d64b2af1cdee174a06cc" category="paragraph"><block ref="49c908925c3b8a3554612823f81c8964" prefix="" category="inline-code"></block></block>
+  <block id="b98036ad0a9b610670da83fe762dadb5" category="list-text">Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la commande suivante :</block>
+  <block id="518d4ff09aabdcee7f75f2c44315aa32" category="list-text">Si AutoSupport est activé, restaurez la création automatique de dossiers à l'aide de la commande suivante :</block>
+  <block id="4bcd1563c4332086304e70dd3fb7e19a" category="list-text">Activer le rétablissement automatique si elle a été désactivée :</block>
+  <block id="1e80f086f2d3ddea0cd02baa25f9c2f1" category="list-text">Si vous avez retiré un module d'E/S de carte réseau et installé un nouveau module d'E/S de carte réseau, utilisez la commande réseau suivante pour chaque port :</block>
+  <block id="157602c08bdec493e8c79f5e41971ab6" category="paragraph"><block ref="9dedaa5871e5e9684cbae52f5e1b987d" prefix="" category="inline-code"></block></block>
+  <block id="ff7274e5c00dade3058bf32828127837" category="list-text">Si vous avez retiré un module d'E/S de carte réseau et installé un module d'E/S de stockage, installez et câblez vos tiroirs NS224, comme décrit <block ref="4dfda7c2f93914990922f65bd50f90b3" category="inline-link-macro-rx"></block>à la section .</block>
+  <block id="fe7cc4281bcf5c347bdaa6bdb704b29b" category="list-text">À partir de l'invite Loader, redémarrez le nœud : « bye »</block>
+  <block id="440f1f310315bec96a5e23d47024d880" category="list-text">Si vous remplacez un autre lecteur, répétez les étapes 2 à 6.</block>
+  <block id="91dfaaed30791a3d6d5402ba403f8f73" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage AFF A1K lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
+  <block id="8b6b47c9ffbf56147eb39245a0848071" category="open-title">Option 2 : configuration MetroCluster</block>
+  <block id="e1e5a630a2475cff2c5c9107cbfff228" category="section-title">Étape 2 : ajoutez le nouveau module d'E/S.</block>
+  <block id="aaa31e70b1e8d53e84fc317dfdcef1ed" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage AFF A70 et AFF A90 lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
+  <block id="fc201f3061cf0fb0ac92be830093fe44" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage AFF A900 lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
+  <block id="5342cf7e14ace50bbfab26225b3e6f39" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage ASA A70 et ASA A90 lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
+  <block id="cac74c301a508cf350f8f41a7de866a0" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage ASA A1K lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
+  <block id="94aa992895c11cf963b2b749b84aa267" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage FAS70 et FAS90 lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
+  <block id="bc049e4428d592b69605104cc85d56bc" category="section-title">Étape 2 : ajoutez les nouveaux modules d'E/S.</block>
 </blocks>

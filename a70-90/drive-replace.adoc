@@ -39,25 +39,6 @@ Le firmware des disques est automatiquement mis à jour (sans interruption) sur 
 Lors du remplacement de plusieurs lecteurs de disque, vous devez attendre 70 secondes entre le retrait de chaque lecteur de disque défectueux et l'insertion du lecteur de disque de remplacement pour permettre au système de stockage de reconnaître l'existence de chaque nouveau disque.
 
 .Étapes
-. Si vous souhaitez attribuer manuellement la propriété des disques de remplacement, vous devez désactiver le disque de remplacement d'affectation automatique des disques, s'il est activé
-+
-
-NOTE: Vous attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.
-
-+
-.. Vérifiez si l'affectation automatique des disques est activée : `storage disk option show`
-+
-Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
-
-+
-Si l'affectation automatique de l'entraînement est activée, la sortie affiche `on` Dans la colonne « affectation automatique » (pour chaque module de contrôleur).
-
-.. Si l'affectation automatique des disques est activée, désactivez-la : `storage disk option modify -node node_name -autoassign off`
-+
-Vous devez désactiver l'affectation automatique des disques sur les deux modules de contrôleur.
-
-
-
 . Mettez-vous à la terre.
 . Identifiez physiquement le disque défectueux.
 +
@@ -91,7 +72,7 @@ Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s
 +
 Lorsque le voyant d'activité du lecteur est allumé, cela signifie que le lecteur est alimenté. Lorsque le voyant d'activité du lecteur clignote, cela signifie que le lecteur est alimenté et que les E/S sont en cours. Si le micrologiciel du lecteur est mis à jour automatiquement, le voyant clignote.
 
-. Si vous remplacez un autre lecteur, répétez les étapes 3 à 7.
+. Si vous remplacez un autre lecteur, répétez les étapes 2 à 6.
 . Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
 +
 Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.

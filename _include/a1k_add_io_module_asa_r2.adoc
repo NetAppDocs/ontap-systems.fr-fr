@@ -248,20 +248,13 @@ Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le mod
 . Branchez le câble du module d'E/S.
 . Répéter les étapes de dépose et de pose pour remplacer les modules supplémentaires du contrôleur.
 . Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
-. Redémarrez le contrôleur à partir de l'invite du CHARGEUR :_bye_
+. Redémarrez le contrôleur à partir de l'invite Loader : `bye`
 +
-.. Vérifiez la version du contrôleur BMC sur le contrôleur : _system service-processor show_
-.. Mettez à jour le micrologiciel du contrôleur BMC si nécessaire : _system service-processor image update_
-.. Redémarrez le nœud : _bye_
-+
-
-NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
 
 +
 
 NOTE: Si vous rencontrez un problème pendant le redémarrage, reportez-vous à la section https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1494308["BURT 1494308 - l'arrêt de l'environnement peut être déclenché lors du remplacement du module d'E/S."]
-
-
 
 . Remettez le contrôleur en place à partir du contrôleur partenaire : _Storage failover giveback -ofnode target_node_name_
 . Activez le rétablissement automatique s'il a été désactivé : _Storage failover modify -node local -auto-giveback true_
