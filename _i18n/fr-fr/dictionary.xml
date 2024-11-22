@@ -2301,14 +2301,8 @@
   <block id="05648a23fc430a3dcc4fb4c1fbb040cd" category="list-text">Si vous utilisez des connecteurs 3 et/ou 7 pour la mise en réseau, utilisez le<block ref="476ed8a8b3d60ed59cf37fb920c49f89" prefix=" " category="inline-code"></block> commande permettant de convertir le logement pour une utilisation en réseau.</block>
   <block id="d6c7a664e3819be9a0869782e685c75b" category="list-text">Répétez ces étapes pour le contrôleur B.</block>
   <block id="6f8193ca6bfb281db32afbcc9e285f79" category="inline-link">Ajout à chaud d'un tiroir SAS</block>
-  <block id="cebb0168d5bfd94a91f0da51501ba6b8" category="list-text">Si vous êtes :</block>
-  <block id="e818b574f8a890f6c21405d9164bb6ef" category="cell">Remplacement...</block>
-  <block id="d6737fd4fc838900efec68220d9b62d5" category="paragraph">Module d'E/S NIC avec le même nombre de ports</block>
   <block id="c5cb03fb8ac84e8ed0867902373368c5" category="paragraph">Les LIF migrent automatiquement lorsque son module de contrôleur est arrêté.</block>
-  <block id="5b4da5fe899903c4fb7ea38cdcd59059" category="paragraph">Module d'E/S NIC avec moins de ports</block>
   <block id="3dca69382eebe0e25d26be588bb3bb7c" category="inline-link">Migration d'une LIF</block>
-  <block id="c964f542415e7614484e4edf970ab7a8" category="paragraph">Réallouer de manière définitive les LIF affectées à un autre port de départ. Voir<block ref="8a81e44d8701c7e0abd4b6ad328792f0" category="inline-link-rx"></block> Pour plus d'informations sur l'utilisation de System Manager pour déplacer définitivement les LIF.</block>
-  <block id="f83c48dd124994c4062d124a835da954" category="paragraph">Module d'E/S NIC avec module d'E/S de stockage</block>
   <block id="6d351dbc4a7187d4512a1c505c200687" category="paragraph">Utilisez System Manager pour migrer définitivement les LIF vers différents ports de base, comme décrit dans la<block ref="8a81e44d8701c7e0abd4b6ad328792f0" category="inline-link-rx"></block>.</block>
   <block id="1270e01f5b82a307cd267071e45adc4f" category="list-text">Arrêter le contrôleur A :</block>
   <block id="fd08cd08ec85105086c22d49a195dfd3" category="list-text">Débranchez tout câblage du module d'E/S cible.</block>
@@ -5658,7 +5652,6 @@
   <block id="6f189db9f1b1dfc1be838de48c805168" category="video-title">Animation : définissez les ID de tiroirs de disques NVMe</block>
   <block id="1f583998630e94806bf5b9e059227dd4" category="paragraph"><block ref="1f583998630e94806bf5b9e059227dd4" category="inline-link-rx"></block></block>
   <block id="9b0500b65158795cfc5abb2becae4e80" category="paragraph">Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la section<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour localiser le câble et identifier son utilisation.</block>
-  <block id="741ade379895992f2a574e8e60de1571" category="section-title">Étape 2 : ajout de modules d'E/S.</block>
   <block id="55f1569cdcfb82612fcf293f23db4f6f" category="list-text">Vérifier le<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block> Pour vérifier que le nouveau module d'E/S est compatible avec votre système et la version de ONTAP que vous utilisez.</block>
   <block id="6e4968851f4373ab9764e16cffb39389" category="list-text">Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block> Et utiliser la meilleure solution disponible pour votre module d'E/S.</block>
   <block id="757216293ea1da04339a2c9b8eaa2641" category="admonition">Le fichier tar.gz doit être placé sur une partition au format FAT32 d'au moins 4 Go. Bien que les partitions FAT32 puissent être de 2 To, les outils intégrés Windows (par exemple, diskpart) ne peuvent pas formater les partitions FAT32 supérieures à 32 Go.</block>
@@ -7969,14 +7962,10 @@ SFP+ (cible/initiateur)</block>
   <block id="61612a74be5170dd342eb619d607d9a0" category="paragraph">La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures :<block ref="6cf51b10a85b7bdc2a6698400ee841b7" prefix=" " category="inline-code"></block></block>
   <block id="ab859514fa976f71299cd0d5366c702d" category="paragraph">Arrêtez ou prenez le contrôle du contrôleur défectueux à partir du contrôleur sain :<block ref="64d2ac6bbd59fb854ec2bed7b2dbe259" prefix=" " category="inline-code"></block></block>
   <block id="fd9366185c7040d2814e95fefcce2264" category="list-text">Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande AutoSupport :<block ref="fbcb7868c4849064439910664677cb60" prefix=" " category="inline-code"></block></block>
-  <block id="9f496d341d66d79304a55547445c00a2" category="doc">Option 1 : ajoutez un module d'E/S à un système de stockage avec des emplacements vides</block>
-  <block id="c4b17ef982ae644ec1d2b995fa1534a8" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage en ajoutant un nouveau module d'E/S à un système de stockage avec des emplacements vides ou en remplaçant un module d'E/S par un nouveau dans un système de stockage plein.</block>
   <block id="656450ae55843844fdfca7b44cbc5678" category="list-text">Vérifiez que le<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block> nouveau module d'E/S est compatible avec votre système de stockage et la version de ONTAP que vous exécutez.</block>
-  <block id="9808a3e490e0cd81c2fab70cb489f958" category="paragraph">Vous pouvez ajouter un module d'E/S dans un logement de module vide de votre système de stockage.</block>
   <block id="78263f5226743bdd204519f0e9bd22d2" category="list-text">Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés à l'intérieur du chemin de câbles et en le faisant pivoter vers le bas.</block>
   <block id="72e0b58a2d456f6ab89ca8d83859264d" category="list-text">Retirez le module d'obturation du logement cible du support :</block>
   <block id="abca9f9a7ffb3d4afa15f947303b1c4c" category="admonition">L'illustration suivante illustre le retrait d'un module d'E/S horizontal et vertical. En général, vous ne retirez qu'un seul module d'E/S.</block>
-  <block id="b0fe3ad00c115ca25f49fb3d48769b0b" category="image-alt">Retirez un module d'E/S AFF A1K</block>
   <block id="243dd5ebf726e6d6a9762938953c1a6a" category="cell">Bouton de verrouillage de came</block>
   <block id="3939b3c4c6e868d0268fd9a75f3b3805" category="list-text">Appuyez sur le loquet de came du module d'obturation dans le logement cible.</block>
   <block id="c053808d9acb931bed74754155a6e86f" category="list-text">Faites pivoter le loquet de came le plus loin possible. Pour les modules horizontaux, faites pivoter la came à l'écart du module aussi loin que possible.</block>
@@ -7984,24 +7973,13 @@ SFP+ (cible/initiateur)</block>
   <block id="f47dbf934d7d51340a5c58741715b2d5" category="list-text">Alignez le module d'E/S sur les bords de l'ouverture du logement du boîtier.</block>
   <block id="b3fe1b3e8557371fcb101f90a1a32fd0" category="list-text">Faites glisser doucement le module dans le logement jusqu'à l'intérieur du boîtier, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.</block>
   <block id="be9dc0332662b913cef88d5dcde78acd" category="list-text">Branchez le câble du module d'E/S.</block>
-  <block id="040f840d8fdf859359eb680be25e8992" category="paragraph">Si le module d'E/S est une carte réseau, reliez-le aux commutateurs de données.</block>
-  <block id="3072040b83655039de255184380a9271" category="paragraph">Si le module d'E/S est un module de stockage, connectez-le au tiroir NS224.</block>
   <block id="9056e6b74b2e2b546abd76b6e7408f4d" category="list-text">Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.</block>
-  <block id="a0a7e707ad35c210d4582fab4069c223" category="list-text">Remettez le contrôleur en place à partir du contrôleur partenaire : _Storage failover giveback -ofnode target_node_name_</block>
   <block id="6c91356d53993ce0d1f0c1af28c7a48b" category="list-text">Si AutoSupport est activé, restaurez/annulez la création automatique de cas à l'aide de la<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block> commande.</block>
-  <block id="026bf593d893e27d6f090dc74e403a75" category="section-title">Option 2 : ajoutez un module d'E/S dans un système de stockage sans emplacements vides</block>
-  <block id="a06ddc697cce62226c19e353e0f2eeba" category="paragraph">Vous pouvez modifier un module d'E/S dans un connecteur d'E/S d'un système entièrement rempli en retirant un module d'E/S existant et en le remplaçant par un autre module d'E/S.</block>
-  <block id="47ab52c1da07a0c00e2b876e54778a95" category="paragraph">Réaffectez de manière permanente les LIF sélectionnées à un autre port de attache. Pour plus d'informations sur l'utilisation de System Manager pour le déplacement permanent des LIF, reportez-vous à la section<block ref="8a81e44d8701c7e0abd4b6ad328792f0" category="inline-link-rx"></block> .</block>
-  <block id="8f6ea8b644b16793208bc55e27bc7669" category="section-title">Étape 2 : remplacez un module d'E/S.</block>
-  <block id="900056c17f40fb1a034e134a72eca912" category="image-alt">Retirez le module d'E/S AFF A1K</block>
   <block id="8181d3a6b1640b5868632cfe5589a05d" category="list-text">Appuyer sur le bouton de verrouillage de came.</block>
   <block id="0cfc07520b64c5be4e64fac899e6eaa9" category="list-text">Installez le module d'E/S dans le logement cible du boîtier :</block>
   <block id="7b71c8c5341c95139930e1f1748956d7" category="list-text">Alignez le module avec les bords de l'ouverture du logement du boîtier.</block>
   <block id="0169e44348295d5766b174aa4c296a62" category="list-text">Répéter les étapes de dépose et de pose pour remplacer les modules supplémentaires du contrôleur.</block>
   <block id="7c99497119e4bb81fd50dbd906dfde72" category="list-text">Redémarrez le contrôleur à partir de l'invite du CHARGEUR :_bye_</block>
-  <block id="db89594b0a0cbb483395a2641220f1fe" category="list-text">Activez le rétablissement automatique s'il a été désactivé : _Storage failover modify -node local -auto-giveback true_</block>
-  <block id="4e0b6dc04aaa383038bc23130a17cb25" category="cell">Si le module d'E/S est...</block>
-  <block id="09c2cf2531a14305542e6aff93e691c5" category="paragraph">Module NIC</block>
   <block id="a286fff38dd07b679c8ce3d88b6f2962" category="inline-link-macro">arrêtez le contrôleur défectueux</block>
   <block id="4332aa8c798bac1ec6c0f4c83e0df305" category="list-text">Vérifiez que le<block ref="c759882cd4e7fcd95f15b0df0ce7f51c" prefix=" " category="inline-code"></block> type s'affiche<block ref="c6b9507c26062233f2341cb90db60eaa" prefix=" " category="inline-code"></block>, puis sauvegardez manuellement les informations sur OKM.</block>
   <block id="66e5f5f877412d7578e6bec4d8f933b5" category="list-text">Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez<block ref="aa48693d0248bb57512e373cd7f7eebc" prefix=" " category="inline-code"></block></block>
@@ -8010,7 +7988,6 @@ SFP+ (cible/initiateur)</block>
   <block id="e9636d3f8e24f08b43c5d1ed71e065ea" category="list-text">Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez<block ref="396e369cf75815ba643925818d3ec37e" prefix=" " category="inline-code"></block>.</block>
   <block id="976af5aa217f6c1b1dbf16e0ed0a4bde" category="list-text">Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à redémarrer le contrôleur défectueux et appuyez sur _ctrl-c_ pour accéder au menu de démarrage.</block>
   <block id="29d550bee6b8b18ca38f7642778d8dad" category="inline-link-macro">Restaurer les gestionnaires de clés</block>
-  <block id="88045ffbfc0d9ef09cd470c545082621" category="list-text">Si le système n'utilise pas de chiffrement, sélectionnez _option 1 démarrage normal._, sinon passez à <block ref="f2abf47fd75193a34b6b143e08f5b248" category="inline-link-macro-rx"></block>.</block>
   <block id="55f7c3a98a49a2f2d96cb2d21b95d947" category="list-text">Remettez le contrôleur en place en utilisant la commande _Storage failover giveback -fromnode local_.</block>
   <block id="4c6b53c8ce9f5900a70a994f21a32c6b" category="list-text">Restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la commande _Storage failover modify -node local -auto-giveback true_.</block>
   <block id="85ef34c14131c3f446c3d96330659ce7" category="list-text">Si AutoSupport est activé, restaurez/annulez la suppression de la création automatique de cas en utilisant le noeud système AutoSupport Invoke -node * -type all -message maint=END_ command.</block>
@@ -8233,23 +8210,10 @@ SFP+ (cible/initiateur)</block>
   <block id="05dceffd3c31a9d53e9b23ec48d1bf77" category="paragraph">Vous devez installer de nouvelles licences pour le nœud concerné si ce dernier utilisait des fonctionnalités ONTAP nécessitant une licence standard (verrouillée par un nœud). Pour les fonctionnalités avec licences standard, chaque nœud du cluster doit avoir sa propre clé pour cette fonctionnalité.</block>
   <block id="d498932449bd1680afbe5aad136fb7e3" category="paragraph">Tant que vous n'avez pas installé les clés de licence, les fonctionnalités nécessitant une licence standard restent disponibles pour le nœud. Toutefois, si le nœud était le seul nœud du cluster avec une licence pour la fonctionnalité, aucune modification de configuration de la fonctionnalité n'est autorisée. En outre, l'utilisation de fonctionnalités sans licence sur le nœud peut vous mettre en conformité avec votre contrat de licence. Vous devez donc installer la ou les clés de licence de remplacement sur le pour le nœud dès que possible.</block>
   <block id="3e508eeaedfdae09fad57a764b5e2b73" category="section-title">Étape 1 : arrêtez le module de contrôleur défectueux</block>
-  <block id="6f13230d5681e1c88b50f5ecbce62637" category="paragraph">Arrêtez ou prenez le contrôle du module de contrôleur défectueux à l'aide de l'une des options suivantes.</block>
   <block id="5d053cb0e109f37b3c9cfa31e957c2bc" category="list-text">Retirez le module de contrôleur d'environ 3 pouces du châssis pour le mettre hors tension.</block>
-  <block id="d9d1de25706aa51c5367e4dafd60898e" category="list-text">Retirez le module d'obturation du logement cible du châssis :</block>
-  <block id="192d3ce6854b267e65d46222f8f3a24f" category="image-alt">Retirez un module d'E/S.</block>
-  <block id="75fa26086844dfcbf14f35086518217a" category="list-text">Déposer le module d'obturation.</block>
-  <block id="2b6adb50592127273fdb4bb2b68918d5" category="list-text">Alignez le module d'E/S sur les bords de l'ouverture du logement du module de contrôleur.</block>
-  <block id="97366bfb1dcb5b97156c347c8ad89d9a" category="list-text">Faites glisser doucement le module complètement dans le logement, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.</block>
   <block id="6181ce929bc404494408989e6b8a9b52" category="paragraph">Pour remplacer un module d'E/S, localisez-le dans le module de contrôleur et suivez la séquence spécifique des étapes.</block>
   <block id="8a9a8a0db84d9dd59b0f006930b47193" category="list-text">Appuyer sur le bouton de verrouillage de came.</block>
-  <block id="422e2aa4ec97de509f54db9d23618f37" category="list-text">Retirez le module du châssis en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du châssis.</block>
-  <block id="ce8b63d25565a610d1f9564150f85914" category="list-text">Faites glisser doucement le module dans le logement jusqu'à l'intérieur du châssis, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.</block>
-  <block id="fb2068c184d4dbf1c0e520d9e9b173b2" category="list-text">Répétez les étapes de dépose et de pose pour remplacer les modules supplémentaires du module de contrôleur.</block>
   <block id="ed5714a7b9709284c56117bd6dc4e081" category="list-text">Faites pivoter le chemin de câbles en position verrouillée.</block>
-  <block id="268bccb6c35b538d967467b5d2935b49" category="list-text">Redémarrez le module de contrôleur à partir de l'invite du CHARGEUR :_bye_</block>
-  <block id="253b24d74d0517388c6e5b078713c86a" category="inline-link">BURT 1494308 - l'arrêt de l'environnement peut être déclenché lors du remplacement du module d'E/S.</block>
-  <block id="fc5ee1a4ca46ff0160eeada84fe673fc" category="admonition">Si vous rencontrez un problème pendant le redémarrage, reportez-vous à la section<block ref="5f4b19e33781d4df6c59a005be26e607" category="inline-link-rx"></block></block>
-  <block id="cfedf0b233356261eb909e7add24bded" category="list-text">Remettez le module de contrôleur du module de contrôleur partenaire. _storage failover giveback -ofnode nom_noeud_cible_</block>
   <block id="43d656a7b2fb92dbbe5e13b8f00a00b8" category="list-text">Appuyez sur le bouton de la came de gestion du système. Le levier de came s'éloigne du châssis.</block>
   <block id="f0d27e50eb41ec006d18a96b5254063e" category="list-text">Faites pivoter le levier de came complètement vers le bas et retirez le module de gestion du système du module de contrôleur.</block>
   <block id="54a53a09772d42f23357a9952d2d46a1" category="section-title">Étape 2 : transférez l'image de démarrage sur le support de démarrage</block>
@@ -8848,7 +8812,6 @@ SFP+ (cible/initiateur)</block>
   <block id="f3585daa539c5917b4fedd0eb7efb3f2" category="sidebar">Systèmes AFF</block>
   <block id="6476573ba5b973ad8ea01c57f5b30267" category="sidebar">Systèmes ASA</block>
   <block id="9aaba65702056e024efc0836758c1538" category="sidebar">Ajout à chaud complet</block>
-  <block id="b1cd69e899e8ab2e8b0c559899a3f2d7" category="admonition">L'illustration suivante montre le retrait d'un module d'E/S horizontal et vertical. En général, vous ne retirez qu'un seul module d'E/S.</block>
   <block id="3e6277588162255770fd3384bad09d6d" category="list-text">À partir de l'invite du CHARGEUR sur le contrôleur, démarrez le contrôleur et entrez _y_ lorsque vous êtes invité à remplacer l'ID système en raison d'une incompatibilité d'ID système.</block>
   <block id="9daabece8db7521a7882f63ebd76a891" category="image-alt">Retirez un lecteur en plaçant le bouton de déverrouillage sur le dessus</block>
   <block id="e0bc24820711c466532ba2cb67ababd9" category="image-alt">Retirez un lecteur avec le bouton de déverrouillage au milieu</block>
@@ -9088,7 +9051,6 @@ SFP+ (cible/initiateur)</block>
   <block id="0e6eb93881093798ffaf4eef324aae16" category="list-text">Installez et câblez vos étagères NS224, comme décrit à la section <block ref="4dfda7c2f93914990922f65bd50f90b3" category="inline-link-macro-rx"></block>.</block>
   <block id="f399facc82d214513205adcdfed1e55f" category="image-alt">Disques de siège</block>
   <block id="f20a0219f10b0070c92efe4269486629" category="list-text">Si vous avez installé un module d'E/S de stockage, installez et câblez vos tiroirs NS224, comme décrit <block ref="4dfda7c2f93914990922f65bd50f90b3" category="inline-link-macro-rx"></block>à la section .</block>
-  <block id="86e8e2badf42560bb0b1ed3bac3933fa" category="paragraph">Installez et câblez vos étagères NS224, comme décrit à la section <block ref="4dfda7c2f93914990922f65bd50f90b3" category="inline-link-macro-rx"></block>.</block>
   <block id="b9c98500ab9d006e0d9fd3d1c95f7904" category="paragraph">Pour plus d'informations sur le câblage, reportez-vous à la section <block ref="b8ff88c1a2e9444f28ec1504689e0040" category="inline-link-macro-rx"></block>.</block>
   <block id="ef83cb60cd5ea6118e6d106efa30f927" category="image-alt">Précautions relatives au poids de levage</block>
   <block id="f3badb2cde47b97db55936f633e8bbf1" category="image-alt">Câblage composite en cluster à 2 nœuds sans commutateur</block>
@@ -9833,7 +9795,6 @@ SFP+ (cible/initiateur)</block>
   <block id="c285ffddf1786cd1a14a26bcf9b74c7d" category="paragraph"><block ref="061047859ec1e213bd771fe5350bda2c" prefix="" category="inline-code"></block></block>
   <block id="811ae15d713f8c846d0516e053f895b2" category="list-text">Surveillez le processus de récupération des supports de démarrage pendant que Loader configure les ports de cluster locaux et s'exécute<block ref="83a4445bcfef2bd179eaffaabe3b3c20" prefix=" " category="inline-code"></block> à partir du nœud partenaire.</block>
   <block id="8f616ca67798afd132662e15fc4caa28" category="paragraph">Lorsque netboot est en cours d'exécution, le<block ref="f6715e6f2a651bfc51d27566b1be5385" prefix=" " category="inline-code"></block> message s'affiche.</block>
-  <block id="ab8b7433e2ad2aa82ba07b42b4cd465d" category="list-text">Selon la méthode de chiffrement, sélectionnez l'option correspondant à votre configuration à un seul nœud :</block>
   <block id="39cb6e7651585d511fc148af8198837f" category="open-title">Pas de cryptage</block>
   <block id="aada4d2dac8a2a5bd04bf211104ff2c5" category="paragraph">Si aucun chiffrement n'est détecté, le processus de récupération du support de démarrage se poursuit sans nécessiter de gestion des clés.</block>
   <block id="69c50e084d31ca90079f6b8b4409607b" category="paragraph">Continuez à surveiller le processus de restauration lors de la restauration de la configuration de sauvegarde, du fichier env, de la base de données mdb et du rdb à partir du nœud partenaire.</block>
@@ -10190,7 +10151,6 @@ SFP+ (cible/initiateur)</block>
   <block id="13e7cf07309f0d95eee5aa49b6842dc0" category="doc">Vérifier la prise en charge et l'état des clés de cryptage - FAS9500</block>
   <block id="e4d9374bc79ce9095fb021e03551599f" category="doc">Restaurer le chiffrement - FAS9500</block>
   <block id="bd5c047c4a41e95a8a9424888875e56a" category="list-text">Reliez le module d'E/S au périphérique désigné.</block>
-  <block id="2d8241a8fe54414b6494b29d26d8b251" category="list-text">Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la<block ref="6f0c6616b99fea33a3020e0e0dcbe3c6" prefix=" " category="inline-code"></block> commande.</block>
   <block id="9d462bd05672844aeab0d3d5d323d66a" category="list-text">Réinstallez le contrôleur et reconnectez l'alimentation au module de contrôleur :</block>
   <block id="4d872659b015ad414d5e68440a7ddfd6" category="paragraph">Le contrôleur commence à démarrer dès qu'il est installé et que l'alimentation est rétablie.</block>
   <block id="6f3fa8086df2fa20b3e903512f693396" category="list-text">Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :</block>
@@ -10370,9 +10330,6 @@ SFP+ (cible/initiateur)</block>
   <block id="09109aaca603d8ac1da46aa588c46f63" category="paragraph">NIC à NIC (nombre différent de ports)</block>
   <block id="4e7b2ae169cb37276347e7c88d211db4" category="paragraph">Réaffectez de manière permanente les LIF sélectionnées à un autre port de attache. Voir<block ref="8a81e44d8701c7e0abd4b6ad328792f0" category="inline-link-rx"></block> pour plus d'informations.</block>
   <block id="0c3f64052572f9d13d9b078656a055e4" category="paragraph">Carte réseau vers module d'E/S de stockage</block>
-  <block id="deaf42dafc1e4522c0ccf86ad58f237e" category="list-text">Remettez le contrôleur en place à partir du contrôleur partenaire :`stockage failover giveback -ofnode target_node_name`</block>
-  <block id="c1d0761e549ef1ce873a404f8d41a2d5" category="list-text">Redémarrez le contrôleur à partir de l'invite Loader :<block ref="bfa99df33b137bc8fb5f5407d7e58da8" prefix=" " category="inline-code"></block></block>
-  <block id="5d831aef00c06eb087aebfb790f041b7" category="section-title">Étape 2 : ajout d'un nouveau module d'E/S.</block>
   <block id="68c06f8f4688078ddfe1ceedef798cae" category="list-text">Remettre le contrôleur du contrôleur partenaire :</block>
   <block id="523f5a38bba8d64b2af1cdee174a06cc" category="paragraph"><block ref="49c908925c3b8a3554612823f81c8964" prefix="" category="inline-code"></block></block>
   <block id="b98036ad0a9b610670da83fe762dadb5" category="list-text">Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la commande suivante :</block>
@@ -10392,4 +10349,6 @@ SFP+ (cible/initiateur)</block>
   <block id="cac74c301a508cf350f8f41a7de866a0" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage ASA A1K lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
   <block id="94aa992895c11cf963b2b749b84aa267" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage FAS70 et FAS90 lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
   <block id="bc049e4428d592b69605104cc85d56bc" category="section-title">Étape 2 : ajoutez les nouveaux modules d'E/S.</block>
+  <block id="a6448c631c301c525a61c500fdf8e46a" category="list-text">Selon la méthode de cryptage, sélectionnez l'option correspondant à votre configuration système :</block>
+  <block id="92ba658b9a66d0825f0f084b7da309b7" category="list-text">Si le système n'utilise pas le chiffrement, sélectionnez _option 1 démarrage normal._, sinon, passez à <block ref="d767082d20397ebb99e586749eda3a08" category="inline-link-macro-rx"></block>.</block>
 </blocks>
