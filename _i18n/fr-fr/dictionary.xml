@@ -9513,9 +9513,7 @@ SFP+ (cible/initiateur)</block>
   <block id="53211074b0edd2a1e49952ae0a99c70e" category="doc">Remplacez la pile de l'horloge temps réel - ASA A1K</block>
   <block id="791c7d7e48c500e265e759e91a1190c4" category="paragraph">Les systèmes, tiroirs et switchs suivants ne sont plus pris en charge à partir de la version spécifiée de ONTAP.</block>
   <block id="e039aa1be61543fd84f1c4eb5d3e9f6b" category="section-title">Systèmes matériels ONTAP</block>
-  <block id="2d32b3d87a83d9147e0da8371e685ab9" category="section-title">Modules à tiroirs</block>
   <block id="65cc6c94582f61a33aa4704c52ac52c0" category="cell">Module tiroir</block>
-  <block id="8c5d814fd2a79ee668b40d5bb90febe6" category="paragraph">Module IOM 6</block>
   <block id="a50d5562329cec378062f8ecd6f08580" category="doc">Renvoyer la pièce défectueuse à NetApp - FAS70 et FAS90</block>
   <block id="70e171be442c06a383310683a983f973" category="doc">Restaurez le chiffrement - FAS70 et FAS90</block>
   <block id="0f8fed13fee9009a30d0eed748301401" category="doc">Démarrer l'image de restauration - FAS70 et FAS90</block>
@@ -10332,8 +10330,6 @@ SFP+ (cible/initiateur)</block>
   <block id="0c3f64052572f9d13d9b078656a055e4" category="paragraph">Carte réseau vers module d'E/S de stockage</block>
   <block id="68c06f8f4688078ddfe1ceedef798cae" category="list-text">Remettre le contrôleur du contrôleur partenaire :</block>
   <block id="523f5a38bba8d64b2af1cdee174a06cc" category="paragraph"><block ref="49c908925c3b8a3554612823f81c8964" prefix="" category="inline-code"></block></block>
-  <block id="b98036ad0a9b610670da83fe762dadb5" category="list-text">Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la commande suivante :</block>
-  <block id="518d4ff09aabdcee7f75f2c44315aa32" category="list-text">Si AutoSupport est activé, restaurez la création automatique de dossiers à l'aide de la commande suivante :</block>
   <block id="4bcd1563c4332086304e70dd3fb7e19a" category="list-text">Activer le rétablissement automatique si elle a été désactivée :</block>
   <block id="1e80f086f2d3ddea0cd02baa25f9c2f1" category="list-text">Si vous avez retiré un module d'E/S de carte réseau et installé un nouveau module d'E/S de carte réseau, utilisez la commande réseau suivante pour chaque port :</block>
   <block id="157602c08bdec493e8c79f5e41971ab6" category="paragraph"><block ref="9dedaa5871e5e9684cbae52f5e1b987d" prefix="" category="inline-code"></block></block>
@@ -10351,4 +10347,17 @@ SFP+ (cible/initiateur)</block>
   <block id="bc049e4428d592b69605104cc85d56bc" category="section-title">Étape 2 : ajoutez les nouveaux modules d'E/S.</block>
   <block id="a6448c631c301c525a61c500fdf8e46a" category="list-text">Selon la méthode de cryptage, sélectionnez l'option correspondant à votre configuration système :</block>
   <block id="92ba658b9a66d0825f0f084b7da309b7" category="list-text">Si le système n'utilise pas le chiffrement, sélectionnez _option 1 démarrage normal._, sinon, passez à <block ref="d767082d20397ebb99e586749eda3a08" category="inline-link-macro-rx"></block>.</block>
+  <block id="efd2f4952f00033a0e6fc35f4c287446" category="paragraph">Si le système de stockage dispose de logements disponibles, installez le nouveau module d'E/S dans l'un des emplacements disponibles. Si tous les emplacements sont occupés, retirez un module d'E/S existant pour libérer de l'espace, puis installez le nouveau.</block>
+  <block id="6d65586ee736e7deb557e0892d29cb10" category="open-title">Ajoutez un module d'E/S à un emplacement disponible</block>
+  <block id="49a08f00572d73e2840b5619c89ab1e1" category="paragraph">Vous pouvez ajouter un nouveau module d'E/S à un système de stockage avec les emplacements disponibles.</block>
+  <block id="ca7d77450cda007d5de82ede81b0d00a" category="list-text">Depuis l'invite DU CHARGEUR, redémarrez le nœud :</block>
+  <block id="b8f2c5ae8a36c3665d2a4dca23133f73" category="paragraph"><block ref="bfa99df33b137bc8fb5f5407d7e58da8" prefix="" category="inline-code"></block></block>
+  <block id="828affe31ac2a06ccc21501bfa636556" category="admonition">Ceci réinitialise le module d'E/S et les autres composants et redémarre le nœud.</block>
+  <block id="6f756efb267a066160637f10de5a5a2a" category="list-text">Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé :</block>
+  <block id="670c1c5a5408c616a1d3cfe47f4ac730" category="paragraph"><block ref="20fc6f4f297f578893ff3fdce470b0b3" prefix="" category="inline-code"></block></block>
+  <block id="65f59d8f76000eaee913fff3a76a6a03" category="paragraph">Pour le matériel actuellement non pris en charge, voir <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> .</block>
+  <block id="e9a03ff1b18d65002e3e1c03a0219bb4" category="paragraph">Module SAS IOM6 6 Gbit/s, utilisé dans :</block>
+  <block id="e688c272d2fffea0002fa7b68d0816ed" category="list-text">DS2246</block>
+  <block id="4ff171b65bafa644d75f512e8e9e42e8" category="list-text">DS4246</block>
+  <block id="a35582cda1497b785cabaa95e67fda6e" category="list-text">DS4486</block>
 </blocks>

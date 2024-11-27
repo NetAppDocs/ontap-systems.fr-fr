@@ -65,7 +65,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 == Étape 2 : ajoutez le nouveau module d'E/S.
 
-Si le système de stockage dispose de logements vides, installez le nouveau module d'E/S dans l'un des logements disponibles. Si tous les emplacements sont occupés, retirez un module d'E/S existant pour libérer de l'espace, puis installez le nouveau.
+Si le système de stockage dispose de logements disponibles, installez le nouveau module d'E/S dans l'un des emplacements disponibles. Si tous les emplacements sont occupés, retirez un module d'E/S existant pour libérer de l'espace, puis installez le nouveau.
 
 .Avant de commencer
 * Vérifiez que le https://hwu.netapp.com/["NetApp Hardware Universe"^] nouveau module d'E/S est compatible avec votre système de stockage et la version de ONTAP que vous exécutez.
@@ -75,9 +75,9 @@ Si le système de stockage dispose de logements vides, installez le nouveau modu
 
 [role="tabbed-block"]
 ====
-.Ajoutez un module d'E/S à un emplacement vide
+.Ajoutez un module d'E/S à un emplacement disponible
 --
-Vous pouvez ajouter un nouveau module d'E/S dans un système de stockage avec des emplacements vides disponibles.
+Vous pouvez ajouter un nouveau module d'E/S à un système de stockage avec les emplacements disponibles.
 
 .Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -101,21 +101,24 @@ Vous pouvez ajouter un nouveau module d'E/S dans un système de stockage avec de
 NOTE: Assurez-vous que des espaces vides sont installés dans les emplacements d'E/S inutilisés afin d'éviter tout problème thermique.
 
 . Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
-. Redémarrez le contrôleur à partir de l'invite DU CHARGEUR : _bye_
+. Depuis l'invite DU CHARGEUR, redémarrez le nœud :
++
+`bye`
+
 +
 
-NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+NOTE: Ceci réinitialise le module d'E/S et les autres composants et redémarre le nœud.
 
 . Remettre le contrôleur du contrôleur partenaire :
 +
 `storage failover giveback -ofnode target_node_name`
 
 . Répétez ces étapes pour le contrôleur B.
-. Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la commande suivante :
+. Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé :
 +
-`storage failover modify -node local -auto-giveback true`
+`storage failover modify -node local -auto-giveback _true_`
 
-. Si AutoSupport est activé, restaurez la création automatique de dossiers à l'aide de la commande suivante :
+. Si AutoSupport est activé, restaurez la création automatique de dossiers :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
