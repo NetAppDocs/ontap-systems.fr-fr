@@ -47,11 +47,11 @@ NOTE: Ouvrez une session SSH sur chaque connexion SP/BMC afin de pouvoir surveil
 
 . Arrêtez les deux nœuds situés dans le châssis défectueux :
 +
-`system node halt -node <node>,<node2> -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true`
+`system node halt -node <node1>,<node2> -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true`
 
 +
 
-NOTE: Pour les clusters qui utilisent SnapMirror en mode synchrone : `system node halt -node <node>,<node2>  -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true -ignore-strict-sync-warnings true`
+NOTE: Pour les clusters qui utilisent SnapMirror en mode synchrone : `system node halt -node <node1>,<node2>  -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true -ignore-strict-sync-warnings true`
 
 . Entrez *y* pour chaque contrôleur du cluster lorsque vous voyez `_Warning: Are you sure you want to halt node "cluster <node-name> number"?
 {y|n}:_`

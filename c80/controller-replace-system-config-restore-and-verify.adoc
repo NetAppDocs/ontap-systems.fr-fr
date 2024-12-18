@@ -1,0 +1,63 @@
+---
+permalink: c80/controller-replace-system-config-restore-and-verify.html 
+sidebar: sidebar 
+keywords: c80, restore and verify the system configuration, verify and set the ha state of the controller module 
+summary: Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire. 
+---
+= Restaurez et vérifiez la configuration du système - AFF C80
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
+
+
+
+== Étape 1 : vérifiez les paramètres de configuration haute disponibilité
+
+Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
+
+. Démarrage en mode maintenance : `boot_ontap maint`
++
+.. Entrez `y` lorsque vous voyez _Continuer avec boot?_.
++
+Si le message d'avertissement _ID système incorrect_ s'affiche, entrez `y`.
+
+
+
+. Saisir `sysconfig -v` et capturer le contenu de l'affichage.
++
+
+NOTE: Si vous voyez _INADÉQUATION DE PERSONNALITÉ_, contactez le service clientèle.
+
+. A partir du `sysconfig -v` résultat, comparez les informations de la carte adaptateur avec les cartes et les emplacements dans le contrôleur de remplacement.
+. Vérifier que tous les composants affichent le même `HA` état : `ha-config show`
++
+L'état de la HA doit être le même pour tous les composants.
+
+. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le `HA` état pour le module de contrôleur : `ha-config modify controller ha-state`
++
+La valeur de HA-State peut être l'une des suivantes :
+
++
+** `ha`
+** `mcc` (non pris en charge)
+** `mccip` (Non pris en charge par les systèmes ASA)
+** `non-ha` (non pris en charge)
+
+
+. Vérifiez que le paramètre a changé : `ha-config show`
+
+
+
+
+== Étape 2 : vérifiez la liste des disques
+
+. Vérifiez que la carte répertorie les chemins d'accès à tous les disques à l'aide de `storage show disk -p` .
++
+En cas de problème, vérifiez le câblage et réinstallez les câbles.
+
+. Quitter le mode Maintenance : `halt`.
+

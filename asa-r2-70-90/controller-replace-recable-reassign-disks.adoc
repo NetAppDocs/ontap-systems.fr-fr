@@ -39,12 +39,6 @@ Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mod
 .Chiffrement intégré (OKM)
 --
 . Dans l'invite Loader, entrez `boot_ontap maint`.
-. Vérifiez la version du micrologiciel TMP à l'aide de la `sysconfig -v` commande.
-+
-** Si la version est inférieure à 5.63, contactez https://support.netapp.com["Support NetApp"].
-** Si la version est supérieure à 5.63, quittez l'invite Loader : `halt`.
-
-
 . Démarrez à partir du menu ONTAP à partir de l'invite Loader `boot_ontap menu` et sélectionnez l'option 10.
 . Saisissez la phrase de passe OKM. Vous pouvez obtenir cette phrase de passe auprès du client ou contacter https://support.netapp.com["Support NetApp"].
 +

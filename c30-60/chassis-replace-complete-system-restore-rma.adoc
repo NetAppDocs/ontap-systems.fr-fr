@@ -1,0 +1,51 @@
+---
+permalink: c30-60/chassis-replace-complete-system-restore-rma.html 
+sidebar: sidebar 
+keywords: aff c30, aff c60, verify and set HA state, complete the replacement process 
+summary: 'Vous devez vérifier l"état HA du châssis et renvoyer la pièce défectueuse à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.' 
+---
+= Remplacement complet du châssis - AFF C30 et AFF C60
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez vérifier l'état HA du châssis et renvoyer la pièce défectueuse à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.
+
+
+
+== Étape 1 : vérifier et définir l'état de haute disponibilité du châssis
+
+Vous devez vérifier l'état HA du châssis et, si nécessaire, mettre à jour l'état pour qu'il corresponde à la configuration de votre système de stockage.
+
+. En mode Maintenance, depuis l'un ou l'autre contrôleur, afficher l'état HA du contrôleur local et du châssis :
++
+`ha-config show`
+
++
+L'état de la HA doit être le même pour tous les composants.
+
+. Si l'état système affiché pour le châssis ne correspond pas à la configuration de votre système de stockage :
++
+.. Définissez l'état haute disponibilité du châssis :
++
+`ha-config modify chassis _HA-state_`
+
++
+La valeur de l'état HA doit être _ha_.
+
+.. Vérifiez que le paramètre a changé :
++
+`ha-config show`
+
+
+
+. Si ce n'est pas déjà fait, recâblage du reste de votre système de stockage.
+
+
+
+
+== Étape 2 : renvoyer la pièce défectueuse à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

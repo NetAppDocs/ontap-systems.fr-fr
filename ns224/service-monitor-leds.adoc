@@ -1,7 +1,7 @@
 ---
 permalink: ns224/service-monitor-leds.html 
 sidebar: sidebar 
-keywords: monitor, health, drive, shelf, location, status, condition, led, component, operator, display, panel, nsm, power, supply, drive, monitor drive shelf leds, operator display panel leds, nsm module leds, power supply leds, drive leds 
+keywords: monitor, health, drive, shelf, location, status, condition, led, component, operator, display, panel, nsm, power, supply, drive, monitor drive shelf leds, operator display panel leds, nsm leds, power supply leds, drive leds 
 summary: 'Vous pouvez contrôler l"état du tiroir disque en indiquant son emplacement et son état.' 
 ---
 = Contrôlez les LED du tiroir disque - tiroirs NS224
@@ -13,7 +13,7 @@ summary: 'Vous pouvez contrôler l"état du tiroir disque en indiquant son empla
 [role="lead"]
 Vous pouvez contrôler l'état du tiroir disque en indiquant son emplacement et son état.
 
-* Les LED de localisation (bleues) sur le panneau d'affichage de l'opérateur (ODP) d'un tiroir et les deux modules NSM peuvent être activées pour faciliter la localisation physique du tiroir nécessitant une intervention : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
+* Les LED de localisation (bleues), situées sur le panneau d'affichage de l'opérateur (ODP) d'un tiroir et les deux NSM, peuvent être activées pour faciliter la localisation physique du tiroir devant faire l'objet d'une maintenance : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
 +
 Si vous ne connaissez pas le `_shelf_name_` sur la tablette concernée, exécutez la `storage shelf show` commande.
 
@@ -87,12 +87,16 @@ L'administrateur système a activé cette fonction LED.
 |===
 
 
-== Voyants du module NSM
+== Voyants NSM
 
-Les voyants d'un module NSM indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il y a des problèmes avec le matériel.
+Les voyants d'un NSM indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il y a des problèmes avec le matériel.
 
-L'illustration et les tableaux suivants décrivent les LED du module NSM associées à la fonction d'un module et à la fonction de chaque port NVMe d'un module.
+L'illustration et les tableaux suivants décrivent les LED NSM associées à la fonction d'un module et à la fonction de chaque port NVMe d'un module.
 
+[role="tabbed-block"]
+====
+.Modules NSM100
+--
 image::../media/drw_ns224_nsm_leds_IEOPS-1270.svg[Voyants du module NSM100 NS224]
 
 [cols="1,1,2,4"]
@@ -107,7 +111,7 @@ image::../media/drw_sas3_location_icon.svg[Voyant d'emplacement du panneau d'aff
  a| 
 Bleu
  a| 
-Module NSM : emplacement
+NSM : emplacement
 
 
 
@@ -118,7 +122,7 @@ image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affic
  a| 
 Ambre
  a| 
-Module NSM : attention
+NSM : attention
 
 
 
@@ -143,6 +147,72 @@ Ambre
 Port/liaison NVMe : attention
 
 |===
+--
+.Modules NSM100B
+--
+image::../media/drw_ns224_nsmb_leds_ieops-2004.svg[Voyants du module NSM100B NS224]
+
+[cols="1,1,2,4"]
+|===
+| Appel sortant | Icône LED | Couleur | Description 
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+NK
+ a| 
+Vert
+ a| 
+Port/liaison NVMe : état
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
+ a| 
+Ambre
+ a| 
+Port/liaison NVMe : attention
+
+
+
+ a| 
+image:../media/icon_round_3.png["Numéro de légende 3"]
+ a| 
+image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
+ a| 
+Ambre
+ a| 
+Module d'E/S : état
+
+
+
+ a| 
+image:../media/icon_round_4.png["Numéro de légende 4"]
+ a| 
+image::../media/drw_sas3_location_icon.svg[Voyant d'emplacement du panneau d'affichage de l'opérateur]
+ a| 
+Bleu
+ a| 
+NSM : emplacement
+
+
+
+ a| 
+image:../media/icon_round_5.png["Numéro de légende 5"]
+ a| 
+image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
+ a| 
+Ambre
+ a| 
+NSM : attention
+
+|===
+--
+====
 [cols="2,1,1,1"]
 |===
 | État | Attention NSM (orange) | Port LNK (vert) | Port attention (orange) 

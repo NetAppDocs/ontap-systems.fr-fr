@@ -24,6 +24,7 @@ Cette section décrit le câblage du tiroir NS224 aux systèmes de stockage suiv
 
 == Description de la tâche
 
+* Cette procédure s'applique uniquement aux stockages en attachement direct. Pour consulter les instructions relatives au stockage relié au commutateur, consultez notre link:cable-as-switch-attached.html["guide de câblage connecté au commutateur"].
 * Familiarisez-vous avec l'orientation correcte des connecteurs de câble, ainsi qu'avec l'emplacement et l'étiquetage des ports sur les modules de tiroir NS224 NSM100.
 +
 ** Les câbles sont insérés avec la languette de retrait du connecteur orientée vers le haut.
@@ -38,14 +39,29 @@ image::../media/oie_cable_pull_tab_up.png[Les câbles sont insérés avec la lan
 
 ** L'illustration suivante vous aide à identifier physiquement les ports NSM100 des tiroirs, e0a et e0b.
 +
-Un tiroir NS224 contient deux modules NSM100. Le module supérieur est placé dans le logement A (NSM A) et le module inférieur dans le logement B (NSM B).
-
-+
-Chaque module NSM100 comprend 2 ports QSFP28 100 GbE : e0a et e0b.
-
+[role="tabbed-block"]
+====
+.Modules NSM100
+--
+*** Un tiroir NS224 contient deux modules NSM100. Le module supérieur est placé dans le logement A (NSM A) et le module inférieur dans le logement B (NSM B).
+*** Chaque module NSM100 comprend 2 ports QSFP28 100 GbE : e0a et e0b.
 +
 image::../media/drw_ns224_back_ports.png[Emplacement des ports e0a et e0b du module NSM100 NS224]
 
+
+
+--
+.Modules NSM100B
+--
+*** Un tiroir NS224 contient deux modules NSM100B. Le module supérieur est placé dans le logement A (NSM A) et le module inférieur dans le logement B (NSM B).
+*** Chaque module NSM100B comprend 2 ports CX6/DX 100 GbE : e1a et e1b.
++
+image::../media/drw_ns224_nsmb_back_ports_ieops-2006.svg[Emplacement des ports e0a et e0b du module NSM100B NS224]
+
+
+
+--
+====
 
 
 * Une fois le câblage d'un tiroir ajouté à chaud, ONTAP reconnaît ce dernier :

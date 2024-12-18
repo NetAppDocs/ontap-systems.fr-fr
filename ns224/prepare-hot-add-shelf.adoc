@@ -46,15 +46,7 @@ Si votre paire haute disponibilité dispose de ports Ethernet RoCE non dédiés 
 
 .Description de la tâche
 * Pour certains modèles de plateforme, lorsqu'une carte PCIe ou un module d'E/S compatible RoCE est installé dans un slot pris en charge sur un contrôleur, les ports utilisent automatiquement le stockage par défaut (au lieu de la mise en réseau). toutefois, il est recommandé de suivre la procédure suivante pour vérifier que les ports compatibles RoCE sont configurés pour l'utilisation du stockage.
-* Si vous déterminez que les ports non dédiés compatibles RoCE dans votre paire haute disponibilité ne sont pas configurés pour l'utilisation du stockage, il s'agit d'une procédure de configuration sans interruption.
-+
-Selon la version d'ONTAP exécutée par votre paire haute disponibilité, vous devrez peut-être redémarrer les contrôleurs :
-
-+
-** Si votre paire haute disponibilité exécute une version de ONTAP 9.6, vous devez redémarrer les contrôleurs, un à la fois.
-** Si votre paire haute disponibilité exécute ONTAP 9.7 ou version ultérieure, vous n'avez pas besoin de redémarrer les contrôleurs, sauf si un ou les deux contrôleurs sont en mode de maintenance. Cette procédure suppose que ni le contrôleur n'est en mode de maintenance.
-
-
+* Si vous déterminez que les ports non dédiés compatibles RoCE dans votre paire haute disponibilité ne sont pas configurés pour l'utilisation du stockage, il s'agit d'une procédure de configuration sans interruption. Il n'est pas nécessaire de redémarrer les contrôleurs, sauf si l'un ou les deux contrôleurs sont en mode de maintenance. Cette procédure suppose que ni le contrôleur n'est en mode de maintenance.
 * Si, à l'avenir, vous devez modifier les ports pour passer de l'utilisation du stockage à l'utilisation du réseau, entrez la commande, `storage port modify -node _node_name_ -port _port_name_ -mode network`.
 
 
@@ -66,14 +58,14 @@ Selon la version d'ONTAP exécutée par votre paire haute disponibilité, vous d
 
 +
 ** Si votre paire haute disponibilité exécute ONTAP 9.8 ou une version ultérieure, les ports non dédiés s'affichent `storage` dans le `Mode` colonne.
-** Si votre paire haute disponibilité exécute ONTAP 9.7 ou 9.6, les ports non dédiés qui s'affichent `false` dans le `Is Dedicated?` s'affiche également `enabled` dans le `State` colonne.
+** Si votre paire haute disponibilité exécute ONTAP 9.7, les ports non dédiés, qui s'affichent `false` dans la `Is Dedicated?` colonne, s'affichent également `enabled` dans la `State` colonne.
 +
 [NOTE]
 ====
 Lorsque les ports non dédiés ne sont pas configurés pour l'utilisation du stockage, la sortie de la commande affiche les éléments suivants :
 
 *** Si votre paire haute disponibilité exécute ONTAP 9.8 ou une version ultérieure, les ports non dédiés s'affichent `network` dans le `Mode` colonne.
-*** Si votre paire haute disponibilité exécute ONTAP 9.7 ou 9.6, les ports non dédiés qui s'affichent `false` dans le `Is Dedicated?`` s'affiche également `disabled` dans le `State` colonne.
+*** Si votre paire haute disponibilité exécute ONTAP 9.7, les ports non dédiés, qui s'affichent `false` dans la `Is Dedicated?`` colonne, s'affichent également `disabled` dans la `State` colonne.
 
 
 ====
@@ -101,51 +93,16 @@ ONTAP 9.8 ou version ultérieure
 
 
  a| 
-ONTAP 9.7 ou 9.6
+ONTAP 9.7
  a| 
 `storage port enable -node _node_name_ -port _port_name_`
 
 |===
-. Si votre paire haute disponibilité exécute ONTAP 9.6, redémarrez le contrôleur pour que les modifications apportées au port prennent effet : `system node reboot -node _node_name_ -reason _reason_for_the_reboot_`.
-+
-Dans le cas contraire, passez à l'étape suivante.
-
-+
-
-NOTE: Le redémarrage peut prendre jusqu'à 15 minutes.
-
-. Répéter les étapes pour le second contrôleur :
-+
-[cols="1,3"]
-|===
-| Si votre paire haute disponibilité est en cours d'exécution... | Alors... 
-
-
- a| 
-ONTAP 9.7 ou version ultérieure
- a| 
-.. Répétez l'étape 4.
-.. Passez à l'étape 7.
-
-
-
-
- a| 
-ONTAP 9.6
- a| 
-.. Répétez les étapes 4 et 5.
-+
-
-NOTE: Le premier contrôleur doit déjà avoir terminé son redémarrage.
-
-.. Passez à l'étape 7.
-
-
-|===
+. Répéter l'étape 4 pour le second contrôleur.
 . Vérifiez que les ports non dédiés des deux contrôleurs sont configurés pour l'utilisation du stockage : `storage port show`
 +
 ** Si votre paire haute disponibilité exécute ONTAP 9.8 ou une version ultérieure, les ports non dédiés s'affichent `storage` dans le `Mode` colonne.
-** Si votre paire haute disponibilité exécute ONTAP 9.7 ou 9.6, les ports non dédiés qui s'affichent `false` dans le `Is Dedicated?` s'affiche également `enabled` dans le `State` colonne.
+** Si votre paire haute disponibilité exécute ONTAP 9.7, les ports non dédiés, qui s'affichent `false` dans la `Is Dedicated?` colonne, s'affichent également `enabled` dans la `State` colonne.
 
 
 
@@ -205,7 +162,7 @@ Dans les sous-étapes, supposons que le troisième tiroir est câblé à un modu
 
 
 --
-.AFF A70 ou AFF A90
+.AFF A70, AFF A90 ou AFF C80
 --
 Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 11 et le slot 8 de chaque contrôleur.
 
@@ -266,6 +223,42 @@ Dans les sous-étapes, supposons que le tiroir existant est câblé aux ports co
 .. Répétez le même déplacement de câble sur le contrôleur B.
 
 
+
+
+--
+.AFF A900
+--
+Procédez de l'une des manières suivantes si vous ajoutez un deuxième ou un quatrième tiroir à chaud.
+
+* Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 2 et le slot 10 de chaque contrôleur.
++
+Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 2 de chaque contrôleur.
+
++
+.. Sur le contrôleur A, déplacer le câble du connecteur 2 port b (e2b) vers le connecteur 10 port b (e10b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+* Si vous ajoutez un quatrième tiroir à chaud, recentrez le troisième tiroir sur les modules d'E/S compatibles RoCE dans le slot 1 et le slot 11 de chaque contrôleur.
++
+Dans les sous-étapes, supposons que le troisième tiroir est câblé à un module d'E/S compatible RoCE dans le connecteur 1 de chaque contrôleur.
+
++
+.. Sur le contrôleur A, déplacer le câble du connecteur 1 port b (e1b) vers le connecteur 11 port b (e11b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+--
+.AFF A30, AFF C30, AFF A50 ou AFF C60
+--
+Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 3 et le slot 1 de chaque contrôleur.
+
+Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 3 de chaque contrôleur.
+
+. Sur le contrôleur A, déplacer le câble du connecteur 3 port b (e3b) vers le connecteur 1 port b (e1b).
+. Répétez le même déplacement de câble sur le contrôleur B.
 
 
 --

@@ -23,14 +23,17 @@ NOTE: Pour tenter cette procédure avec des agrégats du tiroir que vous retirez
 +
 Vous pouvez utiliser le `storage aggregate offline -aggregate _aggregate_name_` et ensuite le `storage aggregate delete -aggregate _aggregate_name_` commande.
 
-* Si votre système est livré dans une armoire système, vous devez disposer d'un tournevis cruciforme pour retirer les vis qui fixent le tiroir aux montants arrière de l'armoire.
++
+Pour plus d'informations sur cette étape et éviter les problèmes d'E/S potentiels, reportez-vous au https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Présentation des disques et des agrégats"^] .
+
+* Si votre système a été livré dans une armoire système, vous avez besoin d'un tournevis cruciforme pour retirer les vis fixant le shelf aux rails de rack de l'armoire.
 
 
 .Description de la tâche
 * Si vous retirez à chaud plusieurs étagères, vous devez retirer une étagère à la fois.
-* *Meilleure pratique :* la meilleure pratique consiste à supprimer la propriété des disques après avoir retiré les agrégats des disques du tiroir que vous retirez.
+* *Meilleure pratique:* la meilleure pratique est d'effacer la propriété du disque après avoir supprimé les agrégats des disques du tiroir que vous retirez.
 +
-La suppression des informations de propriété d'un disque de réserve permet d'intégrer correctement le disque à un autre nœud (si nécessaire).
+L'effacement des informations de propriété d'un lecteur de réserve permet d'intégrer correctement le lecteur à un autre nœud (si nécessaire).
 
 +
 La procédure de suppression de la propriété des disques se trouve dans le contenu des disques et des agrégats :
@@ -48,12 +51,11 @@ NOTE: La procédure requiert la désactivation de l'affectation automatique des 
 Si vous ne connaissez pas le `_shelf_name_` sur la tablette concernée, exécutez la `storage shelf show` commande.
 
 +
-Une étagère comporte trois LED d'emplacement : une sur le panneau d'affichage de l'opérateur et une sur chaque module NSM. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l'option Désactivé.
+Un tiroir est doté de trois voyants d'emplacement : un sur le panneau de commande et un sur chaque NSM. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l'option Désactivé.
 
 * Après avoir déconnecté un tiroir de ports RoCE non dédiés (sur la carte des contrôleurs, sur des cartes PCIe compatibles RoCE, ou sur des modules d'E/S), vous avez la possibilité de reconfigurer ces ports pour une utilisation réseau.
 +
-
-NOTE: Si votre paire haute disponibilité exécute une version de ONTAP 9.6, vous devez redémarrer les contrôleurs un par un. Si votre paire haute disponibilité exécute ONTAP 9.7 ou version ultérieure, vous n'avez pas besoin de redémarrer les contrôleurs, sauf si un ou les deux contrôleurs sont en mode de maintenance. Cette procédure suppose que ni le contrôleur n'est en mode de maintenance.
+Si votre paire haute disponibilité exécute ONTAP 9.7 ou version ultérieure, vous n'avez pas besoin de redémarrer les contrôleurs, sauf si un ou les deux contrôleurs sont en mode de maintenance. Cette procédure suppose que ni le contrôleur n'est en mode de maintenance.
 
 
 
@@ -110,11 +112,11 @@ Les blocs d'alimentation n'ont pas de commutateur d'alimentation.
 . Retirez physiquement le shelf du rack ou de l'armoire.
 +
 
-NOTE: Une tablette NS224 entièrement chargée peut peser jusqu'à 30.29 kg (66.78 lb) et doit être levée par deux personnes ou utiliser un relevage hydraulique. Évitez de retirer les composants des étagères (à l'avant ou à l'arrière du shelf) afin de réduire le poids des étagères car le poids des étagères ne sera pas équilibré.
+NOTE: Une étagère NS224 entièrement chargée peut peser jusqu'à 30.29 kg (66.78 lb) avec des modules NSM100 ou une moyenne de 25.8 kg (56.8 lb) avec des modules NSM100B et nécessite deux personnes pour soulever ou utiliser un système de levage hydraulique. Évitez de retirer les composants des étagères (à l'avant ou à l'arrière du shelf) afin de réduire le poids des étagères car le poids des étagères ne sera pas équilibré.
 
 +
 
-NOTE: Si votre système a été livré dans une armoire, vous devez d'abord dévisser les deux vis cruciformes qui fixent le shelf aux montants arrière. Les vis sont situées sur les parois intérieures de la tablette du module NSM inférieur. Vous devez retirer les deux modules NSM pour accéder aux vis.
+NOTE: Si votre système a été livré dans une armoire, vous devez d'abord dévisser les deux vis cruciformes fixant le shelf aux rails du rack. Les vis sont situées sur les parois intérieures de la tablette du NSM inférieur. Vous devez retirer les deux NSM pour accéder aux vis.
 
 . Si vous retirez plusieurs étagères, répétez les étapes 2 à 5.
 +
@@ -124,10 +126,7 @@ Dans le cas contraire, passez à l'étape suivante.
 +
 La commande s'exécute sur les deux modules de contrôleur.
 
-. Vous avez la possibilité de reconfigurer les ports RoCE non dédiés à des fins de mise en réseau, en effectuant les sous-étapes suivantes.
-+
-Sinon, cette procédure est effectuée.
-
+. Vous avez la possibilité de reconfigurer les ports RoCE non dédiés à des fins de mise en réseau, en effectuant les sous-étapes suivantes. Sinon, cette procédure est effectuée.
 +
 .. Vérifier les noms des ports non dédiés, actuellement configurés pour l'utilisation du stockage : `storage port show`
 +
@@ -135,7 +134,7 @@ Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
 
 +
 
-NOTE: Les ports non dédiés configurés pour l'utilisation du stockage sont affichés dans le résultat suivant : si votre paire haute disponibilité exécute ONTAP 9.8 ou version ultérieure, les ports non dédiés s'affichent `storage` dans le `Mode` colonne. Si votre paire haute disponibilité exécute ONTAP 9.7 ou 9.6, les ports non dédiés qui s'affichent `false` dans le `Is Dedicated?` s'affiche également `enabled` dans le `State` colonne.
+NOTE: Les ports non dédiés configurés pour l'utilisation du stockage s'affichent dans le résultat de la commande comme suit : si votre paire HA exécute ONTAP 9.8 ou une version ultérieure, les ports non dédiés s'affichent `storage` dans la `Mode` colonne. Si votre paire haute disponibilité exécute ONTAP 9.7, les ports non dédiés, qui s'affichent `false` dans la `Is Dedicated?` colonne, s'affichent également `enabled` dans la `State` colonne.
 
 .. Suivez l'ensemble des étapes applicables à la version de ONTAP que votre paire haute disponibilité exécute :
 +
@@ -168,28 +167,6 @@ Vous devez exécuter cette commande pour chaque port que vous reconfigurez.
 ... Passez à la sous-étape 8c pour vérifier toutes les modifications de port.
 
 
-
-
- a| 
-Une version de ONTAP 9.6
- a| 
-... Reconfigurer les ports compatibles RoCE pour une utilisation réseau sur le premier module de contrôleur : `storage port disable -node _node name_ -port _port name_`
-+
-Vous devez exécuter cette commande pour chaque port que vous reconfigurez.
-
-... Redémarrez le module de contrôleur pour que les modifications du port prennent effet :
-+
-`system node reboot -node _node name_ -reason _reason_ for the reboot`
-
-+
-
-NOTE: Le redémarrage doit s'effectuer avant de passer à l'étape suivante. Le redémarrage peut prendre jusqu'à 15 minutes.
-
-... Reconfigurez les ports du deuxième module de contrôleur en répétant la première étape (a).
-... Redémarrez le deuxième contrôleur pour que les modifications de port prennent effet, en répétant la deuxième étape (b).
-... Passez à la sous-étape 8c pour vérifier toutes les modifications de port.
-
-
 |===
 .. Vérifier que les ports non dédiés des deux modules de contrôleur sont reconfigurés pour l'utilisation du réseau : `storage port show`
 +
@@ -199,7 +176,7 @@ Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
 Si votre paire haute disponibilité exécute ONTAP 9.8 ou une version ultérieure, les ports non dédiés s'affichent `network` dans le `Mode` colonne.
 
 +
-Si votre paire haute disponibilité exécute ONTAP 9.7 ou 9.6, les ports non dédiés qui s'affichent `false` dans le `Is Dedicated?` s'affiche également `disabled` dans le `State` colonne.
+Si votre paire haute disponibilité exécute ONTAP 9.7, les ports non dédiés, qui s'affichent `false` dans la `Is Dedicated?` colonne, s'affichent également `disabled` dans la `State` colonne.
 
 
 

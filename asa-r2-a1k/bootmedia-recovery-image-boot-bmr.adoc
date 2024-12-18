@@ -59,9 +59,9 @@ Lorsque netboot est en cours d'exécution, le `Starting BMR` message s'affiche.
 --
 Si aucun chiffrement n'est détecté, le processus de récupération du support de démarrage se poursuit sans nécessiter de gestion des clés.
 
-Continuez à surveiller le processus de restauration lors de la restauration de la configuration de sauvegarde, du fichier env, de la base de données mdb et du rdb à partir du nœud partenaire.
+.. Continuez à surveiller le processus de restauration lors de la restauration de la configuration de sauvegarde, du fichier env, de la base de données mdb et du rdb à partir du nœud partenaire.
+.. Une fois le processus de restauration terminé, le nœud redémarre. Les messages suivants indiquent une récupération réussie :
 
-Une fois le processus de restauration terminé, le nœud redémarre. Les messages suivants indiquent une récupération réussie :
 
 ....
 
@@ -73,6 +73,13 @@ Terminated
 varfs_backup_restore: bootarg.abandon_varfs is set! Skipping /var backup.
 
 ....
+.. Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.
+.. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
+
+
+
 --
 .Gestionnaire de clés intégré Onboard Key Manager (OKM)
 --
@@ -119,6 +126,15 @@ Trying to delete any existing km_onboard.wkeydb file.
 
 Successfully recovered keymanager secrets.
 ....
+.. Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.
+.. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
+
+.. Après le démarrage avec uniquement l'agrégat CFO, exécutez la commande suivante.
++
+`security key-manager onboard sync`
+
 
 
 --
@@ -127,7 +143,7 @@ Successfully recovered keymanager secrets.
 Si EKM est configuré, le système affiche l'invite suivante.
 
 ....
-Error when fetching key manager config from partner <IP>: 28
+Error when fetching key manager config from partner <IP>:
 
 Has key manager been configured on this system? {y|n}
 ....
@@ -149,7 +165,7 @@ Vous serez invité à entrer les paramètres EKM initialement utilisés lors de 
 
 *** Sur le nœud partenaire, récupérez l'UUID de magasin de clés à l'aide des commandes suivantes.
 +
-`vserver show -type admin`
+`vserver show -type admin -fields uuid`
 
 +
 `key-manager keystore show -vserver <nodename>`
@@ -198,16 +214,16 @@ LOADER-B>
 =====
 
 
+.. Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.
+.. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
+
 
 
 --
 ====
 
-
-. Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
-+
-`storage failover giveback -ofnode _impaired_node_name_`.
 
 . Si le retour automatique a été désactivé, réactivez-le :
 +

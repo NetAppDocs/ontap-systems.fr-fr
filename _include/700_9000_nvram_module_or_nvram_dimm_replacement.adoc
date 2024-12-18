@@ -47,7 +47,7 @@ Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du 
 +
 Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
 
-. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify -node local -auto-giveback false`
 +
 
 NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.

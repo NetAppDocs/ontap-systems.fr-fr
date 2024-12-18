@@ -1,0 +1,47 @@
+---
+permalink: c80/chassis-replace-complete-system-restore-rma.html 
+sidebar: sidebar 
+keywords: c80, verify and set HA state, complete the replacement process 
+summary: 'Vous devez vérifier l"état HA du châssis et renvoyer la pièce défectueuse à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.' 
+---
+= Remplacement complet du châssis - AFF C80
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez vérifier l'état HA du châssis et renvoyer la pièce défectueuse à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.
+
+
+
+== Étape 1 : vérifier et définir l'état de haute disponibilité du châssis
+
+Vous devez vérifier l'état HA du châssis et, le cas échéant, mettre à jour l'état pour qu'il corresponde à la configuration de votre système.
+
+. En mode Maintenance, depuis l'un ou l'autre module de contrôleur, afficher l'état HA du module de contrôleur local et du châssis : `ha-config show`
++
+L'état de la HA doit être le même pour tous les composants.
+
+. Si l'état du système affiché pour le châssis ne correspond pas à la configuration de votre système :
++
+.. Définissez l'état haute disponibilité du châssis : `ha-config modify chassis _HA-state_`
++
+La valeur de HA-State peut être l'une des suivantes :
+
++
+*** `ha`
+*** `mcc` (Non pris en charge dans ASA)
+
+
+.. Vérifiez que le paramètre a changé : `ha-config show`
+
+
+. Si vous ne l'avez pas déjà fait, recâble le reste de votre système.
+
+
+
+
+== Étape 2 : renvoyer la pièce défectueuse à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

@@ -1,0 +1,157 @@
+---
+permalink: c80/bootmedia-replace.html 
+sidebar: sidebar 
+keywords: c80, replace the boot media 
+summary: 'Vous trouvez le support d"amorçage défectueux dans le module de contrôleur en retirant la carte de montage 3 du module de contrôleur avant de pouvoir remplacer le support d"amorçage.' 
+---
+= Remplacez le support de démarrage - AFF C80
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez brancher le module de contrôleur, retirer le module de gestion du système à l'arrière du système, retirer le support d'amorçage défectueux et installer le support d'amorçage de remplacement dans le module de gestion du système.
+
+
+
+== Étape 1 : remplacer le support de démarrage
+
+Le support de démarrage se trouve à l'intérieur du module de gestion du système et est accessible en retirant le module du système.
+
+image::../media/drw_a70-90_boot_media_remove_replace_ieops-1367.svg[Remplacement du support de démarrage]
+
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Loquet de came du module de gestion du système
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Bouton de verrouillage du support de démarrage
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Support de démarrage
+
+|===
+. À l'avant du châssis, enfoncez fermement chaque disque jusqu'à ce que vous sentiez un arrêt positif. Cela permet de s'assurer que les disques sont fermement installés contre le fond de panier central du châssis.
++
+image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
+
+. Aller à l'arrière du châssis. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez l'alimentation du module de contrôleur en tirant le module de contrôleur vers l'extérieur d'environ trois pouces :
++
+.. Appuyez sur les deux loquets de verrouillage du module de contrôleur, puis faites pivoter les deux loquets vers le bas en même temps.
+.. Retirez le module de contrôleur d'environ 3 pouces du châssis pour le mettre hors tension.
+.. Retirez tous les câbles connectés au module de gestion du système. Veillez à étiqueter l'emplacement de connexion des câbles afin de pouvoir les connecter aux ports appropriés lorsque vous réinstallez le module.
+.. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
+.. Appuyez sur le bouton de la came de gestion du système. Le levier de came s'éloigne du châssis.
+.. Faites pivoter le levier de came complètement vers le bas et retirez le module de gestion du système du module de contrôleur.
+.. Placez le module de gestion du système sur un tapis antistatique, de manière à ce que le support de démarrage soit accessible.
+
+
+. Retirez le support de démarrage du module de gestion :
++
+.. Appuyez sur le bouton de verrouillage bleu.
+.. Faites pivoter le support de démarrage vers le haut, faites-le glisser hors du support et mettez-le de côté.
+
+
+. Installez le support de démarrage de remplacement dans le module de gestion du système :
++
+.. Alignez les bords du support de coffre avec le logement de la prise, puis poussez-le doucement d'équerre dans le support.
+.. Faites pivoter le support de démarrage vers le bas, vers le bouton de verrouillage.
+.. Appuyez sur le bouton de verrouillage, faites pivoter le support de démarrage complètement vers le bas, puis relâchez le bouton de verrouillage.
+
+
+. Réinstallez le module de gestion du système :
++
+.. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+.. Recâblage du module de gestion du système.
+
+
+
+
+
+
+== Étape 2 : transférez l'image de démarrage sur le support de démarrage
+
+Le support de démarrage de remplacement que vous avez installé est sans image ONTAP. Vous pouvez transférer l'image ONTAP sur le support de démarrage de remplacement en téléchargeant l'image de service ONTAP appropriée du https://mysupport.netapp.com/["Site de support NetApp"] vers une clé USB, puis vers le support de démarrage de remplacement.
+
+.Avant de commencer
+* Vous devez disposer d'une clé USB, formatée en FAT32, avec au moins 4 Go de capacité.
+* Téléchargez une copie de la même version d'image de ONTAP que celle utilisée par le contrôleur défectueux. Vous pouvez télécharger l'image appropriée à partir de la section Téléchargements du site de support NetApp. Utilisez `version -v` la commande pour afficher si votre version de ONTAP prend en charge NVE. Si le résultat de la commande affiche `<10no- DARE>`, votre version de ONTAP ne prend pas en charge NVE.
++
+** Si NVE est pris en charge par votre version de ONTAP, téléchargez l'image avec le chiffrement de volume NetApp, comme indiqué sur le bouton de téléchargement.
+** Si NVE n'est pas pris en charge, téléchargez l'image sans chiffrement de volume NetApp, comme indiqué sur le bouton de téléchargement.
+
+
+* Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau entre les ports de gestion des nœuds des contrôleurs (en général, les interfaces e0M).
+
+
+.Étapes
+. Téléchargez et copiez l'image de service appropriée du https://mysupport.netapp.com/["Site de support NetApp"] sur la clé USB.
++
+.. Téléchargez l'image de service à partir du lien Téléchargements de la page, vers votre espace travail sur votre ordinateur portable.
+.. Décompressez l'image du service.
++
+
+NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas WinZip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
+
++
+Le lecteur flash USB doit avoir l'image ONTAP appropriée de ce que le contrôleur défectueux fonctionne.
+
+.. Retirez la clé USB de votre ordinateur portable.
+
+
+. Insérez la clé USB dans le port USB-A du module de gestion du système.
++
+Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
+
+. Rebranchez l'alimentation au module de contrôleur :
++
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
+.. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
++
+Le contrôleur commence à démarrer dès que l'alimentation est reconnectée au système.
+
+
+
+. Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
++
+Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
+
+. Définissez le type de connexion réseau à l'invite DU CHARGEUR :
++
+** Si vous configurez DHCP : `ifconfig e0M -auto`
++
+
+NOTE: Le port cible que vous configurez est le port cible que vous utilisez pour communiquer avec le contrôleur douteux à partir du contrôleur en bon état pendant la restauration du système de fichiers var avec une connexion réseau. Vous pouvez également utiliser le port e0M dans cette commande.
+
+** Si vous configurez des connexions manuelles : `ifconfig e0M -addr=filer_addr -mask=netmask -gw=gateway`
++
+*** Filer_addr est l'adresse IP du système de stockage.
+*** Le masque de réseau est le masque de réseau du réseau de gestion connecté au partenaire haute disponibilité.
+*** passerelle est la passerelle du réseau.
+
+
+
+
++
+
+NOTE: D'autres paramètres peuvent être nécessaires pour votre interface. Vous pouvez entrer l'aide ifconfig à l'invite du micrologiciel pour plus de détails.
+
+

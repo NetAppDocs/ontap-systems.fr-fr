@@ -1,0 +1,629 @@
+---
+permalink: a20-30-50/controller-replace-move-hardware.html 
+sidebar: sidebar 
+keywords: aff a20, aff a30, aff a50, move the controller module hardware 
+summary: Pour remplacer un module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance. 
+---
+= Remplacer le contrôleur - AFF A20, AFF A30 et AFF A50
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour remplacer le contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU du contrôleur défectueux vers le contrôleur de remplacement, installer le contrôleur de remplacement dans le châssis, définir l'heure et la date, puis récupérer le contrôleur de remplacement.
+
+
+
+== Étape 1 : retirer le contrôleur
+
+Vous devez retirer le contrôleur du châssis lorsque vous remplacez le contrôleur ou un composant à l'intérieur du contrôleur.
+
+.Avant de commencer
+Tous les autres composants du système de stockage doivent fonctionner correctement. Si ce n'est pas le cas, vous devez contacter https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
+.Étapes
+. Sur le contrôleur défectueux, assurez-vous que le voyant NV est éteint.
++
+Lorsque le voyant NV est éteint, la désactivation est terminée et vous pouvez retirer le contrôleur défectueux en toute sécurité.
+
++
+
+NOTE: Si le voyant NV clignote (vert), la désactivation est en cours. Vous devez attendre que le voyant NV s'éteigne. Toutefois, si le clignotement continue pendant plus de cinq minutes, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
++
+Le voyant NV se trouve à côté de l'icône NV sur le contrôleur.
+
++
+image::../media/drw_g_nvmem_led_ieops-1839.svg[Emplacement du voyant d'état NV]
+
+
+
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Icône NV et LED sur le contrôleur
+
+|===
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez l'alimentation du contrôleur défectueux :
++
+
+NOTE: Les blocs d'alimentation ne sont pas équipés d'un interrupteur d'alimentation.
+
++
+[cols="1,2"]
+|===
+| Si vous déconnectez un... | Alors... 
+
+
+ a| 
+ALIMENTATION CA
+ a| 
+.. Ouvrez le dispositif de retenue du cordon d'alimentation.
+.. Débranchez le cordon d'alimentation du bloc d'alimentation et mettez-le de côté.
+
+
+
+
+ a| 
+BLOC D'ALIMENTATION CC
+ a| 
+.. Dévissez les deux vis à serrage à main du connecteur du cordon d'alimentation CC D-SUB.
+.. Débranchez le cordon d'alimentation du bloc d'alimentation et mettez-le de côté.
+
+
+|===
+. Débranchez tous les câbles du contrôleur défectueux.
++
+Garder une trace de l'endroit où les câbles ont été connectés.
+
+. Retirez le contrôleur défectueux :
++
+L'illustration suivante indique le fonctionnement des poignées du contrôleur (du côté gauche du contrôleur) lors du retrait d'un contrôleur :
+
++
+image::../media/drw_g_and_t_handles_remove_ieops-1837.svg[fonctionnement de la poignée du contrôleur pour retirer un contrôleur]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Aux deux extrémités du contrôleur, poussez les languettes de verrouillage verticales vers l'extérieur pour libérer les poignées.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+** Tirez les poignées vers vous pour déloger le contrôleur du fond de panier central.
++
+Lorsque vous tirez, les poignées sortent du contrôleur et vous ressentez une certaine résistance, continuez à tirer.
+
+** Faites glisser le contrôleur hors du châssis tout en soutenant le bas du contrôleur, puis placez-le sur une surface plane et stable.
+
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Si nécessaire, faites pivoter les poignées vers le haut (à côté des languettes) pour les écarter.
+
+|===
+. Ouvrez le capot du contrôleur en tournant la vis à molette dans le sens inverse des aiguilles d'une montre pour la desserrer, puis ouvrez le capot.
+
+
+
+
+== Étape 2 : déplacer le bloc d'alimentation
+
+Déplacez le bloc d'alimentation vers le contrôleur de remplacement.
+
+. Déplacez le bloc d'alimentation du contrôleur défectueux :
++
+Assurez-vous que la poignée gauche du contrôleur est en position verticale pour vous permettre d'accéder au bloc d'alimentation.
+
+
+
+[role="tabbed-block"]
+====
+.Option 1 : déplacez un bloc d'alimentation CA
+--
+Pour déplacer un bloc d'alimentation CA, procédez comme suit.
+
+.Étapes
+. Retirez le bloc d'alimentation CA du contrôleur défectueux :
++
+image::../media/drw_g_t_psu_replace_ieops-1899.svg[Remplacez le bloc d'alimentation CA]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Faites pivoter la poignée du bloc d'alimentation vers le haut, jusqu'à sa position horizontale, puis saisissez-la.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Avec le pouce, appuyez sur la languette bleue pour libérer le bloc d'alimentation du contrôleur.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Tirez le bloc d'alimentation hors du contrôleur tout en prenant votre autre main pour soutenir son poids.
+
+
+CAUTION: Le bloc d'alimentation est court-circuité. Toujours utiliser deux mains pour le soutenir lors de sa dépose du contrôleur afin qu'il ne se libère pas soudainement du contrôleur et ne vous blesse pas.
+
+|===
+. Insérez le bloc d'alimentation dans le contrôleur de remplacement :
++
+.. A deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du contrôleur.
+.. Poussez doucement le bloc d'alimentation dans le contrôleur jusqu'à ce que la languette de verrouillage s'enclenche.
++
+Un bloc d'alimentation ne s'engage correctement qu'avec le connecteur interne et se verrouille dans un sens.
+
++
+
+NOTE: Pour éviter d'endommager le connecteur interne, ne forcez pas trop lorsque vous faites glisser le bloc d'alimentation dans le contrôleur.
+
+.. Faites pivoter la poignée vers le bas pour qu'elle ne fonctionne pas normalement.
+
+
+
+
+--
+.Option 2 : déplacer un bloc d'alimentation CC
+--
+Pour déplacer un bloc d'alimentation CC, procédez comme suit.
+
+.Étapes
+. Retirez le bloc d'alimentation CC du contrôleur défectueux :
++
+.. Faites pivoter la poignée vers le haut, jusqu'à sa position horizontale, puis saisissez-la.
+.. Avec votre pouce, appuyez sur la languette en terre cuite pour libérer le mécanisme de verrouillage.
+.. Tirez le bloc d'alimentation hors du contrôleur tout en prenant votre autre main pour soutenir son poids.
++
+
+NOTE: Le bloc d'alimentation est court-circuité. Soutenez-le toujours à deux mains lors de sa dépose du contrôleur afin qu'il ne se libère pas du contrôleur et ne vous blesse pas.
+
++
+image::../media/drw_dcpsu_remove-replace-generic_IEOPS-788.svg[Retirez un bloc d'alimentation CC]
+
+
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Vis à oreilles
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Connecteur du cordon d'alimentation CC D-SUB
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Poignée de l'alimentation électrique
+
+
+
+ a| 
+image::../media/icon_round_4.png[Numéro de légende 4]
+ a| 
+Languette de verrouillage du bloc d'alimentation en terre cuite
+
+|===
+. Insérez le bloc d'alimentation dans le contrôleur de remplacement :
++
+.. A deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du contrôleur.
+.. Faites doucement glisser le bloc d'alimentation dans le contrôleur jusqu'à ce que la languette de verrouillage s'enclenche.
++
+Un bloc d'alimentation doit s'engager correctement avec le connecteur interne et le mécanisme de verrouillage. Répétez cette étape si vous pensez que le bloc d'alimentation n'est pas correctement installé.
+
++
+
+NOTE: Pour éviter d'endommager le connecteur interne, ne forcez pas trop lorsque vous faites glisser le bloc d'alimentation dans le contrôleur.
+
+.. Faites pivoter la poignée vers le bas pour qu'elle ne fonctionne pas normalement.
+
+
+
+
+--
+====
+
+
+== Étape 3 : déplacer les ventilateurs
+
+Déplacez les ventilateurs vers le contrôleur de remplacement.
+
+. Retirez l'un des ventilateurs du contrôleur défectueux :
++
+image::../media/drw_g_fan_replace_ieops-1903.svg[Remplacement du ventilateur]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+| Maintenez les deux côtés du ventilateur aux points de contact bleus. 
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+| Tirer le ventilateur vers le haut et le sortir de sa prise. 
+|===
+. Insérez le ventilateur dans le contrôleur de remplacement en l'alignant dans les guides, puis poussez-le vers le bas jusqu'à ce que le connecteur du ventilateur soit complètement inséré dans le support.
+. Répétez ces étapes pour les autres ventilateurs.
+
+
+
+
+== Étape 4 : déplacez la batterie NV
+
+Déplacez la batterie NV vers le contrôleur de remplacement.
+
+. Retirez la batterie NV du contrôleur défectueux :
++
+image::../media/drw_g_nv_battery_replace_ieops-1864.svg[Remplacez la pile NV]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Soulevez la batterie NV et retirez-la de son compartiment.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Déposer le faisceau de câblage de son dispositif de retenue.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+.. Enfoncer et maintenir la languette du connecteur.
+.. Tirez le connecteur vers le haut et hors de la prise.
++
+Au fur et à mesure que vous tirez vers le haut, faites légèrement basculer le connecteur d'une extrémité à l'autre (dans le sens de la longueur) pour le déloger.
+
+
+
+|===
+. Installez la batterie NV dans le contrôleur de remplacement :
++
+.. Brancher le connecteur de câblage dans sa prise.
+.. Acheminez le câblage le long du côté de l'alimentation, dans son dispositif de retenue, puis à travers le canal devant le compartiment de la batterie NV.
+.. Placez la batterie NV dans le compartiment.
++
+La batterie NV doit être encastrée dans son compartiment.
+
+
+
+
+
+
+
+== Étape 5 : déplacement des DIMM système
+
+Déplacez les modules DIMM vers le contrôleur de remplacement.
+
+Si vous avez des caches DIMM, vous n'avez pas besoin de les déplacer, le contrôleur de remplacement doit être fourni avec eux installés.
+
+. Retirez l'un des modules DIMM du contrôleur défectueux :
++
+image::../media/drw_g_dimm_ieops-1873.svg[DIMM remplacez]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Numérotation et positions des emplacements DIMM.
+
+
+NOTE: Selon le modèle de votre système de stockage, vous aurez deux ou quatre barrettes DIMM.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 1]
+ a| 
+** Notez l'orientation du module DIMM dans le support de manière à pouvoir insérer le module DIMM dans le contrôleur de remplacement dans le bon sens.
+** Éjectez le module DIMM en écartant lentement les deux pattes d'éjection du module DIMM situées aux deux extrémités du logement DIMM.
+
+
+
+IMPORTANT: Tenez soigneusement le module DIMM par les coins ou les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Soulevez le module DIMM et retirez-le de son logement.
+
+Les languettes de l'éjecteur restent en position ouverte.
+
+|===
+. Installez le module DIMM dans le contrôleur de remplacement :
++
+.. Assurez-vous que les pattes d'éjection du module DIMM sur le connecteur sont en position ouverte.
+.. Tenez le module DIMM par les coins, puis insérez-le correctement dans le logement.
++
+L'encoche située au bas du DIMM, entre les broches, doit être alignée avec la languette dans le logement.
+
++
+Lorsqu'il est correctement inséré, le module DIMM doit être inséré facilement, mais bien inséré dans le logement. Si ce n'est pas le cas, réinsérez le module DIMM.
+
+.. Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
+.. Poussez doucement, mais fermement, sur le bord supérieur du DIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent sur les encoches aux deux extrémités du DIMM.
+
+
+. Répétez ces étapes pour les autres modules DIMM.
+
+
+
+
+== Étape 6 : déplacer le support de démarrage
+
+Déplacez le support de démarrage vers le contrôleur de remplacement.
+
+. Retirez le support de démarrage du contrôleur défectueux :
++
+image::../media/drw_g_boot_media_replace_ieops-1872.svg[Remplacement du support de démarrage]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Emplacement du support de démarrage
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Appuyez sur la languette bleue pour libérer l'extrémité droite du support de démarrage.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Soulevez légèrement l'extrémité droite du support de démarrage pour obtenir une bonne prise sur les côtés du support de démarrage.
+
+
+
+ a| 
+image::../media/icon_round_4.png[Numéro de légende 4]
+ a| 
+Retirez délicatement l'extrémité gauche du support de démarrage de son support.
+
+|===
+. Installez le support de démarrage dans le contrôleur de remplacement :
++
+.. Faites glisser l'extrémité du support de démarrage dans son support.
+.. À l'autre extrémité du support de démarrage, appuyez sur la languette bleue et maintenez-la enfoncée (en position ouverte), appuyez doucement sur cette extrémité du support de démarrage jusqu'à ce qu'elle s'arrête, puis relâchez la languette pour verrouiller le support de démarrage en place.
+
+
+
+
+
+
+== Étape 7 : déplacez les modules d'E/S.
+
+Déplacez les modules d'E/S et les modules d'obturation d'E/S vers le contrôleur de remplacement.
+
+. Débranchez le câblage de l'un des modules d'E/S.
++
+Veillez à étiqueter les câbles de manière à ce que vous sachiez d'où ils viennent.
+
+. Retirez le module d'E/S du contrôleur défectueux :
++
+Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
+
++
+Si vous retirez le module d'E/S dans le logement 4, assurez-vous que la poignée droite du contrôleur est en position verticale pour vous permettre d'accéder au module d'E/S.
+
++
+image::../media/drw_g_io_module_replace_ieops-1900.svg[Retirez le module d'E/S.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Tournez la vis moletée du module d'E/S dans le sens inverse des aiguilles d'une montre pour la desserrer.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Retirez le module d'E/S du contrôleur à l'aide de la languette située à gauche sur l'étiquette du port et de la vis à molette.
+
+|===
+. Installez le module d'E/S dans le contrôleur de remplacement :
++
+.. Alignez le module d'E/S sur les bords du logement.
+.. Poussez doucement le module d'E/S à fond dans le logement, en veillant à ce qu'il soit correctement inséré dans le connecteur.
++
+Vous pouvez utiliser la languette de gauche et la vis moletée pour enfoncer le module d'E/S.
+
+.. Tournez la vis à molette dans le sens des aiguilles d'une montre pour la serrer.
+
+
+. Répétez ces étapes pour déplacer les modules d'E/S restants et tous les modules de suppression d'E/S vers le contrôleur de remplacement.
+
+
+
+
+== Étape 8 : installez le contrôleur
+
+Réinstallez le contrôleur dans le châssis et redémarrez-le.
+
+.Description de la tâche
+L'illustration suivante montre le fonctionnement des poignées du contrôleur (à partir du côté gauche d'un contrôleur) lors de la réinstallation du contrôleur et peut être utilisée comme référence pour le reste des étapes de réinstallation du contrôleur.
+
+image::../media/drw_g_and_t_handles_reinstall_ieops-1838.svg[fonctionnement de la poignée du contrôleur pour installer un contrôleur]
+
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Si vous avez fait pivoter les poignées du contrôleur vers le haut (à côté des languettes) pour les écarter pendant que vous effectuez l'entretien du contrôleur, faites-les pivoter vers le bas en position horizontale.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Poussez les poignées pour réinsérer le contrôleur dans le châssis à mi-course, puis, lorsque vous y êtes invité, appuyez sur jusqu'à ce que le contrôleur soit complètement en place.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Faites pivoter les poignées en position verticale et verrouillez-les en place à l'aide des languettes de verrouillage.
+
+|===
+.Étapes
+. Fermez le capot du contrôleur et tournez la vis dans le sens des aiguilles d'une montre jusqu'à ce qu'elle soit serrée.
+. Insérez le contrôleur à mi-chemin dans le châssis.
++
+Alignez l'arrière du contrôleur avec l'ouverture du châssis, puis appuyez doucement sur le contrôleur à l'aide des poignées.
+
++
+
+NOTE: N'insérez pas complètement le contrôleur dans le châssis avant d'y être invité.
+
+. Connectez le câble de la console au port console du contrôleur et à l'ordinateur portable de manière à ce que l'ordinateur portable reçoive les messages de la console lorsque le contrôleur redémarre.
+. Placez entièrement le contrôleur dans le châssis :
++
+.. Appuyez fermement sur les poignées jusqu'à ce que le contrôleur rencontre le fond de panier central et soit bien en place.
++
+
+NOTE: Ne forcez pas lorsque vous faites glisser le contrôleur dans le châssis ; vous risqueriez d'endommager les connecteurs.
+
+.. Faites pivoter les poignées du contrôleur vers le haut et verrouillez-les en place à l'aide des languettes.
++
+
+NOTE: Le contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+
+
+. Amener le contrôleur à l'invite Loader en appuyant sur CTRL-C pour annuler l'AUTOBOOT.
+. Régler l'heure et la date sur le contrôleur :
++
+Assurez-vous d'être à l'invite Loader du contrôleur.
+
++
+.. Afficher la date et l'heure sur le contrôleur :
++
+`show date`
+
++
+
+NOTE: L'heure et la date par défaut sont en GMT. Vous avez la possibilité d'afficher en heure locale et en mode 24 heures.
+
+.. Définir l'heure actuelle en GMT :
++
+`set time hh:mm:ss`
+
++
+Vous pouvez obtenir le GMT actuel à partir du nœud sain :
+
++
+`date -u`
+
+.. Définir la date actuelle au format GMT :
++
+`set date mm/dd/yyyy`
+
++
+Vous pouvez obtenir le GMT actuel à partir du nœud sain : +
+`date -u`
+
+
+
+. Recâblage du contrôleur selon les besoins.
+. Rebranchez le cordon d'alimentation au bloc d'alimentation.
++
+Une fois l'alimentation rétablie, le voyant d'état doit être vert.
+
++
+[cols="1,2"]
+|===
+| Si vous reconnectez un... | Alors... 
+
+
+ a| 
+ALIMENTATION CA
+ a| 
+.. Branchez le cordon d'alimentation au bloc d'alimentation.
+.. Fixez le cordon d'alimentation à l'aide du dispositif de retenue du cordon d'alimentation.
+
+
+
+
+ a| 
+BLOC D'ALIMENTATION CC
+ a| 
+.. Branchez le connecteur du cordon d'alimentation CC D-SUB sur le bloc d'alimentation.
+.. Serrez les deux vis à oreilles pour fixer le connecteur du cordon d'alimentation CC D-SUB au bloc d'alimentation.
+
+
+|===
+

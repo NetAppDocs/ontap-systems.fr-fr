@@ -1,0 +1,134 @@
+---
+permalink: c30-60/install-prepare.html 
+sidebar: sidebar 
+keywords: aff c30, aff c60, prepare installation 
+summary: 'Préparez l"installation de votre plateforme AFF C30 et AFF C60.' 
+---
+= Préparation de l'installation - AFF C30 et AFF C60
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Préparez l'installation de votre système de stockage AFF C30 ou AFF C60 en préparant le site, en déballez les boîtes et en comparant le contenu des boîtes au bordereau d'expédition, et en enregistrant le système de stockage pour accéder aux avantages de l'assistance.
+
+
+
+== Étape 1 : préparer le site
+
+Pour installer votre système de stockage, assurez-vous que le site et l'armoire ou le rack que vous prévoyez d'utiliser sont conformes aux spécifications de votre configuration.
+
+.Étapes
+. Utilisez https://hwu.netapp.com["NetApp Hardware Universe"^] pour vérifier que votre site répond aux exigences environnementales et électriques de votre système de stockage.
+. Assurez-vous de disposer d'une armoire ou d'un espace rack adapté à votre système de stockage, à vos tiroirs et aux commutateurs :
++
+** 2U pour un système de stockage
+** 2U pour chaque tiroir de stockage NS224
+** 1U pour la plupart des commutateurs
+
+
+
+
+. Installez les commutateurs réseau requis.
++
+Reportez-vous https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentation du commutateur"^] au pour obtenir des instructions d'installation et link:https://hwu.netapp.com["NetApp Hardware Universe"^] des informations sur la compatibilité.
+
+
+
+
+
+== Étape 2 : déballez les boîtes
+
+Après avoir vérifié que le site et l'armoire ou le rack que vous prévoyez d'utiliser pour votre système de stockage sont conformes aux spécifications requises, déballez toutes les boîtes et comparez le contenu aux éléments du bordereau d'expédition.
+
+.Étapes
+. Ouvrez soigneusement toutes les boîtes et disposez le contenu de manière organisée.
+. Comparez le contenu que vous avez déballé avec la liste sur le bordereau d'expédition.
++
+
+NOTE: Vous pouvez obtenir votre liste d'emballage en scannant le code QR sur le côté du carton d'expédition.
+
++
+Les éléments suivants sont quelques-uns des contenus que vous pouvez voir dans les boîtes.
+
++
+Assurez-vous que tous les éléments contenus dans les boîtes correspondent à la liste figurant sur le bordereau d'expédition. En cas d'écarts, notez-les pour prendre des mesures supplémentaires.
+
++
+[cols="12,9,4"]
+|===
+
+
+| *Matériel* | *Câbles* |  
+
+
+ a| 
+** Panneau
+** Adieu les migrations de données onéreuses
+** Kits de rails avec instructions (en option)
+** Tiroir de stockage (si vous avez commandé du stockage supplémentaire)
+
+ a| 
+** Câbles Ethernet de gestion (câbles RJ-45)
+** Câbles réseau
+** Cordons d'alimentation
+** Câbles de stockage (si vous avez commandé un espace de stockage supplémentaire)
+** Câble de console série USB-C.
+
+|  
+|===
+
+
+
+
+== Étape 3 : enregistrez votre système de stockage
+
+Après avoir vérifié que votre site répond aux spécifications de votre système de stockage et après avoir vérifié que vous disposez de toutes les pièces commandées, vous devez enregistrer votre système de stockage.
+
+.Étapes
+. Recherchez les numéros de série du système (SSN) pour chaque contrôleur installé. Les numéros de série sont indiqués aux emplacements suivants :
+. Les numéros de série sont indiqués aux emplacements suivants :
++
+** Sur le bordereau d'expédition
+** Dans votre e-mail de confirmation
+** Sur chaque contrôleur
++
+image::../media/drw_ssn_label.svg[Exemple de numéro de série du système indiquant l'emplacement du numéro]
+
+
+
+. Accédez à la http://mysupport.netapp.com/["Site de support NetApp"^].
+. Déterminez si vous devez enregistrer votre système de stockage :
++
+[cols="1a,2a"]
+|===
+| Si vous êtes... | Suivez ces étapes... 
+
+
+ a| 
+Client NetApp existant
+ a| 
+.. Connectez-vous à l'aide de votre nom d'utilisateur et de votre mot de passe.
+.. Sélectionnez *systèmes* > *Mes systèmes*.
+.. Vérifiez que les nouveaux numéros de série sont répertoriés.
+.. Si ce n'est pas le cas, suivez les instructions destinées aux nouveaux clients NetApp.
+
+
+
+
+ a| 
+Nouveau client NetApp
+ a| 
+.. Cliquez sur *s'inscrire maintenant* et créez un compte.
+.. Sélectionnez *systèmes* > *Enregistrer systèmes*.
+.. Entrez les numéros de série du système de stockage et les détails demandés.
+
+
+Une fois votre inscription approuvée, vous pouvez télécharger tout logiciel requis. La procédure d'approbation peut prendre jusqu'à 24 heures.
+
+|===
+
+
+.Et la suite ?
+Une fois que vous avez préparé l'installation de votre système de stockage, vous link:install-hardware.html["installez le matériel de votre système de stockage"].

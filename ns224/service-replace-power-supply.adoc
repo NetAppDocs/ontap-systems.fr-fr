@@ -19,7 +19,7 @@ Vous pouvez remplacer un bloc d'alimentation défaillant dans un tiroir disque N
 Toujours remplacer comme pour similaire.
 
 * Si vous remplacez plusieurs alimentations, vous devez le faire une par une afin que le tiroir reste alimenté.
-* *Meilleure pratique :* la meilleure pratique consiste à remplacer l'alimentation électrique dans les deux minutes suivant le retrait du module NSM.
+* *Meilleure pratique :* la meilleure pratique consiste à remplacer l'alimentation électrique dans les deux minutes suivant le retrait du NSM.
 +
 Si vous dépassez les deux minutes, le tiroir continue de fonctionner, mais ONTAP envoie des messages à la console concernant l'alimentation endommagée jusqu'à ce que l'alimentation soit remplacée.
 
@@ -29,12 +29,20 @@ Si vous dépassez les deux minutes, le tiroir continue de fonctionner, mais ONTA
 Si vous ne connaissez pas le `shelf_name` sur la tablette concernée, exécutez la `storage shelf show` commande.
 
 +
-Une étagère comporte trois LED d'emplacement : une sur le panneau d'affichage de l'opérateur et une sur chaque module NSM. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l'option Désactivé.
+Un tiroir est doté de trois voyants d'emplacement : un sur le panneau de commande et un sur chaque NSM. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l'option Désactivé.
 
 * Lorsque vous déballez le bloc d'alimentation de remplacement, conservez tous les matériaux d'emballage pour l'utiliser lorsque vous renvoyez le bloc d'alimentation défectueux.
 +
 Si vous avez besoin du numéro d'autorisation de renvoi de matériel ou d'une aide supplémentaire pour effectuer la procédure de remplacement, contactez le support technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"^], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique).
 
+* Si vous remplacez un bloc d'alimentation CA d'un tiroir NS224 par des modules NSM100, vous pouvez regarder l'animation suivante pour vous familiariser avec la procédure avant de commencer.
++
+.Remplacez l'alimentation CA du NS224 par des modules NSM100
+[%collapsible]
+====
+.Remplacez un bloc d'alimentation à chaud dans un tiroir NS224
+video::5794da63-99aa-425a-825f-aa86002f154d[panopto]
+====
 
 
 Suivez la procédure appropriée pour votre type de bloc d'alimentation : CA ou CC.
@@ -43,10 +51,8 @@ Suivez la procédure appropriée pour votre type de bloc d'alimentation : CA ou 
 ====
 .Option 1 : remplacez un bloc d'alimentation CA
 --
-Pour remplacer un bloc d'alimentation CA, vous pouvez regarder l'animation ou suivre les étapes suivantes.
+Procédez comme suit pour remplacer un bloc d'alimentation CA.
 
-.Remplacez un bloc d'alimentation à chaud dans un tiroir NS224
-video::5794da63-99aa-425a-825f-aa86002f154d[panopto]
 .Étapes
 . Mettez-vous à la terre.
 . Identifier physiquement l'alimentation défectueuse.
@@ -59,15 +65,37 @@ Les blocs d'alimentation n'ont pas de commutateur d'alimentation.
 
 . Retirer l'alimentation électrique :
 +
-.. Faites pivoter la poignée vers le haut, jusqu'à sa position horizontale, puis saisissez-la.
-.. Avec votre pouce, appuyez sur la languette bleue pour libérer le mécanisme de verrouillage.
-.. Tirez l'alimentation hors du module NSM tout en l'utilisant pour soutenir son poids.
+image::../media/drw_t_psu_ac_replace_ieops-2035.svg[Retirez un bloc d'alimentation CA]
+
++
+[cols="1,3"]
+|===
 
 
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Faites pivoter la poignée vers le haut, jusqu'à sa position horizontale, puis saisissez-la.
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Avec votre pouce, appuyez sur la languette bleue pour libérer le mécanisme de verrouillage.
+
+
+
+ a| 
+image:../media/icon_round_3.png["Numéro de légende 3"]
+ a| 
+Retirez le bloc d'alimentation du NSM tout en utilisant votre autre main pour soutenir son poids.
+
+|===
 . Insérer l'alimentation de remplacement :
 +
-.. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module NSM.
-.. Poussez doucement le bloc d'alimentation dans le module NSM jusqu'à ce que le mécanisme de verrouillage s'enclenche.
+.. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du NSM.
+.. Poussez doucement le bloc d'alimentation dans le NSM jusqu'à ce que le mécanisme de verrouillage s'enclenche.
 +
 
 NOTE: N'utilisez pas de force excessive et vous risquez d'endommager le connecteur interne.
@@ -103,11 +131,11 @@ L'illustration et le tableau de l'étape 4 montrent les deux vis à serrage à m
 . Retirer l'alimentation électrique :
 +
 .. Faites pivoter la poignée vers le haut, jusqu'à sa position horizontale, puis saisissez-la.
-.. Avec votre pouce, appuyez sur la languette bleue pour libérer le mécanisme de verrouillage.
-.. Tirez l'alimentation hors du module NSM tout en l'utilisant pour soutenir son poids.
+.. Avec le pouce, appuyez sur la languette en terre cuite pour libérer le mécanisme de verrouillage.
+.. Retirez le bloc d'alimentation du NSM tout en utilisant votre autre main pour soutenir son poids.
 +
 
-NOTE: L'alimentation est en court-circuit. Utilisez toujours deux mains pour le soutenir lors de son retrait du module NSM afin qu'il ne se libère pas du module NSM et ne vous blesse pas.
+NOTE: L'alimentation est en court-circuit. Utilisez toujours deux mains pour le soutenir lors de son retrait du NSM afin qu'il ne se libère pas du NSM et ne vous blesse pas.
 
 +
 image::../media/drw_dcpsu_remove-replace-generic_IEOPS-788.svg[Retirez un bloc d'alimentation CC]
@@ -141,15 +169,15 @@ Poignée de l'alimentation électrique
  a| 
 image:../media/icon_round_4.png["Numéro de légende 4"]
  a| 
-Languette bleue de verrouillage du bloc d'alimentation
+Languette de verrouillage d'alimentation bleue/Terra cotta
 
 |===
 
 
 . Insérer l'alimentation de remplacement :
 +
-.. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module NSM.
-.. Poussez doucement le bloc d'alimentation dans le module NSM jusqu'à ce que le mécanisme de verrouillage s'enclenche.
+.. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du NSM.
+.. Poussez doucement le bloc d'alimentation dans le NSM jusqu'à ce que le mécanisme de verrouillage s'enclenche.
 +
 Une alimentation électrique doit s'engager correctement avec le connecteur interne et le mécanisme de verrouillage. Répétez cette étape si vous pensez que le bloc d'alimentation n'est pas correctement installé.
 

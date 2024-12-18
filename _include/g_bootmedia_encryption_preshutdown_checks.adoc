@@ -1,0 +1,13 @@
+= Vérifiez NVE ou NSE sur les systèmes
+:allow-uri-read: 
+
+
+Avant d'arrêter le contrôleur douteux et de vérifier le statut des clés de cryptage intégrées, vous devez vérifier le statut de ce contrôleur, désactiver le giveback automatique et vérifier la version de ONTAP en cours d'exécution.
+
+Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
+
+
+
+== Vérifiez NVE ou NSE sur les systèmes
+
+Directive non résolue dans <stdin> - include:../_include/encryption_check_915_later.adoc[]
