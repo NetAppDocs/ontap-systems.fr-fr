@@ -47,7 +47,7 @@ L'écran affiche le message suivant :
 +
 `Starting boot media recovery (BMR) process. Press Ctrl-C to abort…`
 
-. Surveillez le processus de récupération des supports de démarrage pendant que Loader configure les ports de cluster locaux et s'exécute `netboot` à partir du nœud partenaire.
+. Surveillez le processus de récupération du support de démarrage pendant que Loader configure les ports locaux et s'exécute `netboot` à partir du nœud partenaire.
 +
 Lorsque netboot est en cours d'exécution, le `Starting BMR` message s'affiche.
 
@@ -129,9 +129,9 @@ Successfully recovered keymanager secrets.
 .. Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.
 .. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
 +
-`storage failover giveback -ofnode _impaired_node_name_`.
+`storage failover giveback -ofnode _impaired_node_name_`
 
-.. Après le démarrage avec uniquement l'agrégat CFO, exécutez la commande suivante.
+.. Une fois le nœud partenaire entièrement prêt à gérer les données, synchronisez les clés OKM sur l'ensemble du cluster.
 +
 `security key-manager onboard sync`
 

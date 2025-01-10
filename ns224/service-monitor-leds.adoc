@@ -147,72 +147,6 @@ Ambre
 Port/liaison NVMe : attention
 
 |===
---
-.Modules NSM100B
---
-image::../media/drw_ns224_nsmb_leds_ieops-2004.svg[Voyants du module NSM100B NS224]
-
-[cols="1,1,2,4"]
-|===
-| Appel sortant | Icône LED | Couleur | Description 
-
-
- a| 
-image:../media/icon_round_1.png["Légende numéro 1"]
- a| 
-NK
- a| 
-Vert
- a| 
-Port/liaison NVMe : état
-
-
-
- a| 
-image:../media/icon_round_2.png["Légende numéro 2"]
- a| 
-image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
- a| 
-Ambre
- a| 
-Port/liaison NVMe : attention
-
-
-
- a| 
-image:../media/icon_round_3.png["Numéro de légende 3"]
- a| 
-image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
- a| 
-Ambre
- a| 
-Module d'E/S : état
-
-
-
- a| 
-image:../media/icon_round_4.png["Numéro de légende 4"]
- a| 
-image::../media/drw_sas3_location_icon.svg[Voyant d'emplacement du panneau d'affichage de l'opérateur]
- a| 
-Bleu
- a| 
-NSM : emplacement
-
-
-
- a| 
-image:../media/icon_round_5.png["Numéro de légende 5"]
- a| 
-image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
- a| 
-Ambre
- a| 
-NSM : attention
-
-|===
---
-====
 [cols="2,1,1,1"]
 |===
 | État | Attention NSM (orange) | Port LNK (vert) | Port attention (orange) 
@@ -294,6 +228,180 @@ Quel que soit l'état
 Quel que soit l'état
 
 |===
+--
+.Modules NSM100B
+--
+image::../media/drw_ns224_nsmb_leds_ieops-2004.svg[Voyants du module NSM100B NS224]
+
+[cols="1,1,2,4"]
+|===
+| Appel sortant | Icône LED | Couleur | Description 
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+NK
+ a| 
+Vert
+ a| 
+Port/liaison NVMe : état
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
+ a| 
+Ambre
+ a| 
+Port/liaison NVMe : attention
+
+
+
+ a| 
+image:../media/icon_round_3.png["Numéro de légende 3"]
+ a| 
+image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
+ a| 
+Ambre
+ a| 
+Module d'E/S : attention
+
+
+
+ a| 
+image:../media/icon_round_4.png["Numéro de légende 4"]
+ a| 
+image::../media/drw_sas3_location_icon.svg[Voyant d'emplacement du panneau d'affichage de l'opérateur]
+ a| 
+Bleu
+ a| 
+NSM : emplacement
+
+
+
+ a| 
+image:../media/icon_round_5.png["Numéro de légende 5"]
+ a| 
+image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
+ a| 
+Ambre
+ a| 
+NSM : attention
+
+|===
+[cols="2,1,1,1,1"]
+|===
+| État | Attention NSM (orange) | Port LNK (vert) | Port attention (orange) | Module d'E/S attention 
+
+
+ a| 
+NSM normal
+ a| 
+Éteint
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+ a| 
+Éteint
+
+
+
+ a| 
+Défaut NSM
+ a| 
+Marche
+ a| 
+Quel que soit l'état
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+
+
+
+ a| 
+Erreur VPD NSM
+ a| 
+Marche
+ a| 
+Quel que soit l'état
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+
+
+
+ a| 
+Aucune connexion au port hôte
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+ a| 
+Éteint
+ a| 
+Éteint
+
+
+
+ a| 
+Liaison de connexion du port hôte active
+ a| 
+Quel que soit l'état
+ a| 
+Allumé/clignote en cas d'activité
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+
+
+
+ a| 
+Connexion du port hôte avec défaillance
+ a| 
+Marche
+ a| 
+Marche/arrêt si toutes les voies sont défectueuses
+ a| 
+Marche
+ a| 
+Éteint
+
+
+
+ a| 
+Démarrage du BIOS à partir de l'image du BIOS après la mise sous tension
+ a| 
+Clignote
+ a| 
+Quel que soit l'état
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+
+
+
+ a| 
+Le module d'E/S est manquant
+ a| 
+Marche
+ a| 
+S/O
+ a| 
+S/O
+ a| 
+Marche
+
+|===
+--
+====
 
 
 == LED d'alimentation électrique

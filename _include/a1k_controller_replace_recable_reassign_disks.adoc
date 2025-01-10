@@ -40,8 +40,6 @@ NOTE: Vous serez invité à saisir deux fois la phrase de passe.
 . Dans le menu de démarrage, entrez option `1` pour le démarrage normal.
 . Appuyez sur <enter> lorsque _waiting for giveback_ s'affiche.
 . Déplacez le câble de la console vers le nœud partenaire et connectez-vous en tant que `admin`.
-. Assurez-vous que tous les « core dumps » sur le nœud réparé sont enregistrés en allant en mode avancé », puis `run local partner savecore` en `set -privilege advanced` .
-. Revenir au levier admin: `set privilege admin`.
 . Ne donner que les agrégats CFO (l'agrégat racine) : `storage failover giveback -fromnode local -only-cfo-aggregates true`
 +
 ** Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
