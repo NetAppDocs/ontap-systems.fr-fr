@@ -20,7 +20,7 @@ Une fois que vous avez installé le matériel rack du système de stockage AFF A
 Chaque tiroir se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage.
 
 .Description de la tâche
-* Remarque : pour être valides, les ID de tiroir externe doivent être compris entre 01 et 99.
+* Remarque : pour être valides, les ID de tiroir sont compris entre 01 et 99.
 +
 Si vous disposez de tiroirs internes (de stockage) intégrés aux contrôleurs, l'ID de tiroir fixe est 00.
 
@@ -71,10 +71,6 @@ Bouton de l'ID de tiroir
 . Modifier le premier numéro de l'ID de tiroir :
 +
 .. Insérez l'extrémité droite d'un trombone ou d'un stylo à pointe sphérique à pointe étroite dans le petit trou pour appuyer sur le bouton d'identification de la tablette.
-+
-
-NOTE: Sur les étagères de la série DS, le bouton d'ID de tablette est accessible directement au bas de l'oreille de tablette.
-
 .. Appuyez sur le bouton d'ID du tiroir et maintenez-le enfoncé jusqu'à ce que le premier chiffre de l'écran numérique clignote, puis relâchez le bouton.
 +
 Un chiffre peut clignoter pendant 15 secondes. Cela active le mode de programmation de l'ID de tiroir.
@@ -101,7 +97,7 @@ Il peut prendre jusqu'à trois secondes pour que le chiffre clignote.
 +
 Le premier chiffre de l'écran numérique cesse de clignoter.
 
-.. Appuyez sur le bouton d'ID du tiroir et relâchez-le pour avancer le chiffre jusqu'à atteindre le chiffre souhaité de 0 à 9, ou de 1 à 9 si le système est équipé d'un système de stockage intégré.
+.. Appuyez sur le bouton d'ID du tiroir et relâchez-le pour avancer le chiffre jusqu'à ce que vous atteigniez le chiffre souhaité de 0 à 9.
 +
 Le second chiffre continue de clignoter.
 
@@ -131,7 +127,7 @@ Une alimentation est mise sous tension dès que le cordon d'alimentation est bra
 
 == Étape 2 : mettez les contrôleurs sous tension
 
-Une fois que vous avez allumé vos tiroirs de stockage et attribué des ID uniques, mettez les contrôleurs de stockage sous tension.
+Une fois que vous avez mis vos tiroirs sous tension et attribué des ID uniques, mettez les contrôleurs de stockage sous tension.
 
 .Étapes
 . Connectez votre ordinateur portable au port série console. Cela vous permettra de surveiller la séquence d'amorçage lorsque les contrôleurs sont sous tension.
@@ -141,25 +137,25 @@ Une fois que vous avez allumé vos tiroirs de stockage et attribué des ID uniqu
 
 NOTE: Consultez l'aide en ligne de votre ordinateur portable pour obtenir des instructions sur la configuration du port série console.
 
-.. Connectez le câble de la console à l'ordinateur portable et le port série console du contrôleur à l'aide du câble de console fourni avec le système de stockage.
+.. À l'aide du câble de console fourni avec votre système de stockage, connectez une extrémité du câble de console à votre ordinateur portable et l'autre extrémité au port série console du contrôleur A.
 .. Connectez l'ordinateur portable au commutateur du sous-réseau de gestion.
 +
 image::../media/drw_a1k_70-90_console_connection_ieops-1702.svg[Connexions de la console]
 
-.. Attribuez une adresse TCP/IP à l'ordinateur portable, en utilisant une adresse située sur le sous-réseau de gestion.
 
 
+. Attribuez une adresse TCP/IP à l'ordinateur portable, en utilisant une adresse située sur le sous-réseau de gestion.
 . Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
 +
-image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Schéma générique de connexion de l'alimentation]
+image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Schéma de connexion du système de stockage A1K et de l'alimentation A70 ou A90]
 
 +
-** Le système de stockage commence à démarrer. Le démarrage initial peut prendre jusqu'à huit minutes.
+** Le système commence à démarrer. Le démarrage initial peut prendre jusqu'à huit minutes.
 ** Les LED clignotent et les ventilateurs démarrent, ce qui indique que les contrôleurs sont sous tension.
 ** Les ventilateurs sont peut-être très bruyants lors du premier démarrage. Le bruit du ventilateur au démarrage est normal.
 
 
-. Fixez les câbles d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation.
+. Fixez les cordons d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation.
 
 
 .Et la suite ?

@@ -21,14 +21,13 @@ Pour installer votre système de stockage, assurez-vous que le site et l'armoire
 
 .Étapes
 . Utilisez https://hwu.netapp.com["NetApp Hardware Universe"^] pour vérifier que votre site répond aux exigences environnementales et électriques de votre système de stockage.
-. Assurez-vous de disposer d'un espace de rack adéquat :
+. Assurez-vous de disposer d'une armoire ou d'un espace rack adapté à votre système de stockage, à vos tiroirs et aux commutateurs :
 +
-** 4U en configuration HA pour le système de stockage
+** 4U en configuration HA
 ** 2U pour chaque tiroir de stockage NS224
 
 
-+
-*REMARQUE :* reportez-vous link:https://hwu.netapp.com["NetApp Hardware Universe"^] à la section  pour connaître les exigences en matière d'espace rack pour les autres tiroirs de stockage pris en charge.
+
 
 . Installez les commutateurs réseau requis.
 +
@@ -68,14 +67,14 @@ Assurez-vous que tous les éléments contenus dans les boîtes correspondent à 
 ** Dispositif de gestion des câbles
 ** Adieu les migrations de données onéreuses
 ** Kits de rails avec instructions (en option)
-** Tiroir de stockage
+** Tiroir de stockage (si vous avez commandé du stockage supplémentaire)
 
  a| 
 ** Câbles Ethernet de gestion (câbles RJ-45)
 ** Câbles réseau
 ** Cordons d'alimentation
 ** Câbles de stockage (si vous avez commandé un espace de stockage supplémentaire)
-** Câble du port série USB-C.
+** Câble de console série USB-C.
 
 |  
 |===
@@ -85,15 +84,19 @@ Assurez-vous que tous les éléments contenus dans les boîtes correspondent à 
 
 == Étape 3 : enregistrez votre système de stockage
 
-Après avoir vérifié que votre site répond aux spécifications de votre système de stockage et après avoir vérifié que vous disposez de toutes les pièces commandées, vous devez enregistrer votre système.
+Après avoir vérifié que votre site répond aux spécifications de votre système de stockage et après avoir vérifié que vous disposez de toutes les pièces commandées, vous devez enregistrer votre système de stockage.
 
 .Étapes
-. Recherchez le numéro de série de votre système de stockage.
+. Recherchez les numéros de série du système (SSN) pour chaque contrôleur installé. Les numéros de série sont indiqués aux emplacements suivants :
+. Les numéros de série sont indiqués aux emplacements suivants :
 +
-Vous trouverez le numéro sur le bordereau d'expédition, dans votre e-mail de confirmation ou sur le module de gestion du système du contrôleur après le déballage.
+** Sur le bordereau d'expédition
+** Dans votre e-mail de confirmation
+** Sur le module de gestion du système de chaque contrôleur
+
 
 +
-image::../media/drw_ssn_label.svg[Exemple de numéro de série du système]
+image::../media/drw_ssn_label.svg[Exemple de numéro de série du système indiquant l'emplacement du numéro]
 
 . Accédez à la http://mysupport.netapp.com/["Site de support NetApp"^].
 . Déterminez si vous devez enregistrer votre système de stockage :
@@ -108,7 +111,7 @@ Client NetApp existant
  a| 
 .. Connectez-vous à l'aide de votre nom d'utilisateur et de votre mot de passe.
 .. Sélectionnez *systèmes* > *Mes systèmes*.
-.. Vérifiez que le nouveau numéro de série est répertorié.
+.. Vérifiez que les nouveaux numéros de série sont répertoriés.
 .. Si ce n'est pas le cas, suivez les instructions destinées aux nouveaux clients NetApp.
 
 
@@ -119,7 +122,7 @@ Nouveau client NetApp
  a| 
 .. Cliquez sur *s'inscrire maintenant* et créez un compte.
 .. Sélectionnez *systèmes* > *Enregistrer systèmes*.
-.. Entrez le numéro de série du système de stockage et les détails demandés.
+.. Entrez les numéros de série du système de stockage et les détails demandés.
 
 
 Une fois votre inscription approuvée, vous pouvez télécharger tout logiciel requis. La procédure d'approbation peut prendre jusqu'à 24 heures.

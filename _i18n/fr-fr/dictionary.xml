@@ -8307,7 +8307,6 @@ SFP+ (cible/initiateur)</block>
   <block id="29b62d617481485649ea2d5b54fca512" category="image-alt">Câble haute disponibilité du cluster</block>
   <block id="8c1f3262727530ad8d4652a5b107e167" category="paragraph">*Câbles d'interconnexion cluster/haute disponibilité*</block>
   <block id="e5878ec206640d3f0489cbe562e56856" category="paragraph">Voici quelques exemples types de câblage réseau hôte. Reportez-vous à la section <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> pour connaître la configuration spécifique de votre système.</block>
-  <block id="4f223663358c0dcb4aac038f73fdf58d" category="admonition">Pour optimiser les performances du système pour le trafic de cluster et haute disponibilité, il est recommandé de ne pas utiliser les ports e1b et e7b pour les connexions réseau hôte. Utilisez une carte hôte séparée pour optimiser les performances.</block>
   <block id="d2163ed76fe91108f8a1e58f08924448" category="paragraph">*Câble 100 GbE*</block>
   <block id="dca4917cf460ca0094ae46e8d7178c17" category="image-alt">Câble Ethernet 100 Gb</block>
   <block id="63498c78e69ef7b5cc7cd5a1c0c3b724" category="image-alt">Câble vers un réseau Ethernet 100 Gb</block>
@@ -8389,16 +8388,12 @@ SFP+ (cible/initiateur)</block>
   <block id="dc4cb3e8c6b9abe025aa10b2d8d4b6f5" category="list-text">Connectez l'ordinateur portable au commutateur du sous-réseau de gestion.</block>
   <block id="5dc15886a7be0b02974c471249fd2702" category="image-alt">Connexions de la console</block>
   <block id="9e7e8b48adc159107d0baf9021253c61" category="list-text">Attribuez une adresse TCP/IP à l'ordinateur portable, en utilisant une adresse située sur le sous-réseau de gestion.</block>
-  <block id="d4b97f0234af8d33d5ad6190a7930ff4" category="image-alt">Schéma générique de connexion de l'alimentation</block>
   <block id="71abffb89587fc128eb09ec9ef2dd7e1" category="list-text">Les LED clignotent et les ventilateurs démarrent, ce qui indique que les contrôleurs sont sous tension.</block>
-  <block id="671754b07475807f952083aca6f98a97" category="list-text">Fixez les câbles d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation.</block>
   <block id="b20f6daaff695ed207299929a85ec2f0" category="summary">Préparez l'installation de votre plate-forme AFF A1K.</block>
   <block id="32271edc7814b81370e65a0b9ea22010" category="list-text">Ordinateur portable ou console avec connexion USB/série</block>
   <block id="5c454c254f4e346b0d54dac30e743b57" category="list-text">Accès à un navigateur Web pour configurer votre système de stockage</block>
   <block id="00db13616a21c862d199d7fae938549d" category="image-alt">AFF A1K icône d'avertissement de levage</block>
-  <block id="c55a46464ae8350cc2bff0a097df93e1" category="image-alt">Avertissement de levage NS224</block>
   <block id="92c8397408f55d9526d554c55cde3d22" category="section-title">Étape 1 : préparer le site</block>
-  <block id="0b75c01928f08a952353b4ed76796fb5" category="list-text">Assurez-vous de disposer d'un espace de rack adéquat :</block>
   <block id="588fcd6ecf982925ddac393983abe360" category="list-text">4U en configuration HA pour la plateforme</block>
   <block id="11b5963f8c4ca653ab5f43bc4b9828df" category="inline-link">Documentation du commutateur</block>
   <block id="6630a85163683d2127a4b50c91d77093" category="section-title">Étape 2 : déballez les boîtes</block>
@@ -8415,8 +8410,6 @@ SFP+ (cible/initiateur)</block>
   <block id="7ceeb9e2de47574891152d45e033aea1" category="list-text">Cordons d'alimentation</block>
   <block id="b2cdf9589096f203f816541f43a15f6c" category="list-text">Câbles réseau</block>
   <block id="06d2646a8077631818b55a12dc3c58ac" category="list-text">Câbles Ethernet de gestion (câbles RJ-45)</block>
-  <block id="3ad4852daca6060d9a43783d0d67578c" category="list-text">Câble du port série USB-C.</block>
-  <block id="501009762675d8b94f6d05080102eaa1" category="paragraph">Vous trouverez le numéro sur le bordereau d'expédition, dans votre e-mail de confirmation ou sur le module de gestion du système du contrôleur après le déballage.</block>
   <block id="8a55a5b89690f6046e6de8dd649ff837" category="list-text">Connectez-vous à l'aide de votre nom d'utilisateur et de votre mot de passe.</block>
   <block id="5c83cedabfd78baf337988a092bcf317" category="list-text">Sélectionnez *systèmes* &gt; *Mes systèmes*.</block>
   <block id="12dc2a66a130388ec482398caa6ce95b" category="list-text">Cliquez sur *s'inscrire maintenant* et créez un compte.</block>
@@ -8999,51 +8992,27 @@ SFP+ (cible/initiateur)</block>
   <block id="6d194eccb9cd88bfbcde1df65103cbb4" category="list-text">Entrez les valeurs de l'UUID de magasin de clés et de l'UUID de cluster lorsque vous y êtes invité.</block>
   <block id="417968dd9c410e2ebdf82236e2a6f1d8" category="doc">Étape 1 : connectez les contrôleurs de stockage à votre réseau</block>
   <block id="c0b05ac617b77a5c10f26756e6ef04f2" category="list-text">Si vous vous connectez à un commutateur optique, insérez l'émetteur-récepteur enfichable à petit facteur de forme (SFP) dans le port du contrôleur avant de le connecter au port.</block>
-  <block id="1463138ead0bd5def70e2d744eddfc0a" category="paragraph">Connectez vos contrôleurs directement les uns aux autres et à votre réseau hôte.</block>
-  <block id="73672e433c39ed0cc0cdb0334e672525" category="paragraph">Pour plus d'informations sur la connexion du système de stockage aux commutateurs réseau de l'hôte, contactez votre administrateur réseau.</block>
-  <block id="a5e51e5f50ca83720f1d0d8b17c1e93b" category="paragraph">Ces procédures présentent les configurations courantes. Le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour obtenir des détails complets sur la configuration et la priorité des emplacements, reportez-vous à la section <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>.</block>
-  <block id="8c8e768c4d86293c1b8fd551cc2a1a4e" category="open-title">Système de stockage ASA A1K</block>
   <block id="10ddcbe568df11daf470f9b11ab92b62" category="paragraph">Connectez vos contrôleurs de stockage pour créer des connexions de cluster ONTAP, puis connectez les ports Ethernet de chaque contrôleur au réseau hôte.</block>
   <block id="ee6c90ad735c4fc892e900202d6ff034" category="list-text">Utilisez le câble d'interconnexion cluster/haute disponibilité pour connecter les ports e1a à e1a et les ports e7a à e7a.</block>
-  <block id="491359bee867965cfa22411b77d88b8d" category="list-text">Connectez le port e1a du contrôleur A au port E1A du contrôleur B.</block>
-  <block id="1a33712b794a97041f7338604473e7a3" category="list-text">Connectez le port e7a du contrôleur A au port E1A du contrôleur B.</block>
   <block id="8637ca13eb3c1a10bb4383130268c950" category="list-text">Connectez les ports du module Ethernet à votre réseau hôte.</block>
   <block id="a6992cc3b8eb7adfbce0724b4ed8e4a4" category="list-text">Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet, comme illustré.</block>
   <block id="1cddeaef0a0b08b7178f9023a157d0fc" category="list-text">Connectez vos commutateurs de réseau hôte 10/25 GbE.</block>
   <block id="9d62d1718b5465944796c5fb854d0f5d" category="list-text">Utilisez les câbles 1000BASE-T RJ-45 pour connecter les ports de gestion du contrôleur (clé anglaise) aux commutateurs du réseau de gestion.</block>
-  <block id="c70a96a223c88c75dde3d248fd91e2b1" category="open-title">Systèmes de stockage ASA A70 et ASA A90</block>
   <block id="bd078f69cc3533ea9bc3100deef482d0" category="list-text">Utilisez le câble d'interconnexion cluster/haute disponibilité pour connecter les ports e1a à e1a et les ports e7a à e7a.</block>
-  <block id="b4e1b9768de4fea1a231630708e9f914" category="section-title">Étape 2 : connectez vos contrôleurs de stockage aux tiroirs de stockage</block>
   <block id="581d5dbeb2b657af56ca70f32099c9d4" category="paragraph">Les procédures de câblage suivantes indiquent comment connecter les contrôleurs à un tiroir et à deux tiroirs. Vous pouvez directement connecter jusqu'à quatre tiroirs à vos contrôleurs.</block>
-  <block id="44101c78d328291236c1e6a8035b52d1" category="open-title">Système ASA A1K</block>
-  <block id="b3623f40c8ee8913ca5a6a7756d97ce9" category="paragraph">Choisissez l'une des options de câblage suivantes correspondant à votre configuration.</block>
-  <block id="200ab92b71653aeb6904db07dcb0a81b" category="example-title">Option 1 : connectez les contrôleurs à un tiroir de stockage NS224</block>
   <block id="46d73bd828c75397e5f3cca81c4236e1" category="paragraph">Connectez chaque contrôleur aux modules NSM du tiroir NS224. Les graphiques présentent le câblage depuis chaque contrôleur : le câblage du contrôleur A est représenté en bleu et le câblage du contrôleur B en jaune.</block>
   <block id="cdc609c675d24b2fff8b5acc2e37e89e" category="list-text">Sur le contrôleur A, connecter les ports suivants :</block>
   <block id="ab7ef1e990b02e4f310f950e86665f24" category="list-text">Sur le contrôleur B, connecter les ports suivants :</block>
-  <block id="150e5856fceb6b2cacbe569c1921d330" category="example-title">Option 2 : connectez les contrôleurs à deux tiroirs de stockage NS224</block>
   <block id="348bd528033e13e79fcfb366a5cd5af4" category="paragraph">Connectez chaque contrôleur aux modules NSM des deux tiroirs NS224. Les graphiques présentent le câblage depuis chaque contrôleur : le câblage du contrôleur A est représenté en bleu et le câblage du contrôleur B en jaune.</block>
-  <block id="40e080201f076f6a17456e5af8be4fa3" category="open-title">Systèmes ASA A70 et A90</block>
-  <block id="d2304a06aa5c8ddc89113b1713a1c67e" category="example-title">Option 1 : connectez vos contrôleurs à un tiroir de stockage NS224</block>
-  <block id="d4e2126c6118383149b1e943e8bba458" category="example-title">Option 2 : connectez vos contrôleurs à deux tiroirs de stockage NS224</block>
-  <block id="e934f6c11392ce362b9b522d3905e905" category="list-text">Sur le contrôleur A, connecter les ports suivants :</block>
-  <block id="b54dd6af6e848badd84700a68025355a" category="paragraph">Une fois que vous avez activé votre système de stockage, vous êtes prêt à détecter votre réseau en cluster et à configurer un cluster ONTAP.</block>
   <block id="9567b57fbc256ab6a2a904d9e65e90fc" category="paragraph">Utilisez les<block ref="2b7eb894c1625ebcb138cf06e4e24423" category="inline-link-rx"></block> pour enregistrer les valeurs dont vous avez besoin pendant le processus de configuration du cluster. Si une valeur par défaut est fournie, vous pouvez utiliser cette valeur ou saisir votre propre valeur.</block>
   <block id="2b613a5cfe94ed4e246fd0b8d8e788d7" category="inline-link-macro">mettez le système de stockage sous tension</block>
   <block id="62b1b8fecbe53d21e29b3193b917d52b" category="paragraph">Assurez-vous que votre ordinateur portable est connecté au port série console et que les contrôleurs sont sous tension. Voir <block ref="7c573676638f479dced3a24193374cdc" category="inline-link-macro-rx"></block> pour obtenir des instructions.</block>
   <block id="c0cca90a0ea793a9983b3bf5d8f21117" category="paragraph">NetApp vous recommande d'utiliser System Manager pour configurer de nouveaux clusters. Reportez-vous<block ref="21993ef26df9bd69488ae5f93ea51b95" category="inline-link-rx"></block> à pour obtenir des instructions de configuration.</block>
-  <block id="eb060a6205d76a5e75ea0815f4f83b5a" category="paragraph">Une fois le cluster initialisé, téléchargez-le et exécutez-le <block ref="7064c89577900622f24a070c24ebbaa7" category="inline-link-rx"></block> pour confirmer votre configuration.</block>
   <block id="25e29897c37b7e5f9f9f0d8aac2e8c21" category="list-text">Assurez-vous de disposer des instructions fournies avec le kit de rails.</block>
-  <block id="6a82938033e352436834589b4000acd1" category="list-text">Soyez conscient des problèmes de sécurité associés au poids du système de stockage et de l'étagère de stockage.</block>
   <block id="cd5270ea2c99376e2e028058d02bfa65" category="list-text">Assurez-vous que le flux d'air qui traverse le système de stockage pénètre par l'avant où le cadre ou les embouts sont installés et sort par l'arrière où se trouvent les ports.</block>
-  <block id="a23c8df519f5dec5dcc76f5989d937c4" category="list-text">Installez les kits de rails pour votre système de stockage et les étagères de stockage, selon les besoins, en suivant les instructions fournies avec les kits.</block>
   <block id="1c8c6696ac03ef01690be450b3767032" category="list-text">Installez et sécurisez votre système de stockage dans l'armoire ou le rack de télécommunications :</block>
   <block id="bdb39b5926a304a8f387b036b6fd9445" category="list-text">Positionnez le système de stockage sur les rails au milieu de l'armoire ou du rack de télécommunications, puis soutenez le système de stockage par le bas et faites-le glisser pour le mettre en place.</block>
   <block id="0a508c750e66a219b3bc9449125a4672" category="list-text">Fixez le système de stockage à l'armoire ou au rack de télécommunications à l'aide des vis de montage fournies.</block>
-  <block id="c91c25b22baf3cf726a3ecc4b7e7f23f" category="list-text">Installez le tiroir de stockage :</block>
-  <block id="76f6a6a53ead4da24271bca7a9b976e0" category="list-text">Placez l'arrière de la tablette de stockage sur les rails, puis soutenez la tablette par le bas et faites-la glisser dans l'armoire ou le rack de télécommunications.</block>
-  <block id="8ac98c640ab335c330eb3d45c03096ad" category="paragraph">Si vous installez plusieurs tiroirs de stockage, placez le premier tiroir de stockage directement au-dessus des contrôleurs. Placez le second tiroir de stockage directement sous les contrôleurs. Répétez cette procédure pour toutes les étagères de stockage supplémentaires.</block>
-  <block id="871681e86e80556b261166721e0bbe3b" category="list-text">Fixez l'étagère de stockage à l'armoire ou au rack de télécommunications à l'aide des vis de montage fournies.</block>
   <block id="c5eaaf4a6fa532356e5d0189384e0e34" category="list-text">Connectez les périphériques de gestion des câbles à l'arrière du système de stockage.</block>
   <block id="36eaeecf3fe5d82e498290c50c773db1" category="list-text">Fixez le panneau à l'avant du système de stockage.</block>
   <block id="f044e75ec5037aabefb204d1365ba96b" category="image-alt">Modifiez l'ID de tiroir NS224</block>
@@ -9058,43 +9027,27 @@ SFP+ (cible/initiateur)</block>
   <block id="1e6aa1713a8e26a3cecae4cd918e20a0" category="list-text">Appuyez sur le bouton d'ID du tiroir et relâchez-le pour avancer le chiffre jusqu'à ce que vous atteigniez le chiffre souhaité de 0 à 9.</block>
   <block id="fbfc6fb88e89fa9fd421347ccdc222c8" category="list-text">Verrouillez le chiffre souhaité et quittez le mode de programmation en appuyant sur le bouton d'ID du tiroir et en le maintenant enfoncé jusqu'à ce que le second chiffre ne clignote plus.</block>
   <block id="3a7f97a4c78b33a1c47a571494b17709" category="paragraph">Les deux chiffres de l'écran numérique commencent à clignoter et le voyant orange s'allume au bout de cinq secondes environ pour vous avertir que l'ID du tiroir en attente n'a pas encore pris effet.</block>
-  <block id="51ebfc33ce787da893819e3a68129a19" category="paragraph">Une fois que vous avez allumé vos tiroirs de stockage et attribué des ID uniques, mettez les contrôleurs de stockage sous tension.</block>
-  <block id="9be560fd489238e97542aa683a683199" category="list-text">Connectez votre ordinateur portable au port série console. Cela vous permettra de surveiller la séquence d'amorçage lorsque les contrôleurs sont sous tension.</block>
   <block id="cd76e142e3adabbfc33b1de3c074b2cb" category="list-text">Les ventilateurs sont peut-être très bruyants lors du premier démarrage. Le bruit du ventilateur au démarrage est normal.</block>
   <block id="8d30b064af728ae0d0217b4663afa97d" category="paragraph">Pour installer votre système de stockage, assurez-vous que le site et l'armoire ou le rack que vous prévoyez d'utiliser sont conformes aux spécifications de votre configuration.</block>
   <block id="784289434de2772034240714a84f80a9" category="list-text">Utilisez<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour vérifier que votre site répond aux exigences environnementales et électriques de votre système de stockage.</block>
   <block id="6ac193907083dd66438c89227559f4dc" category="list-text">2U pour chaque tiroir de stockage NS224</block>
-  <block id="f7baf09cec0bef6d7451bbfb2506b5d8" category="paragraph">*REMARQUE :* reportez-vous <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> à la section  pour connaître les exigences en matière d'espace rack pour les autres tiroirs de stockage pris en charge.</block>
   <block id="2df7e61cfe4bf7857f54171cec3da494" category="list-text">Installez les commutateurs réseau requis.</block>
   <block id="6734bc0c212e4efd373707768ae51b81" category="paragraph">Après avoir vérifié que le site et l'armoire ou le rack que vous prévoyez d'utiliser pour votre système de stockage sont conformes aux spécifications requises, déballez toutes les boîtes et comparez le contenu aux éléments du bordereau d'expédition.</block>
-  <block id="2a6f49472befe7fd3e056a4a6fedfe00" category="list-text">Tiroir de stockage</block>
   <block id="256397940895ecf3de88fca8684f0a2d" category="list-text">Câbles de stockage (si vous avez commandé un espace de stockage supplémentaire)</block>
   <block id="9bea2d1b752b83d2f602c5b85b99a901" category="section-title">Étape 3 : enregistrez votre système de stockage</block>
-  <block id="b36d5598e44a73dff0e120c41f02ee3f" category="paragraph">Après avoir vérifié que votre site répond aux spécifications de votre système de stockage et après avoir vérifié que vous disposez de toutes les pièces commandées, vous devez enregistrer votre système.</block>
-  <block id="04a9069d60a270b8326c0bf8dece532c" category="list-text">Recherchez le numéro de série de votre système de stockage.</block>
   <block id="f5c45bcc73f02c7f2b1398ee78576a7a" category="list-text">Accédez à la<block ref="1850de052c61829b534b07ba1a2ca402" category="inline-link-rx"></block>.</block>
   <block id="6918c0735e9cef59385e60d3f94d7115" category="list-text">Déterminez si vous devez enregistrer votre système de stockage :</block>
   <block id="8f45a9f1fcb944bee42c078bdeacd8ac" category="cell">Si vous êtes...</block>
   <block id="e3df4624e4d36502b5d044730eab97cc" category="cell">Suivez ces étapes...</block>
   <block id="d3f2dc7623074c370346f082b621f2db" category="paragraph">Client NetApp existant</block>
-  <block id="8cc04c4151dd22af84b31cd55d6c5f57" category="list-text">Vérifiez que le nouveau numéro de série est répertorié.</block>
   <block id="d193a53b34315bee1bed499f665686ce" category="list-text">Si ce n'est pas le cas, suivez les instructions destinées aux nouveaux clients NetApp.</block>
   <block id="daee797d0bf63a91fe069e1df88d7923" category="paragraph">Nouveau client NetApp</block>
-  <block id="616ce92e68107b272305803b0da3016e" category="list-text">Entrez le numéro de série du système de stockage et les détails demandés.</block>
   <block id="38342a608d29c610e381db6c1bfd532c" category="doc">Équipement nécessaire pour l'installation</block>
   <block id="3278b4b06a799dc3318232ebf4631179" category="paragraph">Pour installer votre système de stockage, vous avez besoin de l'équipement et des outils suivants.</block>
   <block id="8dd75d4e14815a2e3e3154ea67cd841e" category="list-text">Sangle de décharge électrostatique (ESD)</block>
   <block id="2e9e7e3bf632d3a831fdcb0a200d53b7" category="list-text">Trombone ou stylo à pointe sphérique à pointe étroite pour le réglage des ID de tablette de stockage NS224</block>
   <block id="8170c4932dac7ac5a018213e28744cab" category="section-title">Précautions de levage</block>
-  <block id="631a629b49692f05c6c442b2053abb24" category="paragraph">Les systèmes de stockage et les tiroirs de stockage sont lourds. Faites preuve de prudence lorsque vous soulevez et déplacez ces éléments.</block>
-  <block id="522bd666055071c79860849502df1178" category="section-title">Poids du système de stockage</block>
   <block id="33f8da0ea30bb3eb60321a8d29715499" category="paragraph">Prenez les précautions nécessaires lors du déplacement ou du levage de votre système de stockage.</block>
-  <block id="cc462bbdb3b8d9369a4c3f67dcc8095c" category="open-title">A1K</block>
-  <block id="5ea1cbb0d935be77a5bd89c7ae6df537" category="paragraph">Un système de stockage A1K peut peser jusqu'à 28.5 kg (62.83 lb). Pour soulever le système, faire appel à deux personnes ou à un relevage hydraulique.</block>
-  <block id="b1f39e4d9956723a4e80ea4844651e57" category="open-title">A70 et A90</block>
-  <block id="dd9f2d53c1722b6c2ac842b778803e5a" category="paragraph">Un système de stockage A70 ou A90 peut peser jusqu'à 68.8 kg (151.68 lb). Pour lever le système, faire appel à quatre personnes ou à un relevage hydraulique.</block>
-  <block id="336e0262f6402efd45d8cf9d7ae13e8c" category="section-title">Poids des étagères de stockage</block>
-  <block id="2426c13bd8c78d02a8ccbd2a43174936" category="paragraph">Une étagère de stockage NS224 peut peser jusqu'à 30.29 kg (66.78 lb). Pour soulever la tablette de rangement, faites appel à deux personnes ou à un dispositif de levage hydraulique. Conservez tous les composants dans la tablette de stockage (avant et arrière) pour éviter de débalourer le poids de la tablette.</block>
   <block id="fa81f583d8b6c7dcaf8e26a5fcf5de52" category="list-text"><block ref="fa81f583d8b6c7dcaf8e26a5fcf5de52" category="inline-link-rx"></block></block>
   <block id="fde1abb5537b55c34521d414267b3f70" category="inline-link">Systèmes ASA r2</block>
   <block id="5d6a7459a3583d9e29f4b486d809b6a1" category="list-text">ASA A1K</block>
@@ -9175,11 +9128,6 @@ SFP+ (cible/initiateur)</block>
   <block id="e7536efd3b9d16674c0de677b471dab2" category="summary">Passez en revue l'équipement nécessaire et les précautions de levage pour votre plate-forme et vos étagères.</block>
   <block id="9715acc529a1f784f09c842c87aa8b94" category="doc">Conditions requises pour l'installation - AFF A1K</block>
   <block id="203f80207b135ea7e43386a891f88e09" category="paragraph">Vérifiez l'équipement nécessaire et les précautions de levage pour votre système de stockage AFF A1K et vos tiroirs de stockage.</block>
-  <block id="7441be50cc1ffa7c8f6b88094fab2108" category="paragraph">Pour installer votre système de stockage AFF A1K, vous avez besoin de l'équipement et des outils suivants.</block>
-  <block id="3330827a108d9ed79f76697fbb71af4c" category="paragraph">Les systèmes de stockage AFF A1K et les tiroirs de stockage NS224 sont très volumineux. Faites preuve de prudence lorsque vous soulevez et déplacez ces éléments.</block>
-  <block id="01b7bc7debacf02e21b4e5c1eec0bcf9" category="section-title">Système de stockage AFF A1K</block>
-  <block id="bcc0f364176a6b86cafbe8e4dfce2a4a" category="paragraph">Un système de stockage AFF A1K peut peser jusqu'à 28.5 kg (62.83 lb). Pour soulever le système, faire appel à deux personnes ou à un relevage hydraulique.</block>
-  <block id="45e63469b991d33c068f31181b786804" category="section-title">Tiroir NS224</block>
   <block id="d03f5ec8a330688c4e047e99f5fecd12" category="inline-link-macro">Préparez l'installation de votre système de stockage AFF A1K</block>
   <block id="95225809efab4457ee4a53c1a58dfb52" category="paragraph">Après avoir examiné la configuration matérielle requise, vous <block ref="483aaa3c2f4f88e7b219b85383e864a7" category="inline-link-macro-rx"></block>.</block>
   <block id="e736c3581e7cc7eb9804edd4215c31b3" category="doc">Renvoyer la pièce défectueuse à NetApp - AFF A70 et AFF A90</block>
@@ -9244,10 +9192,6 @@ SFP+ (cible/initiateur)</block>
   <block id="09f908c7739e53b3d2c38aa6643b223a" category="paragraph">Une fois que vous avez préparé l'installation de votre matériel AFF A70 ou AFF A90, vous <block ref="5d63ec75b552414f601ef48807f802a1" category="inline-link-macro-rx"></block>.</block>
   <block id="4090848005a10223aa8682ab65a126b3" category="doc">Conditions requises pour l'installation - AFF A70 et AFF A90</block>
   <block id="9d5550245778349bc21a4d66e8e5cc3e" category="paragraph">Vérifiez l'équipement nécessaire et les précautions de levage pour votre système de stockage AFF A70 ou AFF A90 et vos tiroirs de stockage.</block>
-  <block id="c9341c606e640aaa0d7045e6ee2fa517" category="paragraph">Pour installer votre système de stockage AFF A70 ou AFF A90, vous avez besoin des équipements et outils suivants.</block>
-  <block id="1b8e66b9b4993a3fd09f38d7bd0611e0" category="paragraph">Les systèmes de stockage AFF A70 et AFF A90, ainsi que les tiroirs de stockage NS224 sont très lourds. Faites preuve de prudence lorsque vous soulevez et déplacez ces éléments.</block>
-  <block id="0ac98212d833b45fb113f4133b2650ca" category="section-title">Systèmes de stockage AFF A70 et AFF A90</block>
-  <block id="c629dd83e83c71e99f9857aae4c70761" category="paragraph">Un système de stockage AFF A70 ou un système de stockage AFF A90 peut peser jusqu'à 68.8 kg (151.68 lb). Pour lever le système, faire appel à quatre personnes ou à un relevage hydraulique.</block>
   <block id="e78eb711e1e947ddb92f05657d0347d1" category="inline-link-macro">Préparez l'installation de votre système de stockage AFF A70 ou AFF A90</block>
   <block id="2f2189cfd66651c01e836375bb7f1b05" category="paragraph">Après avoir examiné la configuration matérielle requise, vous <block ref="cee013a212eeca03333769e1fffc4483" category="inline-link-macro-rx"></block>.</block>
   <block id="2eb78ee9cbbc9fb7df3e32a863ef8c78" category="doc">Ajout d'un module d'E/S - AFF A70 et AFF A90</block>
@@ -9472,12 +9416,8 @@ SFP+ (cible/initiateur)</block>
   <block id="9ed07b45e5e582647bc2df0721e7b250" category="paragraph">Après avoir préparé l'installation de votre matériel FAS70 ou FAS90, vous <block ref="8b675fcd81dca00f177be4137f647288" category="inline-link-macro-rx"></block>.</block>
   <block id="6a9167a5943a2edebb563033d742c92d" category="doc">Conditions requises pour l'installation - FAS70 et FAS90</block>
   <block id="9ab04ed2ca5bf9f3a53912fe8182bc26" category="paragraph">Vérifiez l'équipement nécessaire et les précautions de levage pour votre système de stockage FAS70 ou FAS90 et vos tiroirs de stockage.</block>
-  <block id="4bcd9ea495d5d070dfd7277883825b09" category="paragraph">Pour installer votre système de stockage FAS70 ou FAS90, vous avez besoin des équipements et outils suivants.</block>
-  <block id="8018872d59cd903e3be8eabdcfd25213" category="paragraph">Les systèmes de stockage FAS70 et FAS90, les tiroirs de stockage NS224 et les tiroirs de stockage DS460C sont lourds. Faites preuve de prudence lorsque vous soulevez et déplacez ces éléments.</block>
-  <block id="ba0156151072eea87a571e4e7ebcfc77" category="section-title">Systèmes de stockage FAS70 et FAS90</block>
   <block id="831a011f3efcfa2b56239bdfd5507fdc" category="paragraph">Un système de stockage FAS70 ou FAS90 peut peser jusqu'à 28.5 kg (62.83 lbs). Pour soulever le système, faire appel à deux personnes ou à un relevage hydraulique.</block>
   <block id="d7c4e8ded75a649c909a48d80b0ce125" category="image-alt">Icône d'avertissement de levage FAS70 et FAS90</block>
-  <block id="aec8e07370e7c72963dcbf3098d2a8ad" category="section-title">Tiroir DS460C</block>
   <block id="3f7ff5a5fa66b539e61c49c16ecbff4c" category="image-alt">Avertissement de levage DS460C</block>
   <block id="6948cb33670435c578dc2ed5f9bd0547" category="inline-link-macro">Préparez l'installation de votre système de stockage FAS70 ou FAS90</block>
   <block id="5060dc7c2f8e62d845323bb56c316f67" category="paragraph">Après avoir examiné la configuration matérielle requise, vous <block ref="f9fa58ae9ecc3e85b1db488d30bad78e" category="inline-link-macro-rx"></block>.</block>
@@ -9559,12 +9499,8 @@ SFP+ (cible/initiateur)</block>
   <block id="bbd90c57f0c4facd0e407d460b63f5e4" category="sidebar">Module de contrôleur FAS70 et FAS90</block>
   <block id="6aa2bbbbcd863a688ecea951a078cc57" category="sidebar">Module FlashCache</block>
   <block id="9d6e68abc86ef52726565c7e52c9dea7" category="image-alt">Exemple de numéro de série du système</block>
-  <block id="acaf98d7d873f9a7ee774034dc1440fc" category="image-alt">Icône d'avertissement de poids AFF A90 et AFF A70</block>
   <block id="54425f945644281ccaf6201b998f169f" category="paragraph"><block ref="54425f945644281ccaf6201b998f169f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e41a410f85201d7cc87e022e1f2daf34" category="paragraph">Si la détection de réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration à l'aide de la détection automatique de cluster.</block>
-  <block id="637d6f599c1184d1c5de273700d7924f" category="list-text">Connectez le câble de la console à l'ordinateur portable et le port série console du contrôleur à l'aide du câble de console fourni avec le système de stockage.</block>
-  <block id="6b66db132383abf32640c51ec249e853" category="list-text">Le système de stockage commence à démarrer. Le démarrage initial peut prendre jusqu'à huit minutes.</block>
-  <block id="26e7314ba01a2bdc4fda67ee84154359" category="list-text">4U en configuration HA pour le système de stockage</block>
   <block id="f31303ddb8ada38aed08c2bb8f9d8e6c" category="list-text">Adieu les migrations de données onéreuses</block>
   <block id="f65a3f7f8789fde53b9d1f80f9881d85" category="paragraph">ONTAP 9.16.0</block>
   <block id="cfb74b9f3447e3aada1f3cbeb61c7028" category="inline-link">ONTAP-285173 - ADP ne laisse pas de partition racine de rechange sur un AFF A150 avec 10 disques internes ou plus</block>
@@ -9907,11 +9843,8 @@ SFP+ (cible/initiateur)</block>
   <block id="b8dd2898e8ee20a6f6cb34867845aa17" category="list-text">Copie du fichier /cfcard/kmip/certs/CA.pem d'un autre nœud de cluster ou de l'autorité de certification du serveur KMIP.</block>
   <block id="5943dcc79f4be51c7946faa01081c8c7" category="admonition">Si votre système exécutait initialement ONTAP 9.10.1 ou une version ultérieure, suivez la procédure décrite dans <block ref="b14f44ab326196475bf1d94f7e3821ad" category="inline-link-rx"></block>. Si vous n'êtes pas sûr de la version ONTAP initiale de votre système, reportez-vous à la section <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
   <block id="6379280c267113ec35e5881e1b0f65bb" category="paragraph">Chaque tiroir se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage.</block>
-  <block id="937eeb311ae4c7f36059ec45705ae05b" category="list-text">Remarque : pour être valides, les ID de tiroir externe doivent être compris entre 01 et 99.</block>
   <block id="ce4b2f7741d87ac6c37e8727ca9ad20a" category="paragraph">Si vous disposez de tiroirs internes (de stockage) intégrés aux contrôleurs, l'ID de tiroir fixe est 00.</block>
-  <block id="9944ff6c526e81f7d9ce060adc105e86" category="list-text">Appuyez sur le bouton d'ID du tiroir et relâchez-le pour avancer le chiffre jusqu'à atteindre le chiffre souhaité de 0 à 9, ou de 1 à 9 si le système est équipé d'un système de stockage intégré.</block>
   <block id="52f79b2833c42027e63e45681585067e" category="example-title">Vous pouvez voir ces invites à la place</block>
-  <block id="e65e1ac152dcb95552c1c1f62ceaf393" category="paragraph"><block ref="6f0c6616b99fea33a3020e0e0dcbe3c6" prefix="" category="inline-code"></block> commande.</block>
   <block id="85ef91c4d71faa53c83efc7222148253" category="video-title">Remplacez le support de démarrage du tiroir NS224</block>
   <block id="bed8800ffb3dfb17d15fabcbf21305be" category="video-title">Remplacez un module DIMM dans un tiroir NS224</block>
   <block id="adf9a21a79092388f61e544af11cd756" category="video-title">Remplacez un ventilateur dans un shelf NS224</block>
@@ -10606,9 +10539,6 @@ SFP+ (cible/initiateur)</block>
   <block id="a23e2b87ba2a5b48b686bd85b652c686" category="list-text">Si nécessaire, réglez l'heure, en GMT :<block ref="0ad4ade5bf715a5335525c69a44424c1" prefix=" " category="inline-code"></block></block>
   <block id="53de4fa11536ef0442c7750efccf6f67" category="list-text">Confirmez la date et l'heure.</block>
   <block id="f409d381c4de00dcaf2050c848bff8e2" category="list-text">À l'invite Loader, entrez<block ref="bfa99df33b137bc8fb5f5407d7e58da8" prefix=" " category="inline-code"></block> pour réinitialiser les modules d'E/S et les autres composants, et laissez le contrôleur redémarrer.</block>
-  <block id="1f7f3df907c101709203efb4bab8f946" category="paragraph">Connectez chaque contrôleur aux NSM du tiroir NS224. Les graphiques présentent le câblage depuis chaque contrôleur : le câblage du contrôleur A est représenté en bleu et le câblage du contrôleur B en jaune.</block>
-  <block id="482b09bc81dba0cc246c5ee5bfa63dc2" category="paragraph">Connectez chaque contrôleur aux NSM des deux tiroirs NS224. Les graphiques présentent le câblage depuis chaque contrôleur : le câblage du contrôleur A est représenté en bleu et le câblage du contrôleur B en jaune.</block>
-  <block id="d5c4ea0bd4062f3b335586480daba755" category="list-text">Connectez le port e11b au port e0b du tiroir 2, NSM A.</block>
   <block id="5e096228421e8040641c1e77b70b9752" category="list-text">Soyez conscient des problèmes de sécurité associés au poids du système de stockage et de l'étagère.</block>
   <block id="a1ef0e50a49115f0c600ba32004b3c02" category="list-text">Installez les kits de rails pour votre système de stockage et les étagères selon les besoins, en suivant les instructions fournies avec les kits.</block>
   <block id="7d6993d4b57fba8118e248dd2051a8be" category="list-text">Installez et fixez la tablette selon les besoins.</block>
@@ -10652,7 +10582,6 @@ SFP+ (cible/initiateur)</block>
   <block id="017db3debbf4b1ed577798b78fd96b66" category="list-text">FAS70</block>
   <block id="649e9f4912bcf4af7efe489c6866eb1d" category="list-text">FAS90</block>
   <block id="3eab1bbd4a3f05ea0803f3bcf5fac9e5" category="list-text">FAS2750</block>
-  <block id="13b901139d96d3088b86d12d380ba57f" category="paragraph">Les tiroirs disques sont spécialement conçus pour les systèmes NetApp AFF, ASA et FAS. Ils vous aident à obtenir les performances, la résilience et la flexibilité dont vous avez besoin pour votre transformation digitale.</block>
   <block id="61c05ca68a6ca538f3473986616103f2" category="paragraph">Les tiroirs disques sont disponibles à partir des versions ONTAP suivantes.</block>
   <block id="5c7fb5a9cab188683ddf4f0991a21e1c" category="list-text">NS224 avec modules NSM100B</block>
   <block id="e9fc04f90ca55de311ddb1dfba04ecbc" category="list-text">Tiroir NS224 avec modules NSM100</block>
@@ -10703,7 +10632,6 @@ SFP+ (cible/initiateur)</block>
   <block id="7dd75dd7ed57db82538f9394ec870940" category="doc">Vérifiez les clés de cryptage intégrées - AFF A20, AFF A30 et AFF A50</block>
   <block id="8c1c309a8934bc76c1690fc554f02c58" category="doc">Restaurez le chiffrement - AFF A20, AFF A30 et AFF A50</block>
   <block id="d059c96eddd0b4b4a166d0c46c11f9f9" category="doc">Démarrez l'image de récupération - AFF A20, AFF A30 et AFF A50</block>
-  <block id="58074d051ee24c5fe9238ebc15f03c16" category="doc">Exigences et considérations - AFF A20, AFF A30 et AFF A50</block>
   <block id="cb6f6bb6e53f2513d37ec540678d4269" category="doc">Procédure de remplacement des supports de démarrage - AFF A20, AFF A30 et AFF A50</block>
   <block id="56b8cde3b1f3e08c4473d9b2684dcde7" category="paragraph-title"><block ref="444c1bf2e877f5617e8ce0a2ded57f4f" category="inline-image-macro-rx" type="image"></block><block ref="0caeda8d60cf80f7a042375ba653d60a" category="inline-link-macro-rx"></block></block>
   <block id="d0a34c5f741fcf4c8a27a4a0ebeb67d5" category="paragraph">Vérifiez si le gestionnaire de clés de sécurité est activé sur votre système de stockage ou si des disques sont cryptés.</block>
@@ -10871,8 +10799,6 @@ SFP+ (cible/initiateur)</block>
   <block id="1594210318baaedcde7a9ee6cf877e2f" category="list-text">Sur chaque contrôleur</block>
   <block id="b9d56fbafd9b44fad97bacb9a2bb786a" category="inline-link-macro">installez le matériel de votre système de stockage</block>
   <block id="6cc83c1114ef7a72628c17c930f42046" category="paragraph">Une fois que vous avez préparé l'installation de votre système de stockage, vous <block ref="32ef1f18704cc0c97dfcafcf18cacd02" category="inline-link-macro-rx"></block>.</block>
-  <block id="b86941c46a365645f6cca04da4b7f6ed" category="doc">Exigences et considérations relatives à l'installation - AFF A20, AFF A30 et AFF A50</block>
-  <block id="7e20b5146ae177ed895704399c8a977b" category="paragraph">Consultez les conditions requises et les considérations relatives à votre système de stockage AFF A20, AFF A30 ou AFF A50.</block>
   <block id="810da8188a0c92df4fdc4ccf84b888d0" category="paragraph">Un système de stockage A20, A30 ou A50 peut peser jusqu'à 27.9 kg (61.5 lb). Pour soulever le système de stockage, faire appel à deux personnes ou à un relevage hydraulique.</block>
   <block id="6eb0f75df27b0466f7984bf67accd904" category="paragraph">Une étagère NS224 avec modules NSM100B peut peser jusqu'à 25.8 kg (56.8 lb). Pour soulever la tablette, faites appel à deux personnes ou à un dispositif de levage hydraulique. Conservez tous les composants dans la tablette (à l'avant et à l'arrière) pour éviter de rééquilibrer le poids de la tablette.</block>
   <block id="34ae4f1779c2db0223377cbefc6262df" category="image-alt">NS224 avec précaution de levage NSM100b</block>
@@ -10900,7 +10826,6 @@ SFP+ (cible/initiateur)</block>
   <block id="8818851bcff9f03737f9fd5705a45fa6" category="doc">Vérifiez les clés de chiffrement intégrées : AFF C30 et AFF C60</block>
   <block id="a4455ae0c0c7969583856994395f0cde" category="doc">Restaurez le chiffrement - AFF C30 et AFF C60</block>
   <block id="3ec7c47dabf1d4f35a400c4071a00ca3" category="doc">Démarrez l'image de récupération - AFF C30 et AFF C60</block>
-  <block id="3fff9e6751f0e3483b46c1b09e921f27" category="doc">Exigences et considérations - AFF C30 et AFF C60</block>
   <block id="b51f305b31269b3c0c90f0c435f98dc7" category="doc">Workflow de remplacement des supports de démarrage - AFF C30 et AFF C60</block>
   <block id="eff4d8e89759d68c96ebcfc87dc315dd" category="doc">Remplacez le support de démarrage - AFF C30 et AFF C60</block>
   <block id="5cc55241a9614abe4087e6c9b29624e6" category="doc">Arrêter le contrôleur défectueux - AFF C30 et AFF C60</block>
@@ -10958,7 +10883,6 @@ SFP+ (cible/initiateur)</block>
   <block id="fab9e21f1bee0f7c0618cad32b09e254" category="summary">Préparez l'installation de votre plateforme AFF C30 et AFF C60.</block>
   <block id="e5c1fdfad20885712f2500f11ac35b2f" category="doc">Préparation de l'installation - AFF C30 et AFF C60</block>
   <block id="79e12a938ddc8f32473767866053dbf9" category="paragraph">Préparez l'installation de votre système de stockage AFF C30 ou AFF C60 en préparant le site, en déballez les boîtes et en comparant le contenu des boîtes au bordereau d'expédition, et en enregistrant le système de stockage pour accéder aux avantages de l'assistance.</block>
-  <block id="5dbd4f15eeb8f486caf56f53d58063e0" category="doc">Exigences et considérations relatives à l'installation - AFF C30 et AFF C60</block>
   <block id="7a3914f84de0175770593720f9a6ce99" category="paragraph">Consultez la configuration requise et les éléments à prendre en compte pour votre système de stockage AFF C30 ou AFF C60.</block>
   <block id="9bf4665a2c4e66c0d1872abb97cf1e62" category="doc">Ajout d'un module d'E/S - AFF C30 et AFF C60</block>
   <block id="72e4a819218c094d076f11afa9177f29" category="paragraph">Vous pouvez ajouter un module d'E/S à vos systèmes de stockage AFF C30 et AFF C60 lorsqu'il y a des emplacements disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
@@ -11037,10 +10961,6 @@ SFP+ (cible/initiateur)</block>
   <block id="ce16306562432372fadd2f97d4862648" category="summary">Passez en revue l'équipement nécessaire et les précautions de levage pour votre système de stockage et vos étagères.</block>
   <block id="d74315adf12485d8310e758b0294275f" category="doc">Conditions requises pour l'installation - AFF C80</block>
   <block id="a36836ef1b3b8277e163c5017c4ab7f9" category="paragraph">Vérifiez l'équipement nécessaire et les précautions de levage pour votre système de stockage AFF C80 et vos tiroirs de stockage.</block>
-  <block id="0818c15009c3b4c695f98b8c3aeb92d7" category="paragraph">Pour installer votre système de stockage AFF C80, vous avez besoin de l'équipement et des outils suivants.</block>
-  <block id="da1ca086cad8d91904b85d2d85fdb468" category="paragraph">Les systèmes de stockage AFF C80 et les tiroirs de stockage NS224 sont très volumineux. Faites preuve de prudence lorsque vous soulevez et déplacez ces éléments.</block>
-  <block id="3329bdafff22eccade430ba875e7f7e1" category="section-title">Systèmes de stockage AFF C80</block>
-  <block id="1ecdf6d5dc581cf37d18e38fc6672845" category="paragraph">Un système de stockage AFF C80 peut peser jusqu'à 68.8 kg (151.68 lb). Pour lever le système, faire appel à quatre personnes ou à un relevage hydraulique.</block>
   <block id="c04a673c3bb56ad9a4dc3b8e2b216fe8" category="inline-link-macro">Préparez l'installation de votre système de stockage AFF C80</block>
   <block id="6a9ec7f0e337f1b22db691540de71dd2" category="paragraph">Après avoir examiné la configuration matérielle requise, vous <block ref="f1512d282e7d59c9ab940248c652d05d" category="inline-link-macro-rx"></block>.</block>
   <block id="a5fb99858c57b188273ea5a1afedd002" category="doc">Ajout d'un module d'E/S - AFF C80</block>
@@ -11054,7 +10974,6 @@ SFP+ (cible/initiateur)</block>
   <block id="11eb8865607ab8973149731becf87b54" category="doc">Remplacez un bloc d'alimentation - AFF C80</block>
   <block id="dafdc51bcfddfb75cdc104244fa42b60" category="doc">Remplacez la pile de l'horloge temps réel - AFF C80</block>
   <block id="0c760c78e9d0c008701a3538ed8f1c85" category="doc">Remplacer le module de gestion du système - AFF C80</block>
-  <block id="2f5c749fdf8bbd8318bf83993d614136" category="paragraph">Une étagère DS460C peut peser jusqu'à 118.1 kg (260.4 lb). Pour soulever l'étagère de stockage, il peut être nécessaire de compter jusqu'à cinq personnes ou un dispositif de levage hydraulique. Conservez tous les composants dans la tablette de stockage (avant et arrière) pour éviter de débalourer le poids de la tablette.</block>
   <block id="0e0493531094a28281ba5f32c328ac63" category="paragraph">Votre système matériel peut être compatible avec les tiroirs NS224 avec les modules NSM100 et les tiroirs NS224 avec les modules NSM100B. Pour vérifier la compatibilité et le nom des ports de votre matériel et de vos tiroirs, consultez le<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block>.</block>
   <block id="c97d3a72e7c1692c1c5f56d517b82c8c" category="example-title">Eclayette pour câble AFF A20, AFF A30, AFF A50, AFF C30 ou AFF C60</block>
   <block id="494fa596205dff234fa0bdbd9d667c60" category="example-title">Câblez le tiroir à AFF A70, AFF A90 ou AFF C80</block>
@@ -11287,10 +11206,6 @@ SFP+ (cible/initiateur)</block>
   <block id="6a78e833d1d48c3ad3f5fcd87dc0f4d4" category="cell">Module d'E/S attention</block>
   <block id="402ff9cfbe902d88550764b90aa6cb76" category="paragraph">Le module d'E/S est manquant</block>
   <block id="5f99c34270a42ab74283fdec312239c2" category="paragraph">Les systèmes de stockage ONTAP sont compatibles avec plusieurs versions du logiciel ONTAP. Découvrez les versions de ONTAP prises en charge par vos systèmes de stockage et vos tiroirs disques.</block>
-  <block id="6e078dd140fc50f53b5f2c4385d718bd" category="section-title">Tiroirs NS224 avec modules NSM100B</block>
-  <block id="e0d3410def69ea25d4a73fbd6f0bbed2" category="paragraph">Les tiroirs disques NS224 avec modules NSM100B offrent des performances et une flexibilité élevées pour répondre à vos besoins de transformation digitale.</block>
-  <block id="fc65336c1bd8a062ad4562b40078d3fe" category="inline-link-macro">Développez votre stockage matériel avec les tiroirs NS224</block>
-  <block id="7b19cd7f52ff90324c1acacbd46001f8" category="paragraph"><block ref="66341a595da7a2db1d6f0b3d14139d08" category="inline-link-macro-rx"></block>.</block>
   <block id="7158496fa6a387eea85c17aa48eba85e" category="section-title">AFF A20, AFF A30 et AFF A50</block>
   <block id="a09039ce1af61d84b9a954849fc88067" category="paragraph">Les nouveaux systèmes matériels AFF A20, A30 et A50 étendent des fonctionnalités de gestion des données hautes performances, intelligentes et complètes à un plus grand nombre de clients et de charges de travail.</block>
   <block id="bc44b220c4c2656e94204809ef23fa40" category="section-title">AFF C30, AFF C60 et AFF C80</block>
@@ -11298,4 +11213,38 @@ SFP+ (cible/initiateur)</block>
   <block id="007ace9cd707338f2e4f8f25ed4bb0b8" category="section-title">Tiroir disque NS224 avec modules de tiroir NSM100B</block>
   <block id="e3f4eea829fa5771d87c60fb05124223" category="paragraph">Améliorez les fonctionnalités de votre data Center avec le NS224 et le nouveau module d'extension du stockage NVMe NSM100B. Conçu pour remplacer directement le module NSM100, le nouveau module de tiroir NSM100B s'intègre en toute transparence à votre configuration existante. Il prend en charge les configurations à connexion directe et à connexion par commutateur des tiroirs NS224, offrant ainsi une flexibilité exceptionnelle pour optimiser l'efficacité et l'évolutivité de votre système de stockage.</block>
   <block id="02ad6883c66e836f88f8ac60378af5d5" category="paragraph">Les nouveaux systèmes matériels ASA r2 (ASA A1K, ASA A70 et ASA A90) offrent une solution matérielle et logicielle unifiée qui simplifie l'expérience en fonction des besoins des clients qui utilisent uniquement un réseau SAN.</block>
+  <block id="f1f5a8071b69ef980c0fca64b3b9c54e" category="list-text">Restaurez le rétablissement automatique si vous l'avez désactivé.</block>
+  <block id="a7ecdb67614fe7d399a65b213dd20e1a" category="paragraph">Les tiroirs disques sont spécialement conçus pour les systèmes NetApp AFF, ASA et FAS. Ils vous aident à obtenir les performances, la résilience et la flexibilité dont vous avez besoin pour votre transformation digitale.</block>
+  <block id="dbc74f369dbf214b25d0f839fd4cd2b0" category="list-text">Restaurez le rétablissement automatique si vous l'avez désactivé :</block>
+  <block id="37e73c8cf9d7d3b4aeaa58f23b2fcb81" category="paragraph">Après avoir activé votre système de stockage AFF A1K, vous êtes prêt à détecter votre réseau en cluster et à configurer un cluster ONTAP.</block>
+  <block id="f2cde5cb8aa49228f5cb392e473dff51" category="paragraph">Une fois le cluster initialisé, téléchargez-le et exécutez-le<block ref="48865c7c1d8013246e4e5f705a9105de" category="inline-link-rx"></block> pour confirmer votre configuration.</block>
+  <block id="5d181ca91be1af691d1f01654691cc7b" category="image-alt">Schéma de connexion du système de stockage A1K et de l'alimentation A70 ou A90</block>
+  <block id="e826d5b26017ec374bf63b94b8a425d9" category="list-text">Fixez les cordons d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation. :a1k-a70-90!:</block>
+  <block id="0bf1ff1f561d2a96752b8ee596c65068" category="list-text">4U en configuration HA</block>
+  <block id="3ac4d4a9f6b930345bd4ccdb8435d0fb" category="list-text">Sur le module de gestion du système de chaque contrôleur</block>
+  <block id="388eeeeae411a70beaf8ef696a22f538" category="paragraph">Un système de stockage A1K peut peser jusqu'à 28.5 kg (62.83 lb). Pour soulever le système de stockage, faire appel à deux personnes ou à un relevage hydraulique.</block>
+  <block id="6de84c72e7e126f172cbcc00c68cd297" category="paragraph">Une étagère NS224 peut peser jusqu'à 30.29 kg (66.78 lb). Pour soulever la tablette, faites appel à deux personnes ou à un dispositif de levage hydraulique. Conservez tous les composants dans la tablette (à l'avant et à l'arrière) pour éviter de rééquilibrer le poids de la tablette.</block>
+  <block id="f6212161be26bdf2d9804cc49d78a681" category="image-alt">NS224 NSM100 attention de levage</block>
+  <block id="4eb7fd7f39fdba863f648fba58c6a17b" category="list-text"><block ref="fa81f583d8b6c7dcaf8e26a5fcf5de52" category="inline-link-rx"></block> :a1k!:</block>
+  <block id="c06aa2e2131c24245e0e7d96530eafc3" category="doc">Exigences de remplacement des supports de démarrage - AFF A20, AFF A30 et AFF A50</block>
+  <block id="c0264caab63d4097d1e1ed92439e60a7" category="doc">Exigences de remplacement du châssis - AFF A20, AFF A30 et AFF A50</block>
+  <block id="eaada1112c624d35f830400d927a467d" category="doc">Exigences de remplacement du contrôleur - AFF A20, AFF A30 et AFF A50</block>
+  <block id="be520d0c187d935243d727d6ae1fae7d" category="paragraph">Après avoir allumé votre système de stockage AFF A20, AFF A30 ou AFF A50, vous êtes prêt à détecter votre réseau en cluster et à configurer un cluster ONTAP.</block>
+  <block id="a8df3504a76da7d726b26d0dfd4a23f3" category="doc">Exigences d'installation - AFF A20, AFF A30 et AFF A50</block>
+  <block id="a6c628254ff2bf40212541b76682d0ca" category="paragraph">Consultez la configuration requise pour votre système de stockage AFF A20, AFF A30 ou AFF A50.</block>
+  <block id="b88e50a127892280ab464a0d38a10676" category="paragraph">Après avoir activé votre système de stockage AFF A70 ou AFF A90, vous êtes prêt à détecter votre réseau en cluster et à configurer un cluster ONTAP.</block>
+  <block id="7fffd066161648ae573d6d74ec60e85e" category="paragraph">Le système de stockage peut peser jusqu'à 68.8 kg (151.68 lb). Pour soulever le système de stockage, faire appel à quatre personnes ou à un relevage hydraulique.</block>
+  <block id="89ef365c5b885c967c3d8cc986042787" category="doc">Configuration requise pour les supports de démarrage - AFF C30 et AFF C60</block>
+  <block id="93ed93f61a0fe8be55f5a5227eba1f27" category="doc">Exigences de remplacement du châssis - AFF C30 et AFF C60</block>
+  <block id="0786f21f31213511b77d9fde64302a80" category="doc">Exigences de remplacement du contrôleur - AFF C30 et AFF C60</block>
+  <block id="877c6321779942add591f77ab7b28f2e" category="paragraph">Après avoir allumé votre système de stockage AFF C30 ou AFF C60, vous êtes prêt à détecter votre réseau en cluster et à configurer un cluster ONTAP.</block>
+  <block id="4572f45ac79ded53bd57f95eaf949d13" category="doc">Conditions requises pour l'installation - AFF C30 et AFF C60</block>
+  <block id="2795470282b110353916b87e8a68ea10" category="paragraph">Après avoir activé votre système de stockage AFF C80, vous pouvez détecter le réseau en cluster et configurer un cluster ONTAP.</block>
+  <block id="021fad57648b2198deca585e8c317a71" category="paragraph">Après avoir activé votre système de stockage FAS70 ou FAS90, vous pouvez détecter le réseau en cluster et configurer un cluster ONTAP.</block>
+  <block id="4c92eb29f2a257faff3e90e45cf70459" category="paragraph">Une étagère DS460C peut peser jusqu'à 181.1 kg (260.4 lb). Pour soulever l'étagère de stockage, il peut être nécessaire de compter jusqu'à cinq personnes ou un dispositif de levage hydraulique. Conservez tous les composants dans la tablette de stockage (avant et arrière) pour éviter de débalourer le poids de la tablette.</block>
+  <block id="510996b7cd8e0bf946a50e1f000afbe2" category="paragraph">Le SuperRail peut être installé sur un rack standard à quatre montants à trous carrés ou sur un rack standard à quatre montants à trous ronds en utilisant les supports d'adaptateur à trous ronds à carrés.</block>
+  <block id="090baac144fae3a90d22bb679e0194a6" category="sidebar">Support de démarrage AFF A20, AFF A30 et AFF A50</block>
+  <block id="f923335af94abdb12e15d306f375ccba" category="sidebar">Module d'E/S AFF A20, AFF A30 et AFF A50</block>
+  <block id="78630acc24e5fd1073367e9c78f003a0" category="sidebar">Support de démarrage AFF C30 et AFF C60</block>
+  <block id="0cc03c1fb7fac3f451692406956a999d" category="sidebar">Module d'E/S AFF C30 et AFF C60</block>
 </blocks>
