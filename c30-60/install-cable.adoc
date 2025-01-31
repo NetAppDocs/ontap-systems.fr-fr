@@ -1,7 +1,7 @@
 ---
 permalink: c30-60/install-cable.html 
 sidebar: sidebar 
-keywords: aff c30, aff c60, prepare installation 
+keywords: aff c30, aff c60, cabling, cluster cabling, host network cabling, management network cabling, shelf cabling 
 summary: 'Les ports du réseau de gestion situés sur les contrôleurs sont connectés aux commutateurs. Les ports d"interconnexion haute disponibilité et d"interconnexion de cluster sont câblés sur les deux contrôleurs. Les modules de contrôleur sont connectés au stockage externe, si commandé.' 
 ---
 = Câblez le matériel - AFF C30 et AFF C60
@@ -38,108 +38,152 @@ Connectez les contrôleurs au cluster ONTAP. Cette procédure varie en fonction 
 ====
 .Câblage switchless cluster Cabling
 --
-Reliez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
-
-.AFF A30 ou A50 avec deux modules d'E/S 100 GbE à 2 ports
+.AFF C30 ou AFF C60 avec deux modules d'E/S 40/100 GbE à 2 ports
 [%collapsible]
 =====
-Les ports de module d'E/S des connecteurs 2 et 4 sont des ports 40 GbE. Cela ne s'applique-t-il qu'au 30-50, si oui, laissez les 2 notes où sont, mais si s'applique à tous les 3, puis déplacez-le ou nouveau paragraphe sous le texte de la section principale.???
+Reliez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
 
 .Étapes
 . Reliez les connexions d'interconnexion cluster/haute disponibilité :
 +
 
-NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques.
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur les modules d'E/S des connecteurs 2 et 4). Les ports sont 40/100 GbE.
 
 +
 .. Reliez le port e2a du contrôleur A au port e2a du contrôleur B.
 .. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
 +
 
-NOTE: Les ports e2b et e4b des modules d'E/S des connecteurs 2 et 4 ne sont pas utilisés et sont disponibles pour la connectivité front-end (réseau hôte), si nécessaire.
+NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour la connectivité réseau de l'hôte.
 
 +
-*Câbles d'interconnexion cluster/haute disponibilité*
+*Câbles d'interconnexion cluster/haute disponibilité 100 GbE*
 
 +
-image::../media/oie_cable_25Gb_Ethernet_SFP28_IEOPS-1069.svg[Câble haute disponibilité du cluster]
+image::../media/oie_cable100_gbe_qsfp28.png[Câble 100 GbE haute disponibilité du cluster]
 
 +
-image::../media/drw_isi_a30-50_switchless_2p_100gbe_2card_cabling_ieops-2011.svg[Schéma de câblage d'un cluster sans commutateur à 2 nœuds utilisant deux modules io 100 gbe]
+image::../media/drw_isi_a30-50_switchless_2p_100gbe_2card_cabling_ieops-2011.svg[schéma de câblage des clusters sans commutateur a30 et a50 utilisant deux modules io 100 gbe]
 
 
 
 
 
 =====
-.AFF A30 ou A50 avec un module d'E/S 100 GbE à 2 ports
+.AFF C30 ou AFF C60 avec un module d'E/S 40/100 GbE à 2 ports
 [%collapsible]
 =====
-Les ports de module d'E/S des connecteurs 2 et 4 sont des ports 40 GbE.
+Reliez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
 
 .Étapes
 . Reliez les connexions d'interconnexion cluster/haute disponibilité :
 +
 
-NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques.
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 40/100 GbE.
 
 +
 .. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
 .. Reliez le port e4b du contrôleur A au port e4b du contrôleur B.
 +
-*Câbles d'interconnexion cluster/haute disponibilité*
+*Câbles d'interconnexion cluster/haute disponibilité 100 GbE*
 
 +
-image::../media/oie_cable_25Gb_Ethernet_SFP28_IEOPS-1069.svg[Câble haute disponibilité du cluster]
+image::../media/oie_cable100_gbe_qsfp28.png[Câble 100 GbE haute disponibilité du cluster]
 
 +
-image::../media/drw_isi_a30-50_switchless_2p_100gbe_1card_cabling_ieops-1925.svg[Schéma de câblage d'un cluster sans commutateur à 2 nœuds avec un module io 100 gbe]
+image::../media/drw_isi_a30-50_switchless_2p_100gbe_1card_cabling_ieops-1925.svg[schéma de câblage des clusters sans commutateur a30 et a50 utilisant un module io 100 gbe]
 
 
 
 
 
 =====
-.AFF A20 avec un module d'E/S 10 GbE à 2 ports
+.AFF C30 avec un module d'E/S 10/25 GbE à 2 ports
 [%collapsible]
 =====
-Ajouter un exemple
+Reliez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
 
-+ image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
+.Étapes
+. Reliez les connexions d'interconnexion cluster/haute disponibilité :
++
+
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 10/25 GbE.
 
 +
+.. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
+.. Reliez le port e4b du contrôleur A au port e4b du contrôleur B.
++
+*Câbles d'interconnexion cluster/haute disponibilité 25 GbE*
+
++
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur = 100 px"]
+
++
+image::../media/drw_isi_a20_switchless_2p_25gbe_cabling_ieops-2018.svg[schéma de câblage du cluster a20 sans commutateur utilisant un module 25 gbe io]
+
+
+
+
 
 =====
 --
 .Câblage commuté du cluster
 --
+.AFF C30 ou AFF C60 avec deux modules d'E/S 40/100 GbE à 2 ports
+[%collapsible]
+=====
 Reliez les contrôleurs aux switchs réseau du cluster pour créer les connexions de cluster ONTAP.
 
-.AFF A30 ou A50 avec deux modules d'E/S 100 GbE à 2 ports
+.Étapes
+. Reliez les connexions d'interconnexion cluster/haute disponibilité :
++
+
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur les modules d'E/S des connecteurs 2 et 4). Les ports sont 40/100 GbE.
+
++
+.. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
+.. Reliez le port e2a du contrôleur de câbles au commutateur de réseau du cluster B.
+.. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
+.. Reliez le port e2a du contrôleur B au commutateur de réseau du cluster B.
++
+
+NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour la connectivité réseau de l'hôte.
+
++
+*Câbles d'interconnexion cluster/haute disponibilité 40/100 GbE*
+
++
+image::../media/oie_cable100_gbe_qsfp28.png[Câble 40/100 GbE haute disponibilité du cluster]
+
++
+image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[schéma de câblage des clusters commutés a30 et a50 avec deux modules io 100 gbe]
+
+
+
+
+
+=====
+.AFF C30 ou AFF C60 avec un module d'E/S 40/100 GbE à 2 ports
 [%collapsible]
 =====
-Ajouter un exemple
+Reliez les contrôleurs aux switchs réseau du cluster pour créer les connexions de cluster ONTAP.
 
-Notez que les ports 40 GbE e2b et e4b des modules d'E/S des connecteurs 2 et 4 ne sont pas utilisés et sont disponibles pour la connectivité front-end, si nécessaire.
-
-=====
-.AFF A30 ou A50 avec un module d'E/S 100 GbE à 2 ports
-[%collapsible]
-=====
 .Étapes
 . Reliez les contrôleurs aux commutateurs du réseau du cluster :
 +
 
-NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques.
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 40/100 GbE.
 
 +
-.. Câble du port e4a du contrôleur A et du port e4a du contrôleur B vers le commutateur a du réseau du cluster
-.. Reliez le port e4b du contrôleur A et le port e4b du contrôleur B au commutateur de réseau du cluster B.
+.. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
+.. Reliez le port e4b du contrôleur A au commutateur de réseau du cluster B.
+.. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
+.. Reliez le port e4b du contrôleur B au commutateur de réseau du cluster B.
 +
-*Câbles d'interconnexion cluster/haute disponibilité*
+*Câbles d'interconnexion cluster/haute disponibilité 40/100 GbE*
 
 +
-image::../media/oie_cable100_gbe_qsfp28.png[Câble de 100 Go]
+image::../media/oie_cable100_gbe_qsfp28.png[Câble 40/100 GbE haute disponibilité du cluster]
 
 +
 image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[Reliez les connexions du cluster au réseau du cluster]
@@ -149,10 +193,33 @@ image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[R
 
 
 =====
-.AFF A20 avec un module d'E/S 10 GbE à 2 ports
+.AFF C30 avec un module d'E/S 10/25 GbE à 2 ports
 [%collapsible]
 =====
-Ajouter un exemple
+Reliez les contrôleurs aux switchs réseau du cluster pour créer les connexions de cluster ONTAP.
+
+. Reliez les contrôleurs aux commutateurs du réseau du cluster :
++
+
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 10/25 GbE.
+
++
+.. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
+.. Reliez le port e4b du contrôleur A au commutateur de réseau du cluster B.
+.. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
+.. Reliez le port e4b du contrôleur B au commutateur de réseau du cluster B.
++
+*Câbles d'interconnexion cluster/haute disponibilité 10/25 GbE*
+
++
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur = 100 px"]
+
++
+image:../media/drw_isi_a20_switched_2p_25gbe_cabling_ieops-2019.svg["schéma de câblage du bloc de commande a20 utilisant un module 25gbe io"]
+
+
+
+
 
 =====
 --
@@ -161,25 +228,26 @@ Ajouter un exemple
 
 == Étape 2 : câblez les connexions réseau de l'hôte
 
-Connectez les contrôleurs au réseau hôte. Cette procédure varie en fonction du modèle de votre système de stockage et de la configuration de votre module d'E/S. La connectivité hôte est 40/100 GbE.????
+Connectez les contrôleurs au réseau hôte.
 
-.AFF A30 ou A50 avec deux modules d'E/S 100 GbE à 2 ports
+Cette procédure varie en fonction du modèle de votre système de stockage et de la configuration de votre module d'E/S.
+
+.AFF C30 ou AFF C60 avec deux modules d'E/S 40/100 GbE à 2 ports
 [%collapsible]
 ====
-Texte
-
-====
-.AFF A30 ou A50 avec un module d'E/S 100 GbE à 2 ports
-[%collapsible]
-====
+.Étapes
 . Câblez les connexions réseau de l'hôte.
 +
 Les sous-étapes suivantes sont des exemples de câblage réseau hôte facultatif. Si nécessaire, reportez-vous  à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître la configuration spécifique de votre système de stockage.
 
 +
-.. En option : câblage vers des switchs réseau hôte 40 GbE.
+.. Facultatif : câblez les contrôleurs aux switchs réseau de l'hôte.
 +
-Les ports de câble e2a, e2b, e2c et e2d de chaque contrôleur sont reliés aux commutateurs de réseau hôte Ethernet.
+Sur chaque contrôleur, reliez les ports e2b et e4b aux commutateurs réseau hôte Ethernet.
+
++
+
+NOTE: Les ports des modules d'E/S des connecteurs 2 et 4 sont 40/100 GbE (connectivité hôte 40/100 GbE).
 
 +
 *Câbles 40/100 GbE*
@@ -188,17 +256,57 @@ Les ports de câble e2a, e2b, e2c et e2d de chaque contrôleur sont reliés aux 
 image::../media/oie_cable_sfp_gbe_copper.png[Câble de 40/100 Go]
 
 +
-image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[Câble vers les switchs réseau hôte ethernet 40 gbe]
+image::../media/drw_isi_a30-50_host_2p_40-100gbe_2card_cabling_ieops-2014.svg[Câble vers les switchs réseau hôte ethernet 40 gbe]
 
-.. Facultatif : câble vers les switchs réseau hôte FC.
+.. Facultatif : câblage des contrôleurs aux switchs réseau hôte FC.
 +
-Reliez les ports 1a, 1b, 1c et 1D de chaque contrôleur aux commutateurs réseau hôte FC.
+Sur chaque contrôleur, reliez les ports 1a, 1b, 1c et 1D aux commutateurs réseau hôte FC.
 
 +
 *Câbles FC 64 Gbit/s*
 
 +
-image::../media/oie_cable_sfp_gbe_copper.png[Câble fc de 64 Go]
+image:../media/oie_cable_sfp_gbe_copper.png["Câble fc de 64 Go, largeur = 100 px"]
+
++
+image::../media/drw_isi_a30-50_4p_64gb_fc_2card_cabling_ieops-2023.svg[Reliez les commutateurs réseau hôte Fc a30 ou a50 à 64 go à l'aide de deux modules io]
+
+
+
+
+
+====
+.AFF C30 ou AFF C60 avec un module d'E/S 10/25 GbE à 2 ports
+[%collapsible]
+====
+.Étapes
+. Câblez les connexions réseau de l'hôte.
++
+Les sous-étapes suivantes sont des exemples de câblage réseau hôte facultatif. Si nécessaire, reportez-vous  à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître la configuration spécifique de votre système de stockage.
+
++
+.. Facultatif : câblez les contrôleurs aux switchs réseau de l'hôte.
++
+Sur chaque contrôleur, reliez les ports e2a, e2b, e2c et e2d aux commutateurs de réseau hôte Ethernet.
+
++
+*Câbles 10/25 GbE*
+
++
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur = 100 px"]
+
++
+image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[Câble vers les switchs réseau hôte ethernet 40 gbe]
+
+.. Facultatif : câblage des contrôleurs aux switchs réseau hôte FC.
++
+Sur chaque contrôleur, reliez les ports 1a, 1b, 1c et 1D aux commutateurs réseau hôte FC.
+
++
+*Câbles FC 64 Gbit/s*
+
++
+image:../media/oie_cable_sfp_gbe_copper.png["Câble fc de 64 Go, largeur = 100 px"]
 
 +
 image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Câble vers les switchs réseau hôte fc de 64 go]
@@ -208,10 +316,44 @@ image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Câble ve
 
 
 ====
-.AFF A20 avec un module 100 GbE à 2 ports
+.AFF C30 avec un module 10/25 GbE à 2 ports
 [%collapsible]
 ====
-ajouter du texte
+.Étapes
+. Câblez les connexions réseau de l'hôte.
++
+Les sous-étapes suivantes sont des exemples de câblage réseau hôte facultatif. Si nécessaire, reportez-vous  à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître la configuration spécifique de votre système de stockage.
+
++
+.. Facultatif : câblage des contrôleurs pour les switchs réseau de l'hôte.
++
+Sur chaque contrôleur, reliez les ports e2a, e2b, e2c et e2d aux commutateurs de réseau hôte Ethernet.
+
++
+*Câbles 10/25 GbE*
+
++
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur=100pxx"]
+
++
+image::../media/drw_isi_a20_host_4p_25gbe_cabling_ieops-2017.svg[Câblez les câbles a20 aux commutateurs réseau hôtes ethernet 40 gbe]
+
+.. Facultatif : câblage des contrôleurs aux switchs réseau hôte FC.
++
+Sur chaque contrôleur, reliez les ports 1a, 1b, 1c et 1D aux commutateurs réseau hôte FC.
+
++
+*Câbles FC 64 Gbit/s*
+
++
+image:../media/oie_cable_sfp_gbe_copper.png["Câble fc de 64 Go, largeur=100pxx"]
+
++
+image::../media/drw_isi_a20_4p_64gb_fc_cabling_ieops-2016.svg[Câblez les commutateurs réseau hôte a20 à 64 go fc]
+
+
+
+
 
 ====
 

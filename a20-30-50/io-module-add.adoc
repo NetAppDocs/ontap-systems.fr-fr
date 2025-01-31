@@ -14,14 +14,11 @@ summary: 'Pour remplacer un module d"E/S, vous devez déconnecter les câbles du
 Vous pouvez ajouter un module d'E/S à vos systèmes de stockage AFF A20, AFF A30 et AFF A50 lorsqu'il y a des emplacements disponibles ou lorsque tous les emplacements sont entièrement remplis.
 
 .Description de la tâche
-* Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
-+
+Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
+
 Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
 
-+
 Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
-
-
 
 
 

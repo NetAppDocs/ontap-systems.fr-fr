@@ -1,7 +1,7 @@
 ---
 permalink: a20-30-50/install-cable.html 
 sidebar: sidebar 
-keywords: aff a20, aff a30, aff a50, prepare installation 
+keywords: aff a20, aff a30, aff a50, cabling, cluster cabling, host network cabling, management network cabling, shelf cabling 
 summary: 'Les ports du réseau de gestion situés sur les contrôleurs sont connectés aux commutateurs. Les ports d"interconnexion haute disponibilité et d"interconnexion de cluster sont câblés sur les deux contrôleurs. Les modules de contrôleur sont connectés au stockage externe, si commandé.' 
 ---
 = Câbler le matériel - AFF A20, AFF A30 et AFF A50
@@ -38,11 +38,11 @@ Connectez les contrôleurs au cluster ONTAP. Cette procédure varie en fonction 
 ====
 .Câblage switchless cluster Cabling
 --
+Reliez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
+
 .AFF A30 ou AFF A50 avec deux modules d'E/S 40/100 GbE à 2 ports
 [%collapsible]
 =====
-Reliez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
-
 .Étapes
 . Reliez les connexions d'interconnexion cluster/haute disponibilité :
 +
@@ -127,11 +127,10 @@ image::../media/drw_isi_a20_switchless_2p_25gbe_cabling_ieops-2018.svg[schéma d
 
 =====
 --
-====
-[role="tabbed-block"]
-====
 .Câblage commuté du cluster
 --
+Reliez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
+
 .AFF A30 ou AFF A50 avec deux modules d'E/S 40/100 GbE à 2 ports
 [%collapsible]
 =====
