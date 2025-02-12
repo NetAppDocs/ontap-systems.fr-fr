@@ -11,37 +11,40 @@ summary: 'Vous devez vérifier l"état HA du châssis et renvoyer la pièce déf
 
 
 [role="lead"]
-Vous devez vérifier l'état HA du châssis et renvoyer la pièce défectueuse à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.
+Pour terminer le processus de remplacement du châssis, vous devez démarrer sur ONTAP, restituer le stockage, vérifier l'état de santé du système de stockage et renvoyer le châssis défectueux à NetApp.
 
 
 
-== Étape 1 : vérifier et définir l'état de haute disponibilité du châssis
+== Étape 1 : démarrez les contrôleurs et remettez-les en place
 
-Vous devez vérifier l'état HA du châssis et, le cas échéant, mettre à jour l'état pour qu'il corresponde à la configuration de votre système.
+Une fois les contrôleurs redémarrés, démarrez ONTAP et remettez les contrôleurs en place.
 
-. En mode Maintenance, depuis l'un ou l'autre module de contrôleur, afficher l'état HA du module de contrôleur local et du châssis : `ha-config show`
+. Vérifiez la sortie de la console :
 +
-L'état de la HA doit être le même pour tous les composants.
+.. Si le contrôleur démarre à l'invite Loader, redémarrez le contrôleur avec la `boot_ontap` commande.
+.. Si la console s'affiche `waiting for giveback` après le redémarrage, connectez-vous au contrôleur partenaire et vérifiez que le contrôleur remplacé est prêt pour le rétablissement avec la `storage failover show` commande.
 
-. Si l'état du système affiché pour le châssis ne correspond pas à la configuration de votre système :
+
+. Effectuer le rétablissement :
 +
-.. Définissez l'état haute disponibilité du châssis : `ha-config modify chassis _HA-state_`
-+
-La valeur de HA-State peut être l'une des suivantes :
-
-+
-*** `ha`
-*** `mcc` (Non pris en charge dans ASA)
-
-
-.. Vérifiez que le paramètre a changé : `ha-config show`
-
-
-. Si vous ne l'avez pas déjà fait, recâble le reste de votre système.
+.. Branchez le câble de la console au contrôleur partenaire.
+.. Remettre le contrôleur en arrière avec la `storage failover giveback -fromnode local` commande.
 
 
 
 
-== Étape 2 : renvoyer la pièce défectueuse à NetApp
+
+
+== Étape 2 : vérifiez l'état du système de stockage
+
+Une fois que le contrôleur a remis le stockage, vous devez vérifier l'état global avec https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"].
+
+. Une fois le rétablissement terminé, exécutez Active IQ Config Advisor pour vérifier l'état de santé du système de stockage.
+. Corrigez les problèmes que vous rencontrez.
+
+
+
+
+== Étape 3 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

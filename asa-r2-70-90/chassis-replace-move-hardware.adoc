@@ -11,19 +11,62 @@ summary: 'Déplacez les blocs d"alimentation, les disques durs et le module de c
 
 
 [role="lead"]
-Déplacez les disques durs et le module de contrôleur du châssis défectueux vers le nouveau châssis, puis remplacez le châssis défectueux par le nouveau châssis du même modèle que le châssis défectueux.
+Vous devez retirer des composants spécifiques des modules de contrôleur avant de retirer le châssis défectueux, de remplacer le châssis, de réinstaller les composants dans les bons modules de contrôleur, puis de rétablir le fonctionnement normal des contrôleurs.
 
 
 
-== Étape 1 : retirer le module de contrôleur
+== Étape 1 : retirez les blocs d'alimentation et les câbles
 
-Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+Vous devez retirer les quatre blocs d'alimentation (PSU), deux par contrôleur, avant de retirer le contrôleur. Leur retrait réduit le poids total de chaque contrôleur.
 
-. À l'avant du châssis, enfoncez fermement chaque disque jusqu'à ce que vous sentiez un arrêt positif. Cela permet de s'assurer que les disques sont fermement installés contre le fond de panier central du châssis.
+. Retirez les quatre blocs d'alimentation :
 +
-image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
+.. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+.. Débranchez les câbles d'alimentation du bloc d'alimentation du module de contrôleur.
++
+Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
 
-. Vérifiez la mémoire NVRAM orange que le voyant d'état situé dans le logement 4/5 à l'arrière du module de contrôleur défectueux est éteint. Recherchez l'icône NV.
+.. Pour retirer le bloc d'alimentation du contrôleur, faites pivoter la poignée du bloc d'alimentation vers le haut afin de pouvoir le retirer, appuyez sur la languette de verrouillage du bloc d'alimentation, puis retirez le bloc d'alimentation du module de contrôleur.
++
+
+CAUTION: Le bloc d'alimentation est court-circuité. Utilisez toujours deux mains pour le soutenir lors du retrait du module de contrôleur afin qu'il ne bascule pas brusquement et ne vous blesse pas.
+
++
+image::../media/drw_a70-90_psu_remove_replace_ieops-1368.svg[Remplacez le bloc d'alimentation]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Languette de verrouillage du bloc d'alimentation en terre cuite
+
+|===
+.. Répétez ces étapes pour les unités d'alimentation restantes.
+
+
+. Retirez les câbles :
++
+.. Débranchez les câbles système et les modules SFP et QSFP (si nécessaire) du module de contrôleur, mais laissez-les dans le périphérique de gestion des câbles pour les organiser.
++
+
+NOTE: Les câbles doivent avoir été étiquetés au début de cette procédure.
+
+.. Retirez le périphérique de gestion des câbles des modules de contrôleur et mettez-les de côté.
+
+
+
+
+
+
+== Étape 2 : retirez les modules de contrôleur et les lecteurs
+
+Retirez les contrôleurs du châssis, puis retirez les lecteurs du châssis.
+
+. Vérifiez que le voyant d'état NVRAM orange situé dans le logement 4/5 à l'arrière de chaque module de contrôleur est éteint. Recherchez l'icône NV.
 +
 image::../media/drw_a1K-70-90_nvram-led_ieops-1463.svg[Emplacement graphique de la LED d'avertissement et d'état de la NVRAM]
 
@@ -46,22 +89,13 @@ LED d'avertissement NVRAM
 
 |===
 +
-** Si le voyant NV est éteint, passez à l'étape suivante.
-** Si le voyant NV clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
+** Si le voyant NVRAM est éteint, passez à l'étape suivante.
+** Si le voyant NVRAM clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez http://mysupport.netapp.com/["Site de support NetApp"^] pour obtenir de l'aide.
 
 
-. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Débranchez les câbles d'alimentation du module de contrôleur des blocs d'alimentation.
+. Retirez les modules de contrôleur :
 +
-
-NOTE: Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
-
-. Débranchez les câbles système et les modules SFP et QSFP (si nécessaire) du module de contrôleur, en respectant la trace de l'endroit où les câbles ont été connectés.
-+
-Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
-
-. Retirez le périphérique de gestion des câbles du module de contrôleur.
-. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
+.. Appuyez sur les deux loquets de verrouillage du contrôleur, puis faites pivoter les deux loquets vers le bas en même temps.
 +
 Le module de contrôleur se déplace légèrement hors du châssis.
 
@@ -86,97 +120,97 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Goupille de blocage
 
 |===
-. Faites glisser le module de contrôleur hors du châssis et placez-le sur une surface plane et stable.
+.. Faites glisser le module de contrôleur hors du châssis par les loquets de verrouillage et placez-le sur une surface plane et stable.
 +
 Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
 
-. Répétez ces étapes pour l'autre module de contrôleur du châssis.
+.. Répétez ces étapes pour le second module de contrôleur.
 
 
-
-
-== Étape 2 : déplacez les disques vers le nouveau châssis
-
-Vous devez déplacer les lecteurs de chaque ouverture de baie de l'ancien châssis vers la même ouverture de baie dans le nouveau châssis.
-
-. Retirez délicatement le cadre de l'avant du système.
 . Retirez les lecteurs :
 +
-.. Appuyez sur le bouton de dégagement situé en haut de la face du support, sous les voyants.
+.. Retirez délicatement le cadre de l'avant du système.
+.. Appuyez sur le bouton de déverrouillage situé en haut du support de lecteur, face située sous les voyants.
 .. Tirez la poignée de came jusqu'à sa position d'ouverture complète pour dégager le lecteur du fond de panier central, puis faites glisser doucement le lecteur hors du châssis.
 +
 Le lecteur doit se désengager du châssis, ce qui lui permet de glisser hors du châssis.
 
 +
 
-NOTE: Lors de la dépose d'un entraînement, toujours utiliser deux mains pour soutenir son poids.
+NOTE: Les disques sont fragiles. Toujours utiliser deux mains pour soutenir le poids de l'entraînement lors de la dépose d'un entraînement afin d'éviter de l'endommager.
 
+.. Gardez une trace de la baie de lecteur dans laquelle se trouvait chaque lecteur et mettez-le de côté sur un chariot ou une table sans électricité statique.
+.. Répétez cette étape pour les autres lecteurs du châssis.
+
+
+
+
+
+
+== Étape 3 : remplacez le châssis défectueux
+
+Retirez le châssis défectueux et installez le châssis de remplacement.
+
+. Retirez le châssis défectueux :
 +
-
-NOTE: Les disques sont fragiles. Manipulez-les le moins possible pour éviter d'endommager ces derniers.
-
-
-
-. Gardez un trace de la baie de lecteur de chaque disque et mettez les disques de côté sur un chariot ou une table sans électricité statique.
+.. Retirez les vis des points de montage du châssis.
+.. Faites glisser le châssis défectueux hors des rails du rack dans une armoire système ou un rack, puis mettez-le de côté.
 
 
-
-
-== Étape 3 : remplacez le châssis depuis le rack d'équipement ou l'armoire système
-
-Vous devez retirer le châssis existant du rack ou de l'armoire système de l'équipement avant de pouvoir installer le châssis de remplacement.
-
-. Retirez les vis des points de montage du châssis.
-. De deux personnes, faites glisser l'ancien châssis hors des rails du rack dans une armoire système ou un rack d'équipement, puis mettez-le de côté.
-. Deux personnes utilisent pour installer le châssis de remplacement dans le rack ou l'armoire système en guidant le châssis sur les rails de rack d'une armoire système ou d'un rack d'équipement.
-. Faites glisser le châssis complètement dans le rack de l'équipement ou l'armoire système.
-. Fixez l'avant du châssis sur le rack ou l'armoire système de l'équipement à l'aide des vis que vous avez retirées de l'ancien châssis.
-. Installez les lecteurs de l'ancien châssis dans le châssis de remplacement :
+. Installez le châssis de remplacement :
 +
-.. Alignez le lecteur de l'ancien châssis avec la même ouverture de baie dans le nouveau châssis.
+.. Installez le châssis de remplacement dans le rack ou l'armoire système en le guidant sur les rails du rack dans une armoire système ou un rack.
+.. Faites glisser le châssis complètement dans le rack de l'équipement ou l'armoire système.
+.. Fixez l'avant du châssis au rack de l'équipement ou à l'armoire système à l'aide des vis que vous avez retirées du châssis défectueux.
 
 
-. Poussez doucement le lecteur dans le châssis aussi loin que possible.
+
+
+
+
+== Étape 4 : installez les composants du châssis
+
+Une fois le châssis de remplacement installé, vous devez installer les modules de contrôleur, les récupérer, puis réinstaller les lecteurs et les unités d'alimentation.
+
+. En commençant par le module de contrôleur inférieur, installez les modules de contrôleur dans le châssis de remplacement :
 +
-La poignée de came s'engage et commence à tourner vers le haut.
-
-+
-.. Poussez fermement le disque le reste dans le châssis, puis verrouillez la poignée de came en la poussant vers le haut et contre le support de disque.
-+
-Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur l'avant du support d'entraînement. Les données sont sécurisées en quelques clics.
-
-.. Répétez la procédure pour les autres lecteurs du système.
-
-
-. Si ce n'est déjà fait, installez le cadre.
-
-
-
-
-== Étape 4 : réinstallez les modules de contrôleur
-
-Réinstallez les modules de contrôleur dans le châssis et redémarrez-les.
-
-. Si vous avez ouvert le conduit d'air, fermez-le en le faisant tourner jusqu'en butée.
-+
-Il doit être aligné sur la tôle du module de contrôleur.
-
-. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le contrôleur jusqu'à son insertion complète dans le châssis.
-+
+.. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le contrôleur jusqu'à son insertion complète dans le châssis.
 .. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
 .. Si vous ne l'avez pas déjà fait, réinstallez le périphérique de gestion des câbles et recentrez le contrôleur.
 +
-Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
-
-
-
-. Répétez la procédure précédente pour installer le second contrôleur dans le nouveau châssis.
-. Branchez les cordons d'alimentation aux blocs d'alimentation.
-+
-
-NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller.
 
 +
-Le module de contrôleur commence à démarrer dès qu'il est installé et que l'alimentation est rétablie. Si elle démarre à l'invite DU CHARGEUR, redémarrez le contrôleur avec la `boot_ontap` commande.
+Assurez-vous que les câbles sont connectés en faisant référence aux étiquettes des câbles.
 
 
+
+. Réinstallez les lecteurs dans les baies correspondantes à l'avant du châssis.
+. Installez les quatre blocs d'alimentation :
++
+.. A deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du module de contrôleur.
+.. Poussez doucement le bloc d'alimentation dans le module de contrôleur jusqu'à ce que la languette de verrouillage s'enclenche.
++
+Les blocs d'alimentation ne s'enclenteront correctement qu'avec le connecteur interne et se verrouillent d'une seule manière.
+
++
+
+NOTE: Pour éviter d'endommager le connecteur interne, ne forcez pas trop lorsque vous faites glisser le bloc d'alimentation dans le système.
+
+
+
+. Reconnectez les câbles d'alimentation aux quatre blocs d'alimentation.
++
+.. Fixez le câble d'alimentation au bloc d'alimentation à l'aide du dispositif de retenue du câble d'alimentation.
++
+Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis et fixez le câble d'alimentation au bloc d'alimentation à l'aide des vis moletées.
+
+
+
++
+Les modules de contrôleur commencent à démarrer dès que les blocs d'alimentation sont installés et que l'alimentation est rétablie.
+
+
+
+.Et la suite ?
+Après avoir remplacé le châssis AFF A70 ou AFF A90 défectueux et réinstallé les composants dans celui-ci, vous devez link:chassis-replace-complete-system-restore-rma.html["terminez le remplacement du châssis"].

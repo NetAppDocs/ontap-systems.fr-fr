@@ -14,41 +14,38 @@ summary: 'Les ports du réseau de gestion situés sur les contrôleurs sont conn
 Une fois le matériel rack du système de stockage AFF A1K installé, installez les câbles réseau des contrôleurs et connectez les câbles entre les contrôleurs et les tiroirs de stockage.
 
 .Avant de commencer
-Vérifiez la flèche d'illustration dans les schémas de câblage pour connaître l'orientation correcte de la languette de retrait du connecteur de câble.
-
-image::../media/drw_cable_pull_tab_direction_ieops-1699.svg[Exemple d'orientation de la languette de retrait de câble]
-
-* Lorsque vous insérez le connecteur, vous devez le sentir en place. Si vous ne le sentez pas, retirez-le, retournez la tête du câble et réessayez.
-* Si vous vous connectez à un commutateur optique, insérez l'émetteur-récepteur enfichable à petit facteur de forme (SFP) dans le port du contrôleur avant de le connecter au port.
-
-
-
-
-== Étape 1 : connectez les contrôleurs de stockage à votre réseau
-
-Connectez les contrôleurs de stockage à votre réseau hôte.
-
-.Avant de commencer
 Pour plus d'informations sur la connexion du système de stockage aux commutateurs, contactez votre administrateur réseau.
 
 .Description de la tâche
-Ces procédures présentent les configurations courantes. N'oubliez pas que le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour obtenir des détails complets sur la configuration et la priorité des emplacements, reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^].
-
-[role="tabbed-block"]
-====
-.Option 1 : connexion des contrôleurs à un cluster ONTAP sans commutateur
---
-Connectez vos contrôleurs de stockage pour créer des connexions de cluster ONTAP, puis connectez les ports Ethernet de chaque contrôleur au réseau hôte.
-
-.Étapes
-. Utilisez le câble d'interconnexion cluster/haute disponibilité pour connecter les ports e1a à e1a et les ports e7a à e7a.
+* Ces procédures présentent les configurations courantes. Le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour obtenir des détails complets sur la configuration et la priorité des emplacements, reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+* Les graphiques de câblage sont dotés d'icônes de flèche indiquant l'orientation correcte (vers le haut ou vers le bas) de la languette du connecteur de câble lors de l'insertion d'un connecteur dans un port.
 +
+Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
+
++
+image::../media/drw_cable_pull_tab_direction_ieops-1699.svg[Exemple d'orientation de la languette de tirage du câble]
+
+* Si vous effectuez un câblage vers un commutateur optique, insérez l'émetteur-récepteur optique dans le port du contrôleur avant de le connecter au port du commutateur.
+
+
+
+
+== Étape 1 : câblez les connexions du cluster/haute disponibilité
+
+Connectez les contrôleurs au cluster ONTAP. Cette procédure varie en fonction du modèle de votre système de stockage et de la configuration de votre module d'E/S.
+
 
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques.
 
-+
-.. Connectez le port e1a du contrôleur A au port e1a du contrôleur B.
-.. Connectez le port e7a du contrôleur A au port e7a du contrôleur B.
+[role="tabbed-block"]
+====
+.Câblage switchless cluster Cabling
+--
+Utilisez le câble d'interconnexion cluster/haute disponibilité pour connecter les ports e1a à e1a et les ports e7a à e7a.
+
+.Étapes
+. Connectez le port e1a du contrôleur A au port e1a du contrôleur B.
+. Connectez le port e7a du contrôleur A au port e1a du contrôleur B.
 +
 *Câbles d'interconnexion cluster/haute disponibilité*
 
@@ -60,66 +57,14 @@ image::../media/drw_a1k_tnsc_cluster_cabling_ieops-1648.svg[Schéma de câblage 
 
 
 
-. Connectez les ports du module Ethernet à votre réseau hôte.
-+
-Voici quelques exemples types de câblage réseau hôte. Reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître la configuration spécifique de votre système.
-
-+
-.. Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet, comme illustré.
-+
-
-NOTE: Pour optimiser les performances du système pour le trafic de cluster et haute disponibilité, n'utilisez pas les ports e1b et e7b pour les connexions réseau hôte. Utilisez une carte hôte séparée pour optimiser les performances.
-
-+
-*Câble 100 GbE*
-
-+
-image::../media/oie_cable_sfp_gbe_copper.png[Câble Ethernet 100 Gb]
-
-+
-image::../media/drw_a1k_network_cabling1_ieops-1649.svg[Câble vers un réseau Ethernet 100 Gb]
-
-.. Connectez vos commutateurs de réseau hôte 10/25 GbE.
-+
-*Hôte 10/25 GbE*
-
-+
-image::../media/oie_cable_sfp_gbe_copper.png[Câble Ethernet 10 Gb]
-
-+
-image::../media/drw_a1k_network_cabling2_ieops-1650.svg[Câble vers un réseau Ethernet 10 Gb]
-
-
-
-. Utilisez les câbles 1000BASE-T RJ-45 pour connecter les ports de gestion du contrôleur (clé anglaise) aux commutateurs du réseau de gestion.
-+
-image::../media/oie_cable_rj45.png[Câbles RJ-45]
-
-+
-*CÂBLES 1000BASE-T RJ-45*
-
-+
-image::../media/drw_a1k_management_connection_ieops-1651.svg[Connectez-vous à votre réseau de gestion]
-
-
-
-
-IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
-
 --
-.Option 2 : connexion des contrôleurs à un cluster ONTAP commuté
+.Câblage commuté du cluster
 --
-Connectez vos contrôleurs de stockage aux switchs réseau en cluster pour créer les connexions en cluster ONTAP, puis connectez les ports Ethernet de chaque contrôleur au réseau hôte.
+Utilisez le câble 100 GbE pour connecter les ports e1a à e1a et les ports e7a à e7a.
 
 .Étapes
-. Effectuez les connexions de câblage suivantes :
-+
-
-NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques.
-
-+
-.. Connectez le port e1a du contrôleur A et le port e1a du contrôleur B au commutateur a du réseau du cluster
-.. Connectez le port e7a du contrôleur A et le port e7a du contrôleur B au commutateur de réseau du cluster B.
+. Connectez le port e1a du contrôleur A et le port e1a du contrôleur B au commutateur a du réseau du cluster
+. Connectez le port e7a du contrôleur A et le port e7a du contrôleur B au commutateur de réseau du cluster B.
 +
 *Câble 100 GbE*
 
@@ -131,12 +76,18 @@ image::../media/drw_a1k_switched_cluster_cabling_ieops-1652.svg[Reliez les conne
 
 
 
-. Connectez les ports du module Ethernet à votre réseau hôte.
-+
+--
+====
+
+
+== Étape 2 : câblez les connexions réseau de l'hôte
+
+Connectez les ports du module Ethernet à votre réseau hôte.
+
 Voici quelques exemples types de câblage réseau hôte. Reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître la configuration spécifique de votre système.
 
-+
-.. Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet, comme illustré.
+.Étapes
+. Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet.
 +
 
 NOTE: Pour optimiser les performances du système pour le trafic de cluster et haute disponibilité, n'utilisez pas les ports e1b et e7b pour les connexions réseau hôte. Utilisez une carte hôte séparée pour optimiser les performances.
@@ -145,51 +96,51 @@ NOTE: Pour optimiser les performances du système pour le trafic de cluster et h
 *Câble 100 GbE*
 
 +
-image::../media/oie_cable_sfp_gbe_copper.png[Câble Ethernet 100 Gb]
+image::../media/oie_cable_sfp_gbe_copper.svg[Câble Ethernet 100 Gb]
 
 +
 image::../media/drw_a1k_network_cabling1_ieops-1649.svg[Câble vers un réseau Ethernet 100 Gb]
 
-.. Connectez vos commutateurs de réseau hôte 10/25 GbE.
+. Connectez vos commutateurs de réseau hôte 10/25 GbE.
 +
-*4 ports, hôte 10/25 GbE*
+*Hôte 10/25 GbE*
 
 +
-image::../media/oie_cable_sfp_gbe_copper.png[Câble Ethernet 10 Gb]
+image::../media/oie_cable_sfp_gbe_copper.svg[Câble Ethernet 10 Gb]
 
 +
 image::../media/drw_a1k_network_cabling2_ieops-1650.svg[Câble vers un réseau Ethernet 10 Gb]
 
 
 
-. Connectez les ports de gestion du contrôleur (clé anglaise) aux commutateurs du réseau de gestion à l'aide de câbles 1000BASE-T RJ-45.
-+
-image::../media/oie_cable_rj45.png[Câbles RJ-45]
 
-+
+
+== Étape 3 : branchement des câbles du réseau de gestion
+
+Utilisez les câbles 1000BASE-T RJ-45 pour connecter les ports de gestion (clé anglaise) de chaque contrôleur aux commutateurs du réseau de gestion.
+
+image::../media/oie_cable_rj45.svg[Câbles RJ-45]
+
 *CÂBLES 1000BASE-T RJ-45*
 
-+
 image::../media/drw_a1k_management_connection_ieops-1651.svg[Connectez-vous à votre réseau de gestion]
-
-
 
 
 IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
 
---
-====
 
 
-== Étape 2 : connectez les contrôleurs de stockage aux tiroirs de stockage
+== Étape 4 : branchement des tiroirs sur le câble
 
-Les procédures de câblage suivantes indiquent comment connecter les contrôleurs à un tiroir et à deux tiroirs. Vous pouvez directement connecter jusqu'à quatre tiroirs à vos contrôleurs.
+Les procédures de câblage suivantes indiquent comment connecter les contrôleurs à un tiroir de stockage. Choisissez l'une des options de câblage suivantes correspondant à votre configuration.
+
+Pour connaître le nombre maximum de tiroirs pris en charge par votre système de stockage et pour toutes vos options de câblage, reportez-vous à link:https://hwu.netapp.com["NetApp Hardware Universe"^]la section .
 
 [role="tabbed-block"]
 ====
 .Option 1 : connexion à un tiroir de stockage NS224
 --
-Connectez chaque contrôleur aux modules NSM du tiroir NS224. Les graphiques présentent le câblage depuis chaque contrôleur : le câblage du contrôleur A est représenté en bleu et le câblage du contrôleur B en jaune.
+Connectez chaque contrôleur aux modules NSM du tiroir NS224. Les graphiques présentent le câblage du contrôleur A en bleu et le câblage du contrôleur B en jaune.
 
 *Câbles en cuivre QSFP28 100 GbE*
 
@@ -219,7 +170,7 @@ image:../media/drw_a1k_1shelf_cabling_b_ieops-1704.svg["Reliez les ports e11a et
 --
 .Option 2 : connexion à deux tiroirs de stockage NS224
 --
-Connectez chaque contrôleur aux modules NSM des deux tiroirs NS224. Les graphiques présentent le câblage depuis chaque contrôleur : le câblage du contrôleur A est représenté en bleu et le câblage du contrôleur B en jaune.
+Connectez chaque contrôleur aux modules NSM des deux tiroirs NS224. Les graphiques présentent le câblage du contrôleur A en bleu et le câblage du contrôleur B en jaune.
 
 *Câbles en cuivre QSFP28 100 GbE*
 

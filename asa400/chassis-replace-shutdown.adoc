@@ -17,17 +17,12 @@ Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropri�
 
 == Option 1 : arrêter les contrôleurs lors du remplacement d'un châssis
 
-Arrêtez les contrôleurs afin d'effectuer des opérations de maintenance sur le châssis.
-
-Cette procédure concerne les systèmes ayant des configurations à deux nœuds. Si votre système comporte plus de deux nœuds, reportez-vous à la section https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_perform_a_graceful_shutdown_and_power_up_of_one_HA_pair_in_a_4__node_cluster["Comment effectuer un arrêt normal et mettre sous tension une paire haute disponibilité dans un cluster à quatre nœuds"^].
+Cette procédure concerne les systèmes ayant des configurations à deux nœuds. Pour plus d'informations sur l'arrêt normal lors de la maintenance d'un cluster, reportez-vous à la section https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_is_the_procedure_for_graceful_shutdown_and_power_up_of_a_storage_system_during_scheduled_power_outage["Arrêtez et mettez sous tension votre système de stockage - Guide de résolution - base de connaissances NetApp"].
 
 .Avant de commencer
-* Empêchez tous les clients/hôtes d'accéder aux données sur le système NetApp.
-* Suspendre les tâches de sauvegarde externes.
 * Vérifiez que vous disposez des autorisations et des informations d'identification nécessaires :
 +
 ** Informations d'identification de l'administrateur local pour ONTAP.
-** Phrase secrète pour la gestion des clés intégrée NetApp à l'échelle du cluster en cas d'utilisation du chiffrement du stockage ou de NVE/NAE.
 ** Accès BMC pour chaque contrôleur.
 
 
@@ -43,22 +38,23 @@ Cette procédure concerne les systèmes ayant des configurations à deux nœuds.
 
 .Étapes
 . Connectez-vous au cluster via SSH ou connectez-vous à un nœud du cluster à l'aide d'un câble de console local et d'un ordinateur portable/d'une console.
-. Désactivez AutoSupport et indiquez la durée de mise hors ligne du système :
+. Empêchez tous les clients/hôtes d'accéder aux données sur le système NetApp.
+. Suspendre les tâches de sauvegarde externes.
+. Si AutoSupport est activé, supprimez la création de dossiers et indiquez combien de temps le système doit rester hors ligne :
 +
-`system node autosupport invoke -node * -type all -message "MAINT=8h Power Maintenance"`
+`system node autosupport invoke -node * -type all -message "MAINT=2h Replace chassis"`
 
-. Identifiez l'adresse SP/BMC de tous les nœuds :
+. Identifier l'adresse SP/BMC de tous les nœuds du cluster :
 +
 `system service-processor show -node * -fields address`
 
-. Quitter le cluster shell : `exit`
-. Connectez-vous au processeur de service/contrôleur BMC via SSH en utilisant l'adresse IP de l'un des nœuds répertoriés dans le résultat de l'étape précédente.
+. Quitter le cluster shell :
++
+`exit`
+
+. Connectez-vous à SP/BMC via SSH en utilisant l'adresse IP de l'un des nœuds répertoriés dans le résultat de l'étape précédente pour surveiller la progression.
 +
 Si vous utilisez une console ou un ordinateur portable, connectez-vous au contrôleur à l'aide des mêmes informations d'identification d'administrateur de cluster.
-
-+
-
-NOTE: Ouvrez une session SSH sur chaque connexion SP/BMC afin de pouvoir surveiller la progression.
 
 . Arrêtez les deux nœuds situés dans le châssis défectueux :
 +
@@ -68,8 +64,10 @@ NOTE: Ouvrez une session SSH sur chaque connexion SP/BMC afin de pouvoir surveil
 
 NOTE: Pour les clusters qui utilisent SnapMirror en mode synchrone : `system node halt -node <node1>,<node2>  -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true -ignore-strict-sync-warnings true`
 
-. Entrez *y* pour chaque contrôleur du cluster lorsque vous voyez `_Warning: Are you sure you want to halt node "cluster <node-name> number"?
-{y|n}:_`
+. Entrez *y* pour chaque contrôleur du cluster lorsque vous voyez :
++
+`Warning: Are you sure you want to halt node _<node_name>_? {y|n}:`
+
 . Attendez que chaque contrôleur s'arrête et affichez l'invite DU CHARGEUR.
 
 
