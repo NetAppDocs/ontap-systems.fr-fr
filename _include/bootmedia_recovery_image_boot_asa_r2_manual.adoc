@@ -1,16 +1,7 @@
----
-permalink: asa-r2-a1k/bootmedia-recovery-image-boot.html 
-sidebar: sidebar 
-keywords: asa r2 a1k, boot the recovery image 
-summary: 'Vous devez démarrer l"image ONTAP à partir du lecteur USB, restaurer le système de fichiers et vérifier les variables environnementales.' 
----
-= Démarrez l'image de récupération - ASA A1K
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
 Vous devez démarrer l'image ONTAP à partir du lecteur USB, restaurer le système de fichiers et vérifier les variables environnementales.
 
 .Étapes
@@ -42,15 +33,30 @@ L'image est téléchargée à partir de la clé USB.
 --
 .Option 2 : ONTAP 9.16.1 ou version ultérieure
 --
-.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. À l'invite Loader du contrôleur défectueux, configurez l'adresse IP du module de contrôleur défectueux :
 +
-Une fois la procédure de restauration réussie, ce message s'affiche sur la console - `syncflash_partner: Restore from partner complete`.
+`ifconfig e0M - auto`
 
+.. À l'invite Loader, netboot le nœud défectueux :
++
+`netboot \http://_web_server_ip/path_to_web-accessible_directory_/<ontap_version>_image.tgz`
+
+.. Dans le menu de démarrage, sélectionnez option `7`.
+.. Entrez `n` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. Entrez `y` lorsque vous êtes invité à redémarrer le nœud.
+.. Appuyez sur `ctrl-c` pour revenir au menu de démarrage.
++
+Si le chiffrement est activé, vous devez le restaurer avant de continuer à restaurer l'image de démarrage. Allez à link:bootmedia-encryption-restore.html["Restaurez le chiffrement"].
+
+.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à redémarrer le contrôleur défectueux et appuyez sur `ctrl-c` pour accéder au menu de démarrage.
+.. Sélectionnez option `6`.
 .. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous y êtes invité pour confirmer si la sauvegarde de restauration a réussi.
 .. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à utiliser la configuration restaurée.
 .. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à redémarrer le nœud.
-.. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous êtes invité à redémarrer le contrôleur défectueux et appuyez sur `ctrl-c` pour accéder au menu de démarrage.
-.. Si le système n'utilise pas le chiffrement, sélectionnez _option 1 démarrage normal._, sinon, passez à link:bootmedia-encryption-restore.html["Restaurez le chiffrement"].
+.. Appuyez sur `Y` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
++
+Une fois la procédure de restauration réussie, ce message s'affiche sur la console - `syncflash_partner: Restore from partner complete`.
+
 
 
 --

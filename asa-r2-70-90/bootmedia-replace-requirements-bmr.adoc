@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: asa r2 a70, a90, replace the boot media 
 summary: Découvrez la configuration requise pour le remplacement du support de démarrage. 
 ---
-= Exigences et considérations - ASA A70 et ASA A90
+= Exigences de remplacement des supports de démarrage - ASA A70 et ASA A90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,12 +13,25 @@ summary: Découvrez la configuration requise pour le remplacement du support de 
 [role="lead"]
 Avant de remplacer le support de démarrage, vérifiez les conditions suivantes.
 
-* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de NetApp.
-* Il est important d'appliquer les commandes au cours de la procédure suivante sur le contrôleur approprié :
-+
-** Le contrôleur _trouble_ est le contrôleur sur lequel vous effectuez la maintenance.
-** Le contrôleur _Healthy_ est le partenaire HA du contrôleur déficient.
-
-
+* Vous devez remplacer le support de démarrage défectueux par un support de démarrage de remplacement que vous avez reçu de NetApp.
 * Il ne doit y avoir aucun port de cluster défectueux sur le contrôleur défectueux.
+* Déterminez si Onboard Key Manager (OKM) ou Eternal Key Manager (EKM) est configuré à l'aide de l'une des méthodes suivantes :
++
+** Vous pouvez demander à l'administrateur système si OKM ou EKM sont activés.
+** Pour vérifier si OKM est activé, vous pouvez utiliser le `security key-manager onboard show`.
+** Pour vérifier si EKM est activé, vous pouvez utiliser le `security key-manager external show`.
 
+
+* Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.
+* Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
++
+** fichier /cfcard/kmip/servers.cfg.
+** fichier /cfcard/kmip/certs/client.crt.
+** fichier /cfcard/kmip/certs/client.key.
+** Fichier /cfcard/kmip/certs/CA.pem.
+
+
+
+
+.Et la suite
+Après avoir examiné la configuration requise pour le support de démarrage, vous link:bootmedia-shutdown-bmr.html["arrêtez le contrôleur défectueux"].

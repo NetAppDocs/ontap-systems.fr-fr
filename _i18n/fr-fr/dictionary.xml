@@ -8864,7 +8864,6 @@ SFP+ (cible/initiateur)</block>
   <block id="2e8e8fd780cc78a14b825cad663b2611" category="paragraph">ONTAP 9.16.0 ou version antérieure</block>
   <block id="607ae42cd8348594bc8bfa6a3c380eba" category="paragraph">*REMARQUE :* si vous voyez un message autre qu'une restauration réussie, contactez<block ref="dac6ef02422de09259cb8cc562a669a7" category="inline-link-rx"></block>.</block>
   <block id="d9cbafff040793241dffd17bc8129532" category="paragraph">*REMARQUE :* si le processus échoue, contactez<block ref="dac6ef02422de09259cb8cc562a669a7" category="inline-link-rx"></block>.</block>
-  <block id="53f59a608ecfcdc90a1a8b37f4c8f010" category="paragraph">Pour remplacer le support de démarrage, vous devez retirer le module de gestion du système de l'arrière du système, retirer le support de démarrage défectueux et installer le support de démarrage de remplacement dans le module de gestion du système.</block>
   <block id="54d6f7773c4a60500d049c396202a23d" category="list-text">Appuyez sur le bouton CAM de gestion du système.</block>
   <block id="e3f95753aace3276fa0375074c45c988" category="list-text">Il ne doit y avoir aucun port de cluster défectueux sur le contrôleur défectueux.</block>
   <block id="9a55c0fdded61a1e549c1b9afbfc5023" category="list-text"><block ref="32b858596eeb9351eca27c2906a21da4" prefix="" category="inline-code"></block> (Non pris en charge par les systèmes ASA)</block>
@@ -8874,13 +8873,11 @@ SFP+ (cible/initiateur)</block>
   <block id="c1b6a9a30a6ce8d79305050622234851" category="paragraph">Dans le résultat de la commande, un message s'affiche indiquant l'état des contrôleurs.</block>
   <block id="b58ec5a6cf078c8a3a2b309a797f9e62" category="paragraph">Le contrôleur reconnecte son pool de stockage et termine le démarrage.</block>
   <block id="c23f2b6754e0bfe310956814b83c20c2" category="list-text">Vérifiez que les disques que les pools de disques sont conformes aux attentes :<block ref="a9fae81f0c924f3a581cf23a9c8b11b1" prefix=" " category="inline-code"></block></block>
-  <block id="56bce10b49b12be932b0ca38009e1da1" category="paragraph">Pour remplacer le support de démarrage, vous devez retirer le module de gestion du système de l'arrière du système, retirer le support de démarrage défectueux et installer le support de démarrage de remplacement dans le module de gestion du système.</block>
   <block id="7acc547c8acfbe4a745ca72a3e0e83e4" category="image-alt">Entraînement drw a800 assis IEOPS 960</block>
   <block id="db4669e53766b1110dbd428a22b6f5cc" category="list-text">Appuyez sur le bouton de la came de gestion du système.</block>
   <block id="cf91b43675e7187d6e724e7c312e336a" category="list-text">Faites tourner le loquet de came pour l'éloigner du module aussi loin que possible.</block>
   <block id="f5c1d99a4f032f30d087e32fbbbdb994" category="paragraph">Arrêtez ou prenez le contrôle du contrôleur défectueux. - Pour arrêter le contrôleur défectueux, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle du contrôleur afin que celui-ci continue à transmettre les données provenant du stockage du contrôleur défectueux.</block>
   <block id="5050dae1093a80a257a1d121ca5f3b0f" category="section-title">Étape 4 : vérifiez l'état du contrôleur</block>
-  <block id="6d194eccb9cd88bfbcde1df65103cbb4" category="list-text">Entrez les valeurs de l'UUID de magasin de clés et de l'UUID de cluster lorsque vous y êtes invité.</block>
   <block id="417968dd9c410e2ebdf82236e2a6f1d8" category="doc">Étape 1 : connectez les contrôleurs de stockage à votre réseau</block>
   <block id="ee6c90ad735c4fc892e900202d6ff034" category="list-text">Utilisez le câble d'interconnexion cluster/haute disponibilité pour connecter les ports e1a à e1a et les ports e7a à e7a.</block>
   <block id="8637ca13eb3c1a10bb4383130268c950" category="list-text">Connectez les ports du module Ethernet à votre réseau hôte.</block>
@@ -9089,14 +9086,9 @@ SFP+ (cible/initiateur)</block>
   <block id="29ce4833094eb0992ba97ac3e0c71b3f" category="inline-link-macro">Section sur la maintenance des systèmes ASA r2</block>
   <block id="c8208be6c84d32af841a96445a7aa12a" category="paragraph">Les procédures de maintenance spécifiques pour chaque type de système ASA r2 se trouvent dans le <block ref="6106c9a1bd699a0a46425013e812fe67" category="inline-link-macro-rx"></block>.</block>
   <block id="cb1eb944e0468ffad560cfc4623a28dc" category="doc">Renvoyer la pièce défectueuse à NetApp - ASA A70 et ASA A90</block>
-  <block id="50845bae5620d87f695c2dc8e2ba4b4e" category="doc">Restaurez le chiffrement - ASA A70 et ASA A90</block>
-  <block id="be50da4a0a4e7670cc5496e8959abd3e" category="paragraph">Le remplacement manuel des supports de démarrage utilise la méthode traditionnelle de téléchargement de l'image ONTAP à partir du site de support NetApp, de transfert de l'image vers un lecteur USB, de téléchargement vers le support de démarrage cible de remplacement et de navigation manuelle dans les options du menu de démarrage pour installer l'image ONTAP sur le support de démarrage de remplacement.</block>
   <block id="4a64f3d63fd0e8b93b80ef48b4698a9a" category="summary">Vous pouvez restaurer l'image sur le support de démarrage à partir du contrôleur partenaire via le processus de restauration de démarrage automatique.</block>
-  <block id="41f43600bfb66f22a00e070720eb3684" category="doc">Récupération automatique au démarrage - ASA A70 et ASA A90</block>
-  <block id="7d7b39e1d38d18d4acc88e8ead4ecab1" category="doc">Démarrez l'image de récupération - ASA A70 et ASA A90</block>
   <block id="56e7f21b9427a2441a89613fe1fcc2ff" category="summary">Pour localiser le support d'amorçage défectueux, retirez le module de gestion du système avant de pouvoir le remplacer.</block>
   <block id="69326c1cf7a079cc03d300fe203efde6" category="doc">Remplacez le support de démarrage - ASA A70 et ASA A90</block>
-  <block id="f5f04350fe8cc121abba09eed8ef8194" category="doc">Exigences et considérations - ASA A70 et ASA A90</block>
   <block id="740df8929ce5dd43cd4aae8d5504654d" category="doc">Exigences de remplacement des supports de démarrage - ASA A70 et ASA A90</block>
   <block id="2cf315583a350744f9ff0bd28ec89aef" category="doc">Procédure de remplacement des supports de démarrage - ASA A70 et ASA A90</block>
   <block id="d49388da53cc4a7219dcbdd63d45342a" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="d54ef5e1f82ac3261c20b17cf3d0d453" category="inline-link-macro-rx"></block></block>
@@ -9105,7 +9097,6 @@ SFP+ (cible/initiateur)</block>
   <block id="d09fb8e8be6d5c93fb8113549e3abfb0" category="paragraph">Restaurez l'image ONTAP à partir du contrôleur partenaire.</block>
   <block id="b8a9f715dbb64fd5c56e7783c6820a61" category="inline-image-macro">deux</block>
   <block id="14c9871d29cebff6090d4220729c7ade" category="summary">Vous devez terminer l'arrêt du contrôleur défectueux.</block>
-  <block id="0049b2ae6634f29dc31a51b97c674ab3" category="doc">Arrêter le contrôleur - ASA A70 et ASA A90</block>
   <block id="a79ec0bc86b66848b485542b40048cb6" category="paragraph">Vous devez terminer l'arrêt du contrôleur défectueux. Arrêtez ou prenez le contrôle du contrôleur défectueux.</block>
   <block id="95d86a07e48032c658d9a13faedb46d6" category="doc">Terminez le remplacement du châssis - ASA A70 et ASA A90</block>
   <block id="33af0abab8ca4fe70c730bb3d86abb73" category="doc">Déplacer et remplacer le matériel de fixation - ASA A70 et ASA A90</block>
@@ -9139,9 +9130,7 @@ SFP+ (cible/initiateur)</block>
   <block id="591fbd5c7a0e4469981c4bc0919fffdb" category="doc">Remplacez la pile de l'horloge temps réel - ASA A70 et ASA A90</block>
   <block id="ab89852eb86e2c9aed275b5eab913eb1" category="doc">Remplacer le module de gestion du système - ASA A70 et ASA A90</block>
   <block id="77dbbb0add58d8d5b96d74c1b27689bb" category="doc">Renvoyez la pièce défectueuse à NetApp - ASA A1K</block>
-  <block id="6a648d096ab46ad56d57cdcbd2f3fbe9" category="doc">Restaurer le chiffrement - ASA A1K</block>
   <block id="8e22ce60290e8b393a0781c3d78c5f34" category="doc">Récupération automatique au démarrage - ASA A1K</block>
-  <block id="4815b5bdc49e0c84c1f8a77425bfdc4d" category="doc">Démarrez l'image de récupération - ASA A1K</block>
   <block id="1c1be2f74300d879eb6d6d09021f9e6f" category="doc">Remplacez le support de démarrage - ASA A1K</block>
   <block id="28c83315b64c52bba9c9e7929909e6d8" category="doc">Exigences de remplacement du support de démarrage - ASA A1K</block>
   <block id="c940611fb67d6f64a97efd7fcbadb1aa" category="doc">Procédure de remplacement du support de démarrage - ASA A1K</block>
@@ -9419,42 +9408,15 @@ SFP+ (cible/initiateur)</block>
   <block id="ba5dd27b1299bb403e2ba15f471c0373" category="paragraph"><block ref="ba5dd27b1299bb403e2ba15f471c0373" category="inline-image-macro-rx" type="image"></block></block>
   <block id="109c420da8258ff22d7c9b248c5fe184" category="paragraph"><block ref="109c420da8258ff22d7c9b248c5fe184" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1cf8a176eb130616bdad1b90aae3ebea" category="cell">Verrouillage des verrous de came</block>
-  <block id="4d0fdf4d7f2cb2e8d15ff7667eada8d3" category="paragraph">Restaurez l'image ONTAP à partir du nœud partenaire lorsque le support de démarrage est corrompu.</block>
-  <block id="517e2ed3d13a9db19dc610c5f11efa90" category="paragraph">Si le support de démarrage d'un nœud est corrompu, le processus de démarrage s'arrête à l'invite DU Loader et affiche les messages d'erreur de démarrage.</block>
-  <block id="10a398d436cab5b5badea933dda79497" category="paragraph">Lorsque ces messages d'erreur de démarrage s'affichent, vous devez restaurer l'image ONTAP à partir du nœud partenaire.</block>
-  <block id="e8693d42f65c91620e44940317084863" category="example-title">Affiche un exemple de messages d'erreur de démarrage</block>
   <block id="03f7f0cf47c4f6389ad76450db56b50e" category="list-text">Dans l'invite Loader, entrez la commande :</block>
   <block id="69c68a07899b46965d63bdd6fea6e0da" category="paragraph"><block ref="4d9c822f717329c7000654e8bae09ae4" prefix="" category="inline-code"></block></block>
   <block id="1857c0ed792dbbfc2525805e6132de0b" category="paragraph">L'écran affiche le message suivant :</block>
   <block id="c285ffddf1786cd1a14a26bcf9b74c7d" category="paragraph"><block ref="061047859ec1e213bd771fe5350bda2c" prefix="" category="inline-code"></block></block>
-  <block id="8f616ca67798afd132662e15fc4caa28" category="paragraph">Lorsque netboot est en cours d'exécution, le<block ref="f6715e6f2a651bfc51d27566b1be5385" prefix=" " category="inline-code"></block> message s'affiche.</block>
-  <block id="39cb6e7651585d511fc148af8198837f" category="open-title">Pas de cryptage</block>
-  <block id="aada4d2dac8a2a5bd04bf211104ff2c5" category="paragraph">Si aucun chiffrement n'est détecté, le processus de récupération du support de démarrage se poursuit sans nécessiter de gestion des clés.</block>
-  <block id="69c50e084d31ca90079f6b8b4409607b" category="paragraph">Continuez à surveiller le processus de restauration lors de la restauration de la configuration de sauvegarde, du fichier env, de la base de données mdb et du rdb à partir du nœud partenaire.</block>
   <block id="d450838e17f81a8b52e0177614d67ad7" category="paragraph">Une fois le processus de restauration terminé, le nœud redémarre. Les messages suivants indiquent une récupération réussie :</block>
   <block id="a9849e92b148965a7bbb6c14d0afbcd0" category="open-title">Gestionnaire de clés intégré Onboard Key Manager (OKM)</block>
-  <block id="9948202ce966f6258be65aa9b31169af" category="paragraph">Si OKM (Onboard Key Manager) est détecté, le système affiche l'invite suivante.</block>
-  <block id="5fd01f063ea353b3d15d04ba686af926" category="list-text">Dans l'invite d'option bootmenu, entrez<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> pour confirmer que vous souhaitez utiliser l'option de récupération de bootmedia.</block>
-  <block id="0af26afae73e3202f7c7aaab8c992b8c" category="list-text">Entrez la phrase de passe du gestionnaire de clés intégré lorsque vous y êtes invité, puis saisissez à nouveau la phrase de passe pour confirmer.</block>
   <block id="7d4bcf16d67094152377ca26832cc48a" category="example-title">Affiche un exemple d'invites de phrase de passe</block>
   <block id="08ac1a2fb254b60e9c511fe04b6536d0" category="open-title">Gestionnaire de clés externe (EKM)</block>
-  <block id="41913ae5c9ce168f601906b14a2d644b" category="paragraph">Si EKM est configuré, le système affiche l'invite suivante.</block>
-  <block id="685640bd86353fa910cfbe3619c2e7b6" category="list-text">Saisissez<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> si EKM a été configuré.</block>
-  <block id="af938ef69b688ad28c38e627ef2e2ba5" category="paragraph">Vous serez invité à entrer les paramètres EKM initialement utilisés lors de la configuration.</block>
-  <block id="12090a552988289480c2a6d3ebef573d" category="list-text">Entrez chaque paramètre de configuration EKM lorsque vous y êtes invité.</block>
-  <block id="03c5f957f0bce79f5fde4d008fa92a51" category="list-text">Vérifiez que les attributs de l'UUID de cluster et de l'UUID de magasin de clés sont corrects.</block>
-  <block id="abfd93201d9b931fb8a842033c96915c" category="list-text">Sur le nœud partenaire, récupérez l'UUID du cluster à l'aide de la commande suivante.</block>
-  <block id="13be17a2458a5b6a4d7674bfcf31e6f9" category="paragraph"><block ref="73bad5beeda4a2a6bd01d97def1d4e67" prefix="" category="inline-code"></block></block>
-  <block id="055eeae93444c58000a552a49d5cde3f" category="list-text">Sur le nœud partenaire, récupérez l'UUID de magasin de clés à l'aide des commandes suivantes.</block>
-  <block id="fca054687afc6f162b9ade39c46a6116" category="paragraph"><block ref="f2892b1a90652446a2c8a2dce1d42eee" prefix="" category="inline-code"></block></block>
-  <block id="b85d1d8fb07ae788a6ed563b610b84d6" category="list-text">Si le nœud partenaire n'est pas disponible, utiliser la clé Mroot-AK pour récupérer l'UUID :</block>
-  <block id="b33990729d89c66fed95f9d4dd36da47" category="list-text">Pour l'UUID de cluster, saisissez la commande suivante :</block>
-  <block id="e1484c32938464e5549c6b76d764b054" category="paragraph"><block ref="b8bbecc4d00a5d5b7dc368313818ee3e" prefix="" category="inline-code"></block></block>
-  <block id="2d545dacd75df3daea75332f92adcae5" category="list-text">Pour l'UUID de magasin de clés, entrez la commande suivante :</block>
-  <block id="e7262eed05fa7365b0a692742f81c0cb" category="paragraph"><block ref="d48b7412b88ab861789f4a831606e7fa" prefix="" category="inline-code"></block></block>
   <block id="012ebe1b2edbad8e2badae49c3ce7300" category="list-text">Selon que la clé a été restaurée avec succès, effectuez l'une des actions suivantes :</block>
-  <block id="6be21e297a64c0ca433ca37eb30b095a" category="list-text">Si la clé a été restaurée avec succès, le processus de restauration se poursuit et redémarre le nœud. Passez à l'étape 4.</block>
-  <block id="baef154cbd04341d2c81cd5f404ffa42" category="list-text">Si la clé n'est pas restaurée, le système s'arrête et affiche des messages d'erreur et d'avertissement. Relancez le processus de restauration.</block>
   <block id="1b3e0ac05a9037c92315146268065f35" category="example-title">Montrer un exemple d'erreur de récupération de clé et de messages d'avertissement</block>
   <block id="1c46e0ff0264d9660c3f0213e88d21b7" category="list-text">Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.</block>
   <block id="c50195249b8a024dc002dc38a94d2ecb" category="paragraph"><block ref="c50195249b8a024dc002dc38a94d2ecb" category="inline-image-macro-rx" type="image"></block></block>
@@ -9591,25 +9553,11 @@ SFP+ (cible/initiateur)</block>
   <block id="9acf79506c541222d53e58985e01eb03" category="doc">Restaurer le chiffrement - AFF A900</block>
   <block id="9eeb212e62f650916daef03f37d7b903" category="paragraph"><block ref="9eeb212e62f650916daef03f37d7b903" category="inline-image-macro-rx" type="image"></block></block>
   <block id="21d7363ee72b4f7dbf229f951faae28f" category="paragraph"><block ref="21d7363ee72b4f7dbf229f951faae28f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="42f783263c0e805556cc105b89a33685" category="doc">Vérifiez la prise en charge et l'état des clés de cryptage - ASA A70 et ASA A90</block>
   <block id="7b8bb02fade9d4a58e3cfc42ecdcd970" category="summary">Découvrez la méthode automatisée de remplacement du support de démarrage.</block>
-  <block id="c0bc9e3dbe6e8f8b47642dae74af82f1" category="doc">Présentation de la récupération automatique des supports de démarrage - ASA A70 et ASA A90</block>
   <block id="f5179676ff804b88e5799857443be173" category="paragraph">Vous pouvez remplacer un support d'amorçage défaillant via l'option de récupération automatique du support d'amorçage (BMR).</block>
   <block id="b0fe901b833b66e26e925b635eccaed3" category="paragraph">La restauration automatique du support de démarrage utilise l'image de démarrage du nœud partenaire et exécute automatiquement l'option de menu de démarrage appropriée pour installer l'image de démarrage sur le support de démarrage de remplacement.</block>
-  <block id="c0d5cf860156f25b1345db1cbffc797b" category="summary">Découvrez la méthode manuelle de remplacement du support de démarrage.</block>
-  <block id="05c869773156f3e182a24e4a395746ef" category="doc">Présentation de la récupération manuelle des supports de démarrage - ASA A70 et ASA A90</block>
-  <block id="85f6c56f4368d94f36af2f8174800cdd" category="paragraph">Vous pouvez remplacer manuellement un support d'amorçage défectueux en utilisant le module USB pour l'image d'amorçage.</block>
-  <block id="834c7d9c8325f941289306697291736e" category="paragraph-title"><block ref="ccf9965eddaaff76b152812c8e0015f1" category="inline-image-macro-rx" type="image"></block><block ref="fbe5cfbeb25b00ec0a44d74f3b70c580" category="inline-link-macro-rx"></block></block>
   <block id="a203ae5b4c010fa4bfba309f112022fe" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="bace9ebae872b936af5e4fb32c627436" category="inline-link-macro-rx"></block></block>
-  <block id="0353c4306baefb0104fdbd22f3a83fd7" category="inline-link-macro">Support de démarrage - récupération manuelle</block>
-  <block id="868dd0de5ae92735ecf8b13f092b6e94" category="paragraph"><block ref="868dd0de5ae92735ecf8b13f092b6e94" category="inline-link-macro-rx"></block></block>
-  <block id="a4171598a9b6537fe8fa298ad497f7f6" category="inline-link-macro">Support de démarrage - récupération automatique</block>
-  <block id="939985bab6ffa95bb97b326eb3bb44bc" category="paragraph"><block ref="939985bab6ffa95bb97b326eb3bb44bc" category="inline-link-macro-rx"></block></block>
   <block id="cb6b9b62927bde4101155fb12ce4739b" category="paragraph">Le remplacement automatique des supports de démarrage utilise l'image de démarrage du nœud partenaire et exécute automatiquement l'option de menu de démarrage appropriée pour installer l'image de démarrage sur le support de démarrage de remplacement.</block>
-  <block id="a5cd6f074e972343dc08fbaaefb21435" category="doc">Vérifiez la prise en charge et l'état de la clé de cryptage - ASA A1K</block>
-  <block id="ecd93ae2a78c5efb02bc3ec3e7df5c2c" category="doc">Présentation de la récupération automatique des supports de démarrage - ASA A1K</block>
-  <block id="5a7035550d11f967a7c1533fa8ef8ae3" category="paragraph">Vous pouvez remplacer un support d'amorçage défaillant via l'option de remplacement automatique du support d'amorçage (BMR).</block>
-  <block id="c3f29d977c51a91934fd0b3ac418f5ef" category="doc">Présentation de la récupération manuelle des supports de démarrage - ASA A1K</block>
   <block id="ff419f4954e3dbf64ddba1e44234dfc2" category="paragraph"><block ref="ff419f4954e3dbf64ddba1e44234dfc2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="57beedb714945568e8369d139b8f960b" category="inline-image-macro">Direction de la languette d'extraction</block>
   <block id="b61617c922b3bb175faf6321e52b85d7" category="paragraph"><block ref="b61617c922b3bb175faf6321e52b85d7" category="inline-image-macro-rx" type="image"></block></block>
@@ -9741,7 +9689,6 @@ SFP+ (cible/initiateur)</block>
   <block id="13e402a48516f3df0a4a2b09e3076481" category="doc">Restaurer le chiffrement - ASA C400</block>
   <block id="511796586d19d0b2cb5a4cd14581478a" category="doc">Vérifiez la prise en charge et l'état de la clé de cryptage - ASA C800</block>
   <block id="f477d17555442c3400a29898cd852b96" category="doc">Restaurer le chiffrement - ASA C800</block>
-  <block id="e4cee0c18f92a2719465d58340bc4ab5" category="paragraph">Vous pouvez remplacer manuellement un support d'amorçage défectueux à l'aide d'un module USB pour l'image d'amorçage.</block>
   <block id="e4db105eaa26749e6726fe6644b77f2f" category="doc">Vérifiez la prise en charge et l'état de la clé de cryptage - ASA A150</block>
   <block id="f9c62bff8e46b0d2433f3609b7ecdb39" category="doc">Vérifiez la prise en charge et l'état de la clé de cryptage - ASA A250</block>
   <block id="0f791bd55bfa2fd01f0eba9b2a93ae03" category="doc">Restaurer le chiffrement - ASA A250</block>
@@ -9915,11 +9862,7 @@ SFP+ (cible/initiateur)</block>
   <block id="7dceff362ab7e3c2187d103ba7fce438" category="image-alt">Fiche de câblage haute disponibilité à trois chemins FAS2820 montrant les paires de ports pour la pile 1</block>
   <block id="3a6e3da839d00ede01c4513f563899aa" category="image-alt">Exemple de câblage haute disponibilité à trois chemins FAS2820 pour une seule pile</block>
   <block id="2f9e622217b802d735475e6e1e79287d" category="admonition">Cette section ne s'applique pas aux systèmes FAS2820 ou FAS25XX.</block>
-  <block id="0636959b49a1834e3ec5f35103cf8837" category="sidebar">Support de démarrage automatisé ASA A70 et ASA A90</block>
-  <block id="da147f1227d896e3c10a7ccfe8a30bd6" category="sidebar">Manuel du support de démarrage ASA A70 et ASA A90</block>
   <block id="917655eaf5fd8c720cd773aba74bdaf8" category="sidebar">Module E/S ASA A70 et ASA A90</block>
-  <block id="7b9a6fdb87cb1f6f211f41d044f49a11" category="sidebar">Support de démarrage ASA A1K automatisé</block>
-  <block id="995c40c124bddbeb82d387a9fcb6e262" category="sidebar">Manuel du support de démarrage ASA A1K</block>
   <block id="3a537c99c5b869e844d774557fbcee80" category="sidebar">Module d'E/S ASA A1K</block>
   <block id="3006210264711079652e75e697fdde7b" category="sidebar">Systèmes FAS2820</block>
   <block id="e9fb835c094e7078b3fdd1712ccae31c" category="sidebar">Installation et configuration du système FAS2820</block>
@@ -9963,7 +9906,6 @@ SFP+ (cible/initiateur)</block>
   <block id="cac74c301a508cf350f8f41a7de866a0" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage ASA A1K lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
   <block id="94aa992895c11cf963b2b749b84aa267" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage FAS70 et FAS90 lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
   <block id="bc049e4428d592b69605104cc85d56bc" category="section-title">Étape 2 : ajoutez les nouveaux modules d'E/S.</block>
-  <block id="a6448c631c301c525a61c500fdf8e46a" category="list-text">Selon la méthode de cryptage, sélectionnez l'option correspondant à votre configuration système :</block>
   <block id="92ba658b9a66d0825f0f084b7da309b7" category="list-text">Si le système n'utilise pas le chiffrement, sélectionnez _option 1 démarrage normal._, sinon, passez à <block ref="d767082d20397ebb99e586749eda3a08" category="inline-link-macro-rx"></block>.</block>
   <block id="efd2f4952f00033a0e6fc35f4c287446" category="paragraph">Si le système de stockage dispose de logements disponibles, installez le nouveau module d'E/S dans l'un des emplacements disponibles. Si tous les emplacements sont occupés, retirez un module d'E/S existant pour libérer de l'espace, puis installez le nouveau.</block>
   <block id="6d65586ee736e7deb557e0892d29cb10" category="open-title">Ajoutez un module d'E/S à un emplacement disponible</block>
@@ -10009,7 +9951,6 @@ SFP+ (cible/initiateur)</block>
   <block id="e726d5f098bf18b53d3d464c11fbe033" category="list-text">Si AutoSupport est activé, restaurez (annulez la suppression) la création automatique de cas : nœud système AutoSupport appelez -node * -type all -message maint=END</block>
   <block id="975c4856a4750ba558520ec8a4820a30" category="list-text">Si vous avez installé un module NIC, spécifiez le mode d'utilisation de chaque port comme _network_:<block ref="2318bc4fadd0b94ffa92c4a515df2262" prefix=" " category="inline-code"></block></block>
   <block id="b6d91a8f20eef2bd8b5f445d19459cac" category="list-text">Répétez ces étapes pour l'autre contrôleur.</block>
-  <block id="cc7de6b757b2670e8de91257213f3e71" category="paragraph"><block ref="e3adc655d82fbb7ed4e775bf1f2a0a82" prefix="" category="inline-code"></block></block>
   <block id="fbff7da02a9769667db9e912fa36fc5e" category="paragraph">Vous pouvez ajouter à chaud jusqu'à deux tiroirs NS224 à une paire HA AFF A20, AFF A30, AFF C30, AFF A50 ou AFF C60 lorsque du stockage supplémentaire est nécessaire (dans le tiroir interne).</block>
   <block id="73a95c42a81e9be601403e3a9d4a84c9" category="list-text">Pour effectuer cette procédure, nous part du principe que votre paire haute disponibilité ne dispose que d'un stockage interne (pas de tiroirs externes). Dans l'un des cas suivants :</block>
   <block id="c6e5816c4606aead75e5bf161bd98726" category="list-text">Ajout à chaud d'un tiroir supplémentaire pour le AFF A20.</block>
@@ -11001,7 +10942,6 @@ SFP+ (cible/initiateur)</block>
   <block id="41d12fb2ee8b3c6f7046a51242a72a75" category="sidebar">Châssis C80</block>
   <block id="3e4165f9c6936da0daac33c7b7ca4957" category="sidebar">Module de contrôleur C80</block>
   <block id="8f31b4d50eb915a24104b3cb7a5cfcb5" category="sidebar">MODULE D'E/S C80</block>
-  <block id="325e928b605da8dd44aca29a94da895c" category="list-text">Surveillez le processus de récupération du support de démarrage pendant que Loader configure les ports locaux et s'exécute<block ref="83a4445bcfef2bd179eaffaabe3b3c20" prefix=" " category="inline-code"></block> à partir du nœud partenaire.</block>
   <block id="a0828c6d7f89434e71860268e9d651b2" category="list-text">Une fois le nœud partenaire entièrement prêt à gérer les données, synchronisez les clés OKM sur l'ensemble du cluster.</block>
   <block id="4230ba5bca3d60bf63b2c39aa992ed84" category="paragraph">Les systèmes AFF A-Series et AFF C-Series sont pris en charge à partir des versions ONTAP suivantes.</block>
   <block id="5fce742f9b06c803a2f04474b1d16eef" category="paragraph">Les systèmes ASA r2 sont pris en charge à partir des versions ONTAP suivantes.</block>
@@ -11205,4 +11145,105 @@ SFP+ (cible/initiateur)</block>
   <block id="98aab8017242eea1d6e23ba928b20ae5" category="list-text"><block ref="98aab8017242eea1d6e23ba928b20ae5" category="inline-link-macro-rx"></block></block>
   <block id="4e3c3284590d1aa1440e67b3bd65ba6e" category="list-text"><block ref="4e3c3284590d1aa1440e67b3bd65ba6e" category="inline-link-macro-rx"></block></block>
   <block id="370d2e6f20948d3881708f9706576691" category="sidebar">Préparez-vous à le remplacer</block>
+  <block id="77f6d66d9d165cf71493f896e9fc7ed7" category="paragraph">Remplacez le support d'amorçage en retirant le module de gestion du système de l'arrière du système, en retirant le support d'amorçage défectueux, en installant le support d'amorçage de remplacement dans le module de gestion du système, puis en réinstallant le module de gestion du système.</block>
+  <block id="19d944a3a323213d80bcdd66ecd5c26f" category="list-text">Déterminez si Onboard Key Manager (OKM) ou Eternal Key Manager (EKM) est configuré à l'aide de l'une des méthodes suivantes :</block>
+  <block id="b3387f173ebbff42e3160605c9db518a" category="list-text">Vous pouvez demander au client ou à l'administrateur système si OKM ou EKM sont activés.</block>
+  <block id="5dc17ba8443f8aafae4ca9de8cf9545b" category="list-text">Pour vérifier si OKM est activé, vous pouvez utiliser le<block ref="3c690d79c23fa8c25994507c25377567" prefix=" " category="inline-code"></block>.</block>
+  <block id="4e447e93a3331607c74749775653cbfc" category="list-text">Pour vérifier si EKM est activé, vous pouvez utiliser le<block ref="001642cb897a8bebce3210207b7e81af" prefix=" " category="inline-code"></block>.</block>
+  <block id="161a8b7bf3b6a7aaa3bda387e5eab04b" category="list-text">Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.</block>
+  <block id="7e8bda9aef5e8fb9e3018b4afe5250d1" category="list-text">Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :</block>
+  <block id="0408893d877d770be02b8327fb6a5e89" category="list-text">fichier /cfcard/kmip/servers.cfg.</block>
+  <block id="7ca5023275c76ff686c3c960083e2882" category="list-text">fichier /cfcard/kmip/certs/client.crt.</block>
+  <block id="eaa29e40b75c2b3c94d1b5d23f50bce1" category="list-text">fichier /cfcard/kmip/certs/client.key.</block>
+  <block id="83e7484854530d83dd681b8cf742e93e" category="list-text">Fichier /cfcard/kmip/certs/CA.pem.</block>
+  <block id="19de728db0f7de420107bca7f6c27e8f" category="list-text">Surveillez le processus de récupération de l'installation du support de démarrage.</block>
+  <block id="bcefe15d3d59604fe3881aa73ba19bec" category="paragraph">Le processus se termine et affiche le<block ref="a8a3d751ea5741e4ba21940296cd7183" prefix=" " category="inline-code"></block> message.</block>
+  <block id="5e7f58f1d40d387e7b9ab18afe197fd7" category="list-text">Le système vérifie le cryptage et le type de cryptage et affiche l'un des deux messages. Selon le message affiché, effectuez l'une des actions suivantes :</block>
+  <block id="e631253f1e5c17e7f830fc29fe6c672d" category="admonition">Parfois, le processus peut ne pas être en mesure d'identifier si le gestionnaire de clés est configuré sur le système. Il affiche un message d'erreur, demande si le gestionnaire de clés est configuré pour le système, puis demande quel type de gestionnaire de clés est configuré. Le processus reprendra une fois le problème résolu.</block>
+  <block id="a7b02f2200bbf6c786d8ba6859f87c74" category="example-title">Affiche un exemple d'invites de recherche d'erreurs de configuration</block>
+  <block id="4c097bc2a08e8665ee6ce5be5b6d4816" category="cell">Si ce message s'affiche...</block>
+  <block id="5e2ad6fd9deb412d871137094ee43ef0" category="cell">Procédez comme ça...</block>
+  <block id="0f5d2d6afab72dc1cc43cad3fdc5b679" category="paragraph"><block ref="0bff6104e6ddee2836161e63d5b29d5b" prefix="" category="inline-code"></block></block>
+  <block id="ea9bbc9a1644ad81a9e641c7756cb904" category="paragraph">Le chiffrement n'est pas installé sur le système. Procédez comme suit :</block>
+  <block id="2a81e23f2dbdb4931da1ca1941fdcaed" category="list-text">Connectez-vous au nœud lorsque l'invite de connexion s'affiche et remettez le stockage en place :</block>
+  <block id="503facbcd54c8f4001c4d78ff3cd181d" category="list-text">Passez à l'étape 5 pour activer le rétablissement automatique s'il a été désactivé.</block>
+  <block id="aba66c87293b779b339e88a54def4ece" category="paragraph"><block ref="fc8fae7f1985c187fcbe3dc568de6bab" prefix="" category="inline-code"></block></block>
+  <block id="0c9a8e05dae1edb79dee2ba0e0aa2e10" category="paragraph">Passez à l'étape 4 pour restaurer le gestionnaire de clés approprié.</block>
+  <block id="3a435296812d929677e01249fc3df97e" category="paragraph">Le nœud accède au menu de démarrage et exécute :</block>
+  <block id="c74f3fc8778415fe1908c3e70bdc5e1f" category="list-text">Option 10 pour les systèmes avec gestionnaire de clés intégré (OKM).</block>
+  <block id="c5af7493bea6fdf0e6f855282fd978b1" category="list-text">Option 11 pour les systèmes dotés d'un gestionnaire de clés externe (EKM).</block>
+  <block id="5acefa45eaecf4ca5d5698a77ec26b5f" category="list-text">Sélectionnez le processus de restauration du gestionnaire de clés approprié.</block>
+  <block id="cec349ed8df71d2a36b9e8ae7d8becef" category="paragraph">Si OKM est détecté, le système affiche le message suivant et commence à exécuter l'option bootmenu 10.</block>
+  <block id="90853290faee7028e876fdfdb8de437b" category="list-text">Saisissez<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> à l'invite pour confirmer que vous souhaitez démarrer le processus de restauration OKM.</block>
+  <block id="968cdeb239e05e7bf0dffdb96ea2f833" category="list-text">Entrez la phrase de passe du gestionnaire de clés intégré lorsque vous y êtes invité, puis saisissez à nouveau la phrase de passe lorsque vous y êtes invité pour confirmer.</block>
+  <block id="24ffce97bd07e6f791875335c17cd10d" category="list-text">Continuez à surveiller le processus de restauration pendant qu'il restaure les fichiers appropriés à partir du nœud partenaire.</block>
+  <block id="3291f6521f975e1ead577845998bec95" category="paragraph">Si EKM est détecté, le système affiche le message suivant et commence à exécuter l'option bootmenu 11.</block>
+  <block id="a24d722ae51d75766fa9dc3854952898" category="list-text">L'étape suivante dépend de la version de ONTAP que votre système exécute :</block>
+  <block id="08f30bb9433217bd66359e72cda7c5e8" category="list-text">Appuyez sur<block ref="f07c0cba208baef6e2b2fc812661812b" prefix=" " category="inline-code"></block> pour quitter l'option bootmenu 11.</block>
+  <block id="4a12d3871bbbec1a3e321415eaec24b4" category="list-text">Appuyez sur<block ref="f07c0cba208baef6e2b2fc812661812b" prefix=" " category="inline-code"></block> pour quitter le processus de configuration EKM et revenir au menu de démarrage.</block>
+  <block id="be6ec1858f853da7b5c9f4a13665509f" category="list-text">Sélectionnez l'option bootmenu 8.</block>
+  <block id="adda1434d5e5c63f23cc8ea5287107c9" category="paragraph">Si<block ref="70f26aeb9493e5657ecb82bfdf9a4e2f" prefix=" " category="inline-code"></block> est défini, le nœud redémarre et utilise les fichiers de configuration du nœud partenaire.</block>
+  <block id="821fcd708c45adc084a7b5eb89088d9c" category="paragraph">Si<block ref="70f26aeb9493e5657ecb82bfdf9a4e2f" prefix=" " category="inline-code"></block> n'est pas défini, entrez la commande de démarrage appropriée. Le nœud redémarre et utilise les fichiers de configuration du nœud partenaire.</block>
+  <block id="f125fc1712ff91500cfaa02b887dfaf7" category="list-text">Redémarrez le nœud de manière à ce qu'EKM protège la partition du support d'amorçage.</block>
+  <block id="96dfb3dab5877e28d5de27242828d412" category="list-text">Passez à l'étape c.</block>
+  <block id="858cf7ac64fc02be0935ba5eba961888" category="list-text">Entrez le paramètre de configuration EKM suivant lorsque vous y êtes invité :</block>
+  <block id="004bf6c9a40003140292e97330236c53" category="cell">Action</block>
+  <block id="0a52730597fb4ffa01fc117d9e71e3a9" category="cell">Exemple</block>
+  <block id="42ffb07c8565a30a8e6e687d851c4dc9" category="paragraph">Entrez le contenu du certificat client à partir du<block ref="d606236dedb6ed649b29651c1ec53a99" prefix=" " category="inline-code"></block> fichier.</block>
+  <block id="3dc91f7451a4bd0eb09f75bd2140b3a8" category="example-title">Affiche un exemple de contenu de certificat client</block>
+  <block id="f95e57c3ab55de100400925a1d599f91" category="paragraph">Entrez le contenu du fichier de clé client à partir du<block ref="ccb442c2c2cc4367a087cfc7cd3b4876" prefix=" " category="inline-code"></block> fichier.</block>
+  <block id="04a71a38825e017a3b1cb1bec1346ae5" category="example-title">Affiche un exemple de contenu de fichier de clé client</block>
+  <block id="916c9dd7b85a7a3381b3bdde1910503a" category="paragraph">Entrez le contenu du fichier des CA du serveur KMIP<block ref="443acc94def30bc037fb2dacac4fb7d3" prefix=" " category="inline-code"></block>.</block>
+  <block id="e6188a9278a87ef417a8e2afcc22f93d" category="example-title">Affiche un exemple de contenu de fichier de serveur KMIP</block>
+  <block id="d4fa69cc2ed09bdca599cf7ca3b020cd" category="paragraph">Entrez le contenu du fichier de configuration du serveur à partir du<block ref="6b2948264272776ad38dbe7f59c7850f" prefix=" " category="inline-code"></block> fichier.</block>
+  <block id="acb2cdf0e044cb8e41dd9dbe163d56cb" category="example-title">Affiche un exemple de contenu du fichier de configuration du serveur</block>
+  <block id="1677b437db33146f4ef190a0e1965055" category="paragraph">Si vous y êtes invité, entrez l'UUID de cluster ONTAP du partenaire.</block>
+  <block id="6af9b04018c1d00113ea69c62ee2cfae" category="example-title">Affiche l'exemple d'UUID de cluster ONTAP</block>
+  <block id="ea127e0cf13eef619bb275aeff09d41d" category="paragraph">Si vous y êtes invité, entrez l'interface réseau temporaire et les paramètres du nœud.</block>
+  <block id="aab616abb54a154e4fcb6dc6edca0697" category="example-title">Affiche un exemple de paramètre réseau temporaire</block>
+  <block id="948fd102470ac371888b6bd60cfc7fb4" category="list-text">Si la configuration EKM a été restaurée avec succès, le processus tente de restaurer les fichiers appropriés à partir du nœud partenaire et redémarre le nœud. Passez à l'étape d.</block>
+  <block id="6fa02563a50cf5fcad70bcfed92fe219" category="example-title">Affiche un exemple de messages de restauration 9.16.0 réussis</block>
+  <block id="355423b7af5007bd545405d0221c3de6" category="example-title">Affiche un exemple de messages de restauration 9.16.1 réussis</block>
+  <block id="c1286238ac35049080a5d815a0742050" category="list-text">Si la clé n'est pas restaurée, le système s'arrête et indique qu'elle n'a pas pu restaurer la clé. Les messages d'erreur et d'avertissement s'affichent. Relancez le processus de récupération en entrant<block ref="4d9c822f717329c7000654e8bae09ae4" prefix=" " category="inline-code"></block>.</block>
+  <block id="b06a9a7481d8f3ca792e2636ad34a5f6" category="list-text">Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.</block>
+  <block id="5f24aaf8b32f780fce1ea44bd659a2f1" category="list-text">Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage :</block>
+  <block id="e531efa1ffce94331d0abc4548448cac" category="list-text">À l'invite Loader du contrôleur défectueux, configurez l'adresse IP du module de contrôleur défectueux :</block>
+  <block id="9674c99b013ac8cdab6eb0df64e77028" category="paragraph"><block ref="83ed86e403dd4a24d2825f48008e5af3" prefix="" category="inline-code"></block></block>
+  <block id="8c58ea9784c7fa6869b22626814be32c" category="list-text">À l'invite Loader, netboot le nœud défectueux :</block>
+  <block id="c73c2dd2459e6650d5b71cc2059faf0e" category="paragraph"><block ref="a8ede5eb13f058392e245c0a8a92ae3d" prefix="" category="inline-code"></block></block>
+  <block id="682c67c386e9533bb90087e13557b0aa" category="list-text">Dans le menu de démarrage, sélectionnez option<block ref="8f14e45fceea167a5a36dedd4bea2543" prefix=" " category="inline-code"></block>.</block>
+  <block id="a0ea840e423d2247bf566acde2c201ab" category="list-text">Entrez<block ref="7b8b965ad4bca0e41ab51de7b31363a1" prefix=" " category="inline-code"></block> lorsque vous êtes invité à restaurer la configuration de sauvegarde.</block>
+  <block id="3115cf8c3646a9861bf194086219616c" category="list-text">Entrez<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à redémarrer le nœud.</block>
+  <block id="f2922cd1bfa5d6f04d27f02d20080042" category="list-text">Appuyez sur<block ref="1b10a0464da1409d5026aa8b4f098be8" prefix=" " category="inline-code"></block> pour revenir au menu de démarrage.</block>
+  <block id="acd0b9b64f818fbc1776d56da41a8e95" category="paragraph">Si le chiffrement est activé, vous devez le restaurer avant de continuer à restaurer l'image de démarrage. Allez à <block ref="d767082d20397ebb99e586749eda3a08" category="inline-link-macro-rx"></block>.</block>
+  <block id="c8d49d03a62a2aaa6d3002fec3a650ea" category="list-text">Sélectionnez option<block ref="1679091c5a880faf6fb5e6087eb1b2dc" prefix=" " category="inline-code"></block>.</block>
+  <block id="fe5f4b926efaec8f9797da6b1b0b6c71" category="list-text">Appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous êtes invité à restaurer la configuration de sauvegarde.</block>
+  <block id="c22df67eafdbaec72d1c041a4f36d374" category="list-text">Vous devez remplacer le support de démarrage défectueux par un support de démarrage de remplacement que vous avez reçu de NetApp.</block>
+  <block id="0ff7731ee6e151edd45a22c7a84637f0" category="list-text">Vous pouvez demander à l'administrateur système si OKM ou EKM sont activés.</block>
+  <block id="f6482a2d2722297ff58ea916af2984cb" category="doc">Présentation de la récupération du support de démarrage - ASA A70 et ASA A90</block>
+  <block id="c987ba69ee60ff652b96f087d2e6ae84" category="paragraph">La restauration du support de démarrage utilise l'image de démarrage du nœud partenaire et exécute automatiquement l'option de menu de démarrage appropriée pour installer l'image de démarrage sur le support de démarrage de remplacement.</block>
+  <block id="4c676d1a7c436f114a574bfe649622ee" category="paragraph">Lorsque des messages d'erreur de démarrage similaires à ceux illustrés ci-dessous s'affichent, vous devez remplacer le support de démarrage et restaurer l'image ONTAP à partir du nœud partenaire.</block>
+  <block id="f525eed3ae8e84be0d43c618f7f170bc" category="doc">Restaurez l'image ONTAP - ASA A70 et ASA A90</block>
+  <block id="b237862491f8ea6679a4cdd100ebfdfb" category="paragraph">Après le remplacement physique du support de démarrage défectueux, restaurez l'image ONTAP à partir du nœud partenaire.</block>
+  <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">Et la suite</block>
+  <block id="f88cdb2cd014d9929aa478cc85d4b492" category="inline-link-macro">Renvoyer la pièce défectueuse à NetApp</block>
+  <block id="7853c5276d1f54917577b980848960c3" category="paragraph">Une fois que vous avez restauré l'image ONTAP et que le nœud est prêt à accéder aux données, vous <block ref="977d546e7889319c9a653d351be92c2b" category="inline-link-macro-rx"></block>.</block>
+  <block id="bd2422b6c8a3faf4b78e2b890528df95" category="inline-link-macro">Restaurez l'image ONTAP à partir du nœud partenaire</block>
+  <block id="e625bf74197df22a6e3ea556bf8bd717" category="paragraph">Après le remplacement physique du support de démarrage défectueux, <block ref="dcb4deaaa5f388ac9dd740fbe37648be" category="inline-link-macro-rx"></block>.</block>
+  <block id="1517ca8b5771d8b16b9ea6a392d1c35c" category="inline-link-macro">arrêtez le contrôleur défectueux</block>
+  <block id="0855cbbfbd39228942736f1dd60ef241" category="paragraph">Après avoir examiné la configuration requise pour le support de démarrage, vous <block ref="f6f6eaac8bd3f857cf89c647db55229b" category="inline-link-macro-rx"></block>.</block>
+  <block id="5983f3a4eec630293636088c491a3fa1" category="paragraph">Vérifiez les conditions requises pour le remplacement des supports de démarrage.</block>
+  <block id="5c66e0e2e15a67ec82f9f3d579e21b89" category="inline-link-macro">Restaurez l'image sur le support de démarrage</block>
+  <block id="2adbaa1720c6c394fbe2503b6da6fdb7" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="ffddb9c4b10a61c1cf9d29a315266845" category="inline-link-macro-rx"></block></block>
+  <block id="d1e3cab457c34f7a58e0bd674c7d2487" category="paragraph">Arrêtez ou prenez le contrôle du contrôleur défectueux pour effectuer la maintenance sur le support de démarrage.</block>
+  <block id="a9a4115c08aa47aeef8b44d2372274ad" category="inline-link-macro">remplacez le support de démarrage</block>
+  <block id="aa8efed5979835fe328570ee208b1884" category="paragraph">Après avoir arrêté le contrôleur défectueux, vous <block ref="52c48d39b9a1e431e1d04998ae5045f5" category="inline-link-macro-rx"></block>.</block>
+  <block id="e0bfc72b163c6540df4eb3869f1393ff" category="paragraph"><block ref="e0bfc72b163c6540df4eb3869f1393ff" category="inline-link-macro-rx"></block></block>
+  <block id="9d99224aaec79ef0b06c033956f14979" category="paragraph">Vous pouvez remplacer un support de démarrage défaillant à partir du nœud partenaire pour l'image de démarrage.</block>
+  <block id="5d9ac1643aa86c7bddb319af8c3e06e3" category="paragraph">Le remplacement du support de démarrage utilise l'image de démarrage du nœud partenaire et exécute automatiquement l'option de menu de démarrage appropriée pour installer l'image de démarrage sur le support de démarrage de remplacement.</block>
+  <block id="d152ad943d3809714aa2acb56114839e" category="doc">Présentation de la récupération du support de démarrage - ASA A1K</block>
+  <block id="488cce5b2121242760d58a49c413507e" category="paragraph">Lorsque des messages d'erreur de démarrage s'affichent, vous devez remplacer le support de démarrage et restaurer l'image ONTAP à partir du nœud partenaire.</block>
+  <block id="86e825ad6941bb31698d462a9bbb20e4" category="paragraph">Directive non résolue dans &lt;stdin&gt; - include:../_include/a70-90_bootmedia_replace_Requirements_bmr.adoc[]</block>
+  <block id="a81626227e94d15884d465e1127d3af4" category="sidebar">Support de démarrage ASA A70 et ASA A90</block>
+  <block id="9482f3836d9bb6259f467a0685f5e3b4" category="sidebar">Support de démarrage ASA A1K</block>
 </blocks>
