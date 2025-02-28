@@ -2,12 +2,12 @@
 :allow-uri-read: 
 
 
-Avant de renvoyer le _replacement_ node à service, vérifiez que les LIFs se trouvent sur leurs ports home, vérifiez l'état du cluster et réinitialisez le rétablissement automatique.
+Avant de renvoyer le nœud de remplacement à la maintenance, vérifiez que les interfaces logiques se trouvent sur leurs ports home, vérifiez l'état du cluster et réinitialisez le rétablissement automatique.
 
 .Étapes
 . Vérifiez que les interfaces logiques sont bien placées sur leur serveur domestique et leurs ports : `network interface show -is-home false`
 +
-Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de home port : `network interface revert -vserver * -lif *`
+Si des interfaces logiques sont répertoriées sous la forme false, restaurez-les sur leurs ports home : `network interface revert -vserver * -lif *`
 
 . Vérifiez l'état de santé de votre cluster. Consultez https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["Procédure de vérification de l'état du cluster à l'aide d'un script dans ONTAP"^] l'article de la base de connaissances pour plus d'informations.
 . Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`

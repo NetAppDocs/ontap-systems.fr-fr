@@ -1,0 +1,30 @@
+---
+permalink: asa-r2-a20-30-50/chassis-replace-workflow.html 
+sidebar: sidebar 
+keywords: asa a20, asa a30, asa a50, replace the chassis workflow 
+summary: Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur. 
+---
+= Procédure de remplacement du châssis - ASA A20, ASA A30 et ASA A50
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Procédez comme suit pour remplacer votre châssis.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:chassis-replace-requirements.html["Vérifiez les exigences de remplacement du châssis"]
+[role="quick-margin-para"]
+Pour remplacer le châssis, vous devez répondre à certaines exigences.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:chassis-replace-shutdown.html["Arrêtez les contrôleurs"]
+[role="quick-margin-para"]
+Arrêtez les contrôleurs afin d'effectuer des opérations de maintenance sur le châssis.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:chassis-replace-move-hardware.html["Remplacez le châssis"]
+[role="quick-margin-para"]
+Pour remplacer le châssis, il faut déplacer les disques et les caches de disques, les contrôleurs (avec les blocs d'alimentation) et le panneau du châssis défectueux vers le nouveau châssis, puis remplacer le châssis défectueux par le nouveau châssis du même modèle que le châssis défectueux.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:chassis-replace-complete-system-restore-rma.html["Remplacement complet du châssis"]
+[role="quick-margin-para"]
+Vérifiez l'état haute disponibilité du châssis et renvoyez la pièce défectueuse à NetApp.

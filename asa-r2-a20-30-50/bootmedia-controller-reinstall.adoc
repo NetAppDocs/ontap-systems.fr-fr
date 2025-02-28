@@ -1,0 +1,132 @@
+---
+permalink: asa-r2-a20-30-50/bootmedia-controller-reinstall.html 
+sidebar: sidebar 
+keywords: asa a20, asa a30, asa a50, remove controller 
+summary: 'Vous devez remplacer le module de contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d"erreurs (ECC) pouvant être corrigés ; le non-respect de cette consigne provoque une panique du système.' 
+---
+= Réinstallez le contrôleur - ASA A20, ASA A30 et ASA A50
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Réinstallez le contrôleur dans le châssis et redémarrez-le.
+
+.Description de la tâche
+L'illustration suivante montre le fonctionnement des poignées du contrôleur (à partir du côté gauche d'un contrôleur) lors de la réinstallation du contrôleur et peut être utilisée comme référence pour le reste des étapes de réinstallation du contrôleur.
+
+image::../media/drw_g_and_t_handles_reinstall_ieops-1838.svg[fonctionnement de la poignée du contrôleur pour installer un contrôleur]
+
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Si vous avez fait pivoter les poignées du contrôleur vers le haut (à côté des languettes) pour les écarter pendant que vous effectuez l'entretien du contrôleur, faites-les pivoter vers le bas en position horizontale.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Poussez les poignées pour réinsérer le contrôleur dans le châssis à mi-course, puis, lorsque vous y êtes invité, appuyez sur jusqu'à ce que le contrôleur soit complètement en place.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Faites pivoter les poignées en position verticale et verrouillez-les en place à l'aide des languettes de verrouillage.
+
+|===
+.Étapes
+. Fermez le capot du contrôleur et tournez la vis dans le sens des aiguilles d'une montre jusqu'à ce qu'elle soit serrée.
+. Insérez le contrôleur à mi-chemin dans le châssis.
++
+Alignez l'arrière du contrôleur avec l'ouverture du châssis, puis appuyez doucement sur le contrôleur à l'aide des poignées.
+
++
+
+NOTE: N'insérez pas complètement le contrôleur dans le châssis avant d'y être invité.
+
+. Connectez le câble de la console au port console du contrôleur et à l'ordinateur portable de manière à ce que l'ordinateur portable reçoive les messages de la console lorsque le contrôleur redémarre.
+. Placez entièrement le contrôleur dans le châssis :
++
+.. Appuyez fermement sur les poignées jusqu'à ce que le contrôleur rencontre le fond de panier central et soit bien en place.
++
+
+NOTE: Ne forcez pas lorsque vous faites glisser le contrôleur dans le châssis ; vous risqueriez d'endommager les connecteurs.
+
+.. Faites pivoter les poignées du contrôleur vers le haut et verrouillez-les en place à l'aide des languettes.
++
+
+NOTE: Le contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
+
+
+
+. Amener le contrôleur à l'invite Loader en appuyant sur CTRL-C pour annuler l'AUTOBOOT.
+. Régler l'heure et la date sur le contrôleur :
++
+Assurez-vous d'être à l'invite Loader du contrôleur.
+
++
+.. Afficher la date et l'heure sur le contrôleur :
++
+`show date`
+
++
+
+NOTE: L'heure et la date par défaut sont en GMT. Vous avez la possibilité d'afficher en heure locale et en mode 24 heures.
+
+.. Définir l'heure actuelle en GMT :
++
+`set time hh:mm:ss`
+
++
+Vous pouvez obtenir le GMT actuel à partir du nœud sain :
+
++
+`date -u`
+
+.. Définir la date actuelle au format GMT :
++
+`set date mm/dd/yyyy`
+
++
+Vous pouvez obtenir le GMT actuel à partir du nœud sain : +
+`date -u`
+
+
+
+. Recâblage du contrôleur selon les besoins.
+. Rebranchez le cordon d'alimentation au bloc d'alimentation.
++
+Une fois l'alimentation rétablie, le voyant d'état doit être vert.
+
++
+[cols="1,2"]
+|===
+| Si vous reconnectez un... | Alors... 
+
+
+ a| 
+ALIMENTATION CA
+ a| 
+.. Branchez le cordon d'alimentation au bloc d'alimentation.
+.. Fixez le cordon d'alimentation à l'aide du dispositif de retenue du cordon d'alimentation.
+
+
+
+
+ a| 
+BLOC D'ALIMENTATION CC
+ a| 
+.. Branchez le connecteur du cordon d'alimentation CC D-SUB sur le bloc d'alimentation.
+.. Serrez les deux vis à oreilles pour fixer le connecteur du cordon d'alimentation CC D-SUB au bloc d'alimentation.
+
+
+|===
+

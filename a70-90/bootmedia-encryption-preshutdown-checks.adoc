@@ -2,7 +2,7 @@
 permalink: a70-90/bootmedia-encryption-preshutdown-checks.html 
 sidebar: sidebar 
 keywords: aff a70, aff a90, pre-shutdown checks for onboard encryption keys 
-summary: 'Avant d"arrêter le contrôleur douteux et de vérifier le statut des clés de cryptage intégrées, vous devez vérifier le statut de ce contrôleur, désactiver le giveback automatique et vérifier quelle version de ONTAP le système fonctionne.' 
+summary: 'Pour assurer la sécurité des données de votre système de stockage AFF A70 et AFF A90, vous devez vérifier la prise en charge et l"état de la clé de chiffrement. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d"arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.' 
 ---
 = Vérifiez la prise en charge et l'état de la clé de cryptage - AFF A70 et AFF A90
 :allow-uri-read: 
@@ -11,6 +11,8 @@ summary: 'Avant d"arrêter le contrôleur douteux et de vérifier le statut des 
 
 
 [role="lead"]
+Pour assurer la sécurité des données de votre système de stockage AFF A70 et AFF A90, vous devez vérifier la prise en charge et l'état de la clé de chiffrement. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.
+
 Avant d'arrêter le contrôleur défaillant, vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et si votre système de gestion des clés est correctement configuré.
 
 

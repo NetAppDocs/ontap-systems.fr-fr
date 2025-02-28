@@ -1,0 +1,86 @@
+---
+permalink: asa-r2-a20-30-50/index.html 
+sidebar: sidebar 
+keywords: asa a70 asa a90 maintenance, maintenance, repairing a70 asa a90,  replace a70 asa a90 components 
+summary: Entretenir le matériel ASA A20, ASA A30 et ASA A50 
+---
+= Entretenir le matériel ASA A20, ASA A30 et ASA A50
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour les systèmes de stockage ASA A20, ASA A30 ou ASA A50, vous pouvez effectuer les procédures de maintenance des composants suivants.
+
+
+
+== Support de démarrage
+
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+
+== Châssis
+
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+== Contrôleur
+
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
+
+
+
+== DIMM
+
+Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
+
+
+
+== Lecteur
+
+Un lecteur est un périphérique qui fournit le support de stockage physique pour les données.
+
+
+
+== Ventilateur
+
+Le ventilateur refroidit le contrôleur.
+
+
+
+== NVDIMM
+
+Le NVDIMM (module de mémoire double en ligne non volatile) gère le transfert de données de la mémoire volatile vers le stockage non volatile et préserve l'intégrité des données en cas de coupure de courant ou d'arrêt du système.
+
+
+
+== Batterie NVDIMM
+
+Une batterie NVDIMM est chargée de maintenir l'alimentation du module NVDIMM.
+
+
+
+== Carte PCIe
+
+Une carte PCIe (Peripheral Component Interconnect express) est une carte d'extension qui se branche dans le logement PCIe de la carte mère.
+
+
+
+== Alimentation électrique
+
+Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
+
+
+
+== Pile de l'horloge en temps réel
+
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.
+
+
+
+== Module de gestion du système
+
+Le module de gestion du système fournit l'interface entre le contrôleur et une console ou un ordinateur portable à des fins de maintenance du contrôleur ou du système. Le module de gestion du système contient le support de démarrage et stocke le numéro de série du système (SSN).
