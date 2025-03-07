@@ -38,7 +38,10 @@ Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mod
 --
 .Chiffrement intégré (OKM)
 --
-. Dans l'invite Loader, entrez `boot_ontap maint`.
+. Dans l'invite DU CHARGEUR, entrez :
++
+`boot_ontap maint`
+
 . Démarrez à partir du menu ONTAP à partir de l'invite Loader `boot_ontap menu` et sélectionnez l'option 10.
 . Saisissez la phrase de passe OKM. Vous pouvez obtenir cette phrase de passe auprès du client ou contacter https://support.netapp.com["Support NetApp"].
 +
@@ -110,7 +113,6 @@ NOTE: Contactez https://support.netapp.com["Support NetApp"] en cas de problème
 
 . Une fois le processus terminé, le menu de démarrage s'affiche. Sélectionnez « 1 » pour un démarrage normal.
 . Vérifiez l'état du basculement : `storage failover show`.
-. Assurez-vous que tous les « core dumps » sur le nœud réparé sont enregistrés en allant en mode avancé », puis `run local partner savecore` en `set -privilege advanced` .
 . Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
 . Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`.
 . Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.

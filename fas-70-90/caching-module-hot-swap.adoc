@@ -1,34 +1,34 @@
 ---
 permalink: fas-70-90/caching-module-hot-swap.html 
 sidebar: sidebar 
-keywords: fas70, fas90, hot swap, replace, FlashCache module carrier, caching module, FlashCache 
-summary: 'Le support de module NVMe SSD FlashCache contient un ou deux modules FlashCache (modules de cache) avec un seul disque de cache SSD intégré dans chaque module de cache. Les modules de cache peuvent être échangés à chaud, mais le support de module FlashCache n"est pas remplaçable à chaud.' 
+keywords: fas70, fas90, hot swap, replace, Flash Cache module carrier, caching module, Flash Cache 
+summary: 'Le support de module Flash cache SSD NVMe contient un ou deux modules Flash cache (modules de cache) avec un seul disque de cache SSD intégré dans chaque module de cache. Les modules de cache peuvent être échangés à chaud, mais le support de module Flash cache n"est pas échangeable à chaud.' 
 ---
-= Remplacez le support du module FlashCache ou un module de cache - FAS70 et FAS90
+= Remplacez le support du module Flash cache ou un module de cache - FAS70 et FAS90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le support de module NVMe SSD FlashCache contient un ou deux modules FlashCache (modules de cache) avec un seul disque SSD FlashCache intégré dans chaque module de cache.
+Le support de module Flash cache SSD NVMe contient un ou deux modules Flash cache (modules de cache) avec un seul disque Flash cache SSD intégré dans chaque module de cache.
 
-Le système FAS70 prend en charge les modules de cache de 2 To et le système FAS90 prend en charge les modules de cache de 4 To. Vous ne pouvez pas combiner des modules de cache de capacité différente dans le support du module FlashCache.
+Le système FAS70 prend en charge les modules de cache de 2 To et le système FAS90 prend en charge les modules de cache de 4 To. Vous ne pouvez pas combiner des modules de cache de capacité différente dans le support du module Flash cache.
 
-Vous pouvez effectuer l'une des procédures suivantes en fonction de ce qui doit être remplacé : l'ensemble du support de module Flashcache ou un module de cache.
+Selon ce qui doit être remplacé, vous pouvez effectuer l'une des procédures suivantes : support de module Flash cache complet ou module de cache.
 
-* <<Remplacez le support du module FlashCache>>
+* <<Remplacez le support du module Flash cache>>
 * <<Remplacez le module de cache>>
 
 
 
 
-== Remplacez le support du module FlashCache
+== Remplacez le support du module Flash cache
 
-Le support du module FlashCache se trouve dans le logement 6 et peut accueillir jusqu'à deux modules FlashCache. Vous ne pouvez pas remplacer à chaud le support du module FlashCache
+Le support de module Flash cache se trouve dans le logement 6 et peut accueillir jusqu'à deux modules Flash cache. Vous ne pouvez pas remplacer à chaud le support du module Flash cache
 
 .Avant de commencer
-* Vérifiez que votre système de stockage dispose du système d'exploitation approprié pour le support du module FlashCache de remplacement.
+* Vérifiez que votre système de stockage dispose du système d'exploitation approprié pour le support du module Flash cache de remplacement.
 * Vérifiez que tous les autres composants fonctionnent correctement. Si ce n'est pas le cas, vous devez contacter le support technique.
 
 
@@ -136,15 +136,15 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 ====
 
 
-=== Étape 2 : remplacez le support du module FlashCache
+=== Étape 2 : remplacez le support du module Flash cache
 
-Procédez comme suit pour remplacer le support du module FlashCache.
+Procédez comme suit pour remplacer le support du module Flash cache.
 
 .Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Repérez le support du module FlashCache défectueux, dans le logement 6, près du voyant d'avertissement orange allumé à l'avant du support du module FlashCache.
+. Repérez le support du module Flash cache défectueux, dans le logement 6, près du voyant d'avertissement orange allumé à l'avant du support du module Flash cache.
 +
-image::../media/drw_fas70-90_remove_caching_module_carrier_ieops-1772.svg[Retirez le support du module FlashCache]
+image::../media/drw_fas70-90_remove_caching_module_carrier_ieops-1772.svg[Retirez le support du module Flash cache]
 
 +
 [cols="1,4"]
@@ -154,7 +154,7 @@ image::../media/drw_fas70-90_remove_caching_module_carrier_ieops-1772.svg[Retire
  a| 
 image:../media/icon_round_1.png["Légende numéro 1"]
  a| 
-Support du module FlashCache
+Support du module Flash cache
 
 
 
@@ -168,33 +168,33 @@ Numéros d'emplacement des modules de cache
  a| 
 image:../media/icon_round_3.png["Numéro de légende 3"]
  a| 
-Poignée de came du support du module FlashCache
+Poignée de came du support du module Flash cache
 
 
 
  a| 
 image:../media/icon_round_4.png["Numéro de légende 4"]
  a| 
-LED de panne du support du module FlashCache
+LED de panne du support du module Flash cache
 
 |===
-. Retirez le support du module FlashCache défectueux :
+. Retirez le support du module Flash cache défectueux :
 +
 .. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
-.. Pincez la languette bleue au bas du support du module FlashCache.
+.. Pincez la languette bleue située au bas du support du module Flash cache.
 .. Faites pivoter la languette pour l'éloigner du module.
 
 
-. Retirez le support du module FlashCache du module de contrôleur et placez-le sur un tapis antistatique.
-. Déplacez les modules de cache vers le support du module FlashCache de remplacement :
+. Retirez le support du module Flash cache du module de contrôleur et placez-le sur un tapis antistatique.
+. Déplacez les modules de cache vers le support du module Flash cache de remplacement :
 +
 .. Pincez la languette Terra Cotta en haut du module de cache et faites pivoter la poignée de came pour l'éloigner du module de cache.
-.. Retirez le module du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du support du module FlashCache.
-.. Installez le module de cache dans le même emplacement du support du module FlashCache de remplacement et faites pivoter la poignée de came en position fermée sur le module de cache pour le verrouiller en place.
+.. Retirez le module du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du support du module Flash cache.
+.. Installez le module de cache dans le même emplacement dans le support du module Flash cache de remplacement et tournez la poignée de came en position fermée sur le module de cache pour le verrouiller en place.
 
 
 . Répétez ces étapes s'il existe un second module de cache.
-. Installez le support du module FlashCache de remplacement dans le système :
+. Installez le support du module Flash cache de remplacement dans le système :
 +
 .. Alignez le module avec les bords de l'ouverture du logement du boîtier.
 .. Faites glisser doucement le module dans le logement jusqu'à l'intérieur du boîtier, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
@@ -207,7 +207,7 @@ LED de panne du support du module FlashCache
 
 === Étape 3 : redémarrer le contrôleur
 
-Après avoir remplacé le support du module FlashCache, vous devez redémarrer le module contrôleur.
+Après avoir remplacé le support du module Flash cache, vous devez redémarrer le module contrôleur.
 
 .Étapes
 . À partir de l'invite du CHARGEUR, redémarrez le nœud : _bye_
@@ -230,7 +230,7 @@ Retournez la pièce défectueuse à NetApp, tel que décrit dans les instruction
 == Remplacez le module de cache
 
 .Avant de commencer
-Les modules FlashCache (modules de cache) se trouvent dans le logement 6-1 ou 6-2 ou dans le logement 6-1 et le logement 6-2.
+Les modules Flash cache (modules de cache) se trouvent dans le logement 6-1 ou 6-2 ou dans le logement 6-1 et le logement 6-2.
 
 Vous pouvez remplacer à chaud des modules de cache individuels par des modules de cache de même capacité provenant du même fournisseur ou d'un autre fournisseur.
 
@@ -292,9 +292,9 @@ LED de panne du module de cache
 .. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
 .. Appuyez sur le bouton de déverrouillage en terre cuite situé à l'avant du module de mise en cache.
 .. Tournez la poignée de came aussi loin que possible.
-.. Retirez le module de cache du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du support du module FlashCache.
+.. Retirez le module de cache du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du support du module Flash cache.
 +
-Assurez-vous de prendre en charge le module de cache lorsque vous le retirez du support du module FlashCache.
+Assurez-vous de prendre en charge le module de cache lorsque vous le retirez du support du module Flash cache.
 
 
 

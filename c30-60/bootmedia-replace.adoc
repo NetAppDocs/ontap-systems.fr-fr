@@ -281,32 +281,6 @@ NOTE: Le contrôleur démarre une fois installé dans le châssis. Il est alimen
 +
 Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
 
-. Définissez le type de connexion réseau à l'invite DU CHARGEUR :
-+
-** Si vous configurez DHCP :
-+
-`ifconfig e0M -auto`
-
-+
-
-NOTE: Le port cible que vous configurez est le port cible que vous utilisez pour communiquer avec le contrôleur douteux à partir du contrôleur en bon état pendant la restauration du système de fichiers var avec une connexion réseau. Vous pouvez également utiliser le port e0M dans cette commande.
-
-** Si vous configurez des connexions manuelles : +
-+
-`ifconfig e0M -addr=filer_addr -mask=netmask -gw=gateway`
-
-+
-*** Filer_addr est l'adresse IP du système de stockage.
-*** Le masque de réseau est le masque de réseau du réseau de gestion connecté au partenaire haute disponibilité.
-*** passerelle est la passerelle du réseau.
-
-
-+
-
-NOTE: D'autres paramètres peuvent être nécessaires pour votre interface. Vous pouvez entrer `help ifconfig` à l'invite du micrologiciel pour plus de détails.
-
-
-
 . Rebranchez le cordon d'alimentation sur le bloc d'alimentation du contrôleur défectueux.
 +
 Une fois l'alimentation rétablie, le voyant d'état doit être vert.

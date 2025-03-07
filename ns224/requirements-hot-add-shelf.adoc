@@ -41,18 +41,18 @@ Vous pouvez exécuter  https://mysupport.netapp.com/site/tools/tool-eula/activei
 
 Familiarisez-vous avec les bonnes pratiques suivantes avant d'ajouter à chaud un tiroir NS224.
 
-* *Meilleure pratique:* la meilleure pratique est d'avoir la version actuelle du https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Disk qualification Package"^] installé avant d'ajouter à chaud un tiroir.
+* *Disk qualification Package:* la meilleure pratique consiste à installer la version actuelle du https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Disk qualification Package"^] avant d'ajouter à chaud un tiroir.
 +
 Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser de nouveaux lecteurs qualifiés. Cela permet d'éviter que les messages d'événement du système ne soient pas à jour sur les disques et évite le partitionnement de disque car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
 
-* *Meilleure pratique:* la meilleure pratique est de fonctionner https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^] avant et après l'ajout à chaud d'une étagère.
+* *Active IQ Config Advisor:* la meilleure pratique est de fonctionner https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^] avant et après l'ajout à chaud d'une étagère.
 +
 Si vous exécutez Active IQ Config Advisor avant d'ajouter un tiroir à chaud, vous obtenez un snapshot de la connectivité Ethernet (ENET) du tiroir existant, vérifiez les versions de firmware du module de tiroir NVMe et vous pouvez vérifier un ID de tiroir déjà utilisé dans la paire haute disponibilité.
 
 +
 Une fois Active IQ Config Advisor le tiroir ajouté à chaud, vous pouvez vérifier que les tiroirs sont correctement câblés et que leurs ID sont uniques dans la paire haute disponibilité.
 
-* *Meilleure pratique :* avant d'ajouter un nouveau tiroir, il est recommandé d'avoir les versions actuelles de https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Micrologiciel du module de tiroir NVMe (NSM)"^] et https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["le firmware du disque"^] sur votre système de stockage.
+* *Micrologiciel NSM :* la meilleure pratique est d'avoir les versions actuelles de https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Micrologiciel du module de tiroir NVMe (NSM)"^] et https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["le firmware du disque"^] sur votre système de stockage avant d'ajouter un nouveau tiroir.
 +
 
 NOTE: Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.

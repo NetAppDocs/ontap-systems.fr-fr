@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: aff a70, aff a90, post boot media replacement steps for okm, nse, and nve 
 summary: 'Restaurez le chiffrement sur le support de démarrage de remplacement de votre système AFF A70 ou AFF A90 pour assurer une protection continue des données. Ce processus implique de vérifier la disponibilité de la clé, de rétablir les paramètres de cryptage et de confirmer l"accès sécurisé à vos données.' 
 ---
-= Restaurez le chiffrement - AFF A70 et AFF A90
+= Restaurez le chiffrement sur le support de démarrage - AFF A70 et AFF A90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Restaurez le chiffrement sur le support de démarrage de remplacement de votre système AFF A70 ou AFF A90 pour assurer une protection continue des données. Ce processus implique de vérifier la disponibilité de la clé, de rétablir les paramètres de cryptage et de confirmer l'accès sécurisé à vos données.
+Restaurez le chiffrement sur le support de démarrage de remplacement de votre système AFF A70 ou AFF A90 pour assurer une protection continue des données. Le processus de remplacement implique la vérification de la disponibilité de la clé, la réapplication des paramètres de cryptage et la confirmation de l'accès sécurisé à vos données.
 
 Vous devez effectuer les étapes spécifiques aux systèmes pour lesquels le gestionnaire de clés intégré (OKM), le chiffrement de stockage NetApp (NSE) ou le chiffrement de volume NetApp (NVE) sont activés à l'aide des paramètres capturés au début de la procédure de remplacement des supports de démarrage.
 
@@ -429,3 +429,6 @@ Selection (1-11)? 1
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
+
+.Et la suite ?
+Après avoir restauré le cryptage sur le support de démarrage, vous devez link:bootmedia-complete-rma.html["Renvoyer la pièce défectueuse à NetApp"].

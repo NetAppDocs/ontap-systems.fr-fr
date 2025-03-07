@@ -207,18 +207,17 @@ Vis moletée
 .. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
 .. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
 +
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
-
-
-
-+
 Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
 
-. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
+
+
+. Branchez les cordons d'alimentation aux blocs d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis branchez les blocs d'alimentation à la source d'alimentation.
 +
+Le module de contrôleur commence à démarrer dès que l'alimentation est rétablie. Soyez prêt à interrompre le processus de démarrage.
 
-NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
-
+. Recâblage du système, selon les besoins.
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
 
 
 

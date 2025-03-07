@@ -5,7 +5,7 @@
 Lors de la mise à niveau en déplaçant le stockage, vous mettez les nœuds 3 et 4 sous tension, démarrez l'image logicielle et configurez les nœuds. L'organisation des ports physiques entre les nœuds d'origine et les nouveaux peut être différente. Le mappage des ports entre les nœuds d'origine et de remplacement doit être réalisé afin d'identifier le schéma approprié des ports et des connexions.
 
 .Description de la tâche
-Si la version d'ONTAP exécutée sur les nouveaux nœuds est différente de celle du nœud d'origine, vous devez avoir téléchargé le fichier <ontap_version>_image.tgz du site de support NetApp vers un répertoire accessible via le web (voir l'étape 4). Vous avez besoin du fichier <ontap_version>_image.tgz pour effectuer un démarrage sur le réseau du système.
+Si la version de ONTAP exécutée sur les nouveaux nœuds est différente de celle utilisée sur les nœuds d'origine, vous devez avoir téléchargé le fichier <xxx_image.tgz> correct depuis le site de support NetApp vers un répertoire accessible via le Web (voir l'étape 4). Vous avez besoin du fichier <xxx_image.tgz> pour effectuer un démarrage réseau de votre système.
 
 .Étapes
 . Mettez le nœud 3 sous tension, puis appuyez immédiatement sur Ctrl-C sur le terminal de la console pour accéder à l'invite DU CHARGEUR.
@@ -63,11 +63,11 @@ DHCP
  a| 
 *Tous les autres systèmes*
  a| 
-`+netboot http://web_server_ip/path_to_web-accessible_directory/<ontap_version>_image.tgz+`
+`+netboot http://web_server_ip/path_to_web-accessible_directory/<xxx_image.tgz>+`
 
 |===
 +
-Le chemin_to_the_web-accessible_Directory est l'emplacement du fichier <ontap_version>_image.tgz téléchargé.
+Le chemin_d'accès_au_répertoire_accessible_par_le_Web est l'emplacement du fichier <xxx_image.tgz> téléchargé.
 
 +
 
@@ -77,7 +77,7 @@ NOTE: Si vous ne pouvez pas netboot sur les nouveaux contrôleurs, contactez le 
 +
 Ignorez le message suivant : « cette procédure n'est pas prise en charge pour effectuer une mise à niveau sans interruption sur une paire haute disponibilité ». Il s'applique aux mises à niveau logicielles sans interruption et non aux mises à niveau des contrôleurs.
 
-. Si vous êtes invité à poursuivre la procédure, entrez `y`, Et lorsque vous êtes invité à saisir l'URL du fichier image : `+http://web_server_ip/path_to_web-accessible_directory/<ontap_version>_image.tgz+`.
+. Si vous êtes invité à poursuivre la procédure, entrez `y`, et lorsque vous y êtes invité, entrez l'URL du fichier image : `+http://web_server_ip/path_to_web-accessible_directory/<xxx_image.tgz>+`.
 +
 Saisissez le nom d'utilisateur/mot de passe, le cas échéant, ou appuyez sur entrée pour continuer.
 

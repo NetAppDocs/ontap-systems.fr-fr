@@ -6,7 +6,7 @@
 ====
 .Pas de cryptage
 --
-Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant son espace de stockage
+Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant son espace de stockage.
 
 .Étapes
 . Dans l'invite Loader, entrez `boot_ontap`.
@@ -31,14 +31,14 @@ Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant
 
 
 --
-.Chiffrement intégré (OKM)
+.Cryptage OKM
 --
 Réinitialise le chiffrement intégré et rétablit le fonctionnement normal du contrôleur.
 
 .Étapes
 . Dans l'invite DU CHARGEUR, entrez :
 +
-`boot_ontap maint`.
+`boot_ontap maint`
 
 . Démarrez à partir du menu ONTAP à partir de l'invite Loader `boot_ontap menu` et sélectionnez l'option 10.
 . Saisissez la phrase de passe OKM. Vous pouvez obtenir cette phrase de passe auprès du client ou contacter https://support.netapp.com["Support NetApp"].
@@ -91,7 +91,7 @@ Si la colonne _restored_ affiche autre chose que _true_, contactez https://suppo
 
 
 --
-.Gestionnaire de clés externe (EKM))
+.Cryptage EKM
 --
 Réinitialisez le cryptage et faites revenir le contrôleur en mode de fonctionnement normal.
 
@@ -137,14 +137,7 @@ NOTE: Contactez https://support.netapp.com["Support NetApp"] en cas de problème
 +
 `storage failover show`.
 
-. Vérifier que tous les « core dumps » sur le nœud réparé sont enregistrés en mode avancé :
-+
-`set -privilege advanced` et puis `run local partner savecore`.
-
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
-+
-`storage failover giveback -ofnode _impaired_node_name_`.
-
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
 . Si le retour automatique a été désactivé, réactivez-le :
 +
 `storage failover modify -node local -auto-giveback true`.

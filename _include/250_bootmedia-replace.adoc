@@ -178,7 +178,6 @@ Vis moletée
 
 |===
 .. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
-.. Branchez le câble d'alimentation dans le bloc d'alimentation et réinstallez le dispositif de retenue du câble d'alimentation.
 .. Insérez la clé USB dans le logement USB du module de contrôleur.
 +
 Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
@@ -187,11 +186,15 @@ Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour p
 .. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
 .. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
 .. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
-+
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
+
 
 +
 Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
+
++
+.. Branchez les cordons d'alimentation aux blocs d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis branchez les blocs d'alimentation à la source d'alimentation.
++
+Le module de contrôleur commence à démarrer dès que l'alimentation est rétablie. Soyez prêt à interrompre le processus de démarrage.
 
 .. Interrompez le processus de démarrage pour qu'il s'arrête à l'invite DU CHARGEUR en appuyant sur Ctrl-C lorsque vous voyez démarrer L'AUTOBOOT, appuyez sur Ctrl-C pour annuler
 +
@@ -201,31 +204,6 @@ Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour 
 +
 Le système commence à démarrer et s'arrête à l'invite DU CHARGEUR.
 
-.. Définissez le type de connexion réseau à l'invite DU CHARGEUR :
-+
-*** Si vous configurez DHCP : `ifconfig e0a -auto`
-+
 
-NOTE: Le port cible que vous configurez est le port cible que vous utilisez pour communiquer avec le contrôleur douteux à partir du contrôleur en bon état pendant la restauration du système de fichiers var avec une connexion réseau. Vous pouvez également utiliser le port e0M dans cette commande.
-
-*** Si vous configurez des connexions manuelles : `ifconfig e0a -addr=filer_addr -mask=netmask -gw=gateway-dns=dns_addr-domain=dns_domain`
-+
-**** `filer_addr` Est l'adresse IP du système de stockage.
-**** `netmask` Est le masque de réseau du réseau de gestion connecté au partenaire HA.
-**** `gateway` est la passerelle du réseau.
-**** `dns_addr` Est l'adresse IP d'un serveur de noms sur votre réseau.
-**** `dns_domain` Est le nom de domaine DNS (Domain Name System).
-+
-Si vous utilisez ce paramètre facultatif, vous n'avez pas besoin d'un nom de domaine complet dans l'URL du serveur netboot. Vous avez uniquement besoin du nom d'hôte du serveur.
-
-
-
-
-
-
-
-+
-
-NOTE: D'autres paramètres peuvent être nécessaires pour votre interface. Vous pouvez entrer `help ifconfig` à l'invite du micrologiciel pour plus de détails.
 
 

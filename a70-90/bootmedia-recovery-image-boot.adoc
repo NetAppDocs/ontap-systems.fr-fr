@@ -2,7 +2,7 @@
 permalink: a70-90/bootmedia-recovery-image-boot.html 
 sidebar: sidebar 
 keywords: aff a70, aff a90, boot the recovery image 
-summary: 'Si le support de démarrage de votre système AFF A70 ou AFF A90 est corrompu, vous pouvez démarrer l"image de récupération à partir d"un lecteur USB, restaurer la configuration à partir du nœud partenaire et vérifier les variables d"environnement.' 
+summary: 'Si le support de démarrage de votre système AFF A70 ou AFF A90 est corrompu, vous pouvez démarrer l"image de récupération à partir d"une clé USB et restaurer la configuration à partir du nœud partenaire.' 
 ---
 = Démarrez l'image de récupération - AFF A70 et AFF A90
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Si le support de démarrage de votre système AFF A70 ou AFF A90 est c
 
 
 [role="lead"]
-Si le support de démarrage de votre système AFF A70 ou AFF A90 est corrompu, vous pouvez démarrer l'image de récupération à partir d'un lecteur USB, restaurer la configuration à partir du nœud partenaire et vérifier les variables d'environnement.
+Si le support de démarrage de votre système AFF A70 ou AFF A90 est corrompu, vous pouvez démarrer l'image de récupération à partir d'une clé USB et restaurer la configuration à partir du nœud partenaire.
 
 Vous devez démarrer l'image ONTAP à partir du lecteur USB, restaurer le système de fichiers et vérifier les variables environnementales.
 
@@ -67,3 +67,6 @@ Une fois la procédure de restauration réussie, ce message s'affiche sur la con
 *REMARQUE :* si le processus échoue, contactez https://support.netapp.com["Support NetApp"].
 
 
+
+.Et la suite ?
+Après le démarrage de l'image de récupération, vous devez link:bootmedia-encryption-restore.html["restaurez le chiffrement sur le support de démarrage"].

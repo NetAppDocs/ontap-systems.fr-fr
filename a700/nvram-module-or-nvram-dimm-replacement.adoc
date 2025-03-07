@@ -2,7 +2,7 @@
 permalink: a700/nvram-module-or-nvram-dimm-replacement.html 
 sidebar: sidebar 
 keywords: aff a700, replace, nvram, module, dimm, manually, reassign, system, id, ha, system, disk, two, node, restore, storage, volume, encryption, functionality 
-summary: 'Le module NVRAM se compose de l"architecture NVRAM10 et de modules DIMM, et jusqu"à deux modules Flash cache SSD NVMe (Flash cache ou modules de cache) par module NVRAM.' 
+summary: 'Le module NVRAM est constitué de modules NVRAM10 et DIMM, et d"un maximum de deux modules Flash cache SSD NVMe (modules Flash cache ou de cache) par module NVRAM.' 
 ---
 = Remplacez le module NVRAM ou les barrettes DIMM NVRAM - AFF A700
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: 'Le module NVRAM se compose de l"architecture NVRAM10 et de modules DIM
 
 
 [role="lead"]
-Le module NVRAM se compose de l'architecture NVRAM10 et de modules DIMM, et jusqu'à deux modules Flash cache SSD NVMe (Flash cache ou modules de cache) par module NVRAM. Vous pouvez remplacer un module NVRAM défectueux ou les modules DIMM à l'intérieur du module NVRAM.
+Le module NVRAM est constitué de modules NVRAM10 et DIMM, et d'un maximum de deux modules Flash cache SSD NVMe (modules Flash cache ou de cache) par module NVRAM. Vous pouvez remplacer un module NVRAM défectueux ou les modules DIMM à l'intérieur du module NVRAM.
 
-Pour remplacer un module NVRAM défectueux, vous devez le retirer du châssis, retirer le ou les modules Flash cache du module NVRAM, transférer les modules DIMM vers le module de remplacement, réinstaller le ou les modules Flash cache et installer le module NVRAM de remplacement dans le châssis.
+Pour remplacer un module NVRAM défectueux, vous devez le retirer du châssis, retirer le ou les modules Flash cache du module NVRAM, déplacer les modules DIMM vers le module de remplacement, réinstaller le ou les modules Flash cache et installer le module NVRAM de remplacement dans le châssis.
 
 Étant donné que l'ID système est dérivé du module NVRAM, si vous remplacez le module, les disques appartenant au système sont réaffectés au nouvel ID système.
 
@@ -208,25 +208,25 @@ image::../media/drw_9000_remove_flashcache.png[Remplacer le module de cache]
  a| 
 image:../media/icon_round_1.png["Légende numéro 1"]
  a| 
-Bouton de déblocage orange (gris sur les modules Flash cache vides)
+Bouton de déverrouillage orange (gris sur les modules Flash cache vides)
 
 
 
  a| 
 image:../media/icon_round_2.png["Légende numéro 2"]
  a| 
-Poignée de came du FlashCache
+Poignée de came Flash cache
 
 |===
 +
 .. Appuyez sur le bouton orange situé à l'avant du module Flash cache.
 +
 
-NOTE: Le bouton de déblocage des modules Flash cache vides est gris.
+NOTE: Le bouton de déverrouillage des modules Flash cache vides est gris.
 
 .. Faites pivoter la poignée de came vers l'extérieur jusqu'à ce que le module commence à glisser hors de l'ancien module NVRAM.
 .. Saisissez la poignée de came du module et faites-la glisser hors du module NVRAM et insérez-la dans l'avant du nouveau module NVRAM.
-.. Poussez doucement le module FlashCache jusqu'au module NVRAM, puis fermez la poignée de came jusqu'à ce qu'il verrouille le module.
+.. Poussez doucement le module Flash cache à fond dans le module NVRAM, puis fermez la poignée jusqu'à ce qu'elle verrouille le module en place.
 
 
 . Retirez le module NVRAM cible du châssis :

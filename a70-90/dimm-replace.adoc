@@ -2,20 +2,20 @@
 permalink: a70-90/dimm-replace.html 
 sidebar: sidebar 
 keywords: aff a70, aff a90, replace a dimm 
-summary: 'Remplacez un module DIMM dans votre système AFF A70 ou AFF A90 en cas d"erreurs trop corrigibles ou non corrigibles détectées. Ces problèmes, souvent provoqués par une panne de module DIMM unique, peuvent empêcher le système de stockage de démarrer ONTAP.' 
+summary: 'Remplacez un module DIMM dans votre système AFF A70 ou AFF A90 si des erreurs de mémoire trop corrigibles ou incorrigibles sont détectées. De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP. Le processus de remplacement implique l"arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, puis la réinstallation du contrôleur.' 
 ---
-= Remplacez un module DIMM - AFF A70 et AFF A90
+= Remplacez un module DIMM par des erreurs pouvant être corrigées ou non - AFF A70 et AFF A90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Remplacez un module DIMM dans votre système AFF A70 ou AFF A90 en cas d'erreurs trop corrigibles ou non corrigibles détectées. Ces problèmes, souvent provoqués par une panne de module DIMM unique, peuvent empêcher le système de stockage de démarrer ONTAP.
+Remplacez un module DIMM dans votre système AFF A70 ou AFF A90 si des erreurs de mémoire trop corrigibles ou incorrigibles sont détectées. De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP. Le processus de remplacement implique l'arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, puis la réinstallation du contrôleur.
 
 .Avant de commencer
-* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
-* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de NetApp.
+* Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.
+* Assurez-vous de remplacer le composant défectueux par un composant de remplacement que vous avez reçu de NetApp.
 
 
 
@@ -208,9 +208,9 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
-== Étape 3 : remplacez un module DIMM
+== Étape 3 : remplacer la DIMM
 
-Pour remplacer les modules DIMM, localisez-les à l'intérieur du contrôleur et suivez l'ordre des étapes.
+Pour remplacer le module DIMM, localisez-les à l'intérieur du contrôleur et suivez la séquence spécifique des étapes.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Ouvrir le conduit d'air du contrôleur sur le dessus du contrôleur.
