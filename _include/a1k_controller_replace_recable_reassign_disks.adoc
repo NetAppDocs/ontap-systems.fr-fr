@@ -1,19 +1,14 @@
-= Remettez le contrôleur en place
+= 
 :allow-uri-read: 
 
-
-Vérifiez les connexions réseau et de stockage, puis remettez le contrôleur en place.
-
-
-
-== Remettez le contrôleur en place
-
-Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mode de fonctionnement normal.
 
 [role="tabbed-block"]
 ====
 .Pas de cryptage
 --
+Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant son espace de stockage.
+
+.Étapes
 . Dans l'invite Loader, entrez `boot_ontap`.
 . Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
 +
@@ -27,8 +22,11 @@ Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mod
 
 
 --
-.Chiffrement intégré (OKM)
+.Cryptage OKM
 --
+Réinitialise le chiffrement intégré et rétablit le fonctionnement normal du contrôleur.
+
+.Étapes
 . Dans l'invite DU CHARGEUR, entrez :
 +
 `boot_ontap maint`
@@ -64,8 +62,11 @@ Si la colonne _restored_ affiche autre chose que _true_, contactez https://suppo
 
 
 --
-.Gestionnaire de clés externe (EKM))
+.Cryptage EKM
 --
+Réinitialisez le cryptage et faites revenir le contrôleur en mode de fonctionnement normal.
+
+.Étapes
 . Si le volume racine est chiffré avec External Key Manager et que le câble de la console est connecté au nœud de remplacement, entrez `boot_ontap menu` et sélectionnez option `11`.
 . Répondez ou `n` répondez `y` aux questions suivantes :
 +

@@ -1,16 +1,18 @@
 ---
 permalink: asa-r2-70-90/system-management-replace.html 
 sidebar: sidebar 
-keywords: AFF A70, AFF A90, replace the system management module 
-summary: Vous devez remplacer . 
+keywords: ASA A70,  ASA A90, replace the system management module 
+summary: 'Remplacez le module de gestion du système de votre système ASA A70 ou ASA A90 s"il est défectueux ou si son micrologiciel est corrompu. Le processus de remplacement implique l"arrêt du contrôleur, le remplacement du module de gestion du système en panne, le redémarrage du contrôleur, la mise à jour des clés de licence et le renvoi de la pièce défectueuse à NetApp.' 
 ---
-= Remplacer le module de gestion du système - ASA A70 et ASA A90
+= Remplacez le module de gestion du système - ASA A70 et ASA A90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Remplacez le module de gestion du système de votre système ASA A70 ou ASA A90 s'il est défectueux ou si son micrologiciel est corrompu. Le processus de remplacement implique l'arrêt du contrôleur, le remplacement du module de gestion du système en panne, le redémarrage du contrôleur, la mise à jour des clés de licence et le renvoi de la pièce défectueuse à NetApp.
+
 Le module de gestion du système, situé à l'arrière du contrôleur dans le logement 8, contient des composants intégrés pour la gestion du système, ainsi que des ports pour la gestion externe. Le contrôleur cible doit être arrêté pour remplacer un module de gestion du système défectueux ou pour remplacer le support d'amorçage.
 
 Le module de gestion du système comprend les composants intégrés suivants :
@@ -27,8 +29,6 @@ Le module System Management contient également les ports suivants pour la gesti
 * USB de type A (récupération de démarrage)
 * Port RJ45 Ethernet e0M
 
-
-Pour remplacer le module de gestion du système ou le support de démarrage, vous devez arrêter le contrôleur défectueux.
 
 .Avant de commencer
 * Cette procédure utilise la terminologie suivante :

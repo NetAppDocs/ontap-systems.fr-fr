@@ -11,7 +11,7 @@ summary: 'Pour effectuer la procédure de remplacement et restaurer le fonctionn
 
 
 [role="lead"]
-Pour effectuer la procédure de remplacement et restaurer le fonctionnement complet de votre système, vous devez recâter le stockage, restaurer la configuration NetApp Storage Encryption (si nécessaire) et installer les licences du nouveau contrôleur. Vous devez effectuer une série de tâches avant de restaurer le système en mode de fonctionnement complet.
+Pour terminer la procédure de remplacement et restaurer le fonctionnement complet de votre système, restaurez la configuration du chiffrement de stockage NetApp (si nécessaire) et installez les licences pour le nouveau contrôleur.
 
 
 
@@ -62,6 +62,7 @@ Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de hom
 ** Si AutoSupport n'est pas activé, appeler https://mysupport.netapp.com["Support NetApp"] pour enregistrer le numéro de série.
 
 
+. Vérifiez l'état de santé de votre cluster. Consultez https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["Procédure de vérification de l'état du cluster à l'aide d'un script dans ONTAP"^] l'article de la base de connaissances pour plus d'informations.
 . Si une fenêtre de maintenance AutoSupport a été déclenchée, mettez-la fin à l'aide du `system node autosupport invoke -node * -type all -message MAINT=END` commande.
 . Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
 

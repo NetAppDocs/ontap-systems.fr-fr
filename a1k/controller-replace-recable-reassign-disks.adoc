@@ -2,7 +2,7 @@
 permalink: a1k/controller-replace-recable-reassign-disks.html 
 sidebar: sidebar 
 keywords: aff a1k, how to recable the system, how to reassign disks 
-summary: Redémarrez le système. 
+summary: Replacez le contrôle des ressources de stockage sur le contrôleur de remplacement afin que votre système AFF A1K puisse reprendre son fonctionnement normal. 
 ---
 = Remettre le contrôleur - AFF A1K
 :allow-uri-read: 
@@ -11,18 +11,15 @@ summary: Redémarrez le système.
 
 
 [role="lead"]
-Vérifiez les connexions réseau et de stockage, puis remettez le contrôleur en place.
-
-
-
-== Remettez le contrôleur en place
-
-Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mode de fonctionnement normal.
+Replacez le contrôle des ressources de stockage sur le contrôleur de remplacement afin que votre système AFF A1K puisse reprendre son fonctionnement normal. La procédure de retour à zéro varie en fonction du type de chiffrement utilisé par votre système : pas de chiffrement, chiffrement OKM (Onboard Key Manager) ou chiffrement EKM (External Key Manager).
 
 [role="tabbed-block"]
 ====
 .Pas de cryptage
 --
+Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant son espace de stockage.
+
+.Étapes
 . Dans l'invite Loader, entrez `boot_ontap`.
 . Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
 +
@@ -36,8 +33,11 @@ Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mod
 
 
 --
-.Chiffrement intégré (OKM)
+.Cryptage OKM
 --
+Réinitialise le chiffrement intégré et rétablit le fonctionnement normal du contrôleur.
+
+.Étapes
 . Dans l'invite DU CHARGEUR, entrez :
 +
 `boot_ontap maint`
@@ -73,8 +73,11 @@ Si la colonne _restored_ affiche autre chose que _true_, contactez https://suppo
 
 
 --
-.Gestionnaire de clés externe (EKM))
+.Cryptage EKM
 --
+Réinitialisez le cryptage et faites revenir le contrôleur en mode de fonctionnement normal.
+
+.Étapes
 . Si le volume racine est chiffré avec External Key Manager et que le câble de la console est connecté au nœud de remplacement, entrez `boot_ontap menu` et sélectionnez option `11`.
 . Répondez ou `n` répondez `y` aux questions suivantes :
 +
@@ -120,3 +123,5 @@ NOTE: Contactez https://support.netapp.com["Support NetApp"] en cas de problème
 
 --
 ====
+.Et la suite ?
+Après le transfert de la propriété des ressources de stockage vers le contrôleur de remplacement, vous devez link:controller-replace-restore-system-rma.html["terminez le remplacement du contrôleur"]procéder comme suit.

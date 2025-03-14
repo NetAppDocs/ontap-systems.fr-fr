@@ -2,7 +2,7 @@
 permalink: asa-r2-a1k/system-management-replace.html 
 sidebar: sidebar 
 keywords: asa r2 a1k, replace the system manager module 
-summary: Vous devez remplacer . 
+summary: 'Remplacez le module de gestion du système de votre système ASA A1K lorsqu"il devient défectueux ou que son micrologiciel est corrompu. Le processus de remplacement implique l"arrêt du contrôleur, le remplacement du module de gestion du système en panne, le redémarrage du contrôleur, la mise à jour des clés de licence et le renvoi de la pièce défectueuse à NetApp.' 
 ---
 = Remplacer le module de gestion du système - ASA A1K
 :allow-uri-read: 
@@ -11,6 +11,8 @@ summary: Vous devez remplacer .
 
 
 [role="lead"]
+Remplacez le module de gestion du système de votre système ASA A1K lorsqu'il devient défectueux ou que son micrologiciel est corrompu. Le processus de remplacement implique l'arrêt du contrôleur, le remplacement du module de gestion du système en panne, le redémarrage du contrôleur, la mise à jour des clés de licence et le renvoi de la pièce défectueuse à NetApp.
+
 Le module de gestion du système, situé à l'arrière du contrôleur dans le logement 8, contient des composants intégrés pour la gestion du système, ainsi que des ports pour la gestion externe. Le contrôleur cible doit être arrêté pour remplacer un module de gestion du système défectueux ou pour remplacer le support d'amorçage.
 
 Le module de gestion du système comprend les composants intégrés suivants :
@@ -28,18 +30,17 @@ Le module System Management contient également les ports suivants pour la gesti
 * Port RJ45 Ethernet e0M
 
 
-Pour remplacer le module de gestion du système ou le support de démarrage, vous devez arrêter le contrôleur défectueux.
-
 .Avant de commencer
-* Cette procédure utilise la terminologie suivante :
-+
-** Le contrôleur affecté est le contrôleur sur lequel vous effectuez la maintenance.
-** Le contrôleur en bonne santé est le partenaire de haute disponibilité associé au contrôleur affecté.
-
-
 * Tous les autres composants du système doivent fonctionner correctement.
 * Le contrôleur partenaire doit pouvoir prendre le contrôle du contrôleur défectueux.
 * Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+
+
+.Description de la tâche
+Cette procédure utilise la terminologie suivante :
+
+* Le contrôleur affecté est le contrôleur sur lequel vous effectuez la maintenance.
+* Le contrôleur en bonne santé est le partenaire de haute disponibilité associé au contrôleur affecté.
 
 
 

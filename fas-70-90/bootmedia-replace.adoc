@@ -2,7 +2,7 @@
 permalink: fas-70-90/bootmedia-replace.html 
 sidebar: sidebar 
 keywords: fas70, fas90, replace the boot media 
-summary: 'Vous trouvez le support d"amorçage défectueux dans le module de contrôleur en retirant la carte de montage 3 du module de contrôleur avant de pouvoir remplacer le support d"amorçage.' 
+summary: données de configuration. Si le support de démarrage échoue, vous devez débrancher le module de contrôleur, retirer le module de gestion du système, retirer le support de démarrage défectueux et installer le support de démarrage de remplacement dans le module de gestion du système. 
 ---
 = Remplacez le support de démarrage - FAS70 et FAS90
 :allow-uri-read: 
@@ -11,6 +11,8 @@ summary: 'Vous trouvez le support d"amorçage défectueux dans le module de cont
 
 
 [role="lead"]
+Le support de démarrage de votre système FAS70 ou FAS90 stocke les données essentielles du micrologiciel et de la configuration. Si le support de démarrage échoue, vous devez débrancher le module de contrôleur, retirer le module de gestion du système, retirer le support de démarrage défectueux et installer le support de démarrage de remplacement dans le module de gestion du système.
+
 Vous devez débrancher le module de contrôleur, retirer le module de gestion du système à l'arrière du système, retirer le support de démarrage défectueux et installer le support de démarrage de remplacement dans le module de gestion du système.
 
 
@@ -131,3 +133,6 @@ Le contrôleur commence à démarrer dès que l'alimentation est reconnectée au
 Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
 
 
+
+.Et la suite ?
+Après avoir remplacé le support de démarrage, vous devez link:bootmedia-recovery-image-boot.html["démarrez l'image de récupération"].

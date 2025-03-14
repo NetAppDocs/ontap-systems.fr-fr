@@ -2,7 +2,7 @@
 permalink: a1k/dimm-replace.html 
 sidebar: sidebar 
 keywords: aff a1k, replace a dimm 
-summary: 'Vous devez remplacer un module DIMM dans le module de contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d"erreurs (ECC) pouvant être corrigés ; dans le cas contraire, le système risque de se trouver en panne.' 
+summary: 'Remplacez un module DIMM dans votre système AFF A1K si des erreurs de mémoire trop corrigibles ou incorrigibles sont détectées. De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP. Le processus de remplacement implique l"arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, la réinstallation du contrôleur, puis le renvoi de la pièce défectueuse à NetApp.' 
 ---
 = Remplacez un module DIMM - AFF A1K
 :allow-uri-read: 
@@ -11,12 +11,12 @@ summary: 'Vous devez remplacer un module DIMM dans le module de contrôleur lors
 
 
 [role="lead"]
-Vous devez remplacer un module DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles que des erreurs CECC (Correctable Error correction codes) excessives qui sont basées sur des alertes du moniteur d'intégrité ou des erreurs ECC incorrigibles, généralement causées par une panne de module DIMM unique empêchant le système de stockage de démarrer ONTAP.
+Remplacez un module DIMM dans votre système AFF A1K si des erreurs de mémoire trop corrigibles ou incorrigibles sont détectées. De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP. Le processus de remplacement implique l'arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, la réinstallation du contrôleur, puis le renvoi de la pièce défectueuse à NetApp.
 
 .Avant de commencer
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+* Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.
+* Assurez-vous de remplacer le composant défectueux par un composant de remplacement que vous avez reçu de NetApp.
 
-Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
 
 

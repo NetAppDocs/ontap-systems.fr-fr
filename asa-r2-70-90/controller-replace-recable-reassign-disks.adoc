@@ -2,13 +2,16 @@
 permalink: asa-r2-70-90/controller-replace-recable-reassign-disks.html 
 sidebar: sidebar 
 keywords: asa r2 a70, asa r2 a90, how to recable the system, boot the system 
-summary: Vous devez pouvoir réamorcer le contrôleur avec le stockage. 
+summary: Renvoyer le contrôle des ressources de stockage sur le contrôleur de remplacement afin que votre système ASA A70 ou ASA A90 puisse reprendre son fonctionnement normal. 
 ---
 = Remettre le contrôleur - ASA A70 et ASA A90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
+
+[role="lead"]
+Renvoyer le contrôle des ressources de stockage sur le contrôleur de remplacement afin que votre système ASA A70 ou ASA A90 puisse reprendre son fonctionnement normal. La procédure de retour à zéro varie en fonction du type de chiffrement utilisé par votre système : pas de chiffrement, chiffrement OKM (Onboard Key Manager) ou chiffrement EKM (External Key Manager).
 
 [role="tabbed-block"]
 ====

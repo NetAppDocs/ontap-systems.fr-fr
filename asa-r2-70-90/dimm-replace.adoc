@@ -2,7 +2,7 @@
 permalink: asa-r2-70-90/dimm-replace.html 
 sidebar: sidebar 
 keywords: asa r2 a70, asa r2 a90, replace a dimm 
-summary: 'Remplacez un module DIMM dans votre système AFF C80 en cas d"erreurs trop corrigibles ou non corrigibles détectées. Ces problèmes, souvent provoqués par une panne de module DIMM unique, peuvent empêcher le système de stockage de démarrer ONTAP.' 
+summary: 'Remplacez un module DIMM dans votre système ASA A70 ou ASA A90 si des erreurs de mémoire trop corrigibles ou incorrigibles sont détectées. De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP. Le processus de remplacement implique l"arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, la réinstallation du contrôleur, puis le renvoi de la pièce défectueuse à NetApp.' 
 ---
 = Remplacez un module DIMM - ASA A70 et ASA A90
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Remplacez un module DIMM dans votre système AFF C80 en cas d"erreurs 
 
 
 [role="lead"]
-Remplacez un module DIMM dans votre système AFF C80 en cas d'erreurs trop corrigibles ou non corrigibles détectées. Ces problèmes, souvent provoqués par une panne de module DIMM unique, peuvent empêcher le système de stockage de démarrer ONTAP.
+Remplacez un module DIMM dans votre système ASA A70 ou ASA A90 si des erreurs de mémoire trop corrigibles ou incorrigibles sont détectées. De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP. Le processus de remplacement implique l'arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, la réinstallation du contrôleur, puis le renvoi de la pièce défectueuse à NetApp.
 
 .Avant de commencer
 * Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.

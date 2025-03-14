@@ -2,7 +2,7 @@
 permalink: asa-r2-a1k/bootmedia-replace-bmr.html 
 sidebar: sidebar 
 keywords: asa r2 a1k, replace the boot media 
-summary: 'Vous trouvez le support d"amorçage défectueux dans le module de contrôleur en retirant la carte de montage 3 du module de contrôleur avant de pouvoir remplacer le support d"amorçage.' 
+summary: 'Le support de démarrage de votre système ASA A1K stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de gestion du système, le retrait du support de démarrage défectueux, l"installation du support de démarrage de remplacement dans le module de gestion du système, puis la réinstallation du module de gestion du système.' 
 ---
 = Remplacez le support de démarrage - ASA A1K
 :allow-uri-read: 
@@ -11,11 +11,11 @@ summary: 'Vous trouvez le support d"amorçage défectueux dans le module de cont
 
 
 [role="lead"]
-Remplacez le support d'amorçage en retirant le module de gestion du système de l'arrière du système, en retirant le support d'amorçage défectueux, en installant le support d'amorçage de remplacement dans le module de gestion du système, puis en réinstallant le module de gestion du système.
+Le support de démarrage de votre système ASA A1K stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de gestion du système, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de gestion du système, puis la réinstallation du module de gestion du système.
 
-.Étapes
 Le support de démarrage se trouve à l'intérieur du module de gestion du système et est accessible en retirant le module du système.
 
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Débranchez les câbles d'alimentation des unités d'alimentation du contrôleur.
 +

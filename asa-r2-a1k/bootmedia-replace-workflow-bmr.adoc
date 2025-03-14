@@ -2,24 +2,24 @@
 permalink: asa-r2-a1k/bootmedia-replace-workflow-bmr.html 
 sidebar: sidebar 
 keywords: asa r2 a1k, replace the boot media 
-summary: Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur. 
+summary: 'Pour commencer à remplacer le support de démarrage de votre système de stockage ASA A1K, consultez les conditions de remplacement requises, éteignez les contrôleurs, remplacez le support de démarrage, restaurez l"image sur le support de démarrage et vérifiez le fonctionnement du système.' 
 ---
-= Procédure de remplacement du support de démarrage - ASA A1K
+= Démarrage rapide pour le remplacement des supports de démarrage - ASA A1K
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Procédez comme suit pour remplacer votre support de démarrage.
+Pour commencer à remplacer le support de démarrage de votre système de stockage ASA A1K, consultez les conditions de remplacement requises, éteignez le contrôleur, remplacez le support de démarrage, restaurez l'image sur le support de démarrage et vérifiez le fonctionnement du système.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:bootmedia-replace-requirements-bmr.html["Vérifiez la configuration requise pour le support de démarrage"]
 [role="quick-margin-para"]
 Vérifiez les conditions requises pour le remplacement des supports de démarrage.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:bootmedia-shutdown-bmr.html["Arrêtez le contrôleur défaillant"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:bootmedia-shutdown-bmr.html["Arrêter le contrôleur"]
 [role="quick-margin-para"]
-Arrêtez ou prenez le contrôle du contrôleur défaillant pour que le contrôleur fonctionnel continue à transmettre des données à partir du stockage défectueux.
+Arrêtez le contrôleur de votre système de stockage lorsque vous devez remplacer le support de démarrage.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:bootmedia-replace-bmr.html["Remplacez le support de démarrage"]
 [role="quick-margin-para"]

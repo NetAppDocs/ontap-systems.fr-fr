@@ -2,21 +2,24 @@
 permalink: a1k/controller-replace-requirements.html 
 sidebar: sidebar 
 keywords: aff a1k, prerequisite, replace the controller module 
-summary: 'Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d"exploitation ONTAP.' 
+summary: 'Avant de remplacer le contrôleur de votre système AFF A1K, assurez-vous de respecter les conditions requises pour un remplacement réussi. Cela inclut le remplacement correct du contrôleur, une sauvegarde de la configuration de votre système et l"accès aux outils et micrologiciels nécessaires.' 
 ---
-= Exigences de remplacement du contrôleur - AFF A1K
+= Conditions requises pour remplacer le contrôleur - AFF A1K
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vérifiez la configuration requise pour la procédure de remplacement du contrôleur et sélectionnez celle qui convient à votre version du système d'exploitation ONTAP.
+Avant de remplacer le contrôleur de votre système AFF A1K, assurez-vous de respecter les conditions requises pour un remplacement réussi. Cela inclut le remplacement correct du contrôleur, une sauvegarde de la configuration de votre système et l'accès aux outils et micrologiciels nécessaires.
+
+Vérifiez les conditions requises pour le remplacement du contrôleur.
 
 * Tous les tiroirs disques doivent fonctionner correctement.
 * Le contrôleur sain doit pouvoir reprendre le contrôleur qui est remplacé (appelé « contrôleur défectueux » dans cette procédure).
+* N'utilisez pas cette procédure pour les mises à niveau du contrôleur ; reportez-vous plutôt au https://docs.netapp.com/us-en/ontap-systems-upgrade/choose_controller_upgrade_procedure.html["Choisissez la procédure de mise à niveau matérielle de votre contrôleur"] pour obtenir des conseils.
 * Si votre système est dans une configuration MetroCluster, vous devez consulter la section https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html["Choix de la procédure de récupération correcte"] pour déterminer si vous devez utiliser cette procédure de remplacement de contrôleur.
-* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
+* Vous devez remplacer le composant défectueux par l'unité remplaçable sur site (FRU) que vous avez reçue de NetApp.
 * Vous devez remplacer un module de contrôleur par un module de contrôleur du même type de modèle. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le module de contrôleur.
 * Vous ne pouvez pas modifier de disques ou de tiroirs disques dans le cadre de cette procédure.
 * Comme le périphérique d'amorçage se trouve sur le module de gestion du système installé à l'arrière du système, vous n'avez pas besoin de déplacer le périphérique d'amorçage lors du remplacement d'un module de contrôleur.
@@ -32,3 +35,6 @@ Vérifiez la configuration requise pour la procédure de remplacement du contrô
 Vous disposez ainsi d'un enregistrement de la procédure afin de pouvoir résoudre tout problème que vous pourriez rencontrer pendant le processus de remplacement.
 
 
+
+.Et la suite ?
+Après avoir vérifié la configuration requise pour remplacer votre contrôleur AFF A1K, vous devez link:controller-replace-shutdown.html["arrêtez les contrôleurs"].

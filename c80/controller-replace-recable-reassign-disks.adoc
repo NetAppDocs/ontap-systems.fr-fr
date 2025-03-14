@@ -11,7 +11,7 @@ summary: Replacez le contrôle des ressources de stockage sur le contrôleur de 
 
 
 [role="lead"]
-Replacez le contrôle des ressources de stockage sur le contrôleur de remplacement afin que votre système AFF C80 puisse reprendre son fonctionnement normal.
+Replacez le contrôle des ressources de stockage sur le contrôleur de remplacement afin que votre système AFF C80 puisse reprendre son fonctionnement normal. La procédure de retour à zéro varie en fonction du type de chiffrement utilisé par votre système : pas de chiffrement, chiffrement OKM (Onboard Key Manager) ou chiffrement EKM (External Key Manager).
 
 [role="tabbed-block"]
 ====
@@ -161,3 +161,5 @@ NOTE: Contactez https://support.netapp.com["Support NetApp"] en cas de problème
 
 --
 ====
+.Et la suite ?
+Après le transfert de la propriété des ressources de stockage vers le contrôleur de remplacement, vous devez link:controller-replace-restore-system-rma.html["terminez le remplacement du contrôleur"]procéder comme suit.

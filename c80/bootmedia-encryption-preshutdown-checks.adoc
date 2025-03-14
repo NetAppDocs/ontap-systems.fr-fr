@@ -4,16 +4,14 @@ sidebar: sidebar
 keywords: c80, pre-shutdown checks for onboard encryption keys 
 summary: 'Pour assurer la sécurité des données sur votre système de stockage AFF C80, vous devez vérifier la prise en charge et l"état de la clé de cryptage. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d"arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.' 
 ---
-= Vérifiez la prise en charge et l'état de la clé de cryptage - AFF C80
+= Vérifiez la prise en charge et l'état de la clé de cryptage sur le support de démarrage - AFF C80
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour assurer la sécurité des données sur votre système de stockage AFF C80, vous devez vérifier la prise en charge et l'état de la clé de cryptage. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.
-
-Avant d'arrêter le contrôleur défaillant, vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et si votre système de gestion des clés est correctement configuré.
+Pour assurer la sécurité des données sur votre système de stockage AFF C80, vous devez vérifier la prise en charge et l'état de la clé de cryptage sur votre support de démarrage. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.
 
 
 
@@ -194,3 +192,6 @@ Dans les scénarios d'incident, vous devrez peut-être restaurer manuellement le
 --
 ====
 
+
+.Et la suite ?
+Après avoir vérifié la prise en charge et l'état de la clé de cryptage sur le support de démarrage, vous devez link:bootmedia-shutdown.html["arrêter le contrôleur"].
