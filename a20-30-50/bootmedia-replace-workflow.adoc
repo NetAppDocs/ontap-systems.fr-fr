@@ -2,7 +2,7 @@
 permalink: a20-30-50/bootmedia-replace-workflow.html 
 sidebar: sidebar 
 keywords: aff a20, aff a30, aff a50, replace the boot media 
-summary: Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur. 
+summary: 'Commencez par remplacer le support de démarrage de votre système de stockage AFF A20, AFF A30 ou AFF A50 en examinant les exigences de remplacement, en vérifiant l"état du cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en amorçant l"image de récupération, en restaurant le cryptage et en vérifiant le fonctionnement du système.' 
 ---
 = Procédure de remplacement des supports de démarrage - AFF A20, AFF A30 et AFF A50
 :allow-uri-read: 
@@ -11,17 +11,17 @@ summary: Vous devez remplacer le composant défectueux par un composant FRU de r
 
 
 [role="lead"]
-Procédez comme suit pour remplacer votre support de démarrage.
+Commencez par remplacer le support de démarrage de votre système de stockage AFF A20, AFF A30 ou AFF A50 en examinant les exigences de remplacement, en vérifiant l'état du cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en amorçant l'image de récupération, en restaurant le cryptage et en vérifiant le fonctionnement du système.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:bootmedia-replace-requirements.html["Vérifiez la configuration requise pour le support de démarrage"]
 [role="quick-margin-para"]
-Pour remplacer le support de démarrage, vous devez répondre à certaines exigences.
+Consultez les conditions requises pour le remplacement du support de démarrage.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Une seule"]link:bootmedia-encryption-preshutdown-checks.html["Vérifiez les clés de chiffrement intégrées"]
 [role="quick-margin-para"]
-Vérifiez si le gestionnaire de clés de sécurité est activé sur votre système de stockage ou si des disques sont cryptés.
+Déterminez si le gestionnaire de clés de sécurité est activé sur le système ou si des disques cryptés sont utilisés.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Deux"]link:bootmedia-shutdown.html["Arrêtez le contrôleur défaillant"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Deux"]link:bootmedia-shutdown.html["Arrêter le contrôleur"]
 [role="quick-margin-para"]
 Arrêtez ou prenez le contrôle du contrôleur défaillant pour que le contrôleur fonctionnel continue à transmettre des données à partir du stockage défectueux.
 

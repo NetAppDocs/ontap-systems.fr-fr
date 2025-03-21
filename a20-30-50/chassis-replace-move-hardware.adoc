@@ -2,7 +2,7 @@
 permalink: a20-30-50/chassis-replace-move-hardware.html 
 sidebar: sidebar 
 keywords: aff a20, aff a30, aff a50, move hardware components, replace the chassis 
-summary: 'Déplacez le cadre, les lecteurs et les modules de contrôleur du châssis défectueux vers le nouveau châssis, puis remplacez le châssis défectueux du rack d"équipement ou de l"armoire système par le nouveau châssis du même modèle que le châssis défectueux.' 
+summary: 'Remplacer le châssis de votre système AFF A20, AFF A30 ou AFF A50 lorsqu"une défaillance matérielle l"exige. Le processus de remplacement implique le retrait du contrôleur et des unités d"alimentation (PSU), le retrait des lecteurs du châssis défectueux, l"installation du châssis de remplacement et la réinstallation des composants du châssis.' 
 ---
 = Remplacer le châssis - AFF A20, AFF A30 et AFF A50
 :allow-uri-read: 
@@ -11,6 +11,8 @@ summary: 'Déplacez le cadre, les lecteurs et les modules de contrôleur du châ
 
 
 [role="lead"]
+Remplacer le châssis de votre système AFF A20, AFF A30 ou AFF A50 lorsqu'une défaillance matérielle l'exige. Le processus de remplacement implique le retrait du contrôleur et des unités d'alimentation (PSU), le retrait des lecteurs du châssis défectueux, l'installation du châssis de remplacement et la réinstallation des composants du châssis.
+
 Déplacez les lecteurs, les caches de lecteurs, les contrôleurs et le cadre du châssis défectueux vers le châssis de remplacement (du même modèle), puis remplacez le châssis défectueux dans le rack d'équipement ou l'armoire système.
 
 
@@ -293,3 +295,6 @@ BLOC D'ALIMENTATION CC
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
+
+.Et la suite ?
+Après avoir remplacé le châssis AFF A20, AFF A30 ou AFF A50 défectueux et réinstallé les composants dans celui-ci, vous devez link:chassis-replace-complete-system-restore-rma.html["terminez le remplacement du châssis"].

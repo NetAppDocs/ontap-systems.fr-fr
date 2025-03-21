@@ -2,7 +2,7 @@
 permalink: a20-30-50/controller-replace-recable-reassign-disks.html 
 sidebar: sidebar 
 keywords: aff a20, aff a30, aff a50, how to reboot the system 
-summary: Vous devez redémarrer le contrôleur. 
+summary: Renvoyez le contrôle des ressources de stockage au contrôleur de remplacement afin que votre système AFF A20, AFF A30 ou AFF A50 puisse reprendre son fonctionnement normal. 
 ---
 = Remettre le contrôleur - AFF A20, AFF A30 et AFF A50
 :allow-uri-read: 
@@ -11,11 +11,7 @@ summary: Vous devez redémarrer le contrôleur.
 
 
 [role="lead"]
-Remettez le contrôleur en place.
-
-
-
-== Remettez le contrôleur en place
+Renvoyez le contrôle des ressources de stockage au contrôleur de remplacement afin que votre système AFF A20, AFF A30 ou AFF A50 puisse reprendre son fonctionnement normal. La procédure de retour à zéro varie en fonction du type de chiffrement utilisé par votre système : pas de chiffrement, chiffrement OKM (Onboard Key Manager) ou chiffrement EKM (External Key Manager).
 
 Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mode de fonctionnement normal.
 
@@ -23,6 +19,9 @@ Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mod
 ====
 .Pas de cryptage
 --
+Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant son espace de stockage.
+
+.Étapes
 . Dans l'invite Loader, entrez `boot_ontap`.
 . Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
 +
@@ -38,6 +37,9 @@ Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mod
 --
 .Chiffrement intégré (OKM)
 --
+Réinitialise le chiffrement intégré et rétablit le fonctionnement normal du contrôleur.
+
+.Étapes
 . Dans l'invite Loader, entrez `boot_ontap maint`.
 . Démarrez à partir du menu ONTAP à partir de l'invite Loader `boot_ontap menu` et sélectionnez l'option 10.
 . Saisissez la phrase de passe OKM.
@@ -80,6 +82,9 @@ Si le résultat affiche des résultats (les ID de clé des clés qui ne sont pas
 --
 .Gestionnaire de clés externe (EKM)
 --
+Réinitialisez le cryptage et faites revenir le contrôleur en mode de fonctionnement normal.
+
+.Étapes
 . Si le volume racine est chiffré avec External Key Manager et que le câble de la console est connecté au nœud de remplacement, entrez `boot_ontap menu` et sélectionnez option `11`.
 . Répondez ou `n` répondez `y` aux questions suivantes :
 +
@@ -126,3 +131,5 @@ NOTE: Contactez https://support.netapp.com["Support NetApp"] en cas de problème
 
 --
 ====
+.Et la suite ?
+Après le transfert de la propriété des ressources de stockage vers le contrôleur de remplacement, vous devez link:controller-replace-restore-system-rma.html["terminez le remplacement du contrôleur"]procéder comme suit.

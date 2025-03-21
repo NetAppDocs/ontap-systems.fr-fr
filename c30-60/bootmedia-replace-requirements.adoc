@@ -2,15 +2,17 @@
 permalink: c30-60/bootmedia-replace-requirements.html 
 sidebar: sidebar 
 keywords: aff c30, aff c60, replace the boot media 
-summary: Découvrez la configuration requise pour le remplacement du support de démarrage. 
+summary: 'Avant de remplacer le support de démarrage de votre système AFF C30 ou AFF C60, assurez-vous de répondre aux exigences requises pour un remplacement réussi. Cela inclut la vérification de la présence d"une clé USB contenant la quantité de stockage appropriée et la vérification de la bonne mise en place du périphérique de démarrage de remplacement.' 
 ---
-= Configuration requise pour les supports de démarrage - AFF C30 et AFF C60
+= Configuration requise pour remplacer le support de démarrage - AFF C30 et AFF C60
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Avant de remplacer le support de démarrage de votre système AFF C30 ou AFF C60, assurez-vous de répondre aux exigences requises pour un remplacement réussi. Cela inclut la vérification de la présence d'une clé USB contenant la quantité de stockage appropriée et la vérification de la bonne mise en place du périphérique de démarrage de remplacement.
+
 Avant de remplacer le support de démarrage, vérifiez les conditions et considérations suivantes.
 
 
@@ -40,3 +42,6 @@ Un châssis de plate-forme comporte trois voyants d'emplacement : un sur le pann
 Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
 
 
+
+.Et la suite ?
+Après avoir examiné la configuration requise pour remplacer le support de démarrage, vous devez link:bootmedia-encryption-preshutdown-checks.html["vérifiez la prise en charge et l'état de la clé de cryptage sur le support de démarrage"].

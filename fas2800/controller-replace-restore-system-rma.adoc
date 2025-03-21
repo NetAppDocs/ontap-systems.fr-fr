@@ -20,7 +20,9 @@ Restaurez le fonctionnement complet de votre système en restaurant les configur
 Vous devez installer de nouvelles licences pour le _remplacement_ node si le nœud douteux utilisait des fonctions ONTAP qui requièrent une licence standard (nœud verrouillé). Pour les fonctionnalités avec licences standard, chaque nœud du cluster doit avoir sa propre clé pour cette fonctionnalité.
 
 .Description de la tâche
-Jusqu'à ce que vous installiez les clés de licence, les fonctions nécessitant des licences standard restent disponibles pour le _remplacement_ node. Cependant, si le nœud douteux était le seul nœud du cluster avec une licence pour la fonction, aucune modification de configuration de la fonction n'est autorisée. En outre, l'utilisation de fonctions sans licence sur le nœud peut vous mettre hors conformité avec votre contrat de licence. Vous devez donc installer la ou les clés de licence de remplacement sur le _remplacement_ noeud dès que possible.
+Jusqu'à ce que vous installiez les clés de licence, les fonctions nécessitant des licences standard restent disponibles pour le _remplacement_ node. Cependant, si le nœud douteux était le seul nœud du cluster avec une licence pour la fonction, aucune modification de configuration de la fonction n'est autorisée.
+
+En outre, l'utilisation de fonctions sans licence sur le nœud peut vous mettre hors conformité avec votre contrat de licence. Vous devez donc installer la ou les clés de licence de remplacement sur le _remplacement_ noeud dès que possible.
 
 .Avant de commencer
 Les clés de licence doivent être au format à 28 caractères.

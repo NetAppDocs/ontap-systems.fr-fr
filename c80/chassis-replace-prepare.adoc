@@ -1,0 +1,65 @@
+---
+permalink: c80/chassis-replace-prepare.html 
+sidebar: sidebar 
+keywords: aff c80, replace the chassis 
+summary: Préparez-vous à remplacer le châssis défectueux de votre système C80 en identifiant le châssis défectueux, en vérifiant les composants de remplacement et en étiquetant les câbles et les modules de contrôleur. 
+---
+= Préparez-vous à remplacer le châssis - C80
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Préparez-vous à remplacer le châssis défectueux de votre système AFF A70 ou AFF A90 en identifiant le châssis défectueux, en vérifiant les composants de remplacement et en étiquetant les câbles et les modules de contrôleur.
+
+
+
+== Étape 1 : localisez et surveillez votre système
+
+Vous devez ouvrir une session de console et enregistrer les journaux de sessions pour référence ultérieure, et activer également le voyant d'emplacement du système pour trouver le châssis défectueux.
+
+. Connectez-vous au port série console pour établir une interface avec et surveiller le système.
+. Localisez et allumez le voyant d'emplacement du contrôleur :
++
+.. Utiliser `system controller location-led show` la commande pour afficher l'état actuel de la LED d'emplacement
+.. Réglez l'état du voyant d'emplacement sur « on » :
++
+`system controller location-led modify -node _node1_ -state on`.
+
++
+Le voyant d'emplacement reste allumé pendant 30 minutes.
+
+
+
+
+
+
+
+== Étape 2 : vérifier les composants de remplacement
+
+Vérifiez que vous avez reçu les composants nécessaires, retirez-les de leur emballage et conservez-les.
+
+. Avant d'ouvrir l'emballage, vous devez regarder l'étiquette d'emballage et vérifier :
++
+** Référence du composant.
+** Description de la pièce.
+** Quantité dans la boîte.
+
+
+. Retirez le contenu de l'emballage et utilisez l'emballage pour renvoyer le composant défectueux à NetApp.
+
+
+
+
+== Étape 3 : Etiquetez les câbles et les modules de contrôleur
+
+Étiquetez les câbles et les modules de contrôleur avant de les retirer des modules de contrôleur ou du châssis.
+
+. Etiquetez tous les câbles associés au système de stockage. Cela facilite la réactivation plus loin dans cette procédure.
+. Etiquetez les modules de contrôleur.
+. Si vous n'êtes pas déjà correctement mis à la terre, mettez-vous à la terre.
+
+
+.Et la suite ?
+Après avoir préparé le remplacement du matériel du châssis C80, vous devez link:chassis-replace-shutdown.html["arrêtez les contrôleurs"].

@@ -1,12 +1,6 @@
-= Remettez le contrôleur en place
+= 
 :allow-uri-read: 
 
-
-Remettez le contrôleur en place.
-
-
-
-== Remettez le contrôleur en place
 
 Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mode de fonctionnement normal.
 
@@ -14,6 +8,9 @@ Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mod
 ====
 .Pas de cryptage
 --
+Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant son espace de stockage.
+
+.Étapes
 . Dans l'invite Loader, entrez `boot_ontap`.
 . Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
 +
@@ -29,6 +26,9 @@ Réinitialisez le chiffrement si activé et faites revenir le contrôleur en mod
 --
 .Chiffrement intégré (OKM)
 --
+Réinitialise le chiffrement intégré et rétablit le fonctionnement normal du contrôleur.
+
+.Étapes
 . Dans l'invite Loader, entrez `boot_ontap maint`.
 . Démarrez à partir du menu ONTAP à partir de l'invite Loader `boot_ontap menu` et sélectionnez l'option 10.
 . Saisissez la phrase de passe OKM.
@@ -71,6 +71,9 @@ Si le résultat affiche des résultats (les ID de clé des clés qui ne sont pas
 --
 .Gestionnaire de clés externe (EKM)
 --
+Réinitialisez le cryptage et faites revenir le contrôleur en mode de fonctionnement normal.
+
+.Étapes
 . Si le volume racine est chiffré avec External Key Manager et que le câble de la console est connecté au nœud de remplacement, entrez `boot_ontap menu` et sélectionnez option `11`.
 . Répondez ou `n` répondez `y` aux questions suivantes :
 +

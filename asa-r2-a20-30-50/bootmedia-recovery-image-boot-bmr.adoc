@@ -1,7 +1,7 @@
 ---
 permalink: asa-r2-a20-30-50/bootmedia-recovery-image-boot-bmr.html 
 sidebar: sidebar 
-keywords: aff a20, aff a30, aff a50, boot the recovery image 
+keywords: asa a20, asa a30, asa a50, boot the recovery image 
 summary: 'Vous pouvez restaurer l"image sur le support de démarrage à partir du contrôleur partenaire via le processus de restauration de démarrage automatique.' 
 ---
 = Restaurez l'image ONTAP - ASA A20, ASA A30 et ASA A50
@@ -10,8 +10,12 @@ summary: 'Vous pouvez restaurer l"image sur le support de démarrage à partir d
 :imagesdir: ../media/
 
 
-.Avant de commencer
 [role="lead"]
+Après avoir installé le nouveau périphérique de démarrage sur votre système de stockage ASA A20, ASA A30 ou ASA A50, vous pouvez lancer le processus de récupération automatique du support de démarrage pour restaurer la configuration à partir du nœud en bon état.
+
+Pendant le processus de récupération, le système vérifie si le chiffrement est activé et détermine le type de chiffrement de clé utilisé. Si le chiffrement de clé est activé, le système vous guide à travers les étapes appropriées pour le restaurer.
+
+.Avant de commencer
 * Déterminez si Onboard Key Manager (OKM) ou Eternal Key Manager (EKM) est configuré à l'aide de l'une des méthodes suivantes :
 +
 ** Vous pouvez demander au client ou à l'administrateur système si OKM ou EKM sont activés.
@@ -391,3 +395,6 @@ LOADER-B>
 `system node autosupport invoke -node * -type all -message MAINT=END`.
 
 
+
+.Et la suite
+Une fois que vous avez restauré l'image ONTAP et que le nœud est prêt à accéder aux données, vous link:bootmedia-complete-rma-bmr.html["Renvoyer la pièce défectueuse à NetApp"].

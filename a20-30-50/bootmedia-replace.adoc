@@ -2,7 +2,7 @@
 permalink: a20-30-50/bootmedia-replace.html 
 sidebar: sidebar 
 keywords: aff a20, aff a30, aff a50, replace the boot media 
-summary: 'Vous trouvez le support d"amorçage défectueux dans le module de contrôleur en retirant la carte de montage 3 du module de contrôleur avant de pouvoir remplacer le support d"amorçage.' 
+summary: 'Le support de démarrage de votre système AFF A20, AFF A30 ou AFF A50 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l"installation du support de démarrage de remplacement, puis le transfert de l"image ONTAP vers le support de démarrage de remplacement.' 
 ---
 = Remplacer le support de démarrage - AFF A20, AFF A30 et AFF A50
 :allow-uri-read: 
@@ -11,6 +11,8 @@ summary: 'Vous trouvez le support d"amorçage défectueux dans le module de cont
 
 
 [role="lead"]
+Le support de démarrage de votre système AFF A20, AFF A30 ou AFF A50 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement, puis le transfert de l'image ONTAP vers le support de démarrage de remplacement.
+
 Pour remplacer le support de démarrage, vous devez retirer le contrôleur défectueux, retirer le support de démarrage, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
 
 
@@ -309,3 +311,6 @@ BLOC D'ALIMENTATION CC
 
 |===
 
+
+.Et la suite ?
+Après avoir remplacé le support de démarrage, vous devez link:bootmedia-recovery-image-boot.html["démarrez l'image de récupération"].

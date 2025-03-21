@@ -18,6 +18,10 @@ Pour plus d'informations sur la connexion du système de stockage aux commutateu
 
 .Description de la tâche
 * Ces procédures présentent les configurations courantes. Le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour obtenir des détails complets sur la configuration et la priorité des emplacements, reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+* Les connecteurs d'E/S des contrôleurs FAS70 et FAS90 sont numérotés de 1 à 11.
++
+image::../media/drw_a1K_back_slots_labeled_ieops-2162.svg[Numérotation des connecteurs sur les contrôleurs FAS70 et FAS90]
+
 * Les graphiques de câblage sont dotés d'icônes de flèche indiquant l'orientation correcte (vers le haut ou vers le bas) de la languette du connecteur de câble lors de l'insertion d'un connecteur dans un port.
 +
 Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
@@ -135,6 +139,8 @@ IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
 Les procédures de câblage suivantes indiquent comment connecter les contrôleurs à un tiroir de stockage. Choisissez l'une des options de câblage suivantes correspondant à votre configuration.
 
 Pour connaître le nombre maximum de tiroirs pris en charge par votre système de stockage et pour toutes vos options de câblage, reportez-vous à link:https://hwu.netapp.com["NetApp Hardware Universe"^]la section .
+
+Pour obtenir des conseils supplémentaires sur le câblage des tiroirs SAS, reportez-vous à la section link:https://docs.netapp.com/us-en/ontap-systems/sas3/install-cabling-rules.html["Règles et concepts de câblage SAS - tiroirs avec modules IOM12/IOM12B"].
 
 [role="tabbed-block"]
 ====

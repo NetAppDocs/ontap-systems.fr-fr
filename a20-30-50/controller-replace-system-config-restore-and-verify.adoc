@@ -2,7 +2,7 @@
 permalink: a20-30-50/controller-replace-system-config-restore-and-verify.html 
 sidebar: sidebar 
 keywords: aff a20, aff a30, aff a50, restore and verify the system configuration, verify and set the ha state of the controller module 
-summary: Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire. 
+summary: 'Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement sur votre système de stockage AFF A20, AFF A30 ou AFF A50, et vérifiez que les adaptateurs du système répertorient tous les chemins d"accès aux disques.' 
 ---
 = Restaurer et vérifier la configuration système - AFF A20, AFF A30 et AFF A50
 :allow-uri-read: 
@@ -11,6 +11,8 @@ summary: Après avoir effectué le remplacement du matériel et démarrer en mod
 
 
 [role="lead"]
+Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement sur votre système de stockage AFF A20, AFF A30 ou AFF A50, et vérifiez que les adaptateurs du système répertorient tous les chemins d'accès aux disques.
+
 Vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
 
 
@@ -77,3 +79,6 @@ En cas de problème, vérifiez le câblage et réinstallez les câbles.
 `halt`
 
 
+
+.Et la suite ?
+Après avoir restauré et vérifié la configuration système de votre système AFF A20, AFF A30 ou AFF A50, vous devez link:controller-replace-recable-reassign-disks.html["remettez le contrôleur en place"].

@@ -1,8 +1,8 @@
 ---
 permalink: asa-r2-a20-30-50/bootmedia-replace-requirements-bmr.html 
 sidebar: sidebar 
-keywords: aff a20, aff a30, aff a50, replace the boot media 
-summary: Découvrez la configuration requise pour le remplacement du support de démarrage. 
+keywords: asa a20, asa a30, asa a50, replace the boot media 
+summary: 'Avant de remplacer le support de démarrage de votre système de stockage ASA A20, ASA A30 ou ASA A50, assurez-vous de respecter les exigences et les considérations nécessaires pour un remplacement réussi. Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la vérification que le port e0S (clé e0M) du contrôleur défectueux n"est pas défectueux et la détermination de l"activation du gestionnaire de clés intégré (OKM) ou du gestionnaire de clés externe (EKM).' 
 ---
 = Exigences - ASA A20, ASA A30 et ASA A50
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Découvrez la configuration requise pour le remplacement du support de 
 
 
 [role="lead"]
-Avant de remplacer le support de démarrage, vérifiez les conditions et considérations suivantes.
+Avant de remplacer le support de démarrage de votre système de stockage ASA A20, ASA A30 ou ASA A50, assurez-vous de respecter les exigences et les considérations nécessaires pour un remplacement réussi. Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la vérification que le port e0S (clé e0M) du contrôleur défectueux n'est pas défectueux et la détermination de l'activation du gestionnaire de clés intégré (OKM) ou du gestionnaire de clés externe (EKM).
 
 
 
@@ -60,4 +60,50 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 .Et la suite
-Après avoir examiné la configuration requise pour le support de démarrage, link:bootmedia-shutdown-bmr.html["arrêtez le contrôleur défectueux"].
+Après avoir examiné la configuration requise pour le support de démarrage, vous link:bootmedia-shutdown-bmr.html["arrêtez le contrôleur défectueux"].
+
+
+
+== De formation
+
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement de même capacité que celle reçue de NetApp.
+* Le port e0S (clé e0M) du contrôleur défectueux ne peut pas être défectueux.
++
+Le port e0S est utilisé pour la restauration au démarrage automatique.
+
+* Déterminez si Onboard Key Manager (OKM) ou Eternal Key Manager (EKM) est configuré à l'aide de l'une des méthodes suivantes :
++
+** Vous pouvez demander à l'administrateur système si OKM ou EKM sont activés.
+** Pour vérifier si OKM est activé, vous pouvez utiliser le `security key-manager onboard show`.
+** Pour vérifier si EKM est activé, vous pouvez utiliser le `security key-manager external show`.
+
+
+* Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.
+* Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
++
+** fichier /cfcard/kmip/servers.cfg.
+** fichier /cfcard/kmip/certs/client.crt.
+** fichier /cfcard/kmip/certs/client.key.
+** Fichier /cfcard/kmip/certs/CA.pem.
+
+
+
+
+
+
+== Considérations
+
+* Il est important d'appliquer les commandes au cours de la procédure suivante sur le contrôleur approprié :
++
+** Le contrôleur _trouble_ est le contrôleur sur lequel vous effectuez la maintenance.
+** Le contrôleur _Healthy_ est le partenaire HA du contrôleur déficient.
+
+
+* Si nécessaire, vous pouvez allumer les voyants d'emplacement du châssis de la plate-forme (bleus) pour faciliter la localisation physique de la plate-forme concernée. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
++
+Un châssis de plate-forme comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
+
++
+Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
+
+
