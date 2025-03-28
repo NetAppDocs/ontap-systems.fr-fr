@@ -2,15 +2,17 @@
 permalink: asa-r2-a20-30-50/drive-replace.html 
 sidebar: sidebar 
 keywords: asa a20, asa a30, asa a50, replace the drives 
-summary: 'Vous pouvez remplacer un disque SSD défectueux sans interrompre l"activité pendant les opérations d"E/S.' 
+summary: 'Remplacez un lecteur de votre système ASA A20, ASA A30 ou ASA A50 lorsqu"un lecteur tombe en panne ou nécessite une mise à niveau. Le processus de remplacement consiste à identifier le disque défectueux, à le retirer en toute sécurité et à installer un nouveau disque pour garantir un accès continu aux données et des performances du système.' 
 ---
-= Remplacer l'entraînement - ASA A20, ASA A30 et ASA A50
+= Remplacer un entraînement - ASA A20, ASA A30 et ASA A50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Remplacez un lecteur de votre système ASA A20, ASA A30 ou ASA A50 lorsqu'un lecteur tombe en panne ou nécessite une mise à niveau. Le processus de remplacement consiste à identifier le disque défectueux, à le retirer en toute sécurité et à installer un nouveau disque pour garantir un accès continu aux données et des performances du système.
+
 Vous pouvez remplacer un disque défaillant sans interruption pendant que des opérations d'E/S sont en cours.
 
 .Avant de commencer
@@ -73,35 +75,10 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 .Étapes
-. Si vous souhaitez attribuer manuellement la propriété du disque de remplacement, vous devez désactiver l'affectation automatique des disques s'il est activé.
-+
-
-NOTE: Vous attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.
-
-+
-.. Vérifiez si l'affectation automatique des disques est activée :
-+
-`storage disk option show`
-
-+
-Vous pouvez saisir la commande sur l'un ou l'autre contrôleur.
-
-+
-Si l'affectation automatique des disques est activée, le résultat s'affiche `on` dans la `Auto Assign` colonne (pour chaque contrôleur).
-
-.. Si l'affectation automatique des disques est activée, désactivez-la :
-+
-`storage disk option modify -node node_name -autoassign off`
-
-+
-Vous devez désactiver l'affectation automatique des disques sur les deux contrôleurs.
-
-
-
 . Mettez-vous à la terre.
 . Identifiez physiquement le disque défectueux.
 +
-Lorsqu'un disque tombe en panne, le système consigne un message d'avertissement à la console du système pour indiquer quel disque est en panne. En outre, la LED d'avertissement (orange) s'allume sur le panneau d'affichage de l'opérateur du tiroir disque et le disque défectueux.
+Lorsqu'un disque tombe en panne, le système consigne un message d'avertissement à la console du système pour indiquer quel disque est en panne. En outre, le voyant d'avertissement (orange) situé sur le panneau de commande du tiroir et le disque défectueux s'allument.
 
 +
 
@@ -142,9 +119,12 @@ NOTE: Les disques étant fragiles, leur manipulation est réduite pour éviter d
 
 |===
 . Attendre au moins 70 secondes avant d'insérer le lecteur de remplacement.
++
+Ceci permet au système de reconnaître qu'un lecteur a été retiré.
+
 . Insérer le lecteur de remplacement :
 +
-.. Avec la poignée de came en position ouverte, insérer l'entraînement à l'aide des deux mains.
+.. Avec la poignée de came en position ouverte, insérer l'entraînement de remplacement à l'aide des deux mains.
 .. Poussez doucement jusqu'à ce que le lecteur s'arrête.
 .. Fermez la poignée de la came de sorte que le lecteur soit bien en place dans le fond de panier central et que la poignée s'enclenche.
 +
@@ -156,35 +136,7 @@ Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s
 +
 Lorsque le voyant d'activité du lecteur est allumé, cela signifie que le lecteur est alimenté. Lorsque le voyant d'activité du lecteur clignote, cela signifie que le lecteur est alimenté et que les E/S sont en cours. Si le micrologiciel du lecteur est mis à jour automatiquement, le voyant clignote.
 
-. Si vous remplacez un autre lecteur, répétez les étapes 3 à 7.
-. Si vous avez désactivé l'affectation automatique de disques à l'étape 1, affectez manuellement la propriété des disques, puis réactivez l'affectation automatique de disques si nécessaire :
-+
-.. Afficher tous les disques non propriétaires :
-+
-`storage disk show -container-type unassigned`
-
-+
-Vous pouvez saisir la commande sur l'un ou l'autre contrôleur.
-
-.. Affectez chaque disque :
-+
-`storage disk assign -disk disk_name -owner owner_name`
-
-+
-Vous pouvez saisir la commande sur l'un ou l'autre contrôleur.
-
-+
-Vous pouvez utiliser le caractère générique pour attribuer plusieurs lecteurs à la fois.
-
-.. Réactivez l'affectation automatique des disques si nécessaire :
-+
-`storage disk option modify -node node_name -autoassign on`
-
-+
-Vous devez réactiver l'affectation automatique des disques sur les deux contrôleurs.
-
-
-
+. Si vous remplacez un autre lecteur, répétez les étapes 2 à 6.
 . Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
 +
 Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.

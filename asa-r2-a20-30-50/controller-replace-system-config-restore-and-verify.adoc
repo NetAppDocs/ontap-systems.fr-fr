@@ -11,7 +11,7 @@ summary: Après avoir effectué le remplacement du matériel et démarrer en mod
 
 
 [role="lead"]
-Vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
+Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement sur votre système de stockage ASA A20, ASA A30 ou ASA A50, et vérifiez que les adaptateurs du système répertorient tous les chemins d'accès aux disques.
 
 
 
@@ -77,3 +77,6 @@ En cas de problème, vérifiez le câblage et réinstallez les câbles.
 `halt`
 
 
+
+.Et la suite ?
+Après avoir restauré et vérifié la configuration système de votre système ASA A20, ASA A30 ou ASA A50, vous devez link:controller-replace-recable-reassign-disks.html["remettez le contrôleur en place"].

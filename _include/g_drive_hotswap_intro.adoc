@@ -1,0 +1,64 @@
+= 
+:allow-uri-read: 
+
+
+Vous pouvez remplacer un disque défaillant sans interruption pendant que des opérations d'E/S sont en cours.
+
+.Avant de commencer
+* Le lecteur que vous installez doit être pris en charge par votre système de stockage.
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+* Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED de la documentation ONTAP.
++
+Les instructions de la documentation ONTAP décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
+
++
+https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commandes"^]
+
+* Tous les autres composants du système de stockage doivent fonctionner correctement. Si ce n'est pas le cas, vous devez contacter https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+* Vérifiez que le lecteur que vous retirez a échoué.
++
+Vous pouvez vérifier que le lecteur est défectueux en exécutant le `storage disk show -broken` commande. Le lecteur défectueux apparaît dans la liste des disques défectueux. Si ce n'est pas le cas, attendez, puis exécutez de nouveau la commande.
+
++
+
+NOTE: Selon le type et la capacité du disque, il peut prendre jusqu'à plusieurs heures pour que le lecteur apparaisse dans la liste des disques défaillants.
+
+
+
+.Description de la tâche
+* Lors du remplacement d'un disque défectueux, vous devez attendre 70 secondes entre le retrait du disque et l'insertion du disque de remplacement pour permettre au système de stockage de reconnaître qu'un disque a été retiré.
+* Il est recommandé d'installer la version la plus récente du DQP (Disk qualification Package) avant d'échanger un disque à chaud.
++
+Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser de nouveaux lecteurs qualifiés. Cela permet d'éviter que les messages d'événement du système ne soient pas à jour sur les disques et évite le partitionnement de disque car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Téléchargements NetApp : pack de qualification des disques"^]
+
+* Avant de remplacer les composants FRU, il est recommandé d'installer les versions les plus récentes du firmware NSM (module de tiroir NVMe) et du firmware de disque.
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
+
++
+[NOTE]
+====
+Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
+
+====
+* Le firmware des disques est automatiquement mis à jour (sans interruption) sur les nouveaux disques dont les versions de micrologiciel ne sont pas à jour.
++
+
+NOTE: Le firmware des disques est vérifié toutes les deux minutes.
+
+* Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
++
+Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
+
++
+Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
+
+

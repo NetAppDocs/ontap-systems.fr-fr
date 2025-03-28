@@ -2,16 +2,18 @@
 permalink: asa-r2-a20-30-50/controller-replace-requirements.html 
 sidebar: sidebar 
 keywords: asa a20, asa a30, asa a50, prerequisite, replace the controller module 
-summary: 'Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d"exploitation ONTAP.' 
+summary: 'Avant de remplacer le contrôleur de votre système ASA A20, ASA A30 ou ASA A50, assurez-vous de répondre aux exigences requises pour un remplacement réussi. Cela inclut la vérification du bon fonctionnement de tous les autres composants du système, la vérification du bon contrôleur de remplacement et l"enregistrement de la sortie de la console du contrôleur dans un fichier journal texte.' 
 ---
-= Exigences de remplacement du contrôleur - ASA A20, ASA A30 et ASA A50
+= Conditions requises pour remplacer le contrôleur - ASA A20, ASA A30 et ASA A50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous devez revoir les conditions requises et les considérations relatives à la procédure de remplacement du contrôleur.
+Avant de remplacer le contrôleur de votre système ASA A20, ASA A30 ou ASA A50, assurez-vous de répondre aux exigences requises pour un remplacement réussi. Cela inclut la vérification du bon fonctionnement de tous les autres composants du système, la vérification du bon contrôleur de remplacement et l'enregistrement de la sortie de la console du contrôleur dans un fichier journal texte.
+
+Revoir les exigences et les considérations relatives à la procédure de remplacement du contrôleur.
 
 
 
@@ -46,3 +48,6 @@ Un système de stockage comporte trois voyants d'emplacement : un sur le panneau
 Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
 
 
+
+.Et la suite ?
+Après avoir passé en revue les conditions requises pour remplacer votre contrôleur ASA A20, ASA A30 ou ASA A50, vous devez link:controller-replace-shutdown.html["arrêtez le contrôleur défectueux"].
