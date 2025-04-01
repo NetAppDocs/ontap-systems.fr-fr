@@ -1,0 +1,74 @@
+---
+permalink: fas50/caching-module-hot-swap.html 
+sidebar: sidebar 
+keywords: fas50, hot swap, replace, Flash Cache 
+summary: 'Vous pouvez remplacer à chaud un module NVMe SSD Flash cache (module de cache) de la même capacité par un autre ou un autre fournisseur pris en charge.' 
+---
+= Remplacez à chaud un module de cache par un FAS50
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez remplacer à chaud un module de cache SSD NVMe (module Flash cache) de la même capacité par un autre fournisseur.
+
+.Avant de commencer
+Votre système de stockage doit répondre à certains critères en fonction de votre situation :
+
+* Votre système de stockage doit disposer du système d'exploitation approprié pour le module de cache que vous installez.
+* Le module de mise en cache de remplacement doit avoir la même capacité que le module de mise en cache défaillant, mais peut être proposé par un autre fournisseur pris en charge.
+* Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de continuer.
+
+
+.Étapes
+. Mettez-vous à la terre.
+. Repérez le module de cache défectueux à l'aide du voyant d'avertissement orange allumé à l'avant du module de cache.
++
+Un module de cache peut se trouver dans la baie 0 ou 23.
+
+. Retirez le module de mise en cache :
++
+image::../media/drw_fas50_flash_cache_module_replace_ieops-2173.svg[graphique des étapes de remplacement du module de cache fas50]
+
++
+[cols="20%,80%"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Appuyez sur le bouton de déverrouillage situé sur la face du module pour ouvrir la poignée de came.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Tournez la poignée de came vers le bas pour désengager le module du fond de panier central.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Faites glisser le module hors de la baie de lecteur à l'aide de la poignée de came et en soutenant le module de l'autre main.
+
+Lors de la dépose d'un module, toujours utiliser deux mains pour soutenir son poids.
+
+|===
+. Attendez au moins 70 secondes avant d'insérer le module de cache de remplacement.
+. Installez le module de mise en cache de remplacement :
++
+.. Avec la poignée de came en position ouverte, insérer le module à l'aide des deux mains.
+.. Poussez doucement jusqu'à ce que le module s'arrête.
+.. Fermez la poignée de la came de sorte que le module soit bien en place dans le fond de panier central et que la poignée s'enclenche.
++
+Assurez-vous de fermer lentement la poignée de came afin qu'elle s'aligne correctement sur la face du module.
+
+
+
+. Vérifiez que le voyant d'activité (vert) du module est allumé.
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"^] page pour plus d'informations.
+

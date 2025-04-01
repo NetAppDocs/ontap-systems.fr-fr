@@ -20,7 +20,7 @@ Remplacer le châssis de votre système ASA A20, ASA A30 ou ASA A50 en cas de d�
 Vous devez retirer le contrôleur du châssis lorsque vous remplacez le contrôleur ou un composant à l'intérieur du contrôleur.
 
 .Avant de commencer
-Tous les autres composants du système de stockage doivent fonctionner correctement. Si ce n'est pas le cas, vous devez contacter https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+Assurez-vous que tous les autres composants du système de stockage fonctionnent correctement. Si ce n'est pas le cas, vous devez contacter https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
 
 .Étapes
 . Sur le contrôleur défectueux, assurez-vous que le voyant NV est éteint.
@@ -124,50 +124,47 @@ Si nécessaire, faites pivoter les poignées vers le haut (à côté des languet
 
 
 
-== Étape 2 : retirez les lecteurs du châssis défectueux
+== Étape 2 : retirez les modules de cache du châssis défectueux
 
-Vous devez retirer tous les lecteurs et tous les caches de lecteur du châssis défectueux afin de pouvoir les installer ultérieurement dans le châssis de remplacement.
+Vous devez retirer les modules de cache et les caches de lecteur du châssis défectueux afin de pouvoir les installer ultérieurement dans le châssis de remplacement.
 
 . Retirez délicatement le cadre de l'avant du système de stockage.
-. Retirez les lecteurs et les caches de lecteur :
+. Retirez les modules de cache et les caches de lecteur :
 +
 
-NOTE: Assurez-vous de savoir de quelle baie de lecteur chaque lecteur et cache de lecteur a été retiré car ils doivent être installés dans les mêmes baies de lecteur dans le châssis de remplacement.
+NOTE: Assurez-vous de savoir de quelle baie de lecteur chaque module de cache et chaque cache de lecteur ont été retirés car ils doivent être installés dans les mêmes baies de lecteur dans le châssis de remplacement.
 
 +
-image::../media/drw_nvme_drive_replace_ieops-1904.svg[Retirez le disque NVMe]
+image::../media/drw_fas50_flash_cache_module_replace_ieops-2173.svg[graphique des étapes de remplacement du module de cache fas50]
 
 +
-[cols="1,4"]
+[cols="20%,80%"]
 |===
 
 
  a| 
 image::../media/icon_round_1.png[Légende numéro 1]
  a| 
-Appuyez sur le bouton de dégagement situé sur la face d'entraînement pour ouvrir la poignée de came.
+Appuyez sur le bouton de déverrouillage situé sur la face du module pour ouvrir la poignée de came.
 
 
 
  a| 
 image::../media/icon_round_2.png[Légende numéro 2]
  a| 
-Tournez la poignée de came vers le bas pour désengager l'entraînement du fond de panier central.
+Tournez la poignée de came vers le bas pour désengager le module du fond de panier central.
 
 
 
  a| 
 image::../media/icon_round_3.png[Numéro de légende 3]
  a| 
-Faites glisser le lecteur hors de la baie de lecteur à l'aide de la poignée de came et en soutenant le lecteur de l'autre main.
+Faites glisser le module hors de la baie de lecteur à l'aide de la poignée de came et en soutenant le module de l'autre main.
 
-Lors de la dépose d'un entraînement, toujours utiliser deux mains pour soutenir son poids.
-
-
-NOTE: Les disques étant fragiles, leur manipulation est réduite pour éviter de les endommager.
+Lors de la dépose d'un module, toujours utiliser deux mains pour soutenir son poids.
 
 |===
-. Mettez les lecteurs de côté sur un chariot ou une table sans électricité statique.
+. Mettez les modules de cache de côté sur un chariot ou une table sans électricité statique.
 
 
 
@@ -237,23 +234,23 @@ NOTE: Ne forcez pas lorsque vous faites glisser le contrôleur dans le châssis 
 
 . Recentrez le contrôleur si nécessaire, à l'exception des câbles d'alimentation.
 . Répétez ces étapes pour installer le second contrôleur dans le châssis.
-. Installez les lecteurs et les caches de lecteur que vous avez retirés du châssis défectueux dans le châssis de remplacement :
+. Installez les modules de cache et les caches de lecteur que vous avez retirés du châssis défectueux dans le châssis de remplacement :
 +
 
-NOTE: Les lecteurs et les caches de lecteur doivent être installés dans les mêmes baies de lecteur dans le châssis de remplacement.
+NOTE: Les modules de cache et les caches de lecteur doivent être installés dans les mêmes baies de lecteur du châssis de remplacement.
 
-+
-.. Avec la poignée de came en position ouverte, insérer l'entraînement à l'aide des deux mains.
-.. Poussez doucement jusqu'à ce que le lecteur s'arrête.
-.. Fermez la poignée de la came de sorte que le lecteur soit bien en place dans le fond de panier central et que la poignée s'enclenche.
+
+
+. Avec la poignée de came en position ouverte, insérer l'entraînement à l'aide des deux mains.
+. Poussez doucement jusqu'à ce que le lecteur s'arrête.
+. Fermez la poignée de la came de sorte que le lecteur soit bien en place dans le fond de panier central et que la poignée s'enclenche.
 +
 Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur la face de l'entraînement.
 
-.. Répétez la procédure pour les autres disques.
-
-
-. Installez le panneau.
-. Reconnectez les câbles d'alimentation aux blocs d'alimentation (PSU) des contrôleurs.
+. Répétez la procédure pour les autres disques.
++
+.. Installez le panneau.
+.. Reconnectez les câbles d'alimentation aux blocs d'alimentation (PSU) des contrôleurs.
 +
 Une fois l'alimentation rétablie, le voyant d'état doit être vert.
 
@@ -270,8 +267,8 @@ NOTE: Les contrôleurs commencent à démarrer dès que l'alimentation est réta
  a| 
 ALIMENTATION CA
  a| 
-.. Branchez le cordon d'alimentation au bloc d'alimentation.
-.. Fixez le cordon d'alimentation à l'aide du dispositif de retenue du cordon d'alimentation.
+... Branchez le cordon d'alimentation au bloc d'alimentation.
+... Fixez le cordon d'alimentation à l'aide du dispositif de retenue du cordon d'alimentation.
 
 
 
@@ -279,17 +276,19 @@ ALIMENTATION CA
  a| 
 BLOC D'ALIMENTATION CC
  a| 
-.. Branchez le connecteur du cordon d'alimentation CC D-SUB sur le bloc d'alimentation.
-.. Serrez les deux vis à oreilles pour fixer le connecteur du cordon d'alimentation CC D-SUB au bloc d'alimentation.
+... Branchez le connecteur du cordon d'alimentation CC D-SUB sur le bloc d'alimentation.
+... Serrez les deux vis à oreilles pour fixer le connecteur du cordon d'alimentation CC D-SUB au bloc d'alimentation.
 
 
 |===
-. Si les contrôleurs démarrent avec l'invite Loader, redémarrez les contrôleurs :
+.. Si les contrôleurs démarrent avec l'invite Loader, redémarrez les contrôleurs :
 +
 `boot_ontap`
 
-. Réactiver AutoSupport :
+.. Réactiver AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
+
+
 
 

@@ -1,0 +1,43 @@
+---
+permalink: fas50/chassis-replace-requirements.html 
+sidebar: sidebar 
+keywords: fas50, replace the chassis 
+summary: Avant de remplacer le châssis de votre système FAS50, veillez à respecter les exigences requises pour un remplacement réussi. Cela inclut la vérification du bon fonctionnement de tous les autres composants du système, la vérification que vous disposez du châssis de remplacement approprié et des outils nécessaires. 
+---
+= Exigences de remplacement du châssis - FAS50
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de remplacer le châssis de votre système FAS50, veillez à respecter les exigences requises pour un remplacement réussi. Cela inclut la vérification du bon fonctionnement de tous les autres composants du système, la vérification que vous disposez du châssis de remplacement approprié et des outils nécessaires.
+
+Passez en revue les exigences et considérations suivantes.
+
+
+
+== De formation
+
+* Le châssis de remplacement doit être du même modèle que le châssis défectueux. Cette procédure est destinée à un remplacement similaire, et non à une mise à niveau.
+* Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
+
+
+
+== Considérations
+
+* *La procédure de remplacement du châssis est perturbatrice.* Dans le cas d'un cluster à deux nœuds, la panne totale du service et une panne partielle dans un cluster multinœud sont associés.
+* Vous pouvez suivre la procédure de remplacement du châssis avec toutes les versions de ONTAP prises en charge par votre système de stockage.
+* La procédure de remplacement du châssis suppose que vous déplacez le panneau, les disques, les caches de disques et les contrôleurs vers le nouveau châssis.
+* Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
++
+Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
+
++
+Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
+
+
+
+.Et la suite ?
+Après avoir examiné la configuration requise pour remplacer le châssis, vous devez link:chassis-replace-shutdown.html["arrêtez les contrôleurs"].

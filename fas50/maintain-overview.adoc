@@ -1,0 +1,96 @@
+---
+permalink: fas50/maintain-overview.html 
+sidebar: sidebar 
+keywords: aff a20 aff a30 aff a50 maintenance, maintenance, repairing a20 aff a30 aff a50, replace a20 aff a30 aff a50 components 
+summary: 'Assurer la maintenance du matériel de vos systèmes de stockage FAS50 pour assurer une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, telles que le remplacement de composants défectueux, afin d"éviter les temps d"indisponibilité et les pertes de données.' 
+---
+= Présentation de la maintenance matérielle - FAS50
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Assurer la maintenance du matériel de vos systèmes de stockage FAS50 pour assurer une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, telles que le remplacement de composants défectueux, afin d'éviter les temps d'indisponibilité et les pertes de données.
+
+Dans l'hypothèse des procédures de maintenance, les systèmes FAS50 ont déjà été déployés en tant que nœuds de stockage dans l'environnement ONTAP.
+
+
+
+== Composants du système
+
+Pour les systèmes de stockage FAS50, vous pouvez effectuer des procédures de maintenance sur les composants suivants.
+
+[cols="25,65"]
+|===
+
+
+ a| 
+link:bootmedia-replace-workflow.html["Support de démarrage"]
+ a| 
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP, ainsi que les informations de configuration système utilisées par le système lors du démarrage.
+
+
+
+ a| 
+link:caching-module-hot-swap.html["Module de cache"]
+ a| 
+Un module de cache (Flash cache) utilise des disques SSD haut débit pour stocker les données fréquemment utilisées afin d'accélérer leur récupération.
+
+
+
+ a| 
+link:chassis-replace-workflow.html["Châssis"]
+ a| 
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+ a| 
+link:controller-replace-workflow.html["Contrôleur"]
+ a| 
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les lecteurs et exécute le logiciel du système d'exploitation ONTAP.
+
+
+
+ a| 
+link:dimm-replace.html["DIMM"]
+ a| 
+Un module de mémoire en ligne double (DIMM) est un type de mémoire d'ordinateur. Ils sont installés pour ajouter de la mémoire système à une carte mère du contrôleur.
+
+
+
+ a| 
+link:fan-replace.html["Ventilateur"]
+ a| 
+Un ventilateur refroidit le contrôleur et les entraînements.
+
+
+
+ a| 
+link:io-module-overview.html["Module d'E/S."]
+ a| 
+Le module d'E/S (module d'entrée/sortie) est un composant matériel qui sert d'intermédiaire entre le contrôleur et divers dispositifs ou systèmes qui doivent échanger des données avec le contrôleur.
+
+
+
+ a| 
+link:nvdimm-battery-replace.html["Batterie NV"]
+ a| 
+La batterie de la mémoire non volatile (NV) est chargée d'alimenter les composants NVMEM tandis que les données à la volée sont déchargées vers la mémoire Flash après une coupure de courant.
+
+
+
+ a| 
+link:power-supply-replace.html["Alimentation électrique"]
+ a| 
+Une alimentation fournit une source d'alimentation redondante dans un contrôleur.
+
+
+
+ a| 
+link:rtc-battery-replace.html["Pile de l'horloge en temps réel"]
+ a| 
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'appareil est éteint.
+
+|===

@@ -1,0 +1,30 @@
+---
+permalink: fas50/chassis-replace-workflow.html 
+sidebar: sidebar 
+keywords: fas50, replace the chassis workflow 
+summary: Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur. 
+---
+= Workflow de remplacement du châssis - FAS50
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Procédez comme suit pour remplacer votre châssis.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:chassis-replace-requirements.html["Vérifiez les exigences de remplacement du châssis"]
+[role="quick-margin-para"]
+Pour remplacer le châssis, vous devez répondre à certaines exigences.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:chassis-replace-shutdown.html["Arrêtez les contrôleurs"]
+[role="quick-margin-para"]
+Arrêtez les contrôleurs afin d'effectuer des opérations de maintenance sur le châssis.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:chassis-replace-move-hardware.html["Remplacez le châssis"]
+[role="quick-margin-para"]
+Le remplacement du châssis inclut le déplacement des caches de disques, des modules de cache, des contrôleurs (avec les blocs d'alimentation) et du cadre du châssis défectueux vers le nouveau châssis, ainsi que le remplacement du châssis défectueux par le nouveau châssis du même modèle que le châssis défectueux.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:chassis-replace-complete-system-restore-rma.html["Remplacement complet du châssis"]
+[role="quick-margin-para"]
+Vérifiez l'état haute disponibilité du châssis et renvoyez la pièce défectueuse à NetApp.
