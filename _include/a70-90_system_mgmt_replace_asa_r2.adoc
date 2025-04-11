@@ -48,11 +48,20 @@ Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du 
 
 
 .Étapes
-. Si AutoSupport est activé, supprimez la création automatique de cas en appelant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=<# of hours>h`
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
 +
-Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures : `cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
+`system node autosupport invoke -node * -type all -message MAINT=<# of hours>h`
 
-. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify -node local -auto-giveback false`
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :
+
++
+`cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le rétablissement automatique depuis la console du contrôleur sain :
++
+`storage failover modify -node local -auto-giveback false`
+
 +
 
 NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
@@ -81,9 +90,11 @@ Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
  a| 
 Invite système ou invite de mot de passe
  a| 
-Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état : `storage failover takeover -ofnode _impaired_node_name_`
+Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état :
 
-Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuyez sur Ctrl-C et répondez `y`.
+`storage failover takeover -ofnode _impaired_node_name_ -halt _true_`
+
+Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 |===
 
@@ -97,7 +108,7 @@ Remplacez le module de gestion du système défectueux.
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
 
-NOTE: Assurez-vous que le déchargement de la NVRAM est terminé avant de continuer.
+NOTE: Assurez-vous que le déchargement de la NVRAM est terminé avant de continuer. Lorsque le voyant du module NV est éteint, le NVRAM est déchargé. Si le voyant clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
 
 +
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]

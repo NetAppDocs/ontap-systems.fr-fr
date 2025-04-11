@@ -2,15 +2,17 @@
 permalink: fas50/controller-replace-requirements.html 
 sidebar: sidebar 
 keywords: fas50, prerequisite, replace the controller module 
-summary: 'Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d"exploitation ONTAP.' 
+summary: 'Avant de remplacer le contrôleur de votre système de stockage FAS50, veillez à respecter les exigences requises pour un remplacement réussi. Cela inclut la vérification du bon fonctionnement de tous les autres composants du système, la vérification du bon contrôleur de remplacement et l"enregistrement de la sortie de la console du contrôleur dans un fichier journal texte.' 
 ---
-= Exigences de remplacement des contrôleurs - FAS50
+= Conditions requises pour remplacer le contrôleur - FAS50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Avant de remplacer le contrôleur de votre système de stockage FAS50, veillez à respecter les exigences requises pour un remplacement réussi. Cela inclut la vérification du bon fonctionnement de tous les autres composants du système, la vérification du bon contrôleur de remplacement et l'enregistrement de la sortie de la console du contrôleur dans un fichier journal texte.
+
 Revoir les exigences et les considérations relatives à la procédure de remplacement du contrôleur.
 
 
@@ -47,3 +49,6 @@ Un système de stockage comporte trois voyants d'emplacement : un sur le panneau
 Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
 
 
+
+.Et la suite ?
+Après avoir passé en revue les conditions requises pour remplacer le contrôleur défectueux, vous devez link:controller-replace-shutdown.html["arrêtez le contrôleur défectueux"].

@@ -11,9 +11,9 @@ summary: 'Ajoutez un module d"E/S à votre système FAS50 pour améliorer la con
 
 
 [role="lead"]
-Ajoutez un module d'E/S à votre système FAS50 pour améliorer la connectivité réseau et augmenter la capacité de votre système à gérer le trafic de données.
+Ajoutez un module d'E/S à votre système de stockage FAS50 pour améliorer la connectivité réseau et augmenter la capacité de votre système à gérer le trafic de données.
 
-Vous pouvez ajouter un module d'E/S à vos systèmes de stockage FAS50 lorsqu'il y a des connecteurs disponibles ou lorsque tous les emplacements sont entièrement remplis.
+Vous pouvez ajouter un module d'E/S à votre système de stockage FAS50 lorsqu'il y a des emplacements disponibles ou lorsque tous les emplacements sont entièrement remplis (en retirant un module d'E/S existant et en installant un nouveau à la place).
 
 .Description de la tâche
 Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
@@ -145,7 +145,7 @@ Vous pouvez ajouter un nouveau module d'E/S à un système de stockage avec les 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Sur le contrôleur défectueux, retirez le module d'obturation d'E/S du logement cible.
 +
-Le module d'obturation doit être installé sur les emplacements d'E/S inutilisés pour éviter d'éventuels problèmes thermiques.
+Le module d'obturation doit être installé sur les emplacements d'E/S inutilisés pour éviter d'éventuels problèmes thermiques et assurer la conformité CEM.
 
 +
 image::../media/drw_g_io_blanking_module_replace_ieops-1901.svg[Retirez un module d'obturation d'E/S.]
@@ -186,7 +186,7 @@ Si vous avez installé un module d'E/S de stockage, installez et câblez vos tir
 +
 Le redémarrage du contrôleur défectueux réinitialise également les modules d'E/S et les autres composants.
 
-. Remettez le contrôleur défectueux au contrôleur partenaire : `storage failover giveback -ofnode _impaired_node_name_`
+. Remettez le contrôleur défectueux au contrôleur en bon état : `storage failover giveback -ofnode _impaired_node_name_`
 . Répétez ces étapes pour ajouter un module d'E/S à l'autre contrôleur.
 . Restaurez le rétablissement automatique à partir de la console du contrôleur sain : `storage failover modify -node local -auto-giveback _true_`
 . Si AutoSupport est activé, restaurer (annuler la suppression) la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
@@ -269,10 +269,10 @@ Si vous avez installé un module d'E/S de stockage, installez et câblez vos tir
 +
 Le redémarrage du contrôleur défectueux réinitialise également les modules d'E/S et les autres composants.
 
-. Remettez le contrôleur défectueux au contrôleur partenaire : `storage failover giveback -ofnode _impaired_node_name_`
+. Remettez le contrôleur défectueux au contrôleur en bon état : `storage failover giveback -ofnode _impaired_node_name_`
 . Restaurez le rétablissement automatique à partir de la console du contrôleur sain : `storage failover modify -node local -auto-giveback _true_`
-. Si AutoSupport est activé, restaurez (annulez la suppression) la création automatique de cas : nœud système AutoSupport appelez -node * -type all -message maint=END
-. Si vous avez installé un module NIC, spécifiez le mode d'utilisation de chaque port comme _network_: `storage port modify -node *_<node name>_ -port *_<port name>_ -mode network`
+. Si AutoSupport est activé, restaurer (annuler la suppression) la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
+. Si vous avez installé un module NIC, spécifiez le mode d'utilisation de chaque port comme _network_: `storage port modify -node _node_name_ -port _port_name_ -mode _network_`
 . Répétez ces étapes pour l'autre contrôleur.
 
 

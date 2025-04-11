@@ -1,19 +1,11 @@
----
-permalink: a1k/nvdimm-battery-replace.html 
-sidebar: sidebar 
-keywords: aff a1k, replace the nv battery, NV battery 
-summary: 'Remplacez la batterie NV de votre système AFF A1K lorsque la batterie commence à perdre ou à se décharger, car elle est chargée de préserver les données système critiques pendant les pannes de courant. Le processus de remplacement implique l"arrêt du contrôleur défectueux, le retrait du module de contrôleur, le remplacement de la batterie NV, la réinstallation du module de contrôleur et le renvoi de la pièce défectueuse à NetApp.' 
----
-= Remplacez la batterie NV - AFF A1K
+= Étape 1 : arrêtez le contrôleur défaillant
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-Remplacez la batterie NV de votre système AFF A1K lorsque la batterie commence à perdre ou à se décharger, car elle est chargée de préserver les données système critiques pendant les pannes de courant. Le processus de remplacement implique l'arrêt du contrôleur défectueux, le retrait du module de contrôleur, le remplacement de la batterie NV, la réinstallation du module de contrôleur et le renvoi de la pièce défectueuse à NetApp.
+.Avant de commencer
+* Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.
+* Assurez-vous de remplacer le composant défectueux par un composant de remplacement que vous avez reçu de NetApp.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
 
 
 
@@ -207,13 +199,47 @@ Assurez-vous de soutenir le bas du module de contrôleur lorsque vous le faites 
 
 
 
-== Étape 3 : remplacez la batterie NV
+== Étape 3 : remplacez un module DIMM
 
-Retirez la batterie NV défectueuse du module de contrôleur et installez la batterie NV de remplacement.
+Vous devez remplacer un module DIMM lorsque le système signale une défaillance permanente pour ce module DIMM.
 
-. Ouvrez le couvercle du conduit d'air et localisez la batterie NV.
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Ouvrir le conduit d'air du contrôleur sur le dessus du contrôleur.
 +
-image::../media/drw_a1k_remove_replace_nvmembat_ieops-1379.svg[Réaccélérez la batterie NV]
+.. Insérez vos doigts dans les encoches situées à l'extrémité du conduit d'air.
+.. Soulevez le conduit d'air et faites-le pivoter vers le haut aussi loin que possible.
+
+
+. Repérez les modules DIMM sur votre module de contrôleur et identifiez-les pour les remplacer.
++
+Les emplacements des modules DIMM dépendent du modèle du système :
+
++
+[cols="1,4"]
+|===
+
+
+| Modèle | Emplacement du logement DIMM 
+
+
+| FAS70  a| 
+Emplacements 3, 10, 19, 26
+
+
+
+ a| 
+FAS90
+ a| 
+Emplacements 3, 7, 10, 14, 19, 23, 26, 30
+
+|===
+. Éjectez le module DIMM de son logement en écartant lentement les deux languettes de l'éjecteur de DIMM de chaque côté du module DIMM, puis en faisant glisser le module DIMM hors de son logement.
++
+
+IMPORTANT: Tenez soigneusement le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+
++
+image::../media/drw_a1k_dimms_ieops-1512.svg[DIMM remplacez]
 
 +
 [cols="1,4"]
@@ -222,34 +248,29 @@ image::../media/drw_a1k_remove_replace_nvmembat_ieops-1379.svg[Réaccélérez la
 
  a| 
 image:../media/icon_round_1.png["Légende numéro 1"]
-| Couvercle du conduit d'air de la batterie NV 
-
-
  a| 
-image:../media/icon_round_2.png["Légende numéro 2"]
- a| 
-Fiche mâle batterie NV
+Languettes d'éjection du module DIMM et du module DIMM
 
 |===
-. Soulevez la batterie pour accéder à la prise mâle batterie.
-. Appuyez sur le clip situé à l'avant de la fiche mâle batterie pour la débrancher de la prise, puis débranchez le câble de batterie de la prise.
-. Retirez la batterie du conduit d'air et du module de contrôleur, puis mettez-la de côté.
-. Retirez la batterie de rechange de son emballage.
-. Installez la batterie de remplacement dans le contrôleur :
+. Retirez le module DIMM de remplacement du sac d'expédition antistatique, tenez le module DIMM par les coins et alignez-le sur le logement.
 +
-.. Branchez la fiche de la batterie dans la prise de montage et assurez-vous que la fiche se verrouille en place.
-.. Insérez la batterie dans son logement et appuyez fermement sur la batterie pour vous assurer qu'elle est bien verrouillée.
+L'encoche entre les broches du DIMM doit être alignée avec la languette du support.
 
-
-. Fermez le couvercle du conduit d'air NV.
+. Assurez-vous que les languettes de l'éjecteur de DIMM sur le connecteur sont en position ouverte, puis insérez le module DIMM directement dans le logement.
 +
-Assurez-vous que la fiche se verrouille dans la prise.
+Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
+
++
+
+IMPORTANT: Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le logement.
+
+. Poussez délicatement, mais fermement, sur le bord supérieur du module DIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent sur les encoches situées aux extrémités du module DIMM.
+. Fermer le conduit d'air du contrôleur.
 
 
 
 
-
-== Étape 4 : réinstallez le module de contrôleur
+== Étape 4 : installer le contrôleur
 
 Réinstallez le module de contrôleur et démarrez-le.
 

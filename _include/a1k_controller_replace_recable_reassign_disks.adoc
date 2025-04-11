@@ -68,7 +68,7 @@ Réinitialisez le cryptage et faites revenir le contrôleur en mode de fonctionn
 
 .Étapes
 . Si le volume racine est chiffré avec External Key Manager et que le câble de la console est connecté au nœud de remplacement, entrez `boot_ontap menu` et sélectionnez option `11`.
-. Répondez ou `n` répondez `y` aux questions suivantes :
+. Si ces questions apparaissent, répondez ou `n`, `y` le cas échéant :
 +
 Disposez-vous d'une copie du fichier /cfcard/kmip/certs/client.crt ? {y/n}
 
@@ -77,9 +77,6 @@ Possédez-vous une copie du fichier /cfcard/kmip/certs/client.key ? {y/n}
 
 +
 Possédez-vous une copie du fichier /cfcard/kmip/certs/CA.pem ? {y/n}
-
-+
-OU
 
 +
 Possédez-vous une copie du fichier /cfcard/kmip/servers.cfg ? {y/n}

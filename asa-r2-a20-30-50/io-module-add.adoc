@@ -90,7 +90,7 @@ Vous pouvez ajouter un nouveau module d'E/S à un système de stockage avec les 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Sur le contrôleur défectueux, retirez le module d'obturation d'E/S du logement cible.
 +
-Le module d'obturation doit être installé sur les emplacements d'E/S inutilisés pour éviter d'éventuels problèmes thermiques.
+Le module d'obturation doit être installé sur les emplacements d'E/S inutilisés pour éviter d'éventuels problèmes thermiques et assurer la conformité CEM.
 
 +
 image::../media/drw_g_io_blanking_module_replace_ieops-1901.svg[Retirez un module d'obturation d'E/S.]
@@ -131,7 +131,7 @@ Si vous avez installé un module d'E/S de stockage, installez et câblez vos tir
 +
 Le redémarrage du contrôleur défectueux réinitialise également les modules d'E/S et les autres composants.
 
-. Remettez le contrôleur défectueux au contrôleur partenaire : `storage failover giveback -ofnode _impaired_node_name_`
+. Remettez le contrôleur défectueux au contrôleur en bon état : `storage failover giveback -ofnode _impaired_node_name_`
 . Répétez ces étapes pour ajouter un module d'E/S à l'autre contrôleur.
 . Restaurez le rétablissement automatique à partir de la console du contrôleur sain : `storage failover modify -node local -auto-giveback _true_`
 . Si AutoSupport est activé, restaurer (annuler la suppression) la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
@@ -214,10 +214,10 @@ Si vous avez installé un module d'E/S de stockage, installez et câblez vos tir
 +
 Le redémarrage du contrôleur défectueux réinitialise également les modules d'E/S et les autres composants.
 
-. Remettez le contrôleur défectueux au contrôleur partenaire : `storage failover giveback -ofnode _impaired_node_name_`
+. Remettez le contrôleur défectueux au contrôleur en bon état : `storage failover giveback -ofnode _impaired_node_name_`
 . Restaurez le rétablissement automatique à partir de la console du contrôleur sain : `storage failover modify -node local -auto-giveback _true_`
-. Si AutoSupport est activé, restaurez (annulez la suppression) la création automatique de cas : nœud système AutoSupport appelez -node * -type all -message maint=END
-. Si vous avez installé un module NIC, spécifiez le mode d'utilisation de chaque port comme _network_: `storage port modify -node *_<node name>_ -port *_<port name>_ -mode network`
+. Si AutoSupport est activé, restaurer (annuler la suppression) la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
+. Si vous avez installé un module NIC, spécifiez le mode d'utilisation de chaque port comme _network_: `storage port modify -node _node_name_ -port _port_name_ -mode _network_`
 . Répétez ces étapes pour l'autre contrôleur.
 
 

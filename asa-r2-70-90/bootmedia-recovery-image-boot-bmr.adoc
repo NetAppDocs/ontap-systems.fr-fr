@@ -53,7 +53,7 @@ L'écran affiche le message suivant :
 
 . Surveillez le processus de récupération de l'installation du support de démarrage.
 +
-Le processus se termine et affiche le `Installation complete.` message.
+Le processus se termine et affiche le `Installation complete` message.
 
 . Le système vérifie le cryptage et le type de cryptage et affiche l'un des deux messages. Selon le message affiché, effectuez l'une des actions suivantes :
 +
@@ -348,7 +348,10 @@ kmip2_client: Successfully imported the keys from external key server: xxx.xxx.x
 Successfully recovered keymanager secrets.
 ....
 =====
-*** Si la clé n'est pas restaurée, le système s'arrête et indique qu'elle n'a pas pu restaurer la clé. Les messages d'erreur et d'avertissement s'affichent. Relancez le processus de récupération en entrant `boot_recovery -partner`.
+*** Si la clé n'est pas restaurée, le système s'arrête et indique qu'elle n'a pas pu restaurer la clé. Les messages d'erreur et d'avertissement s'affichent. Relancer le processus de restauration :
++
+`boot_recovery -partner`
+
 +
 .Montrer un exemple d'erreur de récupération de clé et de messages d'avertissement
 [%collapsible]
@@ -378,7 +381,7 @@ LOADER-B>
 .. Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.
 .. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage :
 +
-`storage failover giveback -ofnode _impaired_node_name_`.
+`storage failover giveback -ofnode _impaired_node_name_`
 
 
 
@@ -388,11 +391,11 @@ LOADER-B>
 
 . Si le retour automatique a été désactivé, réactivez-le :
 +
-`storage failover modify -node local -auto-giveback true`.
+`storage failover modify -node local -auto-giveback true`
 
 . Si AutoSupport est activé, restaurez la création automatique de dossiers :
 +
-`system node autosupport invoke -node * -type all -message MAINT=END`.
+`system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
