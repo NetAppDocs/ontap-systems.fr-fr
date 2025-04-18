@@ -2,22 +2,22 @@
 :allow-uri-read: 
 
 
-Après avoir remplacé un module d'E/S, vous devez redémarrer le module de contrôleur.
+Après le remplacement d'un module d'E/S, vous devez redémarrer le contrôleur.
 
 .Étapes
-. Depuis l'invite DU CHARGEUR, redémarrez le nœud :
+. Redémarrez le contrôleur à partir de l'invite DU CHARGEUR :
 +
 `bye`
 
 +
 
-NOTE: Ceci réinitialise le module d'E/S et les autres composants et redémarre le nœud.
+NOTE: Le redémarrage du contrôleur défectueux réinitialise également les modules d'E/S et les autres composants.
 
-. Remettre le contrôleur du contrôleur partenaire :
+. Rétablir le fonctionnement normal du nœud :
 +
 `storage failover giveback -ofnode _impaired_node_name_`
 
-. Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé :
+. Restaurez le rétablissement automatique à partir de la console du contrôleur sain :
 +
 `storage failover modify -node local -auto-giveback _true_`
 

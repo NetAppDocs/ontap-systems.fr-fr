@@ -199,12 +199,26 @@ Vous pouvez utiliser la languette de gauche et la vis moletée pour enfoncer le 
 Après le remplacement d'un module d'E/S, vous devez redémarrer le contrôleur.
 
 .Étapes
-. Redémarrez le contrôleur à partir de l'invite Loader : `bye`
+. Redémarrez le contrôleur à partir de l'invite DU CHARGEUR :
 +
-Le redémarrage du contrôleur défectueux réinitialise également les modules d'E/S et les autres composants.
+`bye`
 
-. Rétablir le fonctionnement normal du nœud : `storage failover giveback -ofnode _impaired_node_name_`
-. Restaurez le rétablissement automatique à partir de la console du contrôleur sain : `storage failover modify -node local -auto-giveback _true_`
++
+
+NOTE: Le redémarrage du contrôleur défectueux réinitialise également les modules d'E/S et les autres composants.
+
+. Rétablir le fonctionnement normal du nœud :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Restaurez le rétablissement automatique à partir de la console du contrôleur sain :
++
+`storage failover modify -node local -auto-giveback _true_`
+
+. Si AutoSupport est activé, restaurez la création automatique de dossiers :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
 
 
 
