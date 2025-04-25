@@ -17,7 +17,10 @@ Après avoir installé le matériel de votre système de stockage AFF A20, AFF A
 Pour plus d'informations sur la connexion du système de stockage aux commutateurs réseau, contactez votre administrateur réseau.
 
 .Description de la tâche
-* Les procédures de câblage du réseau hôte/cluster/haute disponibilité présentent les configurations courantes. N'oubliez pas que le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour obtenir des détails complets sur la configuration et la priorité des emplacements, reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+* Les procédures de câblage du réseau hôte/cluster/haute disponibilité présentent les configurations courantes.
++
+Si votre configuration ne s'affiche pas ici, reportez-vous à  la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir des informations complètes sur la configuration et la priorité des connecteurs afin de connecter le câble de votre système de stockage.
+
 * Les graphiques de câblage sont dotés d'icônes de flèche indiquant l'orientation correcte (vers le haut ou vers le bas) de la languette du connecteur de câble lors de l'insertion d'un connecteur dans un port.
 +
 Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
@@ -110,7 +113,7 @@ NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité pa
 *Câbles d'interconnexion cluster/haute disponibilité 25 GbE*
 
 +
-image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur = 100 px"]
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
 
 +
 image::../media/drw_isi_a20_switchless_2p_25gbe_cabling_ieops-2018.svg[schéma de câblage du cluster a20 sans commutateur utilisant un module 25 gbe io]
@@ -200,7 +203,7 @@ NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité pa
 *Câbles d'interconnexion cluster/haute disponibilité 10/25 GbE*
 
 +
-image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur = 100 px"]
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
 
 +
 image:../media/drw_isi_a20_switched_2p_25gbe_cabling_ieops-2019.svg["schéma de câblage du bloc de commande a20 utilisant un module 25gbe io"]
@@ -252,7 +255,7 @@ image::../media/drw_isi_a30-50_host_2p_40-100gbe_2card_cabling_ieops-2014.svg[C�
 *Câbles 10/25 GbE*
 
 +
-image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur = 100 px"]
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
 
 +
 image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[Câble vers les switchs réseau hôte ethernet 40 gbe]
@@ -272,7 +275,7 @@ image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[C�
 *Câbles FC 64 Gbit/s*
 
 +
-image:../media/oie_cable_sfp_gbe_copper.png["Câble fc de 64 Go, largeur = 100 px"]
+image:../media/oie_cable_sfp_gbe_copper.png["Câble fc de 64 Go"]
 
 +
 image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Câble vers les switchs réseau hôte fc de 64 go]

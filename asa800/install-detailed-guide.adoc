@@ -50,7 +50,7 @@ image::../media/drw_ssn_label.png[Exemple de numéro de série du système]
 Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si vous recevez un câble non répertorié dans le tableau, reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour localiser le câble et identifier son utilisation.
 
 +
-[cols="1,2,1,2"]
+[cols="1,2,2,2"]
 |===
 | Type de connecteur | Numéro de pièce et longueur | Type de câble... | Pour... 
 
@@ -59,28 +59,19 @@ Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si v
 Câble 100 GbE
  a| 
 X66211A-05 (112-00595), 0,5 m
- a| 
-image:../media/oie_cable100_gbe_qsfp28.png["Connecteur QSFP28 100 GbE"]
- a| 
-Interconnexion HAUTE DISPONIBILITÉ
-
-
-
- a| 
-X66211A-05 (112-00595), 0,5 m
 
 X66211-1 (112-00573), 1 m
- a| 
-Réseau d'interconnexion de cluster
 
-
-
- a| 
-X66211-2 (112-00574), 2 m ;
+X66211-2 (112-00574), 2 M.
 
 X66211-5 (112-00576), 5 m
  a| 
-Stockage, données
+image:../media/oie_cable100_gbe_qsfp28.png["Connecteur QSFP28 100 GbE"]
+ a| 
+** Interconnexion HAUTE DISPONIBILITÉ
+** Réseau d'interconnexion de cluster
+** Stockage, données
+
 
 
 
@@ -91,7 +82,10 @@ X6566B-3-R6 (112-00300), 3 m ;
 
 X6566B-5-R6 (112-00301), 5 m
  a| 
-Les données
+image:../media/oie_cable100_gbe_qsfp28.png["Connecteur QSFP28 10 GbE"]
+ a| 
+** Les données
+
 
 
 
@@ -102,7 +96,10 @@ X66240A-2 (112-00598), 2 m ;
 
 X66240A-5 (112-00600), 5 m
  a| 
-Les données
+image:../media/oie_cable100_gbe_qsfp28.png["Connecteur QSFP28 25 GbE"]
+ a| 
+** Les données
+
 
 
 
@@ -113,7 +110,8 @@ Sans objet
  a| 
 image:../media/oie_cable_rj45.png["Connecteur de câble RJ-45"]
  a| 
-Gestion
+** Gestion
+
 
 
 
@@ -130,6 +128,8 @@ X66250-30 (112-00347) 30 m
  a| 
 image:../media/oie_cable_fc_optical.png["Câble optique Fibre Channel de l'OIE"]
  a| 
+** Le réseau
+
 
 
 
@@ -140,7 +140,8 @@ Sans objet
  a| 
 image:../media/oie_cable_micro_usb.png["Connecteur micro USB"]
  a| 
-Connexion de la console durant la configuration du logiciel
+** Connexion de la console durant la configuration du logiciel
+
 
 
 
@@ -151,7 +152,7 @@ Sans objet
  a| 
 image:../media/oie_cable_power.png["Câbles d'alimentation"]
  a| 
-Mise sous tension du système
+Connexion des blocs d'alimentation à la source d'alimentation
 
 |===
 . Téléchargez et complétez le link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2839002["Fiche de configuration du cluster"^].
@@ -223,31 +224,33 @@ video::edc42447-f721-4cbe-b080-ab0c0123a139[panopto]
 
 
  a| 
-image:../media/icon_square_1_blue.png["Légende numéro 1"]
+image:../media/icon_square_1_dark_purple.png["Légende numéro 1"]
  a| 
 Câconnectez les ports d'interconnexion haute disponibilité :
 
 ** e0b à e0b
 ** e1b à e1b
+
+
 image:../media/drw_affa800_ha_pair_cabling.png["Câblage des paires HAUTE DISPONIBILITÉ"]
 
 
 
-
  a| 
-image:../media/icon_square_2_yellow.png["Légende numéro 2"]
+image:../media/icon_square_2_green.png["Légende numéro 2"]
  a| 
 Câconnectez les ports d'interconnexion de cluster :
 
 ** e0a à e0a
 ** e1a à e1a
+
+
 image:../media/drw_affa800_tnsc_clust_cabling.png["Câblage d'interconnexion de cluster dans un cluster sans commutateur à 2 nœuds"]
 
 
 
-
  a| 
-image:../media/icon_square_3_orange.png["Étape 3"]
+image:../media/icon_square_3_purple.png["Étape 3"]
  a| 
 Reliez les ports de gestion aux switchs réseau de gestion    image:../media/drw_affa800_mgmt_cabling.png["Illustration de l'emplacement des ports de gestion à l'arrière du système"]
 
@@ -298,29 +301,33 @@ video::49e48140-4c5a-4395-a7d7-ab0c0123a10e[panopto]
 
 
  a| 
-image:../media/icon_square_1_blue.png["Légende numéro 1"]
+image:../media/icon_square_1_dark_purple.png["Légende numéro 1"]
  a| 
 Câconnectez les ports d'interconnexion haute disponibilité :
 
 ** e0b à e0b
 ** e1b à e1b
+
+
 image:../media/drw_affa800_ha_pair_cabling.png["Câblage des paires HAUTE DISPONIBILITÉ"]
 
 
 
-
  a| 
-image:../media/icon_square_2_yellow.png["Légende numéro 2"]
+image:../media/icon_square_2_green.png["Légende numéro 2"]
  a| 
 Reliez les ports d'interconnexion de cluster aux commutateurs d'interconnexion de cluster 100 GbE.
+
 ** e0a
 ** e1a
+
+
 image:../media/drw_affa800_switched_clust_cabling.png["Câblage d'interconnexion de cluster"]
 
 
 
  a| 
-image:../media/icon_square_3_orange.png["Étape 3"]
+image:../media/icon_square_3_purple.png["Étape 3"]
  a| 
 Reliez les ports de gestion aux switchs réseau de gestion    image:../media/drw_affa800_mgmt_cabling.png["Illustration de l'emplacement des ports de gestion à l'arrière du système"]
 
@@ -542,12 +549,11 @@ Consultez l'aide en ligne de votre ordinateur portable pour plus d'informations.
 video::d61f983e-f911-4b76-8b3a-ab1b0066909b[panopto]
 . Sélectionnez une icône ONTAP pour découvrir :
 +
-image::../media/drw_autodiscovery_controler_select.png[Sélectionnez une icône ONTAP]
+image::../media/drw_autodiscovery_controler_select_ieops-1849.svg[Sélectionnez une icône ONTAP]
 
 +
 .. Ouvrez l'Explorateur de fichiers.
-.. Cliquez sur *réseau* dans le volet de gauche.
-.. Cliquez avec le bouton droit de la souris et sélectionnez *Actualiser*.
+.. Cliquez sur *réseau* dans le volet gauche, cliquez avec le bouton droit de la souris et sélectionnez *refresh*.
 .. Double-cliquez sur l'une des icônes ONTAP et acceptez les certificats affichés à l'écran.
 +
 

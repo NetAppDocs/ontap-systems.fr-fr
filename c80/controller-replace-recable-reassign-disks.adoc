@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: c80, how to recable the system, teboot the system 
 summary: Replacez le contrôle des ressources de stockage sur le contrôleur de remplacement afin que votre système AFF C80 puisse reprendre son fonctionnement normal. 
 ---
-= Recâblage et retour du contrôleur - AFF C80
+= Remettre le contrôleur - AFF C80
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -27,82 +27,58 @@ Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant
 ** Si vous voyez _waiting for giveback_, appuyez sur la clé <enter>, connectez-vous au nœud partenaire, puis passez à l'étape suivante à la fin de cette section.
 
 
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
-+
-`storage failover giveback -ofnode _impaired_node_name_`.
-
-. Si le retour automatique a été désactivé, réactivez-le :
-+
-`storage failover modify -node local -auto-giveback true`.
-
-. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
-+
-`system node autosupport invoke -node * -type all -message MAINT=END`.
-
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le rétablissement automatique a été désactivé, le réactiver : `storage failover modify -node local -auto-giveback _true_`
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 --
-.Cryptage OKM
+.Chiffrement intégré (OKM)
 --
 Réinitialise le chiffrement intégré et rétablit le fonctionnement normal du contrôleur.
 
 .Étapes
-. Dans l'invite DU CHARGEUR, entrez :
-+
-`boot_ontap maint`
-
+. Dans l'invite Loader, entrez `boot_ontap maint`.
 . Démarrez à partir du menu ONTAP à partir de l'invite Loader `boot_ontap menu` et sélectionnez l'option 10.
-. Saisissez la phrase de passe OKM. Vous pouvez obtenir cette phrase de passe auprès du client ou contacter https://support.netapp.com["Support NetApp"].
+. Saisissez la phrase de passe OKM.
 +
 
-NOTE: Vous serez invité à saisir deux fois la phrase de passe.
+NOTE: Vous êtes invité à saisir deux fois la phrase de passe.
 
 . Entrez les données de la clé de sauvegarde lorsque vous y êtes invité.
 . Dans le menu de démarrage, entrez option `1` pour le démarrage normal.
 . Appuyez sur <enter> lorsque _waiting for giveback_ s'affiche.
 . Déplacez le câble de la console vers le nœud partenaire et connectez-vous en tant que `admin`.
-. Ne donner que les agrégats CFO (l'agrégat racine) :
+. Ne donner que les agrégats CFO (l'agrégat racine) : `storage failover giveback -fromnode local -only-cfo-aggregates _true_`
 +
-`storage failover giveback -fromnode local -only-cfo-aggregates true`
+** Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
 
+
+. Attendez 5 minutes après la fin du rapport de rétablissement et vérifiez l'état du basculement et du rétablissement : `storage failover show` et `storage failover show-giveback`.
+. Synchroniser et vérifier l'état des clés :
 +
-Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
-
-. Attendre 5 minutes après la fin du rapport de rétablissement et vérifier l'état du basculement et de rétablissement :
-+
-`storage failover show` et `storage failover show-giveback`.
-
-. Déplacer le câble de la console vers le nœud de remplacement et entrer :
-+
-`security key-manager onboard sync`
-
+.. Replacer le câble de la console sur le contrôleur de remplacement.
+.. Synchroniser les clés manquantes : `security key-manager onboard sync`
 +
 
 NOTE: Vous êtes invité à saisir la phrase de passe OKM au niveau du cluster.
 
-. Vérifier le statut des clés via la commande suivante :
+.. Vérifier l'état des clés : `security key-manager key query -restored _false_`
 +
-`security key-manager key query -key-type svm-KEK`.
+La sortie ne doit pas afficher de résultats lorsqu'elle est correctement synchronisée.
 
 +
-Si la colonne _restored_ affiche autre chose que _true_, contactez https://support.netapp.com["Support NetApp"].
+Si le résultat affiche des résultats (les ID de clé des clés qui ne sont pas présents dans la table de clés internes du système), contactez https://support.netapp.com["Support NetApp"].
 
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
-+
-`storage failover giveback -ofnode _impaired_node_name_`.
 
-. Si le retour automatique a été désactivé, réactivez-le :
-+
-`storage failover modify -node local -auto-giveback true`.
 
-. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
-+
-`system node autosupport invoke -node * -type all -message MAINT=END`.
-
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le rétablissement automatique a été désactivé, le réactiver : `storage failover modify -node local -auto-giveback _true_`
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 --
-.Cryptage EKM
+.Gestionnaire de clés externe (EKM)
 --
 Réinitialisez le cryptage et faites revenir le contrôleur en mode de fonctionnement normal.
 
@@ -133,27 +109,19 @@ NOTE: Contactez https://support.netapp.com["Support NetApp"] en cas de problème
 
 . Fournir les informations pour :
 +
-** Contenu du fichier de certificat client (client.crt).
-** Le contenu du fichier de clé client (client.key).
-** Contenu du fichier CA.pem (CA.pem) du serveur KMIP.
-** Adresse IP du serveur KMIP.
-** Port du serveur KMIP.
+** Contenu du fichier de certificat client (client.crt)
+** Le contenu du fichier de clé client (client.key)
+** Contenu du fichier CA.pem (CA.pem) du serveur KMIP
+** Adresse IP du serveur KMIP
+** Port du serveur KMIP
 
 
 . Une fois le processus terminé, le menu de démarrage s'affiche. Sélectionnez « 1 » pour un démarrage normal.
-. Vérifier le statut du basculement :
-+
-`storage failover show`.
-
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
-. Si le retour automatique a été désactivé, réactivez-le :
-+
-`storage failover modify -node local -auto-giveback true`.
-
-. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
-+
-`system node autosupport invoke -node * -type all -message MAINT=END`.
-
+. Vérifier le statut du basculement : `storage failover show`
+. Assurez-vous que tous les « core dumps » sur le nœud réparé sont enregistrés en mode avancé, puis `run local partner nosavecore` en `set -privilege advanced` .
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+. Si le rétablissement automatique a été désactivé, le réactiver : `storage failover modify -node local -auto-giveback _true_`
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 --

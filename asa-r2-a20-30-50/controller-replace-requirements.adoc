@@ -13,7 +13,7 @@ summary: 'Avant de remplacer le contrôleur de votre système ASA A20, ASA A30 o
 [role="lead"]
 Avant de remplacer le contrôleur de votre système ASA A20, ASA A30 ou ASA A50, assurez-vous de répondre aux exigences requises pour un remplacement réussi. Cela inclut la vérification du bon fonctionnement de tous les autres composants du système, la vérification du bon contrôleur de remplacement et l'enregistrement de la sortie de la console du contrôleur dans un fichier journal texte.
 
-Revoir les exigences et les considérations relatives à la procédure de remplacement du contrôleur.
+Vous devez revoir les conditions requises et les considérations relatives à la procédure de remplacement du contrôleur.
 
 
 
@@ -21,7 +21,6 @@ Revoir les exigences et les considérations relatives à la procédure de rempla
 
 * Toutes les tablettes doivent fonctionner correctement.
 * Le contrôleur sain doit pouvoir reprendre le contrôleur qui est remplacé (appelé « contrôleur défectueux » dans cette procédure).
-* Si votre système est dans une configuration MetroCluster, vous devez passer en revue la section https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html["Choix de la procédure de récupération correcte"] pour déterminer si vous devez utiliser cette procédure.
 * Vous devez remplacer un contrôleur par un contrôleur de même type. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le contrôleur.
 * Vous ne pouvez pas modifier de disques ou de tiroirs dans le cadre de cette procédure.
 * Vous devez toujours capturer la sortie de la console du contrôleur dans un fichier journal texte.

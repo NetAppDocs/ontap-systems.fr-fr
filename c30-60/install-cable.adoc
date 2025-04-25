@@ -17,7 +17,10 @@ Après avoir installé le matériel du système de stockage AFF C30 ou AFF C60, 
 Pour plus d'informations sur la connexion du système de stockage aux commutateurs réseau, contactez votre administrateur réseau.
 
 .Description de la tâche
-* Les procédures de câblage du réseau hôte/cluster/haute disponibilité présentent les configurations courantes. N'oubliez pas que le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour obtenir des détails complets sur la configuration et la priorité des emplacements, reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+* Les procédures de câblage du réseau hôte/cluster/haute disponibilité présentent les configurations courantes.
++
+Si votre configuration ne s'affiche pas ici, reportez-vous à  la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir des informations complètes sur la configuration et la priorité des connecteurs afin de connecter le câble de votre système de stockage.
+
 * Les graphiques de câblage sont dotés d'icônes de flèche indiquant l'orientation correcte (vers le haut ou vers le bas) de la languette du connecteur de câble lors de l'insertion d'un connecteur dans un port.
 +
 Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
@@ -61,7 +64,7 @@ NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour 
 image::../media/oie_cable100_gbe_qsfp28.png[Câble 100 GbE haute disponibilité du cluster]
 
 +
-image::../media/drw_isi_a30-50_switchless_2p_100gbe_2card_cabling_ieops-2011.svg[schéma de câblage des clusters sans commutateur a30 et a50 utilisant deux modules io 100 gbe]
+image::../media/drw_isi_a30-50_switchless_2p_100gbe_2card_cabling_ieops-2011.svg[schéma de câblage des clusters sans commutateur a30 et a60 utilisant deux modules io 100 gbe]
 
 
 
@@ -87,7 +90,7 @@ NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité pa
 image::../media/oie_cable100_gbe_qsfp28.png[Câble 100 GbE haute disponibilité du cluster]
 
 +
-image::../media/drw_isi_a30-50_switchless_2p_100gbe_1card_cabling_ieops-1925.svg[schéma de câblage des clusters sans commutateur a30 et a50 utilisant un module io 100 gbe]
+image::../media/drw_isi_a30-50_switchless_2p_100gbe_1card_cabling_ieops-1925.svg[schéma de câblage des clusters sans commutateur a30 et a60 utilisant un module io 100 gbe]
 
 
 
@@ -122,7 +125,7 @@ NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour 
 image::../media/oie_cable100_gbe_qsfp28.png[Câble 40/100 GbE haute disponibilité du cluster]
 
 +
-image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[schéma de câblage des clusters commutés a30 et a50 avec deux modules io 100 gbe]
+image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[schéma de câblage des clusters commutés a30 et a60 avec deux modules io 100 gbe]
 
 
 
@@ -199,7 +202,7 @@ image::../media/drw_isi_a30-50_host_2p_40-100gbe_2card_cabling_ieops-2014.svg[C�
 *Câbles 10/25 GbE*
 
 +
-image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur = 100 px"]
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
 
 +
 image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[Câble vers les switchs réseau hôte ethernet 40 gbe]

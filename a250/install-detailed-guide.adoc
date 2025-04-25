@@ -54,7 +54,7 @@ Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si v
 +
 [cols="1,2,1,2"]
 |===
-| Type de câble... | Numéro de pièce et longueur | Type de connecteur | Pour... 
+| Type de câble... | Numéro de pièce et longueur | Type de connecteur | Pour... .2+ 
 
 
  a| 
@@ -62,7 +62,7 @@ Câble 25 GbE
  a| 
 X66240A-05 (112-00595), 0,5 m ;
 
-X66240-2 (112-00573), 2 M.
+X66240-2 (112-00573), 2 m 3+
  a| 
 image:../media/oie_cable100_gbe_qsfp28.png["Connecteur QSFP28 100 GbE"]
  a| 
@@ -76,31 +76,28 @@ X66240A-2 (112-00598), 2 m ;
 X66240A-5 (112-00600), 5 m
  a| 
 Les données
-
-
-
  a| 
 Câble 100 GbE
  a| 
 X66211-2 (112-00574), 2 m ;
 
 X66211-5 (112-00576), 5 m
+
+
+
  a| 
 Stockage
-
-
-
  a| 
 RJ-45 (selon la commande)
  a| 
 Sans objet
  a| 
 image:../media/oie_cable_rj45.png["Connecteur de câble RJ-45"]
+
+
+
  a| 
 Réseau de gestion (BMC et port de clé) et données Ethernet (e0a et e0b)
-
-
-
  a| 
 Fibre Channel
  a| 
@@ -113,29 +110,27 @@ X66250-15 (112-00346) 15 m ;
 X66250-30 (112-00347) 30 m
  a| 
 image:../media/oie_cable_fc_optical.png["Câble optique Fibre Channel de l'OIE"]
+
+
+
  a| 
-
-
-
  a| 
 Câble de console micro-USB
  a| 
 Sans objet
  a| 
 image:../media/oie_cable_micro_usb.png["Connecteur micro USB"]
+
+
+
  a| 
 Connexion de la console durant la configuration du logiciel
-
-
-
  a| 
 Câbles d'alimentation
  a| 
 Sans objet
  a| 
 image:../media/oie_cable_power.png["Câbles d'alimentation"]
- a| 
-Mise sous tension du système
 
 |===
 . Vérifiez le link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"^] et recueillez les informations requises répertoriées dans ce guide.
@@ -327,11 +322,11 @@ video::3f92e625-a19c-4d10-9028-ac68017fbf57[panopto]
 .Étapes
 . Reliez le contrôleur A au tiroir.
 +
-image:../media/drw_affa250_1shelf_cabling_a.png["Câblage du contrôleur A."]
+image:../media/drw_affa250_1shelf_cabling_a.png["Câblage du contrôleur 1"]
 
 . Reliez le contrôleur B au tiroir.
 +
-image:../media/drw_affa250_1shelf_cabling_b.png["Câblage du contrôleur B."]
+image:../media/drw_affa250_1shelf_cabling_b.png["Câblage du contrôleur 2"]
 
 
 
@@ -364,12 +359,11 @@ Consultez l'aide en ligne de votre ordinateur portable pour plus d'informations.
 video::d61f983e-f911-4b76-8b3a-ab1b0066909b[panopto]
 . Sélectionnez une icône ONTAP pour découvrir :
 +
-image::../media/drw_autodiscovery_controler_select.png[Sélectionnez une icône ONTAP]
+image::../media/drw_autodiscovery_controler_select_ieops-1849.svg[Sélectionnez une icône ONTAP]
 
 +
 .. Ouvrez l'Explorateur de fichiers.
-.. Cliquez sur *réseau* dans le volet de gauche.
-.. Cliquez avec le bouton droit de la souris et sélectionnez *Actualiser*.
+.. Cliquez sur *réseau* dans le volet gauche, cliquez avec le bouton droit de la souris et sélectionnez *refresh*.
 .. Double-cliquez sur l'une des icônes ONTAP et acceptez les certificats affichés à l'écran.
 +
 

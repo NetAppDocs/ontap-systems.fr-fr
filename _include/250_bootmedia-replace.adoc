@@ -14,6 +14,7 @@ Pour accéder aux composants à l'intérieur du module de contrôleur, vous deve
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Débranchez les blocs d'alimentation du module de contrôleur de la source.
 . Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Débranchez les câbles d'E/S du module de contrôleur.
 . Insérez votre index dans le mécanisme de verrouillage de chaque côté du module de contrôleur, appuyez sur le levier avec votre pouce et tirez doucement le contrôleur à quelques pouces du châssis.
 +
 
@@ -23,6 +24,7 @@ NOTE: Si vous avez des difficultés à retirer le module de contrôleur, placez 
 image::../media/drw_a250_pcm_remove_install.png[Ouverture du mécanisme de verrouillage]
 
 +
+[cols="1,4"]
 |===
 
 
@@ -45,6 +47,7 @@ Mécanisme de verrouillage
 image::../media/drw_a250_open_controller_module_cover.png[Ouverture du capot du module de contrôleur]
 
 +
+[cols="1,4"]
 |===
 
 
@@ -143,16 +146,13 @@ Le fichier image du service décompressé contient deux dossiers :
 
 
 .. Copiez le dossier efi dans le répertoire supérieur du lecteur flash USB.
-
-
 +
 
 NOTE: Si l'image de service ne contient pas de dossier efi, reportez-vous à link:https://kb.netapp.com/onprem/ontap/hardware/EFI_folder_missing_from_Service_Image_download_file_used_for_boot_device_recovery_for_FAS_and_AFF_models["Dossier EFI manquant dans le fichier de téléchargement d'image de service utilisé pour la récupération du périphérique d'amorçage pour les modèles FAS et AFF^"]la section .
 
 +
-+ le lecteur flash USB doit avoir le dossier efi et la même version de l'image de service (BIOS) de ce que le contrôleur douteux est en cours d'exécution.
+Le lecteur flash USB doit avoir le dossier efi et la même version BIOS (Service image) de ce que le contrôleur douteux est en cours d'exécution.
 
-+
 .. Retirez la clé USB de votre ordinateur portable.
 .. Si ce n'est déjà fait, installez le conduit d'air.
 +
@@ -192,6 +192,7 @@ Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour p
 +
 Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
 
+.. Rebranchez les câbles d'E/S du module de contrôleur.
 .. Branchez les cordons d'alimentation aux blocs d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis branchez les blocs d'alimentation à la source d'alimentation.
 +
 Le module de contrôleur commence à démarrer dès que l'alimentation est rétablie. Soyez prêt à interrompre le processus de démarrage.
