@@ -2,8 +2,6 @@
 :allow-uri-read: 
 
 
-Le câblage des tiroirs NS224 dans une paire HA AFF A800 ou AFF C800 dépend du nombre de tiroirs à ajouter à chaud et du nombre de ports compatibles RoCE (un ou deux) utilisés sur les contrôleurs.
-
 .Avant de commencer
 * Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
 * Vous devez avoir effectué les procédures applicables dans link:prepare-hot-add-shelf.html["Préparez l'ajout à chaud d'une étagère"].
@@ -28,7 +26,7 @@ NOTE: Cette étape suppose que vous avez installé la carte PCIe compatible RoCE
 L'illustration suivante montre le câblage d'un tiroir à chaud utilisant une carte PCIe compatible RoCE sur chaque contrôleur :
 
 +
-image::../media/drw_ns224_a800_c800_1shelf_IEOPS-964.svg[Câblage d'un AFF A800 ou AFF C800 avec un tiroir NS224 et une carte PCIe]
+image::../media/drw_ns224_a800_c800_1shelf_IEOPS-964.svg[Câblage d'un AFF/ASA A800 ou d'un AFF/ASA C800 avec un tiroir NS224 et une carte PCIe]
 
 
 

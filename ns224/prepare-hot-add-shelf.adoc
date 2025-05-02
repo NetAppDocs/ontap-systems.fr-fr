@@ -132,6 +132,8 @@ NOTE: Le déplacement d'un câble ne nécessite pas de temps d'attente entre le 
 . Recâblage des connexions du tiroir existant sur deux ensembles de ports compatibles RoCE dans différents connecteurs, selon le modèle de plateforme utilisé.
 
 
+* Pour les systèmes AFF :
++
 [role="tabbed-block"]
 ====
 .AFF A1K
@@ -141,22 +143,22 @@ Procédez de l'une des manières suivantes si vous ajoutez un deuxième ou un qu
 
 NOTE: Si vous disposez d'une paire HA AFF A1K et que vous ajoutez un troisième tiroir à chaud et que vous installez un troisième ou quatrième module d'E/S compatible RoCE dans chaque contrôleur, le troisième tiroir n'est câblé qu'aux troisième, troisième et quatrième modules d'E/S. Vous n'avez pas besoin de recâblage des tiroirs existants.
 
-* Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 11 et le slot 10 de chaque contrôleur.
+** Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 11 et le slot 10 de chaque contrôleur.
 +
 Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 11 de chaque contrôleur.
 
 +
-.. Sur le contrôleur A, déplacer le câble du connecteur 11 port b (e11b) vers le connecteur 10 port b (e10b).
-.. Répétez le même déplacement de câble sur le contrôleur B.
+... Sur le contrôleur A, déplacer le câble du connecteur 11 port b (e11b) vers le connecteur 10 port b (e10b).
+... Répétez le même déplacement de câble sur le contrôleur B.
 
 
-* Si vous ajoutez un quatrième tiroir à chaud, recentrez le troisième tiroir sur les modules d'E/S compatibles RoCE dans le slot 9 et le slot 8 de chaque contrôleur.
+** Si vous ajoutez un quatrième tiroir à chaud, recentrez le troisième tiroir sur les modules d'E/S compatibles RoCE dans le slot 9 et le slot 8 de chaque contrôleur.
 +
 Dans les sous-étapes, supposons que le troisième tiroir est câblé à un module d'E/S compatible RoCE dans le connecteur 9 de chaque contrôleur.
 
 +
-.. Sur le contrôleur A, déplacer le câble du connecteur 9 port b (e9b) vers le connecteur 8 port b (e8b).
-.. Répétez le même déplacement de câble sur le contrôleur B.
+... Sur le contrôleur A, déplacer le câble du connecteur 9 port b (e9b) vers le connecteur 8 port b (e8b).
+... Répétez le même déplacement de câble sur le contrôleur B.
 
 
 
@@ -168,8 +170,8 @@ Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les m
 
 Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 11 de chaque contrôleur.
 
-. Sur le contrôleur A, déplacer le câble du connecteur 11 port b (e11b) vers le connecteur 8 port b (e8b).
-. Répétez le même déplacement de câble sur le contrôleur B.
+.. Sur le contrôleur A, déplacer le câble du connecteur 11 port b (e11b) vers le connecteur 8 port b (e8b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
 
 
 --
@@ -179,8 +181,8 @@ Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les d
 
 Les sous-étapes supposent que le tiroir existant est câblé aux cartes PCIe compatibles RoCE dans le connecteur 5 de chaque contrôleur.
 
-. Sur le contrôleur A, déplacer le câble du connecteur 5 port b (e5b) vers le connecteur 3 port b (e3b).
-. Répétez le même déplacement de câble sur le contrôleur B.
+.. Sur le contrôleur A, déplacer le câble du connecteur 5 port b (e5b) vers le connecteur 3 port b (e3b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
 
 
 --
@@ -190,8 +192,8 @@ Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les d
 
 Les sous-étapes supposent que le tiroir existant est câblé aux modules d'E/S compatibles RoCE dans le connecteur 3 de chaque contrôleur.
 
-. Sur le contrôleur A, déplacer le câble du connecteur 3, port b (e3b), vers le connecteur 7, port b (e7b).
-. Répétez le même déplacement de câble sur le contrôleur B.
+.. Sur le contrôleur A, déplacer le câble du connecteur 3, port b (e3b), vers le connecteur 7, port b (e7b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
 
 
 --
@@ -199,7 +201,7 @@ Les sous-étapes supposent que le tiroir existant est câblé aux modules d'E/S 
 --
 Si vous ajoutez un second tiroir à chaud, selon le modèle de votre plateforme, effectuez l'une des opérations suivantes :
 
-* Sur le modèle AFF A400 :
+** Sur le modèle AFF A400 :
 +
 Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE, sur les ports e0c/e0d intégrés et dans le slot 5, sur chaque contrôleur
 
@@ -207,11 +209,11 @@ Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE, s
 Les sous-étapes supposent que le tiroir existant est câblé aux ports intégrés compatibles RoCE e0c/e0d de chaque contrôleur.
 
 +
-.. Sur le contrôleur A, déplacer le câble du port e0d vers le connecteur 5 Port b (e5b).
-.. Répétez le même déplacement de câble sur le contrôleur B.
+... Sur le contrôleur A, déplacer le câble du port e0d vers le connecteur 5 Port b (e5b).
+... Répétez le même déplacement de câble sur le contrôleur B.
 
 
-* Sur le AFF C400 :
+** Sur le AFF C400 :
 +
 Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE dans les connecteurs 4 et 5, sur chaque contrôleur
 
@@ -219,8 +221,8 @@ Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE da
 Dans les sous-étapes, supposons que le tiroir existant est câblé aux ports compatibles RoCE dans le connecteur 4 de chaque contrôleur.
 
 +
-.. Sur le contrôleur A, déplacez le câble de l'emplacement 4, port a (e4a), vers l'emplacement 5, port b (e5b).
-.. Répétez le même déplacement de câble sur le contrôleur B.
+... Sur le contrôleur A, déplacez le câble de l'emplacement 4, port a (e4a), vers l'emplacement 5, port b (e5b).
+... Répétez le même déplacement de câble sur le contrôleur B.
 
 
 
@@ -230,22 +232,22 @@ Dans les sous-étapes, supposons que le tiroir existant est câblé aux ports co
 --
 Procédez de l'une des manières suivantes si vous ajoutez un deuxième ou un quatrième tiroir à chaud.
 
-* Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 2 et le slot 10 de chaque contrôleur.
+** Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 2 et le slot 10 de chaque contrôleur.
 +
 Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 2 de chaque contrôleur.
 
 +
-.. Sur le contrôleur A, déplacer le câble du connecteur 2 port b (e2b) vers le connecteur 10 port b (e10b).
-.. Répétez le même déplacement de câble sur le contrôleur B.
+... Sur le contrôleur A, déplacer le câble du connecteur 2 port b (e2b) vers le connecteur 10 port b (e10b).
+... Répétez le même déplacement de câble sur le contrôleur B.
 
 
-* Si vous ajoutez un quatrième tiroir à chaud, recentrez le troisième tiroir sur les modules d'E/S compatibles RoCE dans le slot 1 et le slot 11 de chaque contrôleur.
+** Si vous ajoutez un quatrième tiroir à chaud, recentrez le troisième tiroir sur les modules d'E/S compatibles RoCE dans le slot 1 et le slot 11 de chaque contrôleur.
 +
 Dans les sous-étapes, supposons que le troisième tiroir est câblé à un module d'E/S compatible RoCE dans le connecteur 1 de chaque contrôleur.
 
 +
-.. Sur le contrôleur A, déplacer le câble du connecteur 1 port b (e1b) vers le connecteur 11 port b (e11b).
-.. Répétez le même déplacement de câble sur le contrôleur B.
+... Sur le contrôleur A, déplacer le câble du connecteur 1 port b (e1b) vers le connecteur 11 port b (e11b).
+... Répétez le même déplacement de câble sur le contrôleur B.
 
 
 
@@ -257,12 +259,138 @@ Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les m
 
 Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 3 de chaque contrôleur.
 
-. Sur le contrôleur A, déplacer le câble du connecteur 3 port b (e3b) vers le connecteur 1 port b (e1b).
-. Répétez le même déplacement de câble sur le contrôleur B.
+.. Sur le contrôleur A, déplacer le câble du connecteur 3 port b (e3b) vers le connecteur 1 port b (e1b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
 
 
 --
 ====
+
+
+* Pour les systèmes ASA :
++
+[role="tabbed-block"]
+====
+.ASA A1K
+--
+Procédez de l'une des manières suivantes si vous ajoutez un deuxième ou un quatrième tiroir à chaud.
+
+
+NOTE: Si vous disposez d'une paire HA ASA A1K et que vous ajoutez un troisième tiroir à chaud et que vous installez un troisième ou quatrième module d'E/S compatible RoCE dans chaque contrôleur, le troisième tiroir n'est câblé qu'aux troisième, troisième et quatrième modules d'E/S. Vous n'avez pas besoin de recâblage des tiroirs existants.
+
+** Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 11 et le slot 10 de chaque contrôleur.
++
+Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 11 de chaque contrôleur.
+
++
+... Sur le contrôleur A, déplacer le câble du connecteur 11 port b (e11b) vers le connecteur 10 port b (e10b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+** Si vous ajoutez un quatrième tiroir à chaud, recentrez le troisième tiroir sur les modules d'E/S compatibles RoCE dans le slot 9 et le slot 8 de chaque contrôleur.
++
+Dans les sous-étapes, supposons que le troisième tiroir est câblé à un module d'E/S compatible RoCE dans le connecteur 9 de chaque contrôleur.
+
++
+... Sur le contrôleur A, déplacer le câble du connecteur 9 port b (e9b) vers le connecteur 8 port b (e8b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+--
+.ASA A70 ou ASA A90
+--
+Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 11 et le slot 8 de chaque contrôleur.
+
+Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 11 de chaque contrôleur.
+
+.. Sur le contrôleur A, déplacer le câble du connecteur 11 port b (e11b) vers le connecteur 8 port b (e8b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+--
+.ASA A800 ou ASA C800
+--
+Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les deux ensembles de ports compatibles RoCE dans le slot 5 et le slot 3 de chaque contrôleur.
+
+Les sous-étapes supposent que le tiroir existant est câblé aux cartes PCIe compatibles RoCE dans le connecteur 5 de chaque contrôleur.
+
+.. Sur le contrôleur A, déplacer le câble du connecteur 5 port b (e5b) vers le connecteur 3 port b (e3b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+--
+.ASA A400 ou ASA C400
+--
+Si vous ajoutez un second tiroir à chaud, selon le modèle de votre plateforme, effectuez l'une des opérations suivantes :
+
+** Sur le modèle ASA A400 :
++
+Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE, sur les ports e0c/e0d intégrés et dans le slot 5, sur chaque contrôleur
+
++
+Les sous-étapes supposent que le tiroir existant est câblé aux ports intégrés compatibles RoCE e0c/e0d de chaque contrôleur.
+
++
+... Sur le contrôleur A, déplacer le câble du port e0d vers le connecteur 5 Port b (e5b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+** Sur le ASA C400 :
++
+Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE dans les connecteurs 4 et 5, sur chaque contrôleur
+
++
+Dans les sous-étapes, supposons que le tiroir existant est câblé aux ports compatibles RoCE dans le connecteur 4 de chaque contrôleur.
+
++
+... Sur le contrôleur A, déplacez le câble de l'emplacement 4, port a (e4a), vers l'emplacement 5, port b (e5b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+--
+.ASA A900
+--
+Procédez de l'une des manières suivantes si vous ajoutez un deuxième ou un quatrième tiroir à chaud.
+
+** Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 2 et le slot 10 de chaque contrôleur.
++
+Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 2 de chaque contrôleur.
+
++
+... Sur le contrôleur A, déplacer le câble du connecteur 2 port b (e2b) vers le connecteur 10 port b (e10b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+** Si vous ajoutez un quatrième tiroir à chaud, recentrez le troisième tiroir sur les modules d'E/S compatibles RoCE dans le slot 1 et le slot 11 de chaque contrôleur.
++
+Dans les sous-étapes, supposons que le troisième tiroir est câblé à un module d'E/S compatible RoCE dans le connecteur 1 de chaque contrôleur.
+
++
+... Sur le contrôleur A, déplacer le câble du connecteur 1 port b (e1b) vers le connecteur 11 port b (e11b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+--
+.ASA A30 ou ASA A50
+--
+Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 3 et le slot 1 de chaque contrôleur.
+
+Dans les sous-étapes, supposons que le tiroir existant est câblé à un module d'E/S compatible RoCE dans le connecteur 3 de chaque contrôleur.
+
+.. Sur le contrôleur A, déplacer le câble du connecteur 3 port b (e3b) vers le connecteur 1 port b (e1b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+--
+====
+
+
 . Vérifiez que le shelf recabled est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
 +
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.

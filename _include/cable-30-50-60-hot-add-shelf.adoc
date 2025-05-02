@@ -9,7 +9,7 @@
 
 
 .Description de la tâche
-* Cette procédure suppose que votre paire haute disponibilité ne dispose que d'un stockage interne (pas de tiroirs externes) et que vous ajoutez jusqu'à deux tiroirs supplémentaires et deux modules d'E/S compatibles RoCE dans chaque contrôleur.
+* Cette procédure suppose que votre paire haute disponibilité ne dispose que d'un stockage interne (pas de tiroirs externes) et que vous ajoutez à chaud jusqu'à deux tiroirs supplémentaires et deux modules d'E/S compatibles RoCE dans chaque contrôleur.
 * Cette procédure concerne les scénarios d'ajout à chaud suivants :
 +
 ** Ajout à chaud du premier tiroir à une paire haute disponibilité avec un module d'E/S compatible RoCE dans chaque contrôleur.
@@ -17,6 +17,30 @@
 ** Ajout à chaud du second tiroir à une paire haute disponibilité avec deux modules d'E/S compatibles RoCE dans chaque contrôleur.
 
 
+* Ces systèmes sont compatibles avec les tiroirs NS224 avec les modules NSM100 et les tiroirs NS224 avec les modules NSM100B. Pour vous assurer que vous connectez les contrôleurs aux ports appropriés, remplacez le « X » de chaque schéma par le numéro de port correct pour votre module :
++
+[cols="1,4"]
+|===
+| Type de module | Étiquetage des ports 
+
+
+ a| 
+NSM100
+ a| 
+« 0 »
+
+ex. e0a
+
+
+
+ a| 
+NSM100B
+ a| 
+« 1 »
+
+ex. e1a
+
+|===
 
 
 .Étapes
@@ -26,25 +50,25 @@ Dans le cas contraire, passez à l'étape suivante.
 
 +
 
-NOTE: Cette étape suppose que vous avez installé le module d'E/S compatible RoCE dans le logement 11.
+NOTE: Cette étape suppose que vous avez installé le module d'E/S compatible RoCE dans le logement 3.
 
 +
-.. Reliez le port E0a du NSM A du tiroir du contrôleur à l'emplacement 11 port a (e11a).
-.. Tiroir de câbles port NSM A e0b sur le connecteur B du contrôleur 11 port b (e11b).
-.. Reliez le port e0a du NSM B du tiroir du contrôleur B au connecteur 11 du port a (e11a).
-.. Port e0b du tiroir de câbles NSM B vers le connecteur A du contrôleur 11 port b (e11b).
+.. Armoire de câbles NSM A, port EXA, vers le connecteur 3 a (e3a) du contrôleur A.
+.. Chemin de câbles du port EXB NSM A vers le port b (e3b) du connecteur 3 du contrôleur B.
+.. Connecteur EXA du NSM B de l'étagère de câbles vers le port a (e3a) du connecteur 3 du contrôleur B.
+.. Chemin de câbles du port EXB NSM B vers le port b (e3b) du connecteur 3 du contrôleur A.
 +
 L'illustration suivante montre le câblage d'un tiroir ajouté à chaud avec un module d'E/S compatible RoCE dans chaque module de contrôleur :
 
 +
-image::../media/drw_ns224_vino_i_1shelf_1card_ieops-1639.svg[Câblage pour AFF/ASA A70 ou A90 avec un tiroir et un module d'E/S.]
+image::../media/drw_ns224_g_1shelf_1card_ieops-2002.svg[Câblage pour AFF/ASA A30,452px,AFF/ASA A50]
 
 
 
 . Si vous ajoutez un ou deux tiroirs à chaud avec deux ensembles de ports compatibles RoCE (deux modules d'E/S compatibles RoCE) dans chaque module de contrôleur, procédez aux sous-étapes applicables.
 +
 
-NOTE: Cette étape suppose que vous avez installé les modules d'E/S compatibles RoCE dans les connecteurs 11 et 8.
+NOTE: Cette étape suppose que vous avez installé les modules d'E/S compatibles RoCE dans les connecteurs 3 et 1.
 
 +
 [cols="1,3"]
@@ -55,32 +79,32 @@ NOTE: Cette étape suppose que vous avez installé les modules d'E/S compatibles
  a| 
 Etagère 1
  a| 
-.. Reliez le port e0a du NSM A au port a (e11a) du contrôleur A, emplacement 11.
-.. Reliez le port NSM A e0b au connecteur 8 b (e8b) du contrôleur B.
-.. Reliez le port e0a du NSM B au port a (e11a) du connecteur 11 du contrôleur B.
-.. Reliez le port B NSM e0b au connecteur 8 b (e8b) du contrôleur A.
+.. Reliez le port EXA du NSM A au port A (e3a) du contrôleur a 3.
+.. Reliez le port EXB du NSM A au port b (e1b) de l'emplacement 1 du contrôleur B.
+.. Reliez le port EXA du NSM B au port a (e3a) de l'emplacement 3 du contrôleur B.
+.. Reliez le port EXB du NSM B au port b (e1b) de l'emplacement 1 du contrôleur A.
 .. Si vous ajoutez à chaud une deuxième étagère, complétez les sous-étapes "shellf 2" ; sinon, passez à l'étape 3.
 
 
 L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant deux modules d'E/S compatibles RoCE dans chaque module de contrôleur :
 
-image::../media/drw_ns224_vino_i_1shelf_2cards_ieops-1640.svg[Câblage pour AFF/ASA A70 ou A90 avec un tiroir et deux modules d'E/S.]
+image::../media/drw_ns224_g_1shelf_2card_ieops-2005.svg[Câblage pour AFF/ASA A30,452px,AFF/ASA A50]
 
 
 
  a| 
 Etagère 2
  a| 
-.. Reliez le port e0a du NSM A au port a (e8a) du contrôleur A, emplacement 8.
-.. Reliez le port NSM A e0b au connecteur 11 b (e11b) du contrôleur B.
-.. Reliez le port e0a du NSM B au port a (e8a) du connecteur 8 du contrôleur B.
-.. Reliez le port B NSM e0b au connecteur 11 b (e11b) du contrôleur A.
+.. Reliez le port EXA du NSM A au port A du contrôleur a 1 (e1a).
+.. Reliez le port EXB du NSM A au port b (e3b) du connecteur 3 du contrôleur B.
+.. Reliez le port EXA du NSM B au port a (e1a) de l'emplacement 1 du contrôleur B.
+.. Reliez le port EXB du NSM B au port b (e3b) du connecteur 3 du contrôleur A.
 .. Passez à l'étape 3.
 
 
 L'illustration suivante montre le câblage de deux tiroirs à ajout à chaud utilisant deux modules d'E/S compatibles RoCE dans chaque module de contrôleur :
 
-image::../media/drw_ns224_vino_i_2shelves_2cards_ieops-1641.svg[Câblage pour AFF/ASA A70 ou A90 avec deux tiroirs et deux modules d'E/S.]
+image::../media/drw_ns224_g_2shelf_2card_ieops-2003.svg[Câblage pour AFF A30/ASA,452px,AFF/ASA A50]
 
 |===
 . Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].

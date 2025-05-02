@@ -13,6 +13,9 @@ summary: Vous câblez chaque tiroir NS224 que vous ajoutez à chaud de sorte que
 [role="lead"]
 Vous câblez chaque tiroir NS224 que vous ajoutez à chaud de sorte que chaque tiroir dispose de deux connexions à chaque contrôleur de la paire haute disponibilité.
 
+.Description de la tâche
+Votre système matériel peut être compatible avec les tiroirs NS224 avec les modules NSM100 et les tiroirs NS224 avec les modules NSM100B. Pour vérifier la compatibilité et le nom des ports de votre matériel et de vos tiroirs, consultez le https://hwu.netapp.com["NetApp Hardware Universe"].
+
 .Eclayette pour câble à ASA A1K
 [%collapsible]
 ====
@@ -50,7 +53,7 @@ Dans le cas contraire, passez à l'étape suivante.
 L'illustration suivante met en avant le câblage du second tiroir de la paire haute disponibilité avec deux modules d'E/S compatibles RoCE dans chaque contrôleur :
 
 +
-image::../media/drw_ns224_vino_m_2shelves_2cards_ieops-1642.svg[Câblage pour ASA A1K avec deux tiroirs et deux modules d'E/S.]
+image::../media/drw_ns224_vino_m_2shelves_2cards_ieops-1642.svg[Câblage pour AFF/ASA A1K avec deux tiroirs et deux modules d'E/S.]
 
 
 
@@ -64,7 +67,7 @@ image::../media/drw_ns224_vino_m_2shelves_2cards_ieops-1642.svg[Câblage pour AS
 L'illustration suivante met en avant le câblage du troisième tiroir de la paire haute disponibilité avec trois modules d'E/S compatibles RoCE dans chaque contrôleur :
 
 +
-image::../media/drw_ns224_vino_m_3shelves_3cards_ieops-1643.svg[Câblage pour ASA A1K avec trois tiroirs et trois modules d'E/S.]
+image::../media/drw_ns224_vino_m_3shelves_3cards_ieops-1643.svg[Câblage pour AFF/ASA A1K avec trois tiroirs et trois modules d'E/S.]
 
 
 
@@ -78,7 +81,7 @@ image::../media/drw_ns224_vino_m_3shelves_3cards_ieops-1643.svg[Câblage pour AS
 L'illustration suivante met en avant le câblage du troisième tiroir de la paire haute disponibilité avec quatre modules d'E/S compatibles RoCE dans chaque contrôleur :
 
 +
-image::../media/drw_ns224_vino_m_3shelves_4cards_ieops-1644.svg[Câblage pour ASA A1K avec trois tiroirs et quatre modules d'E/S.]
+image::../media/drw_ns224_vino_m_3shelves_4cards_ieops-1644.svg[Câblage pour AFF/ASA A1K avec trois tiroirs et quatre modules d'E/S.]
 
 
 
@@ -92,10 +95,225 @@ image::../media/drw_ns224_vino_m_3shelves_4cards_ieops-1644.svg[Câblage pour AS
 L'illustration suivante met en avant le câblage du quatrième tiroir de la paire haute disponibilité avec quatre modules d'E/S compatibles RoCE dans chaque contrôleur :
 
 +
-image::../media/drw_ns224_vino_m_4shelves_4cards_ieops-1645.svg[Câblage pour ASA A1K avec quatre tiroirs et quatre modules d'E/S.]
+image::../media/drw_ns224_vino_m_4shelves_4cards_ieops-1645.svg[Câblage pour AFF/ASA A1K avec quatre tiroirs et quatre modules d'E/S.]
 
 
 
+. Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+
+
+.Et la suite ?
+Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire. Allez à link:complete-hot-add-shelf.html["Terminez l'ajout à chaud"].
+
+Sinon, vous effectuez l'ajout à chaud d'un tiroir.
+
+====
+.Chemin de câbles vers ASA A20
+[%collapsible]
+====
+Vous pouvez ajouter à chaud un maximum d'un tiroir NS224 à une paire HA ASA A20 lorsque du stockage supplémentaire (sur le tiroir interne) est nécessaire.
+
+.Avant de commencer
+* Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
+* Vous devez avoir effectué les procédures applicables dans link:prepare-hot-add-shelf.html["Préparez l'ajout à chaud d'une étagère"].
+* Vous devez avoir installé les tiroirs, les mettre sous tension et définir les ID de tiroir comme décrit dans la section link:prepare-hot-add-shelf.html["Installation d'un tiroir pour ajouter à chaud"].
+
+
+.Description de la tâche
+* Pour cette procédure, vous devez dans un premier temps ajouter à chaud un tiroir supplémentaire à votre paire haute disponibilité disposant uniquement d'un stockage interne (pas de tiroirs externes).
+* Cette procédure concerne les scénarios d'ajout à chaud suivants :
++
+** Ajout à chaud du premier tiroir à une paire haute disponibilité avec un module d'E/S compatible RoCE dans chaque contrôleur.
+** Ajout à chaud du premier tiroir à une paire haute disponibilité avec deux modules d'E/S compatibles RoCE dans chaque contrôleur.
+
+
+* Ces systèmes sont compatibles avec les tiroirs NS224 avec les modules NSM100 et les tiroirs NS224 avec les modules NSM100B. Pour vous assurer que vous connectez les contrôleurs aux ports appropriés, remplacez le « X » de chaque schéma par le numéro de port correct pour votre module :
++
+[cols="1,4"]
+|===
+| Type de module | Étiquetage des ports 
+
+
+ a| 
+NSM100
+ a| 
+« 0 »
+
+ex. e0a
+
+
+
+ a| 
+NSM100B
+ a| 
+« 1 »
+
+ex. e1a
+
+|===
+
+
+.Étapes
+. Si vous ajoutez un tiroir à chaud à l'aide d'un ensemble de ports compatibles RoCE (un module d'E/S compatible RoCE) dans chaque module de contrôleur, et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.
++
+Dans le cas contraire, passez à l'étape suivante.
+
++
+
+NOTE: Cette étape suppose que vous avez installé le module d'E/S compatible RoCE dans le logement 3.
+
++
+.. Armoire de câbles NSM A, port EXA, vers le connecteur 3 a (e3a) du contrôleur A.
+.. Chemin de câbles du port EXB NSM A vers le port b (e3b) du connecteur 3 du contrôleur B.
+.. Connecteur EXA du NSM B de l'étagère de câbles vers le port a (e3a) du connecteur 3 du contrôleur B.
+.. Chemin de câbles du port EXB NSM B vers le port b (e3b) du connecteur 3 du contrôleur A.
++
+L'illustration suivante montre le câblage d'un tiroir ajouté à chaud avec un module d'E/S compatible RoCE dans chaque module de contrôleur :
+
++
+image::../media/drw_ns224_g_1shelf_1card_ieops-2002.svg[Câblage pour AFF/ASA A20 avec un tiroir et un module d'E/S.]
+
+
+
+. Si vous ajoutez un tiroir à chaud en utilisant deux ensembles de ports compatibles RoCE (deux modules d'E/S compatibles RoCE) dans chaque module de contrôleur, procédez comme suit.
++
+.. Reliez le port EXA du NSM A au port A (e3a) du contrôleur a 3.
+.. Reliez le port EXB du NSM A au port b (e1b) de l'emplacement 1 du contrôleur B.
+.. Reliez le port EXA du NSM B au port a (e3a) de l'emplacement 3 du contrôleur B.
+.. Reliez le port EXB du NSM B au port b (e1b) de l'emplacement 1 du contrôleur A.
+
+
+
+
+L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant deux modules d'E/S compatibles RoCE dans chaque module de contrôleur :
+
+image::../media/drw_ns224_g_1shelf_2card_ieops-2005.svg[Câblage pour AFF/ASA A20 avec un tiroir et deux modules d'E/S.]
+
+. Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+
+
+.Et la suite ?
+Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire. Allez à link:complete-hot-add-shelf.html["Terminez l'ajout à chaud"].
+
+Sinon, vous effectuez l'ajout à chaud d'un tiroir.
+
+====
+.Eclayette pour câbles vers ASA A30 ou ASA A50
+[%collapsible]
+====
+Vous pouvez ajouter à chaud jusqu'à deux tiroirs NS224 à une paire HA ASA A30 ou A50 lorsque du stockage supplémentaire (dans le tiroir interne) est nécessaire.
+
+.Avant de commencer
+* Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
+* Vous devez avoir effectué les procédures applicables dans link:prepare-hot-add-shelf.html["Préparez l'ajout à chaud d'une étagère"].
+* Vous devez avoir installé les tiroirs, les mettre sous tension et définir les ID de tiroir comme décrit dans la section link:prepare-hot-add-shelf.html["Installation d'un tiroir pour ajouter à chaud"].
+
+
+.Description de la tâche
+* Cette procédure suppose que votre paire haute disponibilité ne dispose que d'un stockage interne (pas de tiroirs externes) et que vous ajoutez à chaud jusqu'à deux tiroirs supplémentaires et deux modules d'E/S compatibles RoCE dans chaque contrôleur.
+* Cette procédure concerne les scénarios d'ajout à chaud suivants :
++
+** Ajout à chaud du premier tiroir à une paire haute disponibilité avec un module d'E/S compatible RoCE dans chaque contrôleur.
+** Ajout à chaud du premier tiroir à une paire haute disponibilité avec deux modules d'E/S compatibles RoCE dans chaque contrôleur.
+** Ajout à chaud du second tiroir à une paire haute disponibilité avec deux modules d'E/S compatibles RoCE dans chaque contrôleur.
+
+
+* Ces systèmes sont compatibles avec les tiroirs NS224 avec les modules NSM100 et les tiroirs NS224 avec les modules NSM100B. Pour vous assurer que vous connectez les contrôleurs aux ports appropriés, remplacez le « X » de chaque schéma par le numéro de port correct pour votre module :
++
+[cols="1,4"]
+|===
+| Type de module | Étiquetage des ports 
+
+
+ a| 
+NSM100
+ a| 
+« 0 »
+
+ex. e0a
+
+
+
+ a| 
+NSM100B
+ a| 
+« 1 »
+
+ex. e1a
+
+|===
+
+
+.Étapes
+. Si vous ajoutez un tiroir à chaud à l'aide d'un ensemble de ports compatibles RoCE (un module d'E/S compatible RoCE) dans chaque module de contrôleur, et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.
++
+Dans le cas contraire, passez à l'étape suivante.
+
++
+
+NOTE: Cette étape suppose que vous avez installé le module d'E/S compatible RoCE dans le logement 3.
+
++
+.. Armoire de câbles NSM A, port EXA, vers le connecteur 3 a (e3a) du contrôleur A.
+.. Chemin de câbles du port EXB NSM A vers le port b (e3b) du connecteur 3 du contrôleur B.
+.. Connecteur EXA du NSM B de l'étagère de câbles vers le port a (e3a) du connecteur 3 du contrôleur B.
+.. Chemin de câbles du port EXB NSM B vers le port b (e3b) du connecteur 3 du contrôleur A.
++
+L'illustration suivante montre le câblage d'un tiroir ajouté à chaud avec un module d'E/S compatible RoCE dans chaque module de contrôleur :
+
++
+image::../media/drw_ns224_g_1shelf_1card_ieops-2002.svg[Câblage pour AFF/ASA A30,452px,AFF/ASA A50]
+
+
+
+. Si vous ajoutez un ou deux tiroirs à chaud avec deux ensembles de ports compatibles RoCE (deux modules d'E/S compatibles RoCE) dans chaque module de contrôleur, procédez aux sous-étapes applicables.
++
+
+NOTE: Cette étape suppose que vous avez installé les modules d'E/S compatibles RoCE dans les connecteurs 3 et 1.
+
++
+[cols="1,3"]
+|===
+| Tiroirs | Câblage 
+
+
+ a| 
+Etagère 1
+ a| 
+.. Reliez le port EXA du NSM A au port A (e3a) du contrôleur a 3.
+.. Reliez le port EXB du NSM A au port b (e1b) de l'emplacement 1 du contrôleur B.
+.. Reliez le port EXA du NSM B au port a (e3a) de l'emplacement 3 du contrôleur B.
+.. Reliez le port EXB du NSM B au port b (e1b) de l'emplacement 1 du contrôleur A.
+.. Si vous ajoutez à chaud une deuxième étagère, complétez les sous-étapes "shellf 2" ; sinon, passez à l'étape 3.
+
+
+L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant deux modules d'E/S compatibles RoCE dans chaque module de contrôleur :
+
+image::../media/drw_ns224_g_1shelf_2card_ieops-2005.svg[Câblage pour AFF/ASA A30,452px,AFF/ASA A50]
+
+
+
+ a| 
+Etagère 2
+ a| 
+.. Reliez le port EXA du NSM A au port A du contrôleur a 1 (e1a).
+.. Reliez le port EXB du NSM A au port b (e3b) du connecteur 3 du contrôleur B.
+.. Reliez le port EXA du NSM B au port a (e1a) de l'emplacement 1 du contrôleur B.
+.. Reliez le port EXB du NSM B au port b (e3b) du connecteur 3 du contrôleur A.
+.. Passez à l'étape 3.
+
+
+L'illustration suivante montre le câblage de deux tiroirs à ajout à chaud utilisant deux modules d'E/S compatibles RoCE dans chaque module de contrôleur :
+
+image::../media/drw_ns224_g_2shelf_2card_ieops-2003.svg[Câblage pour AFF A30/ASA,452px,AFF/ASA A50]
+
+|===
 . Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
 +
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
@@ -148,7 +366,7 @@ NOTE: Cette étape suppose que vous avez installé le module d'E/S compatible Ro
 L'illustration suivante montre le câblage d'un tiroir ajouté à chaud avec un module d'E/S compatible RoCE dans chaque module de contrôleur :
 
 +
-image::../media/drw_ns224_vino_i_1shelf_1card_ieops-1639.svg[Câblage pour ASA A70 ou A90 avec un tiroir et un module d'E/S.]
+image::../media/drw_ns224_vino_i_1shelf_1card_ieops-1639.svg[Câblage pour AFF/ASA A70 ou A90 avec un tiroir et un module d'E/S.]
 
 
 
@@ -175,7 +393,7 @@ Etagère 1
 
 L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant deux modules d'E/S compatibles RoCE dans chaque module de contrôleur :
 
-image::../media/drw_ns224_vino_i_1shelf_2cards_ieops-1640.svg[Câblage pour ASA A70 ou A90 avec un tiroir et deux modules d'E/S.]
+image::../media/drw_ns224_vino_i_1shelf_2cards_ieops-1640.svg[Câblage pour AFF/ASA A70 ou A90 avec un tiroir et deux modules d'E/S.]
 
 
 
@@ -191,7 +409,7 @@ Etagère 2
 
 L'illustration suivante montre le câblage de deux tiroirs à ajout à chaud utilisant deux modules d'E/S compatibles RoCE dans chaque module de contrôleur :
 
-image::../media/drw_ns224_vino_i_2shelves_2cards_ieops-1641.svg[Câblage pour ASA A70 ou A90 avec deux tiroirs et deux modules d'E/S.]
+image::../media/drw_ns224_vino_i_2shelves_2cards_ieops-1641.svg[Câblage pour AFF/ASA A70 ou A90 avec deux tiroirs et deux modules d'E/S.]
 
 |===
 . Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
@@ -209,7 +427,7 @@ Sinon, vous effectuez l'ajout à chaud d'un tiroir.
 .Cable shelf to ASA A250 ou ASA C250
 [%collapsible]
 ====
-Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chaud un maximum d'un tiroir NS224 à une paire haute disponibilité AFF A250 ou AFF C250.
+Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chaud un maximum d'un tiroir NS224 à une paire haute disponibilité ASA A250 ou ASA C250.
 
 .Avant de commencer
 * Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
@@ -228,7 +446,7 @@ Vu de l'arrière du châssis de la plateforme, le port de la carte compatible Ro
 .. Reliez le port e0a du NSM B du tiroir du contrôleur B au port a (e1a) du connecteur 1 du contrôleur.
 .. Reliez le port e0b du tiroir NSM B au port b (e1b) du contrôleur A. + l'illustration suivante montre le câblage du tiroir une fois l'opération terminée.
 +
-image::../media/drw_ns224_a250_c250_f500f_1shelf_ieops-1824.svg[Câblage d'un AFF A250 C250 ou FAS500f avec un tiroir NS224 et un jeu de ports de carte PCIe]
+image::../media/drw_ns224_a250_c250_f500f_1shelf_ieops-1824.svg[Câblage d'un AFF/ASA A250 C250 ou d'un FAS500f avec un tiroir NS224 et un jeu de ports de carte PCIe]
 
 
 
@@ -247,7 +465,7 @@ Sinon, vous effectuez l'ajout à chaud d'un tiroir.
 .Connectez le tiroir de câblage à ASA A400 ou ASA C400
 [%collapsible]
 ====
-La procédure de câblage d'un tiroir NS224 pour effectuer un ajout à chaud dépend de la paire haute disponibilité AFF A400 ou AFF C400.
+La procédure de câblage d'un tiroir NS224 pour effectuer un ajout à chaud dépend de la paire haute disponibilité ASA A400 ou ASA C400.
 
 .Avant de commencer
 * Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
@@ -273,7 +491,7 @@ Dans le cas contraire, passez à l'étape suivante.
 L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant un ensemble de ports compatibles RoCE sur chaque contrôleur :
 
 +
-image::../media/drw_ns224_a400_1shelf.png[Câblage d'un système AFF A400 avec un tiroir NS224 et un ensemble de ports intégrés]
+image::../media/drw_ns224_a400_1shelf.png[Câblage d'un AFF/ASA A400 avec un tiroir NS224 et un ensemble de ports intégrés]
 
 
 
@@ -311,7 +529,7 @@ Etagère 2
 L'illustration suivante montre le câblage de deux tiroirs à chaud :
 
 +
-image::../media/drw_ns224_a400_2shelves_IEOPS-983.svg[Câblage d'un système AFF A400 avec deux tiroirs NS224, un ensemble de ports intégrés et un ensemble de ports sur les cartes PCIe]
+image::../media/drw_ns224_a400_2shelves_IEOPS-983.svg[Câblage d'un /ASA A400 avec deux tiroirs NS224, un jeu de ports intégrés et un jeu de ports sur les cartes PCIe]
 
 . Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
 +
@@ -341,7 +559,7 @@ Dans le cas contraire, passez à l'étape suivante.
 L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant un ensemble de ports compatibles RoCE sur chaque contrôleur :
 
 +
-image::../media/drw_ns224_c400_1shelf_IEOPS-985.svg[Câblage d'un AFF C400 avec un tiroir NS224 et un jeu de ports de carte PCIe]
+image::../media/drw_ns224_c400_1shelf_IEOPS-985.svg[Câblage d'un AFF/ASA C400 avec un tiroir NS224 et un ensemble de ports de carte PCIe]
 
 
 
@@ -379,7 +597,7 @@ Etagère 2
 L'illustration suivante montre le câblage de deux tiroirs à chaud :
 
 +
-image::../media/drw_ns224_c400_2shelves_IEOPS-984.svg[Câblage d'un AFF C400 avec deux tiroirs NS224 et deux jeux de ports de carte PCIe]
+image::../media/drw_ns224_c400_2shelves_IEOPS-984.svg[Câblage d'un AFF/ASA C400 avec deux tiroirs NS224 et deux jeux de ports de carte PCIe]
 
 . Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
 +
@@ -396,7 +614,7 @@ Sinon, vous effectuez l'ajout à chaud d'un tiroir.
 .Connectez le tiroir de câbles à ASA A800 ou ASA C800
 [%collapsible]
 ====
-Le câblage des tiroirs NS224 dans une paire HA AFF A800 ou AFF C800 dépend du nombre de tiroirs à ajouter à chaud et du nombre de ports compatibles RoCE (un ou deux) utilisés sur les contrôleurs.
+Le câblage des tiroirs NS224 dans une paire HA ASA A800 ou ASA C800 dépend du nombre de tiroirs à ajouter à chaud et du nombre de ports compatibles RoCE (un ou deux) utilisés sur les contrôleurs.
 
 .Avant de commencer
 * Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
@@ -422,7 +640,7 @@ NOTE: Cette étape suppose que vous avez installé la carte PCIe compatible RoCE
 L'illustration suivante montre le câblage d'un tiroir à chaud utilisant une carte PCIe compatible RoCE sur chaque contrôleur :
 
 +
-image::../media/drw_ns224_a800_c800_1shelf_IEOPS-964.svg[Câblage d'un AFF A800 ou AFF C800 avec un tiroir NS224 et une carte PCIe]
+image::../media/drw_ns224_a800_c800_1shelf_IEOPS-964.svg[Câblage d'un AFF/ASA A800 ou d'un AFF/ASA C800 avec un tiroir NS224 et une carte PCIe]
 
 
 
@@ -487,7 +705,7 @@ Sinon, vous effectuez l'ajout à chaud d'un tiroir.
 .Cable shelf vers ASA A900
 [%collapsible]
 ====
-Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chaud trois tiroirs disques NS224 supplémentaires (quatre tiroirs au total) à une paire haute disponibilité AFF A900.
+Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chaud trois tiroirs disques NS224 supplémentaires (quatre tiroirs au total) à une paire haute disponibilité ASA A900.
 
 .Avant de commencer
 * Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
@@ -514,7 +732,7 @@ Dans le cas contraire, passez à l'étape suivante.
 L'illustration suivante montre le câblage du second tiroir (et le premier tiroir).
 
 +
-image::../media/drw_ns224_a900_2shelves.png[Câblage d'un système AFF A900 avec deux tiroirs NS224 et deux modules d'E/S.]
+image::../media/drw_ns224_a900_2shelves.png[Câblage d'un AFF/ASA A900 avec deux tiroirs NS224 et deux modules d'E/S.]
 
 
 
@@ -531,7 +749,7 @@ Dans le cas contraire, passez à l'étape suivante.
 L'illustration suivante montre le câblage du troisième tiroir.
 
 +
-image::../media/drw_ns224_a900_3shelves.png[Câblage d'un système AFF A900 avec trois tiroirs NS224 et quatre modules d'E/S.]
+image::../media/drw_ns224_a900_3shelves.png[Câblage d'un AFF/ASA A900 avec trois tiroirs NS224 et quatre modules d'E/S.]
 
 
 
@@ -548,7 +766,7 @@ Dans le cas contraire, passez à l'étape suivante.
 L'illustration suivante montre le câblage du quatrième tiroir.
 
 +
-image::../media/drw_ns224_a900_4shelves.png[Câblage d'un système AFF A900 avec quatre tiroirs NS224 et quatre modules d'E/S.]
+image::../media/drw_ns224_a900_4shelves.png[Câblage d'un AFF/ASA A900 avec quatre tiroirs NS224 et quatre modules d'E/S.]
 
 
 

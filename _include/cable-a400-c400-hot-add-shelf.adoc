@@ -2,8 +2,6 @@
 :allow-uri-read: 
 
 
-La procédure de câblage d'un tiroir NS224 pour effectuer un ajout à chaud dépend de la paire haute disponibilité AFF A400 ou AFF C400.
-
 .Avant de commencer
 * Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
 * Vous devez avoir effectué les procédures applicables dans link:prepare-hot-add-shelf.html["Préparez l'ajout à chaud d'une étagère"].
@@ -28,7 +26,7 @@ Dans le cas contraire, passez à l'étape suivante.
 L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant un ensemble de ports compatibles RoCE sur chaque contrôleur :
 
 +
-image::../media/drw_ns224_a400_1shelf.png[Câblage d'un système AFF A400 avec un tiroir NS224 et un ensemble de ports intégrés]
+image::../media/drw_ns224_a400_1shelf.png[Câblage d'un AFF/ASA A400 avec un tiroir NS224 et un ensemble de ports intégrés]
 
 
 
@@ -66,7 +64,7 @@ Etagère 2
 L'illustration suivante montre le câblage de deux tiroirs à chaud :
 
 +
-image::../media/drw_ns224_a400_2shelves_IEOPS-983.svg[Câblage d'un système AFF A400 avec deux tiroirs NS224, un ensemble de ports intégrés et un ensemble de ports sur les cartes PCIe]
+image::../media/drw_ns224_a400_2shelves_IEOPS-983.svg[Câblage d'un /ASA A400 avec deux tiroirs NS224, un jeu de ports intégrés et un jeu de ports sur les cartes PCIe]
 
 . Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
 +
@@ -96,7 +94,7 @@ Dans le cas contraire, passez à l'étape suivante.
 L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant un ensemble de ports compatibles RoCE sur chaque contrôleur :
 
 +
-image::../media/drw_ns224_c400_1shelf_IEOPS-985.svg[Câblage d'un AFF C400 avec un tiroir NS224 et un jeu de ports de carte PCIe]
+image::../media/drw_ns224_c400_1shelf_IEOPS-985.svg[Câblage d'un AFF/ASA C400 avec un tiroir NS224 et un ensemble de ports de carte PCIe]
 
 
 
@@ -134,7 +132,7 @@ Etagère 2
 L'illustration suivante montre le câblage de deux tiroirs à chaud :
 
 +
-image::../media/drw_ns224_c400_2shelves_IEOPS-984.svg[Câblage d'un AFF C400 avec deux tiroirs NS224 et deux jeux de ports de carte PCIe]
+image::../media/drw_ns224_c400_2shelves_IEOPS-984.svg[Câblage d'un AFF/ASA C400 avec deux tiroirs NS224 et deux jeux de ports de carte PCIe]
 
 . Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
 +

@@ -7996,20 +7996,17 @@ SFP+ (cible/initiateur)</block>
   <block id="4367e3d6fa33a8e5340bcdfaf20e76b1" category="list-text">Ajout à chaud du second tiroir à une paire haute disponibilité avec deux modules d'E/S compatibles RoCE dans chaque contrôleur.</block>
   <block id="bd7b27778a055163b7315acc047708fd" category="list-text">Si vous ajoutez un tiroir à chaud à l'aide d'un ensemble de ports compatibles RoCE (un module d'E/S compatible RoCE) dans chaque module de contrôleur, et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.</block>
   <block id="7326450dfaf2d352b15c1dbb36a9010e" category="admonition">Cette étape suppose que vous avez installé le module d'E/S compatible RoCE dans le logement 11.</block>
-  <block id="f9ba636c0d9fc6353c91cac13fe6290c" category="image-alt">Câblage pour AFF A70 ou A90 avec un tiroir et un module d'E/S.</block>
   <block id="1d99994321fcf88aba221cbb6612805a" category="admonition">Cette étape suppose que vous avez installé les modules d'E/S compatibles RoCE dans les connecteurs 11 et 8.</block>
   <block id="220b4e5517a1a5b99f0642ce282c3975" category="list-text">Reliez le port e0a du NSM A au port a (e11a) du contrôleur A, emplacement 11.</block>
   <block id="635ff36fada70d6b9a46124ec04022cf" category="list-text">Reliez le port NSM A e0b au connecteur 8 b (e8b) du contrôleur B.</block>
   <block id="3adcb5d3f00489780b17f91dbcf4c8b6" category="list-text">Reliez le port e0a du NSM B au port a (e11a) du connecteur 11 du contrôleur B.</block>
   <block id="fed38315c77f3f617a7a61ed019eb467" category="list-text">Reliez le port B NSM e0b au connecteur 8 b (e8b) du contrôleur A.</block>
   <block id="8b2cc73a271f9ec9f419e138f66cb109" category="paragraph">L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant deux modules d'E/S compatibles RoCE dans chaque module de contrôleur :</block>
-  <block id="0fd5a3b540c1af5ae188f141b2f40c24" category="image-alt">Câblage pour AFF A70 ou A90 avec un tiroir et deux modules d'E/S.</block>
   <block id="efd179e747ea06abffaa97721b0cc372" category="list-text">Reliez le port e0a du NSM A au port a (e8a) du contrôleur A, emplacement 8.</block>
   <block id="9db08de14bb838886cf8eaaee8575093" category="list-text">Reliez le port NSM A e0b au connecteur 11 b (e11b) du contrôleur B.</block>
   <block id="e227bb2c8482a8ac7a342596ddc812fe" category="list-text">Reliez le port e0a du NSM B au port a (e8a) du connecteur 8 du contrôleur B.</block>
   <block id="6d4a579eaf72f5aec95723d499d76fe9" category="list-text">Reliez le port B NSM e0b au connecteur 11 b (e11b) du contrôleur A.</block>
   <block id="ae14ce538d268aca5ec54fbb093b2156" category="paragraph">L'illustration suivante montre le câblage de deux tiroirs à ajout à chaud utilisant deux modules d'E/S compatibles RoCE dans chaque module de contrôleur :</block>
-  <block id="25862846eedff523b089999508c204b1" category="image-alt">Câblage pour AFF A70 ou A90 avec deux tiroirs et deux modules d'E/S.</block>
   <block id="14ac662b33a52d48f6573c07b50e5b8f" category="list-text">Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de<block ref="7064c89577900622f24a070c24ebbaa7" category="inline-link-rx"></block>.</block>
   <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">Et la suite ?</block>
   <block id="8d39c366d0f2a2847eeab7a904800822" category="paragraph">Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire. Allez à <block ref="27f0c709ab4d9ea809b0da6fd9c1c251" category="inline-link-macro-rx"></block>.</block>
@@ -8023,48 +8020,36 @@ SFP+ (cible/initiateur)</block>
   <block id="244addd6f2bc2e043852c2e18eeb5621" category="list-text">Ajout à chaud d'un troisième tiroir à une paire haute disponibilité avec quatre modules d'E/S compatibles RoCE dans chaque contrôleur. (Vous avez installé un troisième et un quatrième module d'E/S et vous allez relier le troisième tiroir aux troisième et quatrième modules d'E/S).</block>
   <block id="72cdf939e98d17baf87d0a5a64dfcea8" category="list-text">Ajout à chaud d'un quatrième tiroir à une paire haute disponibilité avec quatre modules d'E/S compatibles RoCE dans chaque contrôleur. (Vous avez installé un quatrième module d'E/S et avez remplacé le troisième tiroir par le troisième et le quatrième module d'E/S, ou vous avez déjà relié le troisième tiroir aux troisième et quatrième modules d'E/S. Vous connectez le quatrième tiroir au troisième et au quatrième module d'E/S).</block>
   <block id="b5fb112065a7304ad93afe5e3c7fa849" category="paragraph">L'illustration suivante met en avant le câblage du second tiroir de la paire haute disponibilité avec deux modules d'E/S compatibles RoCE dans chaque contrôleur :</block>
-  <block id="ea0cc2be4039f5636ca9de5e2c7a3940" category="image-alt">Câblage pour AFF A1K avec deux tiroirs et deux modules d'E/S.</block>
   <block id="7190ee5c0c8079e24da44f24c6b7abbc" category="list-text">Si le tiroir NS224 que vous ajoutez à chaud sera le troisième tiroir NS224 de la paire haute disponibilité avec trois modules d'E/S compatibles RoCE dans chaque contrôleur, procédez comme suit. Dans le cas contraire, passez à l'étape suivante.</block>
   <block id="67a32de8a36abcac3887051fb422a5f5" category="list-text">Reliez le port E0a À l'emplacement 9 du port a (e9a) du contrôleur A.</block>
   <block id="b94b22c566c53666c9eb824858482f94" category="list-text">Connectez le port E0b du tiroir NSM A au connecteur 9 b (e9b) du contrôleur B.</block>
   <block id="daa2e224b274ef312de5853c6cbffaf6" category="list-text">Connectez le port e0a à la fente 9 a (e9a) du contrôleur B du tiroir NSM B.</block>
   <block id="3a8f2e391b6044dec7d6ef6c3e9dda69" category="list-text">Reliez le port B e0b du tiroir NSM au connecteur 9 b (e9b) du contrôleur A.</block>
   <block id="6c6e97e4c29594c5856e13f4b1a8be0c" category="paragraph">L'illustration suivante met en avant le câblage du troisième tiroir de la paire haute disponibilité avec trois modules d'E/S compatibles RoCE dans chaque contrôleur :</block>
-  <block id="94213ae2609c82c94807004beab91de1" category="image-alt">Câblage pour AFF A1K avec trois tiroirs et trois modules d'E/S.</block>
   <block id="46e04d93b6d495a5235036857998eae9" category="list-text">Si le tiroir NS224 que vous ajoutez à chaud sera le troisième tiroir NS224 de la paire haute disponibilité avec quatre modules d'E/S compatibles RoCE dans chaque contrôleur, procédez comme suit. Dans le cas contraire, passez à l'étape suivante.</block>
   <block id="abb0dbc2abeae0d456ed2095b4c9ed12" category="list-text">Connectez le port E0b du tiroir NSM A au connecteur 8 b (e8b) du contrôleur B.</block>
   <block id="8ff8aa3f78832bf6ceceeea539763fec" category="list-text">Reliez le port B e0b du tiroir NSM au connecteur 8 b (e8b) du contrôleur A.</block>
   <block id="863764690b094c2d6a28b8edc2afba72" category="paragraph">L'illustration suivante met en avant le câblage du troisième tiroir de la paire haute disponibilité avec quatre modules d'E/S compatibles RoCE dans chaque contrôleur :</block>
-  <block id="f9d0d9976d1ff7ee0097da8e1b7fb3c2" category="image-alt">Câblage pour AFF A1K avec trois tiroirs et quatre modules d'E/S.</block>
   <block id="3bd0afb8978e34368879d152c8aec251" category="list-text">Si le tiroir NS224 que vous ajoutez à chaud sera le quatrième tiroir NS224 de la paire haute disponibilité avec quatre modules d'E/S compatibles RoCE dans chaque contrôleur, effectuez les étapes suivantes.</block>
   <block id="d10794f4d3cca7a2993e8d2d6a12cd28" category="list-text">Reliez le port E0a À l'emplacement 8 du port a (e8a) du contrôleur A.</block>
   <block id="ed24faf41d7d53c3a668df6e070aca6d" category="list-text">Connectez le port e0a à la fente 8 a (e8a) du contrôleur B du tiroir NSM B.</block>
   <block id="551d2fc9e8e1159b84b9c23da6d27984" category="paragraph">L'illustration suivante met en avant le câblage du quatrième tiroir de la paire haute disponibilité avec quatre modules d'E/S compatibles RoCE dans chaque contrôleur :</block>
-  <block id="40d57aad6b502bb35f6aa64821041f6a" category="image-alt">Câblage pour AFF A1K avec quatre tiroirs et quatre modules d'E/S.</block>
   <block id="8f5d4ff45922bd2a0a4b4ca26b784653" category="paragraph">Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chaud un maximum d'un tiroir NS224 à une paire haute disponibilité AFF A250 ou AFF C250.</block>
   <block id="3c8f15ce2288517ffd28cbab07b4cd4f" category="paragraph">La procédure de câblage d'un tiroir NS224 pour effectuer un ajout à chaud dépend de la paire haute disponibilité AFF A400 ou AFF C400.</block>
   <block id="95e9c90f47d7134271c5de6f5d8d41f5" category="paragraph">*Etagère pour câble à une paire HA AFF A400*</block>
   <block id="e47d066c3638efab14a13923e89b312a" category="paragraph">Dans le cas d'une paire HA AFF A400, vous pouvez ajouter à chaud jusqu'à deux tiroirs et utiliser les ports e0c/e0d et les ports du slot 5 en fonction des besoins.</block>
   <block id="d4e171bee30acee3b4097e177f087224" category="list-text">Si vous ajoutez un tiroir à chaud en utilisant un ensemble de ports compatibles RoCE (ports intégrés compatibles RoCE) sur chaque contrôleur, et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.</block>
   <block id="4df6de3fb6b5eece4bd1d42f75e5ae3d" category="paragraph">L'illustration suivante montre le câblage d'un tiroir à ajout à chaud utilisant un ensemble de ports compatibles RoCE sur chaque contrôleur :</block>
-  <block id="672cc22dbbc7622be2f56d3dce98ffcd" category="image-alt">Câblage d'un système AFF A400 avec un tiroir NS224 et un ensemble de ports intégrés</block>
   <block id="306fa6b2ff7e9909c6a2a302a380875a" category="list-text">Si vous ajoutez à chaud un ou deux tiroirs à l'aide de deux ensembles de ports compatibles RoCE (ports intégrés et compatibles RoCE avec la carte PCIe) sur chaque contrôleur, procédez comme suit.</block>
-  <block id="303de4b6b1481e40bb1b8e2368a123b6" category="image-alt">Câblage d'un système AFF A400 avec deux tiroirs NS224, un ensemble de ports intégrés et un ensemble de ports sur les cartes PCIe</block>
   <block id="41132f8bc7d00935b8687c18c2c9e35d" category="list-text">Si vous avez désactivé l'affectation automatique de disques dans le cadre de la préparation de cette procédure, vous devez attribuer manuellement la propriété du disque, puis réactiver l'affectation automatique de disques, si nécessaire. Voir <block ref="27f0c709ab4d9ea809b0da6fd9c1c251" category="inline-link-macro-rx"></block>.</block>
   <block id="406a6a05dc05bb651919c02b9570c743" category="paragraph">*Etagère de câble à une paire haute disponibilité AFF C400*</block>
   <block id="9d6636aae443fd88eb415b0a814eb7ed" category="paragraph">Pour une paire HA AFF C400, vous pouvez ajouter à chaud jusqu'à deux tiroirs et utiliser les ports des emplacements 4 et 5 selon les besoins.</block>
   <block id="b6c9c1f2bae5bda1b2ec0ca34865478a" category="list-text">Si vous ajoutez un tiroir à chaud en utilisant un ensemble de ports compatibles RoCE sur chaque contrôleur et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.</block>
-  <block id="a3c44bf0089bcb64a39869e3500ee7be" category="image-alt">Câblage d'un AFF C400 avec un tiroir NS224 et un jeu de ports de carte PCIe</block>
   <block id="c4dcb8322178395823ac67e2ea704340" category="list-text">Si vous ajoutez à chaud un ou deux tiroirs à l'aide de deux ensembles de ports compatibles RoCE sur chaque contrôleur, procédez comme suit.</block>
-  <block id="8e60b7b6a9c9e9483da2fb013ea4987b" category="image-alt">Câblage d'un AFF C400 avec deux tiroirs NS224 et deux jeux de ports de carte PCIe</block>
   <block id="8b27019cea28c7866ff81a933ac7c02c" category="paragraph">Le câblage des tiroirs NS224 dans une paire HA AFF A800 ou AFF C800 dépend du nombre de tiroirs à ajouter à chaud et du nombre de ports compatibles RoCE (un ou deux) utilisés sur les contrôleurs.</block>
   <block id="e6960ae3a6a92d53555f3471da322c41" category="list-text">Si vous ajoutez un tiroir à chaud en utilisant un ensemble de ports compatibles RoCE (une carte PCIe compatible RoCE) sur chaque contrôleur, et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.</block>
   <block id="c55555ebd43bc616a6c859bbbad79ac8" category="paragraph">L'illustration suivante montre le câblage d'un tiroir à chaud utilisant une carte PCIe compatible RoCE sur chaque contrôleur :</block>
-  <block id="e21205a57cd96b3d3b2ad37564df9874" category="image-alt">Câblage d'un AFF A800 ou AFF C800 avec un tiroir NS224 et une carte PCIe</block>
   <block id="6f313b51958d9ef2aa65c80a9b64de6b" category="list-text">Si vous ajoutez à chaud un ou deux tiroirs à l'aide de deux ensembles de ports compatibles RoCE (deux cartes PCIe compatibles RoCE) sur chaque contrôleur, suivez les sous-étapes applicables.</block>
-  <block id="b44d424c15322ecb36a077b677527005" category="image-alt">Câblage d'un système AFF A900 avec deux tiroirs NS224 et deux modules d'E/S.</block>
-  <block id="e896f649bc7a69947f85c288e5cb0b96" category="image-alt">Câblage d'un système AFF A900 avec trois tiroirs NS224 et quatre modules d'E/S.</block>
-  <block id="325058948df9e92ff2c1577aeb745fc0" category="image-alt">Câblage d'un système AFF A900 avec quatre tiroirs NS224 et quatre modules d'E/S.</block>
   <block id="40e6ceebb2eb1677b588bd7f52f95206" category="paragraph">Numéro ID du tiroir</block>
   <block id="42a63d570d38a93d3cbaddcfd266a58c" category="paragraph">Bouton d'accès à l'ID de tiroir</block>
   <block id="d6f7de8608837079f0d0dd7fa668c457" category="list-text">Vérifiez l'état de santé de votre cluster. Consultez<block ref="9f193d2818f839c9575e0a6969820fd9" category="inline-link-rx"></block> l'article de la base de connaissances pour plus d'informations.</block>
@@ -8572,7 +8557,6 @@ SFP+ (cible/initiateur)</block>
   <block id="cada3ae8b9b850f4721595b91f8ab383" category="doc">Étape 1 : réenregistrement du contrôleur</block>
   <block id="f4c083c41633c63a72a1bbce7db1c159" category="sidebar">Remettez le contrôleur en place</block>
   <block id="a39e0fbfb2db42a80ba7546850d8b5c6" category="paragraph"><block ref="a39e0fbfb2db42a80ba7546850d8b5c6" category="inline-link-rx"></block></block>
-  <block id="4c32ebd39f3a998e8ed434a92fb2337e" category="image-alt">Câblage d'un AFF A250 C250 ou FAS500f avec un tiroir NS224 et un jeu de ports de carte PCIe</block>
   <block id="3512d92434ff4ef9e4eb4253b21a863e" category="image-alt">Les câbles sont insérés avec la languette de retrait du connecteur orientée vers le haut</block>
   <block id="fa8057e66f11f58b193c0063c5f89d0f" category="image-alt">Emplacement des ports e0a et e0b du module NSM100 NS224</block>
   <block id="21631ea576ae592d82bfa53578687d4b" category="image-alt">Voyant d'alimentation du panneau d'affichage de l'opérateur</block>
@@ -9060,15 +9044,8 @@ SFP+ (cible/initiateur)</block>
   <block id="7bf4e86b8c2f5ff036932a932f9dc604" category="list-text"><block ref="7bf4e86b8c2f5ff036932a932f9dc604" category="inline-link-rx"></block></block>
   <block id="3ab6aa369c3f9b8276a331929da6f82c" category="example-title">Eclayette pour câble à ASA A1K</block>
   <block id="5085ff6c350861af4448d82a2c958fe8" category="paragraph">Vous pouvez ajouter à chaud jusqu'à trois tiroirs NS224 supplémentaires (pour un total de quatre tiroirs) à une paire HA ASA A1K.</block>
-  <block id="b96506939d3be5ee82870422bae11f18" category="image-alt">Câblage pour ASA A1K avec deux tiroirs et deux modules d'E/S.</block>
-  <block id="7c5aa1be4042527c8f9979e790cb45ad" category="image-alt">Câblage pour ASA A1K avec trois tiroirs et trois modules d'E/S.</block>
-  <block id="09bb2c93b169f0c519beed078ec84db3" category="image-alt">Câblage pour ASA A1K avec trois tiroirs et quatre modules d'E/S.</block>
-  <block id="568d158739474681892c0a2e2456188d" category="image-alt">Câblage pour ASA A1K avec quatre tiroirs et quatre modules d'E/S.</block>
   <block id="ae9e439bbd5c00f8b8a1bc7a935729c7" category="example-title">Etagère des câbles vers ASA A70 ou ASA A90</block>
   <block id="9e4b32259f721cc54024969657de5534" category="paragraph">Vous pouvez ajouter à chaud jusqu'à deux tiroirs NS224 à une paire HA ASA A70 ou ASA A90 lorsque du stockage supplémentaire est nécessaire (dans le tiroir interne).</block>
-  <block id="087914c8dfa7abbb50d9c6d8ec5daab1" category="image-alt">Câblage pour ASA A70 ou A90 avec un tiroir et un module d'E/S.</block>
-  <block id="1bc9489d5803221329c048bb065c42ec" category="image-alt">Câblage pour ASA A70 ou A90 avec un tiroir et deux modules d'E/S.</block>
-  <block id="cdd4188b076dc68d9ffe52ac80b230c6" category="image-alt">Câblage pour ASA A70 ou A90 avec deux tiroirs et deux modules d'E/S.</block>
   <block id="55ec693931401ff7a634100e33ff8cfd" category="doc">Nouveautés des systèmes matériels ONTAP</block>
   <block id="ec6e72d1c4bb7dccdc62b6caf35c95f7" category="sidebar">Documentation des systèmes matériels ONTAP</block>
   <block id="64f78e10c5d8a4db6f25299bf9a418cd" category="sidebar">Les systèmes AFF A-Series et C-Series aident les entreprises à transformer leur infrastructure plus rapidement et à stimuler leurs stratégies data-driven.</block>
@@ -9669,10 +9646,6 @@ SFP+ (cible/initiateur)</block>
   <block id="e726d5f098bf18b53d3d464c11fbe033" category="list-text">Si AutoSupport est activé, restaurez (annulez la suppression) la création automatique de cas : nœud système AutoSupport appelez -node * -type all -message maint=END</block>
   <block id="975c4856a4750ba558520ec8a4820a30" category="list-text">Si vous avez installé un module NIC, spécifiez le mode d'utilisation de chaque port comme _network_:<block ref="2318bc4fadd0b94ffa92c4a515df2262" prefix=" " category="inline-code"></block></block>
   <block id="b6d91a8f20eef2bd8b5f445d19459cac" category="list-text">Répétez ces étapes pour l'autre contrôleur.</block>
-  <block id="fbff7da02a9769667db9e912fa36fc5e" category="paragraph">Vous pouvez ajouter à chaud jusqu'à deux tiroirs NS224 à une paire HA AFF A20, AFF A30, AFF C30, AFF A50 ou AFF C60 lorsque du stockage supplémentaire est nécessaire (dans le tiroir interne).</block>
-  <block id="73a95c42a81e9be601403e3a9d4a84c9" category="list-text">Pour effectuer cette procédure, nous part du principe que votre paire haute disponibilité ne dispose que d'un stockage interne (pas de tiroirs externes). Dans l'un des cas suivants :</block>
-  <block id="c6e5816c4606aead75e5bf161bd98726" category="list-text">Ajout à chaud d'un tiroir supplémentaire pour le AFF A20.</block>
-  <block id="11e9efba28ae2ed6dc6e8d713d0a9d85" category="list-text">Ajout à chaud de deux tiroirs supplémentaires et de deux modules d'E/S compatibles RoCE dans chaque contrôleur pour AFF A30, AFF C30, AFF A50 ou AFF C60.</block>
   <block id="4a09af6ecaf81ef3c2832bb75c6a0661" category="list-text">Ces systèmes sont compatibles avec les tiroirs NS224 avec les modules NSM100 et les tiroirs NS224 avec les modules NSM100B. Pour vous assurer que vous connectez les contrôleurs aux ports appropriés, remplacez le « X » de chaque schéma par le numéro de port correct pour votre module :</block>
   <block id="d6df784a5f01190c34ccccae7152455a" category="cell">Type de module</block>
   <block id="0ef8def66b79f6a75efa2dde40c34190" category="cell">Étiquetage des ports</block>
@@ -9687,7 +9660,6 @@ SFP+ (cible/initiateur)</block>
   <block id="4719f083a14108e1749d33a162c3f72e" category="list-text">Chemin de câbles du port EXB NSM A vers le port b (e3b) du connecteur 3 du contrôleur B.</block>
   <block id="e12dd7341a7320b1bfee16cf7817ae73" category="list-text">Connecteur EXA du NSM B de l'étagère de câbles vers le port a (e3a) du connecteur 3 du contrôleur B.</block>
   <block id="36eb4fa8319a2d5789a89ff95d28ecb4" category="list-text">Chemin de câbles du port EXB NSM B vers le port b (e3b) du connecteur 3 du contrôleur A.</block>
-  <block id="4d6aa4e10ec4c72ec3a386b483422bc8" category="image-alt">Câblage pour AFF A20</block>
   <block id="d6dc171c9f98fe17e814fd05d2ee1489" category="admonition">Cette étape suppose que vous avez installé les modules d'E/S compatibles RoCE dans les connecteurs 3 et 1.</block>
   <block id="e8becaef69668c291a5f960c6cd5f04e" category="list-text">Reliez le port EXA du NSM A au port A (e3a) du contrôleur a 3.</block>
   <block id="5d0425db587b395e698ec97c99c625fc" category="list-text">Reliez le port EXB du NSM A au port b (e1b) de l'emplacement 1 du contrôleur B.</block>
@@ -10373,7 +10345,6 @@ SFP+ (cible/initiateur)</block>
   <block id="dafdc51bcfddfb75cdc104244fa42b60" category="doc">Remplacez la pile de l'horloge temps réel - AFF C80</block>
   <block id="0c760c78e9d0c008701a3538ed8f1c85" category="doc">Remplacer le module de gestion du système - AFF C80</block>
   <block id="0e0493531094a28281ba5f32c328ac63" category="paragraph">Votre système matériel peut être compatible avec les tiroirs NS224 avec les modules NSM100 et les tiroirs NS224 avec les modules NSM100B. Pour vérifier la compatibilité et le nom des ports de votre matériel et de vos tiroirs, consultez le<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block>.</block>
-  <block id="c97d3a72e7c1692c1c5f56d517b82c8c" category="example-title">Eclayette pour câble AFF A20, AFF A30, AFF A50, AFF C30 ou AFF C60</block>
   <block id="494fa596205dff234fa0bdbd9d667c60" category="example-title">Câblez le tiroir à AFF A70, AFF A90 ou AFF C80</block>
   <block id="cfa4ea65df4b282eb8322ca03dbd679d" category="inline-link-macro">guide de câblage connecté au commutateur</block>
   <block id="d8ddb474e138beeebfa487dca0fe0955" category="list-text">Cette procédure s'applique uniquement aux stockages en attachement direct. Pour consulter les instructions relatives au stockage relié au commutateur, consultez notre <block ref="655fd8ce12b9f1cd7287415659488f07" category="inline-link-macro-rx"></block>.</block>
@@ -10614,7 +10585,6 @@ SFP+ (cible/initiateur)</block>
   <block id="dbc74f369dbf214b25d0f839fd4cd2b0" category="list-text">Restaurez le rétablissement automatique si vous l'avez désactivé :</block>
   <block id="37e73c8cf9d7d3b4aeaa58f23b2fcb81" category="paragraph">Après avoir activé votre système de stockage AFF A1K, vous êtes prêt à détecter votre réseau en cluster et à configurer un cluster ONTAP.</block>
   <block id="f2cde5cb8aa49228f5cb392e473dff51" category="paragraph">Une fois le cluster initialisé, téléchargez-le et exécutez-le<block ref="48865c7c1d8013246e4e5f705a9105de" category="inline-link-rx"></block> pour confirmer votre configuration.</block>
-  <block id="5d181ca91be1af691d1f01654691cc7b" category="image-alt">Schéma de connexion du système de stockage A1K et de l'alimentation A70 ou A90</block>
   <block id="e826d5b26017ec374bf63b94b8a425d9" category="list-text">Fixez les cordons d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation. :a1k-a70-90!:</block>
   <block id="0bf1ff1f561d2a96752b8ee596c65068" category="list-text">4U en configuration HA</block>
   <block id="3ac4d4a9f6b930345bd4ccdb8435d0fb" category="list-text">Sur le module de gestion du système de chaque contrôleur</block>
@@ -10777,7 +10747,6 @@ SFP+ (cible/initiateur)</block>
   <block id="4e3c3284590d1aa1440e67b3bd65ba6e" category="list-text"><block ref="4e3c3284590d1aa1440e67b3bd65ba6e" category="inline-link-macro-rx"></block></block>
   <block id="370d2e6f20948d3881708f9706576691" category="sidebar">Préparez-vous à le remplacer</block>
   <block id="19d944a3a323213d80bcdd66ecd5c26f" category="list-text">Déterminez si Onboard Key Manager (OKM) ou Eternal Key Manager (EKM) est configuré à l'aide de l'une des méthodes suivantes :</block>
-  <block id="b3387f173ebbff42e3160605c9db518a" category="list-text">Vous pouvez demander au client ou à l'administrateur système si OKM ou EKM sont activés.</block>
   <block id="5dc17ba8443f8aafae4ca9de8cf9545b" category="list-text">Pour vérifier si OKM est activé, vous pouvez utiliser le<block ref="3c690d79c23fa8c25994507c25377567" prefix=" " category="inline-code"></block>.</block>
   <block id="4e447e93a3331607c74749775653cbfc" category="list-text">Pour vérifier si EKM est activé, vous pouvez utiliser le<block ref="001642cb897a8bebce3210207b7e81af" prefix=" " category="inline-code"></block>.</block>
   <block id="161a8b7bf3b6a7aaa3bda387e5eab04b" category="list-text">Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.</block>
@@ -11119,10 +11088,6 @@ SFP+ (cible/initiateur)</block>
   <block id="3b0feb5303f3eeec93eba65f8eb967ae" category="list-text">Assurez-vous que tous les autres composants du système fonctionnent correctement.</block>
   <block id="d5607198701fa39cc481498d62a52e7b" category="list-text">Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez<block ref="468ae937a554dfd3baf209aa53f9f7a6" category="inline-link-rx"></block> pour obtenir de l'aide.</block>
   <block id="1b55fb3af000d448310e77a6de6c5161" category="paragraph">Le module NVRAM se compose du matériel NVRAM12 et de modules DIMM remplaçables sur site. Vous pouvez remplacer un module NVRAM défectueux ou les modules DIMM à l'intérieur du module NVRAM.</block>
-  <block id="566c293315d81d047304e5fade9a967d" category="list-text">Pour vérifier si OKM est activé, utilisez la commande suivante :</block>
-  <block id="248c44cfee0de883f1e8e602cd90cfbb" category="paragraph"><block ref="3c690d79c23fa8c25994507c25377567" prefix="" category="inline-code"></block></block>
-  <block id="a0e65297bb80c27972e34aa4810ab81b" category="list-text">Pour vérifier si EKM est activé, utilisez la commande suivante :</block>
-  <block id="49bfbad696a2529ef03d859ad9b3f40a" category="paragraph"><block ref="001642cb897a8bebce3210207b7e81af" prefix="" category="inline-code"></block></block>
   <block id="c174421f5b8f9ca697d7784c901fd0e7" category="paragraph">Pour assurer la sécurité des données sur votre système de stockage, vous devez vérifier la prise en charge et l'état de la clé de cryptage sur votre support de démarrage. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.</block>
   <block id="6e9d75b7e6d83f0d47bf1ca8b289ab30" category="summary">Si un composant de votre système AFF A1K tombe en panne, renvoyez la pièce défectueuse à NetApp. Voir la<block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
   <block id="e7202980adb67469897852b1c95d1aa0" category="summary">Pour assurer la sécurité des données sur votre système de stockage AFF A1K, vous devez vérifier la prise en charge et l'état de la clé de cryptage sur votre support de démarrage. Vérifiez si votre version de ONTAP prend en charge le chiffrement de volume NetApp et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.</block>
@@ -11923,4 +11888,50 @@ SFP+ (cible/initiateur)</block>
   <block id="40bde7f2324ee2876dd8a09846b14ff4" category="image-alt">Mettez l'appareil sous tension</block>
   <block id="512bdc85c8065a0397ce7025381aaf66" category="image-alt">Système de détection automatique</block>
   <block id="397249170dcc18ae00c3a7885f97fdc1" category="list-text">Connectez le câble de la console à l'ordinateur portable ou à la console, puis le port console du contrôleur à l'aide du câble de console fourni avec le système de stockage. Connectez ensuite l'ordinateur portable ou la console au commutateur du sous-réseau de gestion.</block>
+  <block id="caf5b8ffb4d79dceb1fb647290798a01" category="list-text">Pour cette procédure, vous devez dans un premier temps ajouter à chaud un tiroir supplémentaire à votre paire haute disponibilité disposant uniquement d'un stockage interne (pas de tiroirs externes).</block>
+  <block id="93594816ce3f17fed74d263c83a0dbf3" category="image-alt">Câblage pour AFF/ASA A20 avec un tiroir et un module d'E/S.</block>
+  <block id="1e105a621d0adba625aea7a6ae6a26c4" category="list-text">Si vous ajoutez un tiroir à chaud en utilisant deux ensembles de ports compatibles RoCE (deux modules d'E/S compatibles RoCE) dans chaque module de contrôleur, procédez comme suit.</block>
+  <block id="ce8013dd06f3fee752bb7a7d4b9238d2" category="image-alt">Câblage pour AFF/ASA A20 avec un tiroir et deux modules d'E/S.</block>
+  <block id="aa7a979a65afd227664ca4bcf07916aa" category="list-text">Cette procédure suppose que votre paire haute disponibilité ne dispose que d'un stockage interne (pas de tiroirs externes) et que vous ajoutez à chaud jusqu'à deux tiroirs supplémentaires et deux modules d'E/S compatibles RoCE dans chaque contrôleur.</block>
+  <block id="f2a9ba351ff729d0ca9404bb3db069f6" category="image-alt">Câblage pour AFF/ASA A30</block>
+  <block id="22069d1c29859ffdad9469c1e6747cf1" category="image-alt">Câblage pour AFF A30/ASA</block>
+  <block id="612bdab395b71e87cee7fad47c71f93d" category="image-alt">Câblage pour AFF/ASA A70 ou A90 avec un tiroir et un module d'E/S.</block>
+  <block id="e3292c7d546f92fd0a5ab680be388d1f" category="image-alt">Câblage pour AFF/ASA A70 ou A90 avec un tiroir et deux modules d'E/S.</block>
+  <block id="6aa91cf36fd9acfb2a369c09c6c070ca" category="image-alt">Câblage pour AFF/ASA A70 ou A90 avec deux tiroirs et deux modules d'E/S.</block>
+  <block id="9bb029ef1a9ff9e816e879a364d3c7b6" category="image-alt">Câblage pour AFF/ASA A1K avec deux tiroirs et deux modules d'E/S.</block>
+  <block id="7376879927d2b84ec553cfa3f1bfd0f4" category="image-alt">Câblage pour AFF/ASA A1K avec trois tiroirs et trois modules d'E/S.</block>
+  <block id="de5bea2fd617f7327f73c1c44e37b9a6" category="image-alt">Câblage pour AFF/ASA A1K avec trois tiroirs et quatre modules d'E/S.</block>
+  <block id="db0e24742d4fd4f6f2a732aeac2ca6a3" category="image-alt">Câblage pour AFF/ASA A1K avec quatre tiroirs et quatre modules d'E/S.</block>
+  <block id="ac2f75fe6673cb1f5f103f2229eb9ca0" category="image-alt">Câblage d'un AFF/ASA A250 C250 ou d'un FAS500f avec un tiroir NS224 et un jeu de ports de carte PCIe</block>
+  <block id="eaa19193ad1b64f0162e8f312a6ddc47" category="image-alt">Câblage d'un AFF/ASA A400 avec un tiroir NS224 et un ensemble de ports intégrés</block>
+  <block id="bba30f16a0c3755741b0f3e2032fe595" category="image-alt">Câblage d'un /ASA A400 avec deux tiroirs NS224, un jeu de ports intégrés et un jeu de ports sur les cartes PCIe</block>
+  <block id="062f2d0d7124d747b94b599ceb1f29ed" category="image-alt">Câblage d'un AFF/ASA C400 avec un tiroir NS224 et un ensemble de ports de carte PCIe</block>
+  <block id="ea4ee6dbdfefd4ed125fc31c39deee4c" category="image-alt">Câblage d'un AFF/ASA C400 avec deux tiroirs NS224 et deux jeux de ports de carte PCIe</block>
+  <block id="baa82981e40f9200b81a359d31653dd6" category="image-alt">Câblage d'un AFF/ASA A800 ou d'un AFF/ASA C800 avec un tiroir NS224 et une carte PCIe</block>
+  <block id="c398a3b33f9866994ec7dd506a0affe1" category="image-alt">Câblage d'un AFF/ASA A900 avec deux tiroirs NS224 et deux modules d'E/S.</block>
+  <block id="0e9ff50f94b0a9a55c9b9c4773ddccbe" category="image-alt">Câblage d'un AFF/ASA A900 avec trois tiroirs NS224 et quatre modules d'E/S.</block>
+  <block id="97f00e66a1cda314ebb07a43f08fca5b" category="image-alt">Câblage d'un AFF/ASA A900 avec quatre tiroirs NS224 et quatre modules d'E/S.</block>
+  <block id="10236a63db20e6dd5b0c0b8f3cbc1c18" category="list-text">Branchez les deux cordons d'alimentation sur les blocs d'alimentation du contrôleur, puis branchez-les sur des sources d'alimentation situées sur différents circuits.</block>
+  <block id="dba5caf7b75bcd8724abd1b1ca8827fd" category="image-alt">Schéma de connexion de l'alimentation AFF A1K AFF A70 ou AFF A90, FAS70 ou FAS90</block>
+  <block id="638f4a62fea5cc77db53abd671ddb8ef" category="example-title">Chemin de câbles vers AFF A20</block>
+  <block id="9eec124f47af3a03039f640091e3ed69" category="paragraph">Vous pouvez ajouter à chaud un tiroir NS224 à une paire HA AFF A20 lorsque du stockage supplémentaire (dans le tiroir interne) est nécessaire.</block>
+  <block id="e76cf9924a9de1dd17f1b48f3a38d0cd" category="example-title">Etagère de câbles pour AFF A30, AFF A50, AFF C30 ou AFF C60</block>
+  <block id="5820f31f30f8fc695d25c9cec1305cdb" category="paragraph">Vous pouvez ajouter à chaud jusqu'à deux tiroirs NS224 à une paire HA AFF A30, AFF C30, AFF A50 ou AFF C60 lorsque du stockage supplémentaire (sur le tiroir interne) est nécessaire.</block>
+  <block id="2b5ec68149482145f38e8592a2e4b794" category="example-title">Chemin de câbles vers ASA A20</block>
+  <block id="c84fe478157d5a5e8c65815d80aa16a6" category="paragraph">Vous pouvez ajouter à chaud un maximum d'un tiroir NS224 à une paire HA ASA A20 lorsque du stockage supplémentaire (sur le tiroir interne) est nécessaire.</block>
+  <block id="bb5cf394b2e920ea8a139221d234cd8f" category="example-title">Eclayette pour câbles vers ASA A30 ou ASA A50</block>
+  <block id="541e9b9bea8f992a6c173f0c44b17452" category="paragraph">Vous pouvez ajouter à chaud jusqu'à deux tiroirs NS224 à une paire HA ASA A30 ou A50 lorsque du stockage supplémentaire (dans le tiroir interne) est nécessaire.</block>
+  <block id="46aa3bf0a87f8519f8e9314ed7186c68" category="paragraph">Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chaud un maximum d'un tiroir NS224 à une paire haute disponibilité ASA A250 ou ASA C250.</block>
+  <block id="74259516da197cf641342dca62af2c0b" category="paragraph">La procédure de câblage d'un tiroir NS224 pour effectuer un ajout à chaud dépend de la paire haute disponibilité ASA A400 ou ASA C400.</block>
+  <block id="5a9c7ba8fea538e8bddca7cfd05765f9" category="paragraph">Le câblage des tiroirs NS224 dans une paire HA ASA A800 ou ASA C800 dépend du nombre de tiroirs à ajouter à chaud et du nombre de ports compatibles RoCE (un ou deux) utilisés sur les contrôleurs.</block>
+  <block id="6bb205a0be0fdef8b8935f61e328f79d" category="paragraph">Lorsque du stockage supplémentaire est nécessaire, vous pouvez ajouter à chaud trois tiroirs disques NS224 supplémentaires (quatre tiroirs au total) à une paire haute disponibilité ASA A900.</block>
+  <block id="74375be821a0ccfdaa2aae68f1a39391" category="list-text">Pour les systèmes AFF :</block>
+  <block id="f7e7abd6131f4502c1bda794831656d2" category="list-text">Pour les systèmes ASA :</block>
+  <block id="c1ec0f43de6728212fc94985d5f83feb" category="admonition">Si vous disposez d'une paire HA ASA A1K et que vous ajoutez un troisième tiroir à chaud et que vous installez un troisième ou quatrième module d'E/S compatible RoCE dans chaque contrôleur, le troisième tiroir n'est câblé qu'aux troisième, troisième et quatrième modules d'E/S. Vous n'avez pas besoin de recâblage des tiroirs existants.</block>
+  <block id="80e4582b9d6f2e4fef63bc13dc0ddad1" category="open-title">ASA A70 ou ASA A90</block>
+  <block id="ba8d903e745090016b0afab400d33f7c" category="open-title">ASA A800 ou ASA C800</block>
+  <block id="ade2052b1dc75cccb7fc7b0760456566" category="open-title">ASA A400 ou ASA C400</block>
+  <block id="18b75697f84707c97e051581b495caae" category="list-text">Sur le modèle ASA A400 :</block>
+  <block id="f08c247bf18a7d50e52f66010faca66f" category="list-text">Sur le ASA C400 :</block>
+  <block id="2aba7ab5e3f8f696965da4208fe4dd23" category="open-title">ASA A30 ou ASA A50</block>
 </blocks>
