@@ -1,17 +1,6 @@
----
-permalink: c30-60/chassis-replace-move-hardware.html 
-sidebar: sidebar 
-keywords: aff c30, aff c60, move hardware components, replace the chassis 
-summary: 'Remplacez le châssis de votre système AFF C30 ou AFF C60 lorsqu"une panne matérielle le requiert. Le processus de remplacement implique le retrait des contrôleurs et des unités d"alimentation, le retrait des lecteurs, l"installation du châssis de remplacement et la réinstallation des composants du châssis.' 
----
-= Remplacez le châssis - AFF C30 et AFF C60
+= Étape 1 : retirer le contrôleur
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-Remplacez le châssis de votre système AFF C30 ou AFF C60 lorsqu'une panne matérielle le requiert. Le processus de remplacement implique le retrait des contrôleurs et des unités d'alimentation, le retrait des lecteurs, l'installation du châssis de remplacement et la réinstallation des composants du châssis.
 
 
 
@@ -124,57 +113,54 @@ Si nécessaire, faites pivoter les poignées vers le haut (à côté des languet
 
 
 
-== Étape 2 : retirez les lecteurs du châssis défectueux
+== Étape 2 : retirez les modules de cache du châssis défectueux
 
-Vous devez retirer tous les lecteurs et tous les caches de lecteur du châssis défectueux afin de pouvoir les installer ultérieurement dans le châssis de remplacement.
+Vous devez retirer les modules de cache et les caches de lecteur du châssis défectueux afin de pouvoir les installer ultérieurement dans le châssis de remplacement.
 
 . Retirez délicatement le cadre de l'avant du système de stockage.
-. Retirez les lecteurs et les caches de lecteur :
+. Retirez les modules de cache et les caches de lecteur :
 +
 
-NOTE: Assurez-vous de savoir de quelle baie de lecteur chaque lecteur et cache de lecteur a été retiré car ils doivent être installés dans les mêmes baies de lecteur dans le châssis de remplacement.
+NOTE: Assurez-vous de savoir de quelle baie de lecteur chaque module de cache a été retiré car il doit être installé dans les mêmes baies de lecteur dans le châssis de remplacement.
 
 +
-image::../media/drw_nvme_drive_replace_ieops-1904.svg[Retirez le disque NVMe]
+image::../media/drw_fas50_flash_cache_module_replace_ieops-2173.svg[graphique des étapes de remplacement du module de cache fas50]
 
 +
-[cols="1,4"]
+[cols="20%,80%"]
 |===
 
 
  a| 
 image::../media/icon_round_1.png[Légende numéro 1]
  a| 
-Appuyez sur le bouton de dégagement situé sur la face d'entraînement pour ouvrir la poignée de came.
+Appuyez sur le bouton de déverrouillage situé sur la face du module de cache pour ouvrir la poignée de came.
 
 
 
  a| 
 image::../media/icon_round_2.png[Légende numéro 2]
  a| 
-Tournez la poignée de came vers le bas pour désengager l'entraînement du fond de panier central.
+Tournez la poignée de came vers le bas pour désengager le module de cache du fond de panier central.
 
 
 
  a| 
 image::../media/icon_round_3.png[Numéro de légende 3]
  a| 
-Faites glisser le lecteur hors de la baie de lecteur à l'aide de la poignée de came et en soutenant le lecteur de l'autre main.
+Faites glisser le module de cache hors de la baie de lecteur à l'aide de la poignée de came et en soutenant le module de cache de l'autre main.
 
-Lors de la dépose d'un entraînement, toujours utiliser deux mains pour soutenir son poids.
-
-
-NOTE: Les disques étant fragiles, leur manipulation est réduite pour éviter de les endommager.
+Lors de la dépose d'un module de cache, toujours utiliser deux mains pour soutenir son poids.
 
 |===
-. Mettez les lecteurs de côté sur un chariot ou une table sans électricité statique.
+. Mettez les modules de cache de côté sur un chariot ou une table sans électricité statique.
 
 
 
 
-== Étape 2 : remplacez le châssis à partir du rack d'équipement ou de l'armoire système
+== Étape 3 : remplacez le châssis à partir du rack d'équipement ou de l'armoire système
 
-Vous retirez le châssis défectueux du rack d'équipement ou de l'armoire système, installez le châssis de remplacement, installez les lecteurs, tout cache de lecteur, puis installez le cadre.
+Vous retirez le châssis défectueux du rack d'équipement ou de l'armoire système, installez le châssis de remplacement, installez les contrôleurs, installez les modules de cache et les caches de lecteur, puis installez le cadre.
 
 . Retirez les vis des points de montage du châssis défectueux.
 +
@@ -237,19 +223,19 @@ NOTE: Ne forcez pas lorsque vous faites glisser le contrôleur dans le châssis 
 
 . Recentrez le contrôleur si nécessaire, à l'exception des câbles d'alimentation.
 . Répétez ces étapes pour installer le second contrôleur dans le châssis.
-. Installez les lecteurs et les caches de lecteur que vous avez retirés du châssis défectueux dans le châssis de remplacement :
+. Installez les modules de cache et les caches de lecteur que vous avez retirés du châssis défectueux dans le châssis de remplacement :
 +
 
-NOTE: Les lecteurs et les caches de lecteur doivent être installés dans les mêmes baies de lecteur dans le châssis de remplacement.
+NOTE: Les modules de cache et les caches de lecteur doivent être installés dans les mêmes baies de lecteur du châssis de remplacement.
 
 +
-.. Avec la poignée de came en position ouverte, insérer l'entraînement à l'aide des deux mains.
-.. Poussez doucement jusqu'à ce que le lecteur s'arrête.
-.. Fermez la poignée de la came de sorte que le lecteur soit bien en place dans le fond de panier central et que la poignée s'enclenche.
+.. Avec la poignée de came en position ouverte, insérez le module de cache à deux mains.
+.. Poussez doucement jusqu'à ce que le module de cache s'arrête.
+.. Fermez la poignée de la came de sorte que le module de cache soit bien en place dans le fond de panier central et que la poignée s'enclenche.
 +
-Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur la face de l'entraînement.
+Assurez-vous de fermer lentement la poignée de came afin qu'elle s'aligne correctement sur la face du module de cache.
 
-.. Répétez la procédure pour les autres disques.
+.. Répétez la procédure pour le module de cache restant, si nécessaire.
 
 
 . Installez le panneau.
@@ -293,6 +279,3 @@ BLOC D'ALIMENTATION CC
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
-
-.Et la suite ?
-Après avoir remplacé le châssis défectueux et réinstallé les composants dans celui-ci, vous devez link:chassis-replace-complete-system-restore-rma.html["terminez le remplacement du châssis"].
