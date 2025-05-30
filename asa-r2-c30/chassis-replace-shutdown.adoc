@@ -1,0 +1,71 @@
+---
+permalink: asa-r2-c30/chassis-replace-shutdown.html 
+sidebar: sidebar 
+keywords: asa c30, shutdown the controllers 
+summary: Arrêtez les contrôleurs de votre système de stockage ASA C30 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du châssis. 
+---
+= Arrêtez les contrôleurs - ASA C30
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Arrêtez les contrôleurs de votre système de stockage ASA C30 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du châssis.
+
+Cette procédure concerne les systèmes ayant des configurations à deux nœuds. Pour plus d'informations sur l'arrêt normal lors de la maintenance d'un cluster, reportez-vous à la section https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_is_the_procedure_for_graceful_shutdown_and_power_up_of_a_storage_system_during_scheduled_power_outage["Arrêtez et mettez sous tension votre système de stockage - Guide de résolution - base de connaissances NetApp"].
+
+.Avant de commencer
+* Vérifiez que vous disposez des autorisations et des informations d'identification nécessaires :
++
+** Informations d'identification de l'administrateur local pour ONTAP.
+** Accès BMC pour chaque contrôleur.
+
+
+* Assurez-vous de disposer des outils et de l'équipement nécessaires pour le remplacement.
+* Avant de procéder à l'arrêt, vous devez :
++
+** Effectuer des opérations supplémentaires https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["vérifications de l'état du système"].
+** Mettez à niveau ONTAP vers une version recommandée pour le système.
+** Résoudre tout https://activeiq.netapp.com/["Alertes et risques liés au bien-être Active IQ"]. Notez toutes les anomalies présentes sur le système, telles que les voyants des composants du système.
+
+
+
+
+.Étapes
+. Connectez-vous au cluster via SSH ou connectez-vous à un nœud du cluster à l'aide d'un câble de console local et d'un ordinateur portable/d'une console.
+. Empêchez tous les clients/hôtes d'accéder aux données sur le système NetApp.
+. Suspendre les tâches de sauvegarde externes.
+. Si AutoSupport est activé, supprimez la création de dossiers et indiquez combien de temps le système doit rester hors ligne :
++
+`system node autosupport invoke -node * -type all -message "MAINT=2h Replace chassis"`
+
+. Identifier l'adresse SP/BMC de tous les nœuds du cluster :
++
+`system service-processor show -node * -fields address`
+
+. Quitter le cluster shell :
++
+`exit`
+
+. Connectez-vous à SP/BMC via SSH en utilisant l'adresse IP de l'un des nœuds répertoriés dans le résultat de l'étape précédente pour surveiller la progression.
++
+Si vous utilisez une console ou un ordinateur portable, connectez-vous au contrôleur à l'aide des mêmes informations d'identification d'administrateur de cluster.
+
+. Arrêtez les deux nœuds situés dans le châssis défectueux :
++
+`system node halt -node <node1>,<node2> -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true`
+
++
+
+NOTE: Pour les clusters qui utilisent SnapMirror en mode synchrone : `system node halt -node <node1>,<node2>  -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true -ignore-strict-sync-warnings true`
+
+. Entrez *y* pour chaque contrôleur du cluster lorsque vous voyez :
++
+`Warning: Are you sure you want to halt node _<node_name>_? {y|n}:`
+
+. Attendez que chaque contrôleur s'arrête et affichez l'invite DU CHARGEUR.
+
+
+.Et la suite ?
+Après avoir arrêté les contrôleurs, vous devez link:chassis-replace-move-hardware.html["remplacez le châssis"].

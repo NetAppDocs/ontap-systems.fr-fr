@@ -140,6 +140,15 @@ Les procédures de câblage suivantes indiquent comment connecter les contrôleu
 
 Pour connaître le nombre maximum de tiroirs pris en charge par votre système de stockage et pour toutes vos options de câblage, reportez-vous à link:https://hwu.netapp.com["NetApp Hardware Universe"^]la section .
 
+.Description de la tâche
+Les systèmes de stockage AFF A70 et 90 prennent en charge les étagères NS224 avec le module NSM100 ou NSM100B. Les principales différences entre les modules sont les suivantes :
+
+* Les modules d'étagère NSM100 utilisent les ports intégrés e0a et e0b.
+* Les modules d'étagère NSM100B utilisent les ports e1a et e1b dans l'emplacement 1.
+
+
+L'exemple de câblage suivant montre les modules NSM100 dans les étagères NS224 en faisant référence aux ports des modules d'étagère.
+
 [role="tabbed-block"]
 ====
 .Option 1 : un tiroir de stockage NS224

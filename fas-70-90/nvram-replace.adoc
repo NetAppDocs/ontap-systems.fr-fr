@@ -167,7 +167,7 @@ Remplacez le module NVRAM ou les modules DIMM NVRAM à l'aide de l'option approp
 Pour remplacer le module NVRAM, localisez-le dans le logement 4/5 du boîtier et suivez la séquence spécifique des étapes.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Débranchez le cordon d'alimentation des deux blocs d'alimentation.
+. Débranchez les câbles d'alimentation des blocs d'alimentation du contrôleur, puis retirez le module du contrôleur, à l'avant du système, de quelques centimètres.
 . Faites pivoter le chemin de câbles vers le bas en tirant doucement les broches situées aux extrémités du bac et en faisant pivoter le bac vers le bas.
 . Retirez le module NVRAM défectueux du boîtier :
 +
@@ -206,7 +206,7 @@ Languettes de verrouillage DIMM
 .. Faites glisser doucement le module dans son logement jusqu'à ce qu'il se trouve à fond, puis faites pivoter le loquet de la came jusqu'à ce qu'il soit verrouillé en place.
 
 
-. Réenregistrement des blocs d'alimentation.
+. Recâbler le contrôleur.
 . Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
 
 
@@ -216,7 +216,7 @@ Languettes de verrouillage DIMM
 Pour remplacer les barrettes DIMM NVRAM dans le module NVRAM, vous devez retirer le module NVRAM, puis remplacer le module DIMM cible.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Débranchez le cordon d'alimentation des deux blocs d'alimentation.
+. Débranchez les câbles d’alimentation des blocs d’alimentation, puis retirez le module de contrôleur de quelques centimètres de l’avant du système.
 . Faites pivoter le chemin de câbles vers le bas en tirant doucement les broches situées aux extrémités du bac et en faisant pivoter le bac vers le bas.
 . Retirez le module NVRAM cible du boîtier.
 +
@@ -251,7 +251,7 @@ NOTE: Consultez l'étiquette FRU map située sur le côté du module NVRAM pour 
 .. Faites glisser doucement le module dans le logement jusqu'à ce que le loquet de came commence à s'engager avec la broche de came d'E/S, puis faites tourner le loquet de came complètement vers le haut pour verrouiller le module en place.
 
 
-. Réenregistrement des blocs d'alimentation.
+. Recâbler le contrôleur.
 . Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
 
 
@@ -263,7 +263,11 @@ NOTE: Consultez l'étiquette FRU map située sur le côté du module NVRAM pour 
 
 Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
 
-. Pour démarrer ONTAP à partir de l'invite du CHARGEUR, entrez _bye_.
+. Rebranchez les câbles d’alimentation sur le bloc d’alimentation et réinstallez et verrouillez délicatement le module de contrôleur à l’avant du système.
++
+Le système commence à redémarrer, généralement à l'invite du CHARGEUR.
+
+. Entrez _bye_ à l'invite du CHARGEUR.
 . Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `_storage failover giveback -ofnode _impaired_node_name_`.
 . Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true` .
 . Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.

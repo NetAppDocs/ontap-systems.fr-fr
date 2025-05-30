@@ -13,10 +13,12 @@ Le support de démarrage se trouve à l'intérieur du module de gestion du syst�
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
 
 . Aller à l'arrière du châssis. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Débranchez l'alimentation du module de contrôleur en tirant le module de contrôleur vers l'extérieur d'environ trois pouces :
+. Débranchez les blocs d’alimentation du contrôleur.
 +
-.. Appuyez sur les deux loquets de verrouillage du module de contrôleur, puis faites pivoter les deux loquets vers le bas en même temps.
-.. Retirez le module de contrôleur d'environ 3 pouces du châssis pour le mettre hors tension.
+
+NOTE: Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
+
++
 .. Retirez tous les câbles connectés au module de gestion du système. Veillez à étiqueter l'emplacement de connexion des câbles afin de pouvoir les connecter aux ports appropriés lorsque vous réinstallez le module.
 .. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
 .. Appuyez sur le bouton de la came de gestion du système. Le levier de came s'éloigne du châssis.
@@ -109,17 +111,10 @@ Le lecteur flash USB doit avoir l'image ONTAP appropriée de ce que le contrôle
 +
 Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
 
-. Rebranchez l'alimentation au module de contrôleur :
+. Branchez les cordons d'alimentation aux blocs d'alimentation. Le contrôleur redémarre dès que l'alimentation est rétablie.
 +
-.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
-+
-Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
 
-.. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
-+
-Le contrôleur commence à démarrer dès que l'alimentation est reconnectée au système.
-
-
+NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentation aux alimentations.
 
 . Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
 +

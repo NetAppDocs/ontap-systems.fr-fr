@@ -1,0 +1,96 @@
+---
+permalink: asa-r2-c30/maintain-overview.html 
+sidebar: sidebar 
+keywords: asa c30, maintenance, maintenance 
+summary: 'Assurez la maintenance du matériel de votre système de stockage ASA C30 afin de garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, telles que le remplacement de composants défectueux, afin d"éviter les temps d"indisponibilité et les pertes de données.' 
+---
+= Présentation de la maintenance matérielle - ASA C30
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Assurez la maintenance du matériel de votre système de stockage ASA C30 afin de garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, telles que le remplacement de composants défectueux, afin d'éviter les temps d'indisponibilité et les pertes de données.
+
+Les procédures de cette section supposent que le système de stockage ASA C30 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP.
+
+
+
+== Composants du système
+
+Pour le système de stockage ASA C30, vous pouvez effectuer des procédures de maintenance sur les composants suivants.
+
+[cols="25,65"]
+|===
+
+
+ a| 
+link:bootmedia-replace-workflow-bmr.html["Support de démarrage"]
+ a| 
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP, ainsi que les informations de configuration système utilisées par le système lors du démarrage.
+
+
+
+ a| 
+link:chassis-replace-workflow.html["Châssis"]
+ a| 
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+
+
+ a| 
+link:controller-replace-workflow.html["Contrôleur"]
+ a| 
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les lecteurs et exécute le logiciel du système d'exploitation ONTAP.
+
+
+
+ a| 
+link:dimm-replace.html["DIMM"]
+ a| 
+Un module de mémoire en ligne double (DIMM) est un type de mémoire d'ordinateur. Ils sont installés pour ajouter de la mémoire système à une carte mère du contrôleur.
+
+
+
+ a| 
+link:drive-replace.html["Lecteur"]
+ a| 
+Un lecteur est un périphérique qui fournit le stockage physique nécessaire aux données.
+
+
+
+ a| 
+link:fan-replace.html["Ventilateur"]
+ a| 
+Un ventilateur refroidit le contrôleur et les entraînements.
+
+
+
+ a| 
+link:io-module-overview.html["Module d'E/S."]
+ a| 
+Le module d'E/S (module d'entrée/sortie) est un composant matériel qui sert d'intermédiaire entre le contrôleur et divers dispositifs ou systèmes qui doivent échanger des données avec le contrôleur.
+
+
+
+ a| 
+link:nvdimm-battery-replace.html["Batterie NV"]
+ a| 
+La batterie de la mémoire non volatile (NV) est chargée d'alimenter les composants NVMEM tandis que les données à la volée sont déchargées vers la mémoire Flash après une coupure de courant.
+
+
+
+ a| 
+link:power-supply-replace.html["Alimentation électrique"]
+ a| 
+Une alimentation fournit une source d'alimentation redondante dans un contrôleur.
+
+
+
+ a| 
+link:rtc-battery-replace.html["Pile de l'horloge en temps réel"]
+ a| 
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'appareil est éteint.
+
+|===

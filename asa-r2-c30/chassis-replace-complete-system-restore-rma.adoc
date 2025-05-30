@@ -1,0 +1,51 @@
+---
+permalink: asa-r2-c30/chassis-replace-complete-system-restore-rma.html 
+sidebar: sidebar 
+keywords: asa c30, verify and set HA state, complete the replacement process 
+summary: Vérifiez l’état HA du châssis, puis renvoyez la pièce défectueuse à NetApp pour terminer l’étape finale de la procédure de remplacement du châssis ASA C30. 
+---
+= Remplacement complet du châssis - ASA C30
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vérifiez l’état HA du châssis, puis renvoyez la pièce défectueuse à NetApp pour terminer l’étape finale de la procédure de remplacement du châssis ASA C30.
+
+
+
+== Étape 1 : vérifier et définir l'état de haute disponibilité du châssis
+
+Vous devez vérifier l'état HA du châssis et, si nécessaire, mettre à jour l'état pour qu'il corresponde à la configuration de votre système de stockage.
+
+. En mode Maintenance, depuis l'un ou l'autre contrôleur, afficher l'état HA du contrôleur local et du châssis :
++
+`ha-config show`
+
++
+L'état de la HA doit être le même pour tous les composants.
+
+. Si l'état système affiché pour le châssis ne correspond pas à la configuration de votre système de stockage :
++
+.. Définissez l'état haute disponibilité du châssis :
++
+`ha-config modify chassis _HA-state_`
+
++
+La valeur de l'état HA doit être _ha_. La valeur pour HA-state peut être l'une des suivantes : *** _ha_ *** _mcc_ (non pris en charge dans ASA)
+
+.. Vérifiez que le paramètre a changé :
++
+`ha-config show`
+
+
+
+. Si ce n'est pas déjà fait, recâblage du reste de votre système de stockage.
+
+
+
+
+== Étape 2 : renvoyer la pièce défectueuse à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

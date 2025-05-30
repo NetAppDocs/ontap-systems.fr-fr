@@ -314,7 +314,13 @@ Cette procédure explique comment connecter les contrôleurs à un tiroir NS224.
 
 .Description de la tâche
 * Pour connaître le nombre maximum de tiroirs pris en charge par votre système de stockage et pour toutes vos options de câblage, telles que les options optiques et connectées par commutateur, reportez-vous à link:https://hwu.netapp.com["NetApp Hardware Universe"^]la section .
-* Vous connectez chaque contrôleur à chaque module NSM100B du tiroir NS224 à l'aide des câbles de stockage fournis avec votre système de stockage. Ce câble peut être le type suivant :
+* La procédure de câblage du plateau NS224 utilise des modules NSM100B au lieu de modules NSM100. Le câblage est identique quel que soit le type de modules NSM utilisé ; seuls les noms de ports diffèrent :
++
+** Les modules NSM100B utilisent les ports e1a et e1b sur un module d'E/S dans l'emplacement 1.
+** Les modules NSM100 utilisent les ports intégrés (à bord) e0a et e0b.
+
+
+* Vous câblez chaque contrôleur à chaque module NSM sur l'étagère NS224 à l'aide des câbles de stockage fournis avec votre système de stockage, qui peuvent être du type de câble suivant :
 +
 *Câbles en cuivre QSFP28 100 GbE*
 
