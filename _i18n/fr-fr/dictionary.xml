@@ -8937,8 +8937,6 @@ SFP+ (cible/initiateur)</block>
   <block id="789b5a8a8cbbdce99d0cd8864ee0122a" category="doc">Arrêtez le contrôleur pour facultés affaiblies - FAS70 et FAS90</block>
   <block id="2902ee20441450339d3c624a2432953d" category="list-text"><block ref="402920e7db99056d01d15836c97d7e6e" category="inline-xref-macro-rx"></block></block>
   <block id="0ead7a2e2db558cfd790c55a9c76462e" category="list-text">Vérifiez que tous les autres composants fonctionnent correctement. Si ce n'est pas le cas, vous devez contacter le support technique.</block>
-  <block id="fd39955a756e9aaa81ca55b2791f9b72" category="example-title">Option 1 la plupart des systèmes</block>
-  <block id="d4373786f422d4c41e16fcb4a1e26b83" category="example-title">Option 2 Configuration MetroCluster</block>
   <block id="1cc5afe23260cb08d578b3171ed8bb0d" category="paragraph">Numéros d'emplacement des modules de cache</block>
   <block id="9c7e22c30b9aa93d97efb0ef5d7ccaa8" category="list-text">Faites pivoter la languette pour l'éloigner du module.</block>
   <block id="21c6d5df7d87902fb54560352086c7e1" category="list-text">Pincez la languette Terra Cotta en haut du module de cache et faites pivoter la poignée de came pour l'éloigner du module de cache.</block>
@@ -11249,7 +11247,6 @@ SFP+ (cible/initiateur)</block>
   <block id="35ac4e474d14cd3235380c2e767e83a3" category="paragraph">Remplacez le NVRAM de votre système FAS70 ou FAS90 lorsque la mémoire non volatile est défectueuse ou nécessite une mise à niveau. Le processus de remplacement implique l'arrêt du contrôleur défectueux, le remplacement du module NVRAM ou du module DIMM NVRAM, la réaffectation des disques et le renvoi de la pièce défectueuse à NetApp.</block>
   <block id="a7188c3f4745ef552e2d05d7b35f5f28" category="summary">Remplacez la pile RTC (Real-Time CLOCK), communément appelée pile bouton, dans votre système FAS70 ou FAS90 pour vous assurer que les services et applications reposant sur une synchronisation précise de l'heure restent opérationnels.</block>
   <block id="2ffef1288a7f6acf62a54035268660b1" category="summary">Remplacez le module de gestion du système de votre système FAS70 ou FAS90 s'il est défectueux ou si son micrologiciel est corrompu. Le processus de remplacement implique l'arrêt du contrôleur, le remplacement du module de gestion du système en panne, le redémarrage du contrôleur, la mise à jour des clés de licence et le renvoi de la pièce défectueuse à NetApp.</block>
-  <block id="5058f1af8388633f609cadb75a75dc9d" category="paragraph">.</block>
   <block id="83755d1a8b686dba4bc8143c0cb7f397" category="doc">Procédure de remplacement du support de démarrage - AFF A1K</block>
   <block id="25602a3f0e04b149a4c958bcec65c371" category="summary">Le support de démarrage de votre système AFF A1K stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de gestion du système, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement, puis le transfert de l'image ONTAP vers le support de démarrage de remplacement.</block>
   <block id="b33207f5d0f2655fdef88d9bbf915f24" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage AFF A1K pour éviter la perte de données et assurer la stabilité du système lors du remplacement du support de démarrage.</block>
@@ -11913,9 +11910,6 @@ SFP+ (cible/initiateur)</block>
   <block id="e772ad168b6f97f132982a96392cd046" category="example-title">Remplacez l'alimentation CA du NS224</block>
   <block id="0dcc8efe101bb5e6350d650ce519cbfa" category="video-title">Remplacez à chaud un bloc d'alimentation CA dans un tiroir NS224</block>
   <block id="40f990da8c57e47c36081d4d612c9817" category="list-text">Débranchez les câbles d’alimentation des blocs d’alimentation, puis retirez le module de contrôleur de quelques centimètres de l’avant du système.</block>
-  <block id="5330c5fb5d366be53452014b9ecf03a7" category="paragraph">+ .. Retirez tous les câbles connectés au module de gestion du système. Assurez-vous d'étiqueter l'emplacement de connexion des câbles afin de pouvoir les connecter aux ports appropriés lorsque vous réinstallez le module. .. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas. .. Appuyez sur le bouton CAM de gestion du système. .. Faites pivoter le loquet de came le plus loin possible. .. Retirez le module de gestion du système du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du boîtier. .. Placez le module de gestion du système sur un tapis antistatique, de manière à ce que le support de démarrage soit accessible. . Retirez le support de démarrage du module de gestion :</block>
-  <block id="42daa41b8c19102ddb14e0889d7abbb4" category="paragraph">+ image::../media/drw_a1k_boot_media_remove_replace_ieops-1377.svg[Image de remplacement du support de démarrage]</block>
-  <block id="26b17225b626fb9238849fd60eabdf60" category="paragraph">+</block>
   <block id="193d35b8a9ac476b4099d10d04a128a6" category="list-text">Remettez en place et verrouillez délicatement le module du contrôleur à l’avant du système.</block>
   <block id="c65e5ab2ccd40a14e7dbaad19aa0c504" category="list-text">Débranchez les câbles d'alimentation des blocs d'alimentation du contrôleur, puis retirez le module du contrôleur, à l'avant du système, de quelques centimètres.</block>
   <block id="2a111f85cafe27d96d705414a1545f34" category="list-text">Rebranchez les câbles d’alimentation sur le bloc d’alimentation et réinstallez et verrouillez délicatement le module de contrôleur à l’avant du système.</block>
@@ -11926,7 +11920,6 @@ SFP+ (cible/initiateur)</block>
   <block id="b4f9b4ed219fb6f91477aff5ebef3453" category="admonition">Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentation aux alimentations.</block>
   <block id="4efb9ea6af03bf03e0cdc2a4164ea43c" category="list-text">Branchez le câble de la console dans le port console du module de contrôleur de remplacement et reconnectez-le à l'ordinateur portable de manière à recevoir les messages de la console lorsqu'il redémarre.</block>
   <block id="fde22c7ade0121628e0502770ed5326e" category="list-text">Branchez les alimentations. Le contrôleur démarre à l'invite LOADER dès que l'alimentation est rétablie.</block>
-  <block id="ea1ad38d91c2e87ef2e9571bd55654fd" category="list-text">ONTAP 9.17.1</block>
   <block id="14a1b02d9ac34f22a362671d392a3852" category="list-text">ASA C30</block>
   <block id="ed57089257c5bf0e9855c2abce5e2f2c" category="paragraph">Les systèmes de stockage AFF A1K prennent en charge les étagères NS224 avec le module NSM100 ou NSM100B. Les principales différences entre les modules sont les suivantes :</block>
   <block id="bee9bdef55e93399a97d85b3925cfca2" category="list-text">Les modules d'étagère NSM100 utilisent les ports intégrés e0a et e0b.</block>
@@ -12019,4 +12012,9 @@ SFP+ (cible/initiateur)</block>
   <block id="b4a3b44dc7350cb88f59a4a2eb7dda1d" category="sidebar">Châssis ASA C30</block>
   <block id="cb330090f109eb2fa5d8e0cb697b8627" category="sidebar">Module de contrôleur ASA C30</block>
   <block id="d6cf13e3e73df787bea3a13aaa745efd" category="sidebar">Module d'E/S ASA C30</block>
+  <block id="8acf9575f7f79494b7321c6428846a4b" category="paragraph">Remplacez le support de démarrage.</block>
+  <block id="8fdc5ec3ff56b023a707d257557cb7c1" category="paragraph">Les systèmes de stockage FAS70 et FAS90 prennent en charge les étagères DS212C, DS224C, DS460C et NS224 avec le module NSM100 ou NSM100B.</block>
+  <block id="cb1d7f2de7963108d3fe1b590a415523" category="paragraph">Les principales différences entre les modules NS224 sont :</block>
+  <block id="a1c52b2edb23bc93318c0b82dc9baead" category="paragraph">L'exemple de câblage NS224 suivant montre les modules NSM100 dans les étagères NS224 en faisant référence aux ports des modules d'étagère.</block>
+  <block id="29cc4b807f94b06bddae2e11c6a56c1e" category="paragraph">La clé USB doit avoir la même version d'image de service (BIOS) que celle exécutée par le contrôleur défectueux.</block>
 </blocks>

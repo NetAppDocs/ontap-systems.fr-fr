@@ -142,6 +142,17 @@ Pour connaître le nombre maximum de tiroirs pris en charge par votre système d
 
 Pour obtenir des conseils supplémentaires sur le câblage des tiroirs SAS, reportez-vous à la section link:https://docs.netapp.com/us-en/ontap-systems/sas3/install-cabling-rules.html["Règles et concepts de câblage SAS - tiroirs avec modules IOM12/IOM12B"].
 
+.Description de la tâche
+Les systèmes de stockage FAS70 et FAS90 prennent en charge les étagères DS212C, DS224C, DS460C et NS224 avec le module NSM100 ou NSM100B.
+
+Les principales différences entre les modules NS224 sont :
+
+* Les modules d'étagère NSM100 utilisent les ports intégrés e0a et e0b.
+* Les modules d'étagère NSM100B utilisent les ports e1a et e1b dans l'emplacement 1.
+
+
+L'exemple de câblage NS224 suivant montre les modules NSM100 dans les étagères NS224 en faisant référence aux ports des modules d'étagère.
+
 [role="tabbed-block"]
 ====
 .Option 1 : un tiroir de stockage NS224

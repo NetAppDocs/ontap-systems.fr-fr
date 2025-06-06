@@ -16,7 +16,7 @@ Pour remplacer le support de démarrage, vous devez retirer le module de contrô
 
 == Étape 1 : retirer le module de contrôleur
 
-[role="lead"]
+.Étapes
 Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -48,8 +48,6 @@ Bouton de déverrouillage du capot du module de contrôleur
 
 Localisez le support de démarrage dans le module de contrôleur, situé sous la carte mezzanine et suivez les instructions pour le remplacer.
 
-.Animation : remplacez le support de démarrage
-video::10a29a01-a86e-451c-b05a-af4701726f57[panopto]
 image:../media/drw_2850_replace_boot_media_IEOPS-696.svg["Remplacez le support de démarrage"]
 
 [cols="1,2"]
@@ -126,19 +124,10 @@ Voir https://kb.netapp.com/onprem/ontap/os/Which_ONTAP_image_should_I_download%3
 NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas WinZip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
 
 +
-Le fichier image du service décompressé contient deux dossiers :
+La clé USB doit avoir la même version d'image de service (BIOS) que celle exécutée par le contrôleur défectueux.
 
 +
-** `boot`
-** `efi`
-+
-... Copiez le `efi` Dossier dans le répertoire supérieur de la clé USB.
-+
-Le lecteur flash USB doit avoir le dossier efi et la même version BIOS (Service image) de ce que le contrôleur douteux est en cours d'exécution.
-
-... Retirez la clé USB de votre ordinateur portable.
-
-
+.. Retirez la clé USB de votre ordinateur portable.
 
 
 . Installez le module de contrôleur :
