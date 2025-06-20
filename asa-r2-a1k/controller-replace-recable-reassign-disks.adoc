@@ -11,7 +11,7 @@ summary: Replacez le contrôle des ressources de stockage sur le contrôleur de 
 
 
 [role="lead"]
-Replacez le contrôle des ressources de stockage sur le contrôleur de remplacement afin que votre système ASA A1K puisse reprendre son fonctionnement normal. La procédure de retour à zéro varie en fonction du type de chiffrement utilisé par votre système : pas de chiffrement, chiffrement OKM (Onboard Key Manager) ou chiffrement EKM (External Key Manager).
+Replacez le contrôle des ressources de stockage sur le contrôleur de remplacement afin que votre système ASA A1K puisse reprendre son fonctionnement normal. La procédure de restitution varie en fonction du type de cryptage utilisé par votre système : aucun cryptage ou cryptage Onboard Key Manager (OKM).
 
 [role="tabbed-block"]
 ====
@@ -72,53 +72,6 @@ Si le résultat affiche des résultats (les ID de clé des clés qui ne sont pas
 
 
 
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
-. Si le rétablissement automatique a été désactivé, le réactiver : `storage failover modify -node local -auto-giveback _true_`
-. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
-
-
---
-.Gestionnaire de clés externe (EKM)
---
-Réinitialisez le cryptage et faites revenir le contrôleur en mode de fonctionnement normal.
-
-.Étapes
-. Si le volume racine est chiffré avec External Key Manager et que le câble de la console est connecté au nœud de remplacement, entrez `boot_ontap menu` et sélectionnez option `11`.
-. Si ces questions apparaissent, répondez ou `n`, `y` le cas échéant :
-+
-Disposez-vous d'une copie du fichier /cfcard/kmip/certs/client.crt ? {y/n}
-
-+
-Possédez-vous une copie du fichier /cfcard/kmip/certs/client.key ? {y/n}
-
-+
-Possédez-vous une copie du fichier /cfcard/kmip/certs/CA.pem ? {y/n}
-
-+
-Possédez-vous une copie du fichier /cfcard/kmip/servers.cfg ? {y/n}
-
-+
-Connaissez-vous l'adresse du serveur KMIP ? {y/n}
-
-+
-Connaissez-vous le port KMIP ? {y/n}
-
-+
-
-NOTE: Contactez https://support.netapp.com["Support NetApp"] en cas de problème.
-
-. Fournir les informations pour :
-+
-** Contenu du fichier de certificat client (client.crt)
-** Le contenu du fichier de clé client (client.key)
-** Contenu du fichier CA.pem (CA.pem) du serveur KMIP
-** Adresse IP du serveur KMIP
-** Port du serveur KMIP
-
-
-. Une fois le processus terminé, le menu de démarrage s'affiche. Sélectionnez « 1 » pour un démarrage normal.
-. Vérifier le statut du basculement : `storage failover show`
-. Assurez-vous que tous les « core dumps » sur le nœud réparé sont enregistrés en mode avancé, puis `run local partner nosavecore` en `set -privilege advanced` .
 . Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
 . Si le rétablissement automatique a été désactivé, le réactiver : `storage failover modify -node local -auto-giveback _true_`
 . Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`

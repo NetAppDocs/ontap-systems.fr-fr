@@ -233,17 +233,18 @@ Switchs réseau de l'hôte
 
 image::../media/oie_cable_pull_tab_down.png[Direction de la languette d'extraction]
 
+Vous pouvez utiliser l'animation applicable ou les étapes détaillées du tableau pour câbler vos contrôleurs à votre réseau.
+
+.Animation - câblage d'un câblage de cluster sans commutateur à deux nœuds
+video::90577508-fa79-46cf-b18a-afe8016325af[panopto]
+.Animation - câblage commuté du cluster
+video::6553a3db-57dd-4247-b34a-afe8016315d4[panopto]
 [role="tabbed-block"]
 ====
 .Option 1 : câler un cluster à deux nœuds sans commutateur
 --
 Reliez les connexions réseau et les ports d'interconnexion de cluster à un cluster sans commutateur à deux nœuds.
 
-.Description de la tâche
-Utilisez l'animation ou les instructions détaillées pour effectuer le câblage entre les contrôleurs et les commutateurs.
-
-.Animation - câblage d'un câblage de cluster sans commutateur à deux nœuds
-video::90577508-fa79-46cf-b18a-afe8016325af[panopto]
 .Étapes
 . Reliez les ports d'interconnexion de cluster e0a à e0a et e0b à e0b à l'aide du câble d'interconnexion de cluster :
 +
@@ -320,11 +321,6 @@ IMPORTANT: NE branchez PAS les cordons d'alimentation.
 --
 Reliez les connexions réseau et les ports d'interconnexion de cluster à un cluster commuté.
 
-.Description de la tâche
-Utilisez l'animation ou les instructions détaillées pour effectuer le câblage entre les contrôleurs et les commutateurs.
-
-.Animation - câblage commuté du cluster
-video::6553a3db-57dd-4247-b34a-afe8016315d4[panopto]
 .Étapes
 . Reliez les ports d'interconnexion de cluster e0a à e0a et e0b à e0b à l'aide du câble d'interconnexion de cluster :
 +
@@ -446,31 +442,29 @@ video::b2a7549d-8141-47dc-9e20-afe8016f4386[panopto]
 .. Du port 1 de l'IOM A au port 3 de l'IOM A sur le shelf directement en dessous.
 .. Du port 1 de l'IOM B au port 3 de l'IOM B sur le shelf directement en dessous.
 +
-image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Connecteur mini-SAS vers mini-SAS]
+image::../media/drw_2800_shelf-to-shelf_cabling_IEOPS-895.svg[Câblage d'étagère à étagère]
 
 
 
+. Reliez le contrôleur A aux tiroirs disques.
++
+.. Contrôleur A du port 0a à IOM B du port 1 sur le premier tiroir disque de la pile.
+.. Du port 0b1 du contrôleur A au port 3 du module d'E/S Sur le dernier tiroir disque de la pile.
++
+image::../media/dwr-2800_controller1-to shelves_IEOPS-896.svg[Connexion du contrôleur A à l'étagère]
 
 
-*Câbles HD mini-SAS vers mini-SAS*
 
-+ image ::../media/drw_2800_shelf-to-shelf_Cabling_IEOPS-895.svg[câblage tiroir à tiroir]
+. Connectez le contrôleur B aux tiroirs disques.
++
+.. Contrôleur B du port 0a à IOM A port 1 sur le premier tiroir disque de la pile.
+.. Du port 0b1 du contrôleur B au port 3 du module d'E/S B du dernier tiroir disque de la pile.
 
-+ . Reliez le contrôleur A aux tiroirs disques. .. Contrôleur A du port 0a à IOM B du port 1 sur le premier tiroir disque de la pile. .. Du port 0b1 du contrôleur A au port 3 du module d'E/S Sur le dernier tiroir disque de la pile.
 
-+ image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Mini-SAS vers mini-connecteur SAS]
++
+image::../media/dwr-2800_controller2-to shelves_IEOPS-897.svg[Connexion du contrôleur B à l'étagère]
 
-*Câbles HD mini-SAS vers mini-SAS*
 
-+ image::../media/dwr-2800_controler1-to shelfs_IEOPS-896.svg[connexion contrôleur A à tiroir]
-
-+ . Connectez le contrôleur B aux tiroirs disques. .. Contrôleur B du port 0a à IOM A port 1 sur le premier tiroir disque de la pile. .. Du port 0b1 du contrôleur B au port 3 du module d'E/S B du dernier tiroir disque de la pile.
-
-+ image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Mini-SAS vers mini-connecteur SAS]
-
-*Câbles HD mini-SAS vers mini-SAS*
-
-+ image::../media/dwr-2800_controler2-to shelfs_IEOPS-897.svg[connexion contrôleur B au tiroir]
 
 
 
@@ -478,6 +472,10 @@ image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Connecteur mini-SAS ver
 
 Terminez l'installation et la configuration de votre système de stockage en utilisant l'option 1 : si la détection du réseau est activée ou l'option 2 : si la détection du réseau n'est pas activée.
 
+Utilisez l'animation suivante dans l'une ou l'autre des options où la définition de l'ID d'étagère est requise :
+
+.Animation : définissez les ID de tiroir disque
+video::c600f366-4d30-481a-89d9-ab1b0066589b[panopto]
 [role="tabbed-block"]
 ====
 .Option 1 : si la détection réseau est activée
@@ -485,10 +483,7 @@ Terminez l'installation et la configuration de votre système de stockage en uti
 Si la détection de réseau est activée sur votre ordinateur portable, effectuez la configuration et la configuration du système de stockage à l'aide de la détection automatique de cluster.
 
 .Étapes
-. Utilisez l'animation suivante pour mettre sous tension et définir les ID de tiroir.
-+
-.Animation : définissez les ID de tiroir disque
-video::c600f366-4d30-481a-89d9-ab1b0066589b[panopto]
+. Allumez l’alimentation de l’étagère et définissez les identifiants d’étagère à l’aide de l’animation au début de cette étape.
 . Mettez les contrôleurs sous tension
 +
 .. Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
@@ -560,10 +555,7 @@ image::../media/drw_2800_laptop_to_switch_to_controller_IEOPS-1084.svg[Connexion
 .. Attribuez une adresse TCP/IP à l'ordinateur portable ou à la console à l'aide d'une adresse située sur le sous-réseau de gestion.
 
 
-. Utilisez l'animation suivante pour définir un ou plusieurs ID de tiroir disque :
-+
-.Animation : définissez les ID de tiroir disque
-video::c600f366-4d30-481a-89d9-ab1b0066589b[panopto]
+. Allumez l’alimentation de l’étagère et définissez les identifiants d’étagère à l’aide de l’animation au début de cette étape.
 . Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
 . Mettez les boutons marche/arrêt sur les deux nœuds.
 +

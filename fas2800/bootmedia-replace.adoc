@@ -10,7 +10,8 @@ summary: Vous devez localiser le support de démarrage dans le contrôleur et su
 :imagesdir: ../media/
 
 
-Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
+[role="lead"]
+Vous devez retirer et ouvrir le module de contrôleur défectueux, localiser et remplacer le support de démarrage dans le contrôleur, transférer l'image de démarrage sur une clé USB, insérer la clé USB dans le contrôleur, puis démarrer le contrôleur.
 
 
 
@@ -118,18 +119,7 @@ Voir https://kb.netapp.com/onprem/ontap/os/Which_ONTAP_image_should_I_download%3
 
 
 
-. Décompressez l'image téléchargée.
-+
-
-NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas WinZip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
-
-+
-La clé USB doit avoir la même version d'image de service (BIOS) que celle exécutée par le contrôleur défectueux.
-
-+
-.. Retirez la clé USB de votre ordinateur portable.
-
-
+. Retirez la clé USB de votre ordinateur portable.
 . Installez le module de contrôleur :
 +
 .. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
@@ -145,14 +135,9 @@ Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour p
 
 . Poussez le module de contrôleur complètement dans le système, en vous assurant que la poignée de came se dégage du lecteur flash USB, appuyez fermement sur la poignée de came pour terminer l'installation du module de contrôleur, poussez la poignée de came en position fermée, puis serrez la vis moletée.
 +
-Le contrôleur commence à démarrer dès qu'il est entièrement installé dans le châssis.
-
-. Interrompez le processus de démarrage pour qu'il s'arrête à l'invite DU CHARGEUR en appuyant sur Ctrl-C lorsque vous voyez démarrer L'AUTOBOOT, appuyez sur Ctrl-C pour annuler
-+
-Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
-
-. Pour les systèmes équipés d'un contrôleur dans le châssis, reconnectez les blocs d'alimentation et mettez les blocs d'alimentation sous tension.
-+
-Le système commence à démarrer et s'arrête à l'invite DU CHARGEUR.
+Le contrôleur commence à démarrer dès qu'il est complètement installé dans le châssis et s'arrête à l'invite LOADER.
 
 
+
+.Et la suite ?
+Après avoir remplacé le support de démarrage, vous devez link:bootmedia-recovery-image-boot.html["démarrez l'image de récupération"].
