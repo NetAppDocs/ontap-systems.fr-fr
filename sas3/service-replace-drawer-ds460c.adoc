@@ -11,7 +11,7 @@ summary: 'Pour remplacer un tiroir disque, vous devez arrêter l"intégralité d
 
 
 [role="lead"]
-Pour remplacer un tiroir disque, vous devez arrêter l'intégralité du système de stockage (paire haute disponibilité), qui permet de conserver les agrégats de données sur le tiroir ou de maintenir le fonctionnement de la paire haute disponibilité. pour ce faire, vous devez déplacer toutes les données depuis les agrégats de données résidant sur les disques, ainsi que hors ligne et supprimer les agrégats de données. Cependant, si le tiroir contient un agrégat racine, vous devez arrêter la paire haute disponibilité.
+Pour remplacer un tiroir de disque dur dans une étagère, vous pouvez arrêter l'ensemble du système de stockage (paire HA), ce qui vous permet de conserver les agrégats de données sur l'étagère. Vous pouvez également maintenir la paire HA opérationnelle, ce qui nécessite de déplacer toutes les données des agrégats de données sur les disques de l'étagère, puis de les mettre hors ligne et de les supprimer. Si l'étagère contient un agrégat racine, vous devez arrêter la paire HA.
 
 .Avant de commencer
 Vous avez besoin de ces éléments pour cette procédure :
@@ -61,7 +61,7 @@ image::../media/dcm2.png[Vue avant d'un tiroir disque DCM2]
 
 Avant de remplacer un tiroir disque, veillez à mettre à jour le firmware IOM12 si nécessaire, puis à arrêter la paire HA qui permet de conserver les agrégats de données sur le tiroir. Vous pouvez également continuer à utiliser la paire HA, pour ce faire, vous devez déplacer toutes les données depuis les agrégats de données résidant sur les disques, ainsi que hors ligne et supprimer les agrégats de données. Cependant, si le tiroir contient un agrégat racine, vous devez arrêter la paire haute disponibilité. Enfin, vous devez mettre le shelf hors tension.
 
-.étapes
+.Étapes
 . Déterminez si vous remplacez le tiroir disque défectueux, le tiroir se combinant des modules IOM12 et des tiroirs disques DCM2.
 . Si le tiroir est doté d'une combinaison de modules IOM12 et d'un certain nombre de tiroirs de lecteur DCM2, vous devez mettre à niveau le micrologiciel IOM12 vers la version 0300 ou ultérieure ; sinon, passez à l'étape suivante.
 +
@@ -88,7 +88,7 @@ NOTE: Les agrégats de données peuvent rester dans le tiroir lors de l'arrêt d
 NOTE: Pour remplacer un tiroir par des agrégats du tiroir disque, le système risque de perturbation après plusieurs disques.
 
 +
-.. Déplacez toutes les données depuis les agrégats de données résidant sur les disques.
+.. Déplacez toutes les données des agrégats de données situés sur tous les lecteurs de disque de l'étagère.
 +
 Les données incluent, sans s'y limiter, les volumes et les LUN.
 

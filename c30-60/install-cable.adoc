@@ -17,10 +17,6 @@ Après avoir installé le matériel du système de stockage AFF C30 ou AFF C60, 
 Pour plus d'informations sur la connexion du système de stockage aux commutateurs réseau, contactez votre administrateur réseau.
 
 .Description de la tâche
-* Les procédures de câblage du réseau hôte/cluster/haute disponibilité présentent les configurations courantes.
-+
-Si votre configuration ne s'affiche pas ici, reportez-vous à  la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir des informations complètes sur la configuration et la priorité des connecteurs afin de connecter le câble de votre système de stockage.
-
 * Les graphiques de câblage sont dotés d'icônes de flèche indiquant l'orientation correcte (vers le haut ou vers le bas) de la languette du connecteur de câble lors de l'insertion d'un connecteur dans un port.
 +
 Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
@@ -35,8 +31,15 @@ image:../media/drw_cable_pull_tab_direction_ieops-1699.svg["Direction de la lang
 
 == Étape 1 : câblez les connexions du cluster/haute disponibilité
 
-Reliez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
+Créez les connexions du cluster ONTAP. Dans le cas de clusters sans commutateur, connectez les contrôleurs les uns aux autres. Pour les clusters commutés, connectez les contrôleurs aux commutateurs de réseau du cluster.
 
+[NOTE]
+====
+Les exemples de câblage cluster/HA montrent des configurations courantes.
+
+Si votre configuration ne s'affiche pas ici, reportez-vous à  la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir des informations complètes sur la configuration et la priorité des connecteurs afin de connecter le câble de votre système de stockage.
+
+====
 [role="tabbed-block"]
 ====
 .Câblage switchless cluster Cabling
@@ -168,6 +171,13 @@ image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[R
 
 Reliez les contrôleurs à votre réseau hôte Ethernet ou FC.
 
+[NOTE]
+====
+Les exemples de câblage du réseau hôte montrent des configurations courantes.
+
+Si votre configuration ne s'affiche pas ici, reportez-vous à  la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir des informations complètes sur la configuration et la priorité des connecteurs afin de connecter le câble de votre système de stockage.
+
+====
 [role="tabbed-block"]
 ====
 .Câblage hôte Ethernet

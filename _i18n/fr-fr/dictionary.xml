@@ -4513,7 +4513,6 @@
   <block id="319d072de0a7eb80654d8506bc74de47" category="paragraph">Les tiroirs d'entraînement DCM2 se distinguent par une bande bleue et une étiquette « DCM2 » :</block>
   <block id="d5240bafd6bf54bcb59e9a9f899b324e" category="section-title">Préparez-vous à remplacer un tiroir</block>
   <block id="38cd7f0eca6a82b183b0f9dc3599583a" category="paragraph">Avant de remplacer un tiroir disque, veillez à mettre à jour le firmware IOM12 si nécessaire, puis à arrêter la paire HA qui permet de conserver les agrégats de données sur le tiroir. Vous pouvez également continuer à utiliser la paire HA, pour ce faire, vous devez déplacer toutes les données depuis les agrégats de données résidant sur les disques, ainsi que hors ligne et supprimer les agrégats de données. Cependant, si le tiroir contient un agrégat racine, vous devez arrêter la paire haute disponibilité. Enfin, vous devez mettre le shelf hors tension.</block>
-  <block id="fca3ffea6534176432f58b5a22ed22e1" category="list-title">étapes</block>
   <block id="f1d6fcc8467c66247fc38fc5bb1e448c" category="list-text">Déterminez si vous remplacez le tiroir disque défectueux, le tiroir se combinant des modules IOM12 et des tiroirs disques DCM2.</block>
   <block id="bb92ef0e860f1f3c67a9c3a453b2781c" category="list-text">Si le tiroir est doté d'une combinaison de modules IOM12 et d'un certain nombre de tiroirs de lecteur DCM2, vous devez mettre à niveau le micrologiciel IOM12 vers la version 0300 ou ultérieure ; sinon, passez à l'étape suivante.</block>
   <block id="62f67af3803932031f11d177b5600361" category="list-text">Si le tiroir contient l'agrégat racine d'un des contrôleurs de la paire HA, ou si vous choisissez d'arrêter la paire HA (au lieu de maintenir la paire HA en service), procédez comme suit ; dans le cas contraire, passez à l'étape suivante.</block>
@@ -4524,7 +4523,6 @@
   <block id="4bd0b0c2b519de54df41bc77088d8182" category="list-text">Aller à la section, <block ref="f9b764c55080d7cf77ed91e890c43565" category="inline-xref-macro-rx"></block>.</block>
   <block id="eb1a8e53bca0fcb026633a23b562bfff" category="list-text">Si vous choisissez de maintenir le fonctionnement de la paire HA, procédez comme suit :</block>
   <block id="1aea84d8e76217145d77f4dd7efe6f8f" category="admonition">Pour remplacer un tiroir par des agrégats du tiroir disque, le système risque de perturbation après plusieurs disques.</block>
-  <block id="ea0b163daac6d7d1dbcf0110733b7a5c" category="list-text">Déplacez toutes les données depuis les agrégats de données résidant sur les disques.</block>
   <block id="a3285b442e65f70add01ba5f44551d15" category="paragraph">Les données incluent, sans s'y limiter, les volumes et les LUN.</block>
   <block id="cf798cab97b54ad5fe43c91a959754ca" category="list-text">Déprocédez et supprimez les agrégats pour que les disques puissent devenir des disques de secours :</block>
   <block id="19613506a0ea4d74ae9e654ba0e170e6" category="paragraph">Il est possible de saisir des commandes depuis le clustershell de n'importe quel contrôleur.</block>
@@ -10073,7 +10071,6 @@ SFP+ (cible/initiateur)</block>
   <block id="d16a227aab66041a81c6f88b290eb486" category="section-title">Étape 1 : câblez les connexions du cluster/haute disponibilité</block>
   <block id="134e0586a0879fa097abfb47d5e64dbe" category="open-title">Câblage switchless cluster Cabling</block>
   <block id="ee68cf12a16ca46d58bedd8cf9051f32" category="example-title">AFF A30 ou AFF A50 avec deux modules d'E/S 40/100 GbE à 2 ports</block>
-  <block id="1de8dab1beab3d5ee0495c66a3c814b7" category="paragraph">Reliez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.</block>
   <block id="a8d16746fb80901317600cba36862a10" category="list-text">Reliez les connexions d'interconnexion cluster/haute disponibilité :</block>
   <block id="6780657f10ef4bbe5e784f3b1e7777e3" category="admonition">Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur les modules d'E/S des connecteurs 2 et 4). Les ports sont 40/100 GbE.</block>
   <block id="efe3bfda2c730f42fd2741bc4722e6f0" category="list-text">Reliez le port e2a du contrôleur A au port e2a du contrôleur B.</block>
@@ -10544,7 +10541,6 @@ SFP+ (cible/initiateur)</block>
   <block id="b3fb7cc55fec6d7df9078e2ee7739718" category="paragraph">Lorsqu'il est correctement inséré, le module DIMM s'insère facilement, mais s'insère fermement dans le logement. Si ce n'est pas le cas, réinsérez le module DIMM.</block>
   <block id="7e08ee4b466dc677d31c40c8b0488339" category="list-text">Vérifiez visuellement le module DIMM pour vous assurer qu'il est bien aligné et entièrement inséré dans le logement.</block>
   <block id="34f650ca44fabe66ff7e4095a137da22" category="list-text">Assurez-vous que tous les autres composants du système de stockage fonctionnent correctement. Si ce n'est pas le cas, contactez<block ref="eb2c61027d5e6c8b35692c1e74187026" category="inline-link-rx"></block> avant de continuer. »</block>
-  <block id="54d890bf92693607c99bccb67f9933f5" category="paragraph">Reliez les contrôleurs au cluster ONTAP en créant des connexions.</block>
   <block id="d48b3cfe096b47bcb7f13e683c934beb" category="paragraph">Reliez les contrôleurs à votre réseau hôte Ethernet ou FC.</block>
   <block id="bb8661c49545cac68358046e25b8f950" category="open-title">Câblage hôte Ethernet</block>
   <block id="3c90cea8d34e6c024dcfcf7fbe2bc396" category="example-title">AFF A20, A30 ou AFF A50 avec un module d'E/S 10/25 GbE à 4 ports</block>
@@ -11729,7 +11725,6 @@ SFP+ (cible/initiateur)</block>
   <block id="db424e93139f05b40145c02ca1496dab" category="image-alt">Remplacez la pile NVDIMM</block>
   <block id="f01c12d2b181f3fa692e46f31483240d" category="list-text">Assurez-vous que les broches de guidage de l'armoire ou du rack de télécommunications sont bien en place dans les fentes du guide du châssis.</block>
   <block id="0ce45b8799d32fa93b50aed5301e827b" category="list-text">Contrôleur 2, port 0b vers le port B IOM 3 sur le dernier tiroir de disque de la pile. + <block ref="065babb6c425d208f17452adf684f6f8" category="inline-image-macro-rx" type="image"></block>câbles HD mini-SAS vers mini-SAS HD</block>
-  <block id="ce48b5f9c255c35e0431b311322885fc" category="list-text">Les procédures de câblage du réseau hôte/cluster/haute disponibilité présentent les configurations courantes.</block>
   <block id="11695514a878032b3fb5ecdf5e659b5b" category="paragraph">Si votre configuration ne s'affiche pas ici, reportez-vous à  la section <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> pour obtenir des informations complètes sur la configuration et la priorité des connecteurs afin de connecter le câble de votre système de stockage.</block>
   <block id="2e169c8e6f4cc1f6315545b46d7284a2" category="inline-image-macro">Câble fc de 64 Go</block>
   <block id="0bf370304560205688213d22ba637c07" category="paragraph"><block ref="0bf370304560205688213d22ba637c07" category="inline-image-macro-rx" type="image"></block></block>
@@ -12021,4 +12016,15 @@ SFP+ (cible/initiateur)</block>
   <block id="bcbe9ce5b2d50ad0b254f40cda6fc7e1" category="image-alt">Mise sous tension et définition de l'ID de l'étagère</block>
   <block id="43f978a7787080590a53cc2abdd637c9" category="image-alt">Remplacer le module LED</block>
   <block id="a54c219a955221bc0586ab22f8a07401" category="image-alt">Remplacer la batterie RTC</block>
+  <block id="14d4a75ecbe13082ebd840dc7d091f2c" category="section-title">Étape 4 : installer les contrôleurs et les lecteurs</block>
+  <block id="7aa6db479f57ead7ac39225f410bdf2d" category="paragraph">Installez les contrôleurs et les lecteurs dans le châssis de remplacement et redémarrez les contrôleurs.</block>
+  <block id="3dbc14ba753f9b6deb52fc17f8c85cec" category="paragraph">Remplacer le châssis de votre système AFF A20, AFF A30 ou AFF A50 en cas de défaillance matérielle. Le processus de remplacement implique le retrait des contrôleurs, le retrait des lecteurs, l'installation du châssis de remplacement et la réinstallation des composants du châssis.</block>
+  <block id="fde22ae5f3a1cc39c61853ffe9a68675" category="paragraph">Créez les connexions du cluster ONTAP. Dans le cas de clusters sans commutateur, connectez les contrôleurs les uns aux autres. Pour les clusters commutés, connectez les contrôleurs aux commutateurs de réseau du cluster.</block>
+  <block id="4a1975a1a386f2f3f28c4859f5ea4976" category="paragraph">Les exemples de câblage cluster/HA montrent des configurations courantes.</block>
+  <block id="8c3a29fca49d6a772e0a2f8ab6ab7280" category="paragraph">Les exemples de câblage du réseau hôte montrent des configurations courantes.</block>
+  <block id="6ce95ae69a1e0ed801b4369491228162" category="paragraph">Remplacer le châssis de votre système ASA A20, ASA A30 ou ASA A50 en cas de défaillance matérielle. Le processus de remplacement implique le retrait des contrôleurs, le retrait des lecteurs, l'installation du châssis de remplacement et la réinstallation des composants du châssis.</block>
+  <block id="d756679882bcf80d5a80fd42020d0f25" category="paragraph">Remplacez le châssis de votre système de stockage ASA C30 lorsqu'une panne matérielle l'exige. Le processus de remplacement implique le retrait des contrôleurs, le retrait des lecteurs, l'installation du châssis de remplacement et la réinstallation des composants du châssis.</block>
+  <block id="72dc238e73081e826d88e29df24b4c58" category="paragraph">Remplacez le châssis de votre système AFF C30 ou AFF C60 lorsqu'une panne matérielle le requiert. Le processus de remplacement implique le retrait des contrôleurs, le retrait des lecteurs, l'installation du châssis de remplacement et la réinstallation des composants du châssis.</block>
+  <block id="149eed3e03e259c4e52b1de45a4fe3e9" category="paragraph">Pour remplacer un tiroir de disque dur dans une étagère, vous pouvez arrêter l'ensemble du système de stockage (paire HA), ce qui vous permet de conserver les agrégats de données sur l'étagère. Vous pouvez également maintenir la paire HA opérationnelle, ce qui nécessite de déplacer toutes les données des agrégats de données sur les disques de l'étagère, puis de les mettre hors ligne et de les supprimer. Si l'étagère contient un agrégat racine, vous devez arrêter la paire HA.</block>
+  <block id="12e16a41f9ae5c97288e4e9e78b0bbf6" category="list-text">Déplacez toutes les données des agrégats de données situés sur tous les lecteurs de disque de l'étagère.</block>
 </blocks>
