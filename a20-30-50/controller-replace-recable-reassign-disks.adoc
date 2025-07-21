@@ -51,8 +51,8 @@ NOTE: Vous êtes invité à saisir deux fois la phrase de passe.
 . Déplacez le câble de la console vers le nœud partenaire et connectez-vous en tant que `admin`.
 . Ne donner que les agrégats CFO (l'agrégat racine) : `storage failover giveback -fromnode local -only-cfo-aggregates _true_`
 +
-** Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
 
+NOTE: Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
 
 . Attendez 5 minutes après la fin du rapport de rétablissement et vérifiez l'état du basculement et du rétablissement : `storage failover show` et `storage failover show-giveback`.
 . Synchroniser et vérifier l'état des clés :

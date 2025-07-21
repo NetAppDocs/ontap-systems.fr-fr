@@ -401,6 +401,18 @@ BLOC D'ALIMENTATION CC
 
 
 |===
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Restaurez le rétablissement automatique à partir de la console du contrôleur sain :
++
+`storage failover modify -node local -auto-giveback true`
+
+. Si AutoSupport est activé, restaurez (annulez la suppression) de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
 
 
 
@@ -412,21 +424,31 @@ NOTE: Après le remplacement de la batterie RTC, l'insertion du contrôleur et l
 `RTC date/time error. Reset date/time to default`
 `RTC power failure error` ces messages sont attendus et vous pouvez poursuivre cette procédure.
 
-. Sur le contrôleur sain, vérifiez la date et l'heure à l'aide de la `cluster date show` commande.
+. Sur le contrôleur sain, vérifiez la date et l'heure :
++
+`cluster date show`
+
 +
 
 NOTE: Si votre système de stockage s'arrête dans le menu de démarrage, sélectionnez l'option  `Reboot node`et répondez _y_ lorsque vous y êtes invité, puis démarrez Loader en appuyant sur _Ctrl-C_.
 
-. Sur le contrôleur défectueux, à l'invite Loader, vérifiez l'heure et la date : `cluster date show`
+. Sur le contrôleur altéré, à l'invite LOADER, vérifiez l'heure et la date :
 +
-.. Si nécessaire, modifier la date : `set date _mm/dd/yyyy_`
-.. Si nécessaire, réglez l'heure, en GMT : `set time hh:mm:ss`
+`cluster date show`
+
++
+.. Si nécessaire, modifiez la date :
++
+`set date _mm/dd/yyyy_`
+
+.. Si nécessaire, réglez l'heure, en GMT :
++
+`set time hh:mm:ss`
+
 .. Confirmez la date et l'heure.
 
 
 . À l'invite Loader, entrez `bye` pour réinitialiser les modules d'E/S et les autres composants, et laissez le contrôleur redémarrer.
-. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
-. Si le rétablissement automatique a été désactivé, le réactiver : `storage failover modify -node local -auto-giveback _true_`
 
 
 

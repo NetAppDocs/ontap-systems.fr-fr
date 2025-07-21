@@ -61,10 +61,19 @@ Si vous avez installé un module d'E/S de stockage, installez et câblez vos tir
 +
 Le redémarrage du contrôleur défectueux réinitialise également les modules d'E/S et les autres composants.
 
-. Remettez le contrôleur défectueux au contrôleur en bon état : `storage failover giveback -ofnode _impaired_node_name_`
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
+
 . Répétez ces étapes pour ajouter un module d'E/S à l'autre contrôleur.
-. Restaurez le rétablissement automatique à partir de la console du contrôleur sain : `storage failover modify -node local -auto-giveback _true_`
-. Si AutoSupport est activé, restaurer (annuler la suppression) la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
+. Restaurez le rétablissement automatique à partir de la console du contrôleur sain :
++
+`storage failover modify -node local -auto-giveback true`
+
+. Si AutoSupport est activé, restaurez (annulez la suppression) de la création automatique de cas : +
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
 
 
 --
@@ -140,14 +149,29 @@ Vous pouvez utiliser la languette de gauche et la vis moletée pour enfoncer le 
 Si vous avez installé un module d'E/S de stockage, installez et câblez vos tiroirs NS224, comme décrit à la section https://docs.netapp.com/us-en/ontap-systems/ns224/hot-add-shelf-overview.html["Workflow d'ajout à chaud"^].
 
 . Répétez les étapes de retrait et d'installation du module d'E/S pour ajouter des modules d'E/S supplémentaires au contrôleur.
-. Redémarrez le contrôleur défectueux à partir de l'invite Loader : `bye`
+. Redémarrez le contrôleur endommagé à partir de l'invite LOADER :
++
+`bye`
+
 +
 Le redémarrage du contrôleur défectueux réinitialise également les modules d'E/S et les autres composants.
 
-. Remettez le contrôleur défectueux au contrôleur en bon état : `storage failover giveback -ofnode _impaired_node_name_`
-. Restaurez le rétablissement automatique à partir de la console du contrôleur sain : `storage failover modify -node local -auto-giveback _true_`
-. Si AutoSupport est activé, restaurer (annuler la suppression) la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
-. Si vous avez installé un module NIC, spécifiez le mode d'utilisation de chaque port comme _network_: `storage port modify -node _node_name_ -port _port_name_ -mode _network_`
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Restaurez le rétablissement automatique à partir de la console du contrôleur sain :
++
+`storage failover modify -node local -auto-giveback true`
+
+. Si AutoSupport est activé, restaurez (annulez la suppression) de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+. Si vous avez installé un module NIC, spécifiez le mode d'utilisation de chaque port comme _network_ :
++
+`storage port modify -node _node_name_ -port _port_name_ -mode _network_`
+
 . Répétez ces étapes pour l'autre contrôleur.
 
 

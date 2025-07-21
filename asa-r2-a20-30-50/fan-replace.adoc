@@ -317,6 +317,18 @@ BLOC D'ALIMENTATION CC
 
 
 |===
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Restaurez le rétablissement automatique à partir de la console du contrôleur sain :
++
+`storage failover modify -node local -auto-giveback true`
+
+. Si AutoSupport est activé, restaurez (annulez la suppression) de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
 
 
 
