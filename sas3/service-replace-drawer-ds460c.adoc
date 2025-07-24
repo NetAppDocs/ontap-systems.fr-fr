@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: i/o activity, power, off, shelf, replacing, replace, drive, drawer, disk, replace a drive drawer in a ds460c disk shelf, dcm2, dcm 
 summary: 'Pour remplacer un tiroir disque, vous devez arrêter l"intégralité du système de stockage (paire haute disponibilité), qui permet de conserver les agrégats de données sur le tiroir ou de maintenir le fonctionnement de la paire haute disponibilité. pour ce faire, vous devez déplacer toutes les données depuis les agrégats de données résidant sur les disques, ainsi que hors ligne et supprimer les agrégats de données. Cependant, si le tiroir contient un agrégat racine, vous devez arrêter la paire haute disponibilité.' 
 ---
-= Remplacement d'un tiroir disque dans un tiroir disque DS460C - étagères avec modules IOM12/IOM12B
+= Remplacer un tiroir de lecteur - DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,8 @@ summary: 'Pour remplacer un tiroir disque, vous devez arrêter l"intégralité d
 
 [role="lead"]
 Pour remplacer un tiroir de disque dur dans une étagère, vous pouvez arrêter l'ensemble du système de stockage (paire HA), ce qui vous permet de conserver les agrégats de données sur l'étagère. Vous pouvez également maintenir la paire HA opérationnelle, ce qui nécessite de déplacer toutes les données des agrégats de données sur les disques de l'étagère, puis de les mettre hors ligne et de les supprimer. Si l'étagère contient un agrégat racine, vous devez arrêter la paire HA.
+
+Cette procédure s'applique aux étagères avec modules IOM12 ou IOM12B.
 
 .Avant de commencer
 Vous avez besoin de ces éléments pour cette procédure :
@@ -27,20 +29,20 @@ NOTE: *Dommages matériels possibles:* pour éviter d'endommager les décharges 
 
 
 .Description de la tâche
-* Cette procédure s'applique aux étagères comportant des tiroirs d'entraînement DCM et/ou des tiroirs d'entraînement DCM2. (Les étagères sont également dotées de deux modules IOM12 ou de deux modules IOM12B.)
+* Cette procédure s'applique aux étagères équipées de tiroirs pour disques DCM et/ou DCM2 ou DCM3. (Les étagères peuvent également être équipées de deux modules IOM12 ou IOM12B.)
 +
-En cas de défaillance d'un tiroir de lecteur DCM ou DC2, vous recevez un tiroir de lecteur DCM ou DC2 pour le remplacer.
+Lorsqu'un tiroir de lecteur DCM, DCM2 ou DCM3 tombe en panne, vous recevez un tiroir de lecteur DCM, DCM2 ou DCM3 pour le remplacer.
 
 
 
 [NOTE]
 ====
-Si vous remplacez un tiroir disque défectueux, le tiroir est associé à des modules IOM12 et à un nombre quelconque de tiroirs disques DCM2, Vous devez mettre à niveau le micrologiciel IOM12 vers la version 0300 ou ultérieure car les modules IOM12 nécessitent une version du micrologiciel prenant en charge les tiroirs de lecteur DCM2.
+Lorsque vous remplacez un tiroir de lecteur défectueux par un tiroir de lecteur DCM2 ou DCM3 plus récent, assurez-vous que le logiciel ONTAP et le micrologiciel du module IOM12 ou IOM12B exécutent les versions minimales requises pour prendre en charge les tiroirs DCM2 ou DCM3.
 
 La mise à niveau du microprogramme IOM12 peut être effectuée avant ou après le remplacement d'un tiroir de disque. Cette procédure permet de mettre à niveau le micrologiciel dans le cadre de la procédure de préparation au remplacement du tiroir.
 
 ====
-* Les tiroirs d'entraînement DCM et les tiroirs d'entraînement DCM2 peuvent être distingués par leur aspect :
+* Les tiroirs de disques DCM, DCM2 et DCM3 se distinguent par leur apparence :
 +
 Les tiroirs d'entraînement DCM se présentent comme suit :
 
@@ -53,22 +55,41 @@ Les tiroirs d'entraînement DCM2 se distinguent par une bande bleue et une étiq
 +
 image::../media/dcm2.png[Vue avant d'un tiroir disque DCM2]
 
++
+Les tiroirs de lecteur DCM3 se distinguent par une bande bleue et grise et une étiquette « DCM3 » :
+
++
+image::../media/drw_dcm3_ieops-2176.svg[Vue de face d'une étagère de lecteur DCM3]
 
 
 
 
-== Préparez-vous à remplacer un tiroir
 
-Avant de remplacer un tiroir disque, veillez à mettre à jour le firmware IOM12 si nécessaire, puis à arrêter la paire HA qui permet de conserver les agrégats de données sur le tiroir. Vous pouvez également continuer à utiliser la paire HA, pour ce faire, vous devez déplacer toutes les données depuis les agrégats de données résidant sur les disques, ainsi que hors ligne et supprimer les agrégats de données. Cependant, si le tiroir contient un agrégat racine, vous devez arrêter la paire haute disponibilité. Enfin, vous devez mettre le shelf hors tension.
+== Étape 1 : Préparez-vous à remplacer un tiroir de lecteur
+
+Avant de remplacer un tiroir de disque, vous devez mettre à jour le micrologiciel IOM et ONTAP si nécessaire, puis arrêter la paire HA, ce qui vous permet de conserver les agrégats de données sur le tiroir, ou la maintenir opérationnelle, ce qui nécessite de déplacer toutes les données des agrégats de données résidant sur les disques. Vous devez ensuite mettre hors ligne et supprimer les agrégats de données. Cependant, si le tiroir contient un agrégat racine, vous devez arrêter la paire HA. Enfin, vous devez mettre le tiroir hors tension.
 
 .Étapes
 . Déterminez si vous remplacez le tiroir disque défectueux, le tiroir se combinant des modules IOM12 et des tiroirs disques DCM2.
-. Si le tiroir est doté d'une combinaison de modules IOM12 et d'un certain nombre de tiroirs de lecteur DCM2, vous devez mettre à niveau le micrologiciel IOM12 vers la version 0300 ou ultérieure ; sinon, passez à l'étape suivante.
+. Déterminez si vous devez mettre à niveau le micrologiciel de votre IOM :
 +
-Ces firmwares sont disponibles sur le site du support NetApp.
+** Si le tiroir est doté d'une combinaison de modules IOM12 et d'un certain nombre de tiroirs de lecteur DCM2, vous devez mettre à niveau le micrologiciel IOM12 vers la version 0300 ou ultérieure ; sinon, passez à l'étape suivante.
+** Si l'étagère doit comporter une combinaison de modules IOM12 et un nombre quelconque de tiroirs de lecteur DCM3, vous devez mettre à niveau le micrologiciel IOM12 vers la version 0401 ou ultérieure.
+** Si l'étagère doit comporter une combinaison de modules IOM12B et un nombre quelconque de tiroirs de lecteur DCM3, vous devez mettre à niveau le micrologiciel IOM12B vers la version 0202 ou ultérieure.
+
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
+Si nécessaire, vous pouvez vous rendre sur le site de support NetApp pour  https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["télécharger les versions actuelles du micrologiciel du plateau de disque"] Sinon , passez à l’étape suivante.
+
+. Si votre étagère comporte une combinaison de modules IOM12 ou IOM12B avec un nombre quelconque de tiroirs de lecteur DCM3, votre système doit exécuter les versions minimales suivantes d' ONTAP:
++
+** ONTAP 9.17.1RC1
+** ONTAP 9.16.1P3
+** ONTAP 9.15.1P11
+** ONTAP 9.14.1P13
+** ONTAP 9.13.1P16
+** ONTAP 9.12.1P18
+
 
 . Si le tiroir contient l'agrégat racine d'un des contrôleurs de la paire HA, ou si vous choisissez d'arrêter la paire HA (au lieu de maintenir la paire HA en service), procédez comme suit ; dans le cas contraire, passez à l'étape suivante.
 +
@@ -79,7 +100,7 @@ NOTE: Les agrégats de données peuvent rester dans le tiroir lors de l'arrêt d
 .. Arrêtez les deux contrôleurs de la paire haute disponibilité.
 .. Vérifiez que votre paire haute disponibilité est stoppée en vérifiant la console du système de stockage.
 .. Mettre le shelf hors tension.
-.. Aller à la section, <<Déposer les chaînes de câbles>>.
+.. Accédez à la section, <<remove_cable_chains,Déposer les chaînes de câbles>> .
 
 
 . Si vous choisissez de maintenir le fonctionnement de la paire HA, procédez comme suit :
@@ -122,12 +143,19 @@ NOTE: Si des disques défectueux dans le tiroir, `broken` s'affiche dans le `Con
 
 
 
-== Déposer les chaînes de câbles
+== Étape 2 : Retirez les chaînes porte-câbles
 
 Les chaînes de câbles gauche et droite de chaque tiroir d'entraînement du DS460C permettent aux tiroirs de glisser vers l'intérieur et l'extérieur. Avant de pouvoir retirer un tiroir disque, vous devez retirer les deux chaînes de câble.
 
+.Description de la tâche
+Chaque tiroir disque comporte des câbles en forme de chaîne gauche et droite. Les extrémités métalliques des chaînes de câbles coulissent dans les supports verticaux et horizontaux correspondants à l'intérieur du boîtier, comme suit :
+
+* Les supports verticaux gauche et droit relient la chaîne de câbles au fond de panier central du boîtier.
+* Les supports horizontaux gauche et droit relient la chaîne de câbles au tiroir individuel.
+
+
 .Avant de commencer
-* Vous avez terminé <<Préparez-vous à remplacer un tiroir>> Étapes pour que votre paire haute disponibilité soit interrompue ou que vous avez déplacé toutes les données des agrégats de données résidant sur les disques, ainsi que la mise hors ligne et la suppression des agrégats de données pour permettre aux disques de devenir des unités de rechange.
+* Vous avez terminé le <<prepare_to_replace_drive_drawer,Préparez-vous à remplacer un tiroir>> étapes pour que votre paire HA soit arrêtée ou que vous ayez déplacé toutes les données des agrégats de données résidant sur les lecteurs de disque, et mis hors ligne et supprimé les agrégats de données pour permettre aux lecteurs de disque de devenir des disques de secours.
 * Vous avez éteint les tablettes.
 * Vous avez obtenu les éléments suivants :
 +
@@ -139,13 +167,6 @@ NOTE: *Dommages matériels possibles:* pour éviter d'endommager les décharges 
 ** Lampe de poche
 
 
-
-
-.Description de la tâche
-Chaque tiroir disque comporte des câbles en forme de chaîne gauche et droite. Les extrémités métalliques des chaînes de câbles coulissent dans les supports verticaux et horizontaux correspondants à l'intérieur du boîtier, comme suit :
-
-* Les supports verticaux gauche et droit relient la chaîne de câbles au fond de panier central du boîtier.
-* Les supports horizontaux gauche et droit relient la chaîne de câbles au tiroir individuel.
 
 
 .Étapes
@@ -270,7 +291,7 @@ La figure montre que l'anneau orange du support horizontal est poussé vers le b
 
 
 
-== Retirez un tiroir
+== Étape 3 : Retirer un tiroir de lecteur
 
 Après avoir retiré les chaînes de câbles droite et gauche, vous pouvez retirer le tiroir disque du tiroir. Le retrait d'un tiroir de lecteur implique le déplacement de la partie tiroir vers l'extérieur, le retrait des lecteurs et le retrait du tiroir.
 
@@ -325,7 +346,7 @@ image:../media/icon_round_1.png["Légende numéro 1"]
 
 
 
-== Installez un tiroir d'entraînement
+== Étape 4 : Installer un tiroir de lecteur
 
 L'installation d'un tiroir disque dans un tiroir disque consiste à faire glisser le tiroir dans le slot vide, à installer les disques et à remettre en place le cadre avant.
 
@@ -421,7 +442,7 @@ NOTE: *Risque de dysfonctionnement de l'équipement:* Assurez-vous de fermer com
 
 
 
-== Fixer les chaînes de câbles
+== Étape 5 : Fixez les chaînes porte-câbles
 
 La dernière étape de la pose d'un tiroir de transmission consiste à fixer les chaînes de câbles gauche et droite de rechange à la tablette de transmission. Lors de la fixation d'une chaîne de câbles, inverser l'ordre utilisé lors du débranchement de la chaîne de câbles. Vous devez insérer le connecteur horizontal de la chaîne dans le support horizontal du boîtier avant d'insérer le connecteur vertical de la chaîne dans le support vertical du boîtier.
 
@@ -549,11 +570,5 @@ image:../media/icon_round_1.png["Légende numéro 1"]
 
 
 . Si vous aviez arrêté la paire haute disponibilité, démarrez ONTAP sur les deux contrôleurs ; sinon, passez à l'étape suivante.
-. Si vous avez déplacé des données hors du tiroir et supprimé les agrégats de données, vous pouvez désormais utiliser les disques de spare du shelf pour créer ou étendre un agrégat.
-+
-https://docs.netapp.com/us-en/ontap/disks-aggregates/aggregate-creation-workflow-concept.html["Flux de production de création d'agrégats"]
-
-+
-https://docs.netapp.com/us-en/ontap/disks-aggregates/aggregate-expansion-workflow-concept.html["Flux de travail d'extension d'agrégats"]
-
+. Si vous avez déplacé des données de l'étagère et supprimé les agrégats de données, vous pouvez désormais utiliser les disques de réserve de l'étagère pour créer ou étendre des agrégats. Pour en savoir plus sur ces procédures, consultez la section  https://docs.netapp.com/us-en/ontap/disks-aggregates/aggregate-creation-workflow-concept.html["Flux de production de création d'agrégats"] et  https://docs.netapp.com/us-en/ontap/disks-aggregates/aggregate-expansion-workflow-concept.html["Flux de travail d'extension d'agrégats"] .
 

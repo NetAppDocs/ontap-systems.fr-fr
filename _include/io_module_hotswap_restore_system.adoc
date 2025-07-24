@@ -1,0 +1,20 @@
+= 
+:allow-uri-read: 
+
+
+Restaurez le fonctionnement normal de votre système de stockage en rendant le stockage au contrôleur sain, en restaurant la restitution automatique et en réactivant la création automatique de cas AutoSupport .
+
+.Étapes
+. Remettez le contrôleur sain (le contrôleur qui a été repris) en fonctionnement normal en lui rendant son stockage :
++
+`storage failover giveback -ofnode _healthy_node_name_`
+
+. Restaurer le retour automatique depuis la console du contrôleur défaillant (le contrôleur qui a pris le contrôle du contrôleur sain) :
++
+`storage failover modify -node local -auto-giveback _true_`
+
+. Si AutoSupport est activé, restaurez la création automatique de dossiers :
++
+`system node autosupport invoke -node * -type all -message MAINT=end`
+
+

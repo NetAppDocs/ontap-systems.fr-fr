@@ -4,20 +4,17 @@ sidebar: sidebar
 keywords: hot-swap, fail, disk, drive, ds460c, nondisruptive, replace, system, power, serving, data, i/o, hot-swap a disk drive in a ds460c disk shelf 
 summary: Vous pouvez remplacer à chaud un disque défectueux dans un tiroir disque DS460C. 
 ---
-= Remplacez à chaud un disque dans un tiroir disque DS460C - tiroirs avec modules IOM12/IOM12B
+= Remplacement à chaud d'un lecteur de disque - DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez remplacer à chaud un disque défectueux dans un tiroir disque DS460C.
+Vous pouvez remplacer à chaud un lecteur de disque défectueux dans une étagère de disque DS460C avec des modules IOM12 ou IOM12B.
 
 .Avant de commencer
-* Le disque de remplacement doit être pris en charge par le tiroir disque DS460C.
-+
-https://hwu.netapp.com["NetApp Hardware Universe"]
-
+* Le disque de remplacement doit être compatible avec le tiroir de disques DS460C. Vous pouvez consulter les disques compatibles avec votre configuration dans la section  https://hwu.netapp.com["NetApp Hardware Universe"] .
 * Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, contactez le support technique.
 * Le lecteur de disque que vous retirez doit être défectueux.
 +
@@ -29,10 +26,7 @@ NOTE: Selon le type et la capacité du disque, il peut prendre jusqu'à plusieur
 
 * Si vous remplacez un disque à auto-cryptage (SED), vous devez suivre les instructions relatives au remplacement d'un disque SED dans la documentation ONTAP de votre version de ONTAP.
 +
-Les instructions de la documentation ONTAP décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
-
-+
-https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commandes"]
+Instructions dans le  https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec l'interface de ligne de commandes"] la documentation décrit les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
 
 
 
@@ -67,23 +61,11 @@ NOTE: Ne placez pas vos mains sur les cartes de lecteur de disque exposées sur 
 
 NOTE: Les champs magnétiques peuvent détruire toutes les données du lecteur de disque et causer des dommages irréparables aux circuits du lecteur de disque.
 
-* La meilleure pratique consiste à installer la version la plus récente du Disk qualification Package (DQP) avant de remplacer un disque.
+* *Meilleure pratique* : Assurez-vous que votre système peut reconnaître et utiliser les lecteurs de disque nouvellement qualifiés en  https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["téléchargement de la version actuelle du Disk Qualification Package (DQP)"^] avant de remplacer à chaud un lecteur de disque.
 +
-Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser des disques récemment qualifiés. Par conséquent, il ne faut pas tenir compte des messages d'événement système concernant la présence d'informations non à jour sur les lecteurs de disque. Vous évitez également les risques liés au partitionnement de disque, car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
+L'installation de la version actuelle du DQP permet à votre système de reconnaître et d'utiliser les lecteurs de disque nouvellement qualifiés, évitant ainsi les messages d'événement système indiquant que les informations des lecteurs de disque ne sont pas à jour. Vous évitez également le risque d'empêcher le partitionnement du disque en raison de la non-reconnaissance des lecteurs. Le DQP vous informe de la non-mise à jour du micrologiciel des lecteurs de disque.
 
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Téléchargements NetApp : pack de qualification des disques"^]
-
-* Avant d'ajouter de nouveaux tiroirs disques, des composants d'unités remplaçables sur site pour les tiroirs ou des câbles SAS, il est recommandé d'installer les versions les plus récentes du firmware IOM (module d'E/S) pour le tiroir disque et du firmware pour le disque.
-+
-Ces firmwares sont disponibles sur le site du support NetApp.
-
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
-
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
-
+* *Bonne pratique* : Assurez-vous que votre système dispose des versions actuelles du micrologiciel du module d'E/S (IOM) et du micrologiciel du lecteur de disque avant d'ajouter de nouveaux modules, composants FRU ou câbles SAS. Vous pouvez consulter le site de support NetApp pour  https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["télécharger le firmware du disque dur"^] et  https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["télécharger le micrologiciel du lecteur de disque"^] .
 * Le micrologiciel du disque est automatiquement mis à jour (sans interruption) sur les nouveaux disques avec des versions de micrologiciel non récentes.
 +
 

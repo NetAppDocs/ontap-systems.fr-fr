@@ -2,7 +2,7 @@
 permalink: asa-r2-a20-30-50/bootmedia-replace-bmr.html 
 sidebar: sidebar 
 keywords: asa a20, asa a30, asa a50, replace the boot media 
-summary: 'Pour localiser le support d"amorçage défectueux, retirez le module de gestion du système avant de pouvoir le remplacer.' 
+summary: Le support de démarrage de votre système ASA A20, ASA A30 ou ASA A50 stocke les données essentielles du micrologiciel et de la configuration. Le remplacement consiste à retirer le module contrôleur, à retirer le support de démarrage défectueux, à installer le support de démarrage de remplacement, puis à réinstaller le module contrôleur. 
 ---
 = Remplacer le support de démarrage - ASA A20, ASA A30 et ASA A50
 :allow-uri-read: 
@@ -11,7 +11,17 @@ summary: 'Pour localiser le support d"amorçage défectueux, retirez le module d
 
 
 [role="lead"]
-Le support de démarrage de votre système ASA A20, ASA A30 ou ASA A50 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement, puis le transfert de l'image ONTAP vers le support de démarrage de remplacement.
+Le support de démarrage de votre système ASA A20, ASA A30 ou ASA A50 stocke les données essentielles du micrologiciel et de la configuration. Le remplacement consiste à retirer le module contrôleur, à retirer le support de démarrage défectueux, à installer le support de démarrage de remplacement, puis à réinstaller le module contrôleur.
+
+
+
+== Description de la tâche
+
+Si nécessaire, vous pouvez allumer les voyants d'emplacement du châssis de la plate-forme (bleus) pour faciliter la localisation physique de la plate-forme concernée. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
+
+Un châssis de plate-forme comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
+
+Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
 
 
 

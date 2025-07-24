@@ -1,0 +1,105 @@
+= 
+:allow-uri-read: 
+
+
+Mettez en ligne le cluster de remplacement et le module d'E/S HA dans l'emplacement 4, vérifiez que les ports du module sont correctement initialisés, vérifiez que l'emplacement 4 est sous tension, puis vérifiez que le module est en ligne et reconnu.
+
+. Mettez en ligne le cluster de remplacement et le module d'E/S HA :
++
+`system controller slot module insert -node impaired_node_name_ -slot _slot_name_`
+
++
+
+NOTE: Lorsque vous voyez _Voulez-vous continuer ?_, entrez  `y` .
+
++
+La sortie doit confirmer que le cluster et le module d'E/S HA ont été correctement mis en ligne (mis sous tension, initialisés et mis en service).
+
++
+Par exemple, la commande suivante met en ligne l'emplacement 4 sur le nœud 2 (le contrôleur altéré) et affiche un message indiquant que le processus a réussi :
+
++
+[listing]
+----
+node2::> system controller slot module insert -node node2 -slot 4
+
+Warning: IO_2X_100GBE_NVDA_NIC module in slot 4 of node node2 will be powered on and initialized.
+
+Do you want to continue? {y|n}: `y`
+
+The module has been successfully powered on, initialized and placed into service.
+----
+. Vérifiez que chaque port du cluster et du module d'E/S HA ont été initialisés avec succès :
++
+`event log show -event \*hotplug.init*`
+
++
+
+NOTE: L'exécution des mises à jour du micrologiciel et l'initialisation du port requises peuvent prendre plusieurs minutes.
+
++
+La sortie doit afficher un événement EMS hotplug.init.success enregistré pour chaque port du cluster et du module d'E/S HA avec  `_hotplug.init.success:_` dans le  `_Event_` colonne.
+
++
+Par exemple, la sortie suivante montre que l'initialisation a réussi pour les ports e4b et e4a du cluster et du module d'E/S HA :
+
++
+[listing]
+----
+node2::> event log show -event *hotplug.init*
+
+Time                Node             Severity      Event
+
+------------------- ---------------- ------------- ---------------------------
+
+7/11/2025 16:04:06  node2      NOTICE        hotplug.init.success: Initialization of ports "e4b" in slot 4 succeeded
+
+7/11/2025 16:04:06  node2      NOTICE        hotplug.init.success: Initialization of ports "e4a" in slot 4 succeeded
+
+2 entries were displayed.
+----
+. Vérifiez que l'emplacement 4 du module d'E/S est sous tension et prêt à fonctionner :
++
+`system controller slot module show`
+
++
+La sortie doit afficher l'état de l'emplacement 4 comme suit  `_powered-on_` et donc prêt à fonctionner pour le cluster de remplacement et le module d'E/S HA.
+
+. Vérifiez que le cluster de remplacement et le module d’E/S HA sont en ligne et reconnus.
++
+Entrez la commande depuis la console du contrôleur défaillant :
+
++
+`system controller config show -node local -slot4`
+
++
+Si le cluster de remplacement et le module d'E/S HA ont été mis en ligne avec succès et sont reconnus, la sortie affiche les informations du module d'E/S, y compris les informations de port, pour l'emplacement 4.
+
++
+Par exemple, vous devriez voir un résultat similaire à ce qui suit :
+
++
+[listing]
+----
+node2::> system controller config show -node local -slot 4
+
+Node: node2
+Sub- Device/
+Slot slot Information
+---- ---- -----------------------------
+   4    - Dual 40G/100G Ethernet Controller CX6-DX
+                  e4a MAC Address: d0:39:ea:59:69:74 (auto-100g_cr4-fd-up)
+                          QSFP Vendor:        CISCO-BIZLINK
+                          QSFP Part Number:   L45593-D218-D10
+                          QSFP Serial Number: LCC2807GJFM-B
+                  e4b MAC Address: d0:39:ea:59:69:75 (auto-100g_cr4-fd-up)
+                          QSFP Vendor:        CISCO-BIZLINK
+                          QSFP Part Number:   L45593-D218-D10
+                          QSFP Serial Number: LCC2809G26F-A
+                  Device Type:        CX6-DX PSID(NAP0000000027)
+                  Firmware Version:   22.44.1700
+                  Part Number:        111-05341
+                  Hardware Revision:  20
+                  Serial Number:      032403001370
+----
+

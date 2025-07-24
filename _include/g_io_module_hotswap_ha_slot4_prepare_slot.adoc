@@ -1,0 +1,59 @@
+= 
+:allow-uri-read: 
+
+
+Préparez le système de stockage et l'emplacement du module d'E/S 4 afin de pouvoir retirer en toute sécurité le cluster défectueux et le module d'E/S HA :
+
+. Mettez-vous à la terre.
+. Débranchez le câblage du cluster défaillant et du module d’E/S HA.
++
+Assurez-vous d'étiqueter les câbles afin de pouvoir les reconnecter aux mêmes ports plus tard dans cette procédure.
+
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h`
+
++
+Par exemple, le message AutoSupport suivant supprime la création automatique de cas pendant deux heures :
+
++
+`node2::> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le retour automatique depuis la console du contrôleur défaillant :
++
+`storage failover modify -node local -auto-giveback false`
+
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Préparez le cluster défaillant et le module HA dans l'emplacement 4 pour le retrait en le retirant du service et en le mettant hors tension :
++
+`system controller slot module remove -node _impaired_node_name_ -slot _slot_number_`
+
++
+
+NOTE: Lorsque vous voyez _Voulez-vous continuer ?_, entrez  `y` .
+
++
+Par exemple, la commande suivante prépare le module dans l'emplacement 4 sur le nœud 2 (le contrôleur défectueux) pour le retrait et affiche un message indiquant qu'il peut être retiré en toute sécurité :
+
++
+[listing]
+----
+node2::> system controller slot module remove -node node2 -slot 4
+
+Warning: IO_2X_100GBE_NVDA_NIC module in slot 4 of node node2 will be powered off for removal.
+
+Do you want to continue? {y|n}: y
+
+The module has been successfully removed from service and powered off. It can now be safely removed.
+----
+. Vérifiez que le cluster défaillant et le module HA dans l'emplacement 4 sont hors tension :
++
+`system controller slot module show`
+
++
+La sortie devrait afficher  `_powered-off_` dans la colonne d'état du module défaillant dans l'emplacement 4.
+
+

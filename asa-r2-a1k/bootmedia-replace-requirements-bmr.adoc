@@ -11,19 +11,25 @@ summary: Avant de remplacer le support de démarrage de votre système ASA A1K, 
 
 
 [role="lead"]
-Avant de remplacer le support de démarrage de votre système ASA A1K, assurez-vous de répondre aux exigences requises pour un remplacement réussi. Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la vérification qu'aucun port de cluster n'est défectueux sur le contrôleur et la détermination de l'activation du gestionnaire de clés intégré (OKM) ou du gestionnaire de clés externe (EKM).
+Avant de remplacer le support de démarrage de votre système ASA A1K, assurez-vous de respecter les conditions requises pour un remplacement réussi. Cela inclut la vérification du support de démarrage de remplacement approprié, le bon fonctionnement des ports du cluster du contrôleur défectueux et l'activation du gestionnaire de clés intégré (OKM) ou du gestionnaire de clés externe (EKM).
 
 Passez en revue les exigences suivantes.
 
 * Vous devez remplacer le support de démarrage défectueux par un support de démarrage de remplacement que vous avez reçu de NetApp.
-* Il ne doit y avoir aucun port de cluster défectueux sur le contrôleur défectueux.
+* Les ports du cluster permettent la communication entre les deux contrôleurs lors du processus de récupération automatique au démarrage. Assurez-vous que les ports du cluster du contrôleur défaillant fonctionnent correctement.
 * Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.
 * Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
 +
-** fichier /cfcard/kmip/servers.cfg.
-** fichier /cfcard/kmip/certs/client.crt.
-** fichier /cfcard/kmip/certs/client.key.
-** Fichier /cfcard/kmip/certs/CA.pem.
+** /cfcard/kmip/servers.cfg
+** /cfcard/kmip/certs/client.crt
+** /cfcard/kmip/certs/client.key
+** /cfcard/kmip/certs/CA.pem
+
+
+* Il est essentiel d'appliquer les commandes au contrôleur approprié lorsque vous remplacez le support de démarrage défectueux :
++
+** Le _contrôleur défaillant_ est le contrôleur sur lequel vous effectuez la maintenance.
+** Le _contrôleur sain_ est le partenaire HA du contrôleur altéré.
 
 
 

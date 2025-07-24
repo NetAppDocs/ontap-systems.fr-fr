@@ -4,16 +4,36 @@ sidebar: sidebar
 keywords: hot-remove, disk, shelf, iom12, module, nondisruptive, module-nondisruptively, system, power, serving, data, i/o, progress, hot-remove, stack, shelves, hot-remove a disk shelf with iom12 modules, DS460C, transport DS460C, move DS460C, remove drives from DS460C, DS460C drive handling, iom12b 
 summary: 'Vous pouvez retirer à chaud un tiroir disque avec des modules IOM12 (pour retirer de manière non disruptive un tiroir disque d"un système sous tension et en E/S) lorsque vous devez déplacer ou remplacer le tiroir disque. Vous pouvez supprimer à chaud un ou plusieurs tiroirs disques n"importe où dans une pile de tiroirs disques ou en supprimer une pile de tiroirs disques.' 
 ---
-= Retirez à chaud une étagère - étagères avec modules IOM12/IOM12B
+= Retirer une étagère à chaud - DS212C, DS224C et DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez retirer à chaud un tiroir disque avec des modules IOM12/IOM12B (sans interruption de l'activité, retirer un tiroir disque d'un système sous tension et en E/S) lorsque vous devez déplacer ou remplacer un tiroir disque. Vous pouvez supprimer à chaud un ou plusieurs tiroirs disques n'importe où dans une pile de tiroirs disques ou en supprimer une pile de tiroirs disques.
+Vous pouvez retirer à chaud une étagère de disques équipée de modules IOM12 ou IOM12B (retrait sans interruption d'une étagère de disques d'un système sous tension et en cours d'E/S) lorsque vous devez déplacer ou remplacer une étagère de disques. Vous pouvez retirer à chaud une ou plusieurs étagères de disques depuis n'importe quel emplacement d'une pile d'étagères de disques ou supprimer une pile d'étagères de disques.
+
+.Description de la tâche
+* Si vous retirez à chaud un tiroir disque d'une pile (mais que vous conservez la pile), vous pouvez le recâter et vérifier un chemin à la fois (chemin A puis chemin B) pour contourner le tiroir disque que vous supprimez afin de maintenir toujours la connectivité à chemin unique des contrôleurs vers la pile.
++
+
+NOTE: Si vous n'maintenez pas la connectivité à chemin unique entre les contrôleurs et la pile lors du retrait de la pile afin de contourner le tiroir disque que vous retirez, vous pouvez tomber en panne du système après un incident comportant plusieurs disques.
+
+* *Dommages possibles aux étagères :* si vous retirez un tiroir DS460C et que vous le déplacez vers une autre partie du centre de données ou le transportez vers un autre emplacement, reportez-vous à la section « déplacement ou transport des étagères DS460C » à la fin de cette procédure.
+
 
 .Avant de commencer
+* *Meilleure pratique* : supprimez la propriété du lecteur de disque après avoir retiré les agrégats des lecteurs de disque dans les étagères de disques que vous retirez.
++
+La suppression des informations de propriété d'un lecteur de disque de réserve permet d'intégrer correctement le lecteur de disque à un autre nœud (si nécessaire).
+
+
+
+[NOTE]
+====
+Vous devez désactiver l'attribution automatique de la propriété des disques avant de supprimer la propriété des disques. Vous réactiverez cette fonctionnalité à la fin de cette procédure. Pour en savoir plus sur les agrégats de disques, consultez la section  https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Présentation des disques et des agrégats"^] .
+
+====
 * Votre système doit être une configuration à chemins d'accès multiples, haute disponibilité à trois chemins, chemins d'accès multiples, quatre chemins d'accès haute disponibilité ou quatre chemins.
 +
 Dans le cas des plateformes avec stockage interne, le stockage externe doit être câblé en tant que multivoie haute disponibilité, triple chemin ou chemins d'accès multiples.
@@ -24,38 +44,19 @@ NOTE: Pour un système FAS2600 à contrôleur unique doté du stockage externe c
 
 * Votre système ne peut pas comporter de messages d'erreur de câblage SAS.
 +
-Vous pouvez télécharger et exécuter Active IQ Config Advisor pour afficher tous les messages d'erreur de câblage SAS et les actions correctives que vous devez effectuer.
-
-+
-https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
+Pour afficher les messages d'erreur de câblage SAS et les mesures correctives à prendre, téléchargez et exécutez le  https://mysupport.netapp.com/site/tools["Active IQ Config Advisor"^] .
 
 * Les configurations de paires HA ne peuvent pas être dans un état de basculement.
 * Vous devez avoir supprimé tous les agrégats des disques (les disques doivent être de rechange) des tiroirs disques que vous supprimez.
 +
 
-NOTE: Pour tenter cette procédure avec des agrégats du tiroir disque que vous retirez, le système risque de tomber en panne après une incident de plusieurs disques.
+CAUTION: Pour tenter cette procédure avec des agrégats du tiroir disque que vous retirez, le système risque de tomber en panne après une incident de plusieurs disques.
 
 +
 Vous pouvez utiliser le `storage aggregate offline -aggregate _aggregate_name_` et ensuite le `storage aggregate delete -aggregate _aggregate_name_` commande.
 
 * Si vous retirez un ou plusieurs tiroirs disques d'une pile, vous devez avoir pris en compte la distance séparant les tiroirs disques que vous retirez. Par conséquent, si les câbles actuels ne sont pas assez longs, vous devez disposer de câbles plus longs.
-
-
-.Description de la tâche
-* *Meilleure pratique :* la meilleure pratique consiste à supprimer les droits de propriété des disques après le retrait des agrégats des disques des tiroirs disques que vous retirez.
-+
-La suppression des informations de propriété d'un lecteur de disque de réserve permet d'intégrer correctement le lecteur de disque à un autre nœud (si nécessaire).
-
-
-
-[NOTE]
-====
-La procédure de suppression de propriété sur les disques durs exige que vous désactiviez l'affectation automatique de propriété de disque. Vous réactivez l'affectation automatique de la propriété de disque à la fin de cette procédure.
-
-https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Présentation des disques et des agrégats"^]
-
-====
-* Pour un système clustered ONTAP supérieur à deux nœuds, il est recommandé de réaffectés à une paire haute disponibilité autre que celle qui est en cours de maintenance planifiée.
+* *Meilleure pratique* : pour un système ONTAP en cluster composé de plus de deux nœuds, réaffectez epsilon à une paire HA autre que celle qui fait l’objet d’une maintenance planifiée.
 +
 Epsilon reassigning réduit le risque d'erreurs imprévues affectant tous les nœuds d'un système clustered ONTAP. Vous pouvez utiliser les étapes suivantes pour déterminer le nœud qui possède epsilon et reassigner l'epsilon si nécessaire :
 
@@ -70,12 +71,6 @@ Le nœud qui contient epsilon affiche `true` dans le `Epsilon` colonne. (Les nœ
 .. Retour au niveau de privilège admin : `set -privilege admin`
 
 
-* Si vous retirez à chaud un tiroir disque d'une pile (mais que vous conservez la pile), vous pouvez le recâter et vérifier un chemin à la fois (chemin A puis chemin B) pour contourner le tiroir disque que vous supprimez afin de maintenir toujours la connectivité à chemin unique des contrôleurs vers la pile.
-+
-
-NOTE: Si vous n'maintenez pas la connectivité à chemin unique entre les contrôleurs et la pile lors du retrait de la pile afin de contourner le tiroir disque que vous retirez, vous pouvez tomber en panne du système après un incident comportant plusieurs disques.
-
-* *Dommages possibles aux étagères :* si vous retirez un tiroir DS460C et que vous le déplacez vers une autre partie du centre de données ou le transportez vers un autre emplacement, reportez-vous à la section « déplacement ou transport des étagères DS460C » à la fin de cette procédure.
 
 
 .Étapes

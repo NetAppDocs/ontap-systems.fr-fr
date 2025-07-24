@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, cabling, cable, disk, shelves, shelf, iom12, module, system, installation, system, ha, pair, single-controller, configuration, cabinet, rack, requirement, install and cable disk shelves with iom12 modules for a new system installation, requirements for installing and cabling disk shelves with iom12 modules for a new system installation, considerations for installing and cabling disk shelves with iom12 modules for a new system installation, install disk shelves with iom12 modules for a new system installation, cable disk shelves with iom12 modules for a new system installation, DS460C, transport DS460C, move DS460C, remove drives from DS460C, DS460C drive handling, iom12b 
 summary: 'Si votre nouveau système (paire haute disponibilité ou configuration à un contrôleur) n"a pas été installé dans une armoire, vous devez installer les tiroirs disques et les raccorder dans un rack.' 
 ---
-= Installez et reliez les étagères pour une nouvelle installation du système - étagères avec modules IOM12/IOM12B
+= Installation et câblage des étagères - DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,36 +13,7 @@ summary: 'Si votre nouveau système (paire haute disponibilité ou configuration
 [role="lead"]
 Si votre nouveau système (paire haute disponibilité ou configuration à un contrôleur) n'a pas été installé dans une armoire, vous pouvez installer les tiroirs disques et les raccorder dans un rack.
 
-
-
-== Conditions requises pour l'installation et le câblage des tiroirs disques avec des modules IOM12/IOM12B pour une nouvelle installation du système
-
-Vous devez respecter certaines exigences avant d'installer et de câbler les tiroirs disques.
-
-* Vous devez disposer des instructions d'installation et de configuration pour votre modèle de plate-forme.
-+
-Les instructions d'installation et de configuration traitent de la procédure complète d'installation, de configuration et de configuration du système. Vous n'utilisez cette procédure que (_installation et câblage des tiroirs pour une nouvelle installation système_) en conjonction avec les instructions d'installation et de configuration de la plateforme si vous avez besoin d'informations détaillées sur l'installation ou le câblage des tiroirs disques à votre système de stockage.
-
-+
-Vous trouverez des instructions d'installation et de configuration en accédant à la documentation du modèle de votre plate-forme.
-
-+
-link:../index.html["Documentation du système AFF et FAS"]
-
-* Les tiroirs disques et les contrôleurs ne doivent pas encore être mis sous tension.
-* Si vous utilisez des câbles optiques SAS HD mini-SAS, vous devez avoir respecté les règles du link:install-cabling-rules.html#mini-sas-hd-sas-optical-cable-rules["Règles du câble optique SAS HD Mini-SAS"].
-
-
-
-
-== Considérations relatives à l'installation et au câblage des tiroirs disques avec des modules IOM12/IOM12B pour une nouvelle installation du système
-
-Vous devez donc vous familiariser avec les aspects et les meilleures pratiques concernant cette procédure avant d'installer et de câbler les tiroirs disques.
-
-
-
-=== Considérations générales
-
+.Description de la tâche
 * Les tiroirs disques équipés de modules IOM12/IOM12B sont livrés avec des ID de tiroir prédéfinis sur 00.
 +
 
@@ -51,70 +22,63 @@ NOTE: Si vous disposez d'une paire haute disponibilité avec au moins deux piles
 +
 Vous devez définir des ID de tiroir de manière à ce qu'ils soient uniques dans la paire HA ou la configuration à un seul contrôleur. Vous pouvez définir manuellement des ID de tiroir ou obtenir automatiquement des ID de tiroir pour tous les tiroirs disques de la paire haute disponibilité ou de la configuration d'un seul contrôleur à l'aide d'une commande en mode de maintenance. Des instructions sont fournies pour les deux méthodes.
 
-* Les tiroirs disques contenant les agrégats racine peuvent être identifiés par les étiquettes situées sur la boîte des tiroirs disques et sur le châssis des tiroirs disques.
+* Vous pouvez identifier les étagères de disques contenant les agrégats racines grâce aux étiquettes sur le boîtier de l'étagère de disques et le châssis de l'étagère de disques.
 +
 Les étiquettes indiquent le numéro de pile, par exemple *Loop ou Stack #: 1* et *Loop ou Stack #: 2*. Les tiroirs disques qui ne contiennent pas d'agrégats racine indiquent uniquement le numéro de série du tiroir disque sur les étiquettes.
 
-* Si, lors de l'installation et de la configuration du système, vous ne configurez pas le système pour qu'il utilise l'affectation automatique de propriété de disque, vous devez attribuer manuellement la propriété de disque.
+* Si, lors de l'installation et de la configuration du système, vous ne configurez pas l'attribution automatique de la propriété des disques, vous devez attribuer la propriété des disques manuellement.
 * IBACP (Alternate Control Path) intrabande est automatiquement activé.
 +
 IBACP n'est pas pris en charge dans les configurations à voie unique haute disponibilité ou à voie unique.
 
 
 
+.Avant de commencer
+Vous devez répondre à certaines exigences et vous familiariser avec les meilleures pratiques et considérations pour cette procédure avant d'installer et de câbler les étagères de disques.
 
-
-=== Meilleures pratiques à prendre en compte
-
-* La meilleure pratique consiste à installer la version la plus récente du Disk qualification Package (DQP).
+* Obtenez les instructions d’installation et de configuration pour votre modèle de plate-forme.
 +
-Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser des disques récemment qualifiés. Par conséquent, il ne faut pas tenir compte des messages d'événement système concernant la présence d'informations non à jour sur les lecteurs de disque. Vous évitez également les risques liés au partitionnement de disque, car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
+Les instructions d'installation et de configuration décrivent la procédure complète d'installation, de configuration et d'installation de votre système. N'utilisez cette procédure conjointement avec les instructions d'installation et de configuration de la plateforme que si vous avez besoin d'informations détaillées sur l'installation ou le câblage des étagères de disques à votre système de stockage.
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Téléchargements NetApp : pack de qualification des disques"^]
+Les instructions d'installation et de configuration peuvent être trouvées en accédant à votre plateforme dans le link:../index.html["Documentation du système AFF et FAS"] .
 
-* Il est recommandé de télécharger et d'exécuter Config Advisor après une nouvelle installation du système.
+* Les tiroirs disques et les contrôleurs ne doivent pas encore être mis sous tension.
+* *Meilleure pratique* : Assurez-vous que votre système peut reconnaître et utiliser les lecteurs de disque nouvellement qualifiés en  https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["téléchargement de la version actuelle du Disk Qualification Package (DQP)"^] .
 +
-L'exécution de Config Advisor après l'installation d'un nouveau système vous permet de vérifier que les connexions SAS sont correctement câblées et que les identifiants des tiroirs sont uniques dans la paire haute disponibilité ou la configuration à un contrôleur.
+Cela vous permet d'éviter les messages d'événement système indiquant que les informations du lecteur de disque sont obsolètes. Vous évitez également le risque d'empêcher le partitionnement du disque en raison de la non-reconnaissance des lecteurs. Le DQP vous informe de la non-actualisation du micrologiciel du lecteur de disque.
 
+* *Meilleure pratique* : Vérifiez que les connexions SAS sont correctement câblées et que les ID d'étagère sont uniques dans la paire HA ou la configuration à contrôleur unique en  https://mysupport.netapp.com/site/tools["téléchargement et exécution de Config Advisor"^] après une nouvelle installation du système.
 +
 Si des erreurs de câblage SAS ou d'ID de tiroir dupliqués sont générées, suivez les actions correctives fournies.
 
 +
 Vous avez besoin d'un accès réseau pour télécharger Config Advisor.
 
+* Familiarisez-vous avec les considérations pour manipuler correctement les câbles SAS :
 +
-https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
-
-
-
-
-
-=== Considérations relatives à la gestion des câbles SAS
-
-* Inspectez visuellement le port SAS pour vérifier l'orientation correcte du connecteur avant de le brancher.
+** Si vous utilisez des câbles optiques SAS HD mini-SAS, vous devez avoir respecté les règles du link:install-cabling-rules.html#mini-sas-hd-sas-optical-cable-rules["Règles du câble optique SAS HD Mini-SAS"].
+** Inspectez visuellement le port SAS pour vérifier l'orientation correcte du connecteur avant de le brancher.
 +
 Les connecteurs de câble SAS sont clavetés. Lorsqu'il est orienté correctement vers un port SAS, le connecteur s'enclenche et si le tiroir disque est mis sous tension à ce moment, la LED LNK du port SAS du tiroir disque s'allume en vert. Pour les tiroirs disques, vous insérez un connecteur de câble SAS avec la languette de retrait orientée vers le bas (sous le connecteur).
 
 +
 Pour les contrôleurs, l'orientation des ports SAS peut varier en fonction du modèle de plateforme. Par conséquent, l'orientation correcte du connecteur de câble SAS varie.
 
-* Pour éviter de dégrader les performances, ne pas tordre, plier, pincer ou marcher sur les câbles.
+** Pour éviter de dégrader les performances, ne pas tordre, plier, pincer ou marcher sur les câbles.
 +
 Les câbles ont un rayon de courbure minimum. Les spécifications du fabricant de câbles définissent le rayon de pliage minimum ; cependant, un guide général pour le rayon de pliage minimum est 10 fois le diamètre du câble.
 
-* L'utilisation de bandes Velcro au lieu de serre-câbles pour regrouper et sécuriser les câbles du système permet de régler plus facilement les câbles.
+** *Meilleure pratique* : utilisez des bandes Velcro plutôt que des attaches autobloquantes pour regrouper et fixer les câbles du système afin de faciliter les ajustements des câbles.
 
 
-
-
-=== Considérations relatives à la gestion des disques DS460C
-
-* Les disques sont emballés séparément du châssis des tiroirs.
+* Familiarisez-vous avec les considérations pour manipuler correctement les lecteurs DS460C :
++
+** Les disques sont emballés séparément du châssis des tiroirs.
 +
 Vous devez faire l'inventaire des lecteurs et du reste de l'équipement du système que vous avez reçu.
 
-* Après avoir déballez les lecteurs, vous devez les conserver pour une utilisation ultérieure.
+** Après avoir déballez les lecteurs, vous devez les conserver pour une utilisation ultérieure.
 +
 
 CAUTION: *Perte possible d'accès aux données :* si vous déplacez le tiroir dans une autre partie du data Center ou si vous le transportez dans un autre emplacement, vous devez retirer les disques des tiroirs disques pour éviter d'endommager les tiroirs disques et les disques.
@@ -123,7 +87,7 @@ CAUTION: *Perte possible d'accès aux données :* si vous déplacez le tiroir da
 
 NOTE: Conservez les disques durs dans leur sac ESD jusqu'à ce que vous soyez prêt à les installer.
 
-* Lors de la manipulation des disques durs, toujours porter un bracelet antistatique relié à la terre sur une surface non peinte du châssis du boîtier de stockage pour éviter les décharges statiques.
+** Lors de la manipulation des disques durs, toujours porter un bracelet antistatique relié à la terre sur une surface non peinte du châssis du boîtier de stockage pour éviter les décharges statiques.
 +
 Si un bracelet n'est pas disponible, touchez une surface non peinte du châssis de votre boîtier de stockage avant de manipuler le lecteur de disque.
 
@@ -131,7 +95,9 @@ Si un bracelet n'est pas disponible, touchez une surface non peinte du châssis 
 
 
 
-== Installez les tiroirs disques avec des modules IOM12/IOM12B pour une nouvelle installation du système
+
+
+== Étape 1 : installer des étagères de disques pour une nouvelle installation système
 
 Vous installez les tiroirs disques dans un rack à l'aide des kits de montage en rack fournis avec les tiroirs disques.
 
@@ -142,27 +108,24 @@ NOTE: Si vous installez plusieurs tiroirs disques, vous devez les installer de b
 
 +
 
-NOTE: Ne montez pas la tablette de disque sur un rack de type opérateur ; le poids de la tablette peut entraîner une chute du rack sous son propre poids.
+CAUTION: Ne montez pas la tablette de disque sur un rack de type opérateur ; le poids de la tablette peut entraîner une chute du rack sous son propre poids.
 
 . Installez et fixez le tiroir disque sur les supports et le rack à l'aide du prospectus d'installation fourni avec le kit.
 +
 Pour rendre le tiroir disque plus léger et plus facile à manœuvrer, retirez les blocs d'alimentation et les modules d'E/S (IOM).
 
 +
-Pour les tiroirs disques DS460C, bien que les disques soient emballés séparément, ce qui rend le tiroir plus léger, un tiroir DS460C vide pèse toujours environ 60 kg (132 lb). C'est pourquoi il faut respecter la précaution suivante lors du déplacement d'un tiroir.
+
+CAUTION: Bien que les disques des étagères DS460C soient emballés séparément, ce qui allège l'étagère, une étagère DS460C vide pèse environ 60 kg (132 lb). Il est recommandé d'utiliser un élévateur mécanique ou quatre personnes utilisant les poignées de levage pour déplacer une étagère DS460C vide en toute sécurité.
 
 +
-
-CAUTION: Il est recommandé d'utiliser un élévateur mécanisé ou quatre personnes utilisant les poignées de levage pour déplacer en toute sécurité une étagère DS460C vide.
-
-+
-Votre DS460C a été livré avec quatre poignées de levage amovibles (deux pour chaque côté). Pour utiliser les poignées de levage, vous les installez en insérant les languettes des poignées dans les fentes situées sur le côté de la tablette et en poussant jusqu'à ce qu'elles s'enclenchent. Puis, lorsque vous faites glisser le tiroir disque sur les rails, vous détachez un jeu de poignées à la fois à l'aide du loquet. L'illustration suivante montre comment fixer une poignée de levage.
+Votre DS460C est livré avec quatre poignées de levage amovibles (deux de chaque côté). Pour les utiliser, insérez leurs languettes dans les fentes latérales de l'étagère et poussez-les vers le haut jusqu'à ce qu'elles s'enclenchent. Ensuite, en faisant glisser l'étagère à disques sur les rails, détachez les poignées une par une à l'aide du loquet. L'illustration suivante montre comment fixer une poignée de levage.
 
 +
 image::../media/drw_ds460c_handles.gif[Pose des poignées de levage]
 
 . Réinstallez les blocs d'alimentation et les modules d'E/S que vous avez retirés avant d'installer le tiroir disque dans le rack.
-. Si vous installez un tiroir disque DS460C, installez les disques dans les tiroirs disques. Sinon, passez à l'étape suivante.
+. Si vous installez une étagère de disques DS460C, installez les disques dans les tiroirs prévus à cet effet. Sinon, passez à l'étape suivante.
 +
 [NOTE]
 ====
@@ -172,7 +135,7 @@ Si un bracelet n'est pas disponible, touchez une surface non peinte du châssis 
 
 ====
 +
-Si vous avez acheté un tiroir partiellement rempli, ce qui signifie que le tiroir contient moins de 60 disques qu'il prend en charge, installez les disques comme suit :
+Si vous avez acheté une étagère partiellement remplie, ce qui signifie que l'étagère contient moins de 60 disques qu'elle prend en charge, installez les disques dans chaque tiroir comme suit :
 
 +
 ** Installez les quatre premiers disques dans les emplacements avant (0, 3, 6 et 9).
@@ -213,19 +176,12 @@ Vous devez vous assurer que les emplacements 0, 3, 6 et 9 de chaque tiroir conti
 
 ... Replacez avec précaution le tiroir du lecteur dans le boîtier.
 +
-|===
-
-
- a| 
 image:../media/2860_dwg_e2860_de460c_gentle_close.gif["Fermeture du tiroir en douceur"]
 
-
-
- a| 
++
 
 CAUTION: *Perte possible d'accès aux données:* ne jamais claster le tiroir fermé. Poussez lentement le tiroir pour éviter de le secouant et d'endommager le module de stockage.
 
-|===
 ... Fermez le tiroir d'entraînement en poussant les deux leviers vers le centre.
 ... Répétez cette procédure pour chaque tiroir du tiroir disque.
 ... Fixez le cadre avant.
@@ -241,15 +197,26 @@ NOTE: Ne mettez pas les tiroirs disques sous tension pour le moment.
 
 
 
-== Reliez les tiroirs disques avec les modules IOM12/IOM12B pour une nouvelle installation du système
+== Étape 2 : Câbler les étagères de disques pour une nouvelle installation du système
 
 Vous branchez les câbles SAS des tiroirs disques - tiroir à tiroir (le cas échéant) et contrôleur à tiroir - pour établir la connectivité du stockage pour le système.
 
-.Avant de commencer
-Vous devez répondre aux exigences décrites dans la section <<Conditions requises pour l'installation et le câblage des tiroirs disques avec des modules IOM12/IOM12B pour une nouvelle installation du système>> et ont installé les tiroirs disques sur le rack.
-
 .Description de la tâche
 Une fois les tiroirs disques câblés, vous mettez-les sous tension, définissez les ID de tiroir et terminez l'installation et la configuration du système.
+
+.Avant de commencer
+Vous devez avoir satisfait aux exigences suivantes et installé les étagères de disques dans le rack.
+
+* Vous devez disposer des instructions d'installation et de configuration pour votre modèle de plate-forme.
++
+Les instructions d'installation et de configuration décrivent la procédure complète d'installation, de configuration et d'installation de votre système. N'utilisez cette procédure conjointement avec les instructions d'installation et de configuration de la plateforme que si vous avez besoin d'informations détaillées sur l'installation ou le câblage des étagères de disques à votre système de stockage.
+
++
+Les instructions d'installation et de configuration peuvent être trouvées en accédant à votre plateforme dans le link:../index.html["Documentation du système AFF et FAS"] .
+
+* Les tiroirs disques et les contrôleurs ne doivent pas encore être mis sous tension.
+* Si vous utilisez des câbles optiques SAS HD mini-SAS, vous devez avoir respecté les règles du link:install-cabling-rules.html#mini-sas-hd-sas-optical-cable-rules["Règles du câble optique SAS HD Mini-SAS"].
+
 
 .Étapes
 . Reliez les connexions entre le tiroir et le tiroir dans chaque pile si la pile dispose de plusieurs tiroirs disques. Sinon, passez à l'étape suivante :
@@ -408,12 +375,9 @@ Vous pouvez utiliser le caractère générique pour attribuer plusieurs disques 
 
 
 
-. Téléchargez et exécutez Config Advisor comme indiqué dans les instructions d'installation et de configuration du modèle de plateforme pour vérifier que les connexions SAS sont correctement câblées et qu'il n'y a pas d'ID de tiroir dupliqué dans le système.
+. Vérifiez que les connexions SAS sont correctement câblées et qu'il n'y a pas d'ID d'étagère en double dans le système en  https://mysupport.netapp.com/site/tools["téléchargement et exécution de Config Advisor"^] comme indiqué dans les instructions d'installation et de configuration de votre modèle de plate-forme.
 +
 Si des erreurs de câblage SAS ou d'ID de tiroir dupliqués sont générées, suivez les actions correctives fournies.
-
-+
-https://mysupport.netapp.com/site/tools["Téléchargement NetApp : Config Advisor"^]
 
 +
 Vous pouvez également exécuter le `storage shelf show -fields shelf-id` Commande pour afficher la liste des ID de tiroir déjà utilisés (et les doublons si présents) dans votre système.
@@ -426,11 +390,11 @@ Dans le résultat, « In-band » est répertorié comme « actif » pour chaque 
 
 
 
-== Déplacement ou transport des étagères DS460C
+== (Facultatif) Étape 3 : Déplacer ou transporter les étagères DS460C
 
-Si, à l'avenir, vous déplacez les tiroirs DS460C vers une autre partie du data Center, ou si vous transportez ces tiroirs dans un autre emplacement, vous devez les retirer des tiroirs disques afin d'éviter d'endommager les tiroirs et les disques.
+Si, à l'avenir, vous déplacez les étagères DS460C vers une autre partie du centre de données ou transportez les étagères vers un autre emplacement, vous devez retirer les disques des tiroirs de disques pour éviter d'endommager les tiroirs de disques et les disques.
 
-* Si vous avez installé des étagères DS460C dans le cadre de votre nouvelle installation système, vous avez sauvegardé les matériaux d'emballage des disques, utilisez-les pour reconditionner les disques avant de les déplacer.
+* Si vous avez conservé les matériaux d'emballage du lecteur lors de l'installation des étagères DS460C dans le cadre de votre nouvelle installation système, utilisez-les pour reconditionner les lecteurs avant de les déplacer.
 +
 Si vous n'avez pas enregistré les matériaux d'emballage, vous devez placer les lecteurs sur des surfaces rembourrées ou utiliser un autre emballage amorti. Ne jamais empiler les disques les uns sur les autres.
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disk, shelves, shelf, iom12, module, single-controller, configuration, support, platform, sas, cabling, cable, rule, controller, shelf-to-shelf, connection, rule, controller-to-stack, mini-sas, hd, optical, cable, rule, sas cabling rules, iom12b, concepts 
 summary: 'Les tiroirs disques dotés de modules IOM12/IOM12B peuvent être câblés dans des configurations de paire haute disponibilité et à un seul contrôleur (pour les plateformes prises en charge).' 
 ---
-= Règles et concepts de câblage SAS - tiroirs avec modules IOM12/IOM12B
+= Règles et concepts de câblage SAS - DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,7 +14,7 @@ summary: 'Les tiroirs disques dotés de modules IOM12/IOM12B peuvent être câbl
 Les tiroirs disques dotés de modules IOM12/IOM12B peuvent être câblés dans des paires haute disponibilité et des configurations à un seul contrôleur (pour les plateformes prises en charge) en appliquant les règles de câblage SAS : règles de configuration, règles de numérotation des connecteurs de contrôleur, règles de connexion entre tiroirs et tiroirs, règles de connexion entre contrôleurs et SAS HD Mini-SAS, le cas échéant.
 
 
-NOTE: Les règles de câblage SAS relatives aux règles de numérotation des connecteurs du contrôleur, aux règles de connexion entre tiroirs et tiroirs et aux règles de connexion entre le contrôleur et la pile décrites dans ce guide sont les mêmes règles qui s'appliquent à tous les tiroirs disques SAS, qu'ils disposent de modules IOM12/IOM12B, IOM6 ou IOM3. Toutefois, les informations de ce guide sont spécifiques aux caractéristiques uniques des tiroirs disques avec modules IOM12/IOM12B et à leur utilisation dans les configurations prises en charge.
+NOTE: Les règles de câblage SAS décrites dans ce guide concernant la numérotation des emplacements de contrôleur, les connexions entre étagères et les connexions entre contrôleurs et piles sont les mêmes que celles qui s'appliquent à toutes les étagères de disques SAS, qu'elles soient équipées de modules IOM12 ou IOM12B. Cependant, les informations contenues dans ce guide sont spécifiques aux caractéristiques uniques des étagères de disques équipées de modules IOM12/IOM12B et à leur utilisation dans les configurations prises en charge.
 
 Les règles de câblage SAS relatives aux règles de configuration et aux règles de câblage optique SAS HD Mini-SAS décrites dans ce guide sont spécifiques aux tiroirs disques dotés de modules IOM12/IOM12B.
 
@@ -33,9 +33,6 @@ Vous devez éviter de vous écarter des règles ; les écarts pourraient réduir
 == Règles de configuration
 
 Les tiroirs disques avec modules IOM12/IOM12B sont pris en charge sur des types spécifiques de configurations à paires haute disponibilité et à un seul contrôleur.
-
-
-NOTE: Les plateformes FAS250 ne sont pas traitées dans ce contenu.
 
 [NOTE]
 ====

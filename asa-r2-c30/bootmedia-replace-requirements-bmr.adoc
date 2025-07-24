@@ -13,15 +13,8 @@ summary: 'Avant de remplacer le support de démarrage de votre système de stock
 [role="lead"]
 Avant de remplacer le support de démarrage de votre système de stockage ASA C30, assurez-vous de respecter les exigences et les points à considérer pour un remplacement réussi. Cela inclut la vérification du support de démarrage de remplacement approprié, le bon fonctionnement du port e0S (clé e0M) du contrôleur défectueux et l'activation du gestionnaire de clés intégré (OKM) ou du gestionnaire de clés externe (EKM).
 
-
-
-== De formation
-
 * Vous devez remplacer le composant défectueux par un composant FRU de remplacement de même capacité que celle reçue de NetApp.
-* Le port e0S (clé e0M) du contrôleur défectueux ne peut pas être défectueux.
-+
-Le port e0S est utilisé pour la restauration au démarrage automatique.
-
+* Le port e0S (clé e0M) est utilisé pour la communication entre les deux contrôleurs lors du processus de récupération automatique au démarrage. Assurez-vous que le port e0S du contrôleur défectueux fonctionne correctement.
 * Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.
 * Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
 +
@@ -31,24 +24,11 @@ Le port e0S est utilisé pour la restauration au démarrage automatique.
 ** Fichier /cfcard/kmip/certs/CA.pem.
 
 
-
-
-
-
-== Considérations
-
-* Il est important d'appliquer les commandes au cours de la procédure suivante sur le contrôleur approprié :
+* Il est essentiel d'appliquer les commandes au contrôleur approprié lorsque vous remplacez le support de démarrage défectueux :
 +
-** Le contrôleur _trouble_ est le contrôleur sur lequel vous effectuez la maintenance.
-** Le contrôleur _Healthy_ est le partenaire HA du contrôleur déficient.
+** Le _contrôleur défaillant_ est le contrôleur sur lequel vous effectuez la maintenance.
+** Le _contrôleur sain_ est le partenaire HA du contrôleur altéré.
 
-
-* Si nécessaire, vous pouvez allumer les voyants d'emplacement du châssis de la plate-forme (bleus) pour faciliter la localisation physique de la plate-forme concernée. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
-+
-Un châssis de plate-forme comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
-
-+
-Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
 
 
 

@@ -1,0 +1,298 @@
+---
+permalink: a20-30-50/io-module-hotswap-ha-slot4.html 
+sidebar: sidebar 
+keywords: aff a20, aff a30, aff a50, hotswap a cluster ha card 
+summary: 'Le module d"E/S cluster et haute disponibilité prend en charge les interconnexions pour le clustering et la haute disponibilité. Vous pouvez remplacer à chaud le module de votre système de stockage AFF A20, AFF A30 ou AFF A50 en cas de panne.' 
+---
+= Remplacez à chaud un module d'E/S utilisé pour le trafic de cluster et HA - AFF A20, AFF A30 et AFF A50
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le module d'E/S cluster et haute disponibilité prend en charge les interconnexions pour le clustering et la haute disponibilité. Vous pouvez remplacer à chaud le module de votre système de stockage AFF A20, AFF A30 ou AFF A50 en cas de panne et si votre système de stockage répond à des exigences spécifiques.
+
+Le processus d'échange à chaud implique la préparation du système de stockage et de l'emplacement 4 du module d'E/S afin qu'il soit possible de retirer en toute sécurité le module défectueux, d'échanger à chaud le module défectueux contre un module équivalent, de mettre le module de remplacement en ligne, de restaurer le système de stockage à un fonctionnement normal et de renvoyer le module défectueux à NetApp.
+
+.Avant de commencer
+* Votre système de stockage doit répondre à toutes les exigences suivantes pour pouvoir utiliser cette procédure.
++
+
+NOTE: Si votre système de stockage ne répond pas à toutes les exigences suivantes, vous devez utiliser le link:io-module-replace.html["procédure de remplacement d'un module d'E/S"] .
+
++
+** Votre système de stockage doit exécuter ONTAP 9.17.1 ou une version ultérieure.
+** Le module d'E/S défaillant doit être un module d'E/S cluster et haute disponibilité (HA) situé dans l'emplacement 4 et doit être remplacé par un autre module d'E/S cluster et haute disponibilité. Vous ne pouvez pas modifier le type de module d'E/S.
+** La configuration de votre système de stockage doit comporter un seul cluster et un seul module d'E/S HA situés dans l'emplacement 4, et non deux clusters et deux modules d'E/S HA.
+** Votre système de stockage doit être une configuration de cluster à deux nœuds (sans commutateur ou commuté).
+** Le contrôleur dont le cluster et le module d'E/S haute disponibilité (le contrôleur défaillant) sont défaillants doit avoir déjà pris le relais du contrôleur partenaire sain. La prise de relais aurait dû se produire automatiquement en cas de défaillance du module d'E/S.
++
+Pour les clusters à deux nœuds, le système de stockage ne peut pas identifier le contrôleur dont le module d'E/S est défaillant ; l'un ou l'autre peut donc prendre le relais. La procédure de remplacement à chaud du cluster et du module d'E/S haute disponibilité n'est prise en charge que lorsque le contrôleur dont le module d'E/S est défaillant (le contrôleur défaillant) a pris le relais du contrôleur sain.
+
++
+Vous pouvez vérifier que le contrôleur défaillant a pris le contrôle du contrôleur sain en entrant le  `storage failover show` commande.
+
++
+Si vous n'êtes pas sûr du contrôleur dont le module d'E/S est défectueux, contactez  https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] .
+
+
+
+* Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
+
+.Description de la tâche
+* Le remplacement à chaud du cluster et du module d'E/S HA signifie que vous n'avez pas besoin d'effectuer une prise de contrôle manuelle ; le contrôleur défectueux (le contrôleur avec le cluster et le module d'E/S HA défaillants) a automatiquement pris le contrôle du contrôleur sain.
++
+Lorsque le contrôleur défaillant a pris le contrôle du contrôleur sain, le seul moyen de récupérer sans panne est de remplacer le module à chaud.
+
+* Il est essentiel d'appliquer les commandes au contrôleur approprié lorsque vous remplacez à chaud le cluster et le module d'E/S HA :
++
+** Le _contrôleur défaillant_ est le contrôleur sur lequel vous remplacez à chaud le cluster et le module d'E/S HA et c'est le contrôleur qui a pris le contrôle du contrôleur sain.
+** Le _contrôleur sain_ est le partenaire HA du contrôleur altéré et c'est le contrôleur qui a été repris par le contrôleur altéré.
+
+
+* Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
++
+Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
+
++
+Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
+
+
+
+
+
+== Étape 1 : Préparez le système de stockage et l'emplacement du module d'E/S 4
+
+Préparez le système de stockage et l'emplacement du module d'E/S 4 afin de pouvoir retirer en toute sécurité le cluster défectueux et le module d'E/S HA :
+
+. Mettez-vous à la terre.
+. Débranchez le câblage du cluster défaillant et du module d’E/S HA.
++
+Assurez-vous d'étiqueter les câbles afin de pouvoir les reconnecter aux mêmes ports plus tard dans cette procédure.
+
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h`
+
++
+Par exemple, le message AutoSupport suivant supprime la création automatique de cas pendant deux heures :
+
++
+`node2::> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le retour automatique depuis la console du contrôleur défaillant :
++
+`storage failover modify -node local -auto-giveback false`
+
++
+
+NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
+
+. Préparez le cluster défaillant et le module HA dans l'emplacement 4 pour le retrait en le retirant du service et en le mettant hors tension :
++
+`system controller slot module remove -node _impaired_node_name_ -slot _slot_number_`
+
++
+
+NOTE: Lorsque vous voyez _Voulez-vous continuer ?_, entrez  `y` .
+
++
+Par exemple, la commande suivante prépare le module dans l'emplacement 4 sur le nœud 2 (le contrôleur défectueux) pour le retrait et affiche un message indiquant qu'il peut être retiré en toute sécurité :
+
++
+[listing]
+----
+node2::> system controller slot module remove -node node2 -slot 4
+
+Warning: IO_2X_100GBE_NVDA_NIC module in slot 4 of node node2 will be powered off for removal.
+
+Do you want to continue? {y|n}: y
+
+The module has been successfully removed from service and powered off. It can now be safely removed.
+----
+. Vérifiez que le cluster défaillant et le module HA dans l'emplacement 4 sont hors tension :
++
+`system controller slot module show`
+
++
+La sortie devrait afficher  `_powered-off_` dans la colonne d'état du module défaillant dans l'emplacement 4.
+
+
+
+
+
+== Étape 2 : Remplacez le cluster défectueux et le module d'E/S HA
+
+Remplacez le cluster défaillant et le module d'E/S HA dans l'emplacement 4 par un module d'E/S équivalent :
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez le cluster défaillant et le module d'E/S HA du contrôleur défectueux :
++
+image::../media/drw_g_io_module_hotswap_slot4_ieops-2366.svg[cluster hotswap et module d'E/S ha dans l'emplacement 4]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Tournez la vis moletée du module d'E/S dans le sens inverse des aiguilles d'une montre pour la desserrer.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Retirez le module d'E/S du contrôleur à l'aide de la languette d'étiquette du port à gauche et de la vis moletée à droite.
+
+|===
+. Installez le cluster de remplacement et le module d'E/S HA dans l'emplacement 4 :
++
+.. Alignez le module d'E/S sur les bords du logement.
+.. Poussez doucement le module d'E/S jusqu'au bout dans la fente, en veillant à bien insérer le module d'E/S dans le connecteur.
++
+Vous pouvez utiliser la languette à gauche et la vis à oreilles à droite pour enfoncer le module d'E/S.
+
+.. Tournez la vis à molette dans le sens des aiguilles d'une montre pour la serrer.
+
+
+. Câblez le cluster et le module d'E/S HA.
+
+
+
+
+== Étape 3 : Mettre en ligne le cluster de remplacement et le module d'E/S HA
+
+Mettez en ligne le cluster de remplacement et le module d'E/S HA dans l'emplacement 4, vérifiez que les ports du module sont correctement initialisés, vérifiez que l'emplacement 4 est sous tension, puis vérifiez que le module est en ligne et reconnu.
+
+. Mettez en ligne le cluster de remplacement et le module d'E/S HA :
++
+`system controller slot module insert -node impaired_node_name_ -slot _slot_name_`
+
++
+
+NOTE: Lorsque vous voyez _Voulez-vous continuer ?_, entrez  `y` .
+
++
+La sortie doit confirmer que le cluster et le module d'E/S HA ont été correctement mis en ligne (mis sous tension, initialisés et mis en service).
+
++
+Par exemple, la commande suivante met en ligne l'emplacement 4 sur le nœud 2 (le contrôleur altéré) et affiche un message indiquant que le processus a réussi :
+
++
+[listing]
+----
+node2::> system controller slot module insert -node node2 -slot 4
+
+Warning: IO_2X_100GBE_NVDA_NIC module in slot 4 of node node2 will be powered on and initialized.
+
+Do you want to continue? {y|n}: `y`
+
+The module has been successfully powered on, initialized and placed into service.
+----
+. Vérifiez que chaque port du cluster et du module d'E/S HA ont été initialisés avec succès :
++
+`event log show -event \*hotplug.init*`
+
++
+
+NOTE: L'exécution des mises à jour du micrologiciel et l'initialisation du port requises peuvent prendre plusieurs minutes.
+
++
+La sortie doit afficher un événement EMS hotplug.init.success enregistré pour chaque port du cluster et du module d'E/S HA avec  `_hotplug.init.success:_` dans le  `_Event_` colonne.
+
++
+Par exemple, la sortie suivante montre que l'initialisation a réussi pour les ports e4b et e4a du cluster et du module d'E/S HA :
+
++
+[listing]
+----
+node2::> event log show -event *hotplug.init*
+
+Time                Node             Severity      Event
+
+------------------- ---------------- ------------- ---------------------------
+
+7/11/2025 16:04:06  node2      NOTICE        hotplug.init.success: Initialization of ports "e4b" in slot 4 succeeded
+
+7/11/2025 16:04:06  node2      NOTICE        hotplug.init.success: Initialization of ports "e4a" in slot 4 succeeded
+
+2 entries were displayed.
+----
+. Vérifiez que l'emplacement 4 du module d'E/S est sous tension et prêt à fonctionner :
++
+`system controller slot module show`
+
++
+La sortie doit afficher l'état de l'emplacement 4 comme suit  `_powered-on_` et donc prêt à fonctionner pour le cluster de remplacement et le module d'E/S HA.
+
+. Vérifiez que le cluster de remplacement et le module d’E/S HA sont en ligne et reconnus.
++
+Entrez la commande depuis la console du contrôleur défaillant :
+
++
+`system controller config show -node local -slot4`
+
++
+Si le cluster de remplacement et le module d'E/S HA ont été mis en ligne avec succès et sont reconnus, la sortie affiche les informations du module d'E/S, y compris les informations de port, pour l'emplacement 4.
+
++
+Par exemple, vous devriez voir un résultat similaire à ce qui suit :
+
++
+[listing]
+----
+node2::> system controller config show -node local -slot 4
+
+Node: node2
+Sub- Device/
+Slot slot Information
+---- ---- -----------------------------
+   4    - Dual 40G/100G Ethernet Controller CX6-DX
+                  e4a MAC Address: d0:39:ea:59:69:74 (auto-100g_cr4-fd-up)
+                          QSFP Vendor:        CISCO-BIZLINK
+                          QSFP Part Number:   L45593-D218-D10
+                          QSFP Serial Number: LCC2807GJFM-B
+                  e4b MAC Address: d0:39:ea:59:69:75 (auto-100g_cr4-fd-up)
+                          QSFP Vendor:        CISCO-BIZLINK
+                          QSFP Part Number:   L45593-D218-D10
+                          QSFP Serial Number: LCC2809G26F-A
+                  Device Type:        CX6-DX PSID(NAP0000000027)
+                  Firmware Version:   22.44.1700
+                  Part Number:        111-05341
+                  Hardware Revision:  20
+                  Serial Number:      032403001370
+----
+
+
+
+
+== Étape 4 : Restaurer le système de stockage à son fonctionnement normal
+
+Restaurez le fonctionnement normal de votre système de stockage en rendant le stockage au contrôleur sain, en restaurant la restitution automatique et en réactivant la création automatique de cas AutoSupport .
+
+.Étapes
+. Remettez le contrôleur sain (le contrôleur qui a été repris) en fonctionnement normal en lui rendant son stockage :
++
+`storage failover giveback -ofnode _healthy_node_name_`
+
+. Restaurer le retour automatique depuis la console du contrôleur défaillant (le contrôleur qui a pris le contrôle du contrôleur sain) :
++
+`storage failover modify -node local -auto-giveback _true_`
+
+. Si AutoSupport est activé, restaurez la création automatique de dossiers :
++
+`system node autosupport invoke -node * -type all -message MAINT=end`
+
+
+
+
+
+== Étape 5 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

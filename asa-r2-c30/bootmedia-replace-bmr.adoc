@@ -15,6 +15,16 @@ Le support de démarrage de votre système de stockage ASA C30 stocke les donné
 
 
 
+== Description de la tâche
+
+Si nécessaire, vous pouvez allumer les voyants d'emplacement du châssis de la plate-forme (bleus) pour faciliter la localisation physique de la plate-forme concernée. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
+
+Un châssis de plate-forme comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
+
+Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
+
+
+
 == Étape 1 : retirer le contrôleur
 
 Vous devez retirer le contrôleur du châssis lorsque vous remplacez le contrôleur ou un composant à l'intérieur du contrôleur.

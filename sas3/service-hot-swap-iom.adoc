@@ -4,25 +4,22 @@ sidebar: sidebar
 keywords: system, configuration, whether, perform, nondisruptive, iom12, module, hot-swap, disruptive, replacement, hot-swap or replace an iom12/iom12b module, iom12b 
 summary: 'La configuration de votre système détermine si vous pouvez effectuer un remplacement à chaud de module IOM12/IOM12B sans interruption ou un remplacement de module IOM12/IOM12B perturbateur en cas de défaillance d"un module IOM12/IOM12B.' 
 ---
-= Remplacer à chaud un module IOM12/IOM12B - étagères avec modules IOM12/IOM12B
+= Échange à chaud ou remplacement d'un module IOM - DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Votre configuration système détermine si vous pouvez effectuer un remplacement à chaud d'E/S de tiroir sans interruption ou en cas de panne d'un module d'E/S de tiroir.
-
-.Avant de commencer
-Tous les autres composants du système, y compris l'autre module IOM12/IOM12B, doivent fonctionner correctement.
+La configuration de votre système détermine si vous pouvez effectuer un remplacement à chaud d'un module IOM d'étagère sans interruption ou un remplacement d'un module IOM d'étagère avec interruption lorsqu'un module IOM d'étagère IOM12 ou IOM12B tombe en panne.
 
 .Description de la tâche
-* Cette procédure s'applique aux étagères comportant des modules IOM12 et des étagères possédant des modules IOM12B.
+* Cette procédure s'applique aux étagères dotées de modules IOM12 ou IOM12B.
 +
 
-NOTE: Cette procédure concerne les remplacements ou les remplacements à chaud de module d'E/S de tiroir similaires. Cela signifie que vous ne pouvez remplacer qu'un module IOM12 par un autre module IOM12 ou remplacer un module IOM12B par un autre module IOM12B. (Votre tiroir peut être équipé de deux modules IOM12 ou de deux modules IOM12B.)
+NOTE: Cette procédure concerne les remplacements à chaud ou les échanges de modules IOM identiques. Cela signifie que vous ne pouvez remplacer qu'un module IOM12 par un autre module IOM12 ou un module IOM12B par un autre module IOM12B.
 
-* Les modules IOM12 et IOM12B peuvent se distinguer par leur apparence :
+* Les modules IOM12 ou IOM12B se distinguent par leur apparence :
 +
 Les modules IOM12 se distinguent par une étiquette « IOM12 » :
 
@@ -40,17 +37,7 @@ image::../media/iom12b.png[Avant de l'IOM12B]
 * Pour les configurations à chemin unique de la gamme FAS2600, vous devez arrêter le système pour remplacer un IOM de tiroir.
 +
 
-NOTE: Si vous tentez de remplacer à chaud un module d'E/S de tiroir sur un tiroir disque avec une connexion à un seul chemin, vous perdez tout accès aux disques du tiroir disque, ainsi qu'aux tiroirs disques en dessous. Vous pouvez également arrêter l'ensemble de votre système.
-
-* Avant d'ajouter de nouveaux tiroirs disques, des composants d'unités remplaçables sur site pour les tiroirs ou des câbles SAS, il est recommandé d'installer les versions les plus récentes du firmware IOM (module d'E/S) pour le tiroir disque et du firmware pour le disque.
-+
-Ces firmwares sont disponibles sur le site du support NetApp.
-
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"^]
-
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"^]
+CAUTION: Si vous tentez de remplacer à chaud un module d'E/S de tiroir sur un tiroir disque avec une connexion à un seul chemin, vous perdez tout accès aux disques du tiroir disque, ainsi qu'aux tiroirs disques en dessous. Vous pouvez également arrêter l'ensemble de votre système.
 
 * Le firmware du tiroir disque (IOM) est automatiquement mis à jour (sans interruption) sur un nouveau module d'E/S de tiroir avec une version de firmware non à jour.
 +
@@ -60,7 +47,12 @@ Les vérifications du firmware du module d'E/S du tiroir se font toutes les dix 
 +
 Un tiroir disque dispose de trois LED d'emplacement : une sur le panneau d'affichage de l'opérateur et une sur chaque IOM de tiroir. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l'option Désactivé.
 
-* Si nécessaire, reportez-vous à la section Monitoring des LED du tiroir disque pour plus d'informations sur la signification et l'emplacement des LED du tiroir disque sur le panneau d'affichage de l'opérateur et les composants FRU.
+* Si besoin, vous pouvez vous référer au link:/sas3/service-monitor-leds.html#operator-display-panel-leds["Surveillance des voyants du plateau de disque"] guide d'information sur la signification et l'emplacement des voyants LED de l'étagère de disque sur le panneau d'affichage de l'opérateur et les composants FRU.
+
+
+.Avant de commencer
+* Tous les autres composants du système, y compris l'autre module IOM12/IOM12B, doivent fonctionner correctement.
+* *Bonne pratique* : Assurez-vous que votre système dispose des versions actuelles du micrologiciel du module d'E/S (IOM) et du micrologiciel du lecteur de disque avant d'ajouter de nouveaux modules, composants FRU ou câbles SAS. Vous pouvez consulter le site de support NetApp pour  https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["télécharger le firmware du disque dur"] et  https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["télécharger le micrologiciel du lecteur de disque"] .
 
 
 .Étapes

@@ -4,31 +4,38 @@ sidebar: sidebar
 keywords: aff a20 aff a30 aff a50 maintenance, maintenance, repairing a20 aff a30 aff a50, replace a20 aff a30 aff a50 components 
 summary: 'Entretenir le matériel de vos systèmes de stockage AFF A20, AFF A30 ou AFF A50 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, telles que le remplacement de composants défectueux, afin d"éviter les temps d"indisponibilité et les pertes de données.' 
 ---
-= Présentation de la maintenance matérielle - AFF A20, AFF A30 et AFF A50
+= Aperçu des procédures de maintenance - AFF A20, AFF A30 et AFF A50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Entretenir le matériel de vos systèmes de stockage AFF A20, AFF A30 ou AFF A50 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, telles que le remplacement de composants défectueux, afin d'éviter les temps d'indisponibilité et les pertes de données.
+Entretenez le matériel de votre système de stockage AFF A20, AFF A30 ou AFF A50 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.
 
-Les procédures de maintenance supposent que les systèmes AFF A20, AFF A30 et AFF A50 ont déjà été déployés en tant que nœuds de stockage dans l'environnement ONTAP.
+Les procédures de maintenance supposent que le système de stockage AFF A20, AFF A30 ou AFF A50 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .
 
 
 
 == Composants du système
 
-Pour les systèmes de stockage AFF A20, AFF A30 et AFF A50, vous pouvez effectuer les procédures de maintenance des composants suivants.
+Pour le système de stockage AFF A20, AFF A30 ou AFF A50, vous pouvez effectuer des procédures de maintenance sur les composants suivants.
 
 [cols="25,65"]
 |===
 
 
  a| 
-link:bootmedia-replace-workflow.html["Support de démarrage"]
+link:bootmedia-replace-workflow-bmr.html["Support de démarrage - récupération automatique"]
  a| 
-Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP, ainsi que les informations de configuration système utilisées par le système lors du démarrage.
+Le support de démarrage stocke un ensemble primaire et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer l'image depuis le nœud partenaire et exécuter automatiquement l'option de menu de démarrage appropriée pour installer l'image sur votre support de démarrage de remplacement. La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
+
+
+
+ a| 
+link:bootmedia-replace-workflow.html["Support de démarrage - récupération manuelle"]
+ a| 
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer l'image à partir d'une clé USB et restaurer la configuration à partir du nœud partenaire.
 
 
 

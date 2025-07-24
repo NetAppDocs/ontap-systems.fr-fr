@@ -2,18 +2,26 @@
 permalink: c30-60/bootmedia-replace.html 
 sidebar: sidebar 
 keywords: aff c30, aff c60, replace the boot media 
-summary: 'Le support de démarrage de votre système AFF C30 ou AFF C60 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l"installation du support de démarrage de remplacement, puis le transfert de l"image ONTAP vers le support de démarrage de remplacement.' 
+summary: 'Le support de démarrage de votre système AFF C30 ou AFF C60 stocke les données essentielles du micrologiciel et de la configuration. Le remplacement consiste à retirer le module contrôleur, à retirer le support de démarrage défectueux, à installer le support de démarrage de remplacement, puis à transférer manuellement l"image ONTAP sur le support de démarrage de remplacement à l"aide d"une clé USB.' 
 ---
-= Remplacez le support de démarrage - AFF C30 et AFF C60
+= Remplacez le support de démarrage et préparez-vous à la récupération de démarrage manuelle - AFF C30 et AFF C60
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le support de démarrage de votre système AFF C30 ou AFF C60 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement, puis le transfert de l'image ONTAP vers le support de démarrage de remplacement.
+Le support de démarrage de votre système AFF C30 ou AFF C60 stocke les données essentielles du micrologiciel et de la configuration. Le remplacement consiste à retirer le module contrôleur, à retirer le support de démarrage défectueux, à installer le support de démarrage de remplacement, puis à transférer manuellement l'image ONTAP sur le support de démarrage de remplacement à l'aide d'une clé USB.
 
-Pour remplacer le support de démarrage, vous devez retirer le contrôleur défectueux, retirer le support de démarrage, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
+
+
+== Description de la tâche
+
+Si nécessaire, vous pouvez allumer les voyants d'emplacement du châssis de la plate-forme (bleus) pour faciliter la localisation physique de la plate-forme concernée. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
+
+Un châssis de plate-forme comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
+
+Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
 
 
 

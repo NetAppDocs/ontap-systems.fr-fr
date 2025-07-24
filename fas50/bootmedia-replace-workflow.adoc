@@ -2,32 +2,36 @@
 permalink: fas50/bootmedia-replace-workflow.html 
 sidebar: sidebar 
 keywords: fas50, replace the boot media 
-summary: Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur. 
+summary: 'La récupération manuelle de l"image de démarrage consiste à utiliser une clé USB pour réinstaller ONTAP sur le support de démarrage de remplacement du système FAS50. Vous devez télécharger l"image de récupération ONTAP appropriée depuis le site de support NetApp et la copier sur une clé USB. Cette clé USB préparée est ensuite utilisée pour effectuer la récupération et restaurer le système à son état opérationnel.' 
 ---
-= Workflow de remplacement des supports de démarrage - FAS50
+= Workflow de récupération manuelle du support de démarrage - FAS50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Procédez comme suit pour remplacer votre support de démarrage.
+La récupération manuelle de l'image de démarrage consiste à utiliser une clé USB pour réinstaller ONTAP sur le support de démarrage de remplacement du système FAS50. Vous devez télécharger l'image de récupération ONTAP appropriée depuis le site de support NetApp et la copier sur une clé USB. Cette clé USB préparée est ensuite utilisée pour effectuer la récupération et restaurer le système à son état opérationnel.
+
+Si votre système fonctionne sous ONTAP 9.17.1 et versions ultérieures, utilisez le link:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatique"] .
+
+Pour commencer, passez en revue les exigences de récupération, arrêtez le contrôleur, remplacez le support de démarrage, utilisez la clé USB pour restaurer l'image et réappliquez les paramètres de chiffrement si nécessaire.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:bootmedia-replace-requirements.html["Vérifiez la configuration requise pour le support de démarrage"]
 [role="quick-margin-para"]
-Pour remplacer le support de démarrage, vous devez répondre à certaines exigences.
+Consultez les conditions requises pour le remplacement du support de démarrage.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Une seule"]link:bootmedia-encryption-preshutdown-checks.html["Vérifiez les clés de chiffrement intégrées"]
 [role="quick-margin-para"]
-Vérifiez si le gestionnaire de clés de sécurité est activé sur votre système de stockage ou si des disques sont cryptés.
+Déterminez si le gestionnaire de clés de sécurité est activé sur le système ou si des disques cryptés sont utilisés.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Deux"]link:bootmedia-shutdown.html["Arrêtez le contrôleur défaillant"]
 [role="quick-margin-para"]
-Arrêtez ou prenez le contrôle du contrôleur défaillant pour que le contrôleur fonctionnel continue à transmettre des données à partir du stockage défectueux.
+Arrêtez le contrôleur lorsque vous devez remplacer le support de démarrage.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Trois"]link:bootmedia-replace.html["Remplacez le support de démarrage"]
 [role="quick-margin-para"]
-Retirez le support de démarrage défectueux du contrôleur défectueux et installez le support de démarrage de remplacement, puis transférez une image ONTAP à l'aide d'une clé USB sur le support de démarrage de remplacement.
+Retirez le support de démarrage défectueux du contrôleur défectueux et installez le support de démarrage de remplacement, puis transférez une image ONTAP à l'aide d'une clé USB.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Quatre"]link:bootmedia-recovery-image-boot.html["Démarrez l'image de récupération"]
 [role="quick-margin-para"]
@@ -35,7 +39,7 @@ Démarrez l'image ONTAP à partir du lecteur USB, restaurez le système de fichi
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Cinq"]link:bootmedia-encryption-restore.html["Restaurez le chiffrement"]
 [role="quick-margin-para"]
-Restaurez la configuration du gestionnaire de clés intégré ou le gestionnaire de clés externe à partir du menu d’amorçage ONAT.
+Restaurez la configuration du gestionnaire de clés intégré ou le gestionnaire de clés externe à partir du menu de démarrage ONTAP .
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Six"]link:bootmedia-complete-rma.html["Renvoyez la pièce défectueuse à NetApp"]
 [role="quick-margin-para"]

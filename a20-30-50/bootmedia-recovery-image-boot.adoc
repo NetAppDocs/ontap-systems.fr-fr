@@ -2,16 +2,16 @@
 permalink: a20-30-50/bootmedia-recovery-image-boot.html 
 sidebar: sidebar 
 keywords: aff a20, aff a30, aff a50, boot the recovery image 
-summary: 'Vous devez démarrer l"image ONTAP à partir du lecteur USB, restaurer le système de fichiers et vérifier les variables environnementales.' 
+summary: 'Après avoir installé le nouveau périphérique de support de démarrage sur votre système AFF A20, AFF A30 ou AFF A50, vous pouvez démarrer l"image de récupération manuellement à partir d"une clé USB pour restaurer la configuration à partir du nœud partenaire.' 
 ---
-= Démarrez l'image de récupération - AFF A20, AFF A30 et AFF A50
+= Récupération manuelle du support de démarrage à partir d'une clé USB - AFF A20, AFF A30 et AFF A50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Après avoir installé le nouveau périphérique de démarrage sur votre système AFF A20, AFF A30 ou AFF A50, vous pouvez démarrer l'image de récupération à partir d'une clé USB et restaurer la configuration à partir du nœud partenaire.
+Après avoir installé le nouveau périphérique de support de démarrage dans votre système de stockage AFF A20, AFF A30 ou AFF A50, vous pouvez démarrer l'image de récupération manuellement à partir d'une clé USB pour restaurer la configuration à partir du nœud partenaire.
 
 .Étapes
 . À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`
@@ -28,7 +28,7 @@ L'image est téléchargée à partir de la clé USB.
 .. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous voyez `Do you want to restore the backup configuration now?`
 .. Si vous y êtes invité sur le contrôleur défectueux, appuyez sur `Y` pour remplacer _/etc/ssh/ssh_host_ecdsa_Key_.
 .. Sur le contrôleur sain, définissez le contrôleur défectueux sur le niveau de privilège avancé : `set -privilege advanced`.
-.. Sur le contrôleur partenaire sain, exécutez la commande restore backup : `system node restore-backup -node local -target-address impaired_node_IP_address` .
+.. Sur le contrôleur partenaire sain, exécutez la commande restore backup : `system node restore-backup -node local -target-address impaired_node_IP_address`.
 +
 *REMARQUE :* si vous voyez un message autre qu'une restauration réussie, contactez https://support.netapp.com["Support NetApp"].
 

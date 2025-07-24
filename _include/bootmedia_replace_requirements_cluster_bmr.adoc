@@ -1,0 +1,24 @@
+= 
+:allow-uri-read: 
+
+
+Passez en revue les exigences suivantes.
+
+* Vous devez remplacer le support de démarrage défectueux par un support de démarrage de remplacement que vous avez reçu de NetApp.
+* Les ports du cluster permettent la communication entre les deux contrôleurs lors du processus de récupération automatique au démarrage. Assurez-vous que les ports du cluster du contrôleur défaillant fonctionnent correctement.
+* Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.
+* Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
++
+** /cfcard/kmip/servers.cfg
+** /cfcard/kmip/certs/client.crt
+** /cfcard/kmip/certs/client.key
+** /cfcard/kmip/certs/CA.pem
+
+
+* Il est essentiel d'appliquer les commandes au contrôleur approprié lorsque vous remplacez le support de démarrage défectueux :
++
+** Le _contrôleur défaillant_ est le contrôleur sur lequel vous effectuez la maintenance.
+** Le _contrôleur sain_ est le partenaire HA du contrôleur altéré.
+
+
+

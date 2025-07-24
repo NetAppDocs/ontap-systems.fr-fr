@@ -17,7 +17,7 @@ L'image est téléchargée à partir de la clé USB.
 .. Sur le contrôleur défectueux, appuyez sur `Y` lorsque vous voyez `Do you want to restore the backup configuration now?`
 .. Si vous y êtes invité sur le contrôleur défectueux, appuyez sur `Y` pour remplacer _/etc/ssh/ssh_host_ecdsa_Key_.
 .. Sur le contrôleur sain, définissez le contrôleur défectueux sur le niveau de privilège avancé : `set -privilege advanced`.
-.. Sur le contrôleur partenaire sain, exécutez la commande restore backup : `system node restore-backup -node local -target-address impaired_node_IP_address` .
+.. Sur le contrôleur partenaire sain, exécutez la commande restore backup : `system node restore-backup -node local -target-address impaired_node_IP_address`.
 +
 *REMARQUE :* si vous voyez un message autre qu'une restauration réussie, contactez https://support.netapp.com["Support NetApp"].
 

@@ -2,9 +2,9 @@
 permalink: a70-90/bootmedia-replace-requirements.html 
 sidebar: sidebar 
 keywords: aff a70, a90, replace the boot media 
-summary: 'Avant de remplacer le support de démarrage de votre système AFF AA70 ou AFF A90, assurez-vous de répondre aux exigences requises pour un remplacement réussi. Cela inclut la vérification de la présence d"une clé USB contenant la quantité de stockage appropriée et la vérification de la bonne mise en place du périphérique de démarrage de remplacement.' 
+summary: 'Avant de remplacer le support de démarrage de votre système AFF A70 ou AFF A90, assurez-vous de répondre aux exigences requises pour un remplacement réussi. Cela inclut la vérification de la présence d"une clé USB contenant la quantité de stockage appropriée et la vérification de la bonne mise en place du périphérique de démarrage de remplacement.' 
 ---
-= Configuration requise pour remplacer le support de démarrage - AFF A70 et AFF A90
+= Conditions requises pour la récupération manuelle du support de démarrage - AFF A70 et AFF A90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,17 +13,22 @@ summary: 'Avant de remplacer le support de démarrage de votre système AFF AA70
 [role="lead"]
 Avant de remplacer le support de démarrage de votre système AFF A70 ou AFF A90, assurez-vous de répondre aux exigences requises pour un remplacement réussi. Cela inclut la vérification de la présence d'une clé USB contenant la quantité de stockage appropriée et la vérification de la bonne mise en place du périphérique de démarrage de remplacement.
 
-Passez en revue les exigences suivantes.
-
-* Vous devez disposer d'une clé USB, formatée en FAT32, avec la quantité de stockage appropriée pour maintenir le `image_xxx.tgz` fichier.
-* Vous devez copier le `image_xxx.tgz` fichier sur la clé USB pour pouvoir l'utiliser ultérieurement dans cette procédure.
-* Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
-* Il est important d'appliquer les commandes au cours de la procédure suivante sur le contrôleur approprié :
-+
-** Le contrôleur _trouble_ est le contrôleur sur lequel vous effectuez la maintenance.
-** Le contrôleur _Healthy_ est le partenaire HA du contrôleur déficient.
+.clé USB
+* Assurez-vous d’avoir une clé USB formatée en FAT32.
+* La clé USB doit avoir une capacité de stockage suffisante pour contenir le  `image_xxx.tgz` déposer.
 
 
+.Préparation du dossier
+Copiez le  `image_xxx.tgz` sur la clé USB. Ce fichier sera utilisé lors du transfert de l'image ONTAP via la clé USB.
+
+.Remplacement des composants
+Remplacez le composant défectueux par le composant de remplacement fourni par NetApp.
+
+.Identification du contrôleur
+Il est essentiel d'appliquer les commandes au contrôleur approprié lorsque vous remplacez le support de démarrage défectueux :
+
+* Le _contrôleur défaillant_ est le contrôleur sur lequel vous effectuez la maintenance.
+* Le _contrôleur sain_ est le partenaire HA du contrôleur altéré.
 
 
 .Et la suite ?

@@ -1,0 +1,40 @@
+---
+permalink: a70-90/bootmedia-replace-requirements-bmr.html 
+sidebar: sidebar 
+keywords: aff a70, aff a90, replace the boot media 
+summary: Avant de remplacer le support de démarrage de votre système de stockage AFF A70 ou AFF A90 , assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. 
+---
+= Conditions requises pour la récupération automatique du support de démarrage - AFF A70 et AFF A90
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de remplacer le support de démarrage de votre système de stockage AFF A70 ou AFF A90 , assurez-vous de respecter les conditions requises pour un remplacement réussi. Cela inclut la vérification du support de démarrage de remplacement approprié, le bon fonctionnement des ports du cluster sur le contrôleur défectueux et l'activation du gestionnaire de clés intégré (OKM) ou du gestionnaire de clés externe (EKM).
+
+La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
+
+Passez en revue les exigences suivantes.
+
+* Vous devez remplacer le support de démarrage défectueux par un support de démarrage de remplacement que vous avez reçu de NetApp.
+* Les ports du cluster permettent la communication entre les deux contrôleurs lors du processus de récupération automatique au démarrage. Assurez-vous que les ports du cluster du contrôleur défaillant fonctionnent correctement.
+* Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.
+* Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
++
+** /cfcard/kmip/servers.cfg
+** /cfcard/kmip/certs/client.crt
+** /cfcard/kmip/certs/client.key
+** /cfcard/kmip/certs/CA.pem
+
+
+* Il est essentiel d'appliquer les commandes au contrôleur approprié lorsque vous remplacez le support de démarrage défectueux :
++
+** Le _contrôleur défaillant_ est le contrôleur sur lequel vous effectuez la maintenance.
+** Le _contrôleur sain_ est le partenaire HA du contrôleur altéré.
+
+
+
+
+.Et la suite
+Après avoir examiné la configuration requise pour le support de démarrage, vous link:bootmedia-shutdown-bmr.html["arrêter le contrôleur"].

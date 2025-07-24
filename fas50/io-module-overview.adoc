@@ -2,22 +2,29 @@
 permalink: fas50/io-module-overview.html 
 sidebar: sidebar 
 keywords: AFF A90, AFF A70, replace io module 
-summary: 'Les systèmes FAS50 permettent d"étendre ou de remplacer les modules d"E/S de manière flexible afin d"améliorer la connectivité réseau et les performances. L"ajout ou le remplacement d"un module d"E/S est essentiel lors de la mise à niveau des capacités réseau ou de l"adressage d"un module défaillant.' 
+summary: 'Les systèmes FAS50 offrent une grande flexibilité pour l"extension ou le remplacement de modules d"E/S afin d"améliorer la connectivité et les performances du réseau. L"ajout, le remplacement à chaud ou le remplacement d"un module d"E/S est essentiel pour mettre à niveau les capacités du réseau ou résoudre un problème de module défaillant.' 
 ---
-= Présentation de l'ajout et du remplacement d'un module d'E/S - FAS50
+= Présentation de l'ajout, du remplacement à chaud et du remplacement d'un module d'E/S - FAS50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Les systèmes FAS50 permettent d'étendre ou de remplacer les modules d'E/S de manière flexible afin d'améliorer la connectivité réseau et les performances. L'ajout ou le remplacement d'un module d'E/S est essentiel lors de la mise à niveau des capacités réseau ou de l'adressage d'un module défaillant.
+Les systèmes FAS50 offrent une grande flexibilité pour l'extension ou le remplacement de modules d'E/S afin d'améliorer la connectivité et les performances du réseau. L'ajout, le remplacement à chaud ou le remplacement d'un module d'E/S est essentiel pour mettre à niveau les capacités du réseau ou résoudre un problème de module défaillant.
 
-Vous pouvez remplacer un module d'E/S défaillant de votre système de stockage par le même type de module d'E/S ou par un autre type de module d'E/S. Vous pouvez également ajouter un module d'E/S à un système de stockage avec les emplacements disponibles.
+Vous pouvez remplacer un module d'E/S défaillant de votre système de stockage par le même type de module ou par un autre. Vous pouvez échanger à chaud un cluster et un module d'E/S haute disponibilité lorsque votre système de stockage répond à des exigences spécifiques. Vous pouvez également ajouter un module d'E/S à un système de stockage disposant d'emplacements disponibles.
 
 * link:io-module-add.html["Ajoutez un module d'E/S."]
 +
 L'ajout de modules d'E/S supplémentaires peut améliorer la redondance et garantir que le système de stockage reste opérationnel même en cas de défaillance d'un module d'E/S.
+
+* link:io-module-hotswap-ha-slot4.html["Échange à chaud d'un cluster et d'un module d'E/S HA"]
++
+Le remplacement à chaud d'un cluster et d'un module d'E/S haute disponibilité défaillants permet de restaurer le système de stockage à son état de fonctionnement optimal. Ce remplacement s'effectue sans intervention manuelle du contrôleur défaillant.
+
++
+Pour utiliser cette procédure, votre système de stockage doit exécuter ONTAP 9.17.1 ou une version ultérieure et répondre à des exigences système spécifiques.
 
 * link:io-module-replace.html["Remplacez un module d'E/S."]
 +

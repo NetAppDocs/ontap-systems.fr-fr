@@ -26,9 +26,16 @@ Pour le système de stockage AFF A1K, vous pouvez effectuer des procédures de m
 
 
  a| 
-link:bootmedia-replace-workflow.html["Support de démarrage"]
+link:bootmedia-replace-workflow-bmr.html["Support de démarrage - récupération automatique"]
  a| 
-Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système utilise lors du démarrage.
+Le support de démarrage stocke un ensemble primaire et secondaire de fichiers image ONTAP que le système utilise pour démarrer l'image depuis le nœud partenaire et exécuter automatiquement l'option de menu de démarrage appropriée pour installer l'image sur votre support de démarrage de remplacement. La récupération automatique du support de démarrage est prise en charge uniquement à partir ONTAP 9.17.1. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
+
+
+
+ a| 
+link:bootmedia-replace-workflow.html["Support de démarrage - récupération manuelle"]
+ a| 
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système utilise pour démarrer l'image à partir d'une clé USB et restaurer la configuration à partir du nœud partenaire.
 
 
 

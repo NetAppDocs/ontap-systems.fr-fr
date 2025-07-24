@@ -2,9 +2,9 @@
 permalink: c30-60/bootmedia-encryption-preshutdown-checks.html 
 sidebar: sidebar 
 keywords: aff c30, aff c60, pre-shutdown checks for onboard encryption keys 
-summary: 'Avant d"arrêter le contrôleur douteux et de vérifier le statut des clés de cryptage intégrées, vous devez vérifier le statut de ce contrôleur, désactiver le giveback automatique et vérifier quelle version de ONTAP le système fonctionne.' 
+summary: 'Pour garantir la sécurité des données sur votre système de stockage AFF C30 ou AFF C60, vous devez vérifier la prise en charge et l"état de la clé de chiffrement sur votre support de démarrage. Vérifiez si votre version ONTAP prend en charge le chiffrement de volume NetApp et, avant d"arrêter le contrôleur, si le gestionnaire de clés est actif.' 
 ---
-= Vérifiez la prise en charge et l'état de la clé de cryptage sur le support de démarrage - AFF C30 et AFF C60
+= Vérifier la prise en charge du cryptage pour la récupération manuelle du support de démarrage - AFF C30 et AFF C60
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

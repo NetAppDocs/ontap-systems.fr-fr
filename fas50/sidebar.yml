@@ -24,10 +24,25 @@ entries:
   entries:
   - title: Présentation de la maintenance
     url: "/fas50/maintain-overview.html"
-  - title: Support de démarrage
+  - title: Support de démarrage - récupération automatique
     pdf-filename: Support de démarrage FAS50
     entries:
-    - title: Procédure de remplacement du support de démarrage
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/fas50/bootmedia-replace-workflow-bmr.html"
+    - title: Examen des conditions requises
+      url: "/fas50/bootmedia-replace-requirements-bmr.html"
+    - title: Arrêtez le contrôleur douteux
+      url: "/fas50/bootmedia-shutdown-bmr.html"
+    - title: Remplacez le support de démarrage
+      url: "/fas50/bootmedia-replace-bmr.html"
+    - title: Image de récupération de démarrage
+      url: "/fas50/bootmedia-recovery-image-boot-bmr.html"
+    - title: Renvoyer la pièce défectueuse à NetApp
+      url: "/fas50/bootmedia-complete-rma-bmr.html"
+  - title: Support de démarrage - récupération manuelle
+    pdf-filename: Support de démarrage FAS50
+    entries:
+    - title: Procédure de remplacement des supports de démarrage
       url: "/fas50/bootmedia-replace-workflow.html"
     - title: Examen des conditions requises
       url: "/fas50/bootmedia-replace-requirements.html"
@@ -86,6 +101,8 @@ entries:
       url: "/fas50/io-module-overview.html"
     - title: Ajout d'un module d'E/S.
       url: "/fas50/io-module-add.html"
+    - title: Module cluster/HA remplaçable à chaud
+      url: "/fas50/io-module-hotswap-ha-slot4.html"
     - title: Remplacez le module d'E/S.
       url: "/fas50/io-module-replace.html"
   - title: Batterie NV

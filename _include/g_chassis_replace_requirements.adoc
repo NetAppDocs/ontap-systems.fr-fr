@@ -16,14 +16,7 @@ Passez en revue les exigences et considérations suivantes.
 
 == Considérations
 
-* *La procédure de remplacement du châssis est perturbatrice.* Dans le cas d'un cluster à deux nœuds, la panne totale du service et une panne partielle dans un cluster multinœud sont associés.
+* La procédure de remplacement du châssis est disruptive. Dans le cas d'un cluster à deux nœuds, la panne totale du service et une panne partielle dans un cluster multinœud sont associés.
 * Vous pouvez suivre la procédure de remplacement du châssis avec toutes les versions de ONTAP prises en charge par votre système de stockage.
 * La procédure de remplacement du châssis suppose que vous déplacez le panneau, les disques, les caches de disques et les contrôleurs vers le nouveau châssis.
-* Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
-+
-Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
-
-+
-Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
-
 

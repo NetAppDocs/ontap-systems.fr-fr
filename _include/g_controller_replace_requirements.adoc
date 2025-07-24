@@ -23,18 +23,9 @@ Le résultat de la console vous fournit un enregistrement de la procédure que v
 
 == Considérations
 
-* Il est important d'appliquer les commandes de cette procédure au contrôleur approprié :
-+
-** Le contrôleur _trouble_ est le contrôleur qui est en cours de remplacement.
-** Le contrôleur _remplacement_ est le nouveau contrôleur qui remplace le contrôleur défaillant.
-** Le contrôleur _Healthy_ est le contrôleur survivant.
+Il est important d'appliquer les commandes de cette procédure au contrôleur approprié :
 
-
-* Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
-+
-Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
-
-+
-Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
-
+* Le contrôleur _trouble_ est le contrôleur qui est en cours de remplacement.
+* Le contrôleur _remplacement_ est le nouveau contrôleur qui remplace le contrôleur défaillant.
+* Le contrôleur _Healthy_ est le contrôleur survivant.
 

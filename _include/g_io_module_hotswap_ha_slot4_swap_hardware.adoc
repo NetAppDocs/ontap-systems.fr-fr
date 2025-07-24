@@ -1,0 +1,42 @@
+= 
+:allow-uri-read: 
+
+
+Remplacez le cluster défaillant et le module d'E/S HA dans l'emplacement 4 par un module d'E/S équivalent :
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Retirez le cluster défaillant et le module d'E/S HA du contrôleur défectueux :
++
+image::../media/drw_g_io_module_hotswap_slot4_ieops-2366.svg[cluster hotswap et module d'E/S ha dans l'emplacement 4]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Tournez la vis moletée du module d'E/S dans le sens inverse des aiguilles d'une montre pour la desserrer.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Retirez le module d'E/S du contrôleur à l'aide de la languette d'étiquette du port à gauche et de la vis moletée à droite.
+
+|===
+. Installez le cluster de remplacement et le module d'E/S HA dans l'emplacement 4 :
++
+.. Alignez le module d'E/S sur les bords du logement.
+.. Poussez doucement le module d'E/S jusqu'au bout dans la fente, en veillant à bien insérer le module d'E/S dans le connecteur.
++
+Vous pouvez utiliser la languette à gauche et la vis à oreilles à droite pour enfoncer le module d'E/S.
+
+.. Tournez la vis à molette dans le sens des aiguilles d'une montre pour la serrer.
+
+
+. Câblez le cluster et le module d'E/S HA.
+

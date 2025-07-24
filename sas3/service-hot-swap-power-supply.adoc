@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: hot-swap, fail, power, supply, ds460c, ds224c, ds212c, disk, shelf-nondisruptively, shelf, nondisruptive, system, power, i/o, progress, hot-swap a power supply 
 summary: Vous pouvez remplacer à chaud une alimentation défectueuse dans un tiroir disque DS460C, DS224C ou DS212C. 
 ---
-= Bloc d'alimentation à remplacement à chaud - étagères avec modules IOM12/IOM12B
+= Remplacement à chaud d'une alimentation - DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,28 +13,19 @@ summary: Vous pouvez remplacer à chaud une alimentation défectueuse dans un ti
 [role="lead"]
 Vous pouvez remplacer à chaud une alimentation défectueuse dans un tiroir disque DS460C, DS224C ou DS212C.
 
-.Avant de commencer
-Tous les autres composants du système, y compris l'autre bloc d'alimentation, doivent fonctionner correctement.
+Cette procédure s'applique aux étagères avec modules IOM12 ou IOM12B.
 
-.Description de la tâche
+.Avant de commencer
+* Tous les autres composants du système, y compris l'autre bloc d'alimentation, doivent fonctionner correctement.
 * Si vous remplacez plusieurs alimentations, vous devez le faire une par une afin que le tiroir disque reste alimenté.
 * Vous devez remplacer une alimentation électrique dans les deux minutes qui suivent le retrait pour limiter les perturbations du flux d'air du tiroir disque.
 * Utilisez toujours deux mains pour retirer, installer ou transporter une alimentation pour soutenir son poids.
-* Avant d'ajouter de nouveaux tiroirs disques, des composants d'unités remplaçables sur site pour les tiroirs ou des câbles SAS, il est recommandé d'installer les versions les plus récentes du firmware IOM (module d'E/S) pour le tiroir disque et du firmware pour le disque.
-+
-Ces firmwares sont disponibles sur le site du support NetApp.
-
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Téléchargements NetApp : firmware des tiroirs disques"]
-
-+
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["Téléchargements NetApp : firmware de disque"]
-
+* *Bonne pratique* : Assurez-vous que votre système dispose des versions actuelles du micrologiciel du module d'E/S (IOM) et du micrologiciel du lecteur de disque avant d'ajouter de nouveaux modules, composants FRU ou câbles SAS. Vous pouvez consulter le site de support NetApp pour  https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["télécharger le firmware du disque dur"] et  https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["télécharger le micrologiciel du lecteur de disque"] .
 * Si nécessaire, vous pouvez activer les LED d'emplacement (bleues) du tiroir disque pour faciliter la localisation physique du tiroir disque concerné : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
 +
 Un tiroir disque dispose de trois LED d'emplacement : une sur le panneau d'affichage de l'opérateur et une sur chaque IOM de tiroir. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l'option Désactivé.
 
-* Si nécessaire, reportez-vous à la section Monitoring des LED du tiroir disque pour plus d'informations sur la signification et l'emplacement des LED du tiroir disque sur le panneau d'affichage de l'opérateur et les composants FRU.
+* Si besoin, vous pouvez vous référer au link:/sas3/service-monitor-leds.html#operator-display-panel-leds["Surveillance des voyants du plateau de disque"] guide d'information sur la signification et l'emplacement des voyants LED de l'étagère de disque sur le panneau d'affichage de l'opérateur et les composants FRU.
 
 
 .Étapes
@@ -60,17 +51,17 @@ image::../media/drw_2600_psu.gif[Ouverture de la poignée de la came de l'alimen
 
 . Utilisez la poignée de came pour faire glisser le bloc d'alimentation hors du tiroir disque.
 +
-Si vous disposez d'un tiroir disque DS224C ou DS212C, lorsque vous retirez le bloc d'alimentation, un volet se met en place pour bloquer la baie vide, ce qui contribue à maintenir le débit d'air et le refroidissement.
+Si vous possédez un tiroir de disque DS224C ou DS212C, lorsque vous retirez le bloc d'alimentation, un volet se met en place pour bloquer la baie vide. Cela permet de maintenir la circulation de l'air et le refroidissement.
 
 +
 
 NOTE: Lors de la manipulation d'un bloc d'alimentation, toujours utiliser deux mains pour soutenir son poids.
 
 . S'assurer que l'interrupteur marche/arrêt de la nouvelle alimentation est en position arrêt.
-. À deux mains, avec la poignée de came du nouveau bloc d'alimentation en position ouverte, soutenez et alignez les bords du nouveau bloc d'alimentation avec l'ouverture du tiroir disque, puis poussez fermement le nouveau bloc d'alimentation jusqu'à ce qu'il atteigne le plan milieu.
+. Avec la poignée à came du nouveau bloc d'alimentation en position ouverte, soutenez à deux mains les bords du nouveau bloc d'alimentation et alignez-les avec l'ouverture du support de disque. Ensuite, poussez fermement le nouveau bloc d'alimentation jusqu'à ce qu'il touche le plan médian.
 +
 
-NOTE: N'utilisez pas de force excessive lors de l'insertion de l'alimentation dans le tiroir disque ; vous risquez d'endommager les connecteurs.
+CAUTION: N'utilisez pas de force excessive lors de l'insertion de l'alimentation dans le tiroir disque ; vous risquez d'endommager les connecteurs.
 
 . Fermez la poignée de came de façon à ce que le loquet s'enclenche en position verrouillée et que le bloc d'alimentation soit bien en place.
 . Rebranchez le câble d'alimentation et mettez le nouveau bloc d'alimentation sous tension :
@@ -79,7 +70,7 @@ NOTE: N'utilisez pas de force excessive lors de l'insertion de l'alimentation da
 .. Rebranchez le cordon d'alimentation au bloc d'alimentation et fixez-le à l'aide de la pièce de retenue du cordon d'alimentation.
 .. Mettre l'interrupteur en position de marche.
 +
-Le voyant d'alimentation (vert) et le voyant d'avertissement (orange) du bloc d'alimentation s'allument, puis le voyant d'avertissement (orange) s'éteint dans les 40 secondes.
+Les voyants d'alimentation (vert) et d'avertissement (orange) du bloc d'alimentation s'allument. Au bout de 40 secondes, le voyant d'avertissement (orange) s'éteint.
 
 
 
