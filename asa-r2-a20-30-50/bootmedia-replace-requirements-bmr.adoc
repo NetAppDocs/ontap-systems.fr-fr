@@ -16,7 +16,10 @@ Avant de remplacer le support de démarrage de votre système de stockage ASA A2
 Passez en revue les exigences suivantes.
 
 * Vous devez remplacer le composant défectueux par un composant FRU de remplacement de même capacité que celle reçue de NetApp.
-* Le port e0S (clé e0M) est utilisé pour la communication entre les deux contrôleurs lors du processus de récupération automatique au démarrage. Assurez-vous que le port e0S du contrôleur défectueux fonctionne correctement.
+* Vérifiez que le port e0M (clé) du contrôleur défectueux est connecté et n'est pas défectueux.
++
+Le port e0M est utilisé pour communiquer entre les deux contrôleurs pendant le processus de récupération de démarrage automatisé.
+
 * Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.
 * Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
 +

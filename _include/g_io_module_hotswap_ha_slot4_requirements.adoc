@@ -1,0 +1,46 @@
+= 
+:allow-uri-read: 
+
+
+Pour utiliser cette procédure, votre système de stockage doit répondre à toutes les exigences.  Lisez les considérations pour un contexte supplémentaire de cette procédure.
+
+
+NOTE: Si votre système de stockage ne répond pas à toutes les exigences, vous devez utiliser lelink:io-module-replace.html["procédure de remplacement d'un module d'E/S"] .
+
+.De formation
+* Votre système de stockage doit exécuter ONTAP 9.17.1 ou une version ultérieure.
+* Le module d'E/S qui a échoué doit être un module d'E/S de cluster et HA dans l'emplacement 4 et vous devez le remplacer par un module d'E/S de cluster et HA équivalent. Vous ne pouvez pas modifier le type de module d'E/S.
+* La configuration de votre système de stockage doit comporter un seul cluster et un seul module d'E/S HA situés dans l'emplacement 4, et non deux clusters et deux modules d'E/S HA.
+* Votre système de stockage doit être une configuration de cluster à deux nœuds (sans commutateur ou commuté).
+* Le contrôleur dont le cluster et le module d'E/S haute disponibilité (le contrôleur défaillant) sont défaillants doit avoir déjà pris le relais du contrôleur partenaire sain. La prise de relais aurait dû se produire automatiquement en cas de défaillance du module d'E/S.
++
+Pour les clusters à deux nœuds, le système de stockage ne peut pas identifier le contrôleur dont le module d'E/S est défaillant ; l'un ou l'autre peut donc prendre le relais. La procédure de remplacement à chaud du cluster et du module d'E/S haute disponibilité n'est prise en charge que lorsque le contrôleur dont le module d'E/S est défaillant (le contrôleur défaillant) a pris le relais du contrôleur sain.
+
++
+Vous pouvez vérifier que le contrôleur défaillant a pris le contrôle du contrôleur sain en entrant le  `storage failover show` commande.
+
++
+Si vous n'êtes pas sûr du contrôleur dont le module d'E/S est défectueux, contactez  https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] .
+
+* Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
+
+.Considérations
+* Le remplacement à chaud du cluster et du module d'E/S HA signifie que vous n'avez pas besoin d'effectuer une prise de contrôle manuelle ; le contrôleur défectueux (le contrôleur avec le cluster et le module d'E/S HA défaillants) a automatiquement pris le contrôle du contrôleur sain.
++
+Lorsque le contrôleur défaillant a pris le contrôle du contrôleur sain, le seul moyen de récupérer sans panne est de remplacer le module à chaud.
+
+* Il est essentiel d'appliquer les commandes au contrôleur approprié lorsque vous remplacez à chaud le cluster et le module d'E/S HA :
++
+** Le _contrôleur défaillant_ est le contrôleur sur lequel vous remplacez à chaud le cluster et le module d'E/S HA et c'est le contrôleur qui a pris le contrôle du contrôleur sain.
+** Le _contrôleur sain_ est le partenaire HA du contrôleur altéré et c'est le contrôleur qui a été repris par le contrôleur altéré.
+
+
+* Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
++
+Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
+
++
+Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
+
+

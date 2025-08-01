@@ -6,17 +6,16 @@ Mettez en ligne le cluster de remplacement et le module d'E/S HA dans l'emplacem
 
 . Mettez en ligne le cluster de remplacement et le module d'E/S HA :
 +
-`system controller slot module insert -node impaired_node_name_ -slot _slot_name_`
-
+.. Entrez la commande suivante :
 +
+`system controller slot module insert -node _impaired_node_name_ -slot _slot_name_`
 
-NOTE: Lorsque vous voyez _Voulez-vous continuer ?_, entrez  `y` .
-
+.. Entrer `y` lorsque vous voyez l'invite, _Voulez-vous continuer ?_
 +
 La sortie doit confirmer que le cluster et le module d'E/S HA ont été correctement mis en ligne (mis sous tension, initialisés et mis en service).
 
 +
-Par exemple, la commande suivante met en ligne l'emplacement 4 sur le nœud 2 (le contrôleur altéré) et affiche un message indiquant que le processus a réussi :
+Par exemple, la commande suivante met en ligne l'emplacement 4 du nœud 2 (le contrôleur altéré) et affiche un message indiquant que le processus a réussi :
 
 +
 [listing]
@@ -29,6 +28,8 @@ Do you want to continue? {y|n}: `y`
 
 The module has been successfully powered on, initialized and placed into service.
 ----
+
+
 . Vérifiez que chaque port du cluster et du module d'E/S HA ont été initialisés avec succès :
 +
 `event log show -event \*hotplug.init*`

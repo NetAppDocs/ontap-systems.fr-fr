@@ -1,91 +1,10 @@
-= Étape 1 : arrêtez le contrôleur défaillant
+= 
 :allow-uri-read: 
 
 
-Utilisez cette procédure pour remplacer un module d'E/S défectueux.
-
-.Avant de commencer
-Tous les autres composants du système de stockage doivent fonctionner correctement. Si ce n'est pas le cas, vous devez contacter https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
-
-.Description de la tâche
-Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
-
-Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
-
-Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
-
-
-
-== Étape 1 : arrêtez le contrôleur défaillant
-
-Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
-
-.Description de la tâche
-* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) pour le serveur lame SCSI du contrôleur défectueux.  `cluster kernel-service show`La commande (from priv mode Advanced) affiche le nom du nœud, son état de disponibilité et link:https://docs.netapp.com/us-en/ontap/system-admin/display-nodes-cluster-task.html["état du quorum"]son état de fonctionnement.
-+
-Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
-
-* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
-
-
-.Étapes
-. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
-+
-`system node autosupport invoke -node * -type all -message MAINT=<# of hours>h`
-
-+
-Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :
-
-+
-`cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
-
-. Désactiver le rétablissement automatique depuis la console du contrôleur sain :
-+
-`storage failover modify -node local -auto-giveback false`
-
-+
-
-NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
-
-. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
-+
-[cols="1,2"]
-|===
-| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
-
-
- a| 
-Invite DU CHARGEUR
- a| 
-Passez à l'étape suivante.
-
-
-
- a| 
-Attente du retour...
- a| 
-Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
-
-
-
- a| 
-Invite système ou invite de mot de passe
- a| 
-Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état :
-
-`storage failover takeover -ofnode _impaired_node_name_ -halt _true_`
-
-Le paramètre _-halt true_ vous amène à l'invite Loader.
-
-|===
-
-
-
-
-== Étape 2 : remplacez un module d'E/S défectueux
-
 Pour remplacer un module d'E/S défectueux, localisez-le dans le contrôleur et suivez la séquence spécifique des étapes.
 
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Débranchez le câblage du module d'E/S défectueux.
 +
@@ -125,24 +44,3 @@ Vous pouvez utiliser la languette de gauche et la vis moletée pour enfoncer le 
 
 . Branchez le câble du module d'E/S.
 
-
-
-
-== Étape 3 : redémarrer le contrôleur
-
-Après le remplacement d'un module d'E/S, vous devez redémarrer le contrôleur.
-
-.Étapes
-. Redémarrez le contrôleur à partir de l'invite Loader : `bye`
-+
-Le redémarrage du contrôleur défectueux réinitialise également les modules d'E/S et les autres composants.
-
-. Rétablir le fonctionnement normal du nœud : `storage failover giveback -ofnode _impaired_node_name_`
-. Restaurez le rétablissement automatique à partir de la console du contrôleur sain : `storage failover modify -node local -auto-giveback _true_`
-
-
-
-
-== Étape 4 : renvoyer la pièce défaillante à NetApp
-
-Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

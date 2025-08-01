@@ -13,20 +13,23 @@ summary: 'Le module d"E/S cluster et haute disponibilité prend en charge les in
 [role="lead"]
 Le module d'E/S cluster et haute disponibilité prend en charge les interconnexions pour le clustering et la haute disponibilité. Vous pouvez remplacer à chaud le module de votre système de stockage AFF A20, AFF A30 ou AFF A50 en cas de panne et si votre système de stockage répond à des exigences spécifiques.
 
-Le processus d'échange à chaud implique la préparation du système de stockage et de l'emplacement 4 du module d'E/S afin qu'il soit possible de retirer en toute sécurité le module défectueux, d'échanger à chaud le module défectueux contre un module équivalent, de mettre le module de remplacement en ligne, de restaurer le système de stockage à un fonctionnement normal et de renvoyer le module défectueux à NetApp.
+Pour remplacer à chaud un module, assurez-vous que votre système de stockage répond aux exigences de la procédure, préparez le système de stockage et le module d'E/S dans l'emplacement 4, remplacez à chaud le module défaillant par un module équivalent, mettez le module de remplacement en ligne, restaurez le système de stockage à son fonctionnement normal et renvoyez le module défaillant à NetApp.
 
-.Avant de commencer
-* Votre système de stockage doit répondre à toutes les exigences suivantes pour pouvoir utiliser cette procédure.
-+
 
-NOTE: Si votre système de stockage ne répond pas à toutes les exigences suivantes, vous devez utiliser le link:io-module-replace.html["procédure de remplacement d'un module d'E/S"] .
 
-+
-** Votre système de stockage doit exécuter ONTAP 9.17.1 ou une version ultérieure.
-** Le module d'E/S défaillant doit être un module d'E/S cluster et haute disponibilité (HA) situé dans l'emplacement 4 et doit être remplacé par un autre module d'E/S cluster et haute disponibilité. Vous ne pouvez pas modifier le type de module d'E/S.
-** La configuration de votre système de stockage doit comporter un seul cluster et un seul module d'E/S HA situés dans l'emplacement 4, et non deux clusters et deux modules d'E/S HA.
-** Votre système de stockage doit être une configuration de cluster à deux nœuds (sans commutateur ou commuté).
-** Le contrôleur dont le cluster et le module d'E/S haute disponibilité (le contrôleur défaillant) sont défaillants doit avoir déjà pris le relais du contrôleur partenaire sain. La prise de relais aurait dû se produire automatiquement en cas de défaillance du module d'E/S.
+== Étape 1 : Assurez-vous que le système de stockage répond aux exigences de la procédure
+
+Pour utiliser cette procédure, votre système de stockage doit répondre à toutes les exigences.  Lisez les considérations pour un contexte supplémentaire de cette procédure.
+
+
+NOTE: Si votre système de stockage ne répond pas à toutes les exigences, vous devez utiliser lelink:io-module-replace.html["procédure de remplacement d'un module d'E/S"] .
+
+.De formation
+* Votre système de stockage doit exécuter ONTAP 9.17.1 ou une version ultérieure.
+* Le module d'E/S qui a échoué doit être un module d'E/S de cluster et HA dans l'emplacement 4 et vous devez le remplacer par un module d'E/S de cluster et HA équivalent. Vous ne pouvez pas modifier le type de module d'E/S.
+* La configuration de votre système de stockage doit comporter un seul cluster et un seul module d'E/S HA situés dans l'emplacement 4, et non deux clusters et deux modules d'E/S HA.
+* Votre système de stockage doit être une configuration de cluster à deux nœuds (sans commutateur ou commuté).
+* Le contrôleur dont le cluster et le module d'E/S haute disponibilité (le contrôleur défaillant) sont défaillants doit avoir déjà pris le relais du contrôleur partenaire sain. La prise de relais aurait dû se produire automatiquement en cas de défaillance du module d'E/S.
 +
 Pour les clusters à deux nœuds, le système de stockage ne peut pas identifier le contrôleur dont le module d'E/S est défaillant ; l'un ou l'autre peut donc prendre le relais. La procédure de remplacement à chaud du cluster et du module d'E/S haute disponibilité n'est prise en charge que lorsque le contrôleur dont le module d'E/S est défaillant (le contrôleur défaillant) a pris le relais du contrôleur sain.
 
@@ -36,12 +39,10 @@ Vous pouvez vérifier que le contrôleur défaillant a pris le contrôle du cont
 +
 Si vous n'êtes pas sûr du contrôleur dont le module d'E/S est défectueux, contactez  https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] .
 
-
-
 * Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
 
 
-.Description de la tâche
+.Considérations
 * Le remplacement à chaud du cluster et du module d'E/S HA signifie que vous n'avez pas besoin d'effectuer une prise de contrôle manuelle ; le contrôleur défectueux (le contrôleur avec le cluster et le module d'E/S HA défaillants) a automatiquement pris le contrôle du contrôleur sain.
 +
 Lorsque le contrôleur défaillant a pris le contrôle du contrôleur sain, le seul moyen de récupérer sans panne est de remplacer le module à chaud.
@@ -63,7 +64,7 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 
-== Étape 1 : Préparez le système de stockage et l'emplacement du module d'E/S 4
+== Étape 2 : Préparez le système de stockage et l'emplacement du module d'E/S 4
 
 Préparez le système de stockage et l'emplacement du module d'E/S 4 afin de pouvoir retirer en toute sécurité le cluster défectueux et le module d'E/S HA :
 
@@ -82,24 +83,24 @@ Par exemple, le message AutoSupport suivant supprime la création automatique de
 +
 `node2::> system node autosupport invoke -node * -type all -message MAINT=2h`
 
-. Désactiver le retour automatique depuis la console du contrôleur défaillant :
+. Désactiver le retour automatique :
++
+.. Entrez la commande suivante depuis la console du contrôleur défaillant :
 +
 `storage failover modify -node local -auto-giveback false`
 
-+
+.. Entrer `y` lorsque vous voyez l'invite _Voulez-vous désactiver le retour automatique ?_
 
-NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
 
 . Préparez le cluster défaillant et le module HA dans l'emplacement 4 pour le retrait en le retirant du service et en le mettant hors tension :
 +
+.. Entrez la commande suivante :
++
 `system controller slot module remove -node _impaired_node_name_ -slot _slot_number_`
 
+.. Entrer `y` lorsque vous voyez l'invite _Voulez-vous continuer ?_
 +
-
-NOTE: Lorsque vous voyez _Voulez-vous continuer ?_, entrez  `y` .
-
-+
-Par exemple, la commande suivante prépare le module dans l'emplacement 4 sur le nœud 2 (le contrôleur défectueux) pour le retrait et affiche un message indiquant qu'il peut être retiré en toute sécurité :
+Par exemple, la commande suivante prépare le module dans l'emplacement 4 du nœud 2 (le contrôleur défectueux) pour le retrait et affiche un message indiquant qu'il peut être retiré en toute sécurité :
 
 +
 [listing]
@@ -112,6 +113,8 @@ Do you want to continue? {y|n}: y
 
 The module has been successfully removed from service and powered off. It can now be safely removed.
 ----
+
+
 . Vérifiez que le cluster défaillant et le module HA dans l'emplacement 4 sont hors tension :
 +
 `system controller slot module show`
@@ -123,7 +126,7 @@ La sortie devrait afficher  `_powered-off_` dans la colonne d'état du module d�
 
 
 
-== Étape 2 : Remplacez le cluster défectueux et le module d'E/S HA
+== Étape 3 : Remplacez le cluster défectueux et le module d'E/S HA
 
 Remplacez le cluster défaillant et le module d'E/S HA dans l'emplacement 4 par un module d'E/S équivalent :
 
@@ -166,23 +169,22 @@ Vous pouvez utiliser la languette à gauche et la vis à oreilles à droite pour
 
 
 
-== Étape 3 : Mettre en ligne le cluster de remplacement et le module d'E/S HA
+== Étape 4 : Mettre en ligne le cluster de remplacement et le module d'E/S HA
 
 Mettez en ligne le cluster de remplacement et le module d'E/S HA dans l'emplacement 4, vérifiez que les ports du module sont correctement initialisés, vérifiez que l'emplacement 4 est sous tension, puis vérifiez que le module est en ligne et reconnu.
 
 . Mettez en ligne le cluster de remplacement et le module d'E/S HA :
 +
-`system controller slot module insert -node impaired_node_name_ -slot _slot_name_`
-
+.. Entrez la commande suivante :
 +
+`system controller slot module insert -node _impaired_node_name_ -slot _slot_name_`
 
-NOTE: Lorsque vous voyez _Voulez-vous continuer ?_, entrez  `y` .
-
+.. Entrer `y` lorsque vous voyez l'invite, _Voulez-vous continuer ?_
 +
 La sortie doit confirmer que le cluster et le module d'E/S HA ont été correctement mis en ligne (mis sous tension, initialisés et mis en service).
 
 +
-Par exemple, la commande suivante met en ligne l'emplacement 4 sur le nœud 2 (le contrôleur altéré) et affiche un message indiquant que le processus a réussi :
+Par exemple, la commande suivante met en ligne l'emplacement 4 du nœud 2 (le contrôleur altéré) et affiche un message indiquant que le processus a réussi :
 
 +
 [listing]
@@ -195,6 +197,8 @@ Do you want to continue? {y|n}: `y`
 
 The module has been successfully powered on, initialized and placed into service.
 ----
+
+
 . Vérifiez que chaque port du cluster et du module d'E/S HA ont été initialisés avec succès :
 +
 `event log show -event \*hotplug.init*`
@@ -272,7 +276,7 @@ Slot slot Information
 
 
 
-== Étape 4 : Restaurer le système de stockage à son fonctionnement normal
+== Étape 5 : Restaurer le système de stockage à son fonctionnement normal
 
 Restaurez le fonctionnement normal de votre système de stockage en rendant le stockage au contrôleur sain, en restaurant la restitution automatique et en réactivant la création automatique de cas AutoSupport .
 
@@ -293,6 +297,6 @@ Restaurez le fonctionnement normal de votre système de stockage en rendant le s
 
 
 
-== Étape 5 : renvoyer la pièce défaillante à NetApp
+== Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

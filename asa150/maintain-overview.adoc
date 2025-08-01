@@ -21,12 +21,6 @@ Le support de démarrage stocke un ensemble principal et secondaire de fichiers 
 
 
 
-== Module de cache
-
-Vous devez remplacer le module de cache du contrôleur lorsque votre système enregistre un seul message AutoSupport (ASUP) indiquant que le module est hors ligne.
-
-
-
 == Châssis
 
 Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
@@ -66,3 +60,5 @@ Une alimentation électrique fournit une source d'alimentation redondante dans u
 == Batterie d'horloge en temps réel
 
 Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.
+
+////Juillet 2025 : ontap-systems 370 : module de mise en cache supprimé car non pris en charge pour cette plateforme.

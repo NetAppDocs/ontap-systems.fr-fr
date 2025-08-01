@@ -19,24 +19,24 @@ Par exemple, le message AutoSupport suivant supprime la création automatique de
 +
 `node2::> system node autosupport invoke -node * -type all -message MAINT=2h`
 
-. Désactiver le retour automatique depuis la console du contrôleur défaillant :
+. Désactiver le retour automatique :
++
+.. Entrez la commande suivante depuis la console du contrôleur défaillant :
 +
 `storage failover modify -node local -auto-giveback false`
 
-+
+.. Entrer `y` lorsque vous voyez l'invite _Voulez-vous désactiver le retour automatique ?_
 
-NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
 
 . Préparez le cluster défaillant et le module HA dans l'emplacement 4 pour le retrait en le retirant du service et en le mettant hors tension :
 +
+.. Entrez la commande suivante :
++
 `system controller slot module remove -node _impaired_node_name_ -slot _slot_number_`
 
+.. Entrer `y` lorsque vous voyez l'invite _Voulez-vous continuer ?_
 +
-
-NOTE: Lorsque vous voyez _Voulez-vous continuer ?_, entrez  `y` .
-
-+
-Par exemple, la commande suivante prépare le module dans l'emplacement 4 sur le nœud 2 (le contrôleur défectueux) pour le retrait et affiche un message indiquant qu'il peut être retiré en toute sécurité :
+Par exemple, la commande suivante prépare le module dans l'emplacement 4 du nœud 2 (le contrôleur défectueux) pour le retrait et affiche un message indiquant qu'il peut être retiré en toute sécurité :
 
 +
 [listing]
@@ -49,6 +49,8 @@ Do you want to continue? {y|n}: y
 
 The module has been successfully removed from service and powered off. It can now be safely removed.
 ----
+
+
 . Vérifiez que le cluster défaillant et le module HA dans l'emplacement 4 sont hors tension :
 +
 `system controller slot module show`
