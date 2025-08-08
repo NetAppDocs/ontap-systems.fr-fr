@@ -13,23 +13,6 @@ summary: 'Remplacez le module de gestion du système de votre système ASA A70 o
 [role="lead"]
 Remplacez le module de gestion du système de votre système ASA A70 ou ASA A90 s'il est défectueux ou si son micrologiciel est corrompu. Le processus de remplacement implique l'arrêt du contrôleur, le remplacement du module de gestion du système en panne, le redémarrage du contrôleur, la mise à jour des clés de licence et le renvoi de la pièce défectueuse à NetApp.
 
-Le module de gestion du système, situé à l'arrière du contrôleur dans le logement 8, contient des composants intégrés pour la gestion du système, ainsi que des ports pour la gestion externe. Le contrôleur cible doit être arrêté pour remplacer un module de gestion du système défectueux ou pour remplacer le support d'amorçage.
-
-Le module de gestion du système comprend les composants intégrés suivants :
-
-* Support de démarrage, permettant le remplacement du support de démarrage sans retirer le module de contrôleur.
-* BMC
-* Commutateur de gestion
-
-
-Le module System Management contient également les ports suivants pour la gestion externe :
-
-* Série RJ45
-* USB série (type C)
-* USB de type A (récupération de démarrage)
-* Port RJ45 Ethernet e0M
-
-
 .Avant de commencer
 * Cette procédure utilise la terminologie suivante :
 +
@@ -41,6 +24,9 @@ Le module System Management contient également les ports suivants pour la gesti
 * Le contrôleur partenaire doit pouvoir prendre le contrôle du contrôleur défectueux.
 * Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
+
+.Description de la tâche
+Le module de gestion du système, situé à l'arrière du contrôleur dans le logement 8, contient des composants intégrés pour la gestion du système, ainsi que des ports pour la gestion externe. Le contrôleur cible doit être arrêté pour remplacer un module de gestion du système défectueux ou pour remplacer le support d'amorçage.
 
 
 
@@ -112,15 +98,13 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 
-== Étape 2 : remplacez le module de gestion du système défectueux
+== Étape 2 : Remplacer le module de gestion du système
 
 Remplacez le module de gestion du système défectueux.
 
+.Étapes
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
-+
-
-NOTE: Assurez-vous que le déchargement de la NVRAM est terminé avant de continuer. Lorsque le voyant du module NV est éteint, le NVRAM est déchargé. Si le voyant clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
-
+. Assurez-vous que le déchargement de la NVRAM est terminé avant de continuer. Lorsque le voyant du module NV est éteint, le NVRAM est déchargé. Si le voyant clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
 +
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
 
@@ -131,9 +115,7 @@ image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
 NOTE: Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
 
 . Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
-. Retirez le module de gestion du système :
-+
-.. Retirez tous les câbles connectés au module de gestion du système. Assurez-vous que l'étiquette indiquant l'emplacement de connexion des câbles vous permet de les connecter aux ports appropriés lorsque vous réinstallez le module.
+. Retirez tous les câbles connectés au module de gestion du système. Assurez-vous que l'étiquette indiquant l'emplacement de connexion des câbles vous permet de les connecter aux ports appropriés lorsque vous réinstallez le module.
 +
 image::../media/drw_70-90_sys-mgmt_remove_ieops-1817.svg[Remplacez le module de gestion du système]
 
@@ -148,8 +130,6 @@ image::../media/icon_round_1.png[Légende numéro 1]
 Loquet de came du module de gestion du système
 
 |===
-
-
 . Retirez le module de gestion du système :
 +
 .. Appuyez sur le bouton de la came de gestion du système. Le levier de came s'éloigne du châssis.
@@ -215,14 +195,46 @@ NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentatio
 
 
 
-== Étape 3 : redémarrez le module de contrôleur
+== Étape 3 : redémarrer le contrôleur
 
 Redémarrez le module contrôleur.
 
+.Étapes
 . Entrez _bye_ à l'invite du CHARGEUR.
-. Remettez le contrôleur en état de fonctionnement normal en restituant son stockage : _Storage failover giveback -ofnode _brided_node_name__
-. Restaurez le rétablissement automatique à l'aide de `storage failover modify -node local -auto-giveback true` commande.
-. Si une fenêtre de maintenance AutoSupport a été déclenchée, mettez-la fin à l'aide du `system node autosupport invoke -node * -type all -message MAINT=END` commande.
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Restaurer le retour automatique :
++
+`storage failover modify -node local -auto-giveback true`
+
+. Si une fenêtre de maintenance AutoSupport a été déclenchée, terminez-la :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+
+
+== Étape 3 : redémarrer le contrôleur
+
+Redémarrez le module contrôleur.
+
+.Étapes
+. Entrez _bye_ à l'invite du CHARGEUR.
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Restaurer le retour automatique :
++
+`storage failover modify -node local -auto-giveback true`
+
+. Si une fenêtre de maintenance AutoSupport a été déclenchée, terminez-la :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
 
 
 

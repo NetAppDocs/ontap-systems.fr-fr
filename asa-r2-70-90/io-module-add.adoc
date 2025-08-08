@@ -13,8 +13,9 @@ summary: 'Ajoutez un module d"E/S à votre système ASA A70 ou ASA A90 pour amé
 [role="lead"]
 Ajoutez un module d'E/S à votre système ASA A70 ou ASA A90 pour améliorer la connectivité réseau et accroître la capacité de votre système à gérer le trafic de données.
 
-Vous pouvez ajouter un module d'E/S à votre système de stockage ASA A70 et ASA A90 lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis. .A propos de cette tâche
+Vous pouvez ajouter un module d'E/S à votre système de stockage ASA A70 et ASA A90 lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.
 
+.Description de la tâche
 Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
 
 Un système de stockage comporte deux LED d'emplacement, une sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.

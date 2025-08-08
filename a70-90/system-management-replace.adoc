@@ -15,21 +15,6 @@ Remplacez le module de gestion du système de votre système AFF A70 ou AFF A90 
 
 Le module de gestion du système, situé à l'arrière du contrôleur dans le logement 8, contient des composants intégrés pour la gestion du système, ainsi que des ports pour la gestion externe. Le contrôleur cible doit être arrêté pour remplacer un module de gestion du système défectueux ou pour remplacer le support d'amorçage.
 
-Le module de gestion du système comprend les composants intégrés suivants :
-
-* Support de démarrage, permettant le remplacement du support de démarrage sans retirer le module de contrôleur.
-* BMC
-* Commutateur de gestion
-
-
-Le module System Management contient également les ports suivants pour la gestion externe :
-
-* Série RJ45
-* USB série (type C)
-* USB de type A (récupération de démarrage)
-* Port RJ45 Ethernet e0M
-
-
 .Avant de commencer
 * Assurez-vous que tous les autres composants du système fonctionnent correctement.
 * Assurez-vous que le contrôleur partenaire est en mesure de prendre le contrôle du contrôleur défectueux.
@@ -179,29 +164,24 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 ====
 
 
-== Étape 2 : remplacez le module de gestion du système défectueux
+== Étape 2 : Remplacer le module de gestion du système
 
 Remplacez le module de gestion du système défectueux.
 
+.Étapes
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
-+
-
-NOTE: Assurez-vous que le déchargement de la NVRAM est terminé avant de continuer. Lorsque le voyant du module NV est éteint, le NVRAM est déchargé. Si le voyant clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
-
+. Assurez-vous que le déchargement de la NVRAM est terminé avant de continuer. Lorsque le voyant du module NV est éteint, le NVRAM est déchargé. Si le voyant clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
 +
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
 
 . Aller à l'arrière du châssis. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Débranchez les blocs d’alimentation du contrôleur.
 +
 
 NOTE: Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
 
 . Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
-. Retirez le module de gestion du système :
-+
-.. Retirez tous les câbles connectés au module de gestion du système. Assurez-vous que l'étiquette indiquant l'emplacement de connexion des câbles vous permet de les connecter aux ports appropriés lorsque vous réinstallez le module.
+. Retirez tous les câbles connectés au module de gestion du système. Assurez-vous que l'étiquette indiquant l'emplacement de connexion des câbles vous permet de les connecter aux ports appropriés lorsque vous réinstallez le module.
 +
 image::../media/drw_70-90_sys-mgmt_remove_ieops-1817.svg[Remplacez le module de gestion du système]
 
@@ -216,8 +196,6 @@ image::../media/icon_round_1.png[Légende numéro 1]
 Loquet de came du module de gestion du système
 
 |===
-
-
 . Retirez le module de gestion du système :
 +
 .. Appuyez sur le bouton de la came de gestion du système. Le levier de came s'éloigne du châssis.
@@ -283,14 +261,24 @@ NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentatio
 
 
 
-== Étape 3 : redémarrez le module de contrôleur
+== Étape 3 : redémarrer le contrôleur
 
 Redémarrez le module contrôleur.
 
+.Étapes
 . Entrez _bye_ à l'invite du CHARGEUR.
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
-. Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`.
-. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Restaurer le retour automatique :
++
+`storage failover modify -node local -auto-giveback true`
+
+. Si une fenêtre de maintenance AutoSupport a été déclenchée, terminez-la :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
 
 
 

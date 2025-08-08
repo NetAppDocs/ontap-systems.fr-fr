@@ -158,6 +158,7 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
 
+.Étapes
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
@@ -237,6 +238,7 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 Retirez la batterie RTC défectueuse et installez la batterie RTC de remplacement.
 
+.Étapes
 . Ouvrir le conduit d'air du contrôleur sur le dessus du contrôleur.
 +
 .. Insérez vos doigts dans les encoches situées à l'extrémité du conduit d'air.
@@ -274,6 +276,7 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 Réinstallez le module de contrôleur et redémarrez-le.
 
+.Étapes
 . Assurez-vous que le conduit d'air est complètement fermé en le faisant tourner jusqu'en butée.
 +
 Il doit être aligné sur la tôle du module de contrôleur.
@@ -288,8 +291,7 @@ NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tan
 Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
 
 +
-
-NOTE: Assurez-vous que le câble de la console est connecté au module de contrôleur réparé afin de recevoir des messages de la console lorsqu'il redémarre. Le contrôleur réparé est alimenté par le contrôleur sain et commence à redémarrer dès qu'il est complètement installé dans le châssis.
+Assurez-vous que le câble de la console est connecté au module de contrôleur réparé afin de recevoir des messages de la console lorsqu'il redémarre. Le contrôleur réparé est alimenté par le contrôleur sain et commence à redémarrer dès qu'il est complètement installé dans le châssis.
 
 . Terminez la réinstallation du module de contrôleur :
 +
@@ -297,49 +299,52 @@ NOTE: Assurez-vous que le câble de la console est connecté au module de contr�
 +
 Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
 
-
-
 +
+Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
-NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
-
-+
 .. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
 
 
 . Branchez les cordons d'alimentation aux blocs d'alimentation. Le contrôleur redémarre dès que l'alimentation est rétablie.
 +
+Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
 
-NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
 
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
-. Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`.
-. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`.
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`.
+
 
 
 
 
 == Étape 5 : réinitialisez l'heure et la date sur le contrôleur
 
+Après avoir remplacé la pile RTC, inséré le contrôleur et mis sous tension pour la première réinitialisation du BIOS, vous verrez les messages d'erreur suivants :
 
-NOTE: Après le remplacement de la batterie RTC, l'insertion du contrôleur et la mise sous tension de la première réinitialisation du BIOS, les messages d'erreur suivants s'affichent :
 `RTC date/time error. Reset date/time to default`
-`RTC power failure error` ces messages sont attendus et vous pouvez poursuivre cette procédure.
 
-. Vérifier la date et l'heure sur le contrôleur sain avec la `cluster date show` commande.
+`RTC power failure error`
 
+Ces messages sont attendus et vous pouvez continuer cette procédure.
 
-
-NOTE: Si votre système s'arrête dans le menu de démarrage, sélectionnez l'option  `Reboot node` et répondez _y_ lorsque vous y êtes invité, puis démarrez le CHARGEUR en appuyant sur _Ctrl-C_
-
-. À l'invite DU CHARGEUR sur le contrôleur cible, vérifiez l'heure et la date à l'aide de la `cluster date show` commande.
-. Si nécessaire, modifiez la date avec le `set date mm/dd/yyyy` commande.
-. Si nécessaire, réglez l'heure, en GMT, à l'aide du `set time hh:mm:ss` commande.
+.Étapes
+. Vérifiez la date et l'heure sur le contrôleur sain avec le `cluster date show` commande.  + Si votre système s'arrête au menu de démarrage, sélectionnez l'option pour `Reboot node` et répondez _y_ lorsque vous y êtes invité, puis démarrez sur LOADER en appuyant sur _Ctrl-C_
 +
-.. Confirmez la date et l'heure sur le contrôleur cible.
-.. À l'invite du CHARGEUR, entrez _bye_ pour réinitialiser les cartes PCIe et les autres composants et laisser le contrôleur redémarrer.
+.. À l'invite DU CHARGEUR sur le contrôleur cible, vérifiez l'heure et la date à l'aide de la `cluster date show` commande.
+.. Si nécessaire, modifiez la date avec le `set date mm/dd/yyyy` commande.
+.. Si nécessaire, réglez l'heure, en GMT, à l'aide du `set time hh:mm:ss` commande.
 
 
+. Confirmez la date et l'heure sur le contrôleur cible.
+. À l'invite du CHARGEUR, entrez _bye_ pour réinitialiser les cartes PCIe et les autres composants et laisser le contrôleur redémarrer.
 
 
 

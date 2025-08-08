@@ -2,7 +2,7 @@
 permalink: a20-30-50/bootmedia-replace-requirements-bmr.html 
 sidebar: sidebar 
 keywords: aff a20, aff a30, aff a50, replace the boot media 
-summary: 'Avant de remplacer le support de démarrage de votre système de stockage AFF A20, AFF A30 et AFF A50, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) du contrôleur défectueux fonctionne correctement et la détermination si le gestionnaire de clés intégré (OKM) ou le gestionnaire de clés externe (EKM) est activé.' 
+summary: 'Avant de remplacer le support de démarrage de votre système de stockage AFF A20, AFF A30 et AFF A50, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0M (clé) du contrôleur défectueux fonctionne correctement et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.' 
 ---
 = Exigences pour la récupération automatique du support de démarrage - AFF A20, AFF A30 et AFF A50
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Avant de remplacer le support de démarrage de votre système de stock
 
 
 [role="lead"]
-Avant de remplacer le support de démarrage de votre système de stockage AFF A20, AFF A30 et AFF A50, assurez-vous de respecter les conditions requises pour un remplacement réussi. Cela inclut la vérification du support de démarrage de remplacement approprié, le bon fonctionnement du port e0S (clé e0M) du contrôleur défectueux et l'activation du gestionnaire de clés intégré (OKM) ou du gestionnaire de clés externe (EKM).
+Avant de remplacer le support de démarrage de votre système de stockage AFF A20, AFF A30 et AFF A50, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0M (clé) du contrôleur défectueux fonctionne correctement et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.
 
 La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
 
@@ -22,7 +22,7 @@ Passez en revue les exigences suivantes.
 +
 Le port e0M est utilisé pour communiquer entre les deux contrôleurs pendant le processus de récupération de démarrage automatisé.
 
-* Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.
+* Pour OKM, vous avez besoin de la phrase secrète à l'échelle du cluster ainsi que des données de sauvegarde.
 * Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
 +
 ** fichier /cfcard/kmip/servers.cfg.

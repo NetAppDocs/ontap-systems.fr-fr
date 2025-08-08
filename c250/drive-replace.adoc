@@ -22,14 +22,13 @@ Lorsqu'un lecteur tombe en panne, la plate-forme consigne un message d'avertisse
 Le lecteur défectueux apparaît dans la liste des disques défectueux. Si ce n'est pas le cas, attendez, puis exécutez de nouveau la commande.
 
 +
-
-NOTE: L'affichage du disque dans la liste des disques défectueux peut prendre plusieurs heures.
+L'affichage du disque dans la liste des disques défectueux peut prendre plusieurs heures.
 
 * Déterminez si l'authentification SED est activée.
 +
-La procédure de remplacement du disque dépend de l'utilisation du lecteur. Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]. Ces instructions décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
+La manière dont vous remplacez le disque dépend de la manière dont le lecteur de disque est utilisé.  Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans le https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"] .  Ces instructions décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
 
-* Assurez-vous que le lecteur de remplacement est pris en charge par votre plate-forme. Voir la https://hwu.netapp.com["NetApp Hardware Universe"].
+* Assurez-vous que le lecteur de remplacement est pris en charge par votre plate-forme. Voir https://hwu.netapp.com["NetApp Hardware Universe"] .
 * Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.
 
 
@@ -38,12 +37,10 @@ Le firmware des disques est automatiquement mis à jour (sans interruption) sur 
 
 Lors du remplacement de plusieurs lecteurs de disque, vous devez attendre 70 secondes entre le retrait de chaque lecteur de disque défectueux et l'insertion du lecteur de disque de remplacement pour permettre au système de stockage de reconnaître l'existence de chaque nouveau disque.
 
+Vous attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.
+
 .Étapes
-. Si vous souhaitez attribuer manuellement la propriété des disques de remplacement, vous devez désactiver le disque de remplacement d'affectation automatique des disques, s'il est activé
-+
-
-NOTE: Vous attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.
-
+. Si vous souhaitez attribuer manuellement la propriété du lecteur au lecteur de remplacement, vous devez désactiver l'attribution automatique du lecteur, si elle est activée.
 +
 .. Vérifiez si l'affectation automatique des disques est activée : `storage disk option show`
 +
@@ -94,18 +91,27 @@ Lorsque le voyant d'activité du lecteur est allumé, cela signifie que le lecte
 . Si vous remplacez un autre lecteur, répétez les étapes 3 à 7.
 . Si vous avez désactivé l'affectation automatique des lecteurs à l'étape 1, affectez manuellement la propriété des lecteurs, puis réactivez l'affectation automatique des lecteurs si nécessaire.
 +
-.. Afficher tous les disques non propriétaires : `storage disk show -container-type unassigned`
+.. Afficher tous les disques non propriétaires :
++
+`storage disk show -container-type unassigned`
+
 +
 Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
 
-.. Attribuez chaque lecteur : `storage disk assign -disk disk_name -owner node_name`
+.. Affectez chaque disque :
++
+`storage disk assign -disk disk_name -owner node_name`
+
 +
 Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
 
 +
 Vous pouvez utiliser le caractère générique pour attribuer plusieurs lecteurs à la fois.
 
-.. Réactivez l'affectation automatique des disques si nécessaire : `storage disk option modify -node node_name -autoassign on`
+.. Réactivez l'affectation automatique des disques si nécessaire :
++
+`storage disk option modify -node node_name -autoassign on`
+
 +
 Vous devez réactiver l'affectation automatique des disques sur les deux modules de contrôleur.
 
@@ -113,6 +119,6 @@ Vous devez réactiver l'affectation automatique des disques sur les deux modules
 
 . Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
 +
-Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
+Contact https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] si vous avez besoin du numéro RMA ou d'une aide supplémentaire concernant la procédure de remplacement.
 
 

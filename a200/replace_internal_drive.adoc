@@ -31,11 +31,7 @@ Lors du remplacement de plusieurs disques, vous devez attendre une minute entre 
 .Option 1 : remplacer un disque SSD
 --
 .Étapes
-. Si vous souhaitez attribuer manuellement la propriété des disques de remplacement, vous devez désactiver le disque de remplacement d'affectation automatique des disques, s'il est activé
-+
-
-NOTE: Vous attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.
-
+. Si vous souhaitez attribuer manuellement la propriété du lecteur au lecteur de remplacement, vous devez désactiver l'attribution automatique du lecteur, si elle est activée.
 +
 .. Vérifiez si l'affectation automatique des disques est activée : `storage disk option show`
 +
@@ -86,18 +82,27 @@ Lorsque le voyant d'activité du lecteur est allumé, cela signifie que le lecte
 . Si vous remplacez un autre lecteur, répétez les étapes 3 à 7.
 . Si vous avez désactivé l'affectation automatique des lecteurs à l'étape 1, affectez manuellement la propriété des lecteurs, puis réactivez l'affectation automatique des lecteurs si nécessaire.
 +
-.. Afficher tous les disques non propriétaires : `storage disk show -container-type unassigned`
+.. Afficher tous les disques non propriétaires :
++
+`storage disk show -container-type unassigned`
+
 +
 Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
 
-.. Attribuez chaque lecteur : `storage disk assign -disk disk_name -owner node_name`
+.. Affectez chaque disque :
++
+`storage disk assign -disk disk_name -owner node_name`
+
 +
 Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
 
 +
 Vous pouvez utiliser le caractère générique pour attribuer plusieurs lecteurs à la fois.
 
-.. Réactivez l'affectation automatique des disques si nécessaire : `storage disk option modify -node node_name -autoassign on`
+.. Réactivez l'affectation automatique des disques si nécessaire :
++
+`storage disk option modify -node node_name -autoassign on`
+
 +
 Vous devez réactiver l'affectation automatique des disques sur les deux modules de contrôleur.
 
@@ -105,7 +110,7 @@ Vous devez réactiver l'affectation automatique des disques sur les deux modules
 
 . Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
 +
-Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
+Contact https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] si vous avez besoin du numéro RMA ou d'une aide supplémentaire concernant la procédure de remplacement.
 
 
 

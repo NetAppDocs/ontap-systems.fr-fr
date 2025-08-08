@@ -1,0 +1,21 @@
+= 
+:allow-uri-read: 
+
+
+Redémarrez le module contrôleur.
+
+.Étapes
+. Entrez _bye_ à l'invite du CHARGEUR.
+. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Restaurer le retour automatique :
++
+`storage failover modify -node local -auto-giveback true`
+
+. Si une fenêtre de maintenance AutoSupport a été déclenchée, terminez-la :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+

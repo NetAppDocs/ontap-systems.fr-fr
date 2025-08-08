@@ -1,0 +1,23 @@
+= 
+:allow-uri-read: 
+
+
+Après avoir remplacé la pile RTC, inséré le contrôleur et mis sous tension pour la première réinitialisation du BIOS, vous verrez les messages d'erreur suivants :
+
+`RTC date/time error. Reset date/time to default`
+
+`RTC power failure error`
+
+Ces messages sont attendus et vous pouvez continuer cette procédure.
+
+.Étapes
+. Vérifiez la date et l'heure sur le contrôleur sain avec le `cluster date show` commande.  + Si votre système s'arrête au menu de démarrage, sélectionnez l'option pour `Reboot node` et répondez _y_ lorsque vous y êtes invité, puis démarrez sur LOADER en appuyant sur _Ctrl-C_
++
+.. À l'invite DU CHARGEUR sur le contrôleur cible, vérifiez l'heure et la date à l'aide de la `cluster date show` commande.
+.. Si nécessaire, modifiez la date avec le `set date mm/dd/yyyy` commande.
+.. Si nécessaire, réglez l'heure, en GMT, à l'aide du `set time hh:mm:ss` commande.
+
+
+. Confirmez la date et l'heure sur le contrôleur cible.
+. À l'invite du CHARGEUR, entrez _bye_ pour réinitialiser les cartes PCIe et les autres composants et laisser le contrôleur redémarrer.
+

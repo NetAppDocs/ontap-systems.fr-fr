@@ -1,86 +1,8 @@
-= Étape 1 : arrêtez le contrôleur défaillant
+= Étape 3 : vérifiez l'état du contrôleur
 :allow-uri-read: 
 
 
-Le module NVRAM se compose du matériel NVRAM12 et de modules DIMM remplaçables sur site. Vous pouvez remplacer un module NVRAM défectueux ou les modules DIMM à l'intérieur du module NVRAM.
-
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter https://support.netapp.com["Support NetApp"].
-
-Assurez-vous de remplacer le composant défectueux par un composant de remplacement que vous avez reçu de NetApp.
-
-
-
-== Étape 1 : arrêtez le contrôleur défaillant
-
-Arrêtez ou prenez le contrôle du contrôleur défectueux.
-
-Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
-
-.Description de la tâche
-* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) pour le serveur lame SCSI du contrôleur défectueux.  `cluster kernel-service show`La commande (from priv mode Advanced) affiche le nom du nœud, son état de disponibilité et link:https://docs.netapp.com/us-en/ontap/system-admin/display-nodes-cluster-task.html["état du quorum"]son état de fonctionnement.
-+
-Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
-
-* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
-
-
-.Étapes
-. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
-+
-`system node autosupport invoke -node * -type all -message MAINT=<# of hours>h`
-
-+
-Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :
-
-+
-`cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
-
-. Désactiver le rétablissement automatique depuis la console du contrôleur sain :
-+
-`storage failover modify -node local -auto-giveback false`
-
-+
-
-NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
-
-. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
-+
-[cols="1,2"]
-|===
-| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
-
-
- a| 
-Invite DU CHARGEUR
- a| 
-Passez à l'étape suivante.
-
-
-
- a| 
-Attente du retour...
- a| 
-Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
-
-
-
- a| 
-Invite système ou invite de mot de passe
- a| 
-Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état :
-
-`storage failover takeover -ofnode _impaired_node_name_ -halt _true_`
-
-Le paramètre _-halt true_ vous amène à l'invite Loader.
-
-|===
-
-
-
-
-== Étape 2 : remplacez le module NVRAM ou le module DIMM NVRAM
-
-Remplacez le module NVRAM ou les modules DIMM NVRAM à l'aide de l'option appropriée suivante.
+Remplacez le module NVRAM ou les modules DIMM NVRAM à l’aide de l’option appropriée.
 
 [role="tabbed-block"]
 ====
@@ -88,6 +10,7 @@ Remplacez le module NVRAM ou les modules DIMM NVRAM à l'aide de l'option approp
 --
 Pour remplacer le module NVRAM, localisez-le dans le logement 4/5 du châssis et suivez la séquence spécifique des étapes.
 
+.Étapes
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
@@ -152,6 +75,7 @@ NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentatio
 --
 Pour remplacer les barrettes DIMM NVRAM dans le module NVRAM, vous devez retirer le module NVRAM, puis remplacer le module DIMM cible.
 
+.Étapes
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
@@ -284,9 +208,3 @@ Disk                   Size Shelf Bay Type    Type        Name
 
 ----
 
-
-
-
-== Étape 4 : renvoyer la pièce défaillante à NetApp
-
-Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

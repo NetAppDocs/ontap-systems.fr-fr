@@ -2,7 +2,7 @@
 permalink: asa-r2-a20-30-50/maintain-overview.html 
 sidebar: sidebar 
 keywords: asa a20 asa a30 asa a50 maintenance, maintenance, repairing a20 asa a30 asa a50, replace a20 asa a30 asa a50 components 
-summary: Entretenir le matériel ASA A20, ASA A30 et ASA A50 
+summary: 'Entretenez le matériel de votre système de stockage ASA A20, ASA A30 ou ASA A50 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d"éviter les temps d"arrêt et les pertes de données.' 
 ---
 = Présentation de la maintenance matérielle - ASA A20, ASA A30 et ASA A50
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Entretenir le matériel ASA A20, ASA A30 et ASA A50
 
 
 [role="lead"]
-Entretenir le matériel de vos systèmes de stockage ASA A20, ASA A30 ou ASA A50 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, telles que le remplacement de composants défectueux, afin d'éviter les temps d'indisponibilité et les pertes de données.
+Entretenez le matériel de votre système de stockage ASA A20, ASA A30 ou ASA A50 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.
 
 Les procédures de maintenance supposent que les systèmes ASA A20, ASA A30 et ASA A50 ont déjà été déployés en tant que nœuds de stockage dans l'environnement ONTAP.
 
@@ -26,9 +26,18 @@ Pour les systèmes de stockage ASA A20, ASA A30 et ASA A50, vous pouvez effectue
 
 
  a| 
-link:bootmedia-replace-workflow-bmr.html["Support de démarrage"]
+link:bootmedia-replace-workflow-bmr.html["Support de démarrage - récupération automatique"]
  a| 
-Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP, ainsi que les informations de configuration système utilisées par le système lors du démarrage.
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer.  Lors de la récupération automatisée, le système récupère l'image de démarrage à partir du nœud partenaire et exécute automatiquement l'option de menu de démarrage appropriée pour installer l'image sur votre support de démarrage de remplacement.
+
+La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
+
+
+
+ a| 
+link:bootmedia-replace-workflow.html["Support de démarrage - récupération manuelle"]
+ a| 
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer l'image à partir d'une clé USB et restaurer la configuration à partir du nœud partenaire.
 
 
 

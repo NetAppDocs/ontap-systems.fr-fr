@@ -158,6 +158,10 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 == Étape 2 : remplacez le module NVRAM ou le module DIMM NVRAM
 
+
+
+== Étape 2 : remplacez le module NVRAM ou le module DIMM NVRAM
+
 Remplacez le module NVRAM ou les modules DIMM NVRAM à l'aide de l'option appropriée suivante.
 
 [role="tabbed-block"]
@@ -309,11 +313,17 @@ Vous devez confirmer la modification de l'ID système au démarrage du contrôle
 CAUTION: La réaffectation de disque n'est nécessaire que lors du remplacement du module NVRAM et ne s'applique pas au remplacement du module DIMM NVRAM.
 
 .Étapes
-. Si le contrôleur est en mode Maintenance (affichant l' `*>` invite), quittez le mode Maintenance et allez à l'invite du CHARGEUR : _halt_
-. À partir de l'invite du CHARGEUR sur le contrôleur, démarrez le contrôleur et entrez _y_ lorsque vous êtes invité à remplacer l'ID système en raison d'une incompatibilité d'ID système.
-. Attendez l'attente du retour... Le message s'affiche sur la console du contrôleur avec le module de remplacement, puis, à partir du contrôleur sain, vérifiez que le nouvel ID système partenaire a été automatiquement attribué : _Storage failover show_
+. Si le contrôleur est en mode Maintenance (affichant le `*>` (invite), quittez le mode Maintenance et accédez à l'invite LOADER :
 +
-Dans le résultat de la commande, un message indiquant l'ID système modifié sur le contrôleur associé est affiché, indiquant l'ancien et le nouveau ID corrects. Dans l'exemple suivant, le node2 a fait l'objet d'un remplacement et a un nouvel ID système de 151759706.
+`halt`
+
+. À partir de l'invite du CHARGEUR sur le contrôleur, démarrez le contrôleur et entrez _y_ lorsque vous êtes invité à remplacer l'ID système en raison d'une incompatibilité d'ID système.
+. Attendez que le message En attente de retour s'affiche sur la console du contrôleur avec le module de remplacement, puis, à partir du contrôleur sain, vérifiez que le nouvel ID système partenaire a été automatiquement attribué :
++
+`storage failover show`
+
++
+Dans la sortie de la commande, vous devriez voir un message indiquant que l'ID système a changé sur le contrôleur défectueux, affichant les anciens et nouveaux ID corrects.  Dans l’exemple suivant, le nœud 2 a subi un remplacement et possède un nouvel ID système de 151759706.
 
 +
 [listing]
@@ -328,7 +338,8 @@ node2             node1             -            Waiting for giveback (HA mailbo
 ----
 . Remettre le contrôleur :
 +
-.. Depuis le contrôleur sain, remettre le stockage du contrôleur remplacé : _Storage failover giveback -ofnode replacement_node_name_
+.. À partir du contrôleur sain, restituez le stockage du contrôleur remplacé : +
+`storage failover giveback -ofnode replacement_node_name`
 +
 Le contrôleur récupère son stockage et termine le démarrage.
 
@@ -336,11 +347,10 @@ Le contrôleur récupère son stockage et termine le démarrage.
 Si vous êtes invité à remplacer l'ID système en raison d'une incompatibilité d'ID système, vous devez entrer _y_.
 
 +
-
-NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
 
 +
-Pour plus d'informations, reportez-vous à la section https://docs.netapp.com/us-en/ontap/high-availability/ha_manual_giveback.html#if-giveback-is-interrupted["Commandes de rétablissement manuel"^] rubrique pour remplacer le droit de veto.
+Pour plus d'informations, voir https://docs.netapp.com/us-en/ontap/high-availability/ha_manual_giveback.html#if-giveback-is-interrupted["commandes de restitution manuelle"^] pour passer outre le veto.
 
 .. Une fois le rétablissement terminé, vérifiez que la paire HA est en bon état et qu'un basculement est possible : _Storage failover show_
 +
@@ -348,7 +358,10 @@ La sortie du `storage failover show` La commande ne doit pas inclure l'ID systè
 
 
 
-. Vérifier que les disques ont été correctement affectés : `storage disk show -ownership`
+. Vérifiez que les disques ont été correctement attribués :
++
+`storage disk show -ownership`
+
 +
 Les disques appartenant au contrôleur doivent afficher le nouvel ID système. Dans l'exemple suivant, les disques appartenant au nœud1 affichent alors le nouvel ID système, 151759706 :
 
@@ -396,11 +409,23 @@ dr-group-id            cluster node           configuration-state
 
 4 entries were displayed.
 ----
-. Vérifier que les volumes attendus sont présents pour chaque contrôleur : `vol show -node node-name`
+. Vérifiez que les volumes attendus sont présents pour chaque contrôleur :
++
+`vol show -node node-name`
+
 . Si le chiffrement du stockage est activé, vous devez restaurer la fonctionnalité.
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
-. Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`.
-. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
+
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`.
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`.
+
 
 
 

@@ -24,14 +24,13 @@ Lorsqu'un lecteur tombe en panne, la plate-forme consigne un message d'avertisse
 Le lecteur défectueux apparaît dans la liste des disques défectueux. Si ce n'est pas le cas, attendez, puis exécutez de nouveau la commande.
 
 +
-
-NOTE: L'affichage du disque dans la liste des disques défectueux peut prendre plusieurs heures.
+L'affichage du disque dans la liste des disques défectueux peut prendre plusieurs heures.
 
 * Déterminez si l'authentification SED est activée.
 +
-La procédure de remplacement du disque dépend de l'utilisation du lecteur. Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]. Ces instructions décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
+La manière dont vous remplacez le disque dépend de la manière dont le lecteur de disque est utilisé.  Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans le https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"] .  Ces instructions décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
 
-* Assurez-vous que le lecteur de remplacement est pris en charge par votre plate-forme. Voir la https://hwu.netapp.com["NetApp Hardware Universe"].
+* Assurez-vous que le lecteur de remplacement est pris en charge par votre plate-forme. Voir https://hwu.netapp.com["NetApp Hardware Universe"] .
 * Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.
 
 
@@ -40,16 +39,16 @@ Le firmware des disques est automatiquement mis à jour (sans interruption) sur 
 
 Lors du remplacement de plusieurs lecteurs de disque, vous devez attendre 70 secondes entre le retrait de chaque lecteur de disque défectueux et l'insertion du lecteur de disque de remplacement pour permettre au système de stockage de reconnaître l'existence de chaque nouveau disque.
 
+Vous attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.
+
 .Étapes
 . Mettez-vous à la terre.
 . Retirez le panneau situé à l'avant du système de stockage.
 . Identifiez physiquement le disque défectueux.
 +
-Lorsqu'un disque tombe en panne, le système consigne un message d'avertissement à la console du système pour indiquer quel disque est en panne. En outre, le voyant d'avertissement (orange) situé sur le panneau de commande du tiroir et le disque défectueux s'allument.
+** Lorsqu'un disque tombe en panne, le système consigne un message d'avertissement à la console du système pour indiquer quel disque est en panne. En outre, le voyant d'avertissement (orange) situé sur le panneau de commande du tiroir et le disque défectueux s'allument.
+** Le voyant d'activité (vert) d'un disque défectueux peut être allumé (en continu), ce qui indique que le lecteur est sous tension, mais ne doit pas clignoter, ce qui indique une activité d'E/S. Un disque défectueux n'a aucune activité d'E/S.
 
-+
-
-NOTE: Le voyant d'activité (vert) d'un disque défectueux peut être allumé (en continu), ce qui indique que le lecteur est sous tension, mais ne doit pas clignoter, ce qui indique une activité d'E/S. Un disque défectueux n'a aucune activité d'E/S.
 
 . Retirez le disque défectueux :
 +
@@ -81,8 +80,7 @@ Faites glisser le lecteur hors de la baie de lecteur à l'aide de la poignée de
 
 Lors de la dépose d'un entraînement, toujours utiliser deux mains pour soutenir son poids.
 
-
-NOTE: Les disques étant fragiles, leur manipulation est réduite pour éviter de les endommager.
+Les disques étant fragiles, leur manipulation est réduite pour éviter de les endommager.
 
 |===
 . Attendre au moins 70 secondes avant d'insérer le lecteur de remplacement.
@@ -107,6 +105,6 @@ Lorsque le voyant d'activité du lecteur est allumé, cela signifie que le lecte
 . Réinstallez le panneau à l'avant du système de stockage.
 . Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
 +
-Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
+Contacter le support technique https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] si vous avez besoin du numéro RMA ou d'une aide supplémentaire concernant la procédure de remplacement.
 
 

@@ -19,7 +19,7 @@ Passez en revue les exigences suivantes.
 
 * Vous devez remplacer le support de démarrage défectueux par un support de démarrage de remplacement que vous avez reçu de NetApp.
 * Les ports du cluster permettent la communication entre les deux contrôleurs lors du processus de récupération automatique au démarrage. Assurez-vous que les ports du cluster du contrôleur défaillant fonctionnent correctement.
-* Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.
+* Pour OKM, vous avez besoin de la phrase secrète à l'échelle du cluster ainsi que des données de sauvegarde.
 * Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
 +
 ** /cfcard/kmip/servers.cfg

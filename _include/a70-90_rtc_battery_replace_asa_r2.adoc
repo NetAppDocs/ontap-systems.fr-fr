@@ -1,164 +1,10 @@
-= Étape 1 : arrêtez le contrôleur défaillant
+= Étape 4 : réinstallez le module de contrôleur
 :allow-uri-read: 
 
 
-Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système.
-
-Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.
-
-
-
-== Étape 1 : arrêtez le contrôleur défaillant
-
-Arrêtez ou prenez le contrôle du contrôleur défectueux.
-
-Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
-
-.Description de la tâche
-* Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement  `cluster kernel-service show`) pour le serveur lame SCSI du contrôleur défectueux.  `cluster kernel-service show`La commande (from priv mode Advanced) affiche le nom du nœud, son état de disponibilité et link:https://docs.netapp.com/us-en/ontap/system-admin/display-nodes-cluster-task.html["état du quorum"]son état de fonctionnement.
-+
-Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.
-
-* Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
-
-
-.Étapes
-. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
-+
-`system node autosupport invoke -node * -type all -message MAINT=<# of hours>h`
-
-+
-Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :
-
-+
-`cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
-
-. Désactiver le rétablissement automatique depuis la console du contrôleur sain :
-+
-`storage failover modify -node local -auto-giveback false`
-
-+
-
-NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
-
-. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
-+
-[cols="1,2"]
-|===
-| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
-
-
- a| 
-Invite DU CHARGEUR
- a| 
-Passez à l'étape suivante.
-
-
-
- a| 
-Attente du retour...
- a| 
-Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
-
-
-
- a| 
-Invite système ou invite de mot de passe
- a| 
-Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état :
-
-`storage failover takeover -ofnode _impaired_node_name_ -halt _true_`
-
-Le paramètre _-halt true_ vous amène à l'invite Loader.
-
-|===
-
-
-
-
-== Étape 2 : retirer le module de contrôleur
-
-Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
-
-. Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
-+
-image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
-
-. Vérifiez la mémoire NVRAM orange que le voyant d'état situé dans le logement 4/5 à l'arrière du module de contrôleur défectueux est éteint. Recherchez l'icône NV.
-+
-image::../media/drw_a1K-70-90_nvram-led_ieops-1463.svg[Emplacement graphique de la LED d'avertissement et d'état de la NVRAM]
-
-+
-[cols="1,4"]
-|===
-
-
- a| 
-image:../media/icon_round_1.png["Légende numéro 1"]
- a| 
-LED d'état NVRAM
-
-
-
- a| 
-image:../media/icon_round_2.png["Légende numéro 2"]
- a| 
-LED d'avertissement NVRAM
-
-|===
-+
-** Si le voyant NV est éteint, passez à l'étape suivante.
-** Si le voyant NV clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
-
-
-. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Débranchez les câbles d'alimentation du module de contrôleur des blocs d'alimentation.
-+
-
-NOTE: Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
-
-. Débranchez les câbles système et les modules SFP et QSFP (si nécessaire) du module de contrôleur, en respectant la trace de l'endroit où les câbles ont été connectés.
-+
-Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
-
-. Retirez le périphérique de gestion des câbles du module de contrôleur.
-. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
-+
-Le module de contrôleur se déplace légèrement hors du châssis.
-
-+
-image::../media/drw_a70-90_pcm_remove_replace_ieops-1365.svg[Supprimer le graphique du contrôleur]
-
-+
-[cols="1,4"]
-|===
-
-
- a| 
-image:../media/icon_round_1.png["Légende numéro 1"]
- a| 
-Loquet de verrouillage
-
-
-
- a| 
-image:../media/icon_round_2.png["Légende numéro 2"]
- a| 
-Goupille de blocage
-
-|===
-. Faites glisser le module de contrôleur hors du châssis et placez-le sur une surface plane et stable.
-+
-Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
-
-
-
-
-
-== Étape 3 : remplacer la batterie RTC
-
 Retirez la batterie RTC défectueuse et installez la batterie RTC de remplacement.
 
+.Étapes
 . Ouvrir le conduit d'air du contrôleur sur le dessus du contrôleur.
 +
 .. Insérez vos doigts dans les encoches situées à l'extrémité du conduit d'air.
@@ -180,8 +26,7 @@ image:../media/icon_round_1.png["Légende numéro 1"]
 |===
 . Poussez doucement la batterie hors du support, faites-la pivoter pour l'éloigner du support, puis retirez-la du support.
 +
-
-NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La batterie est signalée par un signe plus et doit être correctement positionnée dans le support. Un signe plus près du support indique comment la batterie doit être positionnée.
+Notez la polarité de la batterie lorsque vous la retirez du support. La batterie est signalée par un signe plus et doit être correctement positionnée dans le support. Un signe plus près du support indique comment la batterie doit être positionnée.
 
 . Retirez la batterie de rechange du sac d'expédition antistatique.
 . Notez la polarité de la batterie RTC, puis insérez-la dans le support en inclinant la batterie et en la poussant vers le bas.
@@ -194,6 +39,7 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 Réinstallez le module de contrôleur et redémarrez-le.
 
+.Étapes
 . Assurez-vous que le conduit d'air est complètement fermé en le faisant tourner jusqu'en butée.
 +
 Il doit être aligné sur la tôle du module de contrôleur.
@@ -208,8 +54,7 @@ NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tan
 Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
 
 +
-
-NOTE: Assurez-vous que le câble de la console est connecté au module de contrôleur réparé afin de recevoir des messages de la console lorsqu'il redémarre. Le contrôleur réparé est alimenté par le contrôleur sain et commence à redémarrer dès qu'il est complètement installé dans le châssis.
+Assurez-vous que le câble de la console est connecté au module de contrôleur réparé afin de recevoir des messages de la console lorsqu'il redémarre. Le contrôleur réparé est alimenté par le contrôleur sain et commence à redémarrer dès qu'il est complètement installé dans le châssis.
 
 . Terminez la réinstallation du module de contrôleur :
 +
@@ -217,53 +62,26 @@ NOTE: Assurez-vous que le câble de la console est connecté au module de contr�
 +
 Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
 
-
-
 +
+Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
-NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
-
-+
 .. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
 
 
 . Branchez les cordons d'alimentation aux blocs d'alimentation. Le contrôleur redémarre dès que l'alimentation est rétablie.
 +
+Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
 
-NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
-
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
-. Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`.
-. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
-
-
-
-
-== Étape 5 : réinitialisez l'heure et la date sur le contrôleur
-
-
-NOTE: Après le remplacement de la batterie RTC, l'insertion du contrôleur et la mise sous tension de la première réinitialisation du BIOS, les messages d'erreur suivants s'affichent :
-`RTC date/time error. Reset date/time to default`
-`RTC power failure error` ces messages sont transmis et vous pouvez poursuivre cette procédure.
-
-. Vérifier la date et l'heure sur le contrôleur sain avec la `cluster date show` commande.
-
-
-
-NOTE: Si votre système s'arrête dans le menu de démarrage, sélectionnez l'option  `Reboot node` et répondez _y_ lorsque vous y êtes invité, puis démarrez le CHARGEUR en appuyant sur _Ctrl-C_
-
-. À l'invite DU CHARGEUR sur le contrôleur cible, vérifiez l'heure et la date à l'aide de la `cluster date show` commande.
-. Si nécessaire, modifiez la date avec le `set date mm/dd/yyyy` commande.
-. Si nécessaire, réglez l'heure, en GMT, à l'aide du `set time hh:mm:ss` commande.
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
 +
-.. Confirmez la date et l'heure sur le contrôleur cible.
-.. À l'invite du CHARGEUR, entrez _bye_ pour réinitialiser les cartes PCIe et les autres composants et laisser le contrôleur redémarrer.
+`storage failover giveback -ofnode _impaired_node_name_`.
+
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`.
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`.
 
 
-
-
-
-
-== Étape 6 : renvoyer la pièce défaillante à NetApp
-
-Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

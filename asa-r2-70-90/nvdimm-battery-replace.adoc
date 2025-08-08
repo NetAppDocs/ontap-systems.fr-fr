@@ -87,6 +87,7 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
 
+.Étapes
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
@@ -166,6 +167,7 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 Retirez la batterie NV défectueuse du module de contrôleur et installez la batterie NV de remplacement.
 
+.Étapes
 . Ouvrez le couvercle du conduit d'air et localisez la batterie NV.
 +
 image::../media/drw_a70-90_remove_replace_nvmembat_ieops-1369.svg[Remplacez la pile NV]
@@ -208,6 +210,7 @@ Assurez-vous que la fiche se verrouille dans la prise.
 
 Réinstallez le module de contrôleur et redémarrez-le.
 
+.Étapes
 . Assurez-vous que le conduit d'air est complètement fermé en le faisant tourner jusqu'en butée.
 +
 Il doit être aligné sur la tôle du module de contrôleur.
@@ -222,8 +225,7 @@ NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tan
 Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
 
 +
-
-NOTE: Assurez-vous que le câble de la console est connecté au module de contrôleur réparé afin de recevoir des messages de la console lorsqu'il redémarre. Le contrôleur réparé est alimenté par le contrôleur sain et commence à redémarrer dès qu'il est complètement installé dans le châssis.
+Assurez-vous que le câble de la console est connecté au module de contrôleur réparé afin de recevoir des messages de la console lorsqu'il redémarre. Le contrôleur réparé est alimenté par le contrôleur sain et commence à redémarrer dès qu'il est complètement installé dans le châssis.
 
 . Terminez la réinstallation du module de contrôleur :
 +
@@ -231,24 +233,28 @@ NOTE: Assurez-vous que le câble de la console est connecté au module de contr�
 +
 Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
 
-
-
 +
+Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
-NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
-
-+
 .. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
 
 
 . Branchez les cordons d'alimentation aux blocs d'alimentation. Le contrôleur redémarre dès que l'alimentation est rétablie.
 +
+Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
 
-NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
 
-. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`.
-. Si le rétablissement automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`.
-. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`.
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`.
+
 
 
 

@@ -8,6 +8,7 @@
 
 Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
 
+.Étapes
 . Démarrage en mode maintenance : `boot_ontap maint`
 +
 .. Entrez `y` lorsque vous voyez _Continuer avec boot?_.
@@ -44,6 +45,9 @@ La valeur de l'état HA peut être l'une des suivantes :
 
 == Étape 2 : vérifiez la liste des disques
 
+Vous devez vérifier la liste des adaptateurs et les chemins d’accès à tous vos disques système.
+
+.Étapes
 . Vérifiez que la carte répertorie les chemins d'accès à tous les disques à l'aide de `storage show disk -p` .
 +
 En cas de problème, vérifiez le câblage et réinstallez les câbles.

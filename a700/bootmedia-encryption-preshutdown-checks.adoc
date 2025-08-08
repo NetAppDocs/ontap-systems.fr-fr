@@ -16,6 +16,7 @@ summary: 'Avant d"arrêter le nœud douteux et de vérifier l"état des clés de
 
 Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE). Ces informations sont essentielles pour télécharger l'image ONTAP correcte.
 
+.Étapes
 . Déterminez si votre version de ONTAP prend en charge le chiffrement en exécutant la commande suivante :
 +
 `version -v`
@@ -37,6 +38,7 @@ Si le résultat de cette commande indique `1Ono-DARE`, NVE n'est pas pris en cha
 
 Pour arrêter un contrôleur en toute sécurité, identifiez d'abord si le gestionnaire de clés externe (EKM) ou le gestionnaire de clés intégré (OKM) est actif. Ensuite, vérifiez le gestionnaire de clés en cours d'utilisation, affichez les informations de clé appropriées et prenez des mesures en fonction de l'état des clés d'authentification.
 
+.Étapes
 . Déterminez le gestionnaire de clés activé sur votre système :
 +
 [cols="1a,2a"]

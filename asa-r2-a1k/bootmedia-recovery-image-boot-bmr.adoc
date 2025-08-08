@@ -16,7 +16,7 @@ Après avoir installé le nouveau périphérique de démarrage sur votre systèm
 Pendant le processus de récupération, le système vérifie si le chiffrement est activé et détermine le type de chiffrement de clé utilisé. Si le chiffrement de clé est activé, le système vous guide à travers les étapes appropriées pour le restaurer.
 
 .Avant de commencer
-* Pour OKM, vous avez besoin du contenu du fichier de phrase de passe OKM.
+* Pour OKM, vous avez besoin de la phrase secrète à l'échelle du cluster ainsi que des données de sauvegarde.
 * Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
 +
 ** fichier /cfcard/kmip/servers.cfg.
@@ -85,7 +85,7 @@ Le chiffrement n'est pas installé sur le système. Procédez comme suit :
  a| 
 Passez à l'étape 4 pour restaurer le gestionnaire de clés approprié.
 
-Le nœud accède au menu de démarrage et exécute :
+Le nœud accède au menu de démarrage et exécute :
 
 ** Option 10 pour les systèmes avec gestionnaire de clés intégré (OKM).
 ** Option 11 pour les systèmes dotés d'un gestionnaire de clés externe (EKM).
@@ -107,20 +107,32 @@ Entering Bootmenu Option 10...
 This option must be used only in disaster recovery procedures. Are you sure? (y or n):
 ....
 .. Saisissez `Y` à l'invite pour confirmer que vous souhaitez démarrer le processus de restauration OKM.
-.. Entrez la phrase de passe du gestionnaire de clés intégré lorsque vous y êtes invité, puis saisissez à nouveau la phrase de passe lorsque vous y êtes invité pour confirmer.
+.. Saisissez les informations suivantes lorsque vous y êtes invité :
 +
-.Affiche un exemple d'invites de phrase de passe
+... La phrase secrète
+... La phrase secrète à nouveau lorsque vous êtes invité à confirmer
+... Données de sauvegarde pour le gestionnaire de clés embarqué
++
+.Afficher un exemple de phrase secrète et d'invite de données de sauvegarde
 [%collapsible]
 =====
 ....
 Enter the passphrase for onboard key management:
-Enter the passphrase again to confirm:
-Enter the backup data:
 -----BEGIN PASSPHRASE-----
 <passphrase_value>
 -----END PASSPHRASE-----
+Enter the passphrase again to confirm:
+-----BEGIN PASSPHRASE-----
+<passphrase_value>
+-----END PASSPHRASE-----
+Enter the backup data:
+-----BEGIN BACKUP-----
+<passphrase_value>
+-----END ACKUP-----
 ....
 =====
+
+
 .. Continuez à surveiller le processus de restauration pendant qu'il restaure les fichiers appropriés à partir du nœud partenaire.
 +
 Une fois le processus de restauration terminé, le nœud redémarre. Les messages suivants indiquent une récupération réussie :
@@ -181,7 +193,7 @@ Si `AUTOBOOT` n'est pas défini, entrez la commande de démarrage appropriée. L
 
 
  a| 
-ONTAP 9.16.1
+ONTAP 9.16.1 et versions ultérieures
  a| 
 Passez à l'étape suivante.
 
@@ -259,6 +271,8 @@ xxx.xxx.xxx.xxx:5696.netapp_keystore_uuid=<id_value>
 
  a| 
 Si vous y êtes invité, entrez l'UUID de cluster ONTAP du partenaire.
+
+Vous pouvez vérifier l'UUID du cluster à partir du nœud partenaire à l'aide de l' `cluster identify show` commande.
  a| 
 .Affiche l'exemple d'UUID de cluster ONTAP
 [%collapsible]
@@ -276,6 +290,13 @@ System is ready to utilize external key manager(s).
 
  a| 
 Si vous y êtes invité, entrez l'interface réseau temporaire et les paramètres du nœud.
+
+Vous devez entrer :
+
+... L'adresse IP du port
+... Le masque de réseau du port
+... L'adresse IP de la passerelle par défaut
+
  a| 
 .Affiche un exemple de paramètre réseau temporaire
 [%collapsible]
@@ -298,44 +319,11 @@ Trying to recover keys from key servers....
 |===
 .. Selon que la clé a été restaurée avec succès, effectuez l'une des actions suivantes :
 +
-*** Si la configuration EKM a été restaurée avec succès, le processus tente de restaurer les fichiers appropriés à partir du nœud partenaire et redémarre le nœud. Passez à l'étape d.
+*** Si vous voyez `kmip2_client: Successfully imported the keys from external key server: xxx.xxx.xxx.xxx:5696` dans la sortie, la configuration EKM a été restaurée avec succès.
 +
-.Affiche un exemple de messages de restauration 9.16.0 réussis
-[%collapsible]
-=====
-....
+Le processus tente de restaurer les fichiers appropriés à partir du nœud partenaire et redémarre le nœud.  Passez à l’étape d.
 
-kmip2_client: Importing keys from external key server: xxx.xxx.xxx.xxx:5696
-[Feb  6 04:57:43]: 0x80cc09000: 0: DEBUG: kmip2::kmipCmds::KmipLocateCmdUtils: [locateMrootAkUuids]:420: Locating local cluster MROOT-AK with keystore UUID: <uuid>
-[Feb  6 04:57:43]: 0x80cc09000: 0: DEBUG: kmip2::kmipCmds::KmipLocateCmdBase: [doCmdImp]:79: Calling KMIP Locate for the following attributes: [<x-NETAPP-ClusterId, <uuid>>, <x-NETAPP-KeyUsage, MROOT-AK>, <x-NETAPP-KeystoreUuid, <uuid>>, <x-NETAPP-Product, Data ONTAP>]
-[Feb  6 04:57:44]: 0x80cc09000: 0: DEBUG: kmip2::kmipCmds::KmipLocateCmdBase: [doCmdImp]:84: KMIP Locate executed successfully!
-[Feb  6 04:57:44]: 0x80cc09000: 0: DEBUG: kmip2::kmipCmds::KmipLocateCmdBase: [setUuidList]:50: UUID returned: <uuid>
-...
-kmip2_client: Successfully imported the keys from external key server: xxx.xxx.xxx.xxx:5696
-
-GEOM_ELI: Device nvd0s4.eli created.
-GEOM_ELI: Encryption: AES-XTS 256
-GEOM_ELI:     Crypto: software
-Feb 06 05:02:37 [_server-name_]: crypto_get_mroot_ak:140 MROOT-AK is requested.
-Feb 06 05:02:37 [_server-name_]: crypto_get_mroot_ak:162 Returning MROOT-AK.
-....
-=====
-+
-.Affiche un exemple de messages de restauration 9.16.1 réussis
-[%collapsible]
-=====
-....
-
-System is ready to utilize external key manager(s).
-Trying to recover keys from key servers....
-[discover_versions]
-[status=SUCCESS reason= message=]
-...
-kmip2_client: Successfully imported the keys from external key server: xxx.xxx.xxx.xxx:xxxx
-Successfully recovered keymanager secrets.
-....
-=====
-*** Si la clé n'est pas restaurée, le système s'arrête et indique qu'elle n'a pas pu restaurer la clé. Les messages d'erreur et d'avertissement s'affichent. Relancer le processus de restauration :
+*** Si la clé n'est pas restaurée avec succès, le système s'arrêtera et indiquera qu'il n'a pas pu restaurer la clé.  Les messages d'erreur et d'avertissement s'affichent.  Vous devez relancer le processus de récupération :
 +
 `boot_recovery -partner`
 

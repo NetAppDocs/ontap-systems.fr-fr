@@ -15,9 +15,10 @@ Remplacez le NVRAM de votre système ASA A70 ou ASA A90 lorsque la mémoire non 
 
 Le module NVRAM se compose du matériel NVRAM12 et de modules DIMM remplaçables sur site. Vous pouvez remplacer un module NVRAM défectueux ou les modules DIMM à l'intérieur du module NVRAM.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter https://support.netapp.com["Support NetApp"].
+.Avant de commencer
+* Assurez-vous de disposer de la pièce de rechange. Vous devez remplacer le composant défectueux par un composant de remplacement que vous avez reçu de NetApp.
+* Assurez-vous que tous les autres composants du système de stockage fonctionnent correctement ; si ce n'est pas le cas, contactez https://support.netapp.com["Support NetApp"].
 
-Assurez-vous de remplacer le composant défectueux par un composant de remplacement que vous avez reçu de NetApp.
 
 
 
@@ -91,7 +92,7 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 == Étape 2 : remplacez le module NVRAM ou le module DIMM NVRAM
 
-Remplacez le module NVRAM ou les modules DIMM NVRAM à l'aide de l'option appropriée suivante.
+Remplacez le module NVRAM ou les modules DIMM NVRAM à l’aide de l’option appropriée.
 
 [role="tabbed-block"]
 ====
@@ -99,6 +100,7 @@ Remplacez le module NVRAM ou les modules DIMM NVRAM à l'aide de l'option approp
 --
 Pour remplacer le module NVRAM, localisez-le dans le logement 4/5 du châssis et suivez la séquence spécifique des étapes.
 
+.Étapes
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
@@ -163,6 +165,7 @@ NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentatio
 --
 Pour remplacer les barrettes DIMM NVRAM dans le module NVRAM, vous devez retirer le module NVRAM, puis remplacer le module DIMM cible.
 
+.Étapes
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
 image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]

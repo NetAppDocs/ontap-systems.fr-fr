@@ -2,7 +2,7 @@
 permalink: fas50/io-module-hotswap-ha-slot4.html 
 sidebar: sidebar 
 keywords: fas50, hotswap a cluster ha card 
-summary: 'Le module d"E/S cluster et haute disponibilité prend en charge les interconnexions pour le clustering et la haute disponibilité. Vous pouvez remplacer à chaud le module de votre système de stockage FAS50 en cas de panne.' 
+summary: 'Le module d"E/S cluster et haute disponibilité prend en charge les interconnexions pour le clustering et la haute disponibilité. Vous pouvez remplacer à chaud le module de votre système de stockage FAS50 en cas de panne et si votre système de stockage répond à des exigences spécifiques.' 
 ---
 = Remplacez à chaud le module d'E/S utilisé pour le trafic de cluster et HA - FAS50
 :allow-uri-read: 
@@ -15,34 +15,7 @@ Le module d'E/S cluster et haute disponibilité prend en charge les interconnexi
 
 Pour remplacer à chaud un module, assurez-vous que votre système de stockage répond aux exigences de la procédure, préparez le système de stockage et le module d'E/S dans l'emplacement 4, remplacez à chaud le module défaillant par un module équivalent, mettez le module de remplacement en ligne, restaurez le système de stockage à son fonctionnement normal et renvoyez le module défaillant à NetApp.
 
-
-
-== Étape 1 : Assurez-vous que le système de stockage répond aux exigences de la procédure
-
-Pour utiliser cette procédure, votre système de stockage doit répondre à toutes les exigences.  Lisez les considérations pour un contexte supplémentaire de cette procédure.
-
-
-NOTE: Si votre système de stockage ne répond pas à toutes les exigences, vous devez utiliser lelink:io-module-replace.html["procédure de remplacement d'un module d'E/S"] .
-
-.De formation
-* Votre système de stockage doit exécuter ONTAP 9.17.1 ou une version ultérieure.
-* Le module d'E/S qui a échoué doit être un module d'E/S de cluster et HA dans l'emplacement 4 et vous devez le remplacer par un module d'E/S de cluster et HA équivalent. Vous ne pouvez pas modifier le type de module d'E/S.
-* La configuration de votre système de stockage doit comporter un seul cluster et un seul module d'E/S HA situés dans l'emplacement 4, et non deux clusters et deux modules d'E/S HA.
-* Votre système de stockage doit être une configuration de cluster à deux nœuds (sans commutateur ou commuté).
-* Le contrôleur dont le cluster et le module d'E/S haute disponibilité (le contrôleur défaillant) sont défaillants doit avoir déjà pris le relais du contrôleur partenaire sain. La prise de relais aurait dû se produire automatiquement en cas de défaillance du module d'E/S.
-+
-Pour les clusters à deux nœuds, le système de stockage ne peut pas identifier le contrôleur dont le module d'E/S est défaillant ; l'un ou l'autre peut donc prendre le relais. La procédure de remplacement à chaud du cluster et du module d'E/S haute disponibilité n'est prise en charge que lorsque le contrôleur dont le module d'E/S est défaillant (le contrôleur défaillant) a pris le relais du contrôleur sain.
-
-+
-Vous pouvez vérifier que le contrôleur défaillant a pris le contrôle du contrôleur sain en entrant le  `storage failover show` commande.
-
-+
-Si vous n'êtes pas sûr du contrôleur dont le module d'E/S est défectueux, contactez  https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] .
-
-* Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
-
-
-.Considérations
+.Description de la tâche
 * Le remplacement à chaud du cluster et du module d'E/S HA signifie que vous n'avez pas besoin d'effectuer une prise de contrôle manuelle ; le contrôleur défectueux (le contrôleur avec le cluster et le module d'E/S HA défaillants) a automatiquement pris le contrôle du contrôleur sain.
 +
 Lorsque le contrôleur défaillant a pris le contrôle du contrôleur sain, le seul moyen de récupérer sans panne est de remplacer le module à chaud.
@@ -64,10 +37,37 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 
+== Étape 1 : Assurez-vous que le système de stockage répond aux exigences de la procédure
+
+Pour utiliser cette procédure, assurez-vous que votre système de stockage répond à toutes les exigences.
+
+
+NOTE: Si votre système de stockage ne répond pas à toutes les exigences, vous devez utiliser lelink:io-module-replace.html["procédure de remplacement d'un module d'E/S"] .
+
+* Votre système de stockage doit exécuter ONTAP 9.17.1 ou une version ultérieure.
+* Le module d'E/S qui a échoué doit être un module d'E/S de cluster et HA dans l'emplacement 4 et vous devez le remplacer par un module d'E/S de cluster et HA équivalent. Vous ne pouvez pas modifier le type de module d'E/S.
+* La configuration de votre système de stockage doit comporter un seul cluster et un seul module d'E/S HA situés dans l'emplacement 4, et non deux clusters et deux modules d'E/S HA.
+* Votre système de stockage doit être une configuration de cluster à deux nœuds (sans commutateur ou commuté).
+* Le contrôleur dont le cluster et le module d'E/S haute disponibilité (le contrôleur défaillant) sont défaillants doit avoir déjà pris le relais du contrôleur partenaire sain. La prise de relais aurait dû se produire automatiquement en cas de défaillance du module d'E/S.
++
+Pour les clusters à deux nœuds, le système de stockage ne peut pas identifier le contrôleur dont le module d'E/S est défaillant ; l'un ou l'autre peut donc prendre le relais. La procédure de remplacement à chaud du cluster et du module d'E/S haute disponibilité n'est prise en charge que lorsque le contrôleur dont le module d'E/S est défaillant (le contrôleur défaillant) a pris le relais du contrôleur sain.
+
++
+Vous pouvez vérifier que le contrôleur défaillant a pris le contrôle du contrôleur sain en entrant le  `storage failover show` commande.
+
++
+Si vous n'êtes pas sûr du contrôleur dont le module d'E/S est défectueux, contactez  https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] .
+
+* Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
+
+
+
 == Étape 2 : Préparez le système de stockage et l'emplacement du module d'E/S 4
 
 Préparez le système de stockage et l'emplacement du module d'E/S 4 afin de pouvoir retirer en toute sécurité le cluster défectueux et le module d'E/S HA :
 
+.Étapes
 . Mettez-vous à la terre.
 . Débranchez le câblage du cluster défaillant et du module d’E/S HA.
 +
@@ -173,6 +173,7 @@ Vous pouvez utiliser la languette à gauche et la vis à oreilles à droite pour
 
 Mettez en ligne le cluster de remplacement et le module d'E/S HA dans l'emplacement 4, vérifiez que les ports du module sont correctement initialisés, vérifiez que l'emplacement 4 est sous tension, puis vérifiez que le module est en ligne et reconnu.
 
+.Étapes
 . Mettez en ligne le cluster de remplacement et le module d'E/S HA :
 +
 .. Entrez la commande suivante :

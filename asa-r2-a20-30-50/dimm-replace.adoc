@@ -2,7 +2,7 @@
 permalink: asa-r2-a20-30-50/dimm-replace.html 
 sidebar: sidebar 
 keywords: asa a20, asa a30, asa a50, replace a dimm 
-summary: 'Remplacez un module DIMM dans votre système ASA A20, ASA A30 ou ASA A50 si des erreurs de mémoire trop corrigibles ou incorrigibles sont détectées. De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP. Le processus de remplacement implique l"arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, la réinstallation du contrôleur, puis le renvoi de la pièce défectueuse à NetApp.' 
+summary: 'Remplacez un module DIMM dans votre système de stockage ASA A20, ASA A30 ou ASA A50 si des erreurs de mémoire excessives, corrigibles ou non, sont détectées.  De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP.  Le processus de remplacement implique l"arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, la réinstallation du contrôleur, puis le renvoi de la pièce défectueuse à NetApp.' 
 ---
 = Remplacer un module DIMM - ASA A20, ASA A30 et ASA A50
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Remplacez un module DIMM dans votre système ASA A20, ASA A30 ou ASA A
 
 
 [role="lead"]
-Remplacez un module DIMM dans votre système ASA A20, ASA A30 ou ASA A50 si des erreurs de mémoire trop corrigibles ou incorrigibles sont détectées. De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP. Le processus de remplacement implique l'arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, la réinstallation du contrôleur, puis le renvoi de la pièce défectueuse à NetApp.
+Remplacez un module DIMM dans votre système de stockage ASA A20, ASA A30 ou ASA A50 si des erreurs de mémoire excessives, corrigibles ou non, sont détectées.  De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP.  Le processus de remplacement implique l'arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, la réinstallation du contrôleur, puis le renvoi de la pièce défectueuse à NetApp.
 
 Vous devez remplacer un module DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles que des erreurs CECC (Correctable Error correction codes) excessives qui sont basées sur des alertes du moniteur d'intégrité ou des erreurs ECC incorrigibles, généralement causées par une panne de module DIMM unique empêchant le système de stockage de démarrer ONTAP.
 

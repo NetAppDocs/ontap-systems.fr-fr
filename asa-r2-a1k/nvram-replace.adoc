@@ -100,7 +100,9 @@ Remplacez le module NVRAM ou les modules DIMM NVRAM à l'aide de l'option approp
 --
 Pour remplacer le module NVRAM, localisez-le dans le logement 4/5 du boîtier et suivez la séquence spécifique des étapes.
 
-. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement. Débranchez les câbles d’alimentation des blocs d’alimentation, puis retirez le module de contrôleur de quelques centimètres de l’avant du système.
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les câbles d’alimentation des blocs d’alimentation.
 . Faites pivoter le chemin de câbles vers le bas en tirant doucement les broches situées aux extrémités du bac et en faisant pivoter le bac vers le bas.
 . Retirez le module NVRAM défectueux du boîtier :
 +
@@ -145,8 +147,9 @@ Languettes de verrouillage DIMM
 --
 Pour remplacer les barrettes DIMM NVRAM dans le module NVRAM, vous devez retirer le module NVRAM, puis remplacer le module DIMM cible.
 
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Débranchez les câbles d’alimentation des blocs d’alimentation, puis retirez le module de contrôleur de quelques centimètres de l’avant du système.
+. Débranchez les câbles d’alimentation des blocs d’alimentation du contrôleur.
 . Faites pivoter le chemin de câbles vers le bas en tirant doucement les broches situées aux extrémités du bac et en faisant pivoter le bac vers le bas.
 . Retirez le module NVRAM cible du boîtier.
 +
@@ -190,13 +193,9 @@ NOTE: Consultez l'étiquette FRU map située sur le côté du module NVRAM pour 
 
 == Étape 3 : redémarrer le contrôleur
 
-Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
+Après avoir remplacé le composant, vous devez redémarrer le module contrôleur en rebranchant les câbles d'alimentation sur le bloc d'alimentation.
 
-. Rebranchez les câbles d’alimentation sur le bloc d’alimentation et réinstallez et verrouillez délicatement le module de contrôleur à l’avant du système.
-+
 Le système commence à redémarrer, généralement à l'invite du CHARGEUR.
-
-
 
 
 
