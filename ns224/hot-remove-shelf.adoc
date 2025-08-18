@@ -13,6 +13,9 @@ summary: 'Vous pouvez supprimer à chaud un tiroir de disque NS224 pour lequel d
 [role="lead"]
 Vous pouvez supprimer à chaud un tiroir disque NS224 pour lequel des agrégats ont été supprimés des disques, dans une paire haute disponibilité qui est à disposition et transmet des données (les E/S sont en cours).
 
+
+NOTE: Cette procédure ne s’applique pas aux systèmes ASA r2.
+
 .Avant de commencer
 * Votre paire haute disponibilité ne peut pas être dans un état de basculement.
 * Vous devez avoir supprimé tous les agrégats des disques (les disques doivent être de rechange) dans le tiroir que vous supprimez.

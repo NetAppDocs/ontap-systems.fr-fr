@@ -217,28 +217,6 @@ Redémarrez le module contrôleur.
 
 
 
-== Étape 3 : redémarrer le contrôleur
-
-Redémarrez le module contrôleur.
-
-.Étapes
-. Entrez _bye_ à l'invite du CHARGEUR.
-. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage :
-+
-`storage failover giveback -ofnode _impaired_node_name_`
-
-. Restaurer le retour automatique :
-+
-`storage failover modify -node local -auto-giveback true`
-
-. Si une fenêtre de maintenance AutoSupport a été déclenchée, terminez-la :
-+
-`system node autosupport invoke -node * -type all -message MAINT=END`
-
-
-
-
-
 == Étape 4 : installez les licences et enregistrez le numéro de série
 
 Vous devez installer de nouvelles licences pour le nœud concerné si ce dernier utilisait des fonctionnalités ONTAP nécessitant une licence standard (verrouillée par un nœud). Pour les fonctionnalités avec licences standard, chaque nœud du cluster doit avoir sa propre clé pour cette fonctionnalité.
