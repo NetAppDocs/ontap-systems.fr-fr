@@ -602,7 +602,6 @@
   <block id="d341e954ddede02e8d2c553ecfba224a" category="paragraph">Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du cluster. Tout problème doit être résolu avant de procéder au remplacement.</block>
   <block id="159dd817f86d57640ec3082399a576f9" category="list-text">Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal <block ref="4d06f3844212ac745a73965bbb3f6e51" prefix="(" category="inline-code"></block>).</block>
   <block id="04b13459c31bdc128c187f2b882c3d74" category="list-text">Désactiver le rétablissement automatique depuis la console du contrôleur sain :<block ref="7b903d789523bfa1771a2f63b3523783" prefix=" " category="inline-code"></block></block>
-  <block id="2014d8b66b0e05fba286f79c1c8aac17" category="admonition">Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>.</block>
   <block id="ea199306c38c35706c03077ded4d9d02" category="paragraph">Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.</block>
   <block id="0bbc1525261c73e0484c79ecb9b38dc6" category="list-text">Débranchez les blocs d'alimentation du module de contrôleur de la source.</block>
   <block id="e73f79c9112f5779897d8c0a650b3b99" category="list-text">Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.</block>
@@ -9720,7 +9719,6 @@ SFP+ (cible/initiateur)</block>
   <block id="56316a8ca0d4ea8218ff785f2fe8fc7d" category="paragraph">Le remplacement du contrôleur inclut le retrait du contrôleur défectueux, le déplacement des composants FRU vers le contrôleur de remplacement, l'installation du contrôleur de remplacement dans le châssis, la définition de l'heure et de la date, puis la remise en place.</block>
   <block id="3fe8767a939feff2cd12159441aec4ee" category="paragraph">Vérifier les LIF, vérifier l'état du cluster et renvoyer la pièce défectueuse à NetApp.</block>
   <block id="a2742c1f78fe5704322365331e542ab9" category="doc">Remplacer un module DIMM - AFF A20, AFF A30 et AFF A50</block>
-  <block id="fdcf50e10537e759b00a45364943197b" category="doc">Remplacer l'entraînement - AFF A20, AFF A30 et AFF A50</block>
   <block id="94adc47982045347c477d3413a1ce035" category="doc">Remplacer un module de ventilation - AFF A20, AFF A30 et AFF A50</block>
   <block id="fca7a57f7ae7786be1a28cd2eff7a7e6" category="doc">Entretenir le matériel AFF A20, AFF A30 et AFF A50</block>
   <block id="866a764dfc035b62bd1e377e9effbd58" category="paragraph">Pour les systèmes de stockage AFF A20, AFF A30 ou AFF A50, vous pouvez effectuer les procédures de maintenance des composants suivants.</block>
@@ -9803,14 +9801,10 @@ SFP+ (cible/initiateur)</block>
   <block id="6bc9706054ddce477397a74fecd293ed" category="inline-link-macro">câblez le matériel de fixation</block>
   <block id="8bfccb1f0c0fcef7c65c13971279707a" category="paragraph">Après avoir installé le matériel de votre système de stockage, vous <block ref="bca22c8e81cd07d8c060c28f352f5c5b" category="inline-link-macro-rx"></block>.</block>
   <block id="d18e261115fca673ca85d869ef16199c" category="doc">Workflow d'installation et de configuration - AFF A20, AFF A30 et AFF A50</block>
-  <block id="3cdf8c6347bdc0a257b06253a291ef6c" category="paragraph-title"><block ref="444c1bf2e877f5617e8ce0a2ded57f4f" category="inline-image-macro-rx" type="image"></block><block ref="bce179ad419bd48e9c41b073fd99e202" category="inline-link-macro-rx"></block></block>
-  <block id="966353821596fdf316108d72854ad8be" category="paragraph-title"><block ref="4f954e3aac01b1dc982b61d245b37a02" category="inline-image-macro-rx" type="image"></block><block ref="d8f87fb4140fea77f47017bd9ec5dcdd" category="inline-link-macro-rx"></block></block>
   <block id="14dba6115fa0ee08da437dd9fc5018c2" category="paragraph">Pour installer le matériel, installez les kits de rails pour votre système de stockage et vos tiroirs, puis installez et sécurisez votre système de stockage et vos tiroirs dans l'armoire ou le rack de télécommunications.</block>
   <block id="88b736e6d5561b4dc7cce39802381ee6" category="inline-link-macro">Câblez le matériel de fixation</block>
-  <block id="3028390870c5926e662eeccfbd8c3472" category="paragraph-title"><block ref="d5b760e3b486da6aca46a9bd83d66c13" category="inline-image-macro-rx" type="image"></block><block ref="5cf36f95205599c906eaa6f0709db155" category="inline-link-macro-rx"></block></block>
   <block id="2188955fbe0ae54210208dbb48e57dcc" category="paragraph">Pour connecter les câbles du matériel, connectez les contrôleurs à votre réseau, puis à vos tiroirs.</block>
   <block id="3f43328b333c4df4c9ec539236523e92" category="inline-link-macro">Mettez le système de stockage sous tension</block>
-  <block id="e6eeb9ce8e52b3b9db9cd7abc091625d" category="paragraph-title"><block ref="91d7076df3f3bfcf6ace71bd0aa6cf68" category="inline-image-macro-rx" type="image"></block><block ref="8a056a6439f08c4b1b6c616463cfac54" category="inline-link-macro-rx"></block></block>
   <block id="503f95c5c9b5a04e511351c93261b35d" category="paragraph">Pour mettre le système de stockage sous tension, mettez chaque tiroir sous tension, attribuez un ID de tiroir unique en fonction des besoins, puis mettez les contrôleurs sous tension.</block>
   <block id="9057791e1506dce04bd3005efa6d93aa" category="doc">Mettez le système de stockage sous tension - AFF A20, AFF A30 et AFF A50</block>
   <block id="0e13dd128aeb300bd4c4e4321d3b6d00" category="paragraph">Lorsque vous connectez les contrôleurs au réseau et aux tiroirs de votre système de stockage AFF A20, AFF A30 ou AFF A50, vos tiroirs et contrôleurs sont mis sous tension.</block>
@@ -11069,7 +11063,6 @@ SFP+ (cible/initiateur)</block>
   <block id="dbcb2bc4d50c0b367ad35ab35049f6cf" category="doc">Mettez le système de stockage sous tension - FAS50</block>
   <block id="58a9bceae382f9146952eb764c24eaa4" category="paragraph">Lorsque vous connectez les contrôleurs au réseau et aux tiroirs du système de stockage FAS50, vos tiroirs et contrôleurs sont mis sous tension.</block>
   <block id="c5c54b199e1cae61ce9f1f8df4d64ad2" category="list-text">L'ID de tiroir affiché à l'avant du châssis du système ne s'allume pas.</block>
-  <block id="21b1424b1e644de7e738b04ffc32d5fb" category="list-text">Fixez les cordons d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation. :fas50-a20-30-50!:</block>
   <block id="ba721f2e06c40252a394b51ea95142e3" category="doc">Préparation à la pose - FAS50</block>
   <block id="e20b24ffe711fbb4211c8b7f51f10949" category="paragraph">Préparez l'installation de votre système de stockage FAS50 en préparant le site, en déballez les boîtes et en comparant le contenu des boîtes au bordereau d'expédition. Enregistrez le système de stockage pour bénéficier des avantages du support.</block>
   <block id="bf6f76951a411b87fee677094547f5d4" category="doc">Exigences d'installation - FAS50</block>
@@ -11101,7 +11094,6 @@ SFP+ (cible/initiateur)</block>
   <block id="5c40960208a7535beecf44f84d10cea9" category="paragraph"><block ref="fa00b95aa82b5506a4c27cc4a50f05d7" prefix="" category="inline-code"></block></block>
   <block id="2a9205137f8a0ec57be25e6b19b96284" category="paragraph">Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :</block>
   <block id="cd080b2ac496489acb1e57ed7c6444c6" category="paragraph"><block ref="387708b955ccf034fcf9197ad51ba879" prefix="" category="inline-code"></block></block>
-  <block id="a5e0a9798bce38c0259a506f0fd1147d" category="list-text">Désactiver le rétablissement automatique depuis la console du contrôleur sain :</block>
   <block id="b452c4bf6d6344fb288a06006598685e" category="paragraph"><block ref="f454cdc7efb7d9bfad8109c4264a3a1b" prefix="" category="inline-code"></block></block>
   <block id="68f5fa8735b547da3775c7c617e0e5ec" category="paragraph">Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon état :</block>
   <block id="92a9150d319311961f208f8e5f5ebb6e" category="paragraph"><block ref="db99891238c978ac8afa2f5699f2917d" prefix="" category="inline-code"></block></block>
@@ -11113,7 +11105,6 @@ SFP+ (cible/initiateur)</block>
   <block id="ecada3140a47012aab89f14c63ba9190" category="paragraph"><block ref="4d06f3844212ac745a73965bbb3f6e51" prefix="" category="inline-code"></block></block>
   <block id="f045de31e6ca5c44bdd82fc2b4ea9e53" category="paragraph"><block ref="fbcb7868c4849064439910664677cb60" prefix="" category="inline-code"></block></block>
   <block id="b56b78769068ef30879ff862bf0d7d58" category="paragraph"><block ref="6cf51b10a85b7bdc2a6698400ee841b7" prefix="" category="inline-code"></block></block>
-  <block id="a9f9ae342279f5d338d3038ce3af820c" category="paragraph"><block ref="7b903d789523bfa1771a2f63b3523783" prefix="" category="inline-code"></block></block>
   <block id="5f54996be1665b2f88bba84f87a93569" category="paragraph">Utilisez le mappage des FRU sur le conduit d'air du contrôleur pour localiser le logement DIMM.</block>
   <block id="7d0097234d19020f58b7650559edaf2b" category="section-title">Étape 2 : remplacez le module NVRAM ou le module DIMM NVRAM</block>
   <block id="a876fe76c4b113909ecdec3c0882f369" category="paragraph">Remplacez le module NVRAM ou les modules DIMM NVRAM à l'aide de l'option appropriée suivante.</block>
@@ -12082,11 +12073,16 @@ SFP+ (cible/initiateur)</block>
   <block id="fab8921216755946904b56169390c6a4" category="inline-link">configurer votre cluster</block>
   <block id="17d8b1a24625f873cbd79169b4d6a4a1" category="paragraph">Après avoir mis sous tension votre système de stockage, vous<block ref="0f60cfcace4de2b8e8fde35e0c84ffd6" category="inline-link-rx"></block> .</block>
   <block id="429705c279d5084e43119e97001cc757" category="paragraph">Après avoir allumé votre système de stockage AFF A1K , vous<block ref="0f60cfcace4de2b8e8fde35e0c84ffd6" category="inline-link-rx"></block> .</block>
-  <block id="7330f49604b46d73a3ab5144a0883082" category="paragraph-title"><block ref="6e12d70052c23b4d8ac555d298c6cb54" category="inline-image-macro-rx" type="image"></block>/<block ref="51676d6e20492df73dde4996e18903b5" category="inline-link-rx"></block></block>
   <block id="ba86337324d5518a2b56b6eb5db17504" category="paragraph">Après avoir allumé votre système de stockage AFF A70 ou AFF A90 , vous<block ref="0f60cfcace4de2b8e8fde35e0c84ffd6" category="inline-link-rx"></block> .</block>
   <block id="bb955abc1ee1a042f477c6977d0bfc07" category="paragraph"><block ref="bb955abc1ee1a042f477c6977d0bfc07" category="inline-link-macro-rx"></block></block>
   <block id="8d96a0652a56a46a76c2dfa6064eedc6" category="paragraph">Après avoir allumé votre système de stockage AFF C80, vous<block ref="0f60cfcace4de2b8e8fde35e0c84ffd6" category="inline-link-rx"></block> .</block>
   <block id="6fe10565744cf725b2fd75861906fbc1" category="paragraph">Après avoir allumé votre système de stockage FAS70 ou FAS90, vous<block ref="0f60cfcace4de2b8e8fde35e0c84ffd6" category="inline-link-rx"></block> .</block>
   <block id="130be2fd2e92afb91e19f2dec9836c4c" category="admonition">Cette procédure ne s’applique pas aux systèmes ASA r2.</block>
   <block id="9da319b07aef4095e22497ba00c68f1e" category="list-text">Vous devez avoir satisfait aux exigences pour terminer cette procédure et avoir installé, mis sous tension et défini les identifiants d'étagère pour chaque étagère de disque comme indiqué dans<block ref="e16f4ee23c5ee1fb9788c3c8a75ff6d9" category="inline-xref-macro-rx"></block> .</block>
+  <block id="90b6fa75d1a40492225ef00d2d0a4308" category="list-text">Entrez la commande suivante depuis la console du contrôleur sain :</block>
+  <block id="4c7dda08e4d9eb262f7eea3b8ee04e62" category="doc">Remplacer un lecteur - AFF A20, AFF A30 et AFF A50</block>
+  <block id="4e60aeb8ec43ad463ce3dcdf5957e41a" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="bce179ad419bd48e9c41b073fd99e202" category="inline-link-macro-rx"></block></block>
+  <block id="8e7e4fe549d31d35f22d5919a6326875" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="d8f87fb4140fea77f47017bd9ec5dcdd" category="inline-link-macro-rx"></block></block>
+  <block id="034cb39094d8eb483c641ad0dfc1c27f" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="5cf36f95205599c906eaa6f0709db155" category="inline-link-macro-rx"></block></block>
+  <block id="af42a6a9db306b2ac5725e006de14a7a" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="8a056a6439f08c4b1b6c616463cfac54" category="inline-link-macro-rx"></block></block>
 </blocks>

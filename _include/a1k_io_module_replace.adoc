@@ -40,13 +40,14 @@ Le message AutoSupport suivant supprime la création automatique de dossiers pen
 +
 `cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
 
-. Désactiver le rétablissement automatique depuis la console du contrôleur sain :
+. Désactiver le retour automatique :
++
+.. Entrez la commande suivante depuis la console du contrôleur sain :
 +
 `storage failover modify -node local -auto-giveback false`
 
-+
+.. Entrer `y` lorsque vous voyez l'invite _Voulez-vous désactiver le retour automatique ?_
 
-NOTE: Lorsque vous voyez _voulez-vous désactiver l'auto-giveback?_, entrez `y`.
 
 . Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
 +
