@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: asa c800, replace the boot media 
 summary: 'Vous trouvez le support d"amorçage défectueux dans le module de contrôleur en retirant la carte de montage 3 du module de contrôleur avant de pouvoir remplacer le support d"amorçage.' 
 ---
-= Remplacez le support de démarrage - ASA C800
+= Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - ASA C800
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,8 @@ summary: 'Vous trouvez le support d"amorçage défectueux dans le module de cont
 
 [role="lead"]
 Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez la procédure de récupération de démarrage automatique.  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser le processus de récupération de démarrage manuel.
 
 
 

@@ -16,13 +16,30 @@ entries:
 - title: Maintenance
   pdf-filename: ASA A400 maintenir
   entries:
-  - title: Présentation
+  - title: Présentation de la maintenance
     url: "/asa400/maintain-overview.html"
-  - title: Support de démarrage
-    pdf-filename: Support de démarrage ASA A400
+  - title: Support de démarrage - récupération automatique
+    pdf-filename: Support de démarrage automatisé ASA A400
     entries:
-    - title: Présentation
-      url: "/asa400/bootmedia-replace-overview.html"
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/asa400/bootmedia-replace-workflow-bmr.html"
+    - title: Examen des conditions requises
+      url: "/asa400/bootmedia-replace-requirements-bmr.html"
+    - title: Arrêter le contrôleur
+      url: "/asa400/bootmedia-shutdown-bmr.html"
+    - title: Remplacez le support de démarrage
+      url: "/asa400/bootmedia-replace-bmr.html"
+    - title: Restaurer l'image sur le support de démarrage
+      url: "/asa400/bootmedia-recovery-image-boot-bmr.html"
+    - title: Renvoyer la pièce défectueuse à NetApp
+      url: "/asa400/bootmedia-complete-rma-bmr.html"
+  - title: Support de démarrage - récupération manuelle
+    pdf-filename: Manuel du support de démarrage ASA A400
+    entries:
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/asa400/bootmedia-replace-workflow.html"
+    - title: Examen des conditions requises
+      url: "/asa400/bootmedia-replace-requirements.html"
     - title: Vérifiez les clés de cryptage
       url: "/asa400/bootmedia-encryption-preshutdown-checks.html"
     - title: Arrêtez le contrôleur douteux
@@ -31,8 +48,6 @@ entries:
       url: "/asa400/bootmedia-replace.html"
     - title: Image de récupération de démarrage
       url: "/asa400/bootmedia-recovery-image-boot.html"
-    - title: Revenir à la configuration MetroCluster
-      url: "/asa400/bootmedia-2n-mcc-switchback.html"
     - title: Restaurez le chiffrement
       url: "/asa400/bootmedia-encryption-restore.html"
     - title: Renvoyer la pièce défectueuse à NetApp

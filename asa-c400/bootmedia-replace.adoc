@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: asa c400, asa, c400, locate, boot, media, controller, module, fre, map, direction, replace, replace the boot media 
 summary: 'Vous devez localiser le support de démarrage dans le module de contrôleur \(voir le mappage des FRU sur le module de contrôleur\), puis suivre les instructions pour le remplacer.' 
 ---
-= Remplacez le support de démarrage - ASA C400
+= Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - ASA C400
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,8 @@ summary: 'Vous devez localiser le support de démarrage dans le module de contr�
 
 [role="lead"]
 Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser le processus de récupération de démarrage manuel.
 
 
 

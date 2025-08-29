@@ -16,23 +16,38 @@ entries:
 - title: Maintenance
   pdf-filename: Maintenance d'un système AFF A400
   entries:
-  - title: Présentation
+  - title: Présentation de la maintenance
     url: "/a400/maintain-overview.html"
-  - title: Support de démarrage
+  - title: Support de démarrage - récupération automatique
+    pdf-filename: Support de démarrage automatisé AFF A400
+    entries:
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/a400/bootmedia-replace-workflow-bmr.html"
+    - title: Examen des conditions requises
+      url: "/a400/bootmedia-replace-requirements-bmr.html"
+    - title: Arrêter le contrôleur
+      url: "/a400/bootmedia-shutdown-bmr.html"
+    - title: Remplacez le support de démarrage
+      url: "/a400/bootmedia-replace-bmr.html"
+    - title: Image de récupération de démarrage
+      url: "/a400/bootmedia-recovery-image-boot-bmr.html"
+    - title: Renvoyer la pièce défectueuse à NetApp
+      url: "/a400/bootmedia-complete-rma-bmr.html"
+  - title: Support de démarrage - récupération manuelle
     pdf-filename: Support de démarrage AFF A400
     entries:
-    - title: Présentation
-      url: "/a400/bootmedia-replace-overview.html"
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/a400/bootmedia-replace-workflow.html"
+    - title: Examen des conditions requises
+      url: "/a400/bootmedia-replace-requirements.html"
     - title: Vérifiez les clés de cryptage
       url: "/a400/bootmedia-encryption-preshutdown-checks.html"
-    - title: Arrêtez le contrôleur douteux
+    - title: Arrêter le contrôleur
       url: "/a400/bootmedia-shutdown.html"
     - title: Remplacez le support de démarrage
       url: "/a400/bootmedia-replace.html"
     - title: Image de récupération de démarrage
       url: "/a400/bootmedia-recovery-image-boot.html"
-    - title: Revenir à la configuration MetroCluster
-      url: "/a400/bootmedia-2n-mcc-switchback.html"
     - title: Restaurez le chiffrement
       url: "/a400/bootmedia-encryption-restore.html"
     - title: Renvoyer la pièce défectueuse à NetApp

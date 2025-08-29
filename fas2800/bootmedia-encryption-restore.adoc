@@ -13,6 +13,8 @@ summary: 'Une fois les variables d"environnement vérifiées, vous devez effectu
 [role="lead"]
 Restaurez le chiffrement sur le support de démarrage de remplacement.
 
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
+
 Vous devez effectuer les étapes spécifiques aux systèmes pour lesquels le gestionnaire de clés intégré (OKM), le chiffrement de stockage NetApp (NSE) ou le chiffrement de volume NetApp (NVE) sont activés à l'aide des paramètres capturés au début de la procédure de remplacement des supports de démarrage.
 
 Selon le gestionnaire de clés configuré sur votre système, sélectionnez l'une des options suivantes pour le restaurer dans le menu de démarrage.

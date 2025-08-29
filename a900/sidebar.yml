@@ -6,35 +6,52 @@ entries:
   pdf-filename: Installation et configuration de AFF A900
   entries:
   - title: Choisissez une expérience d'installation et de configuration
-    url: "/a900/install_setup.html"
+    url: "/a900/install-setup.html"
   - title: Pas de temps
-    url: "/a900/install_quick_guide.html"
+    url: "/a900/install-quick-guide.html"
   - title: Étapes vidéo
-    url: "/a900/install_videos.html"
+    url: "/a900/install-videos.html"
   - title: Étapes détaillées
-    url: "/a900/install_detailed_guide.html"
+    url: "/a900/install-detailed-guide.html"
 - title: Maintenance
   pdf-filename: Maintenance de AFF A900
   entries:
-  - title: Présentation
+  - title: Présentation de la maintenance
     url: "/a900/maintain-overview.html"
-  - title: Support de démarrage
-    pdf-filename: Support de démarrage AFF A900
+  - title: Support de démarrage - récupération automatique
+    pdf-filename: Support de démarrage automatisé AFF A900
     entries:
-    - title: Présentation
-      url: "/a900/bootmedia_replace_overview.html"
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/a900/bootmedia-replace-workflow-bmr.html"
+    - title: Examen des conditions requises
+      url: "/a900/bootmedia-replace-requirements-bmr.html"
+    - title: Arrêter le contrôleur
+      url: "/a900/bootmedia-shutdown-bmr.html"
+    - title: Remplacez le support de démarrage
+      url: "/a900/bootmedia-replace-bmr.html"
+    - title: Restaurer l'image sur le support de démarrage
+      url: "/a900/bootmedia-recovery-image-boot-bmr.html"
+    - title: Renvoyer la pièce défectueuse à NetApp
+      url: "/a900/bootmedia-complete-rma-bmr.html"
+  - title: Support de démarrage - récupération manuelle
+    pdf-filename: Manuel du support de démarrage AFF A900
+    entries:
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/a900/bootmedia-replace-workflow.html"
+    - title: Examen des conditions requises
+      url: "/a900/bootmedia-replace-requirements.html"
     - title: Vérifiez les clés de cryptage
-      url: "/a900/bootmedia_encryption_preshutdown_checks.html"
+      url: "/a900/bootmedia-encryption-preshutdown-checks.html"
     - title: Arrêtez le contrôleur douteux
       url: "/a900/bootmedia-shutdown.html"
-    - title: Remplacez l'image de démarrage
-      url: "/a900/bootmedia_replace.html"
+    - title: Remplacez le support de démarrage
+      url: "/a900/bootmedia-replace.html"
     - title: Image de récupération de démarrage
       url: "/a900/bootmedia_recovery_image.html"
     - title: Restaurez le chiffrement
       url: "/a900/bootmedia-encryption-restore.html"
     - title: Renvoyer la pièce défectueuse à NetApp
-      url: "/a900/bootmedia_complete_rma.html"
+      url: "/a900/bootmedia-complete-rma.html"
   - title: Châssis
     pdf-filename: Châssis AFF A900
     entries:

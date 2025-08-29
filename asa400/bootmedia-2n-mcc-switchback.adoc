@@ -13,6 +13,8 @@ summary: 'Après avoir terminé le remplacement des unités remplaçables sur si
 [role="lead"]
 Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l'opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.
 
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
+
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
 
 .Étapes

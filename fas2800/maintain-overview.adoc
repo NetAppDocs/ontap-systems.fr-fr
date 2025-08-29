@@ -1,7 +1,7 @@
 ---
 permalink: fas2800/maintain-overview.html 
 sidebar: sidebar 
-keywords: fas2800 maintenance, maintenance, repairing, repairing fas2700, replace fas2800 components, replace fas2800 components 
+keywords: fas2800 maintenance, maintenance, repairing, repairing fas2800, replace fas2800 components, replace fas2800 components 
 summary: Maintenance du matériel FAS2820 
 ---
 = Maintenance du matériel FAS2820
@@ -11,64 +11,93 @@ summary: Maintenance du matériel FAS2820
 
 
 [role="lead"]
+Entretenez le matériel de votre système de stockage FAS2820 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.
+
+Les procédures de maintenance supposent que le système de stockage FAS2820 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .
+
+
+
+== Composants du système
+
 Pour le système de stockage FAS2820, vous pouvez effectuer les procédures de maintenance sur les composants suivants.
 
+[cols="25,65"]
+|===
 
 
-== Support de démarrage
+ a| 
+link:bootmedia-replace-workflow-bmr.html["Support de démarrage - récupération automatique"]
+ a| 
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer.  Lors de la récupération automatisée, le système récupère l'image de démarrage à partir du nœud partenaire et exécute automatiquement l'option de menu de démarrage appropriée pour installer l'image sur votre support de démarrage de remplacement. La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
 
-Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+ a| 
+link:bootmedia-replace-workflow.html["Support de démarrage - récupération manuelle"]
+ a| 
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer. Lors de la récupération manuelle, vous démarrez le système de stockage à partir d'une clé USB et restaurez manuellement l'image et la configuration du système de fichiers.  Si votre système de stockage exécute ONTAP 9.17.1 et versions ultérieures, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .
 
 
 
-== Module de cache
-
+ a| 
+link:caching-module-replace.html["Module de cache"]
+ a| 
 Vous devez remplacer le module de cache du contrôleur lorsque votre système enregistre un seul message AutoSupport (ASUP) indiquant que le module est hors ligne.
 
 
 
-== Châssis
-
+ a| 
+link:chassis-replace-overview.html["Châssis"]
+ a| 
 Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
 
 
 
-== Contrôleur
-
+ a| 
+link:controller-replace-overview.html["Contrôleur"]
+ a| 
 Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
 
 
 
-== DIMM
-
+ a| 
+link:dimm-replace.html["DIMM"]
+ a| 
 Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
 
 
 
-== Lecteur
-
+ a| 
+link:drive-replace.html["Lecteur"]
+ a| 
 Un lecteur est un périphérique qui fournit le support de stockage physique pour les données.
 
 
 
-== Batterie NVMEM
-
+ a| 
+link:nvmem-nvram-battery-replace.html["Batterie NVMEM"]
+ a| 
 Une batterie est fournie avec le contrôleur et conserve les données en cache en cas de panne de courant alternatif.
 
 
 
-== Carte mezzanine
-
-Une carte mezzanine est une carte d'extension conçue pour être insérée dans un emplacement spécialisé de la carte mère.
-
-
-
-== Alimentation électrique
-
-Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
+ a| 
+link:pci-cards-and-risers-replace.html["Carte mezzanine"]
+ a| 
+Une carte mezzanine est une carte d'extension conçue pour être insérée dans un emplacement spécialisé sur la carte mère et contient les cartes d'E/S de la carte.
 
 
 
-== Pile de l'horloge en temps réel
+ a| 
+link:power-supply-swap-out.html["Alimentation électrique"]
+ a| 
+Une alimentation fournit une source d'alimentation redondante dans un contrôleur.
 
+
+
+ a| 
+link:rtc-battery-replace.html["Pile de l'horloge en temps réel"]
+ a| 
 Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.
+
+|===

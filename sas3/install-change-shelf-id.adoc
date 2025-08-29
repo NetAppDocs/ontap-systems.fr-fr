@@ -67,7 +67,7 @@ Vous devez éteindre les deux commutateurs d'alimentation, attendre la durée ap
 
 +
 ** Si le système ONTAP n'est pas encore opérationnel ou si vous ajoutez un tiroir à chaud (qui n'a pas encore été câblé au système), attendez au moins 10 secondes.
-** Si ONTAP est en cours d'exécution (les contrôleurs sont disponibles pour servir les données) et que tous les disques du tiroir sont détenus, Spares ou font partie d'un ou plusieurs agrégats de mise hors ligne, attendez au moins 70 secondes.
+** Si ONTAP est en cours d'exécution (les contrôleurs sont disponibles pour servir les données) et que tous les lecteurs de disque de l'étagère sont sans propriétaire, de rechange ou font partie d'agrégats hors ligne, attendez au moins 120 secondes.
 +
 Cette heure permet à ONTAP de supprimer correctement l'ancienne adresse de tiroir et de mettre à jour la copie de la nouvelle adresse de tiroir.
 

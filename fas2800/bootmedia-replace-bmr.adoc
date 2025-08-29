@@ -1,0 +1,101 @@
+---
+permalink: fas2800/bootmedia-replace-bmr.html 
+sidebar: sidebar 
+keywords: fas2800, replace the boot media 
+summary: 'Le support de démarrage de votre système FAS2800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l"installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.' 
+---
+= Remplacer le support de démarrage pour une récupération de démarrage automatique - FAS2800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le support de démarrage de votre système FAS2800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.
+
+La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
+
+Le support de démarrage est situé à l'intérieur du module de contrôleur et est accessible en retirant le module de contrôleur du châssis et en retirant le couvercle du module de contrôleur du système.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
+. Appuyez sur le loquet de la poignée de came jusqu'à ce qu'il se libère, ouvrez complètement la poignée de came pour libérer le module de contrôleur du fond de panier central, puis, à l'aide de deux mains, retirez le module de contrôleur du châssis.
++
+image::../media/drw_2850_pcm_remove_install_IEOPS-694.svg[Retirer le contrôleur]
+
+. Retournez le module de contrôleur et placez-le sur une surface plane et stable.
+. Ouvrez le capot en appuyant sur les boutons bleus situés sur les côtés du module de contrôleur pour libérer le capot, puis faites pivoter le capot vers le haut et hors du module de contrôleur.
++
+image::../media/drw_2850_open_controller_module_cover_IEOPS-695.svg[Ouvrir le contrôleur]
+
++
+[cols="1,2"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Bouton de déverrouillage du capot du module de contrôleur
+
+|===
+. Localisez le support de démarrage dans le module de contrôleur, situé sous la carte mezzanine et suivez les instructions pour le remplacer.
++
+image:../media/drw_2850_replace_boot_media_IEOPS-696.svg["Remplacez le support de démarrage"]
+
++
+[cols="1,2"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Languette de verrouillage du support de démarrage
+
+|===
+. Retirez la carte mezzanine à l'aide de l'illustration suivante ou du mappage FRU sur le module de contrôleur :
++
+.. Retirez la plaque d'E/S en la faisant glisser hors du module de contrôleur.
+.. Desserrez les vis à molette de la carte mezzanine.
++
+
+NOTE: Vous pouvez desserrer les vis moletées avec vos doigts ou un tournevis. Si vous utilisez vos doigts, vous devrez peut-être faire pivoter la batterie NV vers le haut pour obtenir un meilleur achat de doigts sur la vis à molette située à côté de celle-ci.
+
+.. Soulevez la carte mezzanine.
+
+
+. Remplacez le support de démarrage :
++
+.. Appuyez sur le bouton bleu du boîtier du support de démarrage pour libérer le support de démarrage de son logement, faites pivoter le support de démarrage vers le haut, puis tirez-le doucement hors du support de démarrage.
++
+
+NOTE: Ne faites pas tourner ou tirer le support de démarrage directement vers le haut, car cela pourrait endommager le support ou le support de démarrage.
+
+.. Alignez les bords du support de démarrage de remplacement avec le support de démarrage, puis poussez-le doucement dans le support.
+Vérifiez le support de démarrage pour vous assurer qu'il est correctement inséré dans le support et, si nécessaire, retirez le support de démarrage et réinstallez-le dans le support.
+.. Appuyez sur le bouton de verrouillage bleu, faites pivoter le support de démarrage complètement vers le bas, puis relâchez le bouton de verrouillage pour verrouiller le support de démarrage en place.
+
+
+. Réinstallez la carte mezzanine :
++
+.. Alignez le connecteur de la carte mère avec le connecteur de la carte mezzanine, puis insérez doucement la carte dans le support.
+.. Serrez les trois vis à molette de la carte mezzanine.
+.. Réinstallez la plaque d'E/S.
+
+
+. Réinstallez le capot du module de contrôleur et verrouillez-le en place.
+. Installez le module de contrôleur :
++
+.. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-chemin dans le système.
+.. Rebranchez le contrôleur, poussez fermement la poignée à came pour terminer l'installation du module du contrôleur, poussez la poignée à came en position fermée, puis serrez la vis à oreilles.
++
+Le contrôleur commence à démarrer et s'arrête à l'invite LOADER.
+
+
+
+
+
+.Et la suite
+Après le remplacement physique du support de démarrage défectueux, link:bootmedia-recovery-image-boot-bmr.html["Restaurez l'image ONTAP à partir du nœud partenaire"].

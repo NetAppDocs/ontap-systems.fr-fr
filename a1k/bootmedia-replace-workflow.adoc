@@ -13,7 +13,7 @@ summary: 'La récupération manuelle de l"image de démarrage consiste à utilis
 [role="lead"]
 La récupération manuelle de l'image de démarrage consiste à utiliser une clé USB pour réinstaller ONTAP sur le support de démarrage de remplacement du système AFF A1K . Vous devez télécharger l'image de récupération ONTAP appropriée depuis le site de support NetApp et la copier sur une clé USB. Cette clé USB préparée est ensuite utilisée pour effectuer la récupération et restaurer le système à son état opérationnel.
 
-Si votre système fonctionne sous ONTAP 9.17.1 et versions ultérieures, utilisez le link:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatique"] .
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
 Pour commencer, passez en revue les exigences de récupération, arrêtez le contrôleur, remplacez le support de démarrage, utilisez la clé USB pour restaurer l'image et réappliquez les paramètres de chiffrement si nécessaire.
 

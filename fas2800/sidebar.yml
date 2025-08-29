@@ -14,15 +14,32 @@ entries:
   - title: Étapes détaillées
     url: "/fas2800/install-detailed-guide.html"
 - title: Maintenance
-  pdf-filename: Maintenance du système FAS2820
+  pdf-filename: AFF FAS2800 Maintenance
   entries:
-  - title: Présentation
+  - title: Aperçu de la maintenance
     url: "/fas2800/maintain-overview.html"
-  - title: Support de démarrage
-    pdf-filename: Support de démarrage FAS2820
+  - title: Support de démarrage - récupération automatique
+    pdf-filename: Support de démarrage automatisé FAS2820
     entries:
-    - title: Présentation
-      url: "/fas2800/bootmedia-replace-overview.html"
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/fas2800/bootmedia-replace-workflow-bmr.html"
+    - title: Examen des conditions requises
+      url: "/fas2800/bootmedia-replace-requirements-bmr.html"
+    - title: Arrêter le contrôleur
+      url: "/fas2800/bootmedia-shutdown-bmr.html"
+    - title: Remplacez le support de démarrage
+      url: "/fas2800/bootmedia-replace-bmr.html"
+    - title: Image de récupération de démarrage
+      url: "/fas2800/bootmedia-recovery-image-boot-bmr.html"
+    - title: Renvoyer la pièce défectueuse à NetApp
+      url: "/fas2800/bootmedia-complete-rma-bmr.html"
+  - title: Support de démarrage - récupération manuelle
+    pdf-filename: Manuel du support de démarrage FAS2820
+    entries:
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/fas2800/bootmedia-replace-workflow.html"
+    - title: Examen des conditions requises
+      url: "/a800/bootmedia-replace-requirements.html"
     - title: Vérifiez les clés de cryptage
       url: "/fas2800/bootmedia-encryption-preshutdown-checks.html"
     - title: Arrêtez le contrôleur douteux

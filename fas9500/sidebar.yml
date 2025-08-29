@@ -6,61 +6,75 @@ entries:
   pdf-filename: Installation et configuration du système FAS9500
   entries:
   - title: Choisissez une expérience d'installation et de configuration
-    url: "/fas9500/install_setup.html"
+    url: "/fas9500/install-setup.html"
   - title: Pas de temps
-    url: "/fas9500/install_quick_guide.html"
+    url: "/fas9500/install-quick-guide.html"
   - title: Étapes vidéo
-    url: "/fas9500/install_videos.html"
+    url: "/fas9500/install-videos.html"
   - title: Étapes détaillées
-    url: "/fas9500/install_detailed_guide.html"
+    url: "/fas9500/install-detailed-guide.html"
 - title: Maintenance
   pdf-filename: Maintenance du système FAS9500
   entries:
-  - title: Présentation
+  - title: Présentation de la maintenance
     url: "/fas9500/maintain-overview.html"
-  - title: Support de démarrage
-    pdf-filename: Support de démarrage FAS9500
+  - title: Support de démarrage - récupération automatique
+    pdf-filename: Support de démarrage automatisé FAS9500
     entries:
-    - title: Présentation
-      url: "/fas9500/bootmedia_replace_overview.html"
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/fas9500/bootmedia-replace-workflow-bmr.html"
+    - title: Examen des conditions requises
+      url: "/fas9500/bootmedia-replace-requirements-bmr.html"
+    - title: Arrêter le contrôleur
+      url: "/fas9500/bootmedia-shutdown-bmr.html"
+    - title: Remplacez le support de démarrage
+      url: "/fas9500/bootmedia-replace-bmr.html"
+    - title: Restaurer l'image sur le support de démarrage
+      url: "/fas9500/bootmedia-recovery-image-boot-bmr.html"
+    - title: Renvoyer la pièce défectueuse à NetApp
+      url: "/fas9500/bootmedia-complete-rma-bmr.html"
+  - title: Support de démarrage - récupération manuelle
+    pdf-filename: Manuel du support de démarrage FAS9500
+    entries:
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/fas9500/bootmedia-replace-workflow.html"
+    - title: Examen des conditions requises
+      url: "/fas9500/bootmedia-replace-requirements.html"
     - title: Vérifiez les clés de cryptage
-      url: "/fas9500/bootmedia_encryption_preshutdown_checks.html"
-    - title: Arrêtez le contrôleur défaillant
+      url: "/fas9500/bootmedia-encryption-preshutdown-checks.html"
+    - title: Arrêtez le contrôleur douteux
       url: "/fas9500/bootmedia-shutdown.html"
     - title: Remplacez le support de démarrage
-      url: "/fas9500/bootmedia_replace.html"
-    - title: Démarrez l'image de récupération
-      url: "/fas9500/bootmedia_recovery_image.html"
-    - title: Étapes de remplacement des supports après démarrage pour OKM, NSE et
-        NVE
-      url: "/fas9500/bootmedia_encryption_restore.html"
-    - title: Renvoyez la pièce défectueuse à NetApp
-      url: "/fas9500/bootmedia_complete_rma.html"
-  - title: Module de cache
-    url: "/fas9500/caching_module_hot_swap.html"
+      url: "/fas9500/bootmedia-replace.html"
+    - title: Image de récupération de démarrage
+      url: "/fas9500/bootmedia-recovery-image.html"
+    - title: Restaurez le chiffrement
+      url: "/fas9500/bootmedia-encryption-restore.html"
+    - title: Renvoyer la pièce défectueuse à NetApp
+      url: "/fas9500/bootmedia-complete-rma.html"
   - title: Châssis
     pdf-filename: Châssis FAS9500
     entries:
     - title: Présentation
       url: "/fas9500/chassis_replace_overview.html"
-    - title: Arrêtez le contrôleur défaillant
+    - title: Arrêtez le contrôleur douteux
       url: "/fas9500/chassis_replace_shutdown.html"
-    - title: Remplacer le matériel de fixation
+    - title: Remplacez le châssis
       url: "/fas9500/chassis_replace_move_hardware.html"
-    - title: Restauration et vérification de la configuration
+    - title: Restaurer et vérifier la configuration
       url: "/fas9500/chassis_replace_complete_system_restore_rma.html"
-  - title: Module de contrôleur
+  - title: Contrôleur
     pdf-filename: Module de contrôleur FAS9500
     entries:
     - title: Présentation
       url: "/fas9500/controller_replace_overview.html"
-    - title: Arrêtez le contrôleur défaillant
+    - title: Arrêtez le contrôleur douteux
       url: "/fas9500/controller_replace_shutdown.html"
-    - title: Remplacer le matériel du module de contrôleur
+    - title: Remplacer le contrôleur
       url: "/fas9500/controller_replace.html"
     - title: Restaurez et vérifiez la configuration du système
       url: "/fas9500/controller_replace_system_config_restore_and_verify.html"
-    - title: Recâblage du système
+    - title: Système de récupération
       url: "/fas9500/controller_replace_recable_reassign_disks.html"
     - title: Restauration complète du système
       url: "/fas9500/controller_replace_complete_system_restoration_rma.html"

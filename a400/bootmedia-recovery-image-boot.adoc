@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: aff a400, aff, a400, procedure, boot, impair, controller, recovery, image, system, two-node, metrocluster, configuration, boot the recovery image 
 summary: 'La procédure de démarrage du contrôleur défaillant à partir de l"image de récupération dépend du fait que le système se trouve dans une configuration MetroCluster à deux nœuds.' 
 ---
-= Démarrez l'image de récupération - AFF A400
+= Récupération manuelle du support de démarrage à partir d'une clé USB - AFF A400
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,8 @@ summary: 'La procédure de démarrage du contrôleur défaillant à partir de l"
 
 [role="lead"]
 Après avoir installé le nouveau périphérique de démarrage sur votre système, vous pouvez démarrer l'image de récupération à partir d'un lecteur USB et restaurer la configuration à partir du nœud partenaire.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser le processus de récupération de démarrage manuel.
 
 .Étapes
 . À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`

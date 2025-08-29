@@ -1,0 +1,131 @@
+---
+permalink: a900/bootmedia-replace-bmr.html 
+sidebar: sidebar 
+keywords: a900, replace the boot media 
+summary: 'Le support de démarrage de votre système AFF A900 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l"installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.' 
+---
+= Remplacer le support de démarrage pour une récupération de démarrage automatique - AFF A900
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le support de démarrage de votre système AFF A900 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.
+
+La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
+
+Le support de démarrage est situé à l'intérieur du module de contrôleur sous le conduit d'air et est accessible en retirant le module de contrôleur du système.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les câbles du module de contrôleur défaillant et suivez l'emplacement de connexion des câbles.
+. Faites glisser le bouton en terre cuite de la poignée de came vers le bas jusqu'à ce qu'il se déverrouille.
++
+.Animation - retirez le contrôleur
+video::256721fd-4c2e-40b3-841a-adf2000df5fa[panopto]
++
+image::../media/drw_a900_remove_PCM.png[Relâcher le contrôleur]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Bouton de déverrouillage de la poignée de came
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Poignée de came
+
+|===
+. Faites pivoter la poignée de came de façon à ce qu'elle désengage complètement le module de contrôleur du châssis, puis faites glisser le module de contrôleur hors du châssis.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+. Placez le couvercle du module de contrôleur face vers le haut sur une surface stable et plane, appuyez sur le bouton bleu du capot, faites glisser le couvercle vers l'arrière du module de contrôleur, puis faites pivoter le couvercle vers le haut et retirez-le du module de contrôleur.
++
+image::../media/drw_a900_PCM_open.png[Soulevez le capot pour le retirer du module de contrôleur]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Bouton de verrouillage du couvercle du module de commande
+
+|===
+. Remplacez le support de démarrage :
++
+.. Soulevez le conduit d'air noir à l'arrière du module de contrôleur, puis localisez le support de démarrage à l'aide de l'illustration suivante ou de la carte FRU du module de contrôleur :
++
+.Animation - remplacer le support d'amorçage
+video::c5080658-765e-4d29-8456-adf2000e1495[panopto]
++
+image::../media/drw_9000_remove_boot_dev.svg[Retirez le support de démarrage]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Appuyez sur la languette de dégagement
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Support de démarrage
+
+|===
+.. Appuyez sur le bouton bleu du logement du support de démarrage pour libérer le support de démarrage de son logement, puis tirez-le doucement hors du support de démarrage.
++
+
+NOTE: Ne faites pas tourner ou tirer le support de démarrage directement vers le haut, car cela pourrait endommager le support ou le support de démarrage.
+
+.. Alignez les bords du support de démarrage de remplacement avec le support de démarrage, puis poussez-le doucement dans le support.
+.. Vérifiez le support de démarrage pour vous assurer qu'il est bien en place dans le support.
++
+Si nécessaire, retirez le support de démarrage et réinstallez-le dans le support.
+
+.. Poussez le support de démarrage vers le bas pour engager le bouton de verrouillage sur le boîtier du support de démarrage.
+
+
+. Réinstallez le couvercle du module de contrôleur en alignant les broches du couvercle avec les fentes du support de carte mère, puis faites glisser le couvercle pour le mettre en place.
+. Réinstaller le module contrôleur :
++
+.. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+.. Recâblage du module de contrôleur, selon les besoins.
+.. Poussez le module de contrôleur complètement dans le système, en vous assurant que la poignée de came se dégage du lecteur flash USB, appuyez fermement sur la poignée de came pour terminer l'installation du module de contrôleur, puis poussez la poignée de came en position fermée.
++
+Le contrôleur commence à démarrer dès qu'il est entièrement installé dans le châssis.
+
++
+Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
+
+
+
+. Si le contrôleur est en mode MetroCluster Stretch ou Fabric-Attached, vous devez restaurer la configuration de l'adaptateur FC :
++
+.. Démarrage en mode maintenance : `boot_ontap maint`
+.. Définissez les ports MetroCluster comme initiateurs : `ucadmin modify -m fc -t iniitator adapter_name`
+.. Arrêter pour revenir en mode maintenance : `halt`
+
+
+
+
+.Et la suite
+Après le remplacement physique du support de démarrage défectueux, link:bootmedia-recovery-image-boot-bmr.html["Restaurez l'image ONTAP à partir du nœud partenaire"].

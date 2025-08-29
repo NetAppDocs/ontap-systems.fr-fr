@@ -1,0 +1,44 @@
+---
+permalink: asa800/bootmedia-replace-workflow.html 
+sidebar: sidebar 
+keywords: aff asa800, replace the boot media 
+summary: 'Commencez à remplacer le support de démarrage de votre système de stockage ASA A800 en examinant les exigences de remplacement, en vérifiant l"état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l"image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.' 
+---
+= Workflow de récupération manuelle du support de démarrage - ASA A800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Commencez à remplacer le support de démarrage de votre système de stockage ASA A800 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:bootmedia-replace-requirements.html["Vérifiez la configuration requise pour le support de démarrage"]
+[role="quick-margin-para"]
+Consultez les conditions requises pour le remplacement du support de démarrage.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:bootmedia-encryption-preshutdown-checks.html["Vérifiez la prise en charge et l'état de la clé de cryptage"]
+[role="quick-margin-para"]
+Déterminez si le gestionnaire de clés de sécurité est activé sur le système ou si des disques cryptés sont utilisés.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:bootmedia-shutdown.html["Arrêter le contrôleur"]
+[role="quick-margin-para"]
+Arrêtez le contrôleur lorsque vous devez remplacer le support de démarrage.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:bootmedia-replace.html["Remplacez le support de démarrage"]
+[role="quick-margin-para"]
+Retirez le support de démarrage défectueux du module de gestion du système, installez le support de démarrage de remplacement, puis transférez une image ONTAP à l'aide d'une clé USB.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:bootmedia-recovery-image-boot.html["Démarrez l'image de récupération"]
+[role="quick-margin-para"]
+Démarrez l'image ONTAP à partir du lecteur USB, restaurez le système de fichiers et vérifiez les variables d'environnement.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:bootmedia-encryption-restore.html["Restaurez le chiffrement"]
+[role="quick-margin-para"]
+Restaurez la configuration du gestionnaire de clés intégré ou le gestionnaire de clés externe à partir du menu de démarrage ONATP .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sept"]link:bootmedia-complete-rma.html["Renvoyez la pièce défectueuse à NetApp"]
+[role="quick-margin-para"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.

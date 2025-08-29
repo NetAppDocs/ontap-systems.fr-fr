@@ -13,6 +13,8 @@ summary: 'Avant d"arrêter le contrôleur douteux et de vérifier le statut des 
 [role="lead"]
 Pour assurer la sécurité des données sur votre système de stockage, vous devez vérifier la prise en charge et l'état de la clé de cryptage sur votre support de démarrage. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.
 
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser le processus de récupération de démarrage manuel.
+
 
 
 == Étape 1 : vérifiez si votre version de ONTAP prend en charge le chiffrement de volume NetApp

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: asa c400, asa, c400, shut, down, take, over, impair, controller, procedure, storage, system, hardware, configuration, shut down the impaired controller 
 summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage. 
 ---
-= Arrêtez le contrôleur défectueux - ASA C400
+= Arrêter le contrôleur pour la récupération manuelle du support de démarrage - ASA C400
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,8 @@ summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant
 
 [role="lead"]
 Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement. Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser le processus de récupération de démarrage manuel.
 
 
 

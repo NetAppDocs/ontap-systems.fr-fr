@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage. 
 ---
-= Arrêter le contrôleur défectueux - ASA A900
+= Arrêter le contrôleur pour la récupération manuelle du support de démarrage - ASA A900
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,8 @@ summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant
 
 [role="lead"]
 Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
 [role="tabbed-block"]
 ====

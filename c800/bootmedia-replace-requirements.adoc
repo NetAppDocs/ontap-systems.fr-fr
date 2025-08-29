@@ -1,0 +1,37 @@
+---
+permalink: c800/bootmedia-replace-requirements.html 
+sidebar: sidebar 
+keywords: c800, replace the boot media 
+summary: 'Avant de remplacer le support de démarrage de votre système AFF C800, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d"une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.' 
+---
+= Conditions requises pour la récupération manuelle du support de démarrage - AFF C800
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de remplacer le support de démarrage de votre système AFF C800, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
+
+.clé USB
+* Assurez-vous d’avoir une clé USB formatée en FAT32.
+* La clé USB doit avoir une capacité de stockage suffisante pour contenir le  `image_xxx.tgz` déposer.
+
+
+.Préparation du dossier
+Copiez le  `image_xxx.tgz` sur la clé USB. Ce fichier sera utilisé lors du transfert de l'image ONTAP via la clé USB.
+
+.Remplacement des composants
+Remplacez le composant défectueux par le composant de remplacement fourni par NetApp.
+
+.Identification du contrôleur
+Il est essentiel d'appliquer les commandes au contrôleur approprié lorsque vous remplacez le support de démarrage défectueux :
+
+* Le _contrôleur défaillant_ est le contrôleur sur lequel vous effectuez la maintenance.
+* Le _contrôleur sain_ est le partenaire HA du contrôleur altéré.
+
+
+.Et la suite ?
+Après avoir examiné la configuration requise pour remplacer le support de démarrage, vous devez link:bootmedia-encryption-preshutdown-checks.html["vérifiez la prise en charge et l'état de la clé de cryptage sur le support de démarrage"].

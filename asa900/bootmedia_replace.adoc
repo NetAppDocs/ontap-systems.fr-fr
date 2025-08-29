@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ASA A900, replace, boot, media, controller, directions. replace boot media, transfer image 
 summary: 'Vous devez retirer et ouvrir le module de contrôleur, localiser et remplacer le support de démarrage du contrôleur, puis transférer l"image vers le support de démarrage de remplacement.' 
 ---
-= Remplacer le support de démarrage - ASA A900
+= Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - ASA A900
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,8 @@ summary: 'Vous devez retirer et ouvrir le module de contrôleur, localiser et re
 
 [role="lead"]
 Vous devez débrancher le module de contrôleur, retirer et ouvrir le module de contrôleur, localiser et remplacer le support de démarrage du contrôleur, puis transférer l'image sur le support de démarrage de remplacement.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
 
 
@@ -80,7 +82,7 @@ Vous devez localiser le support de démarrage dans le contrôleur et suivre les 
 .Animation - remplacer le support d'amorçage
 video::c5080658-765e-4d29-8456-adf2000e1495[panopto]
 +
-image::../media/drw_a900_remove_boot_dev.png[Retirez le support de démarrage]
+image::../media/drw_9000_remove_boot_dev.svg[Retirez le support de démarrage]
 
 +
 [cols="1,4"]
@@ -162,7 +164,7 @@ Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour 
 . Si le contrôleur est en mode MetroCluster Stretch ou Fabric-Attached, vous devez restaurer la configuration de l'adaptateur FC :
 +
 .. Démarrage en mode maintenance : `boot_ontap maint`
-.. Définissez les ports MetroCluster comme initiateurs : `ucadmin modify -m fc -t iniitator adapter_name`
+.. Définissez les ports MetroCluster comme initiateurs : `ucadmin modify -m fc -t initiator adapter_name`
 .. Arrêter pour revenir en mode maintenance : `halt`
 
 

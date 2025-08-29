@@ -1,0 +1,41 @@
+---
+permalink: fas9500/bootmedia-replace-requirements-bmr.html 
+sidebar: sidebar 
+keywords: fas9500, replace the boot media 
+summary: Avant de remplacer le support de démarrage de votre système FAS9500 , assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. 
+---
+= Exigences relatives à la récupération automatique du support de démarrage - FAS9500
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de remplacer le support de démarrage de votre FAS9500, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.
+
+La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
+
+* Vous devez remplacer le composant défectueux par un composant FRU de remplacement de même capacité que celle reçue de NetApp.
+* Vérifiez que le port e0M (clé) du contrôleur défectueux est connecté et n'est pas défectueux.
++
+Le port e0M est utilisé pour communiquer entre les deux contrôleurs pendant le processus de récupération de démarrage automatisé.
+
+* Pour OKM, vous avez besoin de la phrase secrète à l'échelle du cluster ainsi que des données de sauvegarde.
+* Pour EKM, vous avez besoin de copies des fichiers suivants à partir du nœud partenaire :
++
+** fichier /cfcard/kmip/servers.cfg.
+** fichier /cfcard/kmip/certs/client.crt.
+** fichier /cfcard/kmip/certs/client.key.
+** Fichier /cfcard/kmip/certs/CA.pem.
+
+
+* Il est essentiel d'appliquer les commandes au contrôleur approprié lorsque vous remplacez le support de démarrage défectueux :
++
+** Le _contrôleur défaillant_ est le contrôleur sur lequel vous effectuez la maintenance.
+** Le _contrôleur sain_ est le partenaire HA du contrôleur altéré.
+
+
+
+
+.Et la suite
+Après avoir examiné la configuration requise pour le support de démarrage, vous link:bootmedia-shutdown-bmr.html["arrêter le contrôleur"].

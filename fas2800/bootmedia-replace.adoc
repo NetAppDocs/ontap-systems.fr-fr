@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas2800, replace, boot, media, controller, module, fru map 
 summary: Vous devez localiser le support de démarrage dans le contrôleur et suivre les instructions pour le remplacer. 
 ---
-= Remplacez le support de démarrage - FAS2820
+= Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - FAS2820
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,8 @@ summary: Vous devez localiser le support de démarrage dans le contrôleur et su
 
 [role="lead"]
 Vous devez retirer et ouvrir le module de contrôleur défectueux, localiser et remplacer le support de démarrage dans le contrôleur, transférer l'image de démarrage sur une clé USB, insérer la clé USB dans le contrôleur, puis démarrer le contrôleur.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
 
 

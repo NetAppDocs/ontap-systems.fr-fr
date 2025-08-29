@@ -1,0 +1,38 @@
+---
+permalink: fas9500/bootmedia-replace-workflow-bmr.html 
+sidebar: sidebar 
+keywords: fas9500, replace the boot media 
+summary: 'Commencez à remplacer le support de démarrage de votre système de stockage FAS9500 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l"image sur le support de démarrage et en vérifiant la fonctionnalité du système.' 
+---
+= Workflow de récupération automatisée du support de démarrage - FAS9500
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage FAS9500.
+
+La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
+
+Pour commencer, vérifiez les exigences de remplacement, arrêtez le contrôleur, remplacez le support de démarrage, laissez le système restaurer l'image et vérifiez la fonctionnalité du système.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:bootmedia-replace-requirements-bmr.html["Vérifiez la configuration requise pour le support de démarrage"]
+[role="quick-margin-para"]
+Vérifiez les conditions requises pour le remplacement des supports de démarrage.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:bootmedia-shutdown-bmr.html["Arrêter le contrôleur"]
+[role="quick-margin-para"]
+Arrêtez le contrôleur de votre système de stockage lorsque vous devez remplacer le support de démarrage.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:bootmedia-replace-bmr.html["Remplacez le support de démarrage"]
+[role="quick-margin-para"]
+Retirez le support de démarrage défectueux du module de contrôleur et installez le support de démarrage de remplacement.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:bootmedia-recovery-image-boot-bmr.html["Restaurez l'image sur le support de démarrage"]
+[role="quick-margin-para"]
+Restaurez l'image ONTAP à partir du contrôleur partenaire.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:bootmedia-complete-rma-bmr.html["Renvoyez la pièce défectueuse à NetApp"]
+[role="quick-margin-para"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.

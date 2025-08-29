@@ -2,8 +2,6 @@
 :allow-uri-read: 
 
 
-Vous devez débrancher le module de contrôleur, retirer et ouvrir le module de contrôleur, localiser et remplacer le support de démarrage du contrôleur, puis transférer l'image sur le support de démarrage de remplacement.
-
 
 
 == Étape 1 : retirer le module de contrôleur
@@ -71,7 +69,7 @@ Vous devez localiser le support de démarrage dans le contrôleur et suivre les 
 .Animation - remplacer le support d'amorçage
 video::c5080658-765e-4d29-8456-adf2000e1495[panopto]
 +
-image::../media/drw_a900_remove_boot_dev.png[Retirez le support de démarrage]
+image::../media/drw_9000_remove_boot_dev.svg[Retirez le support de démarrage]
 
 +
 [cols="1,4"]
@@ -153,7 +151,7 @@ Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour 
 . Si le contrôleur est en mode MetroCluster Stretch ou Fabric-Attached, vous devez restaurer la configuration de l'adaptateur FC :
 +
 .. Démarrage en mode maintenance : `boot_ontap maint`
-.. Définissez les ports MetroCluster comme initiateurs : `ucadmin modify -m fc -t iniitator adapter_name`
+.. Définissez les ports MetroCluster comme initiateurs : `ucadmin modify -m fc -t initiator adapter_name`
 .. Arrêter pour revenir en mode maintenance : `halt`
 
 

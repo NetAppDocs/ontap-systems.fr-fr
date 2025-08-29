@@ -35,7 +35,7 @@ Le support de démarrage stocke un ensemble principal et secondaire de fichiers 
  a| 
 link:bootmedia-replace-workflow.html["Support de démarrage - récupération manuelle"]
  a| 
-Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer l'image à partir d'une clé USB et restaurer la configuration à partir du nœud partenaire.
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer. Lors de la récupération manuelle, vous démarrez le système de stockage à partir d'une clé USB et restaurez manuellement l'image et la configuration du système de fichiers.  Si votre système de stockage exécute ONTAP 9.17.1 et versions ultérieures, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .
 
 
 
@@ -112,6 +112,6 @@ Une batterie d'horloge en temps réel conserve les informations relatives à la 
  a| 
 link:system-management-replace.html["Module de gestion du système"]
  a| 
-Le module de gestion du système fournit l'interface entre le contrôleur et une console ou un ordinateur portable à des fins de maintenance du contrôleur ou du système. Le module de gestion du système contient le support de démarrage et stocke le numéro de série du système (SSN).
+Le module de gestion du système fournit l'interface entre le contrôleur et une console ou un ordinateur portable à des fins de maintenance du contrôleur ou du système.  Le module de gestion du système contient le support de démarrage et stocke le numéro de série du système (SSN).
 
 |===

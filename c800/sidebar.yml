@@ -16,13 +16,30 @@ entries:
 - title: Maintenance
   pdf-filename: Maintenance AFF C800
   entries:
-  - title: Présentation
+  - title: Présentation de la maintenance
     url: "/c800/maintain-overview.html"
-  - title: Support de démarrage
-    pdf-filename: Support de démarrage AFF C800
+  - title: Support de démarrage - récupération automatique
+    pdf-filename: Support de démarrage automatisé AFF C800
     entries:
-    - title: Présentation
-      url: "/c800/bootmedia-replace-overview.html"
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/c800/bootmedia-replace-workflow-bmr.html"
+    - title: Examen des conditions requises
+      url: "/c800/bootmedia-replace-requirements-bmr.html"
+    - title: Arrêter le contrôleur
+      url: "/c800/bootmedia-shutdown-bmr.html"
+    - title: Remplacez le support de démarrage
+      url: "/c800/bootmedia-replace-bmr.html"
+    - title: Restaurer l'image sur le support de démarrage
+      url: "/c800/bootmedia-recovery-image-boot-bmr.html"
+    - title: Renvoyer la pièce défectueuse à NetApp
+      url: "/c800/bootmedia-complete-rma-bmr.html"
+  - title: Support de démarrage - récupération manuelle
+    pdf-filename: Manuel du support de démarrage AFF C800
+    entries:
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/c800/bootmedia-replace-workflow.html"
+    - title: Examen des conditions requises
+      url: "/c800/bootmedia-replace-requirements.html"
     - title: Vérifiez les clés de cryptage
       url: "/c800/bootmedia-encryption-preshutdown-checks.html"
     - title: Arrêtez le contrôleur douteux

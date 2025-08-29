@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas2800, shut, down, impaired, controller, take, over 
 summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage. 
 ---
-= Arrêtez le contrôleur défectueux - FAS2820
+= Arrêter le contrôleur pour la récupération manuelle du support de démarrage - FAS2820
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,8 @@ summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant
 
 [role="lead"]
 Arrêtez ou prenez le contrôle du contrôleur défectueux.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
 Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
 

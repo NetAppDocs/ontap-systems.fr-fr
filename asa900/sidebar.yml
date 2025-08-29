@@ -16,23 +16,38 @@ entries:
 - title: Maintenance
   pdf-filename: ASA A900 assure la maintenance
   entries:
-  - title: Présentation
-    url: "/asa900/index.html"
-  - title: Support de démarrage
-    pdf-filename: Support de démarrage ASA A900
+  - title: Présentation de la maintenance
+    url: "/asa900/maintain-overview.html"
+  - title: Support de démarrage - récupération automatique
+    pdf-filename: Support de démarrage automatisé AFF ASA 900
+    entries:
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/asa900/bootmedia-replace-workflow-bmr.html"
+    - title: Examen des conditions requises
+      url: "/asa900/bootmedia-replace-requirements-bmr.html"
+    - title: Arrêter le contrôleur
+      url: "/asa900/bootmedia-shutdown-bmr.html"
+    - title: Remplacez le support de démarrage
+      url: "/asa900/bootmedia-replace-bmr.html"
+    - title: Restaurer l'image sur le support de démarrage
+      url: "/asa900/bootmedia-recovery-image-boot-bmr.html"
+    - title: Renvoyer la pièce défectueuse à NetApp
+      url: "/asa900/bootmedia-complete-rma-bmr.html"
+  - title: Support de démarrage - récupération manuelle
+    pdf-filename: Manuel du support de démarrage AFF ASA 900
     entries:
     - title: Présentation
       url: "/asa900/bootmedia_replace_overview.html"
     - title: Vérifiez les clés de cryptage
       url: "/asa900/bootmedia_encryption_preshutdown_checks.html"
     - title: Arrêtez le contrôleur douteux
-      url: "/asa900/bootmedia_impaired_controller_shutdown.html"
-    - title: Remplacez le support d'amorçage défectueux
+      url: "/asa900/bootmedia-shutdown.html"
+    - title: Remplacez le support de démarrage
       url: "/asa900/bootmedia_replace.html"
     - title: Image de récupération de démarrage
       url: "/asa900/bootmedia_recovery_image.html"
     - title: Restaurez le chiffrement
-      url: "/asa900/bootmedia_encryption_restore.html"
+      url: "/asa900/bootmedia-encryption-restore.html"
     - title: Renvoyer la pièce défectueuse à NetApp
       url: "/asa900/bootmedia_complete_rma.html"
   - title: Châssis

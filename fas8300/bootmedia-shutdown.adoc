@@ -1,14 +1,19 @@
 ---
 permalink: fas8300/bootmedia-shutdown.html 
 sidebar: sidebar 
-keywords: fas8300, fas8300, shut, down, take, over, impair, controller, procedure, storage, system, hardware, configuration, shut down the impaired controller 
+keywords: fas8300, fas8700, shut, down, take, over, impair, controller, procedure, storage, system, hardware, configuration, shut down the impaired controller 
 summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage. 
 ---
-= Arrêtez le contrôleur pour facultés affaiblies - AFF FAS8300 et FAS8700
+= Arrêter le contrôleur pour la récupération manuelle du support de démarrage - FAS8300 et FAS8700
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
+
+[role="lead"]
+Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement. Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
+
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
 
 

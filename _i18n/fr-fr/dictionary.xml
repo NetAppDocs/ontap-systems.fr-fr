@@ -917,7 +917,6 @@
   <block id="aeef38b8f860290dfafd28f807c628f7" category="admonition">Le format de l'adresse est +https://x.x.x.x+.</block>
   <block id="abda447c368c0080cdf2af6a77ea3d22" category="list-text">Configurez le système à l'aide des données que vous avez collectées dans <block ref="571ad76602d16a750ecd1119ab38063c" category="inline-link-macro-rx"></block>.</block>
   <block id="b8238a1ffeb288edb4606d4cee1cdf5c" category="doc">Arrêter les contrôleurs - AFF A800</block>
-  <block id="03163c4d180c5b6d6482efa550043cd8" category="doc">Arrêter le contrôleur - AFF A800</block>
   <block id="f0623f3de563d7ac67a984a76c53803d" category="paragraph">Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement. Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.</block>
   <block id="4e0316258b9c412eb9479c8f462e10f4" category="section-title">Option 1 : la plupart des systèmes</block>
   <block id="442396e207d697f3466573acd63cdeb7" category="section-title">Option 2 : le système est dans un MetroCluster</block>
@@ -949,7 +948,6 @@
   <block id="1e37147d794224bac36635bdee74d81d" category="list-text">Fermez le conduit d'air NVDIMM.</block>
   <block id="df0ede63d2bddc647b3f8cf55d7be4f6" category="paragraph">Assurez-vous que la fiche se verrouille dans la prise.</block>
   <block id="759e216c6a22313a95c34c198ce8cb0b" category="summary">Vous trouvez le support d'amorçage défectueux dans le module de contrôleur en retirant la carte de montage 3 du module de contrôleur avant de pouvoir remplacer le support d'amorçage.</block>
-  <block id="34cf3a43d39d8b0acc65bd578d7188da" category="doc">Remplacez le support de démarrage - AFF A800</block>
   <block id="588550e231fd9dcead167f2e3a8a2926" category="paragraph">Vous avez besoin d'un tournevis cruciforme pour retirer la vis qui maintient le support de démarrage en place.</block>
   <block id="b075a4576b5250274446097769fe8ec1" category="list-text">Installez le support de démarrage de remplacement dans le module de contrôleur :</block>
   <block id="2d246efbd344924acb05ea2d4db3768e" category="list-text">Réinstallez la carte de montage dans le module de contrôleur.</block>
@@ -993,7 +991,6 @@
   <block id="5c2989b756c1c0a4f26576c2a249cb73" category="paragraph">Carte de montage 3 et DIMM 19 -22 et 24</block>
   <block id="deed19e25ff1800b42b409fbd813f32a" category="paragraph">*Remarque : les emplacements 2 et 14 sont laissés vides. N'essayez pas d'installer des modules DIMM dans ces emplacements.</block>
   <block id="2bed99b4660dcf909368c3a2ae62b513" category="doc">Remplacement du disque SSD ou du disque dur - AFF A800</block>
-  <block id="80257ad9b8e102e01f1a08f309c3eed0" category="doc">Transférez l'image de démarrage vers le support de démarrage - AFF A800</block>
   <block id="4d1146c66e0636390c5fcd1e7c177a2a" category="list-text"><block ref="881cc4157ed641a365a86452f27ed745" prefix="" category="inline-code"></block></block>
   <block id="797462bacc0f6fc2b9a4b4f5c1ec212e" category="list-text"><block ref="a9585ee26b99b02fd19465902f2fd4d5" prefix="" category="inline-code"></block></block>
   <block id="f33d22080714eee8f244e5ef03575052" category="list-text">Copiez le<block ref="a9585ee26b99b02fd19465902f2fd4d5" prefix=" " category="inline-code"></block> Dossier dans le répertoire supérieur de la clé USB.</block>
@@ -1019,7 +1016,6 @@
   <block id="b8984f02e6cfd8c017d9d0f4737d0ac7" category="doc">Remplacer le châssis - AFF A800</block>
   <block id="0056f1b7e6a1cbc5c692fe90eeba67d5" category="paragraph">Pour remplacer le châssis, vous devez déplacer le panneau, les modules de contrôleur et les disques NVMe du châssis endommagé vers le châssis de remplacement, puis retirer les châssis douteux du rack ou de l'armoire système et installer le châssis de remplacement à sa place.</block>
   <block id="1c44627eb33d55ec54d505046a55d435" category="list-text">Cette procédure est rédigée en supposant que vous déplacez le panneau, les disques NVMe et les modules de contrôleur sur le nouveau châssis, et que le châssis de remplacement est un nouveau composant de NetApp.</block>
-  <block id="4050846ab3a5766e0ed28bed6ef9631b" category="doc">Démarrage de l'image de récupération - AFF A800</block>
   <block id="044d6d45343bea91e00935a60885325b" category="paragraph">Si vous êtes invité à poursuivre la mise à jour, appuyez sur<block ref="13a9c4ec1810b3cc11a9e77c220f41c9" prefix=" " category="inline-code"></block>.</block>
   <block id="51ab7fb6e9e4a8ef6232b2cbb7c7abaf" category="paragraph">Aucune connexion réseau et se trouve dans une configuration IP de MetroCluster</block>
   <block id="86bba5d76feac422bdd702d82a755938" category="list-text">Attendez que les connexions de stockage iSCSI se connectent.</block>
@@ -1042,7 +1038,6 @@
   <block id="f474da68fe49004e7ef71b0e2e717c06" category="doc">Restauration complète du système - AFF A800</block>
   <block id="e5d342b84a7b4a1d294e75d2ff62d759" category="section-title">Étape 2 : vérifier les LIF et enregistrer le numéro de série</block>
   <block id="fd440756b4a0ce8acdb949b641576347" category="summary">Après le remplacement de la pièce, vous pouvez renvoyer la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Contactez l'assistance technique à l'adresse<block ref="eb2c61027d5e6c8b35692c1e74187026" category="inline-link-rx"></block>, 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.</block>
-  <block id="228833e7e465458067df236eb339d948" category="doc">Renvoyez la pièce défectueuse à NetApp - AFF A800</block>
   <block id="561273ebb17be6fcb781473771bc32cb" category="summary">Deux vidéos sont disponibles. L'une montre comment installer et connecter le système, l'autre montrant un exemple d'utilisation de la configuration assistée par System Manager pour effectuer la configuration initiale du système.</block>
   <block id="9ed9163b4599600e6378be760fd75fa8" category="paragraph">La vidéo suivante montre comment installer et raccorder votre nouveau système.</block>
   <block id="26115a2b78227837b2498242d7c3a180" category="video-title">« Animation - installation et configuration d'un AFF A800</block>
@@ -1930,7 +1925,6 @@
   <block id="6ce5f7147d284a7d41c1fc93d3072d57" category="list-text">Appuyez sur<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à remplacer<block ref="295b4ac77f4e1c5f93c6894df85fd86d" prefix=" " category="inline-code"></block>.</block>
   <block id="1396dacdf561903f32c605f06d2cf5d8" category="list-text">Appuyez sur<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à confirmer si la restauration de la sauvegarde a réussi.</block>
   <block id="c9ed271ea801891a1b5c1e6e048813b6" category="list-text">Appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous êtes invité à restaurer la copie de configuration.</block>
-  <block id="29d4dec218aeaffabfed6dcc8fd1ad45" category="list-text">Si keymanager, NSE ou NVE intégré est configuré sur votre système, rendez-vous sur <block ref="39910b5f3ea1ee39d8059faae857cc98" category="inline-xref-macro-rx"></block></block>
   <block id="9d720708adc6bbce63680b9093916875" category="list-text">Renvoyer le nœud à l'aide du<block ref="e23a9f1c6189f372292c98d844a0895f" prefix=" " category="inline-code"></block> commande.</block>
   <block id="fb796745f1b93e7c27af0a928be9d5ae" category="doc">Remplacez à chaud un module de cache - FAS9500</block>
   <block id="fa807167a57a5e7782f90326093319e4" category="list-text">Le module de cache doit fonctionner suffisamment bien pour être vu par le système. Si le module de cache ne fonctionne pas depuis le dernier démarrage, vous ne pouvez pas utiliser cette procédure et devez utiliser la procédure de remplacement à froid.</block>
@@ -2177,7 +2171,6 @@
   <block id="52ca5a52198c80398dfe6a706737b20e" category="paragraph">Vous devez disposer d'une clé USB, formatée en FAT32, avec la quantité de stockage appropriée pour maintenir le<block ref="c70b112e1b022bd450e0790d8615c85a" prefix=" " category="inline-code"></block>.</block>
   <block id="f7738a24d9355b95820a5116baee7814" category="list-text">Pour le remplacement sans interruption, la paire haute disponibilité ne requiert pas de connexion à un réseau pour restaurer le<block ref="b2145aac704ce76dbe1ac7adac535b23" prefix=" " category="inline-code"></block> système de fichiers. La paire HA dans un châssis unique dispose d'une connexion e0S interne, qui est utilisée pour le transfert<block ref="b2145aac704ce76dbe1ac7adac535b23" prefix=" " category="inline-code"></block> une configuration entre eux.</block>
   <block id="f019032ca5e4ee1339ef0bcd485f9c8d" category="summary">Vous devez retirer et ouvrir le module de contrôleur, localiser et remplacer le support de démarrage du contrôleur, puis transférer l'image vers le support de démarrage de remplacement.</block>
-  <block id="bc8cb8c20c19791f56e4ce60f7a2aad0" category="doc">Retirez le contrôleur, remplacez le support de démarrage et transférez l'image de démarrage - FAS9500</block>
   <block id="d03ce52cbc852de34ed883d28f104af2" category="list-text">Débranchez les câbles du module de contrôleur défaillant et suivez l'emplacement de connexion des câbles.</block>
   <block id="4cc95bf9d5b32fe7d0352f48b0791827" category="list-text">Faites glisser le bouton en terre cuite de la poignée de came vers le bas jusqu'à ce qu'il se déverrouille.</block>
   <block id="abc219c929a34cf7b62e36c2503b63ac" category="video-title">Animation - retirez le module de contrôleur</block>
@@ -2194,19 +2187,6 @@
   <block id="9148f81e87e207af324fa20ce6e3a4df" category="list-text">Recâblage du module de contrôleur, selon les besoins.</block>
   <block id="4f242c85307491ee1ac3a7f2d7ca4421" category="list-text">Poussez le module de contrôleur complètement dans le système, en vous assurant que la poignée de came se dégage du lecteur flash USB, appuyez fermement sur la poignée de came pour terminer l'installation du module de contrôleur, puis poussez la poignée de came en position fermée.</block>
   <block id="4f3e92738b97672e7c43585384d07fa0" category="paragraph">Le nœud commence à démarrer dès qu'il est entièrement installé dans le châssis.</block>
-  <block id="defa99ee750d2ca6a8f52cf79e8eb713" category="list-text">bootarg.init.boot_clustered</block>
-  <block id="d18fd3db938a26ebbd3f74de41f0b73f" category="list-text">partenaire</block>
-  <block id="bac349cdf99ddd20206c9b20eb9e6d22" category="list-text">bootarg.init.flash_optimized pour AFF</block>
-  <block id="f3b31cc7028e1885fb21b81b0fdbee37" category="list-text">bootarg.init.san_optimized pour AFF</block>
-  <block id="cbcb656967b507992a4a640a604c47e0" category="list-text">bootarg.init.switchless_cluster.enable</block>
-  <block id="8e66622dd5a924bd59ee4f46318a13a9" category="list-text">bootarg.storageencryption.support &lt;valeur&gt;</block>
-  <block id="bdafe896118bc000c3a68090808112cd" category="list-text">bootarg.keymanager.support &lt;valeur&gt;</block>
-  <block id="8f4ea3656910a928382f8c75368c3c2a" category="list-text">kmip.init.interface &lt;valeur&gt;</block>
-  <block id="b2adbab4ce96430a3475db235c4be8c3" category="list-text">kmip.init.ipaddr &lt;valeur&gt;</block>
-  <block id="70e8273bd6b058c89bc23bad2de4c396" category="list-text">kmip.init.netmask &lt;valeur&gt;</block>
-  <block id="4d10af14d34e5e468c4aee19207329d3" category="list-text">kmip.init.gateway &lt;valeur&gt;</block>
-  <block id="a1781eecf18376feb2f740b6a3d7781d" category="list-text">bootarg.onboard_keymanager &lt;valeur&gt;</block>
-  <block id="8ed13fe688162a9d4d89829700344e8f" category="list-text">Confirmez vos modifications à l'aide du<block ref="de69d3b344fe42b2519bfd5cb80aa443" prefix=" " category="inline-code"></block> commande.</block>
   <block id="6551c986c636d61142c1b77b48a7460d" category="list-text">Si le contrôleur est en mode MetroCluster Stretch ou Fabric-Attached, vous devez restaurer la configuration de l'adaptateur FC :</block>
   <block id="9ad558d6e4619b772507061478e81eb9" category="list-text">Démarrage en mode maintenance :<block ref="cce56b203b8705f3487342813b7117be" prefix=" " category="inline-code"></block></block>
   <block id="92119567969a6dfb8d14b4d139115118" category="list-text">Définissez les ports MetroCluster comme initiateurs :<block ref="8efde65d7e5db5248f7c89fa6db7fac1" prefix=" " category="inline-code"></block></block>
@@ -2275,7 +2255,6 @@
   <block id="f7980892d5a8155c0cf2a73f4bff4bad" category="paragraph">Après avoir installé les composants dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et démarrer le système d'exploitation.</block>
   <block id="2ea72e4e42953327054629036f1b6a12" category="video-title">Animation - installez le contrôleur</block>
   <block id="ad4cfe6fc2b7cb05bf19c4a07bb3ec19" category="list-text">Interrompez le processus de démarrage en appuyant sur<block ref="76be6883bcf9e8a6aed3a347ac20e41f" prefix=" " category="inline-code"></block> Lorsque vous voyez appuyez sur Ctrl-C pour le menu de démarrage.</block>
-  <block id="c3b3c57f039315476b0683acbee42a5a" category="doc">Arrêtez le contrôleur défaillant - FAS9500</block>
   <block id="a28455bf2eecf6cc499c335ee152cd75" category="paragraph">Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.</block>
   <block id="6b076d5e08feabcb936ff1fc2298c9cb" category="doc">Remplacer le châssis - FAS9500</block>
   <block id="e10b0a89639d4224f22325c89418ef31" category="paragraph">Pour remplacer le châssis, vous devez retirer les blocs d'alimentation, les ventilateurs, les modules de contrôleur, les modules d'E/S, les modules DCPM, Et le module LED USB du châssis défaillant, retirez le châssis douteux du rack de l'équipement ou de l'armoire système, installez le châssis de remplacement à sa place, puis installez les composants dans le châssis de remplacement.</block>
@@ -3399,9 +3378,7 @@
   <block id="2cf2814258fcdc62e9d952b1e5b1ae63" category="paragraph">Pour remplacer la batterie NVDIMM, vous devez retirer la batterie défectueuse du module de contrôleur et installer la batterie de rechange dans le module de contrôleur. Consultez le schéma des FRU à l'intérieur du module de contrôleur pour localiser la batterie NVDIMM.</block>
   <block id="d51d3e7568ea6b575902677aaf5d5ccc" category="paragraph">Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer la batterie NVDIMM.</block>
   <block id="77803fc96df4106eec4ce497c210708c" category="video-title">Animation : remplacez la batterie NVDIMM</block>
-  <block id="d8be62011c1882fcf382ba1c61256314" category="doc">Démarrez l'image de récupération - AFF A400</block>
   <block id="601c15b5101316dedeb3a25975e9e2f9" category="summary">Vous devez localiser le support de démarrage dans le module de contrôleur \(voir le mappage des FRU sur le module de contrôleur\), puis suivre les instructions pour le remplacer.</block>
-  <block id="170df6d027f1af0af09f17faa2ab6d64" category="doc">Remplacez le support de démarrage - AFF A400</block>
   <block id="a695ddd31702bf0ddff2a7cf2f63d196" category="paragraph">Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour retirer le module de contrôleur du châssis.</block>
   <block id="88ef394be03c2dee8da212eb3ce203d3" category="paragraph">Loquets de verrouillage</block>
   <block id="be0b7bebdbc010beb298a7c7fac29946" category="paragraph">Faites glisser le contrôleur hors du châssis</block>
@@ -3426,7 +3403,6 @@
   <block id="2147ead816c0910c1fb713da5e278601" category="doc">Restauration complète du système - AFF A400</block>
   <block id="2c4c75d1e0e065592eedb5be469928fc" category="doc">Remplacement à chaud d'un module de ventilation - AFF A400</block>
   <block id="f94769a33d4669a6660b7ec2722589ef" category="paragraph">Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer à chaud un module de ventilation.</block>
-  <block id="22cc15dad4c522616e5130f927446d07" category="doc">Renvoyez la pièce défaillante à NetApp - AFF A400</block>
   <block id="f56310c49687a40fd4b43bced4b3dcc8" category="video-title">Animation : instructions d'installation et de configuration du système AFF A400</block>
   <block id="a6c279177bd30a0d3ee3363a3679bffa" category="doc">Remplacez la pile de l'horloge en temps réel - AFF A400</block>
   <block id="4f4fd54acab309f1a5e65fa28f282bda" category="paragraph">Vous devez localiser la batterie RTC à l'intérieur du module de contrôleur, puis suivre la séquence spécifique des étapes. Voir le schéma des FRU à l'intérieur du module de contrôleur pour l'emplacement de la batterie RTC.</block>
@@ -3678,14 +3654,10 @@
   <block id="598ec2ec2714b9a699a42898b690e48d" category="section-title">Option 1 : câblage des contrôleurs aux tiroirs disques SAS</block>
   <block id="e9c29b2069e0c6c237cd1e2a30e9c48b" category="doc">Arrêter les contrôleurs - FAS8300 et FAS8700</block>
   <block id="ed8e6ac65f869dd5cec262d6da357514" category="doc">Procédez au remplacement des systèmes FAS8300 et FAS8700</block>
-  <block id="bef53c14eb719bb1cd8539b91f7515d7" category="doc">Retournez des agrégats dans une configuration MetroCluster à deux nœuds : AFF fas8300 et FAS8700</block>
   <block id="d1903d398c4c8283b66cc2ee2599cef5" category="doc">Guide rapide - FAS8300 et FAS8700</block>
   <block id="221315bbb17a9424f37793425986d6c2" category="inline-link-macro">Instructions d'installation et de configuration pour FAS8300 et FAS8700</block>
   <block id="66baa375eeb4eeafaa0788f1450b293e" category="paragraph"><block ref="66baa375eeb4eeafaa0788f1450b293e" category="inline-link-macro-rx"></block></block>
-  <block id="fe0e817b3bc5b4c3f92a0bd2fc673648" category="doc">Présentation du remplacement des supports de démarrage - AFF FAS8300 et FAS8700</block>
   <block id="b98cf2068f61b55f2a9881a2a679fcc3" category="doc">Remplacez la batterie NVDIMM - FAS8300 et FAS8700</block>
-  <block id="9860772233b4555001c5a388230758df" category="doc">Démarrez l'image de restauration : AFF FAS8300 et FAS8700</block>
-  <block id="ba4fadf78396a2db14bc9a4e0f707f9d" category="doc">Remplacez le support de démarrage - FAS8300 et FAS8700</block>
   <block id="4a848babffe3702bffe9efa29dd12c61" category="paragraph">Vous pouvez utiliser les animations, illustrations ou étapes écrites suivantes pour remplacer le support de démarrage.</block>
   <block id="fc68b2259a318d9688e92ea62281a6d1" category="video-title">Animation : remplacez le support de démarrage</block>
   <block id="05da715fdd840e7fc27dd764386018bc" category="doc">Remplacez le module de mise en cache - FAS8300 et FAS8700</block>
@@ -3714,7 +3686,6 @@
   <block id="e8aff1eca48ad56a3b7a6f32b35725fb" category="list-text">Si vous possédez un système FAS8700, les modules DIMM système se trouvent dans les emplacements 2, 4, 7, 9, 13, 15, 18 et 20.</block>
   <block id="23322e561ac6bea2fdd969f81f065cb0" category="list-text">Le NVDIMM est situé dans le logement 11.</block>
   <block id="48d478390eb7cda13973a166fcbc6922" category="paragraph">Vous pouvez utiliser l'animation, la mise en plan ou les étapes écrites suivantes pour installer le module de contrôleur dans le châssis.</block>
-  <block id="27dcde903ce9d2827a6882d72efe7cb4" category="doc">Arrêtez le contrôleur pour facultés affaiblies - AFF FAS8300 et FAS8700</block>
   <block id="25a1b4c8ff5717b58eca78fec7573116" category="doc">Présentation du remplacement de châssis - FAS8300 et FAS8700</block>
   <block id="c1541e02506543efaa1d18ae5a171fa3" category="doc">Recâblage du système et réaffectation de disques - FAS8300 et FAS8700</block>
   <block id="7b69f40dd7d380028b22097976e23e5c" category="paragraph">Vous devez effectuer une série de tâches avant de restaurer le système en mode de fonctionnement complet.</block>
@@ -3722,7 +3693,6 @@
   <block id="676531da1f0338f4a714f21a3bb7c046" category="paragraph"><block ref="3ed7db6e7aa5ae33a12299b6d5351893" category="inline-xref-macro-rx"></block></block>
   <block id="9839b9efeb4f2cb59f36a02a747b73cb" category="doc">Restauration complète du système - FAS8300 et FAS8700</block>
   <block id="f53fd2bac78253daaa912be518fddcc2" category="doc">Remplacement à chaud d'un module de ventilation - FAS8300 et FAS8700</block>
-  <block id="14df5008a24cd65fbb232505d17779b3" category="doc">Renvoyez la pièce défaillante à NetApp - AFF fas8300 et FAS8700</block>
   <block id="a3fad5983ba1f7c61a46ffcf74ea359a" category="video-title">Animation - instructions d'installation et de configuration des systèmes FAS8300 et FAS8700</block>
   <block id="c0925c06c8c424f377718df251d2ae9f" category="doc">Remplacez la pile de l'horloge temps réel - FAS8300 et FAS8700</block>
   <block id="97a3946d5380c45539697b463767b69c" category="section-title">Étape 4 : réinstallez le module de contrôleur et sett time/date après le remplacement de la batterie RTC</block>
@@ -4307,7 +4277,6 @@
   <block id="e36a558e7bc20ae0e75bec222964d055" category="paragraph">Les deux chiffres de l'écran numérique commencent à clignoter et la LED orange du panneau d'affichage de l'opérateur s'allume au bout de cinq secondes environ pour vous avertir que l'ID de tiroir disque en attente n'est pas encore pris en compte.</block>
   <block id="9c221bef9744439a86ecbb6f88e250ff" category="list-text">Mettez le tiroir disque sous tension afin de valider l'ID.</block>
   <block id="205f1a8463c3864309c68834a88b379a" category="paragraph">Vous devez éteindre les deux commutateurs d'alimentation, attendre la durée appropriée, puis les rallumer pour terminer le cycle d'alimentation.</block>
-  <block id="15a1d20a0f87ef124a4dfb12c2d12f8a" category="list-text">Si ONTAP est en cours d'exécution (les contrôleurs sont disponibles pour servir les données) et que tous les disques du tiroir sont détenus, Spares ou font partie d'un ou plusieurs agrégats de mise hors ligne, attendez au moins 70 secondes.</block>
   <block id="0de4baec8d6e3dac5c52267ff0631bac" category="list-text">Répétez les étapes 1 à 9 pour chaque tiroir disque supplémentaire.</block>
   <block id="c6f83377a8f707e5d4500fa6c34141e8" category="list-text">Vérifiez que votre système ne dispose pas d'ID de tiroir dupliqués.</block>
   <block id="79a8830b6eb260be5b914306191dde58" category="paragraph">Lorsque deux tiroirs disques ou plus ont le même ID, le système attribue un ID logiciel au tiroir disque dupliqué à un numéro d'ID égal ou supérieur à 100. Vous devez modifier le numéro d'ID logiciel (en double).</block>
@@ -4788,7 +4757,6 @@
   <block id="c679e8417b3c86837c70fa5e162e77a6" category="list-text">Le contrôleur défectueux est le contrôleur en cours de remplacement.</block>
   <block id="df958dff87a8c819a8e0b81a1b306ead" category="list-text">Le remplacement du contrôleur est le nouveau contrôleur qui remplace le contrôleur défaillant.</block>
   <block id="283fab4cea5d664827b937416e41a5e5" category="list-text">Le contrôleur sain est le contrôleur survivant.</block>
-  <block id="097b77e85acb6a3710edc7929eb72d93" category="doc">Démarrez l'image de récupération - AFF A900</block>
   <block id="b422a6f4d3945c00efbef5a1554df972" category="doc">Remplacez le module NVRAM et/ou les modules DIMM NVRAM - AFF A900</block>
   <block id="1e27080aaa4839341247d89fa27230f6" category="list-text">Le contrôleur affecté est le contrôleur sur lequel vous effectuez la maintenance.</block>
   <block id="cb82be680779cb2f6fe87d5303395ca3" category="list-text">Le contrôleur en bonne santé est le partenaire de haute disponibilité associé au contrôleur affecté.</block>
@@ -4833,7 +4801,6 @@
   <block id="10446d8e0f9e8e6b297995ce7dafe03c" category="doc">Effectuez le processus de remplacement - AFF A900</block>
   <block id="055140d300b472c3cf197b316fc1a111" category="doc">Restauration complète du système - AFF A900</block>
   <block id="6551c0f6e6caf0566c6eae152ecd7b38" category="doc">Remplacez le support de démarrage - AFF A900</block>
-  <block id="f42f050dc5269ad7b9f62abb5be6f335" category="doc">Retirez le contrôleur, remplacez le support de démarrage et transférez l'image de démarrage - AFF A900</block>
   <block id="e81993a1d153ae6594cc7e0070093d6a" category="doc">Déplacer et remplacer le matériel - AFF A900</block>
   <block id="9c0cca32aafcf28a513162ba96089a15" category="video-title">Animation - Supprimer/installer USB</block>
   <block id="d35fd8965949830b92555b33686beb19" category="doc">Remplacez l'alimentation par un bloc d'alimentation AFF A900</block>
@@ -4849,7 +4816,6 @@
   <block id="6012de004f4bd50d98163ac921889523" category="doc">Remplacez un module USB à LED - AFF A900</block>
   <block id="4a11061a1e6cf88a01ac0a8a2d4682c6" category="doc">Remplacez le matériel du module de contrôleur - AFF A900</block>
   <block id="c60465e8c8a751f2db41618738a4af1a" category="video-title">Animation - déplacer les composants vers le contrôleur de remplacement</block>
-  <block id="13437270a7a5bb30024bcf51e56b9645" category="doc">Renvoyez la pièce défectueuse à NetApp - AFF A900</block>
   <block id="8f73eb9fb7acfd413cf2778aacee51b6" category="doc">Etapes vidéo - AFF A900</block>
   <block id="6d7841c213a127c5b39ed3e64b1501d2" category="video-title">Animation - instructions d'installation et de configuration de AFF A900</block>
   <block id="b9f8bf80fa7fab32aca8c28430b0b999" category="doc">Remplacement de la batterie de l'horloge temps réel - AFF A900</block>
@@ -4959,7 +4925,6 @@
   <block id="7990706983b7a68de799c5164d608a30" category="sidebar">Systèmes AFF A800</block>
   <block id="f9bc6672d0c11aeaba7c639726c8452d" category="sidebar">Installation et configuration de AFF A800</block>
   <block id="cfa03b31ffbc6dcdead22aa89e56143c" category="sidebar">Maintenance de AFF A800</block>
-  <block id="b5b680b3561fefc523bf540f6cbb76a5" category="sidebar">Support de démarrage AFF A800</block>
   <block id="50e67d9b10aa79baef3dc48d6b7a85e0" category="sidebar">Remplacez l'image de démarrage</block>
   <block id="7bc56029e8efc19176ac65d5c1b11f63" category="sidebar">Châssis AFF A800</block>
   <block id="81bf9d3159dec57ad73162f024e310a5" category="sidebar">Remplacement complet</block>
@@ -5003,13 +4968,9 @@
   <block id="bf70815b663ebd2fdd48772e7c4ce17c" category="sidebar">Le système AFF A700 n'a pas de slot ouvert</block>
   <block id="d73758375aa4c2c0d806b85cf93229be" category="sidebar">Installation et configuration du système FAS9500</block>
   <block id="fd44bc5547a31fa6a44a5dba383710f5" category="sidebar">Maintenance du système FAS9500</block>
-  <block id="ee6cf51d21f40cc78c0a70dbb1b8d104" category="sidebar">Support de démarrage FAS9500</block>
   <block id="d5e04348de632d7c88520b90cf79f1fa" category="sidebar">Démarrez l'image de récupération</block>
   <block id="33a725da473f57f9db39e8cb90fb8ec1" category="sidebar">Châssis FAS9500</block>
-  <block id="2e8840df8a206cd4e5aa7e0fa02b1cf7" category="sidebar">Remplacer le matériel de fixation</block>
-  <block id="fa526b254f42bdec5706995cc5868952" category="sidebar">Restauration et vérification de la configuration</block>
   <block id="cea781d942e6e6feafc25284d025750b" category="sidebar">Module de contrôleur FAS9500</block>
-  <block id="043f87552b799b527c2dd72b0313e404" category="sidebar">Remplacer le matériel du module de contrôleur</block>
   <block id="718b8a88a314d56b344c3895d896ab2a" category="sidebar">Restaurez et vérifiez la configuration du système</block>
   <block id="88e09b832b8634d2f827a9e44cf2569c" category="sidebar">Recâblage du système</block>
   <block id="f32bab2b08e5fc2e905512eaec57f369" category="sidebar">Systèmes AFF C190</block>
@@ -5083,16 +5044,6 @@
   <block id="64567073c265f39653af49885ec68a63" category="sidebar">Blocs d'alimentation AFF A220 et FAS2700</block>
   <block id="abf01648d47e7b2a7ff0a2d4727b1bb3" category="sidebar">Batterie d'horloge en temps réel FAS2700</block>
   <block id="246a9aee554901f0dcaa84281ba65f27" category="sidebar">Systèmes FAS8300 et FAS8700</block>
-  <block id="47457e18f221715e00fad3fb4c7a52dc" category="sidebar">Installation et configuration des systèmes AFF FAS8300 et FAS8700</block>
-  <block id="de07745e6df6470f2740b5a80f2cfc02" category="sidebar">Les systèmes AFF FAS8300 et FAS8700 assurent la maintenance</block>
-  <block id="a137d57ddda596bd08f1d0704c5d1c39" category="sidebar">Supports de démarrage AFF FAS8300 et FAS8700</block>
-  <block id="32efd1c40b64ba63f8e2ef74e7bbd3ef" category="sidebar">AFF FAS8300 et FAS8700 Caching module</block>
-  <block id="ce745a6886861b37bbd4e634d23d3d30" category="sidebar">Châssis AFF FAS8300 et FAS8700</block>
-  <block id="a387a6313c902695bd31ebfe788cd3a4" category="sidebar">Contrôleur AFF FAS8300 et FAS8700</block>
-  <block id="0fcef37c24790dd8deb76f0463ab8ae7" category="sidebar">SYSTÈMES AFF FAS8300 ET FAS8700 DIMM</block>
-  <block id="89a799818e0c9e291b449a0b1a37c1a8" category="sidebar">Carte PCIe ou mezzanine AFF FAS8300 et FAS8700</block>
-  <block id="b93c4e02bbbbb606086c414028b69b0c" category="sidebar">Systèmes d'alimentation AFF FAS8300 et FAS8700</block>
-  <block id="099c4a72daac7793c0290ca5e2fdf623" category="sidebar">Pile d'horloge en temps réel AFF FAS8300 et FAS8700</block>
   <block id="2392f11d96d6fc4362b42688f146c995" category="sidebar">Installez les tiroirs et reliez-les au nouveau système</block>
   <block id="4ccd403eb19c48e7ebdaaeb982ef2481" category="sidebar">Tiroir d'ajout à chaud</block>
   <block id="cf999199f9d4c3e90d15399860476f13" category="sidebar">Modifiez l'ID de tiroir</block>
@@ -5118,7 +5069,6 @@
   <block id="7b3447a734f68771b3abf898922a7948" category="sidebar">Batterie d'horloge en temps réel AFF A700s</block>
   <block id="4ea03be5210b1deef6915fc966939eb4" category="sidebar">Installation et configuration de AFF A900</block>
   <block id="9dac2c892993fb8afd0257c050073a7a" category="sidebar">Maintenance de AFF A900</block>
-  <block id="fe673aff2ce9eb5c6eaf841f4ec88b30" category="sidebar">Support de démarrage AFF A900</block>
   <block id="6cff7e5493433d24015d6ef5a8566b38" category="sidebar">Châssis AFF A900</block>
   <block id="7d1c80f318f9bf16deac2495abe88a7e" category="sidebar">Module de contrôleur AFF A900</block>
   <block id="12c860323c3b7c3ce59343f747296367" category="sidebar">Systèmes AFF A220</block>
@@ -5284,7 +5234,6 @@
   <block id="59278043c69406fc3ad5a92b1268c7a1" category="list-text"><block ref="59278043c69406fc3ad5a92b1268c7a1" category="inline-link-macro-rx"></block></block>
   <block id="207fa20809605ec76418419987911de1" category="list-text"><block ref="207fa20809605ec76418419987911de1" category="inline-link-macro-rx"></block></block>
   <block id="8ec5a018cdb8c2ff183e79e6526679cf" category="list-text"><block ref="8ec5a018cdb8c2ff183e79e6526679cf" category="inline-link-macro-rx"></block></block>
-  <block id="a8284f2b3b25b926b6a065b08aa67e1a" category="doc">Remplacez le support de démarrage - AFF C400</block>
   <block id="aeb801131e9e445741a961cfb931c2db" category="doc">Arrêtez le contrôleur défectueux - AFF C400</block>
   <block id="5ab526c2d8a23c39c3d68b1080ca3e89" category="doc">Guide détaillé - AFF C400</block>
   <block id="ed1fe7521861c492832064f3b6daca68" category="paragraph">Câble 100 GbE (QSFP28)</block>
@@ -5300,7 +5249,6 @@
   <block id="042e6e8da8b6da480bf85ff04e4d7922" category="doc">Présentation du remplacement du support de démarrage - AFF C400</block>
   <block id="bb2c0218cb7e6195837599cbb3d03ac1" category="doc">Rebasculez les agrégats dans une configuration MetroCluster à deux nœuds - AFF C400</block>
   <block id="1d3d538ec62d31076cad785952dec0e5" category="doc">Remplacez le matériel - AFF C400</block>
-  <block id="f961e8ce56452340996ff8bab8e0d037" category="doc">Démarrez l'image de récupération - AFF C400</block>
   <block id="2642a6c4a1666402654202d970bc20a6" category="doc">Restauration complète du système - AFF C400</block>
   <block id="3e442d8f2f13e8331a31e7c1c2737e59" category="paragraph">Le remplacement d'un bloc d'alimentation implique la déconnexion du bloc d'alimentation cible de la source d'alimentation, le débranchement du câble d'alimentation, le retrait de l'ancien bloc d'alimentation et l'installation du bloc d'alimentation de remplacement, puis sa reconnexion à la source d'alimentation.</block>
   <block id="311f323a046afbcf6ce4b152ad2dee93" category="list-text">Cette procédure est écrite pour remplacer un bloc d'alimentation à la fois.</block>
@@ -5402,20 +5350,16 @@
   <block id="c5a63894b2cca959254f190c438b2862" category="doc">Remplacez la pile de l'horloge temps réel - AFF C800</block>
   <block id="4e98f7d06c194d745ab8b22805c9cf46" category="doc">Remplacez le châssis - AFF C800</block>
   <block id="7084b904bc2fba91a6a3acb82001365c" category="doc">Terminez le processus de restauration et de remplacement - AFF C800</block>
-  <block id="a7d1c95d57e2d4d91562898a605711c2" category="doc">Renvoyez la pièce défectueuse à NetApp - AFF C800</block>
   <block id="c7567cf7dbf1c0e5da4f2ff1ced923ef" category="doc">Étapes rapides - AFF C800</block>
   <block id="f8eb42a3c2c9e8d82c874d7ccd6ef2a9" category="inline-link-macro">Instructions d'installation et de configuration du AFF C800</block>
   <block id="6d940c412bcfcdb76ebf095399d157ea" category="doc">Restaurez et vérifiez la configuration du système - AFF C800</block>
-  <block id="83087c77244cbf7473481303d60706cd" category="doc">Démarrez l'image de récupération - AFF C800</block>
   <block id="e00efce1b44b4a70e33640aa4e4da7ab" category="doc">Remplacez un ventilateur - AFF C800</block>
   <block id="7bb5b3f1026a3e755afd3077cd503481" category="doc">Remplacez la batterie NVDIMM - AFF C800</block>
   <block id="47b1e09c5a04b6651d4bc03190565935" category="doc">Présentation du remplacement du module de contrôleur - AFF C800</block>
-  <block id="f3812c1bc21f4b91457674bcb79e0abd" category="doc">Arrêtez le contrôleur - AFF C800</block>
   <block id="555193cbb314d41872f483748d489825" category="doc">Remplacez un bloc d'alimentation - AFF C800</block>
   <block id="3898efc1e45ee027e1343af6cd87375e" category="list-text"><block ref="3898efc1e45ee027e1343af6cd87375e" category="inline-link-macro-rx"></block></block>
   <block id="76908712922b1fbfdbdf730f794b109c" category="list-text"><block ref="76908712922b1fbfdbdf730f794b109c" category="inline-link-macro-rx"></block></block>
   <block id="96ec8a0dff9ea2637e9a0469cd7bf45e" category="list-text"><block ref="96ec8a0dff9ea2637e9a0469cd7bf45e" category="inline-link-macro-rx"></block></block>
-  <block id="b841c581d0bd2543077c9323cde216c2" category="doc">Remplacez le support de démarrage - AFF C800</block>
   <block id="820a6cf0e2bcf8d6df3250e33f97c935" category="doc">Arrêtez le contrôleur défectueux - AFF C800</block>
   <block id="f9df48646e98bcca0ef69fd1b5827115" category="summary">Cette section fournit des instructions détaillées pour l'installation d'un système AFF C800.</block>
   <block id="c090b19d359523d8768d0e3b3aecfeac" category="doc">Étapes détaillées - AFF C800</block>
@@ -5427,7 +5371,6 @@
   <block id="96575ba10e2fbb7c8295e344411ca2d1" category="doc">Remplacez un module DIMM - AFF C800</block>
   <block id="053f6b40fe6bb9b0a6dde49c0f76dc01" category="doc">Recâblage du système et réaffectation des disques - AFF C800</block>
   <block id="1085be18597d7d6c96ecba68a211bd73" category="doc">Remplacez une carte PCIe - AFF C800</block>
-  <block id="a3ab531d62779409698b7c4da393c7e6" category="doc">Transférez l'image de démarrage sur le support de démarrage - AFF C800</block>
   <block id="c73861201327e5c06b062143f039e8bc" category="doc">Présentation du remplacement des supports de démarrage - AFF C800</block>
   <block id="07aadbac64794a2290e43416f4863695" category="doc">Déplacer et remplacer le matériel - AFF C800</block>
   <block id="253caa9c2eebe3748f90a07e4d0d1158" category="doc">Restauration complète du système - AFF C800</block>
@@ -5463,7 +5406,6 @@
   <block id="6329b1134cd585a80e1c1289687135be" category="sidebar">Systèmes AFF C400</block>
   <block id="fef6e20056a9a97444ad5d035918d0f2" category="sidebar">Installation et configuration de AFF C400</block>
   <block id="abdc9f1c1f1fa93deddb3513a455ff74" category="sidebar">Maintenance du AFF C400</block>
-  <block id="69077bf839678df07e0a3ee2c5ce0c19" category="sidebar">Support de démarrage AFF C400</block>
   <block id="4e7c968326614b0c8bb6e7220446c15e" category="sidebar">Châssis AFF C400</block>
   <block id="275e786433a7b9ba3c47efacaf9e9d56" category="sidebar">Module de contrôleur AFF C400</block>
   <block id="a49ab8f17cda96f1a42a275df274b272" category="sidebar">Module DIMM AFF C400</block>
@@ -5475,7 +5417,6 @@
   <block id="abab29a6fb252536c5c31f6382d49164" category="sidebar">Systèmes AFF C800</block>
   <block id="7db3bd8a3e788453e923804704eb87b7" category="sidebar">Installation et configuration de AFF C800</block>
   <block id="27d884866d0c53b71a3641e639ac19f3" category="sidebar">Maintenance AFF C800</block>
-  <block id="36c69c49c18ae2fa7dce0347a69f0065" category="sidebar">Support de démarrage AFF C800</block>
   <block id="81e825abffe43a736d6c9dc55fd84da2" category="sidebar">Châssis AFF C800</block>
   <block id="c164f067875d1a9aa792717f22c79b98" category="sidebar">Module de contrôleur AFF C800</block>
   <block id="0a73484fb1b3edef8bbbf67f873dec2a" category="paragraph">Pour remplacer le châssis, vous devez retirer les composants du châssis défectueux et les installer dans le châssis de remplacement.</block>
@@ -6168,9 +6109,7 @@ SFP+ (cible/initiateur)</block>
   <block id="832db81167fd84efee6f2f1426f0d945" category="doc">Arrêtez le module de contrôleur défectueux - ASA A250</block>
   <block id="e31f48aed610f4dfc632dee37773ef46" category="section-title">Étape 7 : remettre le module de contrôleur en marche</block>
   <block id="4de03bc95ff205a87859998054c21b43" category="paragraph">Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis.</block>
-  <block id="ae07b1debd7dfb2474b29c923f78cb6a" category="summary">Maintenance du matériel FAS8330 et FAS8700</block>
   <block id="f92b0aabcfb0600795d091d920f2ee13" category="doc">Maintenance du matériel FAS8300 et FAS8700</block>
-  <block id="0eeb87f24d0432f0969e16a0d5862ea7" category="paragraph">Pour les systèmes de stockage FAS8300 et FAS8700, vous pouvez effectuer les procédures de maintenance sur les composants suivants.</block>
   <block id="67e353c31cb553b860a67adade3b1120" category="paragraph">Vous devez remplacer le module de cache du contrôleur lorsque votre système enregistre un seul message AutoSupport (ASUP) indiquant que le module est hors ligne.</block>
   <block id="7d3c8192745dac8d9c9ce0b0eaffb290" category="section-title">Étape 3 : terminez le processus de remplacement</block>
   <block id="067920079e2e1532ebc5f61e1b39a90e" category="doc">Assurez la maintenance du matériel AFF A300</block>
@@ -6241,7 +6180,6 @@ SFP+ (cible/initiateur)</block>
   <block id="9dbc6de9e979960d269ff45dfa541d76" category="doc">Recâblage du système et réaffectation des disques - ASA A800</block>
   <block id="0b61404420e238ba6738c723b617ba4f" category="doc">Présentation du remplacement des supports de démarrage - ASA A800</block>
   <block id="308e5629f56cd85980c01c5a7d6b4a5e" category="doc">Remplacer un ventilateur - ASA A800</block>
-  <block id="d6a1076e496a5256314c747b11460d37" category="doc">Remplacez le support de démarrage - ASA A800</block>
   <block id="799d5020bc2d18c715e106de04ae1867" category="doc">Remplacer le châssis - ASA A800</block>
   <block id="3ef7061589a2a04431ea9f25b6e79307" category="doc">Arrêtez le contrôleur défectueux - ASA A800</block>
   <block id="e2bc701c24d2b9ed0f95fc6ba2920d2d" category="doc">Restaurez et vérifiez la configuration système - ASA A800</block>
@@ -6253,7 +6191,6 @@ SFP+ (cible/initiateur)</block>
   <block id="5fa3fc366648b99a59526964d222385e" category="summary">Maintenance du matériel ASA A800</block>
   <block id="8c32524c30f1cf8ac0610fc400ed0758" category="doc">Maintenance du matériel ASA A800</block>
   <block id="d374640195a360abfae0102d10acd97b" category="doc">Remplacez la batterie de l'horloge temps réel - ASA A800</block>
-  <block id="6d197c1fa114418d0086844edf0867e7" category="doc">Transférez l'image de démarrage sur le support de démarrage ASA A800</block>
   <block id="202dc1ddf91930fc943d288f13abc2c4" category="doc">Remplacez le module DIMM - ASA A800</block>
   <block id="498a9392717395bcd76919fcbc8cd683" category="doc">Arrêtez les contrôleurs - ASA A800</block>
   <block id="8eeb34b2abc09270a61b91c0fea86350" category="doc">Restaurez OKM, NSE et NVE - ASA A800</block>
@@ -6261,15 +6198,12 @@ SFP+ (cible/initiateur)</block>
   <block id="d1df8c22a8919d325b97cb34cdbfec4f" category="doc">Étapes rapides - ASA A800</block>
   <block id="caa8aa4a595b6f33857d21fb97a3622e" category="paragraph">Cette page fournit des instructions graphiques pour une installation standard de votre système, depuis les racks et le câblage, jusqu'à la présentation initiale du système. Utilisez le <block ref="0cdb4981396afec17d02c8ce5d1b8e06" category="inline-link-macro-rx"></block> Si vous connaissez déjà l'installation des systèmes NetApp,</block>
   <block id="f0d6a8fa292b0f0965c180c3ec81b98c" category="admonition">La procédure d'installation du système ASA A800 est la même que celle du système AFF A800.</block>
-  <block id="027df07ace2b49bdd101ed7de8831a66" category="doc">Démarrez l'image de restauration - ASA A800</block>
   <block id="1809d57833f6aee6ca28a7a9976f3c02" category="doc">Remplacez le disque SSD ou le disque dur - ASA A800</block>
   <block id="8efb05cbcb76a25c9260967bb6da74ea" category="doc">Remplacez l'alimentation - ASA A800</block>
   <block id="ab40c87c67587a22552f3f86175f6b6c" category="doc">Remplacer le contrôleur - ASA A800</block>
   <block id="3e1e482bf99769f878506ac262ea9469" category="doc">Remplacer le châssis - ASA A800</block>
   <block id="cf89ec61d7d165d24a4540839ef73f51" category="doc">Remplacement complet du châssis - ASA A800</block>
   <block id="67908030f8ab0c8af80f92c280cae057" category="doc">Présentation du remplacement du contrôleur - ASA A800</block>
-  <block id="9bada4e82bb10497f6b0fb3e9469479c" category="doc">Renvoyer la pièce défectueuse à NetApp - ASA A800</block>
-  <block id="bb1471f2572ce66912ad367693b967e2" category="doc">Arrêter le contrôleur - ASA A800</block>
   <block id="aac030e27e2d05ac9c8d86c5ee6b670b" category="doc">Remplacez un module USB LED - FAS9000</block>
   <block id="f149ffc69b5cfb8f7aad3b01a8a19d4a" category="doc">Recâblage du système et réaffectation des disques - FAS9000</block>
   <block id="c6dffe83bee9ebc28b0c537a4a763ffe" category="doc">Présentation du remplacement des supports de démarrage - FAS9000</block>
@@ -6346,7 +6280,6 @@ SFP+ (cible/initiateur)</block>
   <block id="ed6183c79360d84f37e156e80fe33aa6" category="doc">Arrêter les contrôleurs - ASA A900</block>
   <block id="67bcd92a05c94a3a813d8e595b1f5283" category="doc">Restauration complète du système - ASA A900</block>
   <block id="eb192783589d844d1af1ecb849489b22" category="section-title">Étape 1 : installez les licences pour le nouveau contrôleur</block>
-  <block id="996a9b0ff7207d4230b2b6f5ca8de4e0" category="doc">Démarrer l'image de restauration - ASA A900</block>
   <block id="4da6be1bf421fc7ff067ee2e73b4b8b1" category="summary">Le fournit des instructions graphiques pour une installation standard de votre système, depuis les racks et le câblage, jusqu'à la présentation initiale du système.</block>
   <block id="4848727d4d964e87d86f556430e12505" category="doc">Étapes rapides - ASA A900</block>
   <block id="c247d6dca80720b1329aceeb17a50ccf" category="admonition">Le système ASA A900 utilise la même procédure d'installation que le système AFF A900.</block>
@@ -6472,7 +6405,6 @@ SFP+ (cible/initiateur)</block>
   <block id="9a54ff3f438075f6ab130fd5ddae6cb8" category="paragraph">Après avoir installé le module de contrôleur et tout autre composant dans le châssis de remplacement, démarrez le système.</block>
   <block id="e7e663b99514b25c64e06ab89f12a96d" category="summary">Une fois le remplacement du matériel terminé et le démarrage en mode Maintenance, vous vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.</block>
   <block id="941c5c287ded8e20a0e0afb65a87e0f3" category="paragraph">Une fois le remplacement du matériel terminé, vous vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.</block>
-  <block id="f8ead0e1f5f1d60e8cfce169aadd994f" category="summary">Assurer la maintenance du matériel ASA FAS9500</block>
   <block id="1308073a5b44cc77fcce7142e61edf15" category="doc">Maintenance du matériel FAS9500</block>
   <block id="9e209d7a48bf7b8bd414632f31a6d032" category="paragraph">Pour le système de stockage FAS9500, vous pouvez effectuer des procédures de maintenance sur les composants suivants.</block>
   <block id="48f49ab53c743281158bdd3a887f7928" category="summary">Maintenance du matériel ASA C400</block>
@@ -6485,7 +6417,6 @@ SFP+ (cible/initiateur)</block>
   <block id="387bb93ff4bb00a831a3ddb5c619a84a" category="doc">Recable le système et reassignent des disques - ASA A400</block>
   <block id="f4a25106acc9f2b398da8ab1dbc2278a" category="doc">Présentation du remplacement des supports de démarrage - ASA A400</block>
   <block id="1ad7108acef5f97dbf6407833d441058" category="doc">Remplacez à chaud un module de ventilation - ASA A400</block>
-  <block id="54a4d4e7da8d9e37d2ba61fd94122d60" category="doc">Remplacez le support de démarrage - ASA A400</block>
   <block id="f04cfd2261dd6a1f556f80b087e6b8e6" category="doc">Remplacer le matériel - ASA A400</block>
   <block id="f52c387171f2e8c70a6f184572b951e7" category="doc">Basculez les agrégats dans une configuration MetroCluster à deux nœuds - ASA A400</block>
   <block id="0a852867e7d67d61d0c2e9fc0bf5c25b" category="doc">Arrêtez le contrôleur défectueux - ASA A400</block>
@@ -6505,7 +6436,6 @@ SFP+ (cible/initiateur)</block>
   <block id="fbe5ac44caed14b65f65c674c260d4f6" category="list-text"><block ref="fbe5ac44caed14b65f65c674c260d4f6" category="inline-link-macro-rx"></block></block>
   <block id="5ba82c1fe7f9a054ea742a089f7a227e" category="list-text"><block ref="5ba82c1fe7f9a054ea742a089f7a227e" category="inline-link-macro-rx"></block></block>
   <block id="b8a21ef26361bcf497970ad95729f649" category="doc">Restauration complète du système - ASA A400</block>
-  <block id="9e386c9e794f2f2e7ef00f62fb22c636" category="doc">Démarrez l'image de restauration - ASA A400</block>
   <block id="b65dcf1c7ad6c86f6d2d5bed4626bcc6" category="doc">Guide rapide - ASA A400</block>
   <block id="5eb8101a6e8a2a3f54c56549ab21ade4" category="admonition">Le système ASA A400 utilise la même procédure d'installation que le système AFF A400.</block>
   <block id="b26cf0fc163ec7e9ea966514eed60da1" category="doc">Remplacement d'une alimentation - ASA A400</block>
@@ -6513,7 +6443,6 @@ SFP+ (cible/initiateur)</block>
   <block id="1952c1c21894126b1d43fd1b446add88" category="doc">Présentation du remplacement du châssis - ASA A400</block>
   <block id="8a5c79d05f266b99fd8b21d069b75d78" category="doc">Remplacement complet du châssis - ASA A400</block>
   <block id="c4b2f6abafcc332bf4722cbb6468f31f" category="doc">Présentation du remplacement du contrôleur - ASA A400</block>
-  <block id="15421bef78aa7462014529dab7da5730" category="doc">Renvoyer la pièce défectueuse à NetApp - ASA A400</block>
   <block id="466aa8d45982e2ca3b8ed3fa99638ca2" category="paragraph">Après avoir installé le module de contrôleur dans le nouveau châssis, démarrez-le.</block>
   <block id="145ef1ac525baa70aa5c03030fa49d7b" category="summary">Maintenance du matériel AFF A700s</block>
   <block id="5128a68724ce704ce115a0fb76e61b2d" category="doc">Maintenance du matériel AFF A700s</block>
@@ -6573,7 +6502,6 @@ SFP+ (cible/initiateur)</block>
   <block id="157402a98436e93454bd795f06631e26" category="sidebar">Systèmes ASA A800</block>
   <block id="fe7deec5120abaf62371300bd4da5b6e" category="sidebar">Installation et configuration de ASA A800</block>
   <block id="bdab0fcadbf708f1f1fb16afd6fd466a" category="sidebar">Maintenance de ASA A800</block>
-  <block id="52e0537c8f1ec6be694befd3617cd3dd" category="sidebar">Support de démarrage ASA A800</block>
   <block id="418a8ea1c4ad523a83014cbdae44b5c3" category="sidebar">Châssis ASA A800</block>
   <block id="4589f7e3740a32d8bc8cb9c0e65f4a89" category="sidebar">Module de contrôleur ASA A800</block>
   <block id="e4f0abc832a633a54f5a664b5033be93" category="sidebar">Ajouter le module X91148A dans le système avec des emplacements ouverts</block>
@@ -6581,8 +6509,6 @@ SFP+ (cible/initiateur)</block>
   <block id="6fd9a3ad4812220bfa5621a9f82f04e7" category="sidebar">Systèmes ASA A900</block>
   <block id="3e1d68740fe9fb085d3acbdce19296b5" category="sidebar">Installation et configuration de ASA A900</block>
   <block id="0cb2548ce0f040b7a8125ebff5e56d6e" category="sidebar">ASA A900 assure la maintenance</block>
-  <block id="9fbfbe4519034a95aa1a640a08e5b606" category="sidebar">Support de démarrage ASA A900</block>
-  <block id="a0b6c54fae9a886e9274ded73da53353" category="sidebar">Remplacez le support d'amorçage défectueux</block>
   <block id="b4b3b0c8d46b310c654d75599964cbe9" category="sidebar">Châssis ASA A900</block>
   <block id="53c8a64dd1d3685bac59f29b275f09fd" category="sidebar">Restaurer et vérifier la configuration</block>
   <block id="042788b5141a1d26f2ec23d657ceb901" category="sidebar">Module de contrôleur ASA A900</block>
@@ -6606,7 +6532,6 @@ SFP+ (cible/initiateur)</block>
   <block id="880e70d8b15ad919e463072506581a9a" category="sidebar">Systèmes ASA A400</block>
   <block id="9d524e3b80cdb8b322945f9b3acd0611" category="sidebar">Installation et configuration du système ASA A400</block>
   <block id="34dd7f09476a68e4a11cace464b55609" category="sidebar">ASA A400 maintenir</block>
-  <block id="6dd829424be1ac15f2f65c92a7ed934b" category="sidebar">Support de démarrage ASA A400</block>
   <block id="8cd2b472b79fbafe2b2b4f850e9be042" category="sidebar">Châssis ASA A400</block>
   <block id="187bfe8d41a4ffd322e65c79309c5089" category="sidebar">Module de contrôleur ASA A400</block>
   <block id="ffb35c2db1105f8728e738072aa35c9e" category="sidebar">DIMM ASA A400</block>
@@ -6731,7 +6656,6 @@ SFP+ (cible/initiateur)</block>
   <block id="c4d97f649f8fd0bc0d2842c98374b325" category="summary">La vidéo installation et configuration montre comment installer et câbler votre nouveau système.</block>
   <block id="728c8b35a059c5debd8717ebc5eef9cc" category="doc">Étapes vidéo - ASA A250</block>
   <block id="da8c100a35e67a4a9a03589f6afa9ddc" category="doc">Étapes vidéo - FAS500f</block>
-  <block id="92217d103cec461ace2aded92b4f42ab" category="doc">Renvoyez la pièce défectueuse à NetApp - ASA C400</block>
   <block id="f4b7b756855e1111bd19648537226e16" category="doc">Maintenance du matériel ASA C400</block>
   <block id="f85c225eac9932f77dacb6e6236f7ce2" category="paragraph">Pour le système de stockage ASA C400, vous pouvez effectuer les procédures de maintenance des composants suivants.</block>
   <block id="2097e20950ae1f46d998ba486146b369" category="doc">Remplacez un module NVDIMM - ASA C400</block>
@@ -6739,12 +6663,10 @@ SFP+ (cible/initiateur)</block>
   <block id="ec587342818437cd0c6a0daf4be599a1" category="doc">Rebasculez les agrégats dans une configuration MetroCluster à deux nœuds - ASA C400</block>
   <block id="f7f6cafa82cca0d649fec769636a374b" category="doc">Arrêtez le contrôleur défectueux - ASA C400</block>
   <block id="124e5d993905ca8fc1e3ed8fa62e76ad" category="doc">Remplacez un module DIMM - ASA C400</block>
-  <block id="987d3338a5584fedd4b7efd844691246" category="doc">Remplacez le support de démarrage - ASA C400</block>
   <block id="9187e0a8947f2ca2039bb2793202300f" category="doc">Remplacez la batterie NVDIMM - ASA C400</block>
   <block id="d8f9a29ce7164ac54d9904be12998cb5" category="doc">Présentation du remplacement du module de contrôleur - ASA C400</block>
   <block id="d593ab590ed489d6717b0d0fbc84376f" category="doc">Remplacez le matériel du module de contrôleur - ASA C400</block>
   <block id="00e85c9b81ade8fe5e2f38c4a31d4388" category="doc">Remplacez à chaud un module de ventilation - ASA C400</block>
-  <block id="c1f915ba5e3e17f84a3238a75c84e2c9" category="doc">Démarrez l'image de récupération - ASA C400</block>
   <block id="b31b0c352e7abb4634524d9d53f5fcce" category="doc">Remplacez une carte PCIe ou mezzanine - ASA C400</block>
   <block id="b4247ab28006e796109bb9e6443b612f" category="doc">Présentation du remplacement du support de démarrage - ASA C400</block>
   <block id="967b266f7bf42739746ff8ee10704ec8" category="doc">Restauration complète du système - ASA C400</block>
@@ -6793,24 +6715,20 @@ SFP+ (cible/initiateur)</block>
   <block id="8cbcc8d109afe5c1880ad74857d5f039" category="list-text"><block ref="8cbcc8d109afe5c1880ad74857d5f039" category="inline-link-macro-rx"></block></block>
   <block id="117802f52fb0f0fc020147893a4130c5" category="doc">Arrêtez les contrôleurs - ASA C250</block>
   <block id="0bec81f6d2e70dbe308b882253ae1ad4" category="doc">Étapes rapides - ASA C250</block>
-  <block id="56e4846e0597740899e073a1ec45d163" category="doc">Renvoyez la pièce défectueuse à NetApp - ASA C800</block>
   <block id="1074d363c9086b22a355d4527d32b28c" category="doc">Maintenance du matériel ASA C800</block>
   <block id="f9ea5dff2f002c5b2f6eeeb84451e9f5" category="paragraph">Pour le système de stockage ASA C800, vous pouvez effectuer des procédures de maintenance sur les composants suivants.</block>
   <block id="3f9ba83126a2d0a1b4562908efe4870c" category="doc">Remplacez un module NVDIMM - ASA C800</block>
   <block id="50097ad5c1b5e616bbe0f94d6918f272" category="doc">Remplacez le châssis - ASA C800</block>
   <block id="f672d90fc8d0ab339549e32ae4a18c26" category="doc">Remplacez un module DIMM - ASA C800</block>
-  <block id="dccd487628e9e3fb202bf1d54f224f85" category="doc">Remplacez le support de démarrage - ASA C800</block>
   <block id="16c54e4c9f50a83bb13eddc18729c9e7" category="doc">Remplacez la batterie NVDIMM - ASA C800</block>
   <block id="6a9d061449e03d1a36e0711f39abff8f" category="doc">Arrêtez le contrôleur défectueux - ASA C800</block>
   <block id="f5811521c6ed1fabe9020730715bf6ec" category="doc">Présentation du remplacement du module de contrôleur - ASA C800</block>
   <block id="a77bfb07153ea54985cd6d32b137a0c8" category="doc">Remplacez un ventilateur - ASA C800</block>
   <block id="0033b3cf7bd066a6dcb42aab6d55a7f7" category="doc">Remplacez le matériel du module de contrôleur - ASA C800</block>
   <block id="bc6187f0b8778014377ccebd8b17d2ed" category="doc">Remplacez le lecteur SSD ou le lecteur de disque dur - ASA C800</block>
-  <block id="d9fe8c436c5cbc472b9ebf52adbbc858" category="doc">Transférez l'image de démarrage sur le support de démarrage - ASA C800</block>
   <block id="2f7ac9575acad766cc32c4e3e9719d24" category="doc">Remplacez une carte PCIe - ASA C800</block>
   <block id="dee67159310079d1b0fb667da81d6e9e" category="doc">Présentation du remplacement des supports de démarrage - ASA C800</block>
   <block id="7aceb406cd07b754209377738399299c" category="doc">Restauration complète du système - ASA C800</block>
-  <block id="6099221a831c734ee14418269bc9c024" category="doc">Arrêtez le contrôleur - ASA C800</block>
   <block id="7eb1428cde412a152576637c584b14c0" category="doc">Recâblage du système et réaffectation des disques - ASA C800</block>
   <block id="ea1dc19906ddc0d31254dd6f8ec34328" category="doc">Déplacer et remplacer le matériel - ASA C800</block>
   <block id="5bb05bb37b0f50f78a66bcb870b4f799" category="doc">Remplacez un bloc d'alimentation - ASA C800</block>
@@ -6820,7 +6738,6 @@ SFP+ (cible/initiateur)</block>
   <block id="4a9663f34d974f62e97bc12e3339b829" category="summary">Cette section fournit des instructions détaillées pour l'installation d'un système ASA C800.</block>
   <block id="785cd996138f338b507afb4b1a247f7a" category="doc">Étapes détaillées - ASA C800</block>
   <block id="0638f850898c092d5e1fe72b87242595" category="paragraph">Pour installer votre système ASA C800, vous devez créer un compte et enregistrer le système. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.</block>
-  <block id="3682f89576a4cb3869bd075b26450b14" category="doc">Démarrez l'image de récupération - ASA C800</block>
   <block id="1a127c6545345af120647a9618b2e726" category="doc">Vidéos - ASA C800</block>
   <block id="71eb59c59a42227ae8b45d0cfaf6f52f" category="paragraph">Deux vidéos sont disponibles : l'une montrant comment installer et connecter le système, l'autre montrant un exemple d'utilisation de la configuration assistée par System Manager pour effectuer la configuration initiale du système.</block>
   <block id="2ff6b785c9bbb9bd149f3c338b823e06" category="section-title">Vidéo l'une des deux : installation du matériel et câblage</block>
@@ -6842,12 +6759,10 @@ SFP+ (cible/initiateur)</block>
   <block id="c1370c033cc8d9c44f943c71c77e2612" category="sidebar">Systèmes ASA C400</block>
   <block id="84f8b16af6e61b50a60f6963a3714dce" category="sidebar">Installation et configuration de ASA C400</block>
   <block id="6e6b83322f27e0a481920c1942ca4d06" category="sidebar">Maintenance du ASA C400</block>
-  <block id="42dcbb2a8a1d5c203703489b6bfd2d41" category="sidebar">Support de démarrage ASA C400</block>
   <block id="ccf8018b3d654d823bd222ff5852d94c" category="sidebar">Châssis ASA C400</block>
   <block id="f1ce6ee6a9b6701ded3e7305d1a47f8b" category="sidebar">Module de contrôleur ASA C400</block>
   <block id="037942e17a72efbec3fbd02f17ae222e" category="sidebar">Module DIMM ASA C400</block>
   <block id="a476b30aedf19d74cc76a81c627ef010" category="sidebar">Module de ventilateur ASA C400</block>
-  <block id="5ac4d65b443121440994b5efbc6fe2db" category="sidebar">Batterie NVDIMM ASA C400</block>
   <block id="7da162a63ee18d83599a6f39dfad99f3" category="sidebar">Carte ASA C400 PCIe ou Mezzanine</block>
   <block id="e7d6c70be60310d753bb04f93958a99e" category="sidebar">Alimentation ASA C400</block>
   <block id="6e1f6b52dcbf426bd04e045b833f7989" category="sidebar">Batterie d'horloge en temps réel ASA C400</block>
@@ -6860,7 +6775,6 @@ SFP+ (cible/initiateur)</block>
   <block id="f52cc0c002eb630b3aee28324fd8a0a0" category="sidebar">Systèmes ASA C800</block>
   <block id="5185f6f6f1211a7e3fff65634642f7bf" category="sidebar">Installation et configuration de ASA C800</block>
   <block id="6254a52fafb7f7564e91436cf4b47113" category="sidebar">Maintenance ASA C800</block>
-  <block id="052bc2e859c31b84b04f42db7b60abff" category="sidebar">Support de démarrage ASA C800</block>
   <block id="801fdf5b112137a107d3f17390e4042d" category="sidebar">Châssis ASA C800</block>
   <block id="ca7dce9cd06f0f2ef6e548c8c26d54d9" category="sidebar">Module de contrôleur ASA C800</block>
   <block id="664f9c52f93e2fbf6e801148b0f573ad" category="inline-link">Gestion des paires HAUTE DISPONIBILITÉ</block>
@@ -8357,7 +8271,6 @@ SFP+ (cible/initiateur)</block>
   <block id="7f5f5398e620a9f9ae998736b2d4d230" category="list-text">Attendez que le message waiting for giveback... s'affiche sur la console du contrôleur avec le module de remplacement, puis, depuis le contrôleur en bon état, vérifiez l'état du système : _Storage failover show_</block>
   <block id="c1b6a9a30a6ce8d79305050622234851" category="paragraph">Dans le résultat de la commande, un message s'affiche indiquant l'état des contrôleurs.</block>
   <block id="b58ec5a6cf078c8a3a2b309a797f9e62" category="paragraph">Le contrôleur reconnecte son pool de stockage et termine le démarrage.</block>
-  <block id="7acc547c8acfbe4a745ca72a3e0e83e4" category="image-alt">Entraînement drw a800 assis IEOPS 960</block>
   <block id="db4669e53766b1110dbd428a22b6f5cc" category="list-text">Appuyez sur le bouton de la came de gestion du système.</block>
   <block id="cf91b43675e7187d6e724e7c312e336a" category="list-text">Faites tourner le loquet de came pour l'éloigner du module aussi loin que possible.</block>
   <block id="f5c1d99a4f032f30d087e32fbbbdb994" category="paragraph">Arrêtez ou prenez le contrôle du contrôleur défectueux. - Pour arrêter le contrôleur défectueux, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle du contrôleur afin que celui-ci continue à transmettre les données provenant du stockage du contrôleur défectueux.</block>
@@ -9035,8 +8948,6 @@ SFP+ (cible/initiateur)</block>
   <block id="a7b0a510fdfaae6ab395e09cd164f2f8" category="doc">Restaurer le chiffrement - FAS500f</block>
   <block id="8de2c4c1d0c319cb07b6837fd62d106e" category="doc">Vérifier la prise en charge et l'état des clés de cryptage - FAS8200</block>
   <block id="9845ad900ab8d052684f6f9e49107a1f" category="doc">Restaurer le chiffrement - FAS8200</block>
-  <block id="1bc2845699cb3ceb88ee2b3bffabb9b4" category="doc">Vérifiez la prise en charge et l'état de la clé de cryptage - AFF FAS8300 et FAS8700</block>
-  <block id="e9f4f2164b3732f470d6acec805f446d" category="doc">Restaurez le chiffrement - AFF FAS8300 et FAS8700</block>
   <block id="3d7237c5aa2d20431d9cae1d4abbadb9" category="doc">Restaurer le chiffrement - FAS9000</block>
   <block id="13e7cf07309f0d95eee5aa49b6842dc0" category="doc">Vérifier la prise en charge et l'état des clés de cryptage - FAS9500</block>
   <block id="e4d9374bc79ce9095fb021e03551599f" category="doc">Restaurer le chiffrement - FAS9500</block>
@@ -9124,12 +9035,9 @@ SFP+ (cible/initiateur)</block>
   <block id="4443f66d8d4febc600e0d4d0b3b0db91" category="doc">Remettre le contrôleur - ASA A70 et ASA A90</block>
   <block id="425248bc914ee69e002743b7cff8fb0a" category="doc">Remplacer le module de gestion du système - ASA A1K</block>
   <block id="fc633a3acea06ec7b13b95943af5a8f1" category="doc">Remplacement du module de gestion du système - FAS70 et FAS90</block>
-  <block id="3af65f186d9005b4ac041f824d01a2a6" category="doc">Renvoyez la pièce défectueuse à NetApp - FAS2820</block>
   <block id="c6850888623b4b33ceba4c1bd9322642" category="doc">Vérifier la prise en charge et l'état des clés de cryptage - FAS2820</block>
   <block id="0152b6e0cea632db2750cd8de20a739e" category="doc">Restaurer le chiffrement - FAS2820</block>
-  <block id="9e84d4138651a02fba804117209b607b" category="doc">Démarrez l'image de restauration - FAS2820</block>
   <block id="d4d79c1a5bf62b9ce87343c6306b87c5" category="doc">Présentation du remplacement des supports de démarrage - FAS2820</block>
-  <block id="0d0170db1c817b32ed8190527b1999f1" category="doc">Remplacez le support de démarrage - FAS2820</block>
   <block id="3d0983e4676ad818dc9c354efeabe635" category="doc">Arrêtez le contrôleur défectueux - FAS2820</block>
   <block id="fd167e36c21bd8b8595824591db88367" category="doc">Remplacez le module de cache - FAS2820</block>
   <block id="6e0f0070d93d5a9e57db58dbec60bc75" category="doc">Restaurez et vérifiez la configuration - FAS2820</block>
@@ -9175,8 +9083,6 @@ SFP+ (cible/initiateur)</block>
   <block id="3a537c99c5b869e844d774557fbcee80" category="sidebar">Module d'E/S ASA A1K</block>
   <block id="3006210264711079652e75e697fdde7b" category="sidebar">Systèmes FAS2820</block>
   <block id="e9fb835c094e7078b3fdd1712ccae31c" category="sidebar">Installation et configuration du système FAS2820</block>
-  <block id="6129374f01cd3ebeb12420c58801778c" category="sidebar">Maintenance du système FAS2820</block>
-  <block id="bb0a174c5a82de66489299528cf518fe" category="sidebar">Support de démarrage FAS2820</block>
   <block id="b5f3da387d229686fd3cc259cd99b323" category="sidebar">Module de cache FAS2820</block>
   <block id="1271e815e1d2a4bf736cb807a3b42df6" category="sidebar">Châssis FAS2820</block>
   <block id="2432fa0f9f02a35df250d771c0865ed4" category="sidebar">Contrôleur FAS2820</block>
@@ -10653,12 +10559,10 @@ SFP+ (cible/initiateur)</block>
   <block id="99d3d3fcd25a3de8482ec4e2a68cd980" category="paragraph">Pour terminer la procédure de remplacement et restaurer le fonctionnement complet de votre système, restaurez la configuration du chiffrement de stockage NetApp (si nécessaire) et installez les licences pour le nouveau contrôleur.</block>
   <block id="bc8b7a027a67f1503950943beb4e6143" category="paragraph">Si un composant de votre système ASA A1K tombe en panne, renvoyez la pièce défectueuse à NetApp. Voir la<block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
   <block id="bd0c4a219c159fa570da1ded545f36d9" category="summary">Après avoir installé le nouveau périphérique de démarrage sur votre système ASA A70 ou ASA A90, vous pouvez lancer le processus de récupération automatique du support de démarrage pour restaurer la configuration à partir du nœud partenaire.</block>
-  <block id="b6bbff6284dec160274ef588afc1a30c" category="doc">Restaurez l'image sur le support de démarrage - ASA A70 et ASA A90</block>
   <block id="24fd70ba02d3ad8edef21fae96195bae" category="paragraph">Après avoir installé le nouveau périphérique de démarrage sur votre système ASA A70 ou ASA A90, vous pouvez lancer le processus de récupération automatique du support de démarrage pour restaurer la configuration à partir du nœud partenaire.</block>
   <block id="fee45db111832f938d749d9972109b24" category="paragraph">Pendant le processus de récupération, le système vérifie si le chiffrement est activé et détermine le type de chiffrement de clé utilisé. Si le chiffrement de clé est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
   <block id="9ebf0f9cdc8e3d4b2cb25a5314423cb2" category="summary">Le support de démarrage de votre système ASA A70 ou ASA A90 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de gestion du système, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de gestion du système, puis la réinstallation du module de gestion du système.</block>
   <block id="f64cb6d84d7c27a06ee97bfed6357102" category="summary">Avant de remplacer le support de démarrage de votre système ASA A70 ou A90, assurez-vous de répondre aux exigences requises pour un remplacement réussi.</block>
-  <block id="dd43e74377ed32c7af5731f3c6c94085" category="doc">Nécessité de remplacer le support de démarrage - ASA A70 et ASA A90</block>
   <block id="c330ef0ca8c9d8e7a95cd59e8bd29028" category="paragraph">Après avoir examiné la configuration requise pour le support de démarrage, vous <block ref="a9f725bc41d31688b04caf5a2f249945" category="inline-link-macro-rx"></block>.</block>
   <block id="2637ddc571b4eec6fba99d80e4508ea3" category="summary">Pour commencer à remplacer le support de démarrage de votre système de stockage ASA A70 et ASA A90, consultez les conditions de remplacement requises, éteignez le contrôleur, remplacez le support de démarrage, restaurez l'image sur le support de démarrage et vérifiez le bon fonctionnement du système.</block>
   <block id="e02c1c38027df9cf184c084019ca80bd" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="c17103ffaf4bf6b45a49b4f8fd312634" category="inline-link-macro-rx"></block></block>
@@ -10687,7 +10591,6 @@ SFP+ (cible/initiateur)</block>
   <block id="bcde75f7bddc9226b30c2cb1712cb52b" category="summary">Remplacez le module de gestion du système de votre système ASA A70 ou ASA A90 s'il est défectueux ou si son micrologiciel est corrompu. Le processus de remplacement implique l'arrêt du contrôleur, le remplacement du module de gestion du système en panne, le redémarrage du contrôleur, la mise à jour des clés de licence et le renvoi de la pièce défectueuse à NetApp.</block>
   <block id="603c758839f418606126a3dd634c68d9" category="doc">Remplacez le module de gestion du système - ASA A70 et ASA A90</block>
   <block id="dcfa3de2faa27a3e334c7c433ea50340" category="summary">Restaurez l'image ONTAP sur le support de démarrage de remplacement de votre système ASA A1K. Le processus implique de lancer le processus de restauration de démarrage à partir de l'invite Loader et de surveiller le processus de restauration jusqu'à ce qu'il soit terminé et que le nœud redémarre.</block>
-  <block id="2cc0e4a695b44179f7b31d704877b9fc" category="doc">Restaurez l'image sur le support de démarrage - ASA A1K</block>
   <block id="955b02a4be265a47dec370f73ec90202" category="paragraph">Après avoir installé le nouveau périphérique de démarrage sur votre système ASA A1K, vous pouvez lancer le processus de récupération automatique du support de démarrage pour restaurer la configuration à partir du nœud partenaire.</block>
   <block id="09922310f86dcfda39249f4666ce5146" category="summary">Le support de démarrage de votre système ASA A1K stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de gestion du système, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de gestion du système, puis la réinstallation du module de gestion du système.</block>
   <block id="71b41768755429f94118b959381a52b4" category="summary">Avant de remplacer le support de démarrage de votre système ASA A1K, assurez-vous de répondre aux exigences requises pour un remplacement réussi.</block>
@@ -11124,7 +11027,6 @@ SFP+ (cible/initiateur)</block>
   <block id="f3b6228c1cbd418b703785112e6450cf" category="list-text">Si vous y êtes invité sur le contrôleur défectueux, appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> pour remplacer _/etc/ssh/ssh_host_ecdsa_Key_.</block>
   <block id="343b939e82f6c7bd4d0b3724a8118a24" category="list-text">Si vous avez désactivé l'affectation automatique des lecteurs à l'étape 1, affectez manuellement la propriété des lecteurs, puis réactivez l'affectation automatique des lecteurs si nécessaire.</block>
   <block id="4a7998c6b7bf581d6118278f506a5818" category="list-text">Retirez le panneau situé à l'avant du système de stockage.</block>
-  <block id="23cb2d8a7bcff2be32dfdc6532d9a330" category="list-text">Si vous remplacez un autre lecteur, répétez les étapes 2 à 7.</block>
   <block id="6447c21ef920ffa27c0fa03f8a1f5fde" category="list-text">Réinstallez le panneau à l'avant du système de stockage.</block>
   <block id="1796631c78343fa139263e5130977036" category="paragraph">Les emplacements des modules DIMM dépendent du modèle du système :</block>
   <block id="f150c3e678803cfab7db992b3aed8654" category="paragraph">Emplacements 3, 10, 19, 26</block>
@@ -11132,7 +11034,6 @@ SFP+ (cible/initiateur)</block>
   <block id="28201d108eeaa65ba3986e8d2995486e" category="admonition">Le contrôleur démarre sur l'invite DU Loader une fois installé dans le châssis. Il est alimenté par le contrôleur partenaire.</block>
   <block id="a163e755300f34b3c5f473a61ca749d5" category="admonition">Assurez-vous de savoir de quelle baie de lecteur chaque module de cache a été retiré car il doit être installé dans les mêmes baies de lecteur dans le châssis de remplacement.</block>
   <block id="dd974151ca8e1528e09f3e46a090f617" category="paragraph"><block ref="120d2ded4595f37c06ed8c4aa3b846ea" prefix="" category="inline-code"></block></block>
-  <block id="02f9bb2fa8a3e17cc8807f1c822c2d25" category="list-text">Si vous remplacez un autre lecteur, répétez les étapes 3 à 8.</block>
   <block id="d5dd94ee04fd2267b6c2e4e6e2b590de" category="inline-link">Procédure de post-remplacement de la carte mère pour mettre à jour les licences sur les plates-formes ONTAP</block>
   <block id="bfa89a6ce1f8c47724bbe6c9b703c00b" category="paragraph">Si votre système exécutait initialement ONTAP 9.10.1 ou une version ultérieure, suivez la procédure décrite dans <block ref="db67b8b77fc4e1d6512bfc70b85bb60a" category="inline-link-rx"></block>. Si vous n'êtes pas sûr de la version ONTAP initiale de votre système, reportez-vous à la section <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
   <block id="0f741141425a35612c14f0bd5cc39ad7" category="paragraph">Les connecteurs d'E/S du contrôleur AFF A1K sont numérotés de 1 à 11, comme illustré ci-dessous.</block>
@@ -11453,7 +11354,6 @@ SFP+ (cible/initiateur)</block>
   <block id="c19c878358034620e42421b1d0e88979" category="image-alt">Connexion de la console au commutateur</block>
   <block id="bcbe9ce5b2d50ad0b254f40cda6fc7e1" category="image-alt">Mise sous tension et définition de l'ID de l'étagère</block>
   <block id="43f978a7787080590a53cc2abdd637c9" category="image-alt">Remplacer le module LED</block>
-  <block id="a54c219a955221bc0586ab22f8a07401" category="image-alt">Remplacer la batterie RTC</block>
   <block id="14d4a75ecbe13082ebd840dc7d091f2c" category="section-title">Étape 4 : installer les contrôleurs et les lecteurs</block>
   <block id="7aa6db479f57ead7ac39225f410bdf2d" category="paragraph">Installez les contrôleurs et les lecteurs dans le châssis de remplacement et redémarrez les contrôleurs.</block>
   <block id="fde22ae5f3a1cc39c61853ffe9a68675" category="paragraph">Créez les connexions du cluster ONTAP. Dans le cas de clusters sans commutateur, connectez les contrôleurs les uns aux autres. Pour les clusters commutés, connectez les contrôleurs aux commutateurs de réseau du cluster.</block>
@@ -11642,7 +11542,6 @@ SFP+ (cible/initiateur)</block>
   <block id="61e03a9ae98f11e74ecca739028b0d8d" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - AFF A70 et AFF A90</block>
   <block id="3d2127437f7682efd33cc290f8c65313" category="summary">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage AFF A70 ou AFF A90 .</block>
   <block id="ba6215836b185b42ba18f8576bf97d60" category="doc">Workflow de récupération automatisée du support de démarrage - AFF A70 et AFF A90</block>
-  <block id="25d514d7003721a0847e201148310402" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage AFF A70 ou AFF A90 .</block>
   <block id="f2a3b87fc596fdb0e863f6ea05d31ec8" category="summary">La récupération manuelle de l'image de démarrage consiste à utiliser une clé USB pour réinstaller ONTAP sur le support de démarrage de remplacement du système AFF A70 ou AFF A90 . Vous devez télécharger l'image de récupération ONTAP appropriée depuis le site de support NetApp et la copier sur une clé USB. Cette clé USB préparée est ensuite utilisée pour effectuer la récupération et restaurer le système à son état opérationnel.</block>
   <block id="c605804530ac6780903b2cd5d714e7bf" category="doc">Workflow de récupération manuelle du support de démarrage - AFF A70 et AFF A90</block>
   <block id="81933396946b55d13782566f5b10b705" category="summary">Le support de démarrage de votre système AFF A70 ou AFF A90 stocke les données essentielles du micrologiciel et de la configuration. Le remplacement consiste à retirer le module de gestion du système, à retirer le support de démarrage défectueux, à installer le support de démarrage de remplacement, puis à transférer manuellement l'image ONTAP sur le support de démarrage de remplacement à l'aide d'une clé USB.</block>
@@ -12085,4 +11984,446 @@ SFP+ (cible/initiateur)</block>
   <block id="8e7e4fe549d31d35f22d5919a6326875" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="d8f87fb4140fea77f47017bd9ec5dcdd" category="inline-link-macro-rx"></block></block>
   <block id="034cb39094d8eb483c641ad0dfc1c27f" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="5cf36f95205599c906eaa6f0709db155" category="inline-link-macro-rx"></block></block>
   <block id="af42a6a9db306b2ac5725e006de14a7a" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="8a056a6439f08c4b1b6c616463cfac54" category="inline-link-macro-rx"></block></block>
+  <block id="e872032fe954a0a016830d7e9591352e" category="paragraph">Le support de démarrage est situé à l'intérieur du module de contrôleur et est accessible en retirant le module de contrôleur du châssis et en retirant le couvercle du module de contrôleur du système.</block>
+  <block id="5f69d11faaea3ac587d471e8151ad364" category="list-text">Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-chemin dans le système.</block>
+  <block id="362c38f73eac0b4be28a88885d41ace1" category="list-text">Rebranchez le contrôleur, poussez fermement la poignée à came pour terminer l'installation du module du contrôleur, poussez la poignée à came en position fermée, puis serrez la vis à oreilles.</block>
+  <block id="53a6e0164d86afa690a9ff0940f16e43" category="paragraph">Le contrôleur commence à démarrer et s'arrête à l'invite LOADER.</block>
+  <block id="b1e9aebf4ad402db02d940afdcc2e99f" category="paragraph">Le support de démarrage est situé à l'intérieur du module de contrôleur sous le conduit d'air et est accessible en retirant le module de contrôleur du système.</block>
+  <block id="0fdc60b29d5e5c778f4b3a3c6e75da94" category="list-text">Localisez le support de démarrage dans le module du contrôleur et remplacez-le :</block>
+  <block id="b79ec07311b0b2e9007a947502ca1217" category="list-text">Rebranchez le module de contrôleur, poussez fermement la poignée de came pour terminer l'installation du module de contrôleur, poussez la poignée de came en position fermée, puis serrez la vis à oreilles.</block>
+  <block id="ece11f9c3d8f9d6d8aff79c9273631aa" category="paragraph">Le module contrôleur commence à démarrer et s'arrête à l'invite LOADER.</block>
+  <block id="2658eb11cd0ca39cfc2d7394809fff01" category="list-text">Définissez les ports MetroCluster comme initiateurs :<block ref="2c8f25cb974f5d5b1e520b768a31cde6" prefix=" " category="inline-code"></block></block>
+  <block id="262d6ff37dc133df81dc97d7127c21ca" category="list-text">Réinstaller le module contrôleur :</block>
+  <block id="aae9b254c24cc3785086114d3d117232" category="list-text">Si vous remplacez un autre lecteur, répétez les étapes 3 à 7.</block>
+  <block id="7c9d4c7520ca0f8e1dc57c8c26289d65" category="list-text">Si vous remplacez un autre lecteur, répétez les étapes 4 à 8.</block>
+  <block id="6ab51c87498e3948742262b60aeeee14" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage AFF A1K.</block>
+  <block id="1598afb8f3a2e9755fe6204af9dbaa8d" category="inline-link-macro">procédure de récupération de démarrage automatisée</block>
+  <block id="a3484b2f8cbf6736974f7d02ebc99cb3" category="paragraph">Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez le<block ref="0326355f0329bd91b304522a96676e27" category="inline-link-macro-rx"></block> .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.</block>
+  <block id="cc513374e31e81a36ff55275c714cbac" category="paragraph">Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez le<block ref="0326355f0329bd91b304522a96676e27" category="inline-link-macro-rx"></block> .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser le processus de récupération de démarrage manuel.</block>
+  <block id="6ff1453623c70a2b8780ad2767e3b225" category="doc">Renvoyer le support de démarrage défaillant à NetApp - AFF A400</block>
+  <block id="22575bfd6e6d83a939c93fbb6e575ac4" category="paragraph">Si un composant de votre système AFF A400 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="7f404c3390a92744a76c0e6cda8523bd" category="summary">Après avoir installé le nouveau support de démarrage sur votre système AFF A400 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire.</block>
+  <block id="7329e2e54a0c6f2594e93d7b150ad530" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - AFF A400</block>
+  <block id="e534d775ebf989520a3da41d67088a88" category="paragraph">Après avoir installé le nouveau support de démarrage sur votre système AFF A400 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="2977d2cbc48cf6d17f3f085799333ebf" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - AFF A400</block>
+  <block id="6777ba2bbc950c2b774b64c5bcdb29e5" category="summary">Le support de démarrage de votre système AFF A400 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="75e79c10dfb5b715570f884a06eaf614" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - AFF A400</block>
+  <block id="41291641a69711b11f70781c3e5f5b31" category="paragraph">Le support de démarrage de votre système AFF A400 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="9ffad2a2e8a0a7b04526d1ca06c188a5" category="summary">Avant de remplacer le support de démarrage de votre système AFF A400, assurez-vous de respecter les conditions requises pour un remplacement réussi.</block>
+  <block id="4221e926e9f147f537d074c9f2b0ce81" category="doc">Conditions requises pour la récupération automatique du support de démarrage - AFF A400</block>
+  <block id="3c50ce07906925ea3d8c4b688f2694e3" category="paragraph">Avant de remplacer le support de démarrage de votre AFF A400, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="46b9703cb3ee80b60b84932a8ac8176e" category="summary">Avant de remplacer le support de démarrage de votre système AFF A400, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="d6191c7ed5d4b01af56240eea73c1db7" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - AFF A400</block>
+  <block id="13dc1f2a9b4cecb516f1df45df0cc6e5" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage AFF A400 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="3c2f2827e811189b36235deeac40b9b1" category="doc">Workflow de récupération automatisé du support de démarrage - AFF A400</block>
+  <block id="9195c4cc5374a942663f8840fb1281fe" category="paragraph">Retirez le support de démarrage défectueux du module de contrôleur et installez le support de démarrage de remplacement.</block>
+  <block id="406c2c347bf25875352cbe864c54760e" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage AFF A400 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="41227c678f01396d0ca339e8c01c5a46" category="doc">Workflow de récupération manuelle du support de démarrage - AFF A400</block>
+  <block id="9640026e903f94f4800da359d913e0a9" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage sur le nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement dans votre système de stockage AFF A400 .</block>
+  <block id="66155ab867b9e72e003c32039430a194" category="paragraph">Restaurez la configuration du gestionnaire de clés intégré ou le gestionnaire de clés externe à partir du menu de démarrage ONATP .</block>
+  <block id="b4eff71b8a25e1341c978f074e809f5f" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - AFF A400</block>
+  <block id="25a6eda8b598dc35f40455a3b6650942" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage AFF A400 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="33f15341dc012b7a1741173f0a003ced" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - AFF A400</block>
+  <block id="217151ef13b32a9ab67e7c5b3ba1f936" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage AFF A400 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
+  <block id="74c6811365bff32176970c98a7ab6f9d" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - AFF A400</block>
+  <block id="c6615dfdc0291800b33208ac35a4f3a7" category="summary">Maintenir le matériel AFF A400</block>
+  <block id="72b339e7e15c8320ce1d0ba12fe138c8" category="paragraph">Entretenez le matériel de votre système de stockage AFF A400 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="5c2498e6d495f2eadf0d5823b9b81b5f" category="paragraph">Les procédures de maintenance supposent que le système de stockage AFF A400 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="2deff6ec3e4c0e2a0db765f462db4612" category="paragraph"><block ref="2deff6ec3e4c0e2a0db765f462db4612" category="inline-link-macro-rx"></block></block>
+  <block id="e447290ac243d603f20831e02d91710f" category="paragraph">Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer. Lors de la récupération manuelle, vous démarrez le système de stockage à partir d'une clé USB et restaurez manuellement l'image et la configuration du système de fichiers.  Si votre système de stockage exécute ONTAP 9.17.1 et versions ultérieures, utilisez le<block ref="0326355f0329bd91b304522a96676e27" category="inline-link-macro-rx"></block> .</block>
+  <block id="051f22735645ddcfbfa223db7367938f" category="paragraph"><block ref="051f22735645ddcfbfa223db7367938f" category="inline-link-macro-rx"></block></block>
+  <block id="88bdf3fa698fc0c434013372c8db3385" category="paragraph"><block ref="88bdf3fa698fc0c434013372c8db3385" category="inline-link-macro-rx"></block></block>
+  <block id="57f2f0606695bac4136b80682c0dd404" category="paragraph"><block ref="57f2f0606695bac4136b80682c0dd404" category="inline-link-macro-rx"></block></block>
+  <block id="2dd9606b888bc028dc9419210515e786" category="paragraph"><block ref="2dd9606b888bc028dc9419210515e786" category="inline-link-macro-rx"></block></block>
+  <block id="17f029f989bdbbf0434ea622cfd5e805" category="inline-link-macro">Carte PCIe et risers</block>
+  <block id="7760b4ea4020d480f5d1e31697315dff" category="paragraph"><block ref="7760b4ea4020d480f5d1e31697315dff" category="inline-link-macro-rx"></block></block>
+  <block id="349fb764bbd6401eb7d613694f98f7c4" category="paragraph">Une carte PCIe (Peripheral Component Interconnect Express) est une carte d'extension qui se branche sur l'emplacement PCIe de la carte mère ou sur des risers branchés sur la carte mère.</block>
+  <block id="01899ffb4a605f0c7e9ab547e7577a77" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage AFF A70 ou AFF A90.</block>
+  <block id="ebe44cd1c2b4953680597bc907ac847f" category="doc">Renvoyer le support de démarrage défaillant à NetApp - AFF A800</block>
+  <block id="c361ce5877b4c3472f7530b0c7183085" category="paragraph">Si un composant de votre système AFF A800 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="6ff2e5a3499f954eec5bcb32d690d50f" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - AFF A800</block>
+  <block id="8159e9573b2be76b1df996506aa14ac7" category="paragraph">Après avoir installé le nouveau support de démarrage sur votre système AFF A800 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="2ed5d23a0ec9dff10c56f0887a40e290" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - AFF A800</block>
+  <block id="8abdc855ddcb65fe07b133d1a1c8acee" category="summary">Le support de démarrage de votre système AFF A800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="334e327e3022d260eb3917df3b148515" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - AFF A800</block>
+  <block id="a62fdb9237bcfd937af4d6d9819f6e82" category="paragraph">Le support de démarrage de votre système AFF A800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="7b0145095bc96cae451f4d9717ea7de7" category="summary">Avant de remplacer le support de démarrage de votre système AFF A800, assurez-vous de respecter les conditions requises pour un remplacement réussi.</block>
+  <block id="ef4dc8a2da4b460a22a10167539ebd57" category="doc">Conditions requises pour la récupération automatique du support de démarrage - AFF A800</block>
+  <block id="fc99496f3b91b50bff484d30be86c54b" category="paragraph">Avant de remplacer le support de démarrage de votre AFF A800, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="2bb55bbdd1cec1049fafcad902f0a44d" category="summary">Avant de remplacer le support de démarrage de votre système AFF A800, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="11d22079e470961bf43da95fc1b2d7f6" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - AFF A800</block>
+  <block id="eaff295096fb469efcbefa49e0f4f3ed" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage AFF A800 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="f738af3fa00b500bdfc7e9e4892d6ad9" category="doc">Workflow de récupération automatisé du support de démarrage - AFF A800</block>
+  <block id="b02c6242a336a84e34ccd1cd6aebc376" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage AFF A800.</block>
+  <block id="449c78eca1dca9facdb7ce55e5dc2673" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage AFF A800 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="88138d0001152b572df5180bdabce355" category="doc">Workflow de récupération manuelle du support de démarrage - AFF A800</block>
+  <block id="9d9c5a6acf31e2700c8e91d48b92825c" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - AFF A800</block>
+  <block id="21b70166f3276f0c9a5dfd8176a16044" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage AFF A800 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="48751441f8d0b29dffdfa73f7ef6b039" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - AFF A800</block>
+  <block id="de98338fbf36a37cb429421fc6f9d489" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage AFF A800 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
+  <block id="4bf6f934b24bd52641aa4ad81da672ea" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - AFF A800</block>
+  <block id="142b3fd7edc5dab0d9075db01d128ae6" category="paragraph">Entretenez le matériel de votre système de stockage AFF A800 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="257144cee758fa901d78671592b3aa8c" category="paragraph">Les procédures de maintenance supposent que le système de stockage AFF A800 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="5708588245469f24c7a1fd90d0157713" category="doc">Renvoyer le support de démarrage défaillant à NetApp - AFF A900</block>
+  <block id="3a3de961b8b171b1d7e682900a483148" category="paragraph">Si un composant de votre système AFF A900 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="a3dae0277377edf5da3a49e133321874" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - AFF A900</block>
+  <block id="60c62d69aaafba15d3027f86dac5dd9a" category="paragraph">Après avoir installé le nouveau support de démarrage sur votre système AFF A900 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="4059a51c70923734ed21300a115eb92d" category="summary">Le support de démarrage de votre système AFF A900 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="b2849f50cfae619af9a6a868bae178ed" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - AFF A900</block>
+  <block id="f39e44e4f6d4595e06d41036eb263bf1" category="paragraph">Le support de démarrage de votre système AFF A900 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="d67ade4ae91f7c0d5eb3c9d1e641bde7" category="summary">Avant de remplacer le support de démarrage de votre système AFF A900, assurez-vous de respecter les conditions requises pour un remplacement réussi.</block>
+  <block id="b9ee889c6b2d7a600d42e364dba9cc43" category="doc">Conditions requises pour la récupération automatique du support de démarrage - AFF A900</block>
+  <block id="e096b937f22c19f1446afb0aabfa4204" category="paragraph">Avant de remplacer le support de démarrage de votre AFF A900, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="e4ce3d52f68e109081a7c4e9ec974ef3" category="summary">Avant de remplacer le support de démarrage de votre système AFF A900, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="01e10f901636359acda9f4714a592dca" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - AFF A900</block>
+  <block id="3b6aca2c18ad84f0e83d21c5342d3cc1" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage AFF A900 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="97e88b41b05cca9f6c5bd170c4c703a7" category="doc">Workflow de récupération automatisé du support de démarrage - AFF A900</block>
+  <block id="131365dfbc2c8580e0b7c418b577017c" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage AFF A900.</block>
+  <block id="40d1397376c7893f9fe8ab2b99914b10" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage AFF A900 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="173ec8ed18c52eafad0830ed08789676" category="doc">Workflow de récupération manuelle du support de démarrage - AFF A900</block>
+  <block id="b5bf4b2796b6023656eab3e1737c94eb" category="paragraph">Arrêtez le contrôleur lorsque vous devez remplacer le support de démarrage.</block>
+  <block id="85ed6aa6d1e8311e80e0619c4d18d303" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="a70ed88f8fc545e1d29198fc61b5c58e" category="inline-link-macro-rx"></block></block>
+  <block id="16544e4cd0d15558e854f3b9c762c1e0" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - AFF A900</block>
+  <block id="d7797b426a89708a73784826c2bd25a8" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage AFF A900 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="f2fa38e6be0c053e489deb839142196d" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - AFF A900</block>
+  <block id="5f7924b943afe82cde397c44d409ccd8" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage AFF A900 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
+  <block id="facc45ff99f31b515df42f2b0ba59c86" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - AFF A900</block>
+  <block id="4b4a03214cc0238211a99dae237814c6" category="paragraph">Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez la procédure de récupération de démarrage automatique.  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser le processus de récupération de démarrage manuel.</block>
+  <block id="712bd387d50c5fc749ffb5f431130a44" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - AFF A900</block>
+  <block id="d7759bb9755ab1f9bc3537241c66c6ba" category="summary">Entretenir le matériel AFF A900</block>
+  <block id="b1869a7fddfc52d740077ac0eba816bb" category="paragraph">Entretenez le matériel de votre système de stockage AFF A900 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="1a04019f5defd9a03ee7c19509f69f9d" category="paragraph">Les procédures de maintenance supposent que le système de stockage AFF A900 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="adc9cb4ce04e3f5ffaacafe1972bd0d0" category="paragraph">Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer. Lors de la récupération automatisée, le système de stockage récupère l'image de démarrage à partir du nœud partenaire et exécute automatiquement l'option de menu de démarrage appropriée pour installer l'image sur votre support de démarrage de remplacement. La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option <block ref="739428bb763fc45faeb1ae97255a3f48" category="inline-link-macro-rx"></block> .</block>
+  <block id="bd03785e613dc329f14cf463b0512423" category="paragraph"><block ref="bd03785e613dc329f14cf463b0512423" category="inline-link-macro-rx"></block></block>
+  <block id="fffcae23e95c33bd8606d21e412441f5" category="paragraph"><block ref="fffcae23e95c33bd8606d21e412441f5" category="inline-link-macro-rx"></block></block>
+  <block id="6ab755457f66e7be1a26019a04d5ccad" category="paragraph"><block ref="6ab755457f66e7be1a26019a04d5ccad" category="inline-link-macro-rx"></block></block>
+  <block id="b1d4e14e51fd80f3d42a5a61331331ec" category="paragraph"><block ref="b1d4e14e51fd80f3d42a5a61331331ec" category="inline-link-macro-rx"></block></block>
+  <block id="1ff948d4fdd43a5c08683922d48952ae" category="paragraph"><block ref="1ff948d4fdd43a5c08683922d48952ae" category="inline-link-macro-rx"></block></block>
+  <block id="1cfeb929027ebaebb9322da45a5af3d3" category="paragraph"><block ref="1cfeb929027ebaebb9322da45a5af3d3" category="inline-link-macro-rx"></block></block>
+  <block id="4d505ded17e0fc2301810e57a288db7d" category="paragraph"><block ref="4d505ded17e0fc2301810e57a288db7d" category="inline-link-macro-rx"></block></block>
+  <block id="ec8a7de2ed4b8f6b9bc4b06a500a8696" category="paragraph"><block ref="ec8a7de2ed4b8f6b9bc4b06a500a8696" category="inline-link-macro-rx"></block></block>
+  <block id="8911a2f78b707f48ed59f4823bc6ea2b" category="paragraph">Le module NVRAM (mémoire vive non volatile) permet au contrôleur de conserver les données lors des cycles d'alimentation ou des redémarrages du système, tandis que le module NVRAM DIMM conserve les paramètres NVRAM .</block>
+  <block id="06ae2e96e772f1ebb7bcbdfaf2a29619" category="paragraph"><block ref="06ae2e96e772f1ebb7bcbdfaf2a29619" category="inline-link-macro-rx"></block></block>
+  <block id="3b6e8011ba80e6703880646bf3925bff" category="paragraph"><block ref="3b6e8011ba80e6703880646bf3925bff" category="inline-link-macro-rx"></block></block>
+  <block id="e10e00b4c53f89990e82ffd1e6f22f61" category="doc">Renvoyer le support de démarrage défaillant à NetApp - ASA C400</block>
+  <block id="352d38ced977b67bb2c4f5a69083d03d" category="paragraph">Si un composant de votre système ASA C400 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="e788a48adb6a19e7299317986939a9a2" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - ASA C400</block>
+  <block id="34b29be83d480738889d8ebcd1886ec1" category="paragraph">Après avoir installé le nouveau support de démarrage sur votre système ASA C400 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="9d39a64ade57e142a88ec768b81c91d9" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - ASA C400</block>
+  <block id="83c2b84806c943f6b50bafd0fb4efb51" category="summary">Le support de démarrage de votre système ASA C400 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="55d53312805fe204533f1bb33f0fedca" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - ASA C400</block>
+  <block id="5d69ccf09575fcce4a0fcad17c305a7b" category="paragraph">Le support de démarrage de votre système ASA C400 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="95af7460d1911057f13d748a51faf551" category="summary">Avant de remplacer le support de démarrage de votre système ASA C400, assurez-vous de respecter les conditions requises pour un remplacement réussi.</block>
+  <block id="fafee2b3699468f91e3f14fc4e792257" category="doc">Conditions requises pour la récupération automatique du support de démarrage - ASA C400</block>
+  <block id="10d2fbd856f042a1112a6b4be8d605a4" category="paragraph">Avant de remplacer le support de démarrage de votre ASA C400, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="1a3246c7ae0b5f948f467b33a302c911" category="summary">Avant de remplacer le support de démarrage de votre système ASA C400, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="da706d63b6432a748eccdc32954975df" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - ASA C400</block>
+  <block id="939257993754234e74b76aea6f4e4e43" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage ASA C400 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="8fcfa8e6cb87eb29b8bae4c2c6a95100" category="doc">Workflow de récupération automatisé du support de démarrage - ASA C400</block>
+  <block id="61aba7c99f550875e7735725dc17f5f1" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage ASA C400.</block>
+  <block id="dc9867e84dc1dc6d42d61ec374a11844" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage ASA C400 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="d1f17cccb0588b5d0d37a939af6b6ec9" category="doc">Workflow de récupération manuelle du support de démarrage - ASA C400</block>
+  <block id="1f67115261e58e4a3c2902f55ff1870a" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - ASA C400</block>
+  <block id="dcc1e7905dc913d93bd16a9d4b0cddd4" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage ASA C400 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="a4c3f985c6515c8f88e604f7a11905f1" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - ASA C400</block>
+  <block id="cb0dfaa8139b94587b39f5694c8c8f9e" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage ASA C400 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
+  <block id="5dd2434180bdbd6f1d65f83bd7aa5bb8" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - ASA C400</block>
+  <block id="c1f0d47ed40a4f3a4a19c11084ae58a5" category="paragraph">Entretenez le matériel de votre système de stockage ASA C400 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="15bc84fa5489d2e54fdf72482df3e3ce" category="paragraph">Les procédures de maintenance supposent que le système de stockage ASA C400 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="9850c9d30ed561f1bc1a63527d554b78" category="doc">Renvoyer le support de démarrage défaillant à NetApp - ASA C800</block>
+  <block id="b602900a2c4edc1e98c65f23c235accb" category="paragraph">Si un composant de votre système ASAF C800 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="9d2068a55a2da473bf1c33aae89a36d2" category="paragraph">Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez le<block ref="739428bb763fc45faeb1ae97255a3f48" category="inline-link-macro-rx"></block></block>
+  <block id="d514a7489ec95bb2a3e761f79dd08254" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - ASA C800</block>
+  <block id="43535e76f42e16cae35e58f51112fee3" category="paragraph">Après avoir installé le nouveau support de démarrage sur votre système ASA C800 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="e797cc14cbd83adea19055313ce780d2" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - ASA C800</block>
+  <block id="cc6c150eeeda76035baba1ca9bec7f8b" category="summary">Le support de démarrage de votre système ASA C800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="9075606b5faf6dd212619308b8e5025e" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - ASA C800</block>
+  <block id="075d5fc89153c0383e52d9f3e5badfb0" category="paragraph">Le support de démarrage de votre système ASA C800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="6bca484b66731ad1c39b5ddad4ee5423" category="summary">Avant de remplacer le support de démarrage de votre système ASA C800, assurez-vous de respecter les conditions requises pour un remplacement réussi.</block>
+  <block id="18319bfb663e3372f07d3e1e8e0ed3de" category="doc">Conditions requises pour la récupération automatique du support de démarrage - ASA C800</block>
+  <block id="eab54dfc4e7beb82ae1f48213a2b2b62" category="paragraph">Avant de remplacer le support de démarrage de votre ASA C800, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="a0e501facd187264d36a04b26ace9613" category="summary">Avant de remplacer le support de démarrage de votre système ASA C800, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="97b8e0ee1943302c9ce7b8c3f7099672" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - ASA C800</block>
+  <block id="46d81f9ac1f40f51995ed2d2a864c7d0" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage ASA C800 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="bd2004181e783a2ce1a7edb9d36c9621" category="doc">Workflow de récupération automatisé du support de démarrage - ASA C800</block>
+  <block id="c17c6cd7d230d26b6055df587fff8f2a" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage ASA C800.</block>
+  <block id="fc4543934233e0bf02e26cec60f78e13" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage ASA C800 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="87b2f8106853b00c0b2dc002a92e6c71" category="doc">Workflow de récupération manuelle du support de démarrage - ASA C800</block>
+  <block id="49b0bd3c0dbb58facff799b0de224229" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - ASA C800</block>
+  <block id="9cbb8388a3adabc9382cb6a250286db6" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage ASA C800 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="1874f003f2109c6554e8680d99e76e4d" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - ASA C800</block>
+  <block id="f36e4e67bad8abd5dd4c7e4ab62dafbc" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage ASA C800 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
+  <block id="fb90cfe951df7435d9ebfc3ad5489b6b" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - ASA C800</block>
+  <block id="d3c68c0d6fbe8e59b9ce22c40e047bb6" category="paragraph">Entretenez le matériel de votre système de stockage ASA C800 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="1cdf405b83256c8187cb8d239742c6e6" category="paragraph">Les procédures de maintenance supposent que le système de stockage ASA C800 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="86eaa4c0bb049cd4791891b569f8b208" category="paragraph">Si un composant de votre système ASA 70-90 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="34a6a22de50bdf82fc335ef9ba00f122" category="doc">Restaurer l'image ONTAP sur le support de démarrage - ASA A70 et ASA A90</block>
+  <block id="311fdf0bc640bef9909a44de7e92965d" category="doc">Conditions requises pour remplacer le support de démarrage - ASA A70 et ASA A90</block>
+  <block id="41b89d0490625c676af5a5cff71cfb3e" category="doc">Arrêtez le contrôleur pour remplacer le support de démarrage - ASA A70 ou ASA A90</block>
+  <block id="02b0f3d45bd8a43d8e99a812c22f13a0" category="doc">Restaurer l'image ONTAP sur le support de démarrage - ASA A1K</block>
+  <block id="0e4aeec1f9da6d5e96e0144b5f37e09a" category="doc">Renvoyer le support de démarrage défaillant à NetApp - ASA A400</block>
+  <block id="f7c6615d138a63d22cf5023c69e7319a" category="paragraph">Si un composant de votre système ASA A400 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="c0f6a2eb47a57b7c065866b33fdf90ac" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - ASA A400</block>
+  <block id="85856d7fbf598be1af6359e041dbc6c0" category="paragraph">Après avoir installé le nouveau support de démarrage sur votre système ASA A400 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="834ffef5d40b393f44e5d2a7b7ca183e" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - ASA A400</block>
+  <block id="a1102252f7d291ba487477c1ad7dc0f4" category="summary">Le support de démarrage de votre système ASA A400 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="183429bd185c0bb89d230721c8bafb0f" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - ASA A400</block>
+  <block id="f8dd43c0db45969cb260f51342c2daf8" category="paragraph">Le support de démarrage de votre système ASA A400 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="7bedaa496cfd73e8b1e6cfc86c091f63" category="summary">Avant de remplacer le support de démarrage de votre système ASA A400, assurez-vous de respecter les conditions requises pour un remplacement réussi.</block>
+  <block id="f2c392f30e5fe029dc592be664339154" category="doc">Conditions requises pour la récupération automatique du support de démarrage - ASA A400</block>
+  <block id="ef5ca04fc37545d8e98cf02275bc6c17" category="paragraph">Avant de remplacer le support de démarrage de votre ASA A400, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="84d5e9550c5d39d2538fd0be0557590f" category="summary">Avant de remplacer le support de démarrage de votre système ASA A400, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="7f32935bbd94e38a894928143b4b15c6" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - ASA A400</block>
+  <block id="a20ebcdc01dd4e5abab7f61885008057" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage ASA A400 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="015033a6e051cecbcf4d2c3aebdc2b40" category="doc">Workflow de récupération automatisé du support de démarrage - ASA A400</block>
+  <block id="6507c6b787cdc07b44b60600bf4145e9" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système ASA A400 .</block>
+  <block id="329c9ace994be9248b3043e77ed3e54f" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage ASA A400 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="22f353a6c038ce3ebff60b5a2080b0ec" category="doc">Workflow de récupération manuelle du support de démarrage - ASA A400</block>
+  <block id="e5bcdce4e562b8b60ae89794b945de42" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - ASA A400</block>
+  <block id="e72e7228a5180ac1bfa285a4f11bc4f5" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage ASA A400 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="66f12ed6d68584ef675075a288b7b482" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - ASA A400</block>
+  <block id="7cb7231cf20dc931525517d42b1e5409" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage ASA A400 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
+  <block id="6effad4b4f854b5d9f5212f5786dec6c" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - ASA A400</block>
+  <block id="63316578a99d2be44745f91a8a533687" category="paragraph">Entretenez le matériel de votre système de stockage ASA A400 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="f84d129ccf9d1cd4adfd21c0a2e73b20" category="paragraph">Les procédures de maintenance supposent que le système de stockage ASA A400 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="2fa228b1a6b52ddee3a9c6779943197f" category="paragraph">Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer. Lors de la récupération automatisée, le système récupère l'image de démarrage à partir du nœud partenaire et exécute automatiquement l'option de menu de démarrage appropriée pour installer l'image sur votre support de démarrage de remplacement. La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option <block ref="d83b47a0a2d85a13a2094c696f473b60" category="inline-link-macro-rx"></block> .</block>
+  <block id="361b65eef42e888122f41f11eac8fa07" category="doc">Renvoyer le support de démarrage défaillant à NetApp - ASA A800</block>
+  <block id="06275ea376599fc8bf14d5bde1a4cc31" category="paragraph">Si un composant de votre système ASAF A800 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="924624c8588a90de7fdeb6caf86c2203" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - ASA A800</block>
+  <block id="eb5a4bd38649b66fbf79fa72698b100d" category="paragraph">Après avoir installé le nouveau support de démarrage sur votre système ASA A800 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="d8640bcfad4728aed30f3f1a19ed9aab" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - ASA A800</block>
+  <block id="16083bf1712dbe8dce78059c2dcbfab8" category="summary">Le support de démarrage de votre système ASA A800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="e6a5d51d9bb4a462a50b66e9607ed4c9" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - ASA A800</block>
+  <block id="c750b42bbf0b2a1a720c61535134b17b" category="paragraph">Le support de démarrage de votre système ASA A800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="c93806c44a1a1eacf0faaf11c4a72185" category="summary">Avant de remplacer le support de démarrage de votre système ASA A800, assurez-vous de respecter les conditions requises pour un remplacement réussi.</block>
+  <block id="e149ea0285b07569363801278d2e4f1e" category="doc">Conditions requises pour la récupération automatique du support de démarrage - ASA A800</block>
+  <block id="2c7180a3080a06cb0599eed2d1ca8b9a" category="paragraph">Avant de remplacer le support de démarrage de votre ASA A800, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="aa2b63e39c66d87e3ef0adb54f3a479e" category="summary">Avant de remplacer le support de démarrage de votre système ASA A800, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="8b4167c8eb3a3738ce201cbad23f4a4f" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - ASA A800</block>
+  <block id="2f6dc43fac8155de65b6846438a8462a" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage ASA A800 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="f50118f7e12a2ef1e5a8f1983b2eff33" category="doc">Workflow de récupération automatisé du support de démarrage - ASA A800</block>
+  <block id="8e70b97e62889f4765f18fc1c9d41928" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système ASA A800 .</block>
+  <block id="3535229cbc089db5881d1253c5694ce3" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage ASA A800 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="bcbcde938bdf5537e124daf437e7b9db" category="doc">Workflow de récupération manuelle du support de démarrage - ASA A800</block>
+  <block id="dc9758be9759e8c57475ad932fefe4db" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - ASA A800</block>
+  <block id="efdee91879779d5ca7bdeca68ad8554e" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage ASA A800 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="5f3255ff63cc7544f1e12eab4fb27c88" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - ASA A800</block>
+  <block id="1ff29b745be87692db3430ac143ca156" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage ASA A800 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
+  <block id="057a80e24c284868ae5c3b2342b8f7db" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - ASA A800</block>
+  <block id="a6ef9b4193af40daa8e0af1cb39800be" category="paragraph">Entretenez le matériel de votre système de stockage ASA A800 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="f479f65c7fc63d1be810d8c72e66fa74" category="paragraph">Les procédures de maintenance supposent que le système de stockage ASA A800 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="991fde1e2f472e8a5745cbdf81e079bc" category="paragraph">Si un composant de votre système ASA A900 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="853ed3f66990612e4e0c819c5d847ab0" category="summary">Après avoir installé le nouveau support de démarrage sur votre système ASA A900 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire.</block>
+  <block id="9ba315e2dcb74d7d652a176d97bfa363" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - ASA A900</block>
+  <block id="f054df79bb11619746d06ed0958953a0" category="paragraph">Après avoir installé le nouveau support de démarrage sur votre système ASA A900 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire.</block>
+  <block id="f844aa112f2ce2bbb31f34acfc4e2526" category="summary">Le support de démarrage de votre système ASA A900 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="b0a9527bfb8ce1fb0c8d3d5aa7b2ce80" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - ASA A900</block>
+  <block id="1a36d4701aabbe1db74da28a8cc140b3" category="paragraph">Le support de démarrage de votre système ASA A900 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="1fbc095e27acc85d2d626dc44b1698c9" category="summary">Avant de remplacer le support de démarrage de votre système ASA A900, assurez-vous de respecter les conditions requises pour un remplacement réussi.</block>
+  <block id="6371c9113bb173db821f8c48a70384c0" category="doc">Conditions requises pour la récupération automatique du support de démarrage - ASA A900</block>
+  <block id="9e897d5c1be66981a1ee20fced4d99fa" category="paragraph">Avant de remplacer le support de démarrage de votre ASA A900, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="c1de618be6f54f816019fc5cb45c849b" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - ASA A900</block>
+  <block id="5b631559aae3b51d865116d5608bd577" category="paragraph">Avant de remplacer le support de démarrage de votre système ASA A900, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="5485c081c1aaeb9399be0ef0aa1243e3" category="paragraph">Après avoir examiné les exigences pour remplacer le support de démarrage, vous devez<block ref="3b50245387c5d16203a9ca127a792c70" category="inline-link-macro-rx"></block> .</block>
+  <block id="849dbcb9cff10c2c3ce685ff21f7c30c" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage ASA A900 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="fb2125bdc8e77f8630fb3e030e8857f8" category="doc">Workflow de récupération automatisé du support de démarrage - ASA A900</block>
+  <block id="d799be71967575706ca5ccebf03648f1" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage ASA A900.</block>
+  <block id="40421d6a1e6e75d7ef1ebc0e1744e8d1" category="doc">Workflow de récupération manuelle du support de démarrage - ASA A900</block>
+  <block id="517be28f997c15f4e0a9610c7b8eb98a" category="paragraph">Commencez à remplacer le support de démarrage de votre système de stockage ASA A900 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="0e2db22b9c9decd8463dba0e31f85618" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="9ed39e651cfa2bfcad897ddd10297697" category="inline-link-macro-rx"></block></block>
+  <block id="8686efd91f938565a531b86e4c6484ad" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="710153b81007aab4b847b09b692bebbc" category="inline-link-macro-rx"></block></block>
+  <block id="764396cc36f254bde1c6a8bb8648fe3d" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="a98f18c86f9fa7a3f9a442daf9108144" category="inline-link-macro-rx"></block></block>
+  <block id="6929742e903d13c0715ad73d359fba49" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage ASA A900 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="9b845a693c955827a416b44a9519c242" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - ASA A900</block>
+  <block id="bc350e9ed5562f8e05caf725860ee458" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - ASA A900</block>
+  <block id="ddd2c1807a530195dc9c14c581b7fe0d" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - ASA A900</block>
+  <block id="332b46a23e8dff84588d76fe63f1cc25" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - ASA A900</block>
+  <block id="a8cc89dd83e94825c63fb5042ce52a8c" category="paragraph">Entretenez le matériel de votre système de stockage ASA A900 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="e78d2f54e32be5aace4ee0e915e12814" category="paragraph">Les procédures de maintenance supposent que le système de stockage ASA A900 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="a8ebccad83f39d45d83692638bd1be35" category="paragraph">Si un composant de votre système AFF C400 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="65970b34da900e5881f17583856bc5cd" category="doc">Renvoyer le support de démarrage défaillant à NetApp - AFF C400</block>
+  <block id="152037f5b7b5780b475e2597da9bbe78" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - AFF C400</block>
+  <block id="4b0c67a505fa209d6a529a42e37faf4c" category="paragraph">Après avoir installé le nouveau support de démarrage sur votre système AFF C400 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire.</block>
+  <block id="d5c70f79d37569cc26a869ff117966be" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - AFF C400</block>
+  <block id="11e63cc559e327f289e6412304de9cbc" category="summary">Le support de démarrage de votre système AFF C400 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="50c31d72416e6fd79a7ef27a60db744a" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - AFF C400</block>
+  <block id="fd80fb86220d663f3c8686b29148ae99" category="paragraph">Le support de démarrage de votre système AFF C400 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="e72434326057ff97f987b53641ca00dd" category="summary">Avant de remplacer le support de démarrage de votre système AFF C400, assurez-vous de respecter les conditions requises pour un remplacement réussi.</block>
+  <block id="5e2aa7d9d2c2ab236eb3da371e4c94cd" category="doc">Conditions requises pour la récupération automatique du support de démarrage - AFF C400</block>
+  <block id="90e3ca94599436bafa3254e647b43203" category="paragraph">Avant de remplacer le support de démarrage de votre AFF C400, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="5e5d0bcb9eda9596399336b7fd66585b" category="summary">Avant de remplacer le support de démarrage de votre système AFF C400, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="356cabc5259436f13451eb0e681a3d7f" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - AFF C400</block>
+  <block id="403d3b92cecce32f9df4f2ccf0c26869" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage AFF C400 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="816ca9c03b9dc4b02266d8e1f92392b0" category="doc">Workflow de récupération automatisé du support de démarrage - AFF C400</block>
+  <block id="a15fd3940e63990ccc51f739d2346c37" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage sur le nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement dans votre système de stockage AFF C400 .</block>
+  <block id="9fc72301b7287c718e79e66fb08e294c" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage AFF C400 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="4faa36a85b9d111fe4905e6b2e10a27c" category="doc">Workflow de récupération manuelle du support de démarrage - AFF C400</block>
+  <block id="eaf1f4f25a5276152228f6fc62bc398a" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - AFF C400</block>
+  <block id="a0dbcf6f0f26d754fde2bb6d70fbb73f" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage AFF C400 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="966d4890030f1e5c3f1b51c3c5299a94" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - AFF C400</block>
+  <block id="e36c07ddc2c852e96b18f7eda4762c15" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - AFF C400</block>
+  <block id="a42309898a70f71c8b47fb7946ed0fa2" category="summary">Entretenir le matériel AFF C400</block>
+  <block id="37a0c3f42116a45593e1759f7ca396f7" category="paragraph">Entretenez le matériel de votre système de stockage AFF C400 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="3fc46261568f86b2dfeb5c6ac5374871" category="paragraph">Les procédures de maintenance supposent que le système de stockage AFF C400 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="a6783798c7878d8ef836e14478c0ef38" category="paragraph">Le module de gestion du système fournit l'interface entre le contrôleur et une console ou un ordinateur portable à des fins de maintenance du contrôleur ou du système.  Le module de gestion du système contient le support de démarrage et stocke le numéro de série du système (SSN).</block>
+  <block id="6a927a72a3647dbe3f40171b477f09d5" category="doc">Renvoyer le support de démarrage défaillant à NetApp - AFF C800</block>
+  <block id="6833a1d5259195b475f6fe2e0b87de67" category="paragraph">Si un composant de votre système AFF C800 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="bf6fd99254dd358ccb3761bdb86f6ee6" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - AFF C800</block>
+  <block id="6d359ea24bf33b0c9bc36b5be1f31e14" category="paragraph">Après avoir installé le nouveau support de démarrage sur votre système AFF C800 , vous pouvez lancer la récupération automatique du support de démarrage pour restaurer la configuration depuis le nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="59614d7f8c54752af4b5da2b2b5ad34b" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - AFF C800</block>
+  <block id="86d17ca75354a41103a63cf402b7270c" category="summary">Le support de démarrage de votre système AFF C800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="2fba40f1d4b0b0191c3ce74446e448f2" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - AFF C800</block>
+  <block id="e14388897a217e1a857388770cabf974" category="paragraph">Le support de démarrage de votre système AFF C800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="d883ace2fbed4bfa3af3fbcc4b01bdc1" category="summary">Avant de remplacer le support de démarrage de votre système AFF C800, assurez-vous de respecter les conditions requises pour un remplacement réussi.</block>
+  <block id="cdb79bc35cd41638183f39b8a4ce7fd3" category="doc">Conditions requises pour la récupération automatique du support de démarrage - AFF C800</block>
+  <block id="762a189e47993cdece764acffc3ceaa4" category="paragraph">Avant de remplacer le support de démarrage de votre AFF C800, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="94af2227395ddad6e5559560cd877271" category="summary">Avant de remplacer le support de démarrage de votre système AFF C800, assurez-vous de respecter les conditions requises pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="376d0b7cc18d28859e4ffa0d79786298" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - AFF C800</block>
+  <block id="19c26b68bb7cb462e4abd364c6328f0f" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage AFF C800 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="11f28b493b22c26e63808c0ef19438fb" category="doc">Workflow de récupération automatisé du support de démarrage - AFF C800</block>
+  <block id="45205ddf6f9c7e719aaaa7cbae3d0889" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage AFF C800.</block>
+  <block id="302e158fc93380f5f3a9d40cf82e06f9" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage AFF C800 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="7af8a97506402cb0ac9ef5bfd59bd213" category="doc">Workflow de récupération manuelle du support de démarrage - AFF C800</block>
+  <block id="fbe931acedf8eb5e6a3615d416560ed4" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - AFF C800</block>
+  <block id="d16211cc14d5926be04fb22e96001a9a" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage AFF C800 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="b168114c4413f6996c9f2a75b1a5a2ef" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - AFF C800</block>
+  <block id="4049e0486575464f760ada93973aa794" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage AFF C800 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
+  <block id="7dfe2a1426c539750938a390c889f3c7" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - AFF C800</block>
+  <block id="09cd0fdcd9f1256abe6169998fea7954" category="summary">Entretenir le matériel AFF C800</block>
+  <block id="ae52032c0389bb7e30fc8a1b1d42aca4" category="paragraph">Entretenez le matériel de votre système de stockage AFF C800 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="d0dc52ec8db18186cb1170efa77d4057" category="paragraph">Les procédures de maintenance supposent que le système de stockage AFF C800 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="24cceeaae404051397c2983029af36f3" category="summary">Si un composant de votre système FAS2800 tombe en panne, renvoyez la pièce défectueuse à NetApp.</block>
+  <block id="f182f34c787823aeadccd435dcec1399" category="doc">Renvoyer le support de démarrage défaillant à NetApp - FAS2800</block>
+  <block id="b3361527c62bdeb1f36dbc5fa70c1b86" category="paragraph">Si un composant de votre système FAS2800 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="208666d4a1799cf8d635583dc8b3e3de" category="doc">Renvoyer le support de démarrage défaillant à NetApp - FAS2820</block>
+  <block id="f8baed9ec7bf1a62d9ce35c80a3d8c51" category="summary">Restaurez l’image ONTAP sur le support de démarrage de remplacement de votre système fas2800.  Le processus implique le lancement du processus de récupération de démarrage à partir de l'invite LOADER et la surveillance du processus de récupération jusqu'à ce qu'il soit terminé et que le nœud redémarre.</block>
+  <block id="e6fe534627555f8e7a33805bc543abdc" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - FAS2800</block>
+  <block id="cc0ed6aa6da428e81652617693d61afb" category="paragraph">Après avoir installé le nouveau périphérique de support de démarrage dans votre système FAS2800, vous pouvez démarrer le processus de récupération automatique du support de démarrage pour restaurer la configuration à partir du nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="f2bc732a7d5d8c83b606d4b87b43d0c8" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - FAS2820</block>
+  <block id="1e791cb35abdd5d00f53d3d3c4443566" category="summary">Le support de démarrage de votre système FAS2800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="743e8a6f1f9f11ff4a64d576d02918df" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - FAS2800</block>
+  <block id="25e62a9fdcc1989a75580a47b34b825a" category="paragraph">Le support de démarrage de votre système FAS2800 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="b25d39100142d4325a36a2f1dc51b357" category="summary">Avant de remplacer le support de démarrage de votre système FAS2800, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.</block>
+  <block id="b0c926b67df8c50f554c31ba5f438d3b" category="doc">Exigences relatives à la récupération automatique du support de démarrage - FAS2800</block>
+  <block id="391ecd0e8870e2b4f7726e8e0e4535b4" category="paragraph">Avant de remplacer le support de démarrage de votre système FAS2800, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="540645a7a8b968d2bfc1cb50135e74b5" category="summary">Avant de remplacer le support de démarrage de votre système FAS2800, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="f42d257c8d78af23f34def0cfd5c0e41" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - FAS2800</block>
+  <block id="95ede32ef16239c3cc5bbb5979861cd5" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage FAS2800 en examinant les exigences de remplacement, en arrêtant les contrôleurs, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="7d5a43c9fba8074e1fcb5d5b13d61a95" category="doc">Workflow de récupération automatisée du support de démarrage - FAS2800</block>
+  <block id="3255a747b4184547071b1ae5154169ee" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage FAS2800.</block>
+  <block id="9a9625cd4ab60019935c414944220ecf" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage FAS2800 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="ebcc7e58b81c25dd73c9df8fe6181151" category="doc">Workflow de récupération manuelle du support de démarrage - FAS2800</block>
+  <block id="3ee8f094be932eefb34c56849195a95c" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - FAS2820</block>
+  <block id="761cd9929abac19a1b8c34b6aabb24d1" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage FAS2800 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="708e5a998bc4f6c04fcaa8374cb2876c" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - FAS2800</block>
+  <block id="e78e9090c463ee72ca6961d2d9410202" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage FAS2800 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
+  <block id="f786f72f787253592e5245b4d428485a" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - FAS2820</block>
+  <block id="0d524c2055dbb11c0b4664cba6b67f83" category="paragraph">Entretenez le matériel de votre système de stockage FAS2820 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="f0a79de90b99f5f050883964e05d8d52" category="paragraph">Les procédures de maintenance supposent que le système de stockage FAS2820 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="f33c5fec2de4fbf5a4380cbc9a2ddaa6" category="paragraph"><block ref="f33c5fec2de4fbf5a4380cbc9a2ddaa6" category="inline-link-macro-rx"></block></block>
+  <block id="b964db289e222d97cb288f76b040aa05" category="paragraph"><block ref="b964db289e222d97cb288f76b040aa05" category="inline-link-macro-rx"></block></block>
+  <block id="ae67a746eb3619b67c535b49242009cc" category="paragraph"><block ref="ae67a746eb3619b67c535b49242009cc" category="inline-link-macro-rx"></block></block>
+  <block id="59fd433224242913fbfcbf0af8c25782" category="paragraph">Une carte mezzanine est une carte d'extension conçue pour être insérée dans un emplacement spécialisé sur la carte mère et contient les cartes d'E/S de la carte.</block>
+  <block id="ccb46cd83815d2a0d4deb3061e1890cd" category="paragraph"><block ref="ccb46cd83815d2a0d4deb3061e1890cd" category="inline-link-macro-rx"></block></block>
+  <block id="4b90affa7835ea96a51fed1943ed714a" category="doc">Recommutation des agrégats dans une configuration MetroCluster à deux nœuds - FAS8300 et FAS8700</block>
+  <block id="873aecdad0cb49d6576e39c8298dd1bf" category="doc">Renvoyez le support de démarrage défaillant à NetApp - FAS8300 et FAS8700</block>
+  <block id="be73561cb8cd15d6613be2396178e43c" category="paragraph">Si un composant de votre système FAS8300 ou FAS8700 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="b76577fa042165d3e8e07c529d9b9d1c" category="doc">Vérifier la prise en charge et l'état des clés de chiffrement - FAS8300 et FAS8700</block>
+  <block id="5b43006cee0518e13913328d7814035f" category="doc">Restaurer le cryptage - FAS8300 et FAS8700</block>
+  <block id="0924b401802439618a718e54fb8b6c2a" category="summary">Après avoir installé le nouveau périphérique de support de démarrage dans votre système FAS8300 ou FAS8700 , vous pouvez démarrer le processus de récupération automatique du support de démarrage pour restaurer la configuration à partir du nœud partenaire.</block>
+  <block id="f054e77489472e63e19b45e2c9ff31c4" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - FAS8300 et FAS8700</block>
+  <block id="524ffc85b676c8fa7303fecc45c332ab" category="paragraph">Après avoir installé le nouveau périphérique de support de démarrage dans votre système FAS8300 ou FAS8700 , vous pouvez démarrer le processus de récupération automatique du support de démarrage pour restaurer la configuration à partir du nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="093908c6170c1795125ba47dc3c5f5c8" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - FAS8300 et FAS8700</block>
+  <block id="ba37f46ada6aaff46e63e14da5857450" category="summary">Le support de démarrage de votre système FAS8300 ou FAS8700 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="2f5bd969b0f29b1308a14f3006b040f3" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - FAS8300 et FAS8700</block>
+  <block id="96c4098495740e7119648c5d4dfcc81f" category="paragraph">Le support de démarrage de votre système FAS8300 ou FAS8700 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="6d38c98f35feff5362357d90ac3df2f0" category="doc">Présentation du remplacement du support de démarrage - FAS8300 et FAS8700</block>
+  <block id="fa6154065b326631d4348a136b2cfb2c" category="summary">Avant de remplacer le support de démarrage de votre système FAS8300 ou FAS8700 , assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.</block>
+  <block id="d17ebedff2aa967786a1f05ffdd1d4a5" category="doc">Exigences pour la récupération automatique du support de démarrage - FAS8300 et FAS8700</block>
+  <block id="a9f25df7e08b579215eb3375343eb3a5" category="paragraph">Avant de remplacer le support de démarrage de votre FAS8300 ou FAS8700, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="be767870bb556c204155138a2ea3ad9f" category="summary">Avant de remplacer le support de démarrage de votre système FAS8300 et FAS8700 , assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="cc2c652dd46d9b43caba43e56578d8fc" category="doc">Exigences pour la récupération manuelle du support de démarrage - FAS8300 et FAS8700</block>
+  <block id="00211911b2ba513521720fdc3f5c8683" category="paragraph">Avant de remplacer le support de démarrage de votre système FAS8300 ou FAS8700 , assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="65899bfeb0f4080d023f5b76933df62a" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage FAS8300 ou FAS8700 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="9c211242417a2d4e971c87e2f2ab93b0" category="doc">Workflow de récupération automatisée du support de démarrage - FAS8300 et FAS8700</block>
+  <block id="c23c751e94afc93f18b1692d0c6f7466" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage sur le nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement dans votre système de stockage FAS8300 ou FAS8700 .</block>
+  <block id="cd59b9e4a3eff357c3e5ea8cfd55b7e7" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage FAS8300 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="20f77c655b1ed667f582034518a6b13f" category="doc">Workflow de récupération manuelle du support de démarrage - FAS8300 et FAS8700</block>
+  <block id="8769b23b60bc0ed47c85cd0f85d8a72f" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération de démarrage manuelle - FAS8300 et FAS8700</block>
+  <block id="f92852859a1256b879ad5dfabaea0674" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage FAS8300 ou FAS8700 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="b2afd54a88356df6b7914f4f501173fe" category="doc">Arrêter le contrôleur pour la récupération automatique du support de démarrage - FAS8300 et FAS8700</block>
+  <block id="710b1825cc3b61d89111ebcb4f63d4ed" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - FAS8300 et FAS8700</block>
+  <block id="cdcc1635d67f2d69b9bc78130ddd2127" category="summary">Maintenir le matériel FAS8300 et FAS8700</block>
+  <block id="8dc6127ffd213090bdfb30a973df145d" category="paragraph">Entretenez le matériel de votre système de stockage FAS8300 et FAS8700 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="2f5b095ada5faeed091717ef3fef109e" category="paragraph">Les procédures de maintenance supposent que le système de stockage FAS8300 et FAS8700 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="0facd68d08373b50ebf915bc5f5d5586" category="paragraph">Pour les systèmes de stockage FAS8300 et FAS8700 , vous pouvez effectuer des procédures de maintenance sur les composants suivants.</block>
+  <block id="7c407f24f3e8906fc28272461447b787" category="doc">Renvoyer le support de démarrage défaillant à NetApp - FAS9500</block>
+  <block id="fb86ae9d6001d86ff643fedb448fbcd7" category="paragraph">Si un composant de votre système FAS9500 tombe en panne, renvoyez la pièce défectueuse à NetApp. Consultez le <block ref="f2d8b0d8f345a4e987bed9853cde2668" category="inline-link-rx"></block> page pour plus d'informations.</block>
+  <block id="adaa659861ef96874f01b66fb3085af7" category="summary">Après avoir installé le nouveau périphérique de support de démarrage dans votre système FAS9500 , vous pouvez démarrer le processus de récupération automatique du support de démarrage pour restaurer la configuration à partir du nœud partenaire.</block>
+  <block id="90b0b54831ab373418e5ba1f7e36930e" category="doc">Récupération automatique du support de démarrage à partir du nœud partenaire - FAS9500</block>
+  <block id="144634326815d011e3c0544a865340fa" category="paragraph">Après avoir installé le nouveau périphérique de support de démarrage dans votre système FAS9500 , vous pouvez démarrer le processus de récupération automatique du support de démarrage pour restaurer la configuration à partir du nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.</block>
+  <block id="43c0f29ffe78a563d4821e6d5071db39" category="doc">Récupération manuelle du support de démarrage à partir d'une clé USB - FAS9500</block>
+  <block id="465fc6d88891709a6b5ec571f0fca1ec" category="summary">Le support de démarrage de votre système FAS9500 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="dc7b436e17040bcd855e157c87919d67" category="doc">Remplacer le support de démarrage pour une récupération de démarrage automatique - FAS9500</block>
+  <block id="ec8924ddfa313bcce83832f40a4baa04" category="paragraph">Le support de démarrage de votre système FAS9500 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait et l'ouverture du module de contrôleur, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de contrôleur, puis la réinstallation du module de contrôleur.</block>
+  <block id="7704cc4b3655d0f9e0e1a04dd2b14fa0" category="summary">Avant de remplacer le support de démarrage de votre système FAS9500 , assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.</block>
+  <block id="33d8e575e5d342885f50e373977da7e6" category="doc">Exigences relatives à la récupération automatique du support de démarrage - FAS9500</block>
+  <block id="c1c756e9da2d209c0c17a3d0d725eda1" category="paragraph">Avant de remplacer le support de démarrage de votre FAS9500, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
+  <block id="fecc555d30c9690385419a4e597992b0" category="summary">Avant de remplacer le support de démarrage de votre système FAS9500 , assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
+  <block id="d67fdc8908e6979f4155c6f1e5e595a4" category="doc">Conditions requises pour la récupération manuelle du support de démarrage - FAS9500</block>
+  <block id="42f8dd2364f77d762591cef6b62b04df" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage FAS9500 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
+  <block id="bfefca4afffb74e4e761491f28a131f6" category="doc">Workflow de récupération automatisée du support de démarrage - FAS9500</block>
+  <block id="1b8cebd8291d5bfb01ca423636061fe8" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage FAS9500.</block>
+  <block id="d0be1e41f5efadbe5260140391f8f070" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage FAS9500 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.</block>
+  <block id="8697a2c0e8a58bab734aee2fe05e19b5" category="doc">Workflow de récupération manuelle du support de démarrage - FAS9500</block>
+  <block id="19a42cf51141a99fd44aa4a3127b58d8" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="300546c55a0d2f6b7698e0a84c6153c8" category="inline-link-macro-rx"></block></block>
+  <block id="815bc0bcd0054c7517bbb33733536cc4" category="doc">Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - FAS9500</block>
+  <block id="027c11afe276b4d26b9766b35d4d9ad2" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage FAS9500 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
+  <block id="def66a7f50caa48722a73294ce8ebd3b" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - FAS9500</block>
+  <block id="743d8586c85598b53462cd9178125494" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage FAS9500 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
+  <block id="5bf7e02c281c350a900998a7828cb257" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - FAS9500</block>
+  <block id="736d29c74e85cdb54018f2987a6768a8" category="summary">Maintenir le matériel FAS9500</block>
+  <block id="dc5e9025fa86b8774f3ddf2324b611ac" category="paragraph">Entretenez le matériel de votre système de stockage FAS9500 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
+  <block id="8e9e5dffbf855d3c7d941afd70d9cedd" category="paragraph">Les procédures de maintenance supposent que le système de stockage FAS9500 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
+  <block id="f09996a6db4296438daa24156ff1a1de" category="paragraph"><block ref="f09996a6db4296438daa24156ff1a1de" category="inline-link-macro-rx"></block></block>
+  <block id="f91d147c48561257f64c342fae27eef7" category="list-text">Si ONTAP est en cours d'exécution (les contrôleurs sont disponibles pour servir les données) et que tous les lecteurs de disque de l'étagère sont sans propriétaire, de rechange ou font partie d'agrégats hors ligne, attendez au moins 120 secondes.</block>
+  <block id="502c078a8048be1df907e48bf701b982" category="sidebar">Support de démarrage automatisé AFF A400</block>
+  <block id="202476252b9c9c8129a604e257244ba5" category="sidebar">Support de démarrage automatisé AFF A800</block>
+  <block id="f807c912f6737e2b2dad57aef36ad2fa" category="sidebar">Manuel du support de démarrage AFF A800</block>
+  <block id="a4489912dbfe35fd210adadc480dce1f" category="sidebar">Support de démarrage automatisé AFF A900</block>
+  <block id="6d57596897407d8d46c3194d7e06319e" category="sidebar">Manuel du support de démarrage AFF A900</block>
+  <block id="068f81a3552788580eabee4f71ba08e5" category="sidebar">Support de démarrage automatisé ASA C400</block>
+  <block id="d446c141458991578f7f367cdefd1543" category="sidebar">Manuel du support de démarrage ASA C400</block>
+  <block id="07af2586f8972447a5389c5ed63a2fd6" category="sidebar">Batterie NVDIMM ASA C400</block>
+  <block id="6c2cbc73b4ce8864a3fac3a14c1016de" category="sidebar">NVDIMM ASA C400</block>
+  <block id="6ec3fd53b9e8060329a181b68e94213f" category="sidebar">Support de démarrage automatisé ASA C800</block>
+  <block id="6832a3aaee06e686f8e63b80669d39ed" category="sidebar">Manuel du support de démarrage ASA C800</block>
+  <block id="cfadc5aad1c7058062b660223b587c20" category="sidebar">Support de démarrage automatisé ASA A400</block>
+  <block id="b3b2022a701d54310615a57645d62cae" category="sidebar">Manuel du support de démarrage ASA A400</block>
+  <block id="43d69a4e133a92260ad49f36d7a05314" category="sidebar">Support de démarrage automatisé ASA A800</block>
+  <block id="c9d91f4ea6962720259fdd3c16389ba8" category="sidebar">Manuel du support de démarrage ASA A800</block>
+  <block id="6dcafec1d678591dc948d8e32182a7a5" category="sidebar">Support de démarrage automatisé AFF ASA 900</block>
+  <block id="4aa0b2363af339f0ad6cead0a79ed708" category="sidebar">Manuel du support de démarrage AFF ASA 900</block>
+  <block id="ca96cd7359b9e5e04ba20a6984160e96" category="sidebar">Support de démarrage automatisé AFF C400</block>
+  <block id="9e87c4c8e827eb7823ebebbcd271b8ee" category="sidebar">Manuel du support de démarrage AFF C400</block>
+  <block id="2b544173f05b3881e3d51af3e4025a38" category="sidebar">Support de démarrage automatisé AFF C800</block>
+  <block id="8b4bd76545bbd6f247c6a51cd425af88" category="sidebar">Manuel du support de démarrage AFF C800</block>
+  <block id="e73568e0a1463c8025d72668296e80db" category="sidebar">AFF FAS2800 Maintenance</block>
+  <block id="0a83395bce1aa0ecd6fa3f7f207f952f" category="sidebar">Aperçu de la maintenance</block>
+  <block id="9fd044ae1396335c1e195383a9a59de8" category="sidebar">Support de démarrage automatisé FAS2820</block>
+  <block id="671911c7ec14361dc8322a55a2156535" category="sidebar">Support de démarrage - récupération manuelle</block>
+  <block id="1c30f96bf597bbdfd26e310e59eb5854" category="sidebar">Manuel du support de démarrage FAS2820</block>
+  <block id="4c430810e44153a64c88da3a6cf7142a" category="sidebar">Installation et configuration des FAS8300 et FAS8700</block>
+  <block id="6845236a22320cce517f949631bddf30" category="sidebar">Maintenance FAS8300 et FAS8700</block>
+  <block id="cbaa86b5dbdf706f5cc08b5bbb1513cb" category="sidebar">Support de démarrage automatisé FAS8300 et FAS8700</block>
+  <block id="bc0e1310870c6a6fc5e2b8667ad10d8f" category="sidebar">Manuel du support de démarrage FAS8300 et FAS8700</block>
+  <block id="bec00705870c9891f2ef3af87007bd9a" category="sidebar">Module de mise en cache FAS8300 et FAS8700</block>
+  <block id="929d95f2ea68f18ba02ae5368e08e5db" category="sidebar">Châssis FAS8300 et FAS8700</block>
+  <block id="404700197343ce725269e5effa1d5195" category="sidebar">Contrôleur FAS8300 et FAS8700</block>
+  <block id="dc4411936a1b60d450c095695c5e2202" category="sidebar">Modules DIMM FAS8300 et FAS8700</block>
+  <block id="760db64ab19de7bfb40eccff0f7386c6" category="sidebar">Carte PCIe ou mezzanine FAS8300 et FAS8700</block>
+  <block id="f17dc0d5f272bb8850e52f96c86ea835" category="sidebar">Alimentation FAS8300 et FAS8700</block>
+  <block id="b283de4e13a7d5b68dec3f041941e3bc" category="sidebar">Batterie d'horloge temps réel FAS8300 et FAS8700</block>
+  <block id="49083f96e824487850956b55d36a363f" category="sidebar">Support de démarrage automatisé FAS9500</block>
+  <block id="92e1f12178f27a238b4b86215c5615af" category="sidebar">Manuel du support de démarrage FAS9500</block>
 </blocks>
