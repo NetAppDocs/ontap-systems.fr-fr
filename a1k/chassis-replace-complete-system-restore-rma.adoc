@@ -1,0 +1,54 @@
+---
+permalink: a1k/chassis-replace-complete-system-restore-rma.html 
+sidebar: sidebar 
+keywords: aff a1k,  verify and set HA state, complete the replacement process 
+summary: Redémarrez le contrôleur, vérifiez l’état du système et renvoyez la pièce défectueuse à NetApp pour terminer l’étape finale de la procédure de remplacement du châssis AFF A1K . 
+---
+= Remplacement complet du châssis - AFF A1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Redémarrez le contrôleur, vérifiez l’état du système et renvoyez la pièce défectueuse à NetApp pour terminer l’étape finale de la procédure de remplacement du châssis AFF A1K .
+
+
+
+== Étape 1 : démarrez les contrôleurs et remettez-les en place
+
+Une fois les contrôleurs redémarrés, démarrez ONTAP et remettez les contrôleurs en place.
+
+.Étapes
+. Vérifiez la sortie de la console :
++
+.. Si le contrôleur démarre à l'invite Loader, redémarrez le contrôleur avec la `boot_ontap` commande.
+.. Si la console s'affiche `waiting for giveback` après le redémarrage, connectez-vous au contrôleur partenaire et vérifiez que le contrôleur remplacé est prêt pour le rétablissement avec la `storage failover show` commande.
+
+
+. Effectuer le rétablissement :
++
+.. Branchez le câble de la console au contrôleur partenaire.
+.. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
+.. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node _impaired_node_name_ -auto-giveback _true_`
+.. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+
+
+
+== Étape 2 : vérifiez l'état du système de stockage
+
+Une fois que le contrôleur a remis le stockage, vous devez vérifier l'état global avec https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"].
+
+.Étapes
+. Une fois le rétablissement terminé, exécutez Active IQ Config Advisor pour vérifier l'état de santé du système de stockage.
+. Corrigez les problèmes que vous rencontrez.
+
+
+
+
+== Étape 3 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.
