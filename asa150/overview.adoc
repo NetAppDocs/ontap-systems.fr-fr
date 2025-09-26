@@ -1,0 +1,90 @@
+---
+permalink: asa150/overview.html 
+sidebar: sidebar 
+summary: Spécifications clés du groupe de plateformes ASA150 
+---
+= Spécifications clés de ASA A150
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Voici quelques spécifications sélectionnées pour le système de stockage ASA A150 dans une seule paire haute disponibilité.  Visitez NetApp Hardware Universe (HWU) pour obtenir les spécifications complètes de ce système de stockage.
+
+
+
+== Spécifications clés de ASA A150
+
+* Configuration de la plateforme : ASA A150 UTA2, châssis simple, paire HA
+* Capacité brute maximale : 0,5472 Po
+* Mémoire : 64.0000 Go
+* Facteur de forme : châssis 2U avec 2 contrôleurs HA et 24 emplacements pour disques
+* Version ONTAP : ONTAP: 9.16.1P2
+* Version minimale ONTAP : ONTAP 9.13.1 == Maximums de scale-out
+* Type : NAS
+* Type : SAN ; paires HA : 6 ; capacité brute : 3,3 Po / 2,9 PiB ; mémoire maximale : 384 Go
+* Type : Paire HA ; Capacité brute : 0,5 Po / 0,5 PiB ; Mémoire maximale : 64 0000
+
+
+
+
+== E/S
+
+
+
+=== E/S embarquées
+
+* Protocole : Ethernet 10 Gbps ; Ports : 12
+* Protocole : FC 16 Gbps ; Ports : 8
+* Protocole : SAS 12 Gbit/s ; Ports : 4
+
+
+
+
+=== E/S totales
+
+* Protocole : Ethernet 10 Gbps ; Ports : 12
+* Protocole : FC 16 Gbps ; Ports : 8
+* Protocole : SAS 12 Gbit/s ; Ports : 4
+
+
+
+
+=== Ports de gestion
+
+* Protocole : Ethernet 1 Gbps ; Ports : 2
+* Protocole : RS-232 115 Kbps ; Ports : 4
+* Protocole : USB 12 Mbps ; Ports : 2
+
+
+
+
+== Prise en charge du réseau de stockage
+
+* FC
+* iSCSI
+* NVMe/TCP == Spécifications de l'environnement système Aucune donnée d'environnement disponible.
+
+
+
+
+== Conformité
+
+* Certifications EMC/EMI : AMCA, FCC, ICES, KC, Maroc, VCCI
+* Certifications sécurité : BIS, CB, CSA, G_K_U-SoR, IRAM, NOM, NRCS, SONCAP, TBS
+* Certifications Sécurité/CEM/EMI : EAC, UKRSEPRO
+* Certifications Sécurité/EMC/EMI/RoHS : BSMI, CE DoC, UKCA DoC
+* Normes CEM/EMI : BS-EN-55024, BS-EN55035, CISPR 32, EN55022, EN55024, EN55032, EN55035, EN61000-3-2, EN61000-3-3, FCC Partie 15 Classe A, ICES-003, KS C 9832, KS C 9835
+* Normes de sécurité : ANSI/UL60950-1, ANSI/UL62368-1, BS-EN62368-1, CAN/CSA C22.2 No. 60950-1, CAN/CSA C22.2 No. 62368-1, CNS 14336, EN60825-1, EN62368-1, IEC 62368-1, IEC60950-1, IS 13252 (partie 1)
+
+
+
+
+== Haute disponibilité
+
+* Contrôleur de gestion de carte mère (BMC) basé sur Ethernet et interface de gestion ONTAP
+* Contrôleurs redondants remplaçables à chaud
+* Alimentations redondantes remplaçables à chaud
+* Gestion SAS en bande via des connexions SAS
+

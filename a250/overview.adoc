@@ -1,0 +1,117 @@
+---
+permalink: a250/overview.html 
+sidebar: sidebar 
+summary: Spécifications clés du groupe de plateformes A250 
+---
+= Spécifications clés de AFF A250
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Voici quelques spécifications sélectionnées pour le système de stockage AFF A250 dans une seule paire haute disponibilité.  Visitez NetApp Hardware Universe (HWU) pour obtenir les spécifications complètes de ce système de stockage.
+
+
+
+== Spécifications clés de AFF A250
+
+* Configuration de la plateforme : paire HA à châssis simple AFF A250
+* Capacité brute maximale : 1,1016 Po
+* Mémoire : 128.0000 Go
+* Facteur de forme : châssis 2U avec 2 contrôleurs HA et 24 emplacements pour disques
+* Version ONTAP : ONTAP: 9.16.1P2
+* Emplacements d'extension PCIe : 4
+* Version minimale ONTAP : ONTAP 9.8RC1 == Maximums de mise à l'échelle
+* Type : NAS ; Paires HA : 12 ; Capacité brute : 13,2 Po / 11,7 PiB ; Mémoire maximale : 1 536 Go
+* Type : SAN ; paires HA : 6 ; capacité brute : 6,6 Po / 5,9 PiB ; mémoire maximale : 768 Go
+* Type : Paire HA ; Capacité brute : 1,1 Po / 1,0 PiB ; Mémoire maximale : 128 0000
+
+
+
+
+== E/S
+
+
+
+=== E/S embarquées
+
+* Protocole : Ethernet 25 Gbit/s ; Ports : 4
+* Protocole : Ethernet 10 Gbit/s ; Ports : 4
+
+
+
+
+=== E/S totales
+
+* Protocole : Ethernet 100 Gbps ; Ports : 4
+* Protocole : Ethernet 25 Gbit/s ; Ports : 20
+* Protocole : Ethernet 10 Gbit/s ; Ports : 4
+* Protocole : FC 32 Gbps ; Ports : 16
+* Protocole : NVMe/FC 32 Gbit/s ; Ports : 16
+* Ports : 0
+* Protocole : SAS 12 Gbit/s ; Ports : 8
+
+
+
+
+=== Ports de gestion
+
+* Protocole : Ethernet 1 Gbps ; Ports : 2
+* Protocole : RS-232 115 Kbps ; Ports : 4
+* Protocole : USB 12 Mbps ; Ports : 4
+
+
+
+
+== Prise en charge du réseau de stockage
+
+* CIFS
+* FC
+* iSCSI
+* NFS v3
+* NFS v4.0
+* NFS v4.1
+* NFS v4.2
+* NVMe/FC
+* NVMe/TCP
+* S3
+* S3 avec NAS
+* PME 2.0
+* PME 2.1
+* SMB 2.x
+* PME 3.0
+* PME 3.1
+* SMB 3.1.1 == Spécifications de l'environnement système
+* Puissance typique : 2642 BTU/h
+* Consommation d'énergie dans le pire des cas : 3 476 BTU/h
+* Poids : 54,3 lb 24,6 kg
+* Hauteur : 2U
+* Largeur : 19 pouces conforme à la norme IEC (17,6 pouces 44,7 cm)
+* Profondeur:
+* Température/altitude/humidité de fonctionnement : 10 °C à 35 °C (50 °F à 95 °F) à une altitude de 3 048 m (10 000 pi) ; humidité relative de 8 % à 80 %, sans condensation
+* Température/humidité hors fonctionnement : -40 °C à 70 °C (-40 °F à 158 °F) jusqu'à 12 192 m (40 000 pi) 10 % à 95 % d'humidité relative, sans condensation, dans l'emballage d'origine
+* Bruit acoustique : Puissance acoustique déclarée (LwAd) : 7,2 Pression acoustique (LpAm) (positions d'observation) : 69,1 dB
+
+
+
+
+== Conformité
+
+* Certifications EMC/EMI : AMCA, FCC, ICES, KC, Maroc, VCCI
+* Certifications sécurité : BIS, CB, CSA, G_K_U-SoR, IRAM, NOM, NRCS, SONCAP, TBS
+* Certifications Sécurité/CEM/EMI : EAC, UKRSEPRO
+* Certifications Sécurité/EMC/EMI/RoHS : BSMI, CE DoC, UKCA DoC
+* Normes CEM/EMI : BS-EN-55024, BS-EN55035, CISPR 32, EN55022, EN55024, EN55032, EN55035, EN61000-3-2, EN61000-3-3, FCC Partie 15 Classe A, ICES-003, KS C 9832, KS C 9835
+* Normes de sécurité : ANSI/UL60950-1, ANSI/UL62368-1, BS-EN62368-1, CAN/CSA C22.2 No. 60950-1, CAN/CSA C22.2 No. 62368-1, CNS 14336, EN60825-1, EN62368-1, IEC 62368-1, IEC60950-1, IS 13252 (partie 1)
+
+
+
+
+== Haute disponibilité
+
+* Contrôleur de gestion de carte mère (BMC) basé sur Ethernet et interface de gestion ONTAP
+* Contrôleurs redondants remplaçables à chaud
+* Alimentations redondantes remplaçables à chaud
+* Gestion SAS en bande via des connexions SAS pour les étagères externes
+

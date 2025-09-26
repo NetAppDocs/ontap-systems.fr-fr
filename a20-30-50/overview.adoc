@@ -1,0 +1,424 @@
+---
+permalink: a20-30-50/overview.html 
+sidebar: sidebar 
+summary: Spécifications clés du groupe de plateformes A20-30-50 
+---
+= Spécifications clés du groupe de plateformes A20-30-50
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Voici quelques spécifications sélectionnées pour le groupe de plates-formes A20-30-50.  Visite https://hwu.netapp.com["NetApp Hardware Universe"^] (HWU) pour une liste complète des spécifications.  Cette page reflète une seule paire à haute disponibilité.
+
+
+
+== AFF A50
+
+
+
+=== Spécifications clés de AFF A50
+
+Configuration de la plateforme : paire HA à châssis simple AFF A50
+
+Capacité brute maximale : 4,0392 Po
+
+Mémoire : 256.0000 Go
+
+Facteur de forme : châssis 2U avec 2 contrôleurs HA et 24 emplacements pour disques
+
+Version ONTAP : b_startONTAP : 9.16.1P2b_end
+
+Emplacements d'extension PCIe : 8
+
+Version minimale ONTAP : ONTAP 9.16.1RC1
+
+
+
+=== Maximums de mise à l'échelle
+
+|===
+
+
+| Type | Paires HA | Capacité brute | Mémoire maximale 
+
+
+| NAS | 12 | 48,5 Po / 43,0 PiB | 3072 Go 
+
+
+| SAN | 6 | 24,2 Po / 21,5 PiB | 1536 Go 
+
+
+| Paire haute disponibilité |  | 4,0 Po / 3,6 PiB | 256,0000 
+|===
+
+
+=== IO
+
+
+
+==== E/S embarquées
+
+Aucune donnée IO embarquée.
+
+
+
+==== E/S totales
+
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 100 Gbit/s | 16 
+
+
+| Ethernet 25 Gbit/s | 24 
+
+
+| Ethernet 10 Gbit/s | 24 
+
+
+| FC 64 Gbit/s | 24 
+
+
+| NVMe/FC 64 Gbit/s | 24 
+
+
+|  | 0 
+
+
+| SAS 12 Gbit/s | 16 
+|===
+
+
+==== Ports de gestion
+
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 1 Gbit/s | 2 
+
+
+| RS-232 115 Kbps | 4 
+
+
+| USB 600 Mbps | 2 
+|===
+
+
+=== Réseau de stockage pris en charge
+
+CIFS; FC; iSCSI; NFS v3; NFS v4.0; NFS v4.1; NFS v4.2; NVMe/FC ; NVMe/TCP; S3; S3 avec NAS; SMB 2.0; SMB 2.1; SMB 2.x; SMB 3.0; SMB 3.1; SMB 3.1.1;
+
+
+
+=== Spécifications de l'environnement système
+
+* Puissance typique : 3076 BTU/h
+* Puissance dans le pire des cas : 4 860 BTU/h
+* Poids : 60,7 lb/27,5 kg
+* Hauteur : 2U
+* Largeur : 19 pouces conforme à la norme IEC (17,6 pouces 44,7 cm)
+* Profondeur:
+* Température/altitude/humidité de fonctionnement : 10 °C à 35 °C (50 °F à 95 °F) à une altitude de 3 048 m (10 000 pi) ; 8 % à 80 % (humidité relative, sans condensation)
+* Température/humidité hors fonctionnement : -40 °C à 70 °C (-40 °F à 158 °F) jusqu'à 12 192 m (40 000 pi)<br/>10 % à 95 % d'humidité relative, sans condensation, dans l'emballage d'origine
+* Bruit acoustique : Puissance acoustique déclarée (LwAd) : 8,0 ; br/Pression acoustique (LpAm) (positions d'observation) : 70,5 dB
+
+
+
+
+=== Conformité
+
+* Certifications EMC/EMI : AMCA, FCC, ICES, KC, Maroc, VCCI
+* Certifications sécurité : BIS, CB, CSA, G_K_U-SoR, IRAM, NOM, NRCS, SONCAP, TBS
+* Certifications Sécurité/CEM/EMI : EAC, UKRSEPRO
+* Certifications Sécurité/EMC/EMI/RoHS : BSMI, CE DoC, UKCA DoC
+* Normes CEM/EMI : BS-EN-55032, BS-EN55035, CISPR 32, EN55022, EN55024, EN55032, EN55035, EN61000-3-2, EN61000-3-3, FCC Partie 15 Classe A, ICES-003, KS C 9832, KS C 9835
+* Normes de sécurité : ANSI/UL60950-1, ANSI/UL62368-1, BS-EN62368-1, CAN/CSA C22.2 No. 60950-1, CAN/CSA C22.2 No. 62368-1, CNS 15598-1, EN60825-1, EN62368-1, IEC 62368-1, IEC60950-1, IS 13252 (partie 1)
+
+
+
+
+=== Haute disponibilité
+
+Contrôleur de gestion de carte mère (BMC) basé sur Ethernet et interface de gestion ONTAP ; Contrôleurs redondants remplaçables à chaud ; Alimentations redondantes remplaçables à chaud ; Gestion SAS en bande via des connexions SAS pour étagères externes ;
+
+
+
+== AFF A20
+
+
+
+=== Spécifications clés de AFF A20
+
+Configuration de la plateforme : paire HA à châssis unique AFF A20
+
+Capacité brute maximale : 4,0392 Po
+
+Mémoire : 128.0000 Go
+
+Facteur de forme : châssis 2U avec 2 contrôleurs HA et 24 emplacements pour disques
+
+Version ONTAP : b_startONTAP : 9.16.1P2b_end
+
+Emplacements d'extension PCIe : 8
+
+Version minimale ONTAP : ONTAP 9.16.1RC1
+
+
+
+=== Maximums de mise à l'échelle
+
+|===
+
+
+| Type | Paires HA | Capacité brute | Mémoire maximale 
+
+
+| NAS | 3 | 12,1 Po / 10,8 PiB | 384 Go 
+
+
+| SAN | 3 | 12,1 Po / 10,8 PiB | 384 Go 
+
+
+| Paire haute disponibilité |  | 4,0 Po / 3,6 PiB | 128,0000 
+|===
+
+
+=== IO
+
+
+
+==== E/S embarquées
+
+Aucune donnée IO embarquée.
+
+
+
+==== E/S totales
+
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 100 Gbit/s | 12 
+
+
+| Ethernet 25 Gbit/s | 32 
+
+
+| Ethernet 10 Gbit/s | 24 
+
+
+| FC 64 Gbit/s | 24 
+
+
+| NVMe/FC 64 Gbit/s | 24 
+
+
+|  | 0 
+
+
+| SAS 12 Gbit/s | 16 
+|===
+
+
+==== Ports de gestion
+
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 1 Gbit/s | 2 
+
+
+| RS-232 115 Kbps | 4 
+
+
+| USB 600 Mbps | 2 
+|===
+
+
+=== Réseau de stockage pris en charge
+
+CIFS; FC; iSCSI; NFS v3; NFS v4.0; NFS v4.1; NFS v4.2; NVMe/FC ; NVMe/TCP; S3; S3 avec NAS; SMB 2.0; SMB 2.1; SMB 2.x; SMB 3.0; SMB 3.1; SMB 3.1.1;
+
+
+
+=== Spécifications de l'environnement système
+
+* Puissance typique : 2489 BTU/h
+* Consommation d'énergie dans le pire des cas : 3 890 BTU/h
+* Poids : 60,7 lb/27,5 kg
+* Hauteur : 2U
+* Largeur : 19 pouces conforme à la norme IEC (17,6 pouces 44,7 cm)
+* Profondeur:
+* Température/altitude/humidité de fonctionnement : 10 °C à 35 °C (50 °F à 95 °F) à une altitude de 3 048 m (10 000 pi) ; 8 % à 80 % (humidité relative, sans condensation)
+* Température/humidité hors fonctionnement : -40 °C à 70 °C (-40 °F à 158 °F) jusqu'à 12 192 m (40 000 pi)<br/>10 % à 95 % d'humidité relative, sans condensation, dans l'emballage d'origine
+* Bruit acoustique : Puissance acoustique déclarée (LwAd) : 8,0 ; br/Pression acoustique (LpAm) (positions d'observation) : 70,5 dB
+
+
+
+
+=== Conformité
+
+* Certifications EMC/EMI : AMCA, FCC, ICES, KC, Maroc, VCCI
+* Certifications sécurité : BIS, CB, CSA, G_K_U-SoR, IRAM, NOM, NRCS, SONCAP, TBS
+* Certifications Sécurité/CEM/EMI : EAC, UKRSEPRO
+* Certifications Sécurité/EMC/EMI/RoHS : BSMI, CE DoC, UKCA DoC
+* Normes CEM/EMI : BS-EN-55024, BS-EN55035, CISPR 32, EN55022, EN55024, EN55032, EN55035, EN61000-3-2, EN61000-3-3, FCC Partie 15 Classe A, ICES-003, KS C 9832, KS C 9835
+* Normes de sécurité : ANSI/UL60950-1, ANSI/UL62368-1, BS-EN62368-1, CAN/CSA C22.2 No. 60950-1, CAN/CSA C22.2 No. 62368-1, CNS 15598-1, EN60825-1, EN62368-1, IEC 62368-1, IEC60950-1, IS 13252 (partie 1)
+
+
+
+
+=== Haute disponibilité
+
+Contrôleur de gestion de carte mère (BMC) basé sur Ethernet et interface de gestion ONTAP ; Contrôleurs redondants remplaçables à chaud ; Alimentations redondantes remplaçables à chaud ; Gestion SAS en bande via des connexions SAS pour étagères externes ;
+
+
+
+== AFF A30
+
+
+
+=== Spécifications clés de AFF A30
+
+Configuration de la plateforme : paire HA à châssis simple AFF A30
+
+Capacité brute maximale : 4,0392 Po
+
+Mémoire : 128.0000 Go
+
+Facteur de forme : châssis 2U avec 2 contrôleurs HA et 24 emplacements pour disques
+
+Version ONTAP : b_startONTAP : 9.16.1P2b_end
+
+Emplacements d'extension PCIe : 8
+
+Version minimale ONTAP : ONTAP 9.16.1RC1
+
+
+
+=== Maximums de mise à l'échelle
+
+|===
+
+
+| Type | Paires HA | Capacité brute | Mémoire maximale 
+
+
+| NAS | 4 | 16,2 Po / 14,3 PiB | 512 Go 
+
+
+| SAN | 4 | 16,2 Po / 14,3 PiB | 512 Go 
+
+
+| Paire haute disponibilité |  | 4,0 Po / 3,6 PiB | 128,0000 
+|===
+
+
+=== IO
+
+
+
+==== E/S embarquées
+
+Aucune donnée IO embarquée.
+
+
+
+==== E/S totales
+
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 100 Gbit/s | 16 
+
+
+| Ethernet 25 Gbit/s | 24 
+
+
+| Ethernet 10 Gbit/s | 24 
+
+
+| FC 64 Gbit/s | 24 
+
+
+| NVMe/FC 64 Gbit/s | 24 
+
+
+|  | 0 
+
+
+| SAS 12 Gbit/s | 16 
+|===
+
+
+==== Ports de gestion
+
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 1 Gbit/s | 2 
+
+
+| RS-232 115 Kbps | 4 
+
+
+| USB 600 Mbps | 2 
+|===
+
+
+=== Réseau de stockage pris en charge
+
+CIFS; FC; iSCSI; NFS v3; NFS v4.0; NFS v4.1; NFS v4.2; NVMe/FC ; NVMe/TCP; S3; S3 avec NAS; SMB 2.0; SMB 2.1; SMB 2.x; SMB 3.0; SMB 3.1; SMB 3.1.1;
+
+
+
+=== Spécifications de l'environnement système
+
+* Puissance typique : 2892 BTU/h
+* Puissance dans le pire des cas : 4 445 BTU/h
+* Poids : 60,7 lb/27,5 kg
+* Hauteur : 2U
+* Largeur : 19 pouces conforme à la norme IEC (17,6 pouces 44,7 cm)
+* Profondeur:
+* Température/altitude/humidité de fonctionnement : 10 °C à 35 °C (50 °F à 95 °F) à une altitude de 3 048 m (10 000 pi) ; 8 % à 80 % (humidité relative, sans condensation)
+* Température/humidité hors fonctionnement : -40 °C à 70 °C (-40 °F à 158 °F) jusqu'à 12 192 m (40 000 pi)<br/>10 % à 95 % d'humidité relative, sans condensation, dans l'emballage d'origine
+* Bruit acoustique : Puissance acoustique déclarée (LwAd) : 8,0 ; br/Pression acoustique (LpAm) (positions d'observation) : 70,5 dB
+
+
+
+
+=== Conformité
+
+* Certifications EMC/EMI : AMCA, FCC, ICES, KC, Maroc, VCCI
+* Certifications sécurité : BIS, CB, CSA, G_K_U-SoR, IRAM, NOM, NRCS, SONCAP, TBS
+* Certifications Sécurité/CEM/EMI : EAC, UKRSEPRO
+* Certifications Sécurité/EMC/EMI/RoHS : BSMI, CE DoC, UKCA DoC
+* Normes CEM/EMI : BS-EN-55032, BS-EN55035, CISPR 32, EN55022, EN55024, EN55032, EN55035, EN61000-3-2, EN61000-3-3, FCC Partie 15 Classe A, ICES-003, KS C 9832, KS C 9835
+* Normes de sécurité : ANSI/UL60950-1, ANSI/UL62368-1, BS-EN62368-1, CAN/CSA C22.2 No. 60950-1, CAN/CSA C22.2 No. 62368-1, CNS 15598-1, EN60825-1, EN62368-1, IEC 62368-1, IEC60950-1, IS 13252 (partie 1)
+
+
+
+
+=== Haute disponibilité
+
+Contrôleur de gestion de carte mère (BMC) basé sur Ethernet et interface de gestion ONTAP ; Contrôleurs redondants remplaçables à chaud ; Alimentations redondantes remplaçables à chaud ; Gestion SAS en bande via des connexions SAS pour étagères externes ;

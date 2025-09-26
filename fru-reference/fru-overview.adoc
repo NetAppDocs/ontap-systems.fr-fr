@@ -1,0 +1,75 @@
+---
+permalink: fru-reference/fru-overview.html 
+sidebar: sidebar 
+keywords: FRU reference, field replaceable units, platform FRUs, hardware components, replacement procedures 
+summary: Aperçu des unités remplaçables sur le terrain de la plate-forme et liens vers les procédures de remplacement par type de FRU. 
+---
+= Référence FRU de la plateforme
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour les systèmes matériels ONTAP , vous pouvez effectuer des procédures de maintenance sur les composants d'unité remplaçable sur site (FRU) suivants.
+
+[cols="1,2"]
+|===
+
+
+| Procédure FRU | Description 
+
+
+| link:bootmedia-fru-links.html["Procédures de remplacement du support de démarrage par plate-forme"^] | Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre. 
+
+
+| link:caching-module-fru-links.html["Procédures de remplacement des modules de mise en cache par plateforme"^] | Vous devez remplacer le module de cache du contrôleur lorsque votre système enregistre un seul message AutoSupport (ASUP) indiquant que le module est hors ligne. 
+
+
+| link:chassis-fru-links.html["Procédures de remplacement du châssis par plateforme"^] | Le châssis est le boîtier physique abritant tous les composants du contrôleur, tels que l'unité contrôleur/CPU, l'alimentation et les E/S. 
+
+
+| link:controller-fru-links.html["Procédures de remplacement du contrôleur par plateforme"^] | Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP. 
+
+
+| link:dcpm-power-fru-links.html["Procédures de remplacement du module d'alimentation DCPM par plateforme"^] | Le module d'alimentation de mémoire persistante du centre de données (DCPM) fournit une alimentation de secours pour les modules DCPM en cas de perte de puissance inattendue. 
+
+
+| link:dimm-fru-links.html["Procédures de remplacement de DIMM par plateforme"^] | Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux. 
+
+
+| link:drive-fru-links.html["Procédures de remplacement des disques par plateforme"^] | Un lecteur est un périphérique qui fournit le support de stockage physique pour les données. 
+
+
+| link:fan-fru-links.html["Procédures de remplacement des ventilateurs par plateforme"^] | Un ventilateur fournit un flux d'air pour refroidir les composants du système et maintenir des températures de fonctionnement appropriées. 
+
+
+| link:io-module-fru-links.html["Procédures de remplacement des modules d'E/S par plateforme"^] | Un module d'E/S fournit des interfaces de connectivité réseau et de stockage pour le contrôleur. 
+
+
+| link:led-module-fru-links.html["Procédures de remplacement des modules LED par plateforme"^] | Le module LED fournit des indicateurs d'état visuels pour l'état du système et l'état des composants. 
+
+
+| link:mezzanine-fru-links.html["Procédures de remplacement de mezzanine par plateforme"^] | Une carte mezzanine fournit une connectivité E/S supplémentaire et des capacités d'extension pour le contrôleur. 
+
+
+| link:nvdimm-fru-links.html["Procédures de remplacement NVDIMM par plateforme"^] | Vous devez remplacer un NVDIMM (module de mémoire non volatile à double rangée de connexions) lorsque le module tombe en panne ou affiche des erreurs. 
+
+
+| link:nvmem-battery-fru-links.html["Procédures de remplacement de la batterie NVMEM/ NVRAM par plateforme"^] | Une batterie est fournie avec un contrôleur et conserve les données mises en cache en cas de panne de l'alimentation secteur. 
+
+
+| link:nvram-module-fru-links.html["Procédures de remplacement du module NVRAM par plateforme"^] | Le module NVRAM fournit un stockage non volatil pour les métadonnées système et les données d'écriture mises en cache. 
+
+
+| link:pci-cards-fru-links.html["Procédures de remplacement des cartes et risers PCI par plateforme"^] | Les cartes et risers PCI offrent des emplacements d'extension pour des fonctionnalités supplémentaires et une connectivité E/S. 
+
+
+| link:power-supply-fru-links.html["Procédures de remplacement de l'alimentation électrique par plateforme"^] | Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur. 
+
+
+| link:rtc-battery-fru-links.html["Procédures de remplacement de la batterie RTC par plateforme"^] | Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'appareil est éteint. 
+
+
+| link:system-management-fru-links.html["Procédures de remplacement des modules de gestion du système par plateforme"^] | Le module de gestion du système fournit des capacités de gestion hors bande pour le système. 
+|===

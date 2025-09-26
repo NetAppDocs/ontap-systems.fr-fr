@@ -1,0 +1,159 @@
+---
+permalink: a400/overview.html 
+sidebar: sidebar 
+keywords: AFF A400 specifications, AFF A400 specs, NetApp AFF A400, AFF A400 hardware 
+summary: Spécifications clés du système de stockage AFF A400 
+---
+= Spécifications clés de AFF A400
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Voici quelques spécifications sélectionnées pour l' AFF A400.  Visite https://hwu.netapp.com["NetApp Hardware Universe"^] (HWU) pour une liste complète des spécifications AFF A400 .  Cette page reflète une seule paire à haute disponibilité.
+
+
+
+=== Spécifications clés de AFF A400
+
+Configuration de la plateforme : AFF A400, châssis simple, paire HA, bundle Ethernet
+
+Capacité brute maximale : 14,6880 Po
+
+Mémoire : 256.0000 Go
+
+Facteur de forme : châssis 4U avec 2 contrôleurs HA
+
+Version ONTAP : b_startONTAP : 9.16.1P2b_end
+
+Emplacements d'extension PCIe : 10
+
+Version minimale ONTAP : ONTAP 9.7RC1
+
+
+
+=== Maximums de mise à l'échelle
+
+|===
+
+
+| Type | Paires HA | Capacité brute | Mémoire maximale 
+
+
+| NAS | 12 | 176,3 Po / 156,5 PiB | 3072 Go 
+
+
+| SAN | 6 | 88,1 Po / 78,3 PiB | 1536 Go 
+
+
+| Paire haute disponibilité |  | 14,7 Po / 13,0 PiB | 256,0000 
+|===
+
+
+=== IO
+
+
+
+==== E/S embarquées
+
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 100 Gbit/s | 4 
+
+
+| Ethernet 25 Gbit/s | 12 
+
+
+| SAS 12 Gbit/s | 8 
+|===
+
+
+==== E/S totales
+
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 100 Gbit/s | 20 
+
+
+| Ethernet 25 Gbit/s | 24 
+
+
+| Ethernet 10 Gbit/s | 32 
+
+
+| FC 32 Gbit/s | 24 
+
+
+| NVMe/FC 32 Gbit/s | 24 
+
+
+|  | 0 
+
+
+| SAS 12 Gbit/s | 32 
+|===
+
+
+==== Ports de gestion
+
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 1 Gbit/s | 2 
+
+
+| RS-232 115 Kbps | 4 
+
+
+| USB 12 Mbps | 4 
+|===
+
+
+=== Réseau de stockage pris en charge
+
+CIFS ; FC ; iSCSI ; NFS v3 ; NFS v4.0 ; NFS v4.1 ; NFS v4.2 ; NFSv3/RDMA ; NFSv4/RDMA ; NVMe/FC ; NVMe/TCP ; S3 ; S3 avec NAS ; SMB 2.0 ; SMB 2.1 ; SMB 2.x ; SMB 3.0 ; SMB 3.1 ; SMB 3.1.1 ;
+
+
+
+=== Spécifications de l'environnement système
+
+* Puissance typique : 4209 BTU/h
+* Consommation d'énergie dans le pire des cas : 5 215 BTU/h
+* Poids : 110,0 lb/49,9 kg
+* Hauteur : 4U
+* Largeur : 19 pouces conforme à la norme IEC (17,6 pouces 44,7 cm)
+* Profondeur : 32,6 po (34,7 po avec support de gestion des câbles)
+* Température/altitude/humidité de fonctionnement : 10 °C à 35 °C (50 °F à 95 °F) à une altitude de 3 048 m (10 000 pi) ; 8 % à 80 % (humidité relative, sans condensation)
+* Température/humidité hors fonctionnement : -40 °C à 70 °C (-40 °F à 158 °F) jusqu'à 12 192 m (40 000 pi)<br/>10 % à 95 % d'humidité relative, sans condensation, dans l'emballage d'origine
+* Bruit acoustique : Puissance acoustique déclarée (LwAd) : 8,5 ; br/Pression acoustique (LpAm) (positions d'observation) : 67,2 dB
+
+
+
+
+=== Conformité
+
+* Certifications EMC/EMI : AMCA, FCC, ICES, KC, Maroc, VCCI
+* Certifications sécurité : BIS, CB, CSA, G_K_U-SoR, IRAM, NOM, NRCS, SONCAP, TBS
+* Certifications Sécurité/CEM/EMI : EAC, UKRSEPRO
+* Certifications Sécurité/EMC/EMI/RoHS : BSMI, CE DoC, UKCA DoC
+* Normes CEM/EMI : BS-EN-55024, BS-EN55035, CISPR 32, EN55022, EN55024, EN55032, EN55035, EN61000-3-2, EN61000-3-3, FCC Partie 15 Classe A, ICES-003, KS C 9832, KS C 9835
+* Normes de sécurité : ANSI/UL60950-1, ANSI/UL62368-1, BS-EN62368-1, CAN/CSA C22.2 No. 60950-1, CAN/CSA C22.2 No. 62368-1, CNS 14336, EN60825-1, EN62368-1, IEC 62368-1, IEC60950-1, IS 13252 (partie 1)
+
+
+
+
+=== Haute disponibilité
+
+Contrôleur de gestion de carte mère (BMC) basé sur Ethernet et interface de gestion ONTAP ; Contrôleurs redondants remplaçables à chaud ; Alimentations redondantes remplaçables à chaud ; Gestion SAS en bande via des connexions SAS ;
