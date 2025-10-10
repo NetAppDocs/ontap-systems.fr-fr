@@ -11,7 +11,7 @@ summary: Remplacez le NVRAM de votre système AFF A70 ou AFF A90 lorsque la mém
 
 
 [role="lead"]
-Remplacez le NVRAM de votre système AFF A70 ou AFF A90 lorsque la mémoire non volatile est défectueuse ou nécessite une mise à niveau. Le processus de remplacement implique l'arrêt du contrôleur défectueux, le remplacement du module NVRAM ou du module DIMM NVRAM, la réaffectation des disques et le renvoi de la pièce défectueuse à NetApp.
+Remplacez la NVRAM de votre système AFF A70 ou AFF A90 lorsque la mémoire non volatile devient défectueuse ou nécessite une mise à niveau.  Le processus de remplacement implique l'arrêt du contrôleur défectueux, la suppression complète de l'alimentation en retirant le contrôleur de quelques centimètres, le remplacement du module NVRAM ou du module DIMM NVRAM , la réaffectation des disques et le renvoi de la pièce défectueuse à NetApp.
 
 Le module NVRAM se compose du matériel NVRAM12 et de modules DIMM remplaçables sur site. Vous pouvez remplacer un module NVRAM défectueux ou les modules DIMM à l'intérieur du module NVRAM.
 
@@ -183,6 +183,7 @@ image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
 
 NOTE: Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
 
+. Appuyez sur les deux loquets de verrouillage du contrôleur, faites pivoter les deux loquets vers le bas en même temps et retirez le contrôleur d'environ 3 ou 4 pouces.
 . Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés à l'intérieur du chemin de câbles et en le faisant pivoter vers le bas.
 . Retirez le module NVRAM cible du châssis :
 +
@@ -223,7 +224,20 @@ Languettes de verrouillage DIMM
 .. Faites glisser doucement le module dans son logement jusqu'à ce qu'il soit complètement en place, puis poussez le loquet de la came jusqu'à ce qu'il soit complètement en place.
 
 
-. Branchez les cordons d'alimentation aux blocs d'alimentation. Le contrôleur redémarre dès que l'alimentation est rétablie.
+. Réinstaller le module du contrôleur.  Le contrôleur redémarre dès qu'il est complètement inséré.
++
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
+.. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
+
+
+. Branchez les cordons d'alimentation aux blocs d'alimentation.
 +
 
 NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentation aux alimentations.
@@ -249,6 +263,7 @@ image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
 
 NOTE: Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
 
+. Appuyez sur les deux loquets de verrouillage du contrôleur, faites pivoter les deux loquets vers le bas en même temps et retirez le contrôleur d'environ 3 ou 4 pouces.
 . Faites pivoter le chemin de câbles vers le bas en tirant doucement les broches situées aux extrémités du bac et en faisant pivoter le bac vers le bas.
 . Retirez le module NVRAM cible du châssis :
 +
@@ -292,7 +307,20 @@ NOTE: Consultez l'étiquette FRU map située sur le côté du module NVRAM pour 
 .. Faites glisser doucement le module dans le logement jusqu'à ce que le loquet de came commence à s'engager avec la broche de came d'E/S, puis faites tourner le loquet de came complètement vers le haut pour verrouiller le module en place.
 
 
-. Branchez les cordons d'alimentation aux blocs d'alimentation. Le contrôleur redémarre dès que l'alimentation est rétablie.
+. Réinstaller le module du contrôleur.  Le contrôleur redémarre dès qu'il est complètement inséré.
++
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
+.. Faites pivoter les loquets de verrouillage vers le haut en position verrouillée.
+
+
+. Branchez les cordons d'alimentation aux blocs d'alimentation.
 +
 
 NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentation aux alimentations.

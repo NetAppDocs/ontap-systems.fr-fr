@@ -118,7 +118,6 @@ NOTE: Contactez https://support.netapp.com["Support NetApp"] en cas de problème
 
 . Une fois le processus terminé, le menu de démarrage s'affiche. Sélectionnez « 1 » pour un démarrage normal.
 . Vérifier le statut du basculement : `storage failover show`
-. Assurez-vous que tous les « core dumps » sur le nœud réparé sont enregistrés en mode avancé, puis `run local partner nosavecore` en `set -privilege advanced` .
 . Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
 . Si le rétablissement automatique a été désactivé, le réactiver : `storage failover modify -node local -auto-giveback _true_`
 . Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`

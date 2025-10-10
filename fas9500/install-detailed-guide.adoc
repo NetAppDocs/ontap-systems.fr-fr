@@ -1,10 +1,10 @@
 ---
-permalink: a900/install_detailed_guide.html 
+permalink: fas9500/install-detailed-guide.html 
 sidebar: sidebar 
-keywords: AFF A900 
+keywords: FAS9500 
 summary: 'Cette section fournit des instructions détaillées vous permettant d"installer un système NetApp classique.' 
 ---
-= Étapes détaillées - AFF A900
+= Étapes détaillées - FAS9500
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -35,7 +35,7 @@ Vous devez fournir les informations suivantes sur votre site :
 . Déballez le contenu de toutes les boîtes.
 . Notez le numéro de série du système depuis les contrôleurs.
 +
-image::../media/drw_ssn_label.svg[Exemple de numéro de série du système indiquant l'emplacement du numéro]
+image::../media/drw_ssn_label.svg[Exemple de numéro de série du système]
 
 . Faites un inventaire et notez le nombre et le type de câbles que vous avez reçus.
 +
@@ -45,7 +45,7 @@ Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si v
 https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 +
-[cols="1,2,2,2"]
+[cols="1,2,1,2"]
 |===
 | Type de câble... | Numéro de pièce et longueur | Type de connecteur | Pour... 
 
@@ -59,7 +59,7 @@ X66240A-2 (112-00598), 2 M.
 
 X66240A-5 (112-00600), 5 m
  a| 
-image::../media/oie_cable_sfp_gbe_copper.png[SFP cuivre GbE]
+image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre SFP GbE]
  a| 
 Câble réseau
 
@@ -74,7 +74,7 @@ X66250-5 (112-00344), 5 m
 
 X66250-15 (112-00346), 15 M.
  a| 
-image::../media/oie_cable_sfp_gbe_copper.png[SFP cuivre GbE]
+image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre SFP GbE]
  a| 
 Câble réseau optique FC
 
@@ -89,7 +89,7 @@ X66100-3 (112-00543), 3 m
 
 X66100-5 (112-00544), 5 m
  a| 
-image::../media/oie_cable100_gbe_qsfp28.png[SFP cuivre GbE]
+image::../media/oie_cable100_gbe_qsfp28.png[Connecteur QSFP 100 GbE]
  a| 
 Données Ethernet, réseau en cluster
 
@@ -104,11 +104,9 @@ X66211B-2 (112-00574), 2 M.
 
 X66211B-5 (112-00576), 5 m
  a| 
-image::../media/oie_cable100_gbe_qsfp28.png[SFP cuivre GbE]
+image::../media/oie_cable100_gbe_qsfp28.png[Connecteur QSFP 100 GbE]
  a| 
 Réseau,
-
-Stockage NVMe,
 
 Données Ethernet,
 
@@ -125,7 +123,7 @@ X66032A (112-00437), 2 M.
 
 X66033A (112-00438), 3 M.
  a| 
-image::../media/oie_cable_fiber_lc_connector.png[Connecteur à fibre LC]
+image::../media/oie_cable_fiber_lc_connector.png[Connecteur optique LC]
  a| 
 Réseau optique FC
 
@@ -138,9 +136,24 @@ Références X6585-R6 (112-00291), 3 m
 
 X6562-R6 (112-00196), 5 m
  a| 
-image::../media/oie_cable_rj45.png[Connecteur de câble RJ-45]
+image::../media/oie_cable_rj45.png[Connecteur RJ-45]
  a| 
 Réseau de gestion et données Ethernet
+
+
+
+ a| 
+Stockage
+ a| 
+X66031A (112-00436), 1 m
+
+X66032A (112-00437), 2 M.
+
+X66033A (112-00438), 3 M.
+ a| 
+image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Connecteur mini-SAS]
+ a| 
+Stockage
 
 
 
@@ -160,7 +173,7 @@ Câbles d'alimentation
  a| 
 Sans objet
  a| 
-image::../media/oie_cable_power.png[Connecteur du câble d'alimentation]
+image::../media/oie_cable_power.png[Câbles d'alimentation]
  a| 
 Mise sous tension du système
 
@@ -174,6 +187,7 @@ Mise sous tension du système
 
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
 
+.Étapes
 . Installez les kits de rails, au besoin.
 . Installez et sécurisez votre système en suivant les instructions fournies avec le kit de rails.
 +
@@ -181,18 +195,17 @@ Vous devez installer votre système sur un rack de 4 montants ou une armoire sys
 NOTE: Vous devez être conscient des problèmes de sécurité associés au poids du système.
 
 +
+L'étiquette de gauche indique un châssis vide, tandis que l'étiquette de droite indique un système plein.
+
++
 image::../media/drw_9500_lifting_icon.svg[Étiquette de mise en garde relative au poids]
 
 . Fixez les dispositifs de gestion des câbles (comme illustré).
 +
-image::../media/drw_9500_cable_management_arms.svg[Installez le ARM de gestion des câbles]
+image::../media/drw_9500_cable_management_arms.svg[Poignées de levage et dispositif de gestion des câbles]
 
 . Placez le panneau à l'avant du système.
 
-
-Le schéma suivant illustre à quoi ressemble un système type et où se trouvent les principaux composants à l'arrière du système :
-
-image::../media/drw_a900_controller_in_chassis_ID_IEOPS-856.svg[Configuration type de cluster]
 
 
 
@@ -214,23 +227,24 @@ Veillez à vérifier le sens des languettes de fixation du câble lors de l'inse
 image::../media/oie_cable_pull_tab_up.png[Direction de la languette de tirage du câble]
 
 
-NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
+NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
 
+.Étapes
 . Utilisez l'animation ou l'illustration pour terminer le câblage entre les contrôleurs et les commutateurs :
 +
-.Animation : câblé à un cluster sans commutateur à deux nœuds
-video::37419c37-f56f-48e5-8e6c-afa600095444[panopto]
+.Animation Câblage de cluster sans commutateur à deux nœuds
+video::da08295f-ba8c-4de7-88c3-ae7c0170408d[panopto]
 +
-image::../media/drw_a900_tnsc_network_cabling_IEOPS-933.svg[Câblage réseau à 2 nœuds sans commutateur]
+image::../media/drw_9500_tnsc_network_cabling.svg[Schéma de câblage du réseau TNSC]
 
 +
-[cols="1,4"]
+[cols="20%,80%"]
 |===
 | Étape | Effectuer des opérations sur chaque contrôleur 
 
 
  a| 
-image::../media/icon_square_1_green.png[Légende numéro 1]
+image::../media/icon_square_1_green.png[Icône de légende 1]
  a| 
 Câblage des ports d'interconnexion de cluster :
 
@@ -238,55 +252,57 @@ Câblage des ports d'interconnexion de cluster :
 ** Fente A8 et B8 (e8a)
 
 
-image::../media/oie_cable100_gbe_qsfp28.png[Connecteur 100 GB]
+image::../media/oie_cable100_gbe_qsfp28.png[Connecteur QSFP 100 GbE]
 
 
 
  a| 
-image::../media/icon_square_2_purple.png[Légende numéro 2]
+image::../media/icon_square_2_purple.png[Icône de légende 2]
  a| 
 Reliez les ports de gestion du contrôleur (clé en charge).
 
-image::../media/oie_cable_rj45.png[Connecteur de câble RJ-45]
+image::../media/oie_cable_rj45.png[Connecteur RJ-45]
 
 
 
  a| 
-image::../media/icon_square_3_orange.png[Numéro de légende 3]
+image::../media/icon_square_3_orange.png[Icône de légende 3]
  a| 
-Câblage des commutateurs réseau 25 GbE :
+Câblage des commutateurs réseau FC 32 Gbit :
 
-Ports des logements A3 et B3 (e3a et e3c) et A9 et B9 (e9a et e9c) vers les commutateurs réseau 25 GbE.
+Ports situés dans les logements A3 et B3 (e3a et e3c) et A9 et B9 (e9a et e9c) vers les commutateurs de réseau FC 32 Gb.
 
-image::../media/oie_cable_sfp_gbe_copper.png[SFP cuivre GbE]
+image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre SFP GbE]
 
 40 GbE commutateurs réseau hôte :
 
 Reliez les ports b côté hôte dans les logements A4 et B4 (e4b) et A8 et B8 (e8b) au commutateur hôte.
 
-image::../media/oie_cable100_gbe_qsfp28.png[Connecteur de câble 100 GbE]
+image::../media/oie_cable100_gbe_qsfp28.png[Connecteur QSFP 100 GbE]
 
 
 
  a| 
-image:../media/icon_square_4_red.png["Numéro de légende 4"]
+image::../media/icon_square_4_red.png[Icône de légende 4]
  a| 
-Câble des connexions FC 32 Gbit : xxx
+Câblage des connexions 25 GbE :
 
-Reliez les ports A5 et B5 (5a, 5b, 5c et 5d) et les connecteurs A7 et B7 (7a, 7b, 7c et 7d) aux commutateurs réseau FC 32 Gbit.
+Reliez les ports A5 et B5 (5a, 5b, 5c et 5d) et les connecteurs A7 et B7 (7a, 7b, 7c et 7d) aux commutateurs réseau 25 GbE.
 
-image:../media/oie_cable_sfp_gbe_copper.png["SFP cuivre GbE"]
+image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre SFP GbE]
 
 
 
  a| 
-image::../media/icon_square_5_grey.png[Légende cinq]
+image::../media/icon_square_5_grey.png[Icône de légende 4]
  a| 
 ** Attachez les câbles aux bras de gestion des câbles (non illustrés).
 ** Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées). Les PSU 1 et 3 fournissent l'alimentation à tous les composants de la face A, tandis que les PSU2 et PSU4 fournissent l'alimentation à tous les composants de la face B.
 
 
-image:../media/drw_a900fas9500_power_icon_IEOPS-1142.svg["Connexions d'alimentation"]
+image::../media/oie_cable_power.png[Câbles d'alimentation]
+
+image::../media/drw_a900fas9500_power_icon_IEOPS-1142.svg[Sources d'alimentation]
 
 |===
 
@@ -301,17 +317,18 @@ Vous devez avoir contacté votre administrateur réseau pour obtenir des informa
 
 Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de fixation des câbles sont destinées à tous les ports de module réseau.
 
-image:../media/oie_cable_pull_tab_up.png["Direction de la languette de tirage du câble"]
+image::../media/oie_cable_pull_tab_up.png[Direction de la languette de tirage du câble]
 
 
 NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
 
+.Étapes
 . Utilisez l'animation ou l'illustration pour terminer le câblage entre les contrôleurs et les commutateurs :
 +
-.Animation - câble a du bloc d'instruments commuté
-video::61ec11ec-aa30-474a-87a5-afa60008b52b[panopto]
+.Animation Câblage de cluster commuté
+video::3ad3f118-8339-4683-865f-ae7c0170400c[panopto]
 +
-image:../media/drw_a900_switched_network_cabling_IEOPS-934.svg["Câblage réseau commuté"]
+image::../media/drw_9500_switched_network_cabling.svg[Câblage réseau commuté du cluster]
 
 +
 [cols="20%,80%"]
@@ -320,7 +337,7 @@ image:../media/drw_a900_switched_network_cabling_IEOPS-934.svg["Câblage réseau
 
 
  a| 
-image:../media/icon_square_1_green.png["Légende numéro 1"]
+image::../media/icon_square_1_green.png[Légende numéro 1]
  a| 
 Câblage des ports d'interconnexion de cluster a :
 
@@ -328,57 +345,57 @@ Câblage des ports d'interconnexion de cluster a :
 ** Les connecteurs A8 et B8 (e8a) du commutateur de réseau du cluster.
 
 
-image:../media/oie_cable100_gbe_qsfp28.png["Câble 100 GbE"]
+image::../media/oie_cable100_gbe_qsfp28.png[Connecteur QSFP 100 GbE]
 
 
 
  a| 
-image:../media/icon_square_2_purple.png["Légende numéro 2"]
+image::../media/icon_square_2_purple.png[Icône de légende 2]
  a| 
 Reliez les ports de gestion du contrôleur (clé en charge).
 
-image::../media/oie_cable_rj45.png[Câbles RJ45]
+image::../media/oie_cable_rj45.png[Connecteur RJ-45]
 
 
 
  a| 
-image::../media/icon_square_3_orange.png[Numéro de légende 3]
+image::../media/icon_square_3_orange.png[Icône de légende 3]
  a| 
-Câble 25 GbE switchs réseau :
+Câblage des commutateurs réseau FC 32 Gbit :
 
-Ports des logements A3 et B3 (e3a et e3c) et A9 et B9 (e9a et e9c) vers les commutateurs réseau 25 GbE.
+Ports situés dans les logements A3 et B3 (e3a et e3c) et A9 et B9 (e9a et e9c) vers les commutateurs de réseau FC 32 Gb.
 
-image::../media/oie_cable_sfp_gbe_copper.png[SFP cuivre GbE]
+image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre SFP GbE]
 
 40 GbE commutateurs réseau hôte :
 
 Reliez les ports b côté hôte dans les logements A4 et B4 (e4b) et A8 et B8 (e8b) au commutateur hôte.
 
-image::../media/oie_cable100_gbe_qsfp28.png[Câble 100 GbE]
+image::../media/oie_cable100_gbe_qsfp28.png[Connecteur QSFP 100 GbE]
 
 
 
  a| 
-image::../media/icon_square_4_red.png[Numéro de légende 4]
+image::../media/icon_square_4_red.png[Icône de légende 4]
  a| 
-Câbles de connexions FC 32 Gb :
+Câblage des connexions 25 GbE :
 
-Reliez les ports A5 et B5 (5a, 5b, 5c et 5d) et les connecteurs A7 et B7 (7a, 7b, 7c et 7d) aux commutateurs réseau FC 32 Gbit.
+Reliez les ports A5 et B5 (5a, 5b, 5c et 5d) et les connecteurs A7 et B7 (7a, 7b, 7c et 7d) aux commutateurs réseau 25 GbE.
 
-image::../media/oie_cable_sfp_gbe_copper.png[SFP cuivre GbE]
+image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre 100 GbE]
 
 
 
  a| 
-image::../media/icon_square_5_grey.png[Légende cinq]
+image::../media/icon_square_4_red.png[Icône de légende 4]
  a| 
 ** Attachez les câbles aux bras de gestion des câbles (non illustrés).
 ** Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées). Les PSU 1 et 3 fournissent l'alimentation à tous les composants de la face A, tandis que les PSU2 et PSU4 fournissent l'alimentation à tous les composants de la face B.
 
 
-image::../media/oie_cable_power.png[Câble d'alimentation]
+image::../media/oie_cable_power.png[Câbles d'alimentation]
 
-image::../media/drw_a900fas9500_power_icon_IEOPS-1142.svg[Connexions d'alimentation]
+image::../media/drw_a900fas9500_power_icon_IEOPS-1142.svg[Sources d'alimentation]
 
 |===
 
@@ -389,15 +406,13 @@ image::../media/drw_a900fas9500_power_icon_IEOPS-1142.svg[Connexions d'alimentat
 
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
-Reliez un tiroir de disque NS224 ou deux tiroirs de disques NS224 à vos contrôleurs.
+Reliez les tiroirs disques DS212C ou DS224C aux contrôleurs.
 
-[role="tabbed-block"]
-====
-.Option 1 : connectez les contrôleurs à un seul tiroir disque NS224
---
-Vous devez connecter chaque contrôleur aux modules NSM du tiroir disque NS224 sur un système AFF A900.
+
+NOTE: Pour plus d'informations sur le câblage SAS et les fiches de calcul, reportez-vous à la section link:../sas3/overview-cabling-rules-examples.html["Présentation des règles, des feuilles de calcul et des exemples de câblage SAS - tiroirs avec modules IOM12"]
 
 .Avant de commencer
+* Renseignez la fiche de câblage SAS de votre système. Voir link:../sas3/overview-cabling-rules-examples.html["Présentation des règles, des feuilles de calcul et des exemples de câblage SAS - tiroirs avec modules IOM12"].
 * Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait des câbles des modules de stockage est vers le haut, tandis que les languettes de retrait des étagères sont vers le bas.
 
 
@@ -406,14 +421,15 @@ image::../media/oie_cable_pull_tab_up.png[Direction de la languette de tirage du
 image::../media/oie_cable_pull_tab_down.png[Direction de la languette de tirage du câble]
 
 
-NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
+NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
 
-. Utilisez l'animation ou les dessins suivants pour connecter les contrôleurs à un seul tiroir de disque NS224.
+.Étapes
+. Utilisez l'animation ou les mises en plan suivantes pour connecter les contrôleurs à trois (1 pile d'un tiroir disque et une pile de deux tiroirs disques) tiroirs disques DS224C.
 +
-.Animation : raccorder un seul tiroir NS224
-video::8d8b45cd-bd8f-4fab-a4fa-afa5017e7b72[panopto]
+.Animation Câblez vos étagères de disques
+video::c958aae6-9d08-4d3d-a213-ae7c017040cd[panopto]
 +
-image::../media/drw_a900_NS224_one shelf_cabling_IEOPS-937.svg[Câblage à un seul tiroir]
+image::../media/drw_9500_sas_shelf_cabling.svg[Câblage d'étagère SAS]
 
 +
 [cols="20%,80%"]
@@ -422,97 +438,39 @@ image::../media/drw_a900_NS224_one shelf_cabling_IEOPS-937.svg[Câblage à un se
 
 
  a| 
-image::../media/icon_square_1_blue.png[Légende numéro un]
+image::../media/icon_square_1_blue.png[Icône de légende 1]
  a| 
-** Connectez le port e2a du contrôleur au port e0a du NSM A du shelf.
-** Connectez le port e10b du contrôleur A au port e0b sur le NSM B du tiroir.
+Connectez la pile de tiroirs disques une aux contrôleurs à l'aide du graphique pour référence.
 
+*Câble Mini-SAS*
 
-image::../media/oie_cable100_gbe_qsfp28.png[Connecteur QSFP 100 GbE]
-
-Câble 100 GbE
+image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Câble Mini-SAS HD]
 
 
 
  a| 
-image::../media/icon_square_2_yellow.png[Légende numéro deux]
+image::../media/icon_square_2_yellow.png[Icône de légende 2]
  a| 
-** Connectez le port e2a du contrôleur B au port e0a du NSM B du shelf.
-** Connectez le port e10b du contrôleur B au port e0b sur le NSM A du tiroir.
+Connectez les tiroirs disques de la pile deux l'un à l'autre, en utilisant le graphique pour référence.
+
+*Câble Mini-SAS*
+
+image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Câble Mini-SAS HD]
 
 
-image::../media/oie_cable100_gbe_qsfp28.png[Connecteur QSFP 100 GbE]
 
-Câble 100 GbE
+ a| 
+image::../media/icon_square_3_tourquoise.png[Icône de légende 3]
+ a| 
+Connectez la pile de tiroirs disques deux aux contrôleurs à l'aide du graphique pour référence.
+
+*Câble Mini-SAS*
+
+image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Câble Mini-SAS HD]
 
 |===
 
 
---
-.Option 2 : connectez les contrôleurs à deux tiroirs disques NS224
---
-Vous devez connecter chaque contrôleur aux modules NSM des tiroirs disques NS224.
-
-.Avant de commencer
-* Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait des câbles des modules de stockage est vers le haut, tandis que les languettes de retrait des étagères sont vers le bas.
-
-
-image::../media/oie_cable_pull_tab_up.png[Direction de la languette de tirage du câble]
-
-image::../media/oie_cable_pull_tab_down.png[Direction de la languette de tirage du câble]
-
-
-NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, tournez-le et réessayez.
-
-. Utilisez l'animation ou le schéma ci-dessous pour connecter les câbles du contrôleur à deux tiroirs disques NS224.
-+
-.Animation : raccorder deux clayettes NS224
-video::ec143c32-9e4b-47e5-893e-afa5017da6b4[panopto]
-+
-image::../media/drw_a900_NS224_line_art_two shelf_cabling_IEOPS-1147.svg[Câblage à deux tiroirs]
-
-+
-image::../media/drw_a900_NS224_two_shelf_cabling_IEOPS-938.svg[Câblage de deux tiroirs NS224]
-
-+
-[cols="10%,90%"]
-|===
-| Étape | Effectuer des opérations sur chaque contrôleur 
-
-
- a| 
-image::../media/icon_square_1_blue.png[Légende numéro 1]
- a| 
-** Connectez le port e2a du contrôleur à NSM A e0a sur le tiroir 1.
-** Connectez le port e10b du contrôleur A au port NSM B e0b sur le tiroir 1.
-** Connectez le port e2b du contrôleur A au port NSM B e0b sur le tiroir 2.
-** Connectez le port e10a du contrôleur a à NSM A e0a sur le tiroir 2.
-
-
-image::../media/oie_cable100_gbe_qsfp28.png[SFP cuivre GbE]
-
-Câble 100 GbE
-
-
-
- a| 
-image::../media/icon_square_2_yellow.png[Légende numéro 2]
- a| 
-** Connectez le port e2a du contrôleur B au NSM B e0a du tiroir 1.
-** Connectez le port e10b du contrôleur B au NSM A e0b sur le tiroir 1.
-** Connectez le port du contrôleur B e2b au NSM A e0b sur le tiroir 2.
-** Brancher le port e10a du contrôleur B sur le NSM B e0a du tiroir 2.
-
-
-image:../media/oie_cable100_gbe_qsfp28.png["SFP cuivre GbE"]
-
-Câble 100 GbE
-
-|===
-
-
---
-====
 
 
 == Étape 5 : installation et configuration complètes du système
@@ -525,15 +483,13 @@ Vous pouvez effectuer la configuration et l'installation du système en utilisan
 --
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
 
+.Étapes
 . Utilisez l'animation ou la mise en plan suivante pour définir un ou plusieurs ID de tiroir disque :
 +
-Les étagères NS224 sont pré-définies pour les ID de tiroir 00 et 01. Si vous souhaitez modifier les ID de tiroir, vous devez créer un outil pour l'insérer dans le trou où se trouve le bouton. Pour link:../ns224/change-shelf-id.html["Modifiez l'ID de tiroir NS224"]des instructions détaillées, reportez-vous à la section.
-
-+
-.Animation : définissez les ID de tiroirs de disques NVMe
+.Animation Définissez vos identifiants d'étagère
 video::95a29da1-faa3-4ceb-8a0b-ac7600675aa6[panopto]
 +
-image::../media/drw_a900_oie_change_ns224_shelf_ID_ieops-836.svg[Modification de l'ID de tiroir]
+image::../media/drw_power-on_set_shelf_ID_set.svg[Mettre sous tension et définir l'ID de l'étagère]
 
 +
 [cols="20%,80%"]
@@ -543,36 +499,49 @@ image::../media/drw_a900_oie_change_ns224_shelf_ID_ieops-836.svg[Modification de
  a| 
 image::../media/icon_round_1.png[Légende numéro 1]
  a| 
-Capuchon d'extrémité de tablette
+Déposer le bouchon d'extrémité.
 
 
 
  a| 
 image::../media/icon_round_2.png[Légende numéro 2]
  a| 
-Plateau de tablette
+Appuyez sur le bouton d'ID du tiroir et maintenez-le enfoncé jusqu'à ce que le premier chiffre clignote, puis appuyez sur pour passer à 0-9.
+
+
+NOTE: Le premier chiffre continue de clignoter
 
 
 
  a| 
-image::../media/icon_round_3.png[Numéro de légende 3]
+image::../media/icon_round_2.png[Légende numéro 2]
  a| 
-LED de l'ID de tiroir
+Appuyez sur le bouton d'ID du tiroir et maintenez-le enfoncé jusqu'à ce que le second chiffre clignote, puis appuyez sur pour passer à 0-9.
+
+
+NOTE: Le premier chiffre cesse de clignoter et le second chiffre continue de clignoter.
 
 
 
  a| 
 image::../media/icon_round_4.png[Numéro de légende 4]
  a| 
-Bouton de configuration de l'ID de tiroir
+Remettez le bouchon d'extrémité en place.
+
+
+
+ a| 
+image::../media/icon_round_5.png[Numéro de légende 5]
+ a| 
+Attendre 10 secondes pour le voyant orange (!) Pour afficher la commande, mettez le tiroir disque hors tension puis sous tension afin de définir l'ID de tiroir.
 
 |===
 . Mettez les boutons marche/arrêt sur les alimentations des deux nœuds.
 +
-.Animation : mettez les contrôleurs sous tension
+.Animation Allumez les contrôleurs
 video::a905e56e-c995-4704-9673-adfa0005a891[panopto]
 +
-image::../media/drw_a900_power-on_IEOPS-941.svg[Interrupteur d'alimentation]
+image::../media/drw_9500_power-on.svg[Mettez le système sous tension]
 
 +
 
@@ -584,14 +553,14 @@ Consultez l'aide en ligne de votre ordinateur portable pour plus d'informations.
 
 . Utilisez l'animation suivante pour connecter votre ordinateur portable au commutateur de gestion.
 +
-.Animation : connectez votre ordinateur portable au commutateur de gestion
+.Animation Connectez votre ordinateur portable au commutateur de gestion
 video::d61f983e-f911-4b76-8b3a-ab1b0066909b[panopto]
 +
-image::../media/dwr_laptop_to_switch_only.svg[Connexion de l'ordinateur portable au commutateur]
+image::../media/dwr_laptop_to_switch_only.svg[Ordinateur portable pour changer de câblage]
 
 . Sélectionnez une icône ONTAP pour découvrir :
 +
-image::../media/drw_autodiscovery_controler_select_ieops-1849.svg[Sélectionnez une icône ONTAP]
+image::../media/drw_autodiscovery_controler_select_ieops-1849.svg[Comment découvrir vos contrôleurs avec l'Explorateur de fichiers Windows]
 
 +
 .. Ouvrez l'Explorateur de fichiers.
@@ -632,6 +601,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 --
 Si vous n'utilisez pas un ordinateur portable ou une console Windows ou Mac ou si la détection automatique n'est pas activée, vous devez terminer la configuration et la configuration à l'aide de cette tâche.
 
+.Étapes
 . Branchez et configurez votre ordinateur portable ou votre console :
 +
 .. Définissez le port de console de l'ordinateur portable ou de la console sur 115,200 bauds avec N-8-1.
@@ -639,22 +609,19 @@ Si vous n'utilisez pas un ordinateur portable ou une console Windows ou Mac ou s
 
 NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console pour savoir comment configurer le port de console.
 
-.. Connectez le câble de la console à l'ordinateur portable ou à la console à l'aide du câble de console fourni avec le système, puis connectez l'ordinateur portable au commutateur de gestion du sous-réseau de gestion.
+.. Connectez le câble de la console à l'ordinateur portable ou à la console à l'aide du câble de console fourni avec le système, puis connectez l'ordinateur portable au commutateur du sous-réseau de gestion.
 +
-image::../media/drw_a900_cable_console_switch_controller_IEOPS-953.svg[Connexion du câble de la console]
+image::../media/drw_9500_cable_console_switch_controller.svg[Connexion de la console au commutateur]
 
 .. Attribuez une adresse TCP/IP à l'ordinateur portable ou à la console à l'aide d'une adresse située sur le sous-réseau de gestion.
 
 
 . Utilisez l'animation suivante pour définir un ou plusieurs ID de tiroir disque :
 +
-Les étagères NS224 sont pré-définies pour les ID de tiroir 00 et 01. Si vous souhaitez modifier les ID de tiroir, vous devez créer un outil pour l'insérer dans le trou où se trouve le bouton. Pour link:../ns224/change-shelf-id.html["Modifiez l'ID de tiroir NS224"]des instructions détaillées, reportez-vous à la section.
-
-+
-.Animation : définissez les ID de tiroirs de disques NVMe
+.Animation Définissez vos identifiants d'étagère
 video::95a29da1-faa3-4ceb-8a0b-ac7600675aa6[panopto]
 +
-image::../media/drw_a900_oie_change_ns224_shelf_ID_ieops-836.svg[Modifiez l'ID de tiroir]
+image::../media/drw_power-on_set_shelf_ID_set.svg[Mise sous tension et définition de l'ID de l'étagère]
 
 +
 [cols="20%,80%"]
@@ -664,36 +631,49 @@ image::../media/drw_a900_oie_change_ns224_shelf_ID_ieops-836.svg[Modifiez l'ID d
  a| 
 image::../media/icon_round_1.png[Légende numéro 1]
  a| 
-Capuchon d'extrémité de tablette
+Déposer le bouchon d'extrémité.
 
 
 
  a| 
 image::../media/icon_round_2.png[Légende numéro 2]
  a| 
-Plateau de tablette
+Appuyez sur le bouton d'ID du tiroir et maintenez-le enfoncé jusqu'à ce que le premier chiffre clignote, puis appuyez sur pour passer à 0-9.
+
+
+NOTE: Le premier chiffre continue de clignoter
 
 
 
  a| 
-image::../media/icon_round_3.png[Numéro de légende 3]
+image::../media/icon_round_2.png[Légende numéro 2]
  a| 
-LED de l'ID de tiroir
+Appuyez sur le bouton d'ID du tiroir et maintenez-le enfoncé jusqu'à ce que le second chiffre clignote, puis appuyez sur pour passer à 0-9.
+
+
+NOTE: Le premier chiffre cesse de clignoter et le second chiffre continue de clignoter.
 
 
 
  a| 
 image::../media/icon_round_4.png[Numéro de légende 4]
  a| 
-Bouton de configuration de l'ID de tiroir
+Remettez le bouchon d'extrémité en place.
+
+
+
+ a| 
+image::../media/icon_round_5.png[Numéro de légende 5]
+ a| 
+Attendre 10 secondes pour le voyant orange (!) Pour afficher la commande, mettez le tiroir disque hors tension puis sous tension afin de définir l'ID de tiroir.
 
 |===
 . Mettez les boutons marche/arrêt sur les alimentations des deux nœuds.
 +
-.Animation : mettez les contrôleurs sous tension
-video::bb04eb23-aa0c-4821-a87d-ab2300477f8b[panopto]
+.Animation Allumez les contrôleurs
+video::a905e56e-c995-4704-9673-adfa0005a891[panopto]
 +
-image::../media/drw_a900_power-on_IEOPS-941.svg[Interrupteur d'alimentation]
+image::../media/drw_9500_power-on.svg[Mettez le système sous tension]
 
 +
 
@@ -701,7 +681,7 @@ NOTE: Le démarrage initial peut prendre jusqu'à huit minutes.
 
 . Attribuez une adresse IP initiale de gestion des nœuds à l'un des nœuds.
 +
-[cols="20%,80%"]
+[cols="1,2"]
 |===
 | Si le réseau de gestion dispose de DHCP... | Alors... 
 
@@ -732,7 +712,7 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console
 
 NOTE: Le format de l'adresse est +https://x.x.x.x+.
 
-.. Configurez le système à l'aide des données que vous avez collectées dans https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"^]
+.. Configurez le système à l'aide des données que vous avez collectées dans https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"^] .
 
 
 . Configurez votre compte et téléchargez Active IQ Config Advisor :
