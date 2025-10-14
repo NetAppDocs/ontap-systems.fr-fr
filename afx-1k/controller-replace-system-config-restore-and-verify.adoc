@@ -1,0 +1,56 @@
+---
+permalink: afx-1k/controller-replace-system-config-restore-and-verify.html 
+sidebar: sidebar 
+keywords: afx 1k, restore and verify the system configuration, verify and set the ha state of the controller module 
+summary: 'Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement dans votre système de stockage AFX 1K et confirmez que les adaptateurs du système répertorient tous les chemins d"accès aux disques.' 
+---
+= Restaurer et vérifier la configuration du système - AFX 1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement dans votre système de stockage AFX 1K et confirmez que les adaptateurs du système répertorient tous les chemins d'accès aux disques.
+
+
+
+== Étape 1 : vérifiez les paramètres de configuration haute disponibilité
+
+Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
+
+. Démarrage en mode maintenance : `boot_ontap maint`
++
+.. Entrez `y` lorsque vous voyez _Continuer avec boot?_.
++
+Si le message d'avertissement _ID système incorrect_ s'affiche, entrez `y`.
+
+
+
+. Saisir `sysconfig -v` et capturer le contenu de l'affichage.
++
+
+NOTE: Si vous voyez _INADÉQUATION DE PERSONNALITÉ_, contactez le service clientèle.
+
+. A partir du `sysconfig -v` résultat, comparez les informations de la carte adaptateur avec les cartes et les emplacements dans le contrôleur de remplacement.
+
+
+
+
+== Étape 2 : vérifiez la liste des disques
+
+. Vérifiez que l'adaptateur liste les chemins d'accès à tous les disques :
++
+`storage show disk -p`
+
++
+En cas de problème, vérifiez le câblage et réinstallez les câbles.
+
+. Quitter le mode Maintenance :
++
+`halt`
+
+
+
+.Et la suite ?
+Après avoir restauré et vérifié la configuration du système de stockage AFX 1K,link:controller-replace-recable-reassign-disks.html["remettez le contrôleur en place"] .

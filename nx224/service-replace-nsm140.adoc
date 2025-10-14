@@ -1,0 +1,335 @@
+---
+permalink: nx224/service-replace-nsm140.html 
+sidebar: sidebar 
+keywords: nx224, shelves, shelf, nx224 shelves, replace, impair, nvme, module, nsm, nondisruptive, drive, i/o, nsm, replace an NSM 
+summary: 'Vous pouvez remplacer un module d"étagère NVMe endommagé (NSM) sans interruption dans une étagère de lecteur NX224 sous tension et pendant que les E/S sont en cours.' 
+---
+= Remplacer une étagère NSM - NX224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez remplacer un module d'étagère NVMe (NSM) endommagé sans interruption dans une étagère de lecteur NX224 sous tension et pendant que les E/S sont en cours.
+
+.Description de la tâche
+* Le remplacement du NSM implique le déplacement des modules DIMM, des ventilateurs, du support de démarrage, du module d'E/S et de l'alimentation du NSM défectueux vers le NSM de remplacement.
++
+Vous ne déplacez pas la batterie de l'horloge temps réel (RTC).  Il est préinstallé dans le NSM de remplacement.
+
+* Prévoir au moins 70 secondes entre le retrait et l’installation du NSM.
++
+Cela laisse suffisamment de temps à ONTAP pour traiter l'événement de suppression NSM.
+
+* *Meilleure pratique :* la meilleure pratique consiste à disposer des versions actuelles du micrologiciel NSM et du micrologiciel du lecteur sur votre système avant de remplacer les composants FRU. Vous pouvez consulter le site de support NetApp pour  https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["télécharger le firmware du disque dur"^] et  https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["télécharger le micrologiciel du lecteur de disque"^] .
++
+[NOTE]
+====
+Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
+
+====
+* Le micrologiciel de tiroir (NSM) est automatiquement mis à jour (sans interruption) sur un nouveau NSM doté d'une version de micrologiciel non à jour.
++
+Les vérifications du micrologiciel NSM sont effectuées toutes les 10 minutes. Une mise à jour du micrologiciel NSM peut prendre jusqu'à 30 minutes.
+
+* Si nécessaire, vous pouvez allumer les LED situées à l'emplacement des tiroirs (bleues) pour faciliter l'emplacement physique des tiroirs concernés : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
++
+Si vous ne connaissez pas le `shelf_name` sur la tablette concernée, exécutez la `storage shelf show` commande.
+
++
+Un tiroir est doté de trois voyants d'emplacement : un sur le panneau de commande et un sur chaque NSM. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l' `off`option.
+
+* Lorsque vous déballez le module NSM de remplacement, conservez tous les matériaux d'emballage pour l'utiliser lorsque vous renvoyez le module NSM défectueux.
++
+Si vous avez besoin du numéro d'autorisation de renvoi de matériel ou d'une aide supplémentaire pour effectuer la procédure de remplacement, contactez le support technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"^], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique).
+
+
+
+.Avant de commencer
+* Le NSM partenaire de l'étagère doit être opérationnel et câblé correctement afin que votre étagère conserve la connectivité lorsque vous retirez le NSM défaillant.  Vous pouvez vérifier le statut du partenaire NSM en https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["téléchargement et exécution de Config Advisor"^] .
+* Tous les autres composants du système doivent fonctionner correctement.
+
+
+.Étapes
+. Mettez-vous à la terre.
+. Identifiez physiquement le NSM altéré.
++
+Le système enregistre un message d'avertissement sur la console du système pour indiquer quel module est défaillant. En outre, la LED attention (orange) sur le panneau d'affichage de l'opérateur de la tablette du disque et le module détérioré s'allument.
+
+. Déconnectez le câblage du NSM défectueux :
++
+.. Débranchez le cordon d’alimentation de l’alimentation en ouvrant le dispositif de retenue du cordon d’alimentation, puis en débranchant le cordon d’alimentation de l’alimentation.
++
+Les blocs d'alimentation n'ont pas de commutateur d'alimentation.
+
+.. Déconnectez le câblage de stockage des ports NSM.
++
+Notez les ports NSM auxquels chaque câble est connecté. Vous reconnectez les câbles aux mêmes ports sur le NSM de remplacement, plus loin dans cette procédure.
+
+
+
+. Déposer le NSM :
++
+image::../media/drw_g_and_t_handles_remove_ieops-1837.svg[Retirez le NSM.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Aux deux extrémités du NSM, poussez les languettes de verrouillage verticales vers l'extérieur pour libérer les poignées.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+** Tirez les poignées vers vous pour détacher le NSM du fond de panier central.
++
+Lorsque vous tirez, les poignées sortent du shelf. Lorsque vous ressentez une certaine résistance, continuez à tirer.
+
+** Faites glisser le NSM hors de la tablette et placez-le sur une surface plane et stable.
++
+Assurez-vous de soutenir le bas du NSM lorsque vous le faites glisser hors de l'étagère.
+
+
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Faites pivoter les poignées vers le haut (à côté des languettes) pour les écarter.
+
+|===
+. Déballez le NSM de rechange et placez-le sur une surface plane près du NSM défectueux.
+. Ouvrez les capots des deux NSM en desserrant la vis à molette sur chaque capot.
+. Déplacez les quatre modules DIMM du NSM défectueux vers le NSM de remplacement :
++
+.. Retirez chaque module DIMM du NSM défectueux :
++
+image::../media/drw_tp_dimm_replace_ieops-2202.svg[Retirez les modules DIMM.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Numérotation et positions des emplacements DIMM.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+*** Notez l'orientation du module DIMM dans le support de manière à pouvoir l'insérer dans le module DIMM de remplacement dans le même sens.
+*** Éjectez le module DIMM défectueux en écartant lentement les deux pattes d'éjection du module DIMM situées aux deux extrémités du logement DIMM.
+
+
+
+IMPORTANT: Tenez soigneusement le module DIMM par les coins ou les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Soulevez le module DIMM et retirez-le de son logement.
+
+Les languettes de l'éjecteur restent en position ouverte.
+
+|===
+.. Installez chaque DIMM dans le NSM de remplacement :
++
+... Tenez le DIMM par les coins, puis insérez-le à l'équerre dans un logement.
++
+L'encoche située au bas du DIMM, entre les broches, doit être alignée avec la languette dans le logement.
+
++
+Lorsqu'il est correctement inséré, le module DIMM doit être inséré facilement, mais bien inséré dans le logement. Si ce n'est pas le cas, réinsérez le module DIMM.
+
+... Poussez doucement, mais fermement, sur le bord supérieur du DIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent sur les encoches aux deux extrémités du DIMM.
+
+
+
+
+. Déplacez tous les ventilateurs du NSM défectueux vers le NSM de remplacement :
++
+image::../media/drw_tp_fan_replace_ieops-2203.svg[Retirez le ventilateur défectueux.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Retirez le ventilateur défectueux en saisissant fermement les côtés où se trouvent les points de contact bleus, puis tirez-le vers le haut pour le sortir de son support.
+
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 2]
+ a| 
+Insérez le ventilateur de remplacement en l'alignant dans les guides, puis poussez-le vers le bas jusqu'à ce que le connecteur du ventilateur soit complètement inséré dans le support.
+
+|===
+. Déplacez le support de démarrage vers le NSM de remplacement :
++
+.. Retirez le support de démarrage du NSM défectueux :
++
+image::../media/drw_tp_boot_media_replace_ieops-2201.svg[Retirez le support de démarrage.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Emplacement du support de démarrage
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Appuyez sur la languette bleue pour libérer l'extrémité droite du support de démarrage.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Soulevez légèrement l'extrémité droite du support de démarrage pour obtenir une bonne prise sur les côtés du support de démarrage.
+
+
+
+ a| 
+image::../media/icon_round_4.png[Numéro de légende 4]
+ a| 
+Retirez délicatement l'extrémité gauche du support de démarrage de son support.
+
+|===
+.. Installez le support de démarrage dans le NSM de remplacement :
++
+... Alignez les bords du support de démarrage avec le logement du support dans le NSM de remplacement, puis poussez-le doucement d'équerre dans le support.
+... Faites pivoter le support de démarrage vers le bas, vers le bouton de verrouillage.
+... Appuyez sur le bouton de verrouillage, faites pivoter le support de démarrage complètement vers le bas, puis relâchez le bouton de verrouillage.
+
+
+
+
+. Déplacez les quatre modules d'E/S du NSM défectueux vers le NSM de remplacement.
++
+.. Retirez chaque module d'E/S du NSM défectueux :
++
+image::../media/drw_tp_io_module_replace_ieops-2204.svg[Remplacez le module d'E/S.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Tournez la vis moletée du module d'E/S dans le sens inverse des aiguilles d'une montre pour la desserrer.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Retirez le module d'E/S du NSM à l'aide de la languette d'étiquette de port située à gauche et de la vis à molette.
+
+|===
+.. Installez chaque module d'E/S dans le NSM de remplacement :
++
+... Alignez le module d'E/S avec les bords du logement du NSM de remplacement.
+... Poussez doucement le module d'E/S à fond dans le logement, en veillant à ce qu'il soit correctement inséré dans le connecteur.
++
+Vous pouvez utiliser la languette de gauche et la vis moletée pour enfoncer le module d'E/S.
+
+
+
+
+
+. Fermez le capot de chaque NSM, puis serrez chaque vis à molette.
+. Déplacez le bloc d'alimentation du NSM défectueux vers le NSM de remplacement :
++
+.. Faites pivoter la poignée du bloc d'alimentation vers le haut, jusqu'à sa position horizontale, puis saisissez-la.
+.. Avec votre pouce, appuyez sur la languette en terre cuite du bloc d'alimentation pour libérer le mécanisme de verrouillage.
+.. Retirez le bloc d'alimentation du NSM tout en utilisant votre autre main pour soutenir son poids.
+.. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du NSM de remplacement.
+.. Poussez doucement le bloc d'alimentation dans le NSM jusqu'à ce que le mécanisme de verrouillage s'enclenche.
++
+
+NOTE: N'utilisez pas de force excessive et vous risquez d'endommager le connecteur interne.
+
+.. Faites pivoter la poignée d'alimentation vers le bas, de manière à ce qu'elle ne gêne pas les opérations normales.
+
+
+. Insérez le NSM dans l'étagère :
++
+image::../media/drw_g_and_t_handles_reinstall_ieops-1838.svg[Remplacer le NSM.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Si vous avez fait pivoter les poignées NSM vers le haut (à côté des languettes) pour les écarter pendant que vous effectuez l'entretien du NSM, faites-les pivoter vers le bas jusqu'à la position horizontale.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Alignez l'arrière du NSM avec l'ouverture de l'étagère, puis poussez doucement le NSM à l'aide des poignées jusqu'à ce qu'il soit bien en place.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Faites pivoter les poignées en position verticale et verrouillez-les en place à l'aide des languettes.
+
+|===
+. Reconnectez le câblage au NSM :
++
+.. Reconnectez le câblage de stockage aux mêmes huit ports NSM.
++
+Les câbles sont insérés avec la languette de retrait du connecteur orientée vers le haut. Lorsqu'un câble est inséré correctement, il s'enclenche.
+
+.. Rebranchez le cordon d’alimentation à l’alimentation, puis fixez-le à l’aide du dispositif de retenue du cordon d’alimentation.
++
+Lorsqu'elle fonctionne correctement, la LED bicolore d'un bloc d'alimentation s'allume en vert.
+
++
+En outre, les deux LED LNK (vertes) du port NSM s'allument. Si un voyant LNK ne s'allume pas, réinstallez le câble.
+
+
+
+. Vérifiez que la LED attention (orange) du panneau de l'opérateur de la tablette n'est plus allumée.
++
+La LED d'avertissement du panneau d'affichage de l'opérateur s'éteint après le redémarrage du NSM. Cela peut prendre trois à cinq minutes.
+
+. Vérifiez que le NSM est correctement câblé, en https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["exécution Active IQ Config Advisor"^] .
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+. Vérifiez que les deux modules NSM du tiroir exécutent la même version de firmware : version 0300 ou ultérieure.
+

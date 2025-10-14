@@ -1,0 +1,210 @@
+= 
+:allow-uri-read: 
+
+
+Si le système de stockage dispose de logements disponibles, installez le nouveau module d'E/S dans l'un des emplacements disponibles. Si tous les emplacements sont occupés, retirez un module d'E/S existant pour libérer de l'espace, puis installez le nouveau.
+
+.Avant de commencer
+* Vérifiez le https://hwu.netapp.com/["NetApp Hardware Universe"^] pour garantir que le nouveau module d'E/S est compatible avec votre système de stockage et votre version ONTAP .
+* Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans https://hwu.netapp.com/["NetApp Hardware Universe"^] Et utiliser la meilleure solution disponible pour votre module d'E/S.
+* S'assurer que tous les autres composants fonctionnent correctement.
+* Assurez-vous que vous disposez du composant de remplacement que vous avez reçu de NetApp.
+
+
+[role="tabbed-block"]
+====
+.Ajoutez un module d'E/S à un emplacement disponible
+--
+Vous pouvez ajouter un nouveau module d'E/S à un système de stockage avec les emplacements disponibles.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés à l'intérieur du chemin de câbles et en le faisant pivoter vers le bas.
+. Retirez le module d'obturation du logement cible du support :
++
+.. Appuyez sur le loquet de came du module d'obturation dans le logement cible.
+.. Faites tourner le loquet de came aussi loin que possible du module.
+.. Retirez le module du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du boîtier.
+
+
+. Installez le module d'E/S :
++
+.. Alignez le module d'E/S sur les bords de l'ouverture du logement du boîtier.
+.. Faites glisser doucement le module dans le logement jusqu'à l'intérieur du boîtier, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+. Reliez le module d'E/S au périphérique désigné.
++
+
+NOTE: Assurez-vous que des espaces vides sont installés dans les emplacements d'E/S inutilisés afin d'éviter tout problème thermique.
+
+. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+. Depuis l'invite DU CHARGEUR, redémarrez le nœud :
++
+`bye`
+
++
+
+NOTE: Ceci réinitialise le module d'E/S et les autres composants et redémarre le nœud.
+
+. Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
++
+** Si vous voyez l’invite _login_, passez à l’étape suivante.
+** Si vous ne voyez pas l’invite de connexion, connectez-vous au nœud partenaire.
+
+
+. Renvoyer uniquement la racine avec l'option override-destination-checks :
++
+`storage failover giveback -ofnode impaired-node -only-root true -override -destination-checks true`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.  Pour plus d'informations sur les niveaux de privilège, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/administrative-privilege-levels-concept.html["Comprendre les niveaux de privilèges pour les commandes CLI ONTAP"^] .
+
++
+Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
+
+. Attendre 5 minutes après la fin du rapport de rétablissement et vérifier l'état du basculement et de rétablissement :
++
+`storage failover show`et `storage failover show-giveback`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.
+
+. Si les liens d'interconnexion HA ont été supprimés, rétablissez-les :
++
+`system ha interconnect link on -node healthy-node -link 0`
+
++
+`system ha interconnect link on -node healthy-node -link 1`
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Répétez ces étapes pour le contrôleur B.
+. Depuis le nœud sain, restaurez le rétablissement automatique si vous l'avez désactivé :
++
+`storage failover modify -node local -auto-giveback-of _true_`
+
+. Si AutoSupport est activé, restaurez la création automatique de dossiers :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+--
+.Ajoutez un module d'E/S à un système entièrement rempli
+--
+Vous pouvez ajouter un module d'E/S à un système entièrement rempli en retirant un module d'E/S existant et en installant un nouveau à sa place.
+
+.Description de la tâche
+Veillez à bien comprendre les scénarios suivants pour ajouter un nouveau module d'E/S à un système entièrement rempli :
+
+[cols="1,2"]
+|===
+| Scénario | Action requise 
+
+
+ a| 
+NIC à NIC (même nombre de ports)
+ a| 
+Les LIF migrent automatiquement lorsque son module de contrôleur est arrêté.
+
+
+
+ a| 
+NIC à NIC (nombre différent de ports)
+ a| 
+Réaffectez de manière permanente les LIF sélectionnées à un autre port de attache. Voir https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^] pour plus d'informations.
+
+
+
+ a| 
+Carte réseau vers module d'E/S de stockage
+ a| 
+Utilisez System Manager pour migrer définitivement les LIF vers différents ports de base, comme décrit dans la https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-208BB0B8-3F84-466D-9F4F-6E1542A2BE7D.html["Migration d'une LIF"^].
+
+|===
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez tout câblage du module d'E/S cible.
+. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés à l'intérieur du chemin de câbles et en le faisant pivoter vers le bas.
+. Retirez le module d'E/S cible du châssis :
++
+.. Appuyer sur le bouton de verrouillage de came.
+.. Faites tourner le loquet de came aussi loin que possible du module.
+.. Retirez le module du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du boîtier.
++
+Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
+
+
+
+. Installez le module d'E/S dans le logement cible du boîtier :
++
+.. Alignez le module avec les bords de l'ouverture du logement du boîtier.
+.. Faites glisser doucement le module dans le logement jusqu'à l'intérieur du boîtier, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+. Reliez le module d'E/S au périphérique désigné.
+. Répéter les étapes de dépose et de pose pour remplacer les modules supplémentaires du contrôleur.
+. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+. Redémarrez le contrôleur à partir de l'invite du CHARGEUR :_bye_
++
+Cette opération réinitialise les cartes PCIe et les autres composants et redémarre le nœud.
+
+. Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
++
+** Si vous voyez l’invite _login_, passez à l’étape suivante.
+** Si vous ne voyez pas l’invite de connexion, connectez-vous au nœud partenaire.
+
+
+. Renvoyer uniquement la racine avec l'option override-destination-checks :
++
+`storage failover giveback -ofnode impaired-node -only-root true -override -destination-checks true`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.  Pour plus d'informations sur les niveaux de privilège, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/administrative-privilege-levels-concept.html["Comprendre les niveaux de privilèges pour les commandes CLI ONTAP"^] .
+
++
+Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
+
+. Attendre 5 minutes après la fin du rapport de rétablissement et vérifier l'état du basculement et de rétablissement :
++
+`storage failover show`et `storage failover show-giveback`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.
+
+. Si les liens d'interconnexion HA ont été supprimés, rétablissez-les :
++
+`system ha interconnect link on -node healthy-node -link 0`
+
++
+`system ha interconnect link on -node healthy-node -link 1`
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode impaired_node_name`
+
+. Activer le rétablissement automatique si elle a été désactivée :
++
+`storage failover modify -node local -auto-giveback-of true`
+
+. Effectuez l'une des opérations suivantes :
++
+** Si vous avez retiré un module d'E/S de stockage et installé un nouveau module d'E/S de carte réseau, utilisez la commande réseau suivante pour chaque port :
++
+`storage port modify -node <node name>__ -port <port name>__ -mode network`
+
+** Si vous avez retiré un module d'E/S NIC et installé un module d'E/S de stockage, installez et câblez vos étagères NX224, comme décrit danslink:../nx224/hot-add-shelf.html["Étagère NX224 à ajout à chaud"] .
+
+
+. Répétez ces étapes pour le contrôleur B.
+
+
+--
+====

@@ -1,0 +1,34 @@
+---
+permalink: afx-1k/bootmedia-replace-workflow.html 
+sidebar: sidebar 
+keywords: afx 1k, replace the boot media 
+summary: 'Commencez à remplacer le support de démarrage de votre système de stockage AFX 1K en examinant les exigences de remplacement, en vérifiant l"état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l"image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.' 
+---
+= Flux de travail de remplacement du support de démarrage - AFX 1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Commencez à remplacer le support de démarrage de votre système de stockage AFX 1K en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:bootmedia-replace-requirements.html["Vérifiez la configuration requise pour le support de démarrage"]
+[role="quick-margin-para"]
+Vérifiez les conditions requises pour le remplacement des supports de démarrage.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:bootmedia-shutdown.html["Arrêter le contrôleur"]
+[role="quick-margin-para"]
+Arrêtez le contrôleur de votre système de stockage lorsque vous devez remplacer le support de démarrage.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:bootmedia-replace.html["Remplacez le support de démarrage"]
+[role="quick-margin-para"]
+Retirez le support de démarrage défectueux du module de gestion du système et installez le support de démarrage de remplacement.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:bootmedia-recovery-image-boot.html["Restaurez l'image sur le support de démarrage"]
+[role="quick-margin-para"]
+Restaurez l'image ONTAP à partir du contrôleur partenaire.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:bootmedia-complete-rma.html["Renvoyez la pièce défectueuse à NetApp"]
+[role="quick-margin-para"]
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.

@@ -1,0 +1,121 @@
+---
+permalink: nx224/service-replace-drive.html 
+sidebar: sidebar 
+keywords: nx224, shelves, shelf, nx224 shelves, fail, replace, drive, nondisruptive, i/o, hot-swap, hot-swap a drive 
+summary: Vous pouvez remplacer un disque défectueux sans interruption dans une étagère NX224 sous tension et pendant que les E/S sont en cours. 
+---
+= Remplacement à chaud d'un disque - Étagères NX224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez remplacer un disque défectueux sans interruption dans une étagère NX224 sous tension et pendant que les E/S sont en cours.
+
+.Avant de commencer
+* Le lecteur que vous installez doit être pris en charge par l’étagère NX224.  Vous pouvez vérifier les lecteurs compatibles de votre étagère dans le https://hwu.netapp.com["NetApp Hardware Universe"^] .
+* Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans la documentation ONTAP.
++
+Vous pouvez consulter les étapes supplémentaires qui doivent être effectuées avant et après le remplacement d'un SED dans le https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Présentation du chiffrement NetApp avec la documentation CLI"^] .
+
+* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, contactez le support technique.
+* Vérifiez que le lecteur que vous retirez a échoué.
++
+Vous pouvez vérifier que le lecteur est défectueux en exécutant le `storage disk show -broken` commande. Le lecteur défectueux apparaît dans la liste des disques défectueux. Si ce n'est pas le cas, attendez, puis exécutez de nouveau la commande.
+
++
+
+NOTE: Selon le type et la capacité du disque, il peut prendre jusqu'à plusieurs heures pour que le lecteur apparaisse dans la liste des disques défaillants.
+
+
+
+.Description de la tâche
+* *Meilleure pratique :* Assurez-vous que votre système peut reconnaître et utiliser les lecteurs nouvellement qualifiés en https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["téléchargement de la version actuelle du package de qualification de disque"^] .
++
+Cela évite les messages d'événements système indiquant que les informations sur les lecteurs ne sont pas à jour et empêche le partitionnement des lecteurs car les lecteurs ne sont pas reconnus.  Le DQP vous informe également des micrologiciels de lecteur non actuels.
+
+* *Meilleure pratique :* la meilleure pratique consiste à disposer des versions actuelles du micrologiciel du module d'étagère NVMe (NSM) et du micrologiciel du lecteur sur votre système avant de remplacer les composants FRU. Vous pouvez consulter le site de support NetApp pour  https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["télécharger le firmware du disque dur"^] et  https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["télécharger le micrologiciel du lecteur de disque"^] .
++
+[NOTE]
+====
+Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
+
+====
+* Le firmware des disques est automatiquement mis à jour (sans interruption) sur les nouveaux disques dont les versions de micrologiciel ne sont pas à jour.
++
+
+NOTE: Le firmware des disques est vérifié toutes les deux minutes.
+
+* Si nécessaire, vous pouvez allumer les LED situées à l'emplacement des tiroirs (bleues) pour faciliter l'emplacement physique des tiroirs concernés : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
++
+Si vous ne connaissez pas le `_shelf_name_` sur la tablette concernée, exécutez la `storage shelf show` commande.
+
++
+Un tiroir est doté de trois voyants d'emplacement : un sur le panneau de commande et un sur chaque NSM. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l' `off`option.
+
+* Lorsque vous déballez le lecteur de remplacement, conservez tous les matériaux d'emballage pour l'utiliser lorsque vous renvoyez le lecteur défectueux.
++
+Si vous avez besoin du numéro d'autorisation de renvoi de matériel ou d'une aide supplémentaire pour effectuer la procédure de remplacement, contactez le support technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"^], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique).
+
+
+
+.Étapes
+. Mettez-vous à la terre.
+. Identifiez physiquement le disque défectueux.
++
+Lorsqu'un disque tombe en panne, le système consigne un message d'avertissement à la console du système pour indiquer quel disque est en panne. En outre, le voyant d'avertissement (orange) situé sur le panneau de commande du tiroir et le disque défectueux s'allument.
+
++
+
+NOTE: Le voyant d'activité (vert) d'un disque défectueux peut être allumé (en continu), ce qui indique que le lecteur est sous tension, mais ne doit pas clignoter, ce qui indique une activité d'E/S. Un disque défectueux n'a aucune activité d'E/S.
+
+. Retirez le disque défectueux :
++
+image::../media/drw_nvme_drive_replace_ieops-1904.svg[Retirez le lecteur.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Appuyez sur le bouton de dégagement situé sur la face d'entraînement pour ouvrir la poignée de came.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Tournez la poignée de came vers le bas pour désengager l'entraînement du fond de panier central.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Faites glisser l'entraînement hors de la tablette à l'aide de la poignée de came et en soutenant l'entraînement avec l'autre main.
+
+|===
+. Attendre au moins 70 secondes avant d'insérer le lecteur de remplacement.
++
+Ceci permet au système de reconnaître qu'un lecteur a été retiré.
+
+. Insérer le lecteur de remplacement :
++
+.. Avec la poignée de came en position ouverte, insérer l'entraînement à l'aide des deux mains.
+.. Poussez doucement jusqu'à ce que le lecteur s'arrête.
+.. Fermez la poignée de came de façon à ce que le lecteur soit bien en place dans le plan médian et que la poignée s'enclenche.
++
+Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur la face de l'entraînement.
+
+
+
+. Vérifiez que le voyant d'activité (vert) du lecteur est allumé.
++
+Lorsque le voyant d'activité du lecteur est allumé, cela signifie que le lecteur est alimenté. Lorsque le voyant d'activité du lecteur clignote, cela signifie que le lecteur est alimenté et que les E/S sont en cours. Si le micrologiciel du lecteur est mis à jour automatiquement, le voyant clignote.
+
+. Si vous remplacez un autre lecteur, répétez les étapes 3 à 7.
+

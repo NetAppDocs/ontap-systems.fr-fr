@@ -1,0 +1,291 @@
+= Étape 1 : arrêtez le contrôleur défaillant
+:allow-uri-read: 
+
+
+Le module NVRAM se compose du matériel NVRAM12 et de modules DIMM remplaçables sur site. Vous pouvez remplacer un module NVRAM défectueux ou les modules DIMM à l'intérieur du module NVRAM.
+
+.Avant de commencer
+* Assurez-vous de disposer de la pièce de rechange. Vous devez remplacer le composant défectueux par un composant de remplacement que vous avez reçu de NetApp.
+* Assurez-vous que tous les autres composants du système de stockage fonctionnent correctement ; si ce n'est pas le cas, contactez https://support.netapp.com["Support NetApp"].
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+Arrêtez ou prenez le contrôle du contrôleur défectueux.
+
+Pour arrêter le contrôleur endommagé, vous devez déterminer l'état du contrôleur et, si nécessaire, effectuer une reprise de basculement de stockage du contrôleur afin que le contrôleur sain continue de fournir les données du stockage du contrôleur endommagé.
+
+.Description de la tâche
+* Si vous avez un cluster avec plus de quatre nœuds, il doit être en quorum.  Pour afficher les informations de cluster sur vos nœuds, utilisez le `cluster show` commande.  Pour plus d'informations sur le `cluster show` commande, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/display-nodes-cluster-task.html["Afficher les détails au niveau du nœud dans un cluster ONTAP"^] .
+* Si le cluster n'est pas en quorum ou si l'état ou l'éligibilité d'un contrôleur (autre que le contrôleur altéré) s'affiche comme faux, vous devez corriger le problème avant d'arrêter le contrôleur altéré. Voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^] .
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=<# of hours>h`
+
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :
+
++
+`cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le retour automatique depuis la console du contrôleur défaillant :
++
+`storage failover modify -node impaired-node -auto-giveback-of false`
+
++
+
+NOTE: Lorsque vous voyez _Voulez-vous désactiver la restitution automatique ?_, entrez `y` .
+
++
+.. Si vous exécutez la version 9.17.1 ONTAP et que le contrôleur endommagé ne peut pas être redémarré ou est déjà pris en charge, vous devez désactiver la liaison d'interconnexion HA du contrôleur sain avant de démarrer le contrôleur endommagé.  Cela empêche le contrôleur défaillant d'effectuer un retour automatique.
++
+`system ha interconnect link off -node healthy-node -link 0`
+
++
+`system ha interconnect link off -node healthy-node -link 1`
+
++
+
+NOTE: Si vous n’exécutez pas la version 9.17.1 ONTAP , ignorez l’étape ci-dessus et passez à l’étape 3.
+
+
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+Invite système ou invite de mot de passe
+ a| 
+Prendre le relais ou arrêter le contrôleur altéré à partir du contrôleur sain :
+`storage failover takeover -ofnode _impaired_node_name_ -halt _true_`
+
+Le paramètre _-halt true_ amène le nœud altéré à l'invite LOADER.
+
+|===
+
+
+
+
+== Étape 2 : remplacez le module NVRAM ou le module DIMM NVRAM
+
+Remplacez le module NVRAM ou les modules DIMM NVRAM à l'aide de l'option appropriée suivante.
+
+[role="tabbed-block"]
+====
+.Option 1 : remplacez le module NVRAM
+--
+Pour remplacer le module NVRAM, localisez-le dans le logement 4/5 du boîtier et suivez la séquence spécifique des étapes.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les câbles d’alimentation des blocs d’alimentation du contrôleur.
+. Faites pivoter le chemin de câbles vers le bas en tirant doucement les broches situées aux extrémités du bac et en faisant pivoter le bac vers le bas.
+. Retirez le module NVRAM défectueux du boîtier :
++
+.. Appuyer sur le bouton de came de verrouillage.
++
+Le bouton de came s'éloigne du boîtier.
+
+.. Faites pivoter le loquet de came le plus loin possible.
+.. Retirez le module NVRAM défectueux du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du boîtier.
++
+image::../media/drw_a1k_nvram12_remove_replace_ieops-1380.svg[Retirez le module NVRAM12 et les modules DIMM]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+| Bouton de verrouillage de came 
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Languettes de verrouillage DIMM
+
+|===
+
+
+. Placez le module NVRAM sur une surface stable.
+. Retirez les modules DIMM, un par un, du module NVRAM défectueux et installez-les dans le module NVRAM de remplacement.
+. Installez le module NVRAM de remplacement dans le boîtier :
++
+.. Alignez le module avec les bords de l'ouverture du boîtier dans le logement 4/5.
+.. Faites glisser doucement le module dans son logement jusqu'à ce qu'il se trouve à fond, puis faites pivoter le loquet de la came jusqu'à ce qu'il soit verrouillé en place.
+
+
+. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+
+
+--
+.Option 2 : remplacez le module DIMM NVRAM
+--
+Pour remplacer les barrettes DIMM NVRAM dans le module NVRAM, vous devez retirer le module NVRAM, puis remplacer le module DIMM cible.
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les câbles d’alimentation des blocs d’alimentation.
+. Faites pivoter le chemin de câbles vers le bas en tirant doucement les broches situées aux extrémités du bac et en faisant pivoter le bac vers le bas.
+. Retirez le module NVRAM cible du boîtier.
++
+image::../media/drw_a1k_nvram12_remove_replace_ieops-1380.svg[Retirez le module NVRAM 12 et les modules DIMM]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+| Bouton de verrouillage de came 
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Languettes de verrouillage DIMM
+
+|===
+. Placez le module NVRAM sur une surface stable.
+. Repérez le module DIMM à remplacer à l'intérieur du module NVRAM.
++
+
+NOTE: Consultez l'étiquette FRU map située sur le côté du module NVRAM pour déterminer l'emplacement des emplacements DIMM 1 et 2.
+
+. Retirez le module DIMM en appuyant sur les languettes de verrouillage du module DIMM et en soulevant le module DIMM hors du support.
+. Installez le module DIMM de remplacement en alignant le module DIMM avec le support et en poussant doucement le module DIMM dans le support jusqu'à ce que les languettes de verrouillage se verrouillent en place.
+. Installez le module NVRAM dans le boîtier :
++
+.. Faites glisser doucement le module dans le logement jusqu'à ce que le loquet de came commence à s'engager avec la broche de came d'E/S, puis faites tourner le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
+
+
+--
+====
+
+
+== Étape 3 : redémarrer le contrôleur
+
+Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
+
+. Rebranchez les câbles d’alimentation sur le bloc d’alimentation.
++
+Le système commence à redémarrer, généralement à l'invite du CHARGEUR.
+
+. Entrer `bye` à l'invite LOADER.
+
+
+
+
+== Étape 4 : Remplacement complet de la NVRAM
+
+Procédez comme suit pour terminer le remplacement de la NVRAM .
+
+.Étapes
+. À partir de l'invite du CHARGEUR sur le contrôleur, démarrez le contrôleur et entrez _y_ lorsque vous êtes invité à remplacer l'ID système en raison d'une incompatibilité d'ID système.
++
+Voici un exemple d’invite permettant de remplacer l’ID système :
+
++
+[listing]
+----
+WARNING: System ID mismatch. This usually occurs when replacing a boot device or NVRAM cards!
+Override system ID? {y|n}
+----
+. À partir du contrôleur sain, vérifiez que le nouvel ID système partenaire a été automatiquement attribué :
+`_storage failover show_`
++
+Dans la sortie de la commande, vous devriez voir un message affichant l’état actuel du remplacement de stockage.  Dans l'exemple suivant, le nœud 2 a subi un remplacement et affiche l'état actuel comme « En cours de prise de contrôle ».
+
++
+[listing]
+----
+node1:> storage failover show
+                                    Takeover
+Node              Partner           Possible     State Description
+------------      ------------      --------     -------------------------------------
+node1             node2             false        In takeover
+node2             node1             -            Waiting for giveback
+----
+. Remettre le contrôleur :
++
+.. À partir du contrôleur sain, restituez le stockage du contrôleur remplacé : `_storage failover giveback -ofnode replacement_node_name_`
++
+Le contrôleur récupère son stockage et termine le démarrage.
+
++
+
+NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
+
++
+Pour plus d'informations, reportez-vous à la section https://docs.netapp.com/us-en/ontap/high-availability/ha_manual_giveback.html#if-giveback-is-interrupted["Commandes de rétablissement manuel"^] rubrique pour remplacer le droit de veto.
+
+.. Une fois le rétablissement terminé, vérifiez que la paire HA est en bon état et qu'un basculement est possible : _Storage failover show_
++
+La sortie du `storage failover show` La commande ne doit pas inclure l'ID système modifié dans le message partenaire.
+
+
+
+. Vérifiez que les volumes attendus sont présents pour chaque contrôleur :
++
+`vol show -node node-name`
+
+. Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
++
+** Si vous voyez l’invite _login_, passez à l’étape suivante.
+** Si vous ne voyez pas l’invite de connexion, connectez-vous au nœud partenaire.
+
+
+. Attendre 5 minutes après la fin du rapport de rétablissement et vérifier l'état du basculement et de rétablissement :
++
+`storage failover show`et `storage failover show-giveback`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.
+
+. Si les liens d'interconnexion HA ont été supprimés, rétablissez-les :
++
+`system ha interconnect link on -node healthy-node -link 0`
+
++
+`system ha interconnect link on -node healthy-node -link 1`
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback-of true`
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+
+
+== Étape 5 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

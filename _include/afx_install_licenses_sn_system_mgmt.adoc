@@ -1,0 +1,40 @@
+= 
+:allow-uri-read: 
+
+
+Lorsque vous remplacez le module de gestion du système, le numéro de série du système (SSN) du contrôleur change.  Vous devez installer de nouvelles licences pour le nœud si le nœud endommagé utilisait des fonctionnalités ONTAP qui nécessitent une licence standard (verrouillée par nœud).  Pour les fonctionnalités avec des licences standard, chaque nœud du cluster doit avoir sa propre clé pour la fonctionnalité.
+
+.Description de la tâche
+Tant que vous n'avez pas installé les clés de licence, les fonctionnalités nécessitant une licence standard restent disponibles pour le nœud. Toutefois, si le nœud était le seul nœud du cluster avec une licence pour la fonctionnalité, aucune modification de configuration de la fonctionnalité n'est autorisée. En outre, l'utilisation de fonctionnalités sans licence sur le nœud peut vous mettre en conformité avec votre contrat de licence. Vous devez donc installer la ou les clés de licence de remplacement sur le pour le nœud dès que possible.
+
+.Avant de commencer
+Un fichier de licence NetApp (NLF) pour le nouveau numéro de série du système est requis.  Pour plus d'informations sur les fichiers de licence NetApp , consultezlink:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/ONTAP_9.10.1_and_later_licensing_overview["Présentation des licences ONTAP 9.10.1 et versions ultérieures"^] .
+
+Vous disposez de 90 jours pour installer les clés de licence, après quoi toutes les anciennes licences deviennent invalides.  Après avoir installé une clé de licence valide, vous disposez de 24 heures pour installer toutes les clés avant la fin de la période de grâce.
+
+
+NOTE: Si votre système exécutait initialement ONTAP 9.15.1 ou une version ultérieure, utilisez la procédure documentée danslink:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Post_Motherboard_Replacement_Process_to_update_Licensing_on_a_AFF_FAS_system["Procédure de remplacement post-carte mère pour mettre à jour les licences sur un système AFF/FAS"^] .  Si vous n'êtes pas sûr de la version initiale ONTAP pour votre système, consultezlink:https://hwu.netapp.com["NetApp Hardware Universe"^] pour plus d'informations.
+
+.Étapes
+. Si vous avez besoin de nouvelles clés de licence, vous pouvez obtenir ces clés sur le https://mysupport.netapp.com/site/global/dashboard["Site de support NetApp"] Dans la section My support (mon support), sous licences logicielles.
++
+
+NOTE: Les nouvelles clés de licence dont vous avez besoin sont générées automatiquement et envoyées à l'adresse électronique du fichier. Si vous ne recevez pas l'e-mail contenant les clés de licence dans les 30 jours, contactez l'assistance technique.
+
+. Installez chaque clé de licence via ONTAP System Manager.
++
+Pour plus d'informations, consultez la section link:https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html["Activez de nouvelles fonctionnalités en ajoutant des clés de licence avec ONTAP System Manager"^] .
+
+. Supprimez les anciennes licences, si nécessaire :
++
+.. Vérifier si les licences ne sont pas utilisées : `license clean-up -unused -simulate`
+.. Si la liste semble correcte, supprimez les licences inutilisées : `license clean-up -unused`
+
+
+. Enregistrez le numéro de série du système auprès du support NetApp.
++
+** Si AutoSupport est activé, envoyez un message AutoSupport pour enregistrer le numéro de série.
+** Si AutoSupport n'est pas activé, appeler https://mysupport.netapp.com["Support NetApp"] pour enregistrer le numéro de série.
+
+
+

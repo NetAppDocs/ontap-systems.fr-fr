@@ -1,0 +1,96 @@
+---
+permalink: afx-1k/maintain-overview.html 
+sidebar: sidebar 
+keywords: afx 1k maintenance, maintenance, repairing a1k, repairing afx 1k, replace afx 1k components, replace afx 1k components 
+summary: 'Entretenez le matériel de votre système de stockage AFX 1K pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d"éviter les temps d"arrêt et les pertes de données.' 
+---
+= Aperçu des procédures de maintenance - AFX 1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Entretenez le matériel de votre système de stockage AFX 1K pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.
+
+Les procédures de maintenance supposent que le système de stockage AFX 1K a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .
+
+
+
+== Composants du système
+
+Pour le système de stockage AFX 1K, vous pouvez effectuer des procédures de maintenance sur les composants suivants.
+
+[cols="25,65"]
+|===
+
+
+ a| 
+link:bootmedia-replace-workflow.html["Support de démarrage"]
+ a| 
+Le support de démarrage stocke un ensemble principal et secondaire de fichiers image ONTAP que le système utilise lors de son démarrage.
+
+
+
+ a| 
+link:controller-replace-workflow.html["Contrôleur"]
+ a| 
+Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les lecteurs et exécute le logiciel du système d'exploitation ONTAP.
+
+
+
+ a| 
+link:dimm-replace.html["DIMM"]
+ a| 
+Un module de mémoire en ligne double (DIMM) est un type de mémoire d'ordinateur. Ils sont installés pour ajouter de la mémoire système à une carte mère du contrôleur.
+
+
+
+ a| 
+link:fan-replace.html["Ventilateur"]
+ a| 
+Un ventilateur refroidit le contrôleur.
+
+
+
+ a| 
+link:nvram-replace.html["Module NVRAM"]
+ a| 
+Le module NVRAM (mémoire vive non volatile) permet au contrôleur de protéger et de sauvegarder les données en vol si le système perd de l'énergie.  L'ID système est stocké dans le module NVRAM .  Lors du remplacement, le contrôleur utilise le nouvel ID système du module NVRAM de remplacement.
+
+
+
+ a| 
+link:nvdimm-battery-replace.html["Batterie NV"]
+ a| 
+La batterie NV est chargée d'alimenter le module NVRAM alors que les données en cours de transfert vers la mémoire Flash après une coupure de courant.
+
+
+
+ a| 
+link:io-module-overview.html["Module d'E/S."]
+ a| 
+Le module d'E/S (module d'entrée/sortie) est un composant matériel qui sert d'intermédiaire entre le contrôleur et divers dispositifs ou systèmes qui doivent échanger des données avec le contrôleur.
+
+
+
+ a| 
+link:power-supply-replace.html["Alimentation électrique"]
+ a| 
+Une alimentation fournit une source d'alimentation redondante dans un contrôleur.
+
+
+
+ a| 
+link:rtc-battery-replace.html["Pile de l'horloge en temps réel"]
+ a| 
+Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'appareil est éteint.
+
+
+
+ a| 
+link:system-management-replace.html["Module de gestion du système"]
+ a| 
+Le module de gestion du système fournit l'interface entre le contrôleur et une console ou un ordinateur portable à des fins de maintenance du contrôleur ou du système. Le module de gestion du système contient le support de démarrage et stocke le numéro de série du système (SSN).
+
+|===

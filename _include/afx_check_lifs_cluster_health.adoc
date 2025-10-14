@@ -1,0 +1,19 @@
+= 
+:allow-uri-read: 
+
+
+Avant de remettre le nœud de remplacement en service, assurez-vous que les interfaces logiques sont sur leurs ports d'origine, vérifiez l'état du cluster et réinitialisez la remise automatique.
+
+.Étapes
+. Vérifiez que les interfaces logiques communiquent avec leur serveur d'origine et leurs ports :
++
+`network interface show -is-home false`
+
++
+Si des interfaces logiques sont répertoriées comme fausses, renvoyez-les à leurs ports d'origine :
+
++
+`network interface revert -vserver * -lif *`
+
+. Vérifiez l'état de santé de votre cluster. Consultez https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["Procédure de vérification de l'état du cluster à l'aide d'un script dans ONTAP"^] l'article de la base de connaissances pour plus d'informations.
+

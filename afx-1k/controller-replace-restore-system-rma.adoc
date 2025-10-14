@@ -1,0 +1,40 @@
+---
+permalink: afx-1k/controller-replace-restore-system-rma.html 
+sidebar: sidebar 
+keywords: afx 1k, how to restore NetApp Storage Encryption, how to complete the replacement process 
+summary: 'Vérifiez que les interfaces logiques (LIF) communiquent avec leur port d"origine, effectuez une vérification de l"état du cluster, puis renvoyez la pièce défectueuse à NetApp pour terminer l"étape finale de la procédure de remplacement du contrôleur AFX 1K.' 
+---
+= Remplacement complet du contrôleur - AFX 1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vérifiez que les interfaces logiques (LIF) communiquent avec leur port d'origine, effectuez une vérification de l'état du cluster, puis renvoyez la pièce défectueuse à NetApp pour terminer l'étape finale de la procédure de remplacement du contrôleur AFX 1K.
+
+
+
+== Étape 1 : vérifier la LIF et la santé du cluster
+
+Avant de remettre le nœud de remplacement en service, assurez-vous que les interfaces logiques sont sur leurs ports d'origine, vérifiez l'état du cluster et réinitialisez la remise automatique.
+
+.Étapes
+. Vérifiez que les interfaces logiques communiquent avec leur serveur d'origine et leurs ports :
++
+`network interface show -is-home false`
+
++
+Si des interfaces logiques sont répertoriées comme fausses, renvoyez-les à leurs ports d'origine :
+
++
+`network interface revert -vserver * -lif *`
+
+. Vérifiez l'état de santé de votre cluster. Consultez https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["Procédure de vérification de l'état du cluster à l'aide d'un script dans ONTAP"^] l'article de la base de connaissances pour plus d'informations.
+
+
+
+
+== Étape 2 : renvoyer la pièce défectueuse à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

@@ -1,0 +1,65 @@
+= 
+:allow-uri-read: 
+
+
+Réinstallez le module de contrôleur et démarrez-le.
+
+. Assurez-vous que le conduit d'air est complètement fermé en le faisant tourner jusqu'en butée.
++
+Il doit être aligné sur la tôle du module de contrôleur.
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du boîtier, puis faites glisser le module de contrôleur dans le châssis, les leviers tournés vers l'avant du système.
+. Une fois que le module de contrôleur vous empêche de le faire glisser plus loin, faites pivoter les poignées de came vers l'intérieur jusqu'à ce qu'elles se reverrouillent sous les ventilateurs
++
+
+NOTE: N'appliquez pas une force excessive lorsque vous faites glisser le module de contrôleur dans le boîtier pour éviter d'endommager les connecteurs.
+
++
+Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le boîtier.
+
+. Alignez la lunette avec les rotules, puis poussez doucement la lunette en place.
+. Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
++
+** Si vous voyez l’invite de connexion, passez à l’étape suivante.
+** Si vous ne voyez pas d’invite de connexion, connectez-vous au nœud partenaire.
+
+
+. Renvoyer uniquement la racine avec l'option override-destination-checks :
++
+`storage failover giveback -ofnode impaired-node -only-root true -override -destination-checks true`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.  Pour plus d'informations sur les niveaux de privilège, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/administrative-privilege-levels-concept.html["Comprendre les niveaux de privilèges pour les commandes CLI ONTAP"^] .
+
++
+Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
+
+. Attendez 5 minutes après la fin du rapport de retour, puis vérifiez le basculement et l'état de retour :
++
+`storage failover show`et `storage failover show-giveback`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.
+
+. Si les liens d'interconnexion HA ont été supprimés, rétablissez-les :
++
+`system ha interconnect link on -node healthy-node -link 0`
+
++
+`system ha interconnect link on -node healthy-node -link 1`
+
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback-of true`
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+

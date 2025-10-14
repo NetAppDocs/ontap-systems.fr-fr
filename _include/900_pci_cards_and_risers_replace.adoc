@@ -28,7 +28,24 @@ Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. 
 +
 La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
 
-. Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
+. Désactiver le retour automatique depuis la console du contrôleur défaillant :
++
+`storage failover modify -node impaired-node -auto-giveback-of false`
+
++
+
+NOTE: Lorsque vous voyez _Voulez-vous désactiver la restitution automatique ?_, entrez `y` .
+
++
+.. Si le contrôleur endommagé ne peut pas être redémarré ou est déjà pris en charge, vous devez couper la liaison d'interconnexion HA du contrôleur sain avant de démarrer le contrôleur endommagé.  Cela empêchera le contrôleur défaillant d'effectuer un retour automatique.
++
+`system ha interconnect link off -node healthy-node -link 0`
+
++
+`system ha interconnect link off -node healthy-node -link 1`
+
+
+
 . Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
 +
 [cols="1,2"]
@@ -40,13 +57,6 @@ La commande AutoSupport suivante supprime la création automatique de dossiers p
 Invite DU CHARGEUR
  a| 
 Passez à l'étape suivante.
-
-
-
- a| 
-`Waiting for giveback...`
- a| 
-Appuyez sur Ctrl-C, puis répondez `y` lorsque vous y êtes invité.
 
 
 

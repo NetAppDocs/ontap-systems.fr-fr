@@ -1,0 +1,289 @@
+= Étape 1 : arrêtez le contrôleur défaillant
+:allow-uri-read: 
+
+
+Le module de gestion du système, situé à l'arrière du contrôleur à gauche de l'emplacement 8, contient des composants embarqués pour la gestion du système, ainsi que des ports pour la gestion externe.  Le contrôleur cible doit être arrêté et mis hors tension pour remplacer un module de gestion système défectueux ou pour remplacer le support de démarrage.
+
+Le module de gestion du système comprend les composants intégrés suivants :
+
+* Support de démarrage, permettant le remplacement du support de démarrage sans retirer le module de contrôleur.
+* BMC
+* Commutateur de gestion
+
+
+Le module System Management contient également les ports suivants pour la gestion externe :
+
+* Série RJ45
+* USB série (type C)
+* USB de type A (récupération de démarrage)
+* Port de service Ethernet RJ45 pour l'accès au réseau e0M et BMC
+
+
+.Avant de commencer
+* Assurez-vous que tous les autres composants du système fonctionnent correctement.
+* Assurez-vous que le contrôleur partenaire est en mesure de prendre le contrôle du contrôleur défectueux.
+* Assurez-vous de remplacer le composant défectueux par un composant de remplacement que vous avez reçu de NetApp.
+
+
+.Description de la tâche
+Cette procédure utilise la terminologie suivante :
+
+* Le contrôleur affecté est le contrôleur sur lequel vous effectuez la maintenance.
+* Le contrôleur en bonne santé est le partenaire de haute disponibilité associé au contrôleur affecté.
+
+
+
+
+== Étape 1 : arrêtez le contrôleur défaillant
+
+Arrêtez ou prenez le contrôle du contrôleur défectueux.
+
+Pour arrêter le contrôleur endommagé, vous devez déterminer l'état du contrôleur et, si nécessaire, effectuer une reprise de basculement de stockage du contrôleur afin que le contrôleur sain continue de fournir les données du stockage du contrôleur endommagé.
+
+.Description de la tâche
+* Si vous avez un cluster avec plus de quatre nœuds, il doit être en quorum.  Pour afficher les informations de cluster sur vos nœuds, utilisez le `cluster show` commande.  Pour plus d'informations sur le `cluster show` commande, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/display-nodes-cluster-task.html["Afficher les détails au niveau du nœud dans un cluster ONTAP"^] .
+* Si le cluster n'est pas en quorum ou si l'état ou l'éligibilité d'un contrôleur (autre que le contrôleur altéré) s'affiche comme faux, vous devez corriger le problème avant d'arrêter le contrôleur altéré. Voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^] .
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=<# of hours>h`
+
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :
+
++
+`cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactiver le retour automatique depuis la console du contrôleur défaillant :
++
+`storage failover modify -node impaired-node -auto-giveback-of false`
+
++
+
+NOTE: Lorsque vous voyez _Voulez-vous désactiver la restitution automatique ?_, entrez `y` .
+
++
+.. Si vous exécutez la version 9.17.1 ONTAP et que le contrôleur endommagé ne peut pas être redémarré ou est déjà pris en charge, vous devez désactiver la liaison d'interconnexion HA du contrôleur sain avant de démarrer le contrôleur endommagé.  Cela empêche le contrôleur défaillant d'effectuer un retour automatique.
++
+`system ha interconnect link off -node healthy-node -link 0`
+
++
+`system ha interconnect link off -node healthy-node -link 1`
+
++
+
+NOTE: Si vous n’exécutez pas la version 9.17.1 ONTAP , ignorez l’étape ci-dessus et passez à l’étape 3.
+
+
+
+. Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
++
+[cols="1,2"]
+|===
+| Si le contrôleur en état de fonctionnement s'affiche... | Alors... 
+
+
+ a| 
+Invite DU CHARGEUR
+ a| 
+Passez à l'étape suivante.
+
+
+
+ a| 
+Invite système ou invite de mot de passe
+ a| 
+Prendre le relais ou arrêter le contrôleur altéré à partir du contrôleur sain :
+`storage failover takeover -ofnode _impaired_node_name_ -halt _true_`
+
+Le paramètre _-halt true_ amène le nœud altéré à l'invite LOADER.
+
+|===
+
+
+
+
+== Étape 2 : remplacez le module de gestion du système défectueux
+
+Remplacez le module de gestion du système défectueux.
+
+. Retirez le module de gestion du système :
++
+
+NOTE: Assurez-vous que le déchargement de la NVRAM est terminé avant de continuer. Lorsque le voyant du module NV est éteint, le NVRAM est déchargé. Si le voyant clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
+
++
+image::../media/drw_a1k_sys-mgmt_remove_ieops-1384.svg[Remplacez le module de gestion du système]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Loquet de came du module de gestion du système
+
+|===
++
+.. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+.. Débranchez les câbles d’alimentation des blocs d’alimentation.
+.. Retirez tous les câbles connectés au module de gestion du système.  Étiquetez les câbles là où ils ont été connectés, afin de pouvoir les reconnecter aux ports appropriés lors de la réinstallation du module.
+.. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
+.. Appuyez sur le bouton CAM du module de gestion du système.
+.. Faites tourner le levier de came vers le bas aussi loin que possible.
+.. Enroulez votre doigt dans le trou du levier de came et tirez le module hors du système.
+.. Placez le module de gestion du système sur un tapis antistatique pour accéder au support de démarrage.
+
+
+. Déplacez le support de démarrage vers le module de gestion du système de remplacement :
++
+image::../media/drw_a1k_boot_media_remove_replace_ieops-1377.svg[Remplacement du support de démarrage]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Loquet de came du module de gestion du système
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Bouton de verrouillage du support de démarrage
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Support de démarrage
+
+|===
++
+.. Appuyez sur le bouton bleu de verrouillage du support de démarrage dans le module de gestion du système défectueux.
+.. Faites pivoter le support de démarrage vers le haut et faites-le glisser hors du support.
+
+
+. Installez le support de démarrage dans le module de gestion du système de remplacement :
++
+.. Alignez les bords du support de coffre avec le logement de la prise, puis poussez-le doucement d'équerre dans le support.
+.. Faites pivoter le support de démarrage vers le bas jusqu'à ce qu'il touche le bouton de verrouillage.
+.. Appuyez sur le bouton de verrouillage bleu et faites pivoter le support de démarrage complètement vers le bas, puis relâchez le bouton de verrouillage bleu.
+
+
+. Installez le module de gestion du système de remplacement dans le boîtier :
++
+.. Alignez les bords du module de gestion du système de remplacement avec l'ouverture du système et poussez-le doucement dans le module de contrôleur.
+.. Faites glisser doucement le module dans le logement jusqu'à ce que le loquet de came commence à s'engager avec la broche de came d'E/S, puis faites tourner le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+. Faites pivoter le ARM de gestion des câbles jusqu'à la position fermée.
+. Recâblage du module de gestion du système.
+
+
+
+
+== Étape 3 : redémarrez le module de contrôleur
+
+Redémarrez le module contrôleur.
+
+. Rebranchez les câbles d’alimentation sur le bloc d’alimentation.
++
+Le système redémarre, généralement à l'invite LOADER.
+
+. Entrez _bye_ à l'invite du CHARGEUR.
+. Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
++
+** Si vous voyez l’invite _login_, passez à l’étape suivante.
+** Si vous ne voyez pas l’invite de connexion, connectez-vous au nœud partenaire.
+
+
+. Renvoyer uniquement la racine avec l'option override-destination-checks :
++
+`storage failover giveback -ofnode impaired-node -only-root true -override -destination-checks true`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.  Pour plus d'informations sur les niveaux de privilège, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/administrative-privilege-levels-concept.html["Comprendre les niveaux de privilèges pour les commandes CLI ONTAP"^] .
+
++
+Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
+
+. Attendez 5 minutes après la fin du rapport de retour, puis vérifiez les statuts de basculement et de retour :
++
+`storage failover show`et `storage failover show-giveback`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.
+
+. Si les liens d'interconnexion HA ont été supprimés, rétablissez-les :
++
+`system ha interconnect link on -node healthy-node -link 0`
+
++
+`system ha interconnect link on -node healthy-node -link 1`
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback-of true` .
+. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
+
+
+
+
+== Étape 4 : installez les licences et enregistrez le numéro de série
+
+Lorsque vous remplacez le module de gestion du système, le numéro de série du système (SSN) du contrôleur change.  Vous devez installer de nouvelles licences pour le nœud si le nœud endommagé utilisait des fonctionnalités ONTAP qui nécessitent une licence standard (verrouillée par nœud).  Pour les fonctionnalités avec des licences standard, chaque nœud du cluster doit avoir sa propre clé pour la fonctionnalité.
+
+.Description de la tâche
+Tant que vous n'avez pas installé les clés de licence, les fonctionnalités nécessitant une licence standard restent disponibles pour le nœud. Toutefois, si le nœud était le seul nœud du cluster avec une licence pour la fonctionnalité, aucune modification de configuration de la fonctionnalité n'est autorisée. En outre, l'utilisation de fonctionnalités sans licence sur le nœud peut vous mettre en conformité avec votre contrat de licence. Vous devez donc installer la ou les clés de licence de remplacement sur le pour le nœud dès que possible.
+
+.Avant de commencer
+Un fichier de licence NetApp (NLF) pour le nouveau numéro de série du système est requis.  Pour plus d'informations sur les fichiers de licence NetApp , consultezlink:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/ONTAP_9.10.1_and_later_licensing_overview["Présentation des licences ONTAP 9.10.1 et versions ultérieures"^] .
+
+Vous disposez de 90 jours pour installer les clés de licence, après quoi toutes les anciennes licences deviennent invalides.  Après avoir installé une clé de licence valide, vous disposez de 24 heures pour installer toutes les clés avant la fin de la période de grâce.
+
+
+NOTE: Si votre système exécutait initialement ONTAP 9.15.1 ou une version ultérieure, utilisez la procédure documentée danslink:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Post_Motherboard_Replacement_Process_to_update_Licensing_on_a_AFF_FAS_system["Procédure de remplacement post-carte mère pour mettre à jour les licences sur un système AFF/FAS"^] .  Si vous n'êtes pas sûr de la version initiale ONTAP pour votre système, consultezlink:https://hwu.netapp.com["NetApp Hardware Universe"^] pour plus d'informations.
+
+.Étapes
+. Si vous avez besoin de nouvelles clés de licence, vous pouvez obtenir ces clés sur le https://mysupport.netapp.com/site/global/dashboard["Site de support NetApp"] Dans la section My support (mon support), sous licences logicielles.
++
+
+NOTE: Les nouvelles clés de licence dont vous avez besoin sont générées automatiquement et envoyées à l'adresse électronique du fichier. Si vous ne recevez pas l'e-mail contenant les clés de licence dans les 30 jours, contactez l'assistance technique.
+
+. Installez chaque clé de licence via ONTAP System Manager.
++
+Pour plus d'informations, consultez la section link:https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html["Activez de nouvelles fonctionnalités en ajoutant des clés de licence avec ONTAP System Manager"^] .
+
+. Supprimez les anciennes licences, si nécessaire :
++
+.. Vérifier si les licences ne sont pas utilisées : `license clean-up -unused -simulate`
+.. Si la liste semble correcte, supprimez les licences inutilisées : `license clean-up -unused`
+
+
+. Enregistrez le numéro de série du système auprès du support NetApp.
++
+** Si AutoSupport est activé, envoyez un message AutoSupport pour enregistrer le numéro de série.
+** Si AutoSupport n'est pas activé, appeler https://mysupport.netapp.com["Support NetApp"] pour enregistrer le numéro de série.
+
+
+
+
+
+
+== Étape 5 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

@@ -1,0 +1,37 @@
+---
+permalink: afx-1k/controller-replace-requirements.html 
+sidebar: sidebar 
+keywords: afx 1k, prerequisite, replace the controller module 
+summary: 'Avant de remplacer le contrôleur de votre système de stockage AFX 1K, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela comprend la possession du contrôleur de remplacement approprié, une sauvegarde de la configuration de votre système et l"accès à tous les outils et micrologiciels requis.' 
+---
+= Conditions requises pour remplacer le contrôleur - AFX 1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de remplacer le contrôleur de votre système de stockage AFX 1K, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. Cela comprend la vérification du bon fonctionnement de tous les autres composants du système, la vérification que vous disposez du contrôleur de remplacement approprié et l'enregistrement de la sortie de la console du contrôleur dans un fichier journal texte.
+
+Vérifiez les conditions requises pour le remplacement du contrôleur.
+
+* Il est important d'appliquer les commandes au cours des étapes suivantes sur les systèmes appropriés :
++
+** Le contrôleur _trouble_ est le contrôleur qui est en cours de remplacement.
+** Le contrôleur _remplacement_ est le nouveau contrôleur qui remplace le contrôleur défaillant.
+** Le contrôleur _Healthy_ est le contrôleur survivant.
+
+
+* Tous les tiroirs disques doivent fonctionner correctement.
+* Le contrôleur sain doit pouvoir reprendre le contrôleur qui est remplacé (appelé « contrôleur défectueux » dans cette procédure).
+* Vous devez remplacer le composant défectueux par l'unité remplaçable sur site (FRU) que vous avez reçue de NetApp.
+* Vous devez remplacer un module de contrôleur par un module de contrôleur du même type de modèle. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le module de contrôleur.
+* Vous ne pouvez pas modifier de disques ou de tiroirs disques dans le cadre de cette procédure.
+* Vous devez toujours capturer la sortie de la console du contrôleur dans un fichier journal texte.
++
+Vous disposez ainsi d'un enregistrement de la procédure afin de pouvoir résoudre tout problème que vous pourriez rencontrer pendant le processus de remplacement.
+
+
+
+.Et la suite ?
+Après avoir examiné les exigences pour remplacer votre contrôleur AFX 1K,link:controller-replace-shutdown.html["éteindre les contrôleurs"] .

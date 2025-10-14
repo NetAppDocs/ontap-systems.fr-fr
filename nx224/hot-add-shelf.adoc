@@ -1,0 +1,220 @@
+---
+permalink: nx224/hot-add-shelf.html 
+sidebar: sidebar 
+keywords: nx224, shelves, shelf, nx224 shelves, hot-add, ha, pair, install, hot-add an nx224 drive shelf 
+summary: Vous pouvez ajouter à chaud une étagère de lecteur NX224 une fois que votre cluster AFX répond à certaines exigences et une fois les tâches de préparation applicables à votre cluster AFX terminées. 
+---
+= Ajout d'une étagère à chaud - Étagères NX224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez étendre vos capacités de stockage en ajoutant à chaud une étagère NX224 à votre configuration de cluster AFX existante.
+
+.Description de la tâche
+* Une fois que vous avez câblé une étagère ajoutée à chaud, ONTAP reconnaît l'étagère.  Le micrologiciel de l'étagère NSM et le micrologiciel du lecteur doivent être mis à jour automatiquement, si nécessaire.
++
+
+NOTE: Les mises à jour du micrologiciel peuvent prendre jusqu'à 30 minutes.
+
+
+
+.Avant de commencer
+* Avant d'ajouter une étagère à chaud, assurez-vous d'avoir :
++
+** Un trombone avec un côté redressé ou un stylo à bille à pointe étroite.
++
+Pour modifier l'ID de tablette, utilisez le trombone ou le stylo à bille pour accéder au bouton d'ID de tablette situé derrière le panneau de commande de l'écran (ODP) de l'étape de modification de l'ID de tablette.
+
+** Le nombre et le type de câbles corrects pour connecter l'étagère. Voir https://hwu.netapp.com["NetApp Hardware Universe"^] .
+
+
+* Sachez qu'une étagère NX224 entièrement chargée peut peser en moyenne 56,8 lb (25,8 kg) et nécessite deux personnes pour la soulever ou l'utilisation d'un élévateur hydraulique.  Évitez de retirer des composants de l'étagère (de l'avant ou de l'arrière de l'étagère) pour réduire le poids de l'étagère, car ce dernier deviendra déséquilibré.
+* Une étagère NX224 contient deux modules NSM140.  Le module supérieur se place dans l'emplacement A (NSM A) et le module inférieur se place dans l'emplacement B (NSM B).
+* Votre modèle de plate-forme et la version d' ONTAP doivent prendre en charge l'étagère NX224 et les lecteurs que vous ajoutez à chaud. Voir https://hwu.netapp.com["NetApp Hardware Universe"^]
+* Votre cluster AFX doit avoir un nombre d'étagères inférieur au nombre maximal pris en charge, au moins égal au nombre d'étagères que vous prévoyez d'ajouter à chaud.
++
+Vous ne pouvez pas avoir dépassé le nombre maximal d'étagères prises en charge par votre cluster AFX après l'ajout à chaud d'étagères. Voir https://hwu.netapp.com["NetApp Hardware Universe"^] .
+
+* *Meilleure pratique :* Assurez-vous de disposer de la version actuelle du https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Disk qualification Package"^] installé avant l'ajout à chaud d'une étagère.
++
+Une fois la version actuelle du DQP installée, votre système peut reconnaître et utiliser de nouveaux lecteurs qualifiés. Cela permet d'éviter que les messages d'événement du système ne soient pas à jour sur les disques et évite le partitionnement de disque car les disques ne sont pas reconnus. Le DQP vous informe également de la non-mise à jour du firmware du disque.
+
+* *Meilleure pratique* : Exécuter https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^] avant et après l'ajout à chaud d'une étagère pour afficher les messages d'erreur de câblage de stockage et les mesures correctives à prendre.
++
+L'exécution Active IQ Config Advisor avant l'ajout à chaud d'une étagère fournit un instantané de la connectivité Ethernet (ENET) de l'étagère existante, vérifie les versions du micrologiciel du module d'étagère NVMe (NSM) et vous permet de vérifier un ID d'étagère déjà utilisé dans le cluster AFX.
+
++
+L'exécution d' Active IQ Config Advisor après l'ajout à chaud d'une étagère vous permet de vérifier que les étagères sont correctement câblées et que les ID d'étagère sont uniques au sein du cluster AFX.
+
+* *Meilleure pratique :* Assurez-vous de disposer des versions actuelles de https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Micrologiciel du module de tiroir NVMe (NSM)"^] et https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["le firmware du disque"^] sur votre système de stockage avant d'ajouter une nouvelle étagère.
++
+
+NOTE: Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
+
+
+
+
+
+== Étape 1 : Installer une étagère pour un ajout à chaud
+
+Vous devez installer une étagère NX224 dans une armoire ou un rack Telco, connecter les cordons d'alimentation (qui alimentent automatiquement l'étagère) et définir l'ID de l'étagère.
+
+.Étapes
+. Installez le kit de rails pour la tablette, si nécessaire, en suivant les instructions fournies avec le kit.
++
+
+NOTE: Utilisez toujours le kit de rails approprié à votre étagère pour installer l'étagère dans un rack ou une armoire.
+
+. Installez le shelf :
++
+.. Placez l'arrière de la tablette sur les rails, puis soutenez la tablette par le bas et faites-la glisser dans l'armoire ou le rack de télécommunications.
++
+Il est recommandé d'installer toutes les étagères à proximité des commutateurs dans le même rack.
+
+.. Fixez l'étagère à l'armoire ou au rack de télécommunications à l'aide des vis de montage fournies dans le kit.
+
+
+. Connectez l'alimentation :
++
+.. Connectez les cordons d’alimentation à l’étagère et fixez-les en place avec les supports de cordon d’alimentation.
+.. Pour plus de résilience, connectez les cordons d'alimentation à différentes sources d'alimentation.
++
+Une étagère se met sous tension lorsqu'elle est connectée à une source d'alimentation ; elle n'a pas de commutateurs d'alimentation. Lorsqu'elle fonctionne correctement, la LED bicolore d'un bloc d'alimentation s'allume en vert.
+
+
+
+. Définissez l'ID d'étagère sur un numéro unique au sein du cluster AFX :
++
+Pour des instructions plus détaillées, voirlink:change-shelf-id.html["Modifier l'identifiant d'une étagère - Étagères NX224"^] .
+
++
+image::../media/drw_tp_change_shelf_id_ieops-2381.svg[Modifier l'ID de l'étagère NX224]
+
++
+[cols="20%,80%"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Capuchon d'extrémité de tablette
+
+
+
+ a| 
+image::../media/icon_round_2.png[[Légende numéro 2]
+ a| 
+Plateau de tablette
+
+
+
+ a| 
+image::../media/icon_round_3.png[[Légende numéro 3]
+ a| 
+Numéro ID du tiroir
+
+
+
+ a| 
+image::../media/icon_round_4.png[[Légende numéro 4]
+ a| 
+Accès au bouton d'identification de l'étagère
+
+|===
++
+.. Déposer le capuchon d'extrémité gauche et localiser le petit trou à droite des LED.
+.. Insérez l'extrémité d'un trombone ou d'un outil similaire dans le petit trou pour atteindre le bouton d'identification de la tablette.
+.. Appuyez sur le bouton et maintenez-le enfoncé (jusqu'à 15 secondes) jusqu'à ce que le premier chiffre de l'écran numérique clignote, puis relâchez le bouton.
++
+Si l'ID prend plus de 15 secondes pour clignoter, appuyez de nouveau sur le bouton et maintenez-le enfoncé, en veillant à l'appuyer complètement.
+
+.. Appuyez sur le bouton et relâchez-le pour faire avancer le chiffre jusqu'à ce que vous atteiez le chiffre souhaité de 0 à 9.
+.. Répétez les sous-étapes 4c et 4d pour définir le second numéro de l'ID de tablette.
++
+Le chiffre peut clignoter pendant trois secondes au lieu de 15 secondes.
+
+.. Appuyez sur le bouton et maintenez-le enfoncé jusqu'à ce que le second chiffre ne clignote plus.
++
+Au bout de cinq secondes environ, les deux chiffres commencent à clignoter et le voyant orange s'allume sur le ODP.
+
+.. Mettez le tiroir hors tension puis sous tension afin de valider l'ID.
++
+Vous devez débrancher les deux cordons d'alimentation du shelf, attendre 10 secondes, puis les rebrancher.
+
++
+Lorsque l'alimentation est rétablie, les LED bicolores s'allument en vert.
+
+
+
+
+
+
+
+== Étape 2 : Étagère à câbles pour ajout à chaud
+
+Vous câblez chaque étagère NX224 que vous ajoutez à chaud de sorte que chaque étagère dispose de huit connexions à chaque commutateur.
+
+.Avant de commencer
+* Familiarisez-vous avec l’orientation appropriée du connecteur de câble, ainsi qu’avec l’emplacement et l’étiquetage des ports sur les modules d’étagère NX224 NSM140.
++
+** Les câbles sont insérés avec la languette de retrait du connecteur orientée vers le haut.
++
+Lorsqu'un câble est inséré correctement, il s'enclenche.
+
++
+Une fois que vous avez connecté les deux extrémités du câble, les LED vertes du tiroir et du port du contrôleur LNK s'allument. Si le voyant LNK d'un port ne s'allume pas, réinstallez le câble.
+
++
+image::../media/oie_cable_pull_tab_up.png[Les câbles sont insérés avec la languette de retrait du connecteur orientée vers le haut]
+
+** Chaque module NSM140 comprend 4 ports 100GbE CX7 Path_A (e1a, e2a, e3a et e4a) et 4 ports 100GbE CX7 Path_B (e1b, e2b, e3b et e4b).
++
+
+NOTE: Des câbles de dérivation séparés sont requis pour les ports Path_A et Path_B sur chaque module NSM140, pour un total de quatre câbles de dérivation par étagère.
+
++
+L'illustration suivante met en évidence les ports Path_A et Path_B sur les modules NSM140 :
+
++
+image::../media/drw_tp_nsm_ports_ieops-2301.svg[Emplacement des ports Path_A et Path_B du NX224 NSM140.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Ports Path_A (ports bleus)
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Ports Path_B (ports rouges)
+
+|===
+
+
+
+
+.Étapes
+. Étagère de câbles NSM A et NSM B Path_A ports e1a, e2a, e3a et e4a vers n'importe quel port du commutateur A.
+. Étagère de câbles NSM A et NSM B Path_B ports e1b, e2b, e3b et e4b vers n'importe quel port du commutateur B.
++
+L'illustration suivante met en évidence le câblage pour l'ajout à chaud d'une étagère supplémentaire à une configuration de commutateur.  Pour ajouter des étagères supplémentaires, suivez la même méthodologie de câblage basée sur des commutateurs.
+
++
+image::../media/drw_nx224_afx_a1k_ieops-2344.svg[Câblage du commutateur NX224 vers AFX A1K]
+
+. Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+

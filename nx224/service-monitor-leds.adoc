@@ -1,0 +1,443 @@
+---
+permalink: nx224/service-monitor-leds.html 
+sidebar: sidebar 
+keywords: monitor, health, drive, shelf, location, status, condition, led, component, operator, display, panel, nsm, power, supply, drive, monitor drive shelf leds, operator display panel leds, nsm leds, power supply leds, drive leds 
+summary: 'Vous pouvez contrôler l"état du tiroir disque en indiquant son emplacement et son état.' 
+---
+= LED d'étagère de lecteur de moniteur - Étagères NX224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez surveiller l’état de votre étagère en comprenant l’emplacement et les conditions d’état des LED sur les composants de votre étagère de lecteur.
+
+* Les LED d'emplacement (bleues), sur le panneau d'affichage de l'opérateur d'une étagère (ODP) et les deux modules d'étagère NVMe (NSM), peuvent être activées pour aider à localiser physiquement l'étagère qui nécessite une maintenance : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
++
+Si vous ne connaissez pas le `_shelf_name_` sur la tablette concernée, exécutez la `storage shelf show` commande.
+
++
+Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant le `off` option.
+
+* L'état d'un voyant peut être :
++
+** « Allumé » : l'éclairage par LED est fixe/fixe
+** « Off » : la LED n'est pas allumée
+** « Clignotement » : la LED s'allume et s'éteint à différents intervalles selon l'état de la FRU
+** « Tout état » : le voyant peut être allumé, éteint ou clignotant.
+
+
+
+
+
+
+== Voyants du panneau d'affichage de l'opérateur
+
+Les LED situées sur le panneau d'affichage de l'opérateur (ODP) avant du tiroir disque indiquent si votre tiroir disque fonctionne normalement ou s'il y a des problèmes matériels.
+
+L'illustration et le tableau suivants décrivent les trois voyants du panneau de commande :
+
+image::../media/drw_ns224_odp_leds_IEOPS-1262.svg[Voyants du panneau d'affichage de l'opérateur]
+
+[cols="1,2,1,5"]
+|===
+| Icône LED | Nom et couleur DE LA LED | État | Description 
+
+
+ a| 
+image::../media/drw_sas_power_icon.svg[Voyant d'alimentation du panneau d'affichage de l'opérateur]
+ a| 
+Alimentation (vert)
+ a| 
+Marche
+ a| 
+Une ou plusieurs alimentations alimentent le tiroir disque.
+
+
+
+ a| 
+image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
+ a| 
+Attention (orange)
+ a| 
+Marche
+ a| 
+* Une erreur s'est produite avec la fonction de l'une des unités remplaçables sur site.
++
+Consultez les messages d'événement pour déterminer les mesures correctives à prendre.
+
+* Si l'ID de tiroir à deux chiffres clignote également, l'ID de tiroir est en attente.
++
+Mettez le tiroir disque sous tension afin que l'ID de tiroir soit affecté.
+
+
+
+
+
+ a| 
+image::../media/drw_sas3_location_icon.svg[Voyant d'emplacement du panneau d'affichage de l'opérateur]
+ a| 
+Emplacement (bleu)
+ a| 
+Marche
+ a| 
+L'administrateur système a activé cette fonction LED.
+
+|===
+
+
+== Voyants NSM
+
+Les voyants d'un NSM indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il y a des problèmes avec le matériel.
+
+L'illustration et les tableaux suivants décrivent les LED NSM associées à la fonction d'un module et à la fonction de chaque port NVMe d'un module.
+
+image::../media/drw_tp_nsmb_leds_ieops-2206.svg[Module LED NX224 NSM140]
+
+[cols="1,1,2,4"]
+|===
+| Appel sortant | Icône LED | Couleur | Description 
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+NK
+ a| 
+Vert
+ a| 
+Port/liaison NVMe : état
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
+ a| 
+Ambre
+ a| 
+Port/liaison NVMe : attention
+
+
+
+ a| 
+image:../media/icon_round_3.png["Numéro de légende 3"]
+ a| 
+image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
+ a| 
+Ambre
+ a| 
+Module d'E/S : attention
+
+
+
+ a| 
+image:../media/icon_round_4.png["Numéro de légende 4"]
+ a| 
+image::../media/drw_sas3_location_icon.svg[Voyant d'emplacement du panneau d'affichage de l'opérateur]
+ a| 
+Bleu
+ a| 
+NSM : emplacement
+
+
+
+ a| 
+image:../media/icon_round_5.png["Numéro de légende 5"]
+ a| 
+image::../media/drw_sas_fault_icon.svg[Voyant d'avertissement du panneau d'affichage de l'opérateur]
+ a| 
+Ambre
+ a| 
+NSM : attention
+
+|===
+[cols="2,1,1,1,1"]
+|===
+| État | Attention NSM (orange) | Port LNK (vert) | Port attention (orange) | Module d'E/S attention 
+
+
+ a| 
+NSM normal
+ a| 
+Éteint
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+ a| 
+Éteint
+
+
+
+ a| 
+Défaut NSM
+ a| 
+Marche
+ a| 
+Quel que soit l'état
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+
+
+
+ a| 
+Erreur VPD NSM
+ a| 
+Marche
+ a| 
+Quel que soit l'état
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+
+
+
+ a| 
+Aucune connexion au port hôte
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+ a| 
+Éteint
+ a| 
+Éteint
+
+
+
+ a| 
+Liaison de connexion du port hôte active
+ a| 
+Quel que soit l'état
+ a| 
+Allumé/clignote en cas d'activité
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+
+
+
+ a| 
+Connexion du port hôte avec défaillance
+ a| 
+Marche
+ a| 
+Marche/arrêt si toutes les voies sont défectueuses
+ a| 
+Marche
+ a| 
+Éteint
+
+
+
+ a| 
+Démarrage du BIOS à partir de l'image du BIOS après la mise sous tension
+ a| 
+Clignote
+ a| 
+Quel que soit l'état
+ a| 
+Quel que soit l'état
+ a| 
+Éteint
+
+
+
+ a| 
+Le module d'E/S est manquant
+ a| 
+Marche
+ a| 
+S/O
+ a| 
+S/O
+ a| 
+Marche
+
+|===
+
+
+== LED d'alimentation électrique
+
+Les LED d'un bloc d'alimentation secteur (PSU) indiquent si le bloc d'alimentation fonctionne normalement ou s'il y a des problèmes matériels.
+
+L'illustration et les tableaux suivants décrivent la LED sur un bloc d'alimentation.
+
+image::../media/drw_generic_psu_ac_terra_cotta_ieops-2370.svg[Voyant d'activité de l'alimentation électrique]
+
+[cols="1,4"]
+|===
+| Appel sortant | Description 
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Le voyant bicolore indique l'alimentation/l'activité lorsqu'il est vert et un défaut s'il est rouge.
+
+|===
+[cols="2,1,1"]
+|===
+| État | Alimentation/activité (vert) | Attention (rouge) 
+
+
+ a| 
+Pas d'alimentation secteur dans le boîtier
+ a| 
+Éteint
+ a| 
+Éteint
+
+
+
+ a| 
+Pas d'alimentation secteur au bloc d'alimentation
+ a| 
+Éteint
+ a| 
+Marche
+
+
+
+ a| 
+Alimentation secteur activée, mais le bloc d'alimentation n'est pas dans le boîtier
+ a| 
+Clignote
+ a| 
+Éteint
+
+
+
+ a| 
+Le bloc d'alimentation fonctionne correctement
+ a| 
+Marche
+ a| 
+Éteint
+
+
+
+ a| 
+Panne du bloc d'alimentation
+ a| 
+Éteint
+ a| 
+Marche
+
+
+
+ a| 
+Panne du ventilateur
+ a| 
+Éteint
+ a| 
+Marche
+
+
+
+ a| 
+Mode de mise à jour du micrologiciel
+ a| 
+Clignote
+ a| 
+Éteint
+
+|===
+
+
+== LED du disque
+
+Les LED d'un disque NVMe indiquent s'il fonctionne normalement ou s'il présente des problèmes au niveau du matériel.
+
+L'illustration et les tableaux suivants décrivent les deux LED d'un disque NVMe :
+
+image::../media/drw_ns224_drive_leds_IEOPS-1263.svg[LED d'avertissement et d'alimentation des disques NVMe]
+
+[cols="1,2,2"]
+|===
+| Appel sortant | Nom DU VOYANT | Couleur 
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Attention
+ a| 
+Ambre
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Alimentation/activité
+ a| 
+Vert
+
+|===
+[cols="2,1,1,1"]
+|===
+| État | Alimentation/activité (vert) | Attention (orange) | LED ODP associée 
+
+
+ a| 
+Disque installé et opérationnel
+ a| 
+Allumé/clignote en cas d'activité
+ a| 
+Quel que soit l'état
+ a| 
+S/O
+
+
+
+ a| 
+Panne de disque
+ a| 
+Allumé/clignote en cas d'activité
+ a| 
+Marche
+ a| 
+Attention (orange)
+
+
+
+ a| 
+Ensemble d'identification de périphérique ses
+ a| 
+Allumé/clignote en cas d'activité
+ a| 
+Clignote
+ a| 
+Attention (orange) désactivée
+
+
+
+ a| 
+Bit de panne du périphérique ses défini
+ a| 
+Allumé/clignote en cas d'activité
+ a| 
+Marche
+ a| 
+Attention (orange)
+
+
+
+ a| 
+Défaillance du circuit de commande d'alimentation
+ a| 
+Éteint
+ a| 
+Quel que soit l'état
+ a| 
+Attention (orange)
+
+|===

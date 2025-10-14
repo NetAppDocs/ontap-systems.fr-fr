@@ -1,0 +1,32 @@
+= 
+:allow-uri-read: 
+
+
+Réinstallez le module de contrôleur et démarrez-le.
+
+. Assurez-vous que le conduit d'air est complètement fermé en le faisant tourner jusqu'en butée.
++
+Il doit être aligné sur la tôle du module de contrôleur.
+
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du boîtier, puis faites glisser le module de contrôleur dans le châssis, les leviers tournés vers l'avant du système.
+. Une fois que le module de contrôleur vous empêche de le faire glisser plus loin, faites pivoter les poignées de came vers l'intérieur jusqu'à ce qu'elles se reverrouillent sous les ventilateurs
++
+
+NOTE: N'appliquez pas une force excessive lorsque vous faites glisser le module de contrôleur dans le boîtier pour éviter d'endommager les connecteurs.
+
++
+
+NOTE: Le contrôleur démarre à l'invite DU Loader dès qu'il est complètement installé.
+
+. Dans l'invite Loader, entrez `show date` pour afficher la date et l'heure sur le contrôleur de remplacement. La date et l'heure sont en GMT.
++
+
+NOTE: L'heure est affichée en heure locale et au format 24 heures.
+
+. Si nécessaire, définissez la date du jour avec le `set date mm/dd/yyyy` commande.
+. Si nécessaire, réglez l'heure, en GMT, à l'aide du `set time hh:mm:ss` commande.
++
+.. Vous pouvez obtenir le GMT actuel à partir du nœud partenaire avec le `date -u` commande.
+
+
+

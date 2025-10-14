@@ -1,0 +1,143 @@
+= 
+:allow-uri-read: 
+
+
+[role="tabbed-block"]
+====
+.Pas de cryptage
+--
+Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant son espace de stockage.
+
+.Étapes
+. À partir de l'invite LOADER, entrez
++
+`boot_ontap`
+
+. Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
++
+** Si vous voyez l'invite _login_, passez à l'étape suivante à la fin de cette section.
+** Si vous ne voyez pas l'invite de connexion, appuyez sur la touche <Entrée>, si toujours pas d'invite, connectez-vous au nœud partenaire.
+
+
+. Renvoyer uniquement la racine avec l'option override-destination-checks :
++
+`storage failover giveback -ofnode impaired-node -only-root true -override -destination-checks true`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.  Pour plus d'informations sur les niveaux de privilège, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/administrative-privilege-levels-concept.html["Comprendre les niveaux de privilèges pour les commandes CLI ONTAP"^] .
+
++
+Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
+
+. Attendez 5 minutes après la fin du rapport de retour, puis vérifiez le basculement et l'état de retour :
++
+`storage failover show`et `storage failover show-giveback`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.
+
+. Si les liens d'interconnexion HA ont été supprimés, rétablissez-les :
++
+`system ha interconnect link on -node healthy-node -link 0`
+
++
+`system ha interconnect link on -node healthy-node -link 1`
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback-of true`
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+--
+.Cryptage OKM
+--
+Réinitialise le chiffrement intégré et rétablit le fonctionnement normal du contrôleur.
+
+.Étapes
+. Dans l'invite DU CHARGEUR, entrez :
++
+`boot_ontap maint`
+
+. Démarrez à partir du menu ONTAP à partir de l'invite Loader `boot_ontap menu` et sélectionnez l'option 10.
+. Saisissez la phrase de passe OKM. Vous pouvez obtenir cette phrase de passe auprès du client ou contacter https://support.netapp.com["Support NetApp"].
++
+
+NOTE: Vous serez invité à saisir deux fois la phrase de passe.
+
+. Entrez les données de la clé de sauvegarde lorsque vous y êtes invité.
+. Dans le menu de démarrage, entrez option `1` pour le démarrage normal.
+. Déplacez le câble de la console vers le nœud partenaire et entrez le login suivant :
++
+`admin`
+
+. Renvoyer uniquement la racine avec l'option override-destination-checks :
++
+`storage  failover giveback -ofnode impaired-node -only-root true -override-destination-checks true`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.  Pour plus d'informations sur les niveaux de privilège, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/administrative-privilege-levels-concept.html["Comprendre les niveaux de privilèges pour les commandes CLI ONTAP"^] .
+
++
+Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
+
+. Attendez 5 minutes après la fin du rapport de retour, puis vérifiez le basculement et l'état de retour :
++
+`storage failover show`et `storage failover show-giveback`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.
+
+. Déplacez le câble de la console vers le nœud de remplacement et entrez ce qui suit :
++
+`security key-manager onboard sync`
+
++
+
+NOTE: Vous êtes invité à saisir la phrase de passe OKM au niveau du cluster.
+
+. Vérifier le statut des clés via la commande suivante :
++
+`security key-manager key query -key-type svm-KEK`
+
++
+Si la colonne _restored_ affiche autre chose que _true_, contactez https://support.netapp.com["Support NetApp"].
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
++
+.. Si les liens d'interconnexion HA ont été interrompus, rétablissez-les pour reprendre la restitution automatique :
++
+`system ha interconnect link on -node healthy-node -link 0`
+
++
+`system ha interconnect link on -node healthy-node -link 1`
+
+
+
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback-of true`
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+--
+====

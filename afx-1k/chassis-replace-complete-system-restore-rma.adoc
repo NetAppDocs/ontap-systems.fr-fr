@@ -1,0 +1,89 @@
+---
+permalink: afx-1k/chassis-replace-complete-system-restore-rma.html 
+sidebar: sidebar 
+keywords: afx 1k,  verify and set HA state, complete the replacement process 
+summary: Redémarrez le contrôleur, vérifiez l’état du système et renvoyez la pièce défectueuse à NetApp pour terminer l’étape finale de la procédure de remplacement du châssis AFF A1K . 
+---
+= Remplacement complet du châssis - AFX 1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Redémarrez le contrôleur, vérifiez l’état du système et renvoyez la pièce défectueuse à NetApp pour terminer l’étape finale de la procédure de remplacement du châssis AFX 1K.
+
+
+
+== Étape 1 : démarrez les contrôleurs et remettez-les en place
+
+Une fois les contrôleurs redémarrés, démarrez ONTAP et remettez les contrôleurs en place.
+
+.Étapes
+. Vérifiez la sortie de la console :
++
+.. Si le contrôleur s'arrête à l'invite LOADER, démarrez le contrôleur avec le `boot_ontap` commande.
+.. Une fois que le nœud démarre et fournit l'invite de connexion, connectez-vous au contrôleur partenaire et vérifiez que le contrôleur remplacé est prêt à être rendu avec `storage failover show` commande.
+
+
+. Effectuer le rétablissement :
++
+.. Branchez le câble de la console au contrôleur partenaire.
+.. Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
++
+*** Si vous voyez l’invite _login_, passez à l’étape suivante.
+*** Si vous ne voyez pas l’invite de connexion, connectez-vous au nœud partenaire.
+
+
+.. Renvoyer uniquement la racine avec l'option override-destination-checks :
++
+`storage failover giveback -ofnode impaired-node -only-root true -override -destination-checks true`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.  Pour plus d'informations sur les niveaux de privilège, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/administrative-privilege-levels-concept.html["Comprendre les niveaux de privilèges pour les commandes CLI ONTAP"^] .
+
++
+Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
+
+.. Attendre 5 minutes après la fin du rapport de rétablissement et vérifier l'état du basculement et de rétablissement :
++
+`storage failover show`et `storage failover show-giveback`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.
+
+.. Si les liens d'interconnexion HA ont été supprimés, rétablissez-les :
++
+`system ha interconnect link on -node healthy-node -link 0`
+
++
+`system ha interconnect link on -node healthy-node -link 1`
+
+.. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+.. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node _impaired_node_name_ -auto-giveback-of _true_`
+.. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+
+
+
+== Étape 2 : vérifiez l'état du système de stockage
+
+Une fois que le contrôleur restitue le stockage, vérifiez l'état de santé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"] .
+
+.Étapes
+. Une fois le rétablissement terminé, exécutez Active IQ Config Advisor pour vérifier l'état de santé du système de stockage.
+. Corrigez les problèmes que vous rencontrez.
+
+
+
+
+== Étape 3 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

@@ -21,28 +21,11 @@ Utilisez le workflow suivant pour déployer votre système de stockage s'il n'es
 [role="quick-margin-para"]
 Installez les commutateurs sur le rack ou l'armoire. Consultez les instructions suivantes pour votre modèle de commutateur.
 
-[role="quick-margin-para"]
-**Commutateurs de cluster**
-
 [role="quick-margin-list"]
-* link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/install-hardware-bes53248.html["Installer le commutateur BES-53248"^]
-* link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/install-switch-9336c-cluster.html["Installer le commutateur Cisco Nexus 9336C-FX2"^]
-* link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["Installez le commutateur NVIDIA SN2100"^]
-
-
-[role="quick-margin-para"]
-**Commutateurs de stockage**
-
-[role="quick-margin-list"]
-* link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-storage/install-9336c-storage.html["Installer le commutateur Cisco Nexus 9336C-FX2"^]
-* link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html["Installez le commutateur NVIDIA SN2100"^]
-
-
-[role="quick-margin-para"]
-**Commutateurs partagés**
-
-[role="quick-margin-list"]
-* link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/install-9336c-shared.html["Installer le commutateur Cisco Nexus 9336C-FX2"^]^
+* link:https://docs.netapp.com/us-en/ontap-systems-switches/afx/index.html["Commutateurs AFX"^]
+* link:https://review.docs.netapp.com/us-en/ontap-systems-switches/cluster/index.html["Commutateurs de cluster"^]
+* link:https://review.docs.netapp.com/us-en/ontap-systems-switches/storage/index.html["Commutateurs de stockage"^]
+* link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/install-9336c-shared.html["Commutateurs partagés"^]
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"] Installez le système de stockage et les tiroirs de stockage
@@ -52,7 +35,8 @@ Installez le système de stockage et les tiroirs de stockage dans l'armoire ou l
 [role="quick-margin-list"]
 * link:aff-landing/index.html["Systèmes AFF"]
 * link:allsan-landing/index.html["Systèmes ASA"]
-* https://docs.netapp.com/us-en/asa-r2/index.html["Systèmes ASA r2"]
+* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-setup-workflow.html["Systèmes AFX"]
+* https://docs.netapp.com/us-en/asa-r2/install-setup/install-setup-workflow.html["Systèmes ASA r2"]
 * link:fas/index.html["Systèmes FAS"]
 
 
@@ -65,6 +49,6 @@ Connectez les contrôleurs au réseau, puis connectez les contrôleurs à vos ti
 Une fois que vous avez installé et configuré vos contrôleurs et commutateurs, vous devez terminer la configuration de votre stockage dans ONTAP. Consultez les instructions suivantes en fonction de votre configuration de déploiement.
 
 [role="quick-margin-list"]
-* Pour les déploiements ONTAP, voir https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP"].
-* Pour les déploiements ONTAP avec MetroCluster, consultez https://docs.netapp.com/us-en/ontap-metrocluster/["Configurez MetroCluster avec ONTAP"].
+* Pour les déploiements ONTAP , voir https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP"^] .
+* Pour les déploiements ONTAP avec MetroCluster , voir https://docs.netapp.com/us-en/ontap-metrocluster/["Configurez MetroCluster avec ONTAP"^] .
 

@@ -1,0 +1,179 @@
+---
+permalink: nx224/service-replace-fan.html 
+sidebar: sidebar 
+keywords: nx224, shelves, shelf, nx224 shelves, fail, fan, nondisruptive, power, i/o, progress, replace, replace a fan 
+summary: Vous pouvez remplacer un ventilateur défectueux sans interruption dans une étagère NX224 sous tension et pendant que les E/S sont en cours. 
+---
+= Remplacer un module de ventilation - Étagères NX224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si l'un ou les deux ventilateurs de votre module de ventilation tombent en panne, vous pouvez remplacer votre module de ventilation.  Cette procédure peut être effectuée sans interruption dans une étagère NX224 sous tension avec des E/S en cours.
+
+.Description de la tâche
+* Laissez un délai d'au moins 70 secondes entre le retrait et l'installation du module de tiroir NVMe (NSM).
++
+Cela laisse suffisamment de temps à ONTAP pour traiter l'événement de suppression NSM.
+
+* *Meilleure pratique :* la meilleure pratique consiste à disposer des versions actuelles du micrologiciel NSM et du micrologiciel du lecteur sur votre système avant de remplacer les composants FRU. Vous pouvez consulter le site de support NetApp pour  https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["télécharger le firmware du disque dur"^] et  https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["télécharger le micrologiciel du lecteur de disque"^] .
++
+[NOTE]
+====
+Ne rétablissez pas le firmware en tant que version qui ne prend pas en charge votre tiroir et ses composants.
+
+====
+* Si nécessaire, vous pouvez allumer les LED situées à l'emplacement des tiroirs (bleues) pour faciliter l'emplacement physique des tiroirs concernés : `storage shelf location-led modify -shelf-name _shelf_name_ -led-status on`
++
+Si vous ne connaissez pas le `_shelf_name_` sur la tablette concernée, exécutez la `storage shelf show` commande.
+
++
+Un tiroir est doté de trois voyants d'emplacement : un sur le panneau de commande et un sur chaque NSM. Les LED d'emplacement restent allumées pendant 30 minutes. Vous pouvez les désactiver en entrant la même commande, mais en utilisant l' `off`option.
+
+* Lorsque vous déballez le ventilateur de remplacement, conservez tous les matériaux d'emballage pour l'utiliser lorsque vous renvoyez le ventilateur défectueux.
++
+Si vous avez besoin du numéro d'autorisation de renvoi de matériel ou d'une aide supplémentaire pour effectuer la procédure de remplacement, contactez le support technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"^], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique).
+
+
+
+.Avant de commencer
+Le NSM partenaire de l'étagère doit être opérationnel et câblé correctement afin que votre étagère conserve la connectivité lorsque vous retirez le NSM avec la FRU défectueuse (NSM cible).  Vous pouvez vérifier le statut du partenaire NSM en https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["téléchargement et exécution de Config Advisor"^] .
+
+.Étapes
+. Mettez-vous à la terre.
+. Déconnectez le câblage du NSM qui contient la FRU que vous remplacez :
++
+.. Débranchez le cordon d’alimentation de l’alimentation en ouvrant le dispositif de retenue du cordon d’alimentation, puis en débranchant le cordon d’alimentation de l’alimentation.
++
+Les blocs d'alimentation n'ont pas de commutateur d'alimentation.
+
+.. Déconnectez le câblage de l’étagère des ports NSM.
++
+Notez les ports NSM auxquels chaque câble est connecté. Vous reconnectez les câbles aux mêmes ports lorsque vous réinsérez le NSM plus tard dans cette procédure.
+
+
+
+. Déposer le NSM :
++
+image::../media/drw_g_and_t_handles_remove_ieops-1837.svg[Retirez le NSM.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Aux deux extrémités du NSM, poussez les languettes de verrouillage verticales vers l'extérieur pour libérer les poignées.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+** Tirez les poignées vers vous pour détacher le NSM du fond de panier central.
++
+Lorsque vous tirez, les poignées sortent du shelf. Lorsque vous ressentez une certaine résistance, continuez à tirer.
+
+** Faites glisser le NSM hors de la tablette et placez-le sur une surface plane et stable.
++
+Assurez-vous de soutenir le bas du NSM lorsque vous le faites glisser hors de l'étagère.
+
+
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Faites pivoter les poignées vers le haut (à côté des languettes) pour les écarter.
+
+|===
+. Ouvrez le capot NSM en tournant la vis à molette dans le sens inverse des aiguilles d'une montre pour la desserrer, puis ouvrez le capot.
++
+
+NOTE: L'étiquette FRU sur le capot NSM indique l'emplacement des cinq ventilateurs, le long de la paroi arrière du NSM.
+
+. Identifier physiquement le ventilateur défaillant.
++
+Lorsqu'un ventilateur tombe en panne, le système consigne un message d'avertissement vers la console du système pour indiquer quel ventilateur est en panne.
+
+. Remplacez le ventilateur défectueux :
++
+image::../media/drw_tp_fan_replace_ieops-2203.svg[Retirez le ventilateur défectueux.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Retirez le ventilateur défectueux en saisissant fermement les côtés où se trouvent les points de contact bleus, puis tirez-le vers le haut pour le sortir de son support.
+
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 2]
+ a| 
+Insérez le ventilateur de remplacement en l'alignant dans les guides, puis poussez-le vers le bas jusqu'à ce que le connecteur du ventilateur soit complètement inséré dans le support.
+
+|===
+. Fermez le capot NSM, puis serrez la vis à serrage à main.
+. Insérez le NSM dans l'étagère :
++
+image::../media/drw_g_and_t_handles_reinstall_ieops-1838.svg[Remplacer le NSM.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[Légende numéro 1]
+ a| 
+Si vous avez fait pivoter les poignées NSM vers le haut (à côté des languettes) pour les écarter pendant que vous effectuez l'entretien du NSM, faites-les pivoter vers le bas jusqu'à la position horizontale.
+
+
+
+ a| 
+image::../media/icon_round_2.png[Légende numéro 2]
+ a| 
+Alignez l'arrière du NSM avec l'ouverture de l'étagère, puis poussez doucement le NSM à l'aide des poignées jusqu'à ce qu'il soit bien en place.
+
+
+
+ a| 
+image::../media/icon_round_3.png[Numéro de légende 3]
+ a| 
+Faites pivoter les poignées en position verticale et verrouillez-les en place à l'aide des languettes.
+
+|===
+. Reconnectez le câblage au NSM :
++
+.. Reconnectez le câblage de l’étagère aux mêmes huit ports NSM.
++
+Les câbles sont insérés avec la languette de retrait du connecteur orientée vers le haut. Lorsqu'un câble est inséré correctement, il s'enclenche.
+
+.. Rebranchez le cordon d’alimentation à l’alimentation, puis fixez-le à l’aide du dispositif de retenue du cordon d’alimentation.
++
+Lorsqu'elle fonctionne correctement, la LED bicolore d'un bloc d'alimentation s'allume en vert.
+
++
+En outre, les deux LED LNK (vertes) du port NSM s'allument. Si un voyant LNK ne s'allume pas, réinstallez le câble.
+
+
+
+. Vérifiez que les voyants d'avertissement (orange) du NSM contenant le ventilateur défectueux et le panneau d'affichage de l'opérateur du tiroir ne sont plus allumés.
++
+Les voyants d'avertissement NSM s'éteignent après le redémarrage du NSM et ne détectent plus de problème de ventilateur. Cela peut prendre trois à cinq minutes.
+
+. Vérifiez que le NSM est correctement câblé, en https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["exécution Active IQ Config Advisor"^] .
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+
