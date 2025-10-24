@@ -64,7 +64,7 @@ image::../media/drw_70-90_tnsc_cluster_cabling_ieops-1653.svg[Schéma de câblag
 --
 .Câblage commuté du cluster
 --
-Utilisez le câble 100 GbE pour connecter les ports e1a à e1a et les ports e7a à e7a.
+Utilisez le câble 100 GbE pour connecter les ports e1a et e7a des contrôleurs A et B aux commutateurs réseau en cluster A et B.
 
 .Étapes
 . Connectez le port e1a du contrôleur A et le port e1a du contrôleur B au commutateur a du réseau du cluster
@@ -94,7 +94,7 @@ Voici quelques exemples types de câblage réseau hôte. Reportez-vous à la sec
 . Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet.
 +
 
-NOTE: Pour optimiser les performances du système pour le trafic de cluster et haute disponibilité, n'utilisez pas les ports e1b et e7b pour les connexions réseau hôte. Utilisez une carte hôte séparée pour optimiser les performances.
+NOTE: N'utilisez pas les ports e1b et e7b pour les connexions réseau hôte. Utilisez une carte hôte distincte.
 
 +
 *Câble 100 GbE*

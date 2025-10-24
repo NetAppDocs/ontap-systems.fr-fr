@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas70, fas90, replace a power supply 
 summary: 'Remplacez un bloc d"alimentation CA ou CC de votre système FAS70 ou FAS90 en cas de panne ou de panne, en veillant à ce que votre système continue de recevoir l"alimentation requise pour un fonctionnement stable. Le processus de remplacement consiste à déconnecter le bloc d"alimentation défectueux de la source d"alimentation, à débrancher le câble d"alimentation, à remplacer le bloc d"alimentation défectueux, puis à le rebrancher à la source d"alimentation.' 
 ---
-= Remplacez une alimentation - FAS70 et FAS90
+= Remplacement à chaud d'une alimentation - FAS70 et FAS90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,6 +13,8 @@ summary: 'Remplacez un bloc d"alimentation CA ou CC de votre système FAS70 ou F
 [role="lead"]
 Remplacez un bloc d'alimentation CA ou CC de votre système FAS70 ou FAS90 en cas de panne ou de panne, en veillant à ce que votre système continue de recevoir l'alimentation requise pour un fonctionnement stable. Le processus de remplacement consiste à déconnecter le bloc d'alimentation défectueux de la source d'alimentation, à débrancher le câble d'alimentation, à remplacer le bloc d'alimentation défectueux, puis à le rebrancher à la source d'alimentation.
 
+Les alimentations sont redondantes et remplaçables à chaud. Vous n’avez pas besoin d’arrêter le contrôleur pour remplacer un bloc d’alimentation.
+
 .Description de la tâche
 * Cette procédure est écrite pour remplacer un bloc d'alimentation à la fois.
 +
@@ -20,12 +22,11 @@ Remplacez un bloc d'alimentation CA ou CC de votre système FAS70 ou FAS90 en ca
 IMPORTANT: Ne mélangez pas les blocs d'alimentation avec différents niveaux d'efficacité. Toujours remplacer comme pour similaire.
 
 * Suivez la procédure appropriée pour votre type de bloc d'alimentation : CA ou CC.
-* Les alimentations sont redondantes et remplaçables à chaud ; vous n'avez pas besoin de prendre le contrôle du contrôleur pour effectuer cette tâche.
 
 
 [role="tabbed-block"]
 ====
-.Option 1 : remplacez un bloc d'alimentation CA
+.Option 1 : Remplacer à chaud un bloc d'alimentation secteur
 --
 Pour remplacer un bloc d'alimentation CA, procédez comme suit.
 
@@ -82,7 +83,7 @@ Une fois l'alimentation rétablie, le voyant d'état doit être vert.
 
 
 --
-.Option 2 : remplacez un bloc d'alimentation CC
+.Option 2 : Remplacer à chaud un bloc d'alimentation CC
 --
 Pour remplacer un bloc d'alimentation CC, procédez comme suit.
 

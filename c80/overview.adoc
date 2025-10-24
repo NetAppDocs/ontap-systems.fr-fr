@@ -1,7 +1,8 @@
 ---
 permalink: c80/overview.html 
 sidebar: sidebar 
-summary: Spécifications clés du groupe de plateformes C80 
+keywords: AFF C80 specifications, AFF C80 specs, NetApp AFF C80, AFF C80 hardware 
+summary: Spécifications clés du système de stockage AFF C80 
 ---
 = Spécifications clés de AFF C80
 :allow-uri-read: 
@@ -10,84 +11,117 @@ summary: Spécifications clés du groupe de plateformes C80
 
 
 [role="lead"]
-Voici quelques spécifications sélectionnées pour le système de stockage AFF C80 dans une seule paire haute disponibilité.  Visitez NetApp Hardware Universe (HWU) pour obtenir les spécifications complètes de ce système de stockage.
+Voici quelques spécifications sélectionnées pour l' AFF C80.  Visite https://hwu.netapp.com["NetApp Hardware Universe"^] (HWU) pour une liste complète des spécifications AFF C80.  Cette page reflète une seule paire à haute disponibilité.
 
 
 
-== Spécifications clés de AFF C80
+=== Spécifications clés de AFF C80
 
-* Configuration de la plateforme : paire de châssis simple HA AFF C80
-* Capacité brute maximale : 14,7360 Po
-* Mémoire : 512.0000 Go
-* Facteur de forme : châssis 4U avec 2 contrôleurs HA et 48 emplacements pour disques
-* Version ONTAP : ONTAP: 9.16.1P2
-* Emplacements d'extension PCIe : 18
-* Version minimale ONTAP : ONTAP 9.16.1RC1 == Maximums de mise à l'échelle
-* Type : NAS ; Paires HA : 12 ; Capacité brute : 176,8 Po / 157,0 PiB ; Mémoire maximale : 6 144 Go
-* Type : SAN ; paires HA : 6 ; capacité brute : 88,4 Po / 78,5 PiB ; mémoire maximale : 3 072 Go
-* Type : Paire HA ; Capacité brute : 14,7 Po / 13,1 PiB ; Mémoire maximale : 512 0000
+Configuration de la plateforme : paire de châssis simple HA AFF C80
 
+Capacité brute maximale : 14,7360 Po
 
+Mémoire : 512.0000 Go
 
+Facteur de forme : châssis 4U avec 2 contrôleurs HA et 48 emplacements pour disques
 
-== E/S
+Version ONTAP : b_startONTAP : 9.16.1P2b_end
+
+Emplacements d'extension PCIe : 18
+
+Version minimale ONTAP : ONTAP 9.16.1RC1
 
 
 
-=== E/S embarquées
+=== Maximums de mise à l'échelle
 
-Aucune donnée d'E/S intégrée.
-
-
-
-=== E/S totales
-
-* Protocole : Ethernet 200 Gbps ; Ports : 24
-* Protocole : Ethernet 100 Gbps ; Ports : 36
-* Protocole : Ethernet 25 Gbit/s ; Ports : 56
-* Protocole : Ethernet 10 Gbit/s ; Ports : 56
-* Protocole : FC 64 Gbps ; Ports : 56
-* Protocole : NVMe/FC 64 Gbit/s ; Ports : 56
-* Ports : 0
+|===
 
 
+| Type | Paires HA | Capacité brute | Mémoire maximale 
 
 
-=== Ports de gestion
+| NAS | 12 | 176,8 Po / 157,0 PiB | 6144 Go 
 
-* Protocole : Ethernet 1 Gbps ; Ports : 2
-* Protocole : RS-232 115 Kbps ; Ports : 4
-* Protocole : USB 600 Mbps ; Ports : 2
+
+| SAN | 6 | 88,4 Po / 78,5 PiB | 3072 Go 
+
+
+| Paire haute disponibilité |  | 14,7 Po / 13,1 PiB | 512,0000 
+|===
+
+
+=== IO
 
 
 
+==== E/S embarquées
 
-== Prise en charge du réseau de stockage
-
-* CIFS
-* FC
-* iSCSI
-* NFS v3
-* NFS v4.0
-* NFS v4.1
-* NFS v4.2
-* NFSv3/RDMA
-* NFSv4/RDMA
-* NVMe/FC
-* NVMe/TCP
-* S3
-* S3 avec NAS
-* PME 2.0
-* PME 2.1
-* SMB 2.x
-* PME 3.0
-* PME 3.1
-* SMB 3.1.1 == Spécifications de l'environnement système Aucune donnée d'environnement disponible.
+Aucune donnée IO embarquée.
 
 
 
+==== E/S totales
 
-== Conformité
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 200 Gbit/s | 24 
+
+
+| Ethernet 100 Gbit/s | 36 
+
+
+| Ethernet 25 Gbit/s | 56 
+
+
+| Ethernet 10 Gbit/s | 56 
+
+
+| FC 64 Gbit/s | 56 
+
+
+| NVMe/FC 64 Gbit/s | 56 
+
+
+|  | 0 
+|===
+
+
+==== Ports de gestion
+
+|===
+
+
+| Protocole | Ports 
+
+
+| Ethernet 1 Gbit/s | 2 
+
+
+| RS-232 115 Kbps | 4 
+
+
+| USB 600 Mbps | 2 
+|===
+
+
+=== Réseau de stockage pris en charge
+
+CIFS ; FC ; iSCSI ; NFS v3 ; NFS v4.0 ; NFS v4.1 ; NFS v4.2 ; NFSv3/RDMA ; NFSv4/RDMA ; NVMe/FC ; NVMe/TCP ; S3 ; S3 avec NAS ; SMB 2.0 ; SMB 2.1 ; SMB 2.x ; SMB 3.0 ; SMB 3.1 ; SMB 3.1.1 ;
+
+
+
+=== Spécifications de l'environnement système
+
+Aucune donnée environnementale disponible.
+
+
+
+=== Conformité
 
 * Certifications EMC/EMI : AMCA, FCC, ICES, KC, Maroc, VCCI
 * Certifications sécurité : BIS, CB, CSA, G_K_U-SoR, IRAM, NOM, NRCS, SONCAP, TBS
@@ -99,9 +133,6 @@ Aucune donnée d'E/S intégrée.
 
 
 
-== Haute disponibilité
+=== Haute disponibilité
 
-* Contrôleur de gestion de carte mère (BMC) basé sur Ethernet et interface de gestion ONTAP
-* Contrôleurs redondants remplaçables à chaud
-* Alimentations redondantes remplaçables à chaud
-
+Contrôleur de gestion de carte mère (BMC) basé sur Ethernet et interface de gestion ONTAP ; Contrôleurs redondants remplaçables à chaud ; Alimentations redondantes remplaçables à chaud ; [//] 2025-10-15 ontap-systems-internal/issues/1357

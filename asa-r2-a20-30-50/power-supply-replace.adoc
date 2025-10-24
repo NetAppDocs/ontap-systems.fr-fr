@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: asa a20, asa a30, asa a50, replace a power supply 
 summary: 'Remplacez un bloc d"alimentation CA ou CC (PSU) dans votre système de stockage ASA A20, ASA A30 ou ASA A50 lorsqu"il tombe en panne ou devient défectueux, garantissant ainsi que votre système continue de recevoir l"alimentation requise pour un fonctionnement stable.  Le processus de remplacement consiste à déconnecter le bloc d"alimentation défectueux de la source d"alimentation, à débrancher le cordon d"alimentation, à remplacer le bloc d"alimentation défectueux, puis à le reconnecter à la source d"alimentation.' 
 ---
-= Remplacer l'alimentation - ASA A20, ASA A30 et ASA A50
+= Remplacement à chaud d'une alimentation - ASA A20, ASA A30 et ASA A50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -16,7 +16,7 @@ Remplacez un bloc d'alimentation CA ou CC (PSU) dans votre système de stockage 
 .Description de la tâche
 * Cette procédure est écrite pour remplacer un bloc d'alimentation à la fois.
 +
-Les blocs d'alimentation sont redondants et remplaçables à chaud.
+Les blocs d'alimentation sont redondants et remplaçables à chaud. Vous n’avez pas besoin d’arrêter le contrôleur pour remplacer un bloc d’alimentation.
 
 * IMPORTANT : ne mélangez pas des blocs d'alimentation avec des niveaux d'efficacité différents ou des types d'entrée différents. Toujours remplacer comme pour similaire.
 * Suivez la procédure appropriée pour votre type de bloc d'alimentation : CA ou CC.
@@ -31,7 +31,7 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 [role="tabbed-block"]
 ====
-.Option 1 : remplacez un bloc d'alimentation CA
+.Option 1 : Remplacer à chaud un bloc d'alimentation secteur
 --
 Pour remplacer un bloc d'alimentation CA, procédez comme suit.
 
@@ -97,7 +97,7 @@ Une fois l'alimentation rétablie, le voyant d'état doit être vert.
 
 
 --
-.Option 2 : remplacez un bloc d'alimentation CC
+.Option 2 : Remplacer à chaud un bloc d'alimentation CC
 --
 Pour remplacer un bloc d'alimentation CC, procédez comme suit.
 
