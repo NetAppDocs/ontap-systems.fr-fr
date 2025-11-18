@@ -164,7 +164,7 @@ image::../media/icon_round_2.png[Légende numéro 2]
 Module de ventilateur
 
 |===
-. Déplacez le module de ventilateur vers le module de contrôleur de remplacement, puis installez le module de ventilateur en alignant ses bords avec l'ouverture du module de contrôleur, puis en faisant glisser le module de ventilateur dans le module de contrôleur jusqu'à ce que les loquets de verrouillage s'enclenchent.
+. Déplacez le module de ventilateur vers le module de commande de remplacement, puis installez-le en alignant ses bords avec l'ouverture du module de commande et en le faisant glisser jusqu'à ce que les loquets de verrouillage s'enclenchent.
 . Répétez ces étapes pour les autres modules de ventilation.
 
 
@@ -283,8 +283,16 @@ NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien align�
 
 Déplacez les modules d'E/S vers le module de contrôleur de remplacement.
 
+.Étapes
+. Débranchez tout câblage du module d'E/S cible.
++
+Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
+
+. Faites pivoter le ARM de gestion des câbles vers le bas en tirant sur les boutons situés à l'intérieur du ARM de gestion des câbles et en le faisant pivoter vers le bas.
++
 image::../media/drw_a70_90_io_remove_replace_ieops-1532.svg[Retirez le module d'E/S.]
 
++
 [cols="1,4"]
 |===
 
@@ -293,12 +301,6 @@ image::../media/drw_a70_90_io_remove_replace_ieops-1532.svg[Retirez le module d'
 image::../media/icon_round_1.png[Légende numéro 1]
 | Levier de came du module d'E/S. 
 |===
-.Étapes
-. Débranchez tout câblage du module d'E/S cible.
-+
-Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
-
-. Faites pivoter le ARM de gestion des câbles vers le bas en tirant sur les boutons situés à l'intérieur du ARM de gestion des câbles et en le faisant pivoter vers le bas.
 . Retirez les modules d'E/S du module de contrôleur :
 +
 .. Appuyez sur le bouton de verrouillage de la came du module d'E/S cible.
@@ -329,8 +331,12 @@ NOTE: Pour déplacer les modules d'E/S des emplacements 6 et 7, vous devez dépl
 
 Déplacez le module de gestion du système vers le module de contrôleur de remplacement.
 
+.Étapes
+. Retirez le module de gestion du système du module de contrôleur défectueux :
++
 image::../media/drw_70-90_sys-mgmt_remove_ieops-1817.svg[Déplacez le module gestion du système]
 
++
 [cols="1,4"]
 |===
 
@@ -341,8 +347,6 @@ image::../media/icon_round_1.png[Légende numéro 1]
 Loquet de came du module de gestion du système
 
 |===
-.Étapes
-. Retirez le module de gestion du système du module de contrôleur défectueux :
 +
 .. Appuyez sur le bouton de la came de gestion du système.
 .. Faites tourner le levier de came complètement vers le bas.
@@ -363,8 +367,12 @@ Loquet de came du module de gestion du système
 
 Déplacez le module NVRAM vers le module de contrôleur de remplacement.
 
+.Étapes
+. Retirez le module NVRAM du module de contrôleur défectueux :
++
 image::../media/drw_a70-90_nvram12_remove_replace_ieops-1370.svg[Retirez le module NVRAM12 et les modules DIMM]
 
++
 [cols="1,4"]
 |===
 
@@ -382,8 +390,6 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Languette de verrouillage DIMM
 
 |===
-.Étapes
-. Retirez le module NVRAM du module de contrôleur défectueux :
 +
 .. Appuyer sur le bouton de verrouillage de came.
 +
@@ -452,3 +458,6 @@ Si vous avez retiré les émetteurs-récepteurs (QSFP ou SFP), n'oubliez pas de 
 NOTE: Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis.
 
 
+
+.Et la suite ?
+Après avoir remplacé le contrôleur ASA A70 ou ASA A90 défectueux, vous devez :link:controller-replace-system-config-restore-and-verify.html["restaurez la configuration du système"] .

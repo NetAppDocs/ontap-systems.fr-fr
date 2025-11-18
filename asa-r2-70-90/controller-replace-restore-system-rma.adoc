@@ -20,12 +20,21 @@ Pour terminer le remplacement du contrôleur de votre système ASA A70 ou ASA A9
 Avant de renvoyer le nœud de remplacement à la maintenance, vérifiez que les interfaces logiques se trouvent sur leurs ports home, vérifiez l'état du cluster et réinitialisez le rétablissement automatique.
 
 .Étapes
-. Vérifiez que les interfaces logiques sont bien placées sur leur serveur domestique et leurs ports : `network interface show -is-home false`
+. Vérifiez que les interfaces logiques communiquent avec leur serveur d'origine et leurs ports :
 +
-Si des interfaces logiques sont répertoriées sous la forme false, restaurez-les sur leurs ports home : `network interface revert -vserver * -lif *`
+`network interface show -is-home false`
 
-. Vérifiez l'état de santé de votre cluster. Consultez https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["Procédure de vérification de l'état du cluster à l'aide d'un script dans ONTAP"^] l'article de la base de connaissances pour plus d'informations.
-. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
++
+Si des interfaces logiques sont indiquées comme étant fausses, rétablissez-les à leurs ports d'origine :
+
++
+`network interface revert -vserver * -lif *`
+
+. Vérifiez l'état de santé de votre cluster.  Voir le https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["Procédure de vérification de l'état du cluster à l'aide d'un script dans ONTAP"^] Article de la base de connaissances.
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`
+
 
 
 

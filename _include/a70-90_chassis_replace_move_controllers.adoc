@@ -1,0 +1,83 @@
+= 
+:allow-uri-read: 
+
+
+.Étapes
+. Vérifiez que le voyant d'état NVRAM orange situé dans le logement 4/5 à l'arrière de chaque module de contrôleur est éteint. Recherchez l'icône NV.
++
+image::../media/drw_a1K-70-90_nvram-led_ieops-1463.svg[Emplacement graphique de la LED d'avertissement et d'état de la NVRAM]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+LED d'état NVRAM
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+LED d'avertissement NVRAM
+
+|===
++
+** Si le voyant NVRAM est éteint, passez à l'étape suivante.
+** Si le voyant NVRAM clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez http://mysupport.netapp.com/["Site de support NetApp"^] pour obtenir de l'aide.
+
+
+. Retirez les modules de contrôleur :
++
+.. Appuyez sur les deux loquets de verrouillage du contrôleur, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a70-90_pcm_remove_replace_ieops-1365.svg[Supprimer le graphique du contrôleur]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Loquet de verrouillage
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Goupille de blocage
+
+|===
+.. Faites glisser le module de contrôleur hors du châssis par les loquets de verrouillage et placez-le sur une surface plane et stable.
++
+Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+
+.. Répétez ces étapes pour le second module de contrôleur.
+
+
+. Retirez les lecteurs :
++
+.. Retirez délicatement le cadre de l'avant du système.
+.. Appuyez sur le bouton de déverrouillage situé en haut du support de lecteur, face située sous les voyants.
+.. Tirez la poignée de came jusqu'à sa position d'ouverture complète pour dégager le lecteur du fond de panier central, puis faites glisser doucement le lecteur hors du châssis.
++
+Le lecteur doit se désengager du châssis, ce qui lui permet de glisser hors du châssis.
+
++
+
+NOTE: Les disques sont fragiles. Toujours utiliser deux mains pour soutenir le poids de l'entraînement lors de la dépose d'un entraînement afin d'éviter de l'endommager.
+
+.. Gardez une trace de la baie de lecteur dans laquelle se trouvait chaque lecteur et mettez-le de côté sur un chariot ou une table sans électricité statique.
+.. Répétez cette étape pour les autres lecteurs du châssis.
+
+
+

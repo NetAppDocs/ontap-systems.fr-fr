@@ -13,20 +13,16 @@ summary: 'Vérifiez que la configuration haute disponibilité du contrôleur est
 [role="lead"]
 Vérifiez que la configuration haute disponibilité du contrôleur est active et qu'elle fonctionne correctement sur votre système de stockage ASA A70 ou ASA A90, puis vérifiez que les adaptateurs du système répertorient tous les chemins d'accès aux disques.
 
-
-
-== Étape 1 : vérifiez les paramètres de configuration haute disponibilité
-
-Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
+Vérifiez les paramètres de configuration HA et la liste des disques avant de remettre le système en service.
 
 .Étapes
-. Démarrage en mode maintenance : `boot_ontap maint`
+. Démarrage en mode maintenance :
 +
-.. Entrez `y` lorsque vous voyez _Continuer avec boot?_.
+`boot_ontap maint`
+
+. Entrez `y` lorsque vous voyez _Continuer avec boot?_.
 +
 Si le message d'avertissement _ID système incorrect_ s'affiche, entrez `y`.
-
-
 
 . Saisir `sysconfig -v` et capturer le contenu de l'affichage.
 +
@@ -34,11 +30,17 @@ Si le message d'avertissement _ID système incorrect_ s'affiche, entrez `y`.
 NOTE: Si vous voyez _INADÉQUATION DE PERSONNALITÉ_, contactez le service clientèle.
 
 . A partir du `sysconfig -v` résultat, comparez les informations de la carte adaptateur avec les cartes et les emplacements dans le contrôleur de remplacement.
-. Vérifier que tous les composants affichent le même `HA` état : `ha-config show`
+. Vérifier que tous les composants affichent le même `HA` état :
++
+`ha-config show`
+
 +
 L'état de la HA doit être le même pour tous les composants.
 
-. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez l' `HA`état du module de contrôleur : `ha-config modify controller ha`
+. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, configurez le `HA` état du module de contrôle :
++
+`ha-config modify controller ha`
+
 +
 La valeur de l'état HA peut être l'une des suivantes :
 
@@ -49,19 +51,13 @@ La valeur de l'état HA peut être l'une des suivantes :
 ** `non-ha` (non pris en charge)
 
 
-. Vérifiez que le paramètre a changé : `ha-config show`
+. Vérifiez que le paramètre a changé :
++
+`ha-config show`
 
-
-
-
-== Étape 2 : vérifiez la liste des disques
-
-Vous devez vérifier la liste des adaptateurs et les chemins d’accès à tous vos disques système.
-
-.Étapes
-. Vérifiez que la carte répertorie les chemins d'accès à tous les disques à l'aide de `storage show disk -p` .
+. Vérifiez que l'adaptateur répertorie les chemins d'accès à tous les disques : `storage show disk -p`
 +
 En cas de problème, vérifiez le câblage et réinstallez les câbles.
 
-. Quitter le mode Maintenance : `halt`.
+. Quitter le mode Maintenance : `halt`
 

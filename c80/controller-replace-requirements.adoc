@@ -16,23 +16,23 @@ Avant de remplacer le contrôleur de votre système AFF C80, assurez-vous de ré
 Passez en revue la configuration requise pour le remplacement du module de contrôleur.
 
 * Tous les tiroirs disques doivent fonctionner correctement.
-* Le contrôleur sain doit pouvoir reprendre le contrôleur qui est remplacé (appelé « contrôleur défectueux » dans cette procédure).
-* N'utilisez pas cette procédure pour les mises à niveau du contrôleur ; reportez-vous plutôt au https://docs.netapp.com/us-en/ontap-systems-upgrade/choose_controller_upgrade_procedure.html["Choisissez la procédure de mise à niveau matérielle de votre contrôleur"] pour obtenir des conseils.
-* Si votre système est dans une configuration MetroCluster, vous devez vérifier https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html["Choix de la procédure de récupération correcte"] pour déterminer si vous devez utiliser cette procédure.
-* Vous devez remplacer le composant défectueux par l'unité remplaçable sur site (FRU) que vous avez reçue de NetApp.
-* Vous devez remplacer un module de contrôleur par un module de contrôleur du même type de modèle. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le module de contrôleur.
-* Vous ne pouvez pas modifier de disques ou de tiroirs disques dans le cadre de cette procédure.
-* Comme le périphérique d'amorçage se trouve sur le module de gestion du système installé à l'arrière du système, vous n'avez pas besoin de déplacer le périphérique d'amorçage lors du remplacement d'un module de contrôleur.
-* Il est important d'appliquer les commandes au cours des étapes suivantes sur les systèmes appropriés :
+* Le contrôleur sain doit pouvoir prendre le relais du contrôleur remplacé (appelé dans cette procédure contrôleur défectueux).
+* N’utilisez pas cette procédure pour les mises à niveau de contrôleur.  Se référer à https://docs.netapp.com/us-en/ontap-systems-upgrade/choose_controller_upgrade_procedure.html["Choisissez la procédure de mise à niveau matérielle de votre contrôleur"] pour vous guider.
+* Si votre système est configuré en MetroCluster , veuillez consulter https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html["Choix de la procédure de récupération correcte"] pour déterminer s'il convient d'utiliser cette procédure.
+* Remplacez le composant défectueux par l'unité remplaçable sur site (FRU) que vous avez reçue de NetApp.
+* Remplacez le module de commande par un module de commande du même type.  Vous ne pouvez pas mettre à niveau votre système en remplaçant le module de contrôle.
+* Vous ne pouvez pas changer de disques durs ni de baies de disques durs dans le cadre de cette procédure.
+* Le périphérique de démarrage se trouve sur le module de gestion du système installé à l'arrière du système.  Il n'est pas nécessaire de déplacer le périphérique de démarrage lors du remplacement d'un module de contrôleur.
+* Comprendre la terminologie du contrôleur utilisée dans cette procédure :
 +
-** Le contrôleur _trouble_ est le contrôleur qui est en cours de remplacement.
-** Le contrôleur _remplacement_ est le nouveau contrôleur qui remplace le contrôleur défaillant.
+** Le contrôleur _défaillant_ est le contrôleur en cours de remplacement.
+** Le contrôleur de remplacement est le nouveau contrôleur qui remplace le contrôleur défectueux.
 ** Le contrôleur _Healthy_ est le contrôleur survivant.
 
 
-* Vous devez toujours capturer la sortie de la console du contrôleur dans un fichier journal texte.
+* Capturez les données de la console du contrôleur dans un fichier journal texte.
 +
-Vous disposez ainsi d'un enregistrement de la procédure afin de pouvoir résoudre tout problème que vous pourriez rencontrer pendant le processus de remplacement.
+Ce document consigne la procédure de dépannage en cas de problème survenu lors du processus de remplacement.
 
 
 

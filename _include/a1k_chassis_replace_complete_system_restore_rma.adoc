@@ -1,12 +1,6 @@
-= Étape 1 : démarrez les contrôleurs et remettez-les en place
+= 
 :allow-uri-read: 
 
-
-
-
-== Étape 1 : démarrez les contrôleurs et remettez-les en place
-
-Une fois les contrôleurs redémarrés, démarrez ONTAP et remettez les contrôleurs en place.
 
 .Étapes
 . Vérifiez la sortie de la console :
@@ -23,21 +17,5 @@ Une fois les contrôleurs redémarrés, démarrez ONTAP et remettez les contrôl
 .. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
+. Une fois le don terminé, exécutez https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"] pour vérifier l'état du système de stockage et corriger tout problème rencontré.
 
-
-
-
-== Étape 2 : vérifiez l'état du système de stockage
-
-Une fois que le contrôleur a remis le stockage, vous devez vérifier l'état global avec https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"].
-
-.Étapes
-. Une fois le rétablissement terminé, exécutez Active IQ Config Advisor pour vérifier l'état de santé du système de stockage.
-. Corrigez les problèmes que vous rencontrez.
-
-
-
-
-== Étape 3 : renvoyer la pièce défaillante à NetApp
-
-Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

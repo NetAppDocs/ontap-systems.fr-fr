@@ -15,9 +15,9 @@ Redémarrez les contrôleurs, vérifiez l'état du système et renvoyez la pièc
 
 
 
-== Étape 1 : démarrez les contrôleurs et remettez-les en place
+== Étape 1 : Démarrer les manettes et effectuer le retour
 
-Une fois les contrôleurs redémarrés, démarrez ONTAP et remettez les contrôleurs en place.
+Démarrez ONTAP sur les contrôleurs et effectuez une restitution du contrôleur pour rétablir la propriété du stockage.
 
 .Étapes
 . Vérifiez la sortie de la console :
@@ -38,12 +38,7 @@ Une fois les contrôleurs redémarrés, démarrez ONTAP et remettez les contrôl
 
 == Étape 2 : vérifiez l'état du système de stockage
 
-Une fois que le contrôleur a remis le stockage, vous devez vérifier l'état global avec https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"].
-
-.Étapes
-. Une fois le rétablissement terminé, exécutez Active IQ Config Advisor pour vérifier l'état de santé du système de stockage.
-. Corrigez les problèmes que vous rencontrez.
-
+Une fois la restitution du contrôleur terminée, vérifiez l'état du système à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"] .  Corrigez tout problème constaté.
 
 
 

@@ -13,10 +13,18 @@ summary: 'Le support de démarrage de votre système ASA A70 ou ASA A90 stocke l
 [role="lead"]
 Le support de démarrage de votre système ASA A70 ou ASA A90 stocke les données essentielles du micrologiciel et de la configuration. Le processus de remplacement implique le retrait du module de gestion du système, le retrait du support de démarrage défectueux, l'installation du support de démarrage de remplacement dans le module de gestion du système, puis la réinstallation du module de gestion du système.
 
-Le support de démarrage se trouve à l'intérieur du module de gestion du système et est accessible en retirant le module du système.
+Remplacez le support de démarrage, qui se trouve à l'intérieur du module de gestion du système à l'arrière du contrôleur.
+
+.Avant de commencer
+* Vous devez disposer d'un support de démarrage de remplacement.
+* Prévoir un tapis antistatique pour le module de gestion du système.
+
 
 .Étapes
-. Assurez-vous que le déchargement de la NVRAM est terminé avant de continuer. Lorsque le voyant du module NV est éteint, le NVRAM est déchargé. Si le voyant clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
+. Vérifiez que le déchargement de la NVRAM est terminé avant de continuer.  Lorsque la LED du module NV est éteinte, la NVRAM est désactivée.
++
+Si la LED clignote, attendez que le clignotement cesse.  Si le clignotement persiste pendant plus de 5 minutes, contactez l'assistance NetApp .
+
 +
 image::../media/drw_a1K-70-90_nvram-led_ieops-1463.svg[Emplacement graphique de la LED d'avertissement et d'état de la NVRAM]
 
@@ -38,26 +46,26 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 LED d'avertissement NVRAM
 
 |===
+. Rendez-vous à l'arrière du châssis et mettez-vous correctement à la terre si vous ne l'êtes pas déjà.
+. Débranchez l'alimentation du contrôleur :
 +
-** Si le voyant NV est éteint, passez à l'étape suivante.
-** Si le voyant NV clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
+** Pour les alimentations secteur, débranchez les cordons d'alimentation des alimentations.
+** Pour les alimentations CC, débranchez le bloc d'alimentation des alimentations.
 
 
-. Aller à l'arrière du châssis. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. Débranchez les blocs d’alimentation du contrôleur.
+. Retirez le module de gestion du système :
 +
-
-NOTE: Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
-
+.. Retirez tous les câbles connectés au module de gestion du système. Étiquetez les câbles pour identifier leurs ports corrects en vue de leur réinstallation.
+.. Faites pivoter le bras de gestion des câbles vers le bas en tirant sur les boutons situés de chaque côté du bras.
+.. Appuyez sur le bouton de la came de gestion du système.
 +
-.. Retirez tous les câbles connectés au module de gestion du système. Veillez à étiqueter l'emplacement de connexion des câbles afin de pouvoir les connecter aux ports appropriés lorsque vous réinstallez le module.
-.. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
-.. Appuyez sur le bouton de la came de gestion du système. Le levier de came s'éloigne du châssis.
-.. Faites pivoter le levier de came complètement vers le bas et retirez le module de gestion du système du module de contrôleur.
-.. Placez le module de gestion du système sur un tapis antistatique, de manière à ce que le support de démarrage soit accessible.
+Le levier à came s'éloigne du châssis.
+
+.. Tournez le levier à came complètement vers le bas et retirez le module de gestion du système du contrôleur.
+.. Placez le module de gestion du système sur un tapis antistatique, le support de démarrage étant accessible.
 
 
-. Retirez le support de démarrage du module de gestion :
+. Retirez le support de démarrage du module de gestion du système :
 +
 image::../media/drw_a70-90_boot_media_remove_replace_ieops-1367.svg[Remplacement du support de démarrage]
 
@@ -88,7 +96,7 @@ Support de démarrage
 |===
 +
 .. Appuyez sur le bouton de verrouillage bleu.
-.. Faites pivoter le support de démarrage vers le haut, faites-le glisser hors du support et mettez-le de côté.
+.. Faites pivoter le support de démarrage vers le haut, retirez-le de son emplacement et mettez-le de côté.
 
 
 . Installez le support de démarrage de remplacement dans le module de gestion du système :
@@ -100,16 +108,23 @@ Support de démarrage
 
 . Réinstallez le module de gestion du système :
 +
-.. Faites pivoter le chemin de câbles vers le haut jusqu'à la position fermée.
-.. Recâblage du module de gestion du système.
+.. Alignez les bords du module de gestion du système avec l'ouverture du châssis.
+.. Glissez délicatement le module dans le châssis jusqu'à ce que le loquet à came commence à s'enclencher.
+.. Tournez le loquet à came complètement vers le haut pour verrouiller le module en place.
+.. Rebranchez les câbles au module de gestion du système en utilisant les étiquettes que vous avez créées lors du retrait.
+.. Faites pivoter le ARM de gestion des câbles jusqu'à la position fermée.
 
 
-. Branchez les cordons d'alimentation aux blocs d'alimentation. Le contrôleur redémarre dès que l'alimentation est rétablie.
+. Rebranchez l'alimentation du contrôleur :
 +
+** Pour les alimentations secteur, branchez les cordons d'alimentation aux alimentations.
+** Pour les alimentations CC, reconnectez le bloc d'alimentation aux alimentations.
++
+La manette redémarre automatiquement lorsque le courant est rétabli.
 
-NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentation aux alimentations.
 
-. Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
+
+. Interrompez le processus de démarrage en appuyant sur `Ctrl-C` s'arrêter à l'invite LOADER.
 
 
 .Et la suite

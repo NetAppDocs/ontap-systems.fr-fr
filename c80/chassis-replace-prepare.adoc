@@ -11,57 +11,32 @@ summary: Préparez-vous à remplacer le châssis défectueux de votre système C
 
 
 [role="lead"]
-Préparez-vous à remplacer le châssis défectueux de votre système AFF A70 ou AFF A90 en identifiant le châssis défectueux, en vérifiant les composants de remplacement et en étiquetant les câbles et les modules de contrôleur.
-
-
-
-== Étape 1 : localisez et surveillez votre système
-
-Vous devez ouvrir une session de console et enregistrer les journaux de sessions pour référence ultérieure, et activer également le voyant d'emplacement du système pour trouver le châssis défectueux.
+Préparez-vous à remplacer le châssis défectueux de votre système C80 en identifiant le châssis défectueux, en vérifiant les composants de remplacement et en étiquetant les câbles et les modules de contrôleur.
 
 .Étapes
 . Connectez-vous au port série console pour établir une interface avec et surveiller le système.
-. Localisez et allumez le voyant d'emplacement du contrôleur :
+. Activez la LED de localisation du contrôleur :
 +
-.. Utiliser `system controller location-led show` la commande pour afficher l'état actuel de la LED d'emplacement
-.. Réglez l'état du voyant d'emplacement sur « on » :
+.. Utilisez le `system controller location-led show` commande permettant d'afficher l'état actuel de la LED de localisation.
+.. Activer la LED de localisation :
 +
-`system controller location-led modify -node _node1_ -state on`.
+`system controller location-led modify -node _node1_ -state on`
 
 +
 Le voyant d'emplacement reste allumé pendant 30 minutes.
 
 
 
-
-
-
-
-== Étape 2 : vérifier les composants de remplacement
-
-Vérifiez que vous avez reçu les composants nécessaires, retirez-les de leur emballage et conservez-les.
-
-.Étapes
-. Avant d'ouvrir l'emballage, vous devez regarder l'étiquette d'emballage et vérifier :
+. Avant d'ouvrir l'emballage, examinez l'étiquette et vérifiez les points suivants :
 +
-** Référence du composant.
-** Description de la pièce.
-** Quantité dans la boîte.
+** Numéro de pièce du composant
+** Description de la pièce
+** Quantité dans la boîte
 
 
-. Retirez le contenu de l'emballage et utilisez l'emballage pour renvoyer le composant défectueux à NetApp.
-
-
-
-
-== Étape 3 : Etiquetez les câbles et les modules de contrôleur
-
-Étiquetez les câbles et les modules de contrôleur avant de les retirer des modules de contrôleur ou du châssis.
-
-.Étapes
-. Etiquetez tous les câbles associés au système de stockage. Cela facilite la réactivation plus loin dans cette procédure.
-. Etiquetez les modules de contrôleur.
-. Si vous n'êtes pas déjà correctement mis à la terre, mettez-vous à la terre.
+. Retirez le contenu de l'emballage et conservez ce dernier pour renvoyer le composant défectueux à NetApp.
+. Étiquetez tous les câbles connectés au système de stockage.  Cela garantit un recâblage correct ultérieurement au cours de cette procédure.
+. Rapprochez-vous de la terre si ce n'est pas déjà fait.
 
 
 .Et la suite ?
