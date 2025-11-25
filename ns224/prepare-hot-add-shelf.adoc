@@ -73,7 +73,7 @@ Lorsque les ports non dédiés ne sont pas configurés pour l'utilisation du sto
 
 . Si les ports non dédiés sont configurés pour le stockage, cette procédure est effectuée.
 +
-Sinon, vous devez configurer les ports en effectuant les étapes 4 à 7.
+Sinon, vous devez configurer les ports en suivant les étapes suivantes.
 
 . Configurer les ports non dédiés pour l'utilisation du stockage, sur l'un des contrôleurs :
 +
@@ -98,7 +98,7 @@ ONTAP 9.7
 `storage port enable -node _node_name_ -port _port_name_`
 
 |===
-. Répéter l'étape 4 pour le second contrôleur.
+. Répétez l'étape précédente pour la deuxième manette.
 . Vérifiez que les ports non dédiés des deux contrôleurs sont configurés pour l'utilisation du stockage : `storage port show`
 +
 ** Si votre paire haute disponibilité exécute ONTAP 9.8 ou une version ultérieure, les ports non dédiés s'affichent `storage` dans le `Mode` colonne.

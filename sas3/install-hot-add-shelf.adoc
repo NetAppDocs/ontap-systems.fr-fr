@@ -269,7 +269,7 @@ NOTE: Les mises à jour du micrologiciel peuvent prendre jusqu'à 30 minutes.
 Vous devez attribuer manuellement la propriété des disques si les disques de la pile sont la propriété des deux contrôleurs d'une paire haute disponibilité.
 
 +
-Vous désactivez l'affectation automatique de la propriété des disques avant de câbler les tiroirs disques à chaud, puis de les activer ultérieurement, à l'étape 7, vous les réactivez après le câblage des tiroirs disques ajoutés à chaud.
+Vous désactivez l'attribution automatique de la propriété des disques avant de câbler les baies de disques ajoutées à chaud, puis vous la réactivez plus tard dans cette procédure après avoir câblé les baies de disques ajoutées à chaud.
 
 +
 .. Vérifiez si l'assignation automatique de Disk Ownership est activée :``storage disk option show``
@@ -285,7 +285,7 @@ Vous devez désactiver l'affectation automatique de la propriété de disque sur
 
 
 
-. Si vous ajoutez à chaud une pile de tiroirs disques directement à un contrôleur, procédez comme suit ; sinon, passez à l'étape 3.
+. Si vous ajoutez à chaud une pile de baies de disques directement à un contrôleur, suivez les sous-étapes suivantes ; sinon, passez à l’étape suivante.
 +
 .. Si la pile que vous ajoutez à chaud comporte plusieurs tiroirs disques, reliez les connexions du tiroir au tiroir ; sinon, passez à la sous-étape b.
 +

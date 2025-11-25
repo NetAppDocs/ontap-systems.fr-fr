@@ -65,7 +65,7 @@ Le chiffrement n'est pas installé sur le système.
 +
 `storage failover giveback -ofnode _impaired_node_name_`
 
-.. Passez à l'étape 6 pour réactiver le remboursement automatique s'il a été désactivé.
+.. Allez à <<reenable-auto-giveback,réactivation du don automatique>> s'il était désactivé.
 
 
 
@@ -73,13 +73,16 @@ Le chiffrement n'est pas installé sur le système.
  a| 
 `key manager is configured.`
  a| 
-Le chiffrement est installé.  Passez à l'étape 4 pour restaurer le gestionnaire de clés.
+Le chiffrement est installé. Aller à<<restore-key-manager,restauration du gestionnaire de clés>> .
 
 |===
 +
 
 NOTE: Si le système ne parvient pas à identifier la configuration du gestionnaire de clés, il affiche un message d'erreur et vous invite à confirmer si le gestionnaire de clés est configuré et de quel type (intégré ou externe).  Répondez aux questions pour continuer.
 
+
+
+[[restore-key-manager]]
 . Restaurez le gestionnaire de clés en utilisant la procédure appropriée à votre configuration :
 +
 [role="tabbed-block"]
@@ -140,7 +143,7 @@ Successfully recovered keymanager secrets.
 `security key-manager onboard sync`
 
 +
-Passez à l'étape 5 pour réactiver le remboursement automatique s'il a été désactivé.
+Allez à <<reenable-auto-giveback,réactivation du don automatique>> s'il était désactivé.
 
 
 
@@ -284,7 +287,7 @@ LOADER-B>
 `storage failover giveback -ofnode _impaired_node_name_`
 
 +
-Passez à l'étape 5 pour réactiver le remboursement automatique s'il a été désactivé.
+Allez à <<reenable-auto-giveback,réactivation du don automatique>> s'il était désactivé.
 
 
 
@@ -292,6 +295,7 @@ Passez à l'étape 5 pour réactiver le remboursement automatique s'il a été d
 ====
 
 
+[[reenable-auto-giveback]]
 . Si le retour automatique a été désactivé, réactivez-le :
 +
 `storage failover modify -node local -auto-giveback true`
