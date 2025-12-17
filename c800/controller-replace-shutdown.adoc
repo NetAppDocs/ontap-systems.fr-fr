@@ -11,6 +11,8 @@ summary: 'Pour arrêter le contrôleur défaillant, vous devez déterminer l"ét
 
 
 [role="lead"]
+Éteignez le contrôleur de votre système de stockage AFF C800 pour éviter toute perte de données et garantir la stabilité du système lors du remplacement du contrôleur.
+
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -73,3 +75,6 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 |===
 
+
+.Et la suite ?
+Après avoir arrêté le contrôleur, vous devez link:controller-replace-move-hardware.html["remplacer le contrôleur"].

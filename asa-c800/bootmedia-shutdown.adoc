@@ -11,7 +11,7 @@ summary: Une fois les tâches NVE ou NSE terminées, vous devez arrêter le cont
 
 
 [role="lead"]
-Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement. Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
+Arrêtez le contrôleur défectueux de votre système de stockage ASA C800 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.
 
 Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
@@ -107,3 +107,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 |===
 
+
+.Et la suite ?
+Après l'arrêt du contrôleur, vous devez link:bootmedia-replace.html["remplacez le support de démarrage"].

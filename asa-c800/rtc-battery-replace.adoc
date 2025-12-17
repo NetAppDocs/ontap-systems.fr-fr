@@ -11,17 +11,18 @@ summary: 'Vous remplacez la batterie de l"horloge temps réel (RTC) dans le modu
 
 
 [role="lead"]
-Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de contrôleur afin que les services et applications de votre système qui dépendent d'une synchronisation précise de l'heure continuent de fonctionner.
+Remplacez la pile de l'horloge temps réel (RTC), communément appelée pile bouton, de votre système ASA C800 pour garantir le fonctionnement des services et applications nécessitant une synchronisation horaire précise.
 
-* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
-* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+.Avant de commencer
+* Vous pouvez utiliser cette procédure avec toutes les versions de ONTAP prises en charge par votre système.
+* Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.
 
-
-Vous devez utiliser une batterie RTC approuvée.
 
 
 
 == Étape 1 : arrêtez le contrôleur défaillant
+
+Arrêtez ou prenez le contrôle du contrôleur défectueux.
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
@@ -92,14 +93,53 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
 
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
-image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
+.Vidéo - Confirmer le siège conducteur
+video::2c46e4af-2c21-4f12-b065-b38b003d0ea2[panopto]
++
+image::../media/drw_a800_drive_seated_IEOPS-960.svg[Installez les disques durs]
 
-. Débranchez les blocs d'alimentation du module de contrôleur de la source.
-. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
-. Desserrez le crochet et la bride de boucle reliant les câbles au dispositif de gestion des câbles, puis débranchez les câbles du système et les modules SFP et QSFP (si nécessaire) du module de contrôleur, en gardant une trace de l'emplacement de connexion des câbles.
+. Vérifiez les pilotes du contrôleur en fonction de l'état du système :
++
+.. Sur le contrôleur sain, vérifiez si un groupe RAID actif est dans un état dégradé, en panne ou les deux :
++
+[source, cli]
+----
+storage aggregate show -raidstatus !*normal*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<Check-missing-drives,Passez à la sous-étape suivante pour vérifier l'absence de disques.>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+.. [[Check-missing-drives]]Vérifiez les problèmes de disques manquants pour le système de fichiers ou les disques de secours :
++
+[source, cli]
+----
+event log show -severity * -node * -message-name *disk.missing*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<remove-power-cables,passer à l'étape suivante>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+
+
+. [[remove-power-cables]]Retirez les fixations des câbles d'alimentation, puis débranchez les câbles des alimentations.
+. Desserrez la sangle auto-agrippante du dispositif de gestion des câbles.  Débranchez les câbles système et les modules SFP/QSFP (le cas échéant) du module contrôleur.  Notez l'emplacement de chaque câble.
 +
 Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
 
@@ -109,10 +149,9 @@ Laissez les câbles dans le périphérique de gestion des câbles de sorte que l
 Le module de contrôleur se déplace légèrement hors du châssis.
 
 +
-image::../media/drw_a800_pcm_remove.png[Relâchez le module de contrôleur]
+image::../media/drw_a800_pcm_remove.png[Retrait du module de contrôleur]
 
-
-
++
 [cols="1,4"]
 |===
 
@@ -130,43 +169,9 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Goupille de blocage
 
 |===
-. Faites glisser le module de contrôleur hors du châssis.
+. Faites glisser le module de contrôleur hors du châssis et placez-le sur une surface plane et stable.
 +
-Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
-
-. Placez le module de commande sur une surface plane et stable, puis ouvrez la conduite d'air :
-+
-.. Appuyer sur les languettes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de contrôleur.
-.. Faites glisser le conduit d'air vers les modules de ventilateur, puis tournez-le vers le haut jusqu'à sa position complètement ouverte.
-+
-image::../media/drw_a800_open_air_duct.png[Ouvrir le conduit d'air]
-
-+
-[cols="1,4"]
-|===
-
-
- a| 
-image:../media/icon_round_1.png["Légende numéro 1"]
- a| 
-Pattes de verrouillage du conduit d'air
-
-
-
- a| 
-image:../media/icon_round_2.png["Légende numéro 2"]
- a| 
-Faire glisser le conduit d'air vers les modules de ventilation
-
-
-
- a| 
-image:../media/icon_round_3.png["Numéro de légende 3"]
- a| 
-Tourner la conduite d'air vers les modules de ventilation
-
-|===
-
+Soutenez la partie inférieure du module de commande pendant que vous le faites glisser hors du châssis.
 
 
 
@@ -174,10 +179,18 @@ Tourner la conduite d'air vers les modules de ventilation
 
 == Étape 3 : remplacer la batterie RTC
 
+Remplacez la pile RTC.
+
+La procédure de remplacement de la pile RTC diffère selon que votre manette soit un modèle Original ou VER2.  Utilisez les onglets ci-dessous pour sélectionner les instructions appropriées à votre modèle de manette.
+
+.Description de la tâche
+La batterie est située sous le Riser 2 (le riser central) sur les contrôleurs d'origine et près des DIMM sur les contrôleurs VER2.
+
 [role="tabbed-block"]
 ====
 .Contrôleur d'origine
 --
+.Étapes
 . Retirez la carte de montage PCIe 2 (carte de montage centrale) du module de contrôleur :
 +
 .. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
@@ -262,6 +275,7 @@ Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de
 --
 .Contrôleur VER2
 --
+.Étapes
 . Localisez la batterie RTC près des modules DIMM.
 +
 image::../media/drw_a800_rtc_battery_replace_v2.png[Retirez et remplacez la batterie RTC]
@@ -300,12 +314,13 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 == Étape 4 : réinstallez le module de contrôleur
 
-Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
+Réinstallez le module de contrôleur et redémarrez-le.
 
-. Si ce n'est déjà fait, fermez le conduit d'air ou le couvercle du module de commande.
+.Étapes
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
-N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 
 . Recâblage du système, selon les besoins.
 +
@@ -327,21 +342,20 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 Le module de contrôleur commence à démarrer dès que l'alimentation est rétablie. Soyez prêt à interrompre le processus de démarrage.
 
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
-.. Arrêtez le contrôleur à l'invite DU CHARGEUR.
 
 
-. Réinitialiser l'heure et la date sur le contrôleur :
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
 +
-.. Vérifiez la date et l'heure sur le contrôleur en bon état à l'aide du `show date` commande.
-.. À l'invite DU CHARGEUR sur le contrôleur cible, vérifier l'heure et la date.
-.. Si nécessaire, modifiez la date avec le `set date mm/dd/yyyy` commande.
-.. Si nécessaire, réglez l'heure, en GMT, à l'aide du `set time hh:mm:ss` commande.
-.. Confirmez la date et l'heure sur le contrôleur cible.
+`storage failover giveback -ofnode _impaired_node_name_`.
 
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`.
 
-. À l'invite DU CHARGEUR, entrez `bye` Pour réinitialiser les cartes PCIe et d'autres composants et laisser le contrôleur redémarrer.
-. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
-. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`.
+
 
 
 

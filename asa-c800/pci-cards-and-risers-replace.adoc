@@ -11,15 +11,20 @@ summary: Pour remplacer une carte PCIe, vous devez déconnecter les câbles des 
 
 
 [role="lead"]
-Pour remplacer une carte PCIe, vous devez déconnecter les câbles des cartes, retirer les modules SFP et QSFP des cartes avant de retirer la carte de montage, réinstaller la carte de montage, puis réinstaller les modules SFP et QSFP avant de câbler les cartes.
+Remplacez ou ajoutez un module d'E/S dans votre système ASA C800 lorsque le module tombe en panne, nécessite une mise à niveau pour prendre en charge des performances plus élevées ou des fonctionnalités supplémentaires. Le remplacement consiste à arrêter le contrôleur, à remplacer le module d'E/S défectueux, à redémarrer le contrôleur et à renvoyer le composant défectueux à NetApp.
 
-* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
+.Avant de commencer
+* Vous devez disposer de la pièce de rechange ou de la pièce neuve NetApp .
+* Assurez-vous que tous les autres composants du système de stockage fonctionnent correctement. Si ce n'est pas le cas, contactez le support technique.
+* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système.
 * Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
 
 
 
 
 == Étape 1 : arrêtez le contrôleur défaillant
+
+Arrêtez ou prenez le contrôle du contrôleur défectueux.
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
@@ -90,14 +95,53 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
 
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
-image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
+.Vidéo - Confirmer le siège conducteur
+video::2c46e4af-2c21-4f12-b065-b38b003d0ea2[panopto]
++
+image::../media/drw_a800_drive_seated_IEOPS-960.svg[Installez les disques durs]
 
-. Débranchez les blocs d'alimentation du module de contrôleur de la source.
-. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
-. Desserrez le crochet et la bride de boucle reliant les câbles au dispositif de gestion des câbles, puis débranchez les câbles du système et les modules SFP et QSFP (si nécessaire) du module de contrôleur, en gardant une trace de l'emplacement de connexion des câbles.
+. Vérifiez les pilotes du contrôleur en fonction de l'état du système :
++
+.. Sur le contrôleur sain, vérifiez si un groupe RAID actif est dans un état dégradé, en panne ou les deux :
++
+[source, cli]
+----
+storage aggregate show -raidstatus !*normal*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<Check-missing-drives,Passez à la sous-étape suivante pour vérifier l'absence de disques.>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+.. [[Check-missing-drives]]Vérifiez les problèmes de disques manquants pour le système de fichiers ou les disques de secours :
++
+[source, cli]
+----
+event log show -severity * -node * -message-name *disk.missing*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<remove-power-cables,passer à l'étape suivante>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+
+
+. [[remove-power-cables]]Retirez les fixations des câbles d'alimentation, puis débranchez les câbles des alimentations.
+. Desserrez la sangle auto-agrippante du dispositif de gestion des câbles.  Débranchez les câbles système et les modules SFP/QSFP (le cas échéant) du module contrôleur.  Notez l'emplacement de chaque câble.
 +
 Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
 
@@ -107,7 +151,7 @@ Laissez les câbles dans le périphérique de gestion des câbles de sorte que l
 Le module de contrôleur se déplace légèrement hors du châssis.
 
 +
-image::../media/drw_a800_pcm_remove.png[Relâchez le module de contrôleur]
+image::../media/drw_a800_pcm_remove.png[Retrait du module de contrôleur]
 
 +
 [cols="1,4"]
@@ -127,52 +171,19 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Goupille de blocage
 
 |===
-. Faites glisser le module de contrôleur hors du châssis.
+. Faites glisser le module de contrôleur hors du châssis et placez-le sur une surface plane et stable.
 +
-Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
-
-. Placez le module de commande sur une surface plane et stable, puis ouvrez la conduite d'air :
-+
-.. Appuyer sur les languettes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de contrôleur.
-.. Faites glisser le conduit d'air vers les modules de ventilateur, puis tournez-le vers le haut jusqu'à sa position complètement ouverte.
-+
-image::../media/drw_a800_open_air_duct.png[Ouvrir le conduit d'air]
-
-+
-[cols="1,4"]
-|===
-
-
- a| 
-image:../media/icon_round_1.png["Légende numéro 1"]
- a| 
-Pattes de verrouillage du conduit d'air
-
-
-
- a| 
-image:../media/icon_round_2.png["Légende numéro 2"]
- a| 
-Faire glisser le conduit d'air vers les modules de ventilation
-
-
-
- a| 
-image:../media/icon_round_3.png["Numéro de légende 3"]
- a| 
-Tourner la conduite d'air vers les modules de ventilation
-
-|===
+Soutenez la partie inférieure du module de commande pendant que vous le faites glisser hors du châssis.
 
 
 
 
 
+== Étape 3 : Remplacez la carte PCIe
 
-== Étape 3 : remplacer une carte PCIe
+Pour remplacer une carte PCIe, retirez le câblage et les modules QSFP et SFP des ports des cartes PCIe dans la carte d'extension cible, retirez la carte d'extension du module contrôleur, retirez et remplacez la carte PCIe, réinstallez la carte d'extension et les modules QSFP et SFP sur les ports, puis recâblez les ports.
 
-Pour remplacer une carte PCIe, vous devez retirer le câblage et les modules SFP et SFP des ports des cartes PCIe de la carte de montage cible, retirer la carte de montage du module de contrôleur, retirer et remplacer la carte PCIe, réinstaller la carte de montage et les modules SFP et SFP sur les ports, et brancher les ports.
-
+.Étapes
 . Déterminez si la carte que vous remplacez provient de la carte de montage 1 ou de la carte de montage 2 ou 3.
 +
 ** Si vous remplacez la carte PCIe 100 GbE de la carte Riser 1, suivez les étapes 2 à 3 et les étapes 6 à 7.
@@ -319,45 +330,17 @@ Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de
 
 == Étape 4 : réinstallez le module de contrôleur
 
-Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
+Réinstallez le module de contrôleur et redémarrez-le.
 
-. Si ce n'est déjà fait, fermer le conduit d'air :
-+
-.. Faire basculer la conduite d'air complètement vers le bas jusqu'au module de commande.
-.. Faites glisser la conduite d'air vers les surmontoirs jusqu'à ce que les pattes de verrouillage s'enclenchent.
-.. Inspecter le conduit d'air pour s'assurer qu'il est correctement installé et verrouillé en place.
-+
-image::../media/drw_a800_close_air_duct.png[Fermer le conduit d'air]
-
-+
-[cols="1,4"]
-|===
-
-
- a| 
-image:../media/icon_round_1.png["Légende numéro 1"]
- a| 
-Languettes de verrouillage
-
-
-
- a| 
-image:../media/icon_round_2.png["Légende numéro 2"]
- a| 
-Faire glisser le plongeur
-
-|===
-
-
+.Étapes
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
 
 NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 
-. Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
+. Recâblage du système, selon les besoins.
 +
-
-NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
 
 . Terminez la réinstallation du module de contrôleur :
 +
@@ -370,19 +353,25 @@ Les loquets de verrouillage se montent lorsque le module de contrôleur est bien
 NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
 .. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
-
-
-. Branchez les câbles système et les modules émetteurs-récepteurs dans le module de contrôleur et réinstallez le périphérique de gestion des câbles.
-. Branchez les câbles d'alimentation dans les blocs d'alimentation et réinstallez les dispositifs de retenue des câbles d'alimentation.
+.. Branchez les cordons d'alimentation aux blocs d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis branchez les blocs d'alimentation à la source d'alimentation.
 +
-Le module de contrôleur commence à démarrer dès qu'il est connecté à l'alimentation. Soyez prêt à interrompre le processus de démarrage.
+Le module de contrôleur commence à démarrer dès que l'alimentation est rétablie. Soyez prêt à interrompre le processus de démarrage.
 
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
 +
+`storage failover giveback -ofnode _impaired_node_name_`.
 
-NOTE: Si votre système est équipé de blocs d'alimentation CC, assurez-vous que les vis à molette du câble du bloc d'alimentation sont serrées.
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`.
 
-. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
-. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback true`
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`.
+
 
 
 

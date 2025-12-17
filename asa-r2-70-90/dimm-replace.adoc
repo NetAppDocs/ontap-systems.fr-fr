@@ -92,11 +92,51 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 == Étape 2 : retirer le module de contrôleur
 
 .Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
-image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
+.Vidéo - Confirmer le siège conducteur
+video::2c46e4af-2c21-4f12-b065-b38b003d0ea2[panopto]
++
+image::../media/drw_a800_drive_seated_IEOPS-960.svg[Installez les disques durs]
 
-. Vérifiez la mémoire NVRAM orange que le voyant d'état situé dans le logement 4/5 à l'arrière du module de contrôleur défectueux est éteint. Recherchez l'icône NV.
+. Vérifiez les pilotes du contrôleur en fonction de l'état du système :
++
+.. Sur le contrôleur sain, vérifiez si un groupe RAID actif est dans un état dégradé, en panne ou les deux :
++
+[source, cli]
+----
+storage aggregate show -raidstatus !*normal*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<Check-missing-drives,Passez à la sous-étape suivante pour vérifier l'absence de disques.>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+.. [[Check-missing-drives]]Vérifiez les problèmes de disques manquants pour le système de fichiers ou les disques de secours :
++
+[source, cli]
+----
+event log show -severity * -node * -message-name *disk.missing*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<Check-the-amber-NVRAM,passer à l'étape suivante>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+
+
+. [[Check-the-amber- NVRAM]]Vérifiez que la LED d'état orange de la NVRAM située dans l'emplacement 4/5 à l'arrière du module de contrôleur défectueux est éteinte.  Recherchez l'icône NV.
 +
 image::../media/drw_a1K-70-90_nvram-led_ieops-1463.svg[Emplacement graphique de la LED d'avertissement et d'état de la NVRAM]
 

@@ -4,41 +4,47 @@ sidebar: sidebar
 keywords: aff c800, replace the drives 
 summary: 'Vous devez remplacer un lecteur lorsque la plate-forme enregistre un message d"avertissement sur la console système indiquant qu"un lecteur est défectueux. De plus, le voyant de panne du panneau d"affichage de l"opérateur et le voyant de panne du disque défectueux sont allumés.' 
 ---
-= Remplacez le lecteur SSD - AFF C800
+= Remplacement du disque SSD ou du disque dur - AFF C800
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez remplacer un disque SSD défectueux sans interrompre l'activité pendant les opérations d'E/S.
+Remplacez un disque dur de votre système AFF C800 lorsqu'il tombe en panne ou nécessite une mise à niveau. Le processus de remplacement consiste à identifier le lecteur défectueux, à le retirer en toute sécurité et à installer un nouveau lecteur pour garantir un accès continu aux données et aux performances du système.
+
+[role="lead"]
+Vous pouvez remplacer un disque défaillant sans interruption pendant que des opérations d'E/S sont en cours. La procédure de remplacement d'un disque SSD est destinée aux disques non rotatifs et la procédure de remplacement d'un disque dur est destinée aux disques rotatifs.
 
 Lorsqu'un lecteur tombe en panne, la plate-forme consigne un message d'avertissement à la console du système indiquant quel lecteur est défectueux. De plus, le voyant de panne du panneau d'affichage de l'opérateur et le voyant de panne du disque défectueux sont allumés.
 
 .Avant de commencer
 * Suivez les bonnes pratiques et installez la version la plus récente du Disk qualification Package (DQP) avant de remplacer un disque.
-* Identifiez le disque défectueux en exécutant le `storage disk show -broken` commande depuis la console du système.
+* Identifiez le disque défectueux en exécutant la `storage disk show -broken` commande à partir de la console système.
 +
 Le lecteur défectueux apparaît dans la liste des disques défectueux. Si ce n'est pas le cas, attendez, puis exécutez de nouveau la commande.
 
 +
-L'affichage du disque dans la liste des disques défectueux peut prendre plusieurs heures.
+
+NOTE: Selon le type et la capacité, il peut prendre plusieurs heures pour que le lecteur apparaisse dans la liste des lecteurs défaillants.
 
 * Déterminez si l'authentification SED est activée.
 +
-La manière dont vous remplacez le disque dépend de la manière dont le lecteur de disque est utilisé.  Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans le https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"] .  Ces instructions décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
+La manière dont vous remplacez le lecteur dépend de la façon dont il est utilisé. Si l'authentification SED est activée, vous devez utiliser les instructions de remplacement SED dans le https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ONTAP 9 sur l'alimentation du cryptage NetApp"]. Ces instructions décrivent les étapes supplémentaires que vous devez effectuer avant et après le remplacement d'un SED.
 
-* Assurez-vous que le lecteur de remplacement est pris en charge par votre plate-forme. Voir https://hwu.netapp.com["NetApp Hardware Universe"] .
+* Assurez-vous que le lecteur de remplacement est pris en charge par votre plate-forme. Voir la https://hwu.netapp.com["NetApp Hardware Universe"].
 * Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez le support technique.
 
 
 .Description de la tâche
-Le firmware des disques est automatiquement mis à jour (sans interruption) sur les nouveaux disques dont les versions de micrologiciel ne sont pas à jour.
+* Le firmware des disques est automatiquement mis à jour (sans interruption) sur les nouveaux disques dont les versions de micrologiciel ne sont pas à jour.
+* Lors du remplacement d'un disque, vous devez attendre une minute entre le retrait du disque défectueux et l'insertion du disque de remplacement pour permettre au système de stockage de reconnaître l'existence du nouveau disque.
 
-Lors du remplacement de plusieurs lecteurs de disque, vous devez attendre 70 secondes entre le retrait de chaque lecteur de disque défectueux et l'insertion du lecteur de disque de remplacement pour permettre au système de stockage de reconnaître l'existence de chaque nouveau disque.
 
-Vous attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.
-
+[role="tabbed-block"]
+====
+.Option 1 : remplacer un disque SSD
+--
 .Étapes
 . Si vous souhaitez attribuer manuellement la propriété du lecteur au lecteur de remplacement, vous devez désactiver l'attribution automatique du lecteur, si elle est activée.
 +
@@ -122,3 +128,93 @@ Vous devez réactiver l'affectation automatique des disques sur les deux modules
 Contact https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] si vous avez besoin du numéro RMA ou d'une aide supplémentaire concernant la procédure de remplacement.
 
 
+
+--
+.Option 2 : remplacement du disque dur
+--
+. Si vous souhaitez attribuer manuellement la propriété des disques de remplacement, vous devez désactiver le disque de remplacement d'affectation automatique des disques, s'il est activé
++
+
+NOTE: Vous attribuez manuellement la propriété des disques, puis réactivez l'affectation automatique des disques plus tard dans cette procédure.
+
++
+.. Vérifiez si l'affectation automatique des disques est activée : `storage disk option show`
++
+Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
+
++
+Si l'affectation automatique de l'entraînement est activée, la sortie affiche `on` Dans la colonne « affectation automatique » (pour chaque module de contrôleur).
+
+.. Si l'affectation automatique des disques est activée, désactivez-la : `storage disk option modify -node node_name -autoassign off`
++
+Vous devez désactiver l'affectation automatique des disques sur les deux modules de contrôleur.
+
+
+
+. Mettez-vous à la terre.
+. Retirez délicatement le cache de l'avant de la plate-forme.
+. Identifiez le disque défectueux dans le message d'avertissement de la console du système et la LED de panne allumée sur le disque
+. Appuyez sur le bouton de dégagement situé sur la face du lecteur de disque.
++
+Selon le système de stockage, le bouton de déverrouillage des lecteurs de disque est situé en haut ou à gauche de la face du lecteur de disque.
+
++
+Par exemple, l'illustration suivante montre un lecteur de disque avec le bouton de déverrouillage situé sur le dessus de la face du lecteur de disque :
+
++
+image::../media/2240_removing_disk.gif[Retirez un lecteur en plaçant le bouton de déverrouillage sur le dessus]
+
++
+La poignée de came sur les ressorts d'entraînement de disque s'ouvre partiellement et l'entraînement de disque se libère du fond de panier central.
+
+. Tirez la poignée de came jusqu'à sa position d'ouverture complète pour dégager l'entraînement de disque du fond de panier central.
++
+image::../media/drw_drive_open.gif[Retirez un lecteur avec le bouton de déverrouillage au milieu]
+
+. Faites glisser légèrement le disque dur et laissez-le tourner en toute sécurité, ce qui peut prendre moins d'une minute, puis, à l'aide des deux mains, retirez le disque du tiroir disque.
+. Avec la poignée de came en position ouverte, insérez le lecteur de disque de remplacement dans la baie de lecteur, en poussant fermement jusqu'à ce que le lecteur s'arrête.
++
+
+NOTE: Attendre au moins 10 secondes avant d'insérer un nouveau lecteur de disque. Ceci permet au système de reconnaître qu'un lecteur de disque a été retiré.
+
++
+
+NOTE: Si les baies de votre lecteur de plate-forme ne sont pas entièrement chargées avec les lecteurs, il est important de placer le lecteur de rechange dans la baie de lecteur à partir de laquelle vous avez retiré le lecteur défectueux.
+
++
+
+NOTE: Utilisez deux mains lors de l'insertion du lecteur de disque, mais ne placez pas les mains sur les cartes des disques qui sont exposées sur le dessous du support de disque.
+
+. Fermez la poignée de came de façon à ce que le lecteur de disque soit bien en place dans le fond de panier central et que la poignée s'enclenche.
++
+Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur la face de l'entraînement du disque.
+
+. Si vous remplacez un autre lecteur de disque, répétez les étapes 4 à 9.
+. Réinstallez le panneau.
+. Si vous avez désactivé l'affectation de l'entraînement automatique à l'étape 1, affectez manuellement la propriété du lecteur, puis réactivez l'affectation automatique du lecteur si nécessaire.
++
+.. Afficher tous les disques non propriétaires : `storage disk show -container-type unassigned`
++
+Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
+
+.. Affectez chaque disque : `storage disk assign -disk disk_name -owner owner_name`
++
+Vous pouvez saisir la commande sur un ou deux modules de contrôleur.
+
++
+Vous pouvez utiliser le caractère générique pour attribuer plusieurs lecteurs à la fois.
+
+.. Réactivez l'affectation automatique des disques si nécessaire : `storage disk option modify -node node_name -autoassign on`
++
+Vous devez réactiver l'affectation automatique des disques sur les deux modules de contrôleur.
+
+
+
+. Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit.
++
+Contactez l'assistance technique à l'adresse https://mysupport.netapp.com/site/global/dashboard["Support NetApp"], 888-463-8277 (Amérique du Nord), 00-800-44-638277 (Europe) ou +800-800-80-800 (Asie/Pacifique) si vous avez besoin du numéro RMA ou de l'aide supplémentaire pour la procédure de remplacement.
+
+
+
+--
+====

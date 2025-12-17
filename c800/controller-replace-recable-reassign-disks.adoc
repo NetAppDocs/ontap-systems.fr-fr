@@ -11,23 +11,19 @@ summary: Vous devez recomm le stockage et confirmer la réaffectation des disque
 
 
 [role="lead"]
-Poursuivre la procédure de remplacement en mettant le stockage en mémoire et en confirmant la réaffectation du disque.
+Rendez le contrôle des ressources de stockage au contrôleur de remplacement afin que votre système AFF C800 puisse reprendre son fonctionnement normal.  La procédure de restitution varie en fonction du type de chiffrement utilisé par votre système : aucun chiffrement ou chiffrement Onboard Key Manager (OKM).
 
 
 
 == Étape 1 : recâblage du système
 
-Vérifiez les connexions réseau et de stockage du module de contrôleur.
+Vérifiez les connexions de stockage et réseau du module contrôleur en utilisant https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"] .
 
 .Étapes
-. Vérifiez que le câblage est correct à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"].
-+
-.. Téléchargez et installez Config Advisor.
-.. Entrez les informations du système cible, puis cliquez sur collecter les données.
-.. Cliquez sur l'onglet câblage, puis examinez la sortie. Vérifiez que tous les tiroirs disques sont affichés et que tous les disques apparaissent dans le résultat, en corrigeant les problèmes de câblage que vous rencontrez.
-.. Pour vérifier les autres câbles, cliquez sur l'onglet approprié, puis examinez les résultats de Config Advisor.
-
-
+. Téléchargez et installez Config Advisor.
+. Entrez les informations du système cible, puis cliquez sur collecter les données.
+. Cliquez sur l'onglet câblage, puis examinez la sortie. Vérifiez que tous les tiroirs disques sont affichés et que tous les disques apparaissent dans le résultat, en corrigeant les problèmes de câblage que vous rencontrez.
+. Pour vérifier les autres câbles, cliquez sur l'onglet approprié, puis examinez les résultats de Config Advisor.
 
 
 
@@ -36,8 +32,9 @@ Vérifiez les connexions réseau et de stockage du module de contrôleur.
 
 Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.
 
-Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
+Cette étape s'applique uniquement aux systèmes exécutant ONTAP dans une paire HA.
 
+.Étapes
 . Si le _remplacement_ contrôleur est en mode Maintenance (affiche le `*>` Invite, quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`
 . À partir de l'invite DU CHARGEUR sur le contrôleur _replace_, démarrez le contrôleur, puis entrez `y` Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système :``boot_ontap``
 . Attendre jusqu'à `Waiting for giveback...` Le message s'affiche sur la console du contrôleur _replace_, puis, à partir du contrôleur sain, vérifiez que le nouvel ID système partenaire a été automatiquement attribué : `storage failover show`

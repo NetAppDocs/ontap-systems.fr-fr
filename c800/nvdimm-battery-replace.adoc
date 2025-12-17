@@ -11,13 +11,13 @@ summary: Pour remplacer la batterie NVDIMM, vous devez retirer le module de cont
 
 
 [role="lead"]
-Pour remplacer la batterie NVDIMM, vous devez retirer le module de contrôleur, retirer la batterie, remplacer la batterie, puis réinstaller le module de contrôleur.
-
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+Remplacez la pile NV de votre système AFF C800 lorsque celle-ci commence à se décharger ou tombe en panne, car elle est responsable de la préservation des données critiques du système pendant les coupures de courant. Le processus de remplacement implique l'arrêt du contrôleur défectueux, le retrait du module de contrôleur, le remplacement de la batterie NV, la réinstallation du module de contrôleur et le renvoi de la pièce défectueuse à NetApp.
 
 
 
-== Étape 1 : arrêtez le contrôleur défaillant
+== Étape 1 : Arrêter le contrôleur défectueux
+
+Arrêtez ou prenez le contrôle du contrôleur défectueux.
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
@@ -88,14 +88,53 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
 
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
-image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
+.Vidéo - Confirmer le siège conducteur
+video::2c46e4af-2c21-4f12-b065-b38b003d0ea2[panopto]
++
+image::../media/drw_a800_drive_seated_IEOPS-960.svg[Installez les disques durs]
 
-. Débranchez les blocs d'alimentation du module de contrôleur de la source.
-. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
-. Desserrez le crochet et la bride de boucle reliant les câbles au dispositif de gestion des câbles, puis débranchez les câbles du système et les modules SFP et QSFP (si nécessaire) du module de contrôleur, en gardant une trace de l'emplacement de connexion des câbles. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système du module de contrôleur, en gardant la trace de l'emplacement où les câbles ont été connectés.
+. Vérifiez les pilotes du contrôleur en fonction de l'état du système :
++
+.. Sur le contrôleur sain, vérifiez si un groupe RAID actif est dans un état dégradé, en panne ou les deux :
++
+[source, cli]
+----
+storage aggregate show -raidstatus !*normal*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<Check-missing-drives,Passez à la sous-étape suivante pour vérifier l'absence de disques.>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+.. [[Check-missing-drives]]Vérifiez les problèmes de disques manquants pour le système de fichiers ou les disques de secours :
++
+[source, cli]
+----
+event log show -severity * -node * -message-name *disk.missing*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<remove-power-cables,passer à l'étape suivante>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+
+
+. [[remove-power-cables]]Retirez les fixations des câbles d'alimentation, puis débranchez les câbles des alimentations.
+. Desserrez la sangle auto-agrippante du dispositif de gestion des câbles.  Débranchez les câbles système et les modules SFP/QSFP (le cas échéant) du module contrôleur.  Notez l'emplacement de chaque câble.
 +
 Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
 
@@ -105,7 +144,7 @@ Laissez les câbles dans le périphérique de gestion des câbles de sorte que l
 Le module de contrôleur se déplace légèrement hors du châssis.
 
 +
-image::../media/drw_a800_pcm_remove.png[Relâchez le module de contrôleur]
+image::../media/drw_a800_pcm_remove.png[Retrait du module de contrôleur]
 
 +
 [cols="1,4"]
@@ -125,19 +164,19 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Goupille de blocage
 
 |===
-. Faites glisser le module de contrôleur hors du châssis.
+. Faites glisser le module de contrôleur hors du châssis et placez-le sur une surface plane et stable.
 +
-Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+Soutenez la partie inférieure du module de commande pendant que vous le faites glisser hors du châssis.
 
-. Mettez le module de contrôleur de côté en lieu sûr.
 
 
 
 
 == Étape 3 : remplacez la batterie NVDIMM
 
-Pour remplacer la batterie NVDIMM, vous devez retirer la batterie défectueuse du module de contrôleur et installer la batterie de rechange dans le module de contrôleur.
+Remplacez la pile NVDIMM en retirant la pile défectueuse du module de contrôleur et en installant la pile de remplacement dans le module de contrôleur.
 
+.Étapes
 . Ouvrez le couvercle du conduit d'air et repérez la batterie NVDIMM dans la carte de montage.
 +
 image::../media/drw_a800_nvdimm_battery_replace.png[Remplacez la batterie NVDIMM]
@@ -188,10 +227,11 @@ Assurez-vous que la fiche se verrouille dans la prise.
 
 
 
-== Étape 4 : réinstallez le module de contrôleur et démarrez le système
+== Étape 4 : réinstallez le module de contrôleur
 
-Après avoir remplacé une FRU dans le module de contrôleur, vous devez réinstaller le module de contrôleur et le redémarrer.
+Réinstallez le module de contrôleur et redémarrez-le.
 
+.Étapes
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
 
@@ -218,6 +258,18 @@ Le module de contrôleur commence à démarrer dès que l'alimentation est réta
 
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
 
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
+
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`.
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`.
 
 
 

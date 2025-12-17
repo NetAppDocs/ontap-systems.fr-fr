@@ -11,9 +11,9 @@ summary: 'Vous devez démarrer l"image ONTAP à partir du lecteur USB, restaurer
 
 
 [role="lead"]
-Après avoir installé le nouveau périphérique de démarrage sur votre système, vous pouvez démarrer l'image de récupération à partir d'un lecteur USB et restaurer la configuration à partir du nœud partenaire.
+Après avoir installé le nouveau périphérique de démarrage dans votre système ASA C800 , vous pouvez démarrer l'image de récupération à partir d'une clé USB et restaurer la configuration à partir du nœud partenaire.
 
-Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"]
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
 .Avant de commencer
 * Assurez-vous que votre console est connectée à la manette défectueuse.
@@ -104,3 +104,6 @@ Une fois la procédure de restauration terminée, le message suivant s'affiche 
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
+
+.Et la suite ?
+Après le démarrage de l'image de récupération, vous devez link:bootmedia-encryption-restore.html["restaurez le chiffrement sur le support de démarrage"].

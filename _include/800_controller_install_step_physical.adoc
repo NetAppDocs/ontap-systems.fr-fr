@@ -1,0 +1,45 @@
+= 
+:allow-uri-read: 
+
+
+.Étapes
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
++
+
+NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
+
+. Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
+. Terminez la réinstallation du module de contrôleur :
++
+.. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
++
+Les loquets de verrouillage se montent lorsque le module de contrôleur est bien en place.
+
++
+
+NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
+
+.. Faites pivoter les loquets de verrouillage vers le haut, inclinez-les de manière à dégager les goupilles de verrouillage, puis abaissez-les en position verrouillée.
+.. Branchez les cordons d'alimentation aux blocs d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis branchez les blocs d'alimentation à la source d'alimentation.
++
+Le module de contrôleur commence à démarrer dès que l'alimentation est rétablie. Soyez prêt à interrompre le processus de démarrage.
+
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
+
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`.
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`.
+
+

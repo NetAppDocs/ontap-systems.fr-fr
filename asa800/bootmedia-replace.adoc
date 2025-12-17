@@ -11,7 +11,7 @@ summary: 'Vous trouvez le support d"amorçage défectueux dans le module de cont
 
 
 [role="lead"]
-Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
+Le support de démarrage de votre système ASA A800 stocke les données essentielles du micrologiciel et de la configuration. Le remplacement consiste à retirer le module de gestion du système, à retirer le support de démarrage défectueux, à installer le support de démarrage de remplacement, puis à transférer manuellement l'image ONTAP sur le support de démarrage de remplacement à l'aide d'une clé USB.
 
 Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
@@ -268,3 +268,6 @@ Le module de contrôleur commence à démarrer dès que l'alimentation est réta
 Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
 
 
+
+.Et la suite ?
+Après avoir remplacé le support de démarrage, vous devez link:bootmedia-recovery-image-boot.html["démarrez l'image de récupération"].

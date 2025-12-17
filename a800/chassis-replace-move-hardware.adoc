@@ -4,19 +4,22 @@ sidebar: sidebar
 keywords: aff a800, move hardware components, replace the chassis 
 summary: 'Déplacez les blocs d"alimentation, les disques durs et le module de contrôleur ou les modules du châssis défaillant vers le nouveau châssis, puis remplacez le châssis douteux par le rack d"équipement ou l"armoire système avec le nouveau châssis du même modèle que le châssis douteux.' 
 ---
-= Déplacement et remplacement du matériel - AFF A800
+= Remplacer le châssis - AFF A800
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Déplacez les blocs d'alimentation, les disques durs et le module de contrôleur du châssis défectueux vers le nouveau châssis, puis remplacez le châssis défectueux par le nouveau châssis du même modèle que le châssis défectueux.
+Remplacez le châssis de votre système AFF A800 lorsqu'une panne matérielle l'exige. Le processus de remplacement consiste à retirer les contrôleurs, à déplacer les disques vers le châssis de remplacement, à retirer le châssis défectueux, à installer le châssis de remplacement et à réinstaller les composants du châssis.
 
 
 
-== Étape 1 : retirez les modules de contrôleur
+== Étape 1 : Retirez les modules de contrôleur de l'ancien châssis
 
+Retirez les modules de contrôle de l'ancien châssis.
+
+.Étapes
 Pour remplacer le châssis, vous devez retirer les modules de contrôleur de l'ancien châssis.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -62,8 +65,9 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 == Étape 2 : déplacez les disques vers le nouveau châssis
 
-Vous devez déplacer les lecteurs de chaque ouverture de baie de l'ancien châssis vers la même ouverture de baie dans le nouveau châssis.
+Transférez les disques durs de l'ancien châssis vers le nouveau châssis.
 
+.Étapes
 . Retirez délicatement le cadre de l'avant du système.
 . Retirez les lecteurs :
 +
@@ -98,8 +102,9 @@ Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s
 
 == Étape 3 : remplacer un châssis depuis le rack d'équipement ou l'armoire système
 
-Vous devez retirer le châssis existant du rack ou de l'armoire système de l'équipement avant de pouvoir installer le châssis de remplacement.
+Remplacez le châssis endommagé dans la baie d'équipement ou l'armoire système par le nouveau châssis.
 
+.Étapes
 . Retirez les vis des points de montage du châssis.
 . De deux personnes, faites glisser l'ancien châssis hors des rails du rack dans une armoire système ou un rack d'équipement, puis mettez-le de côté.
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -111,12 +116,13 @@ Vous devez retirer le châssis existant du rack ou de l'armoire système de l'é
 
 
 
-== Étape 4 : installer les modules de contrôleur
+== Étape 4 : Installez les modules de contrôleur dans le nouveau châssis
 
 Après avoir installé les modules de contrôleur dans le nouveau châssis, vous devez le démarrer.
 
 Pour les paires haute disponibilité avec deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez le module de contrôleur est particulièrement important, car il tente de redémarrer dès que vous le placez entièrement dans le châssis.
 
+.Étapes
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
 
@@ -144,3 +150,6 @@ Le module de contrôleur commence à démarrer dès que l'alimentation est réta
 
 . Répétez la procédure précédente pour installer le second contrôleur dans le nouveau châssis.
 
+
+.Et la suite ?
+Après avoir remplacé le châssis défectueux de AFF A800 et réinstallé les composants, vous devez :link:chassis-replace-complete-system-restore-rma.html["terminez le remplacement du châssis"]

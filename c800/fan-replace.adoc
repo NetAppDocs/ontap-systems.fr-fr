@@ -11,11 +11,13 @@ summary: Vous devez retirer le module de contrôleur du châssis lorsque vous re
 
 
 [role="lead"]
-Pour remplacer un ventilateur, retirez le module de ventilation défectueux et remplacez-le par un nouveau module de ventilation.
+Remplacez un module de ventilateur de votre système AFF C800 lorsqu'un ventilateur tombe en panne ou ne fonctionne pas efficacement, car cela peut affecter le refroidissement du système et ses performances globales.  La procédure de remplacement consiste à arrêter le contrôleur défectueux, à le retirer, à remplacer le module de ventilateur, à réinstaller le contrôleur, puis à renvoyer la pièce défectueuse à NetApp.
 
 
 
 == Étape 1 : arrêtez le contrôleur défaillant
+
+Arrêtez le contrôleur défaillant
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
 
@@ -84,16 +86,55 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 == Étape 2 : retirer le module de contrôleur
 
-Vous devez retirer le module de contrôleur du châssis lors du remplacement d'un module de ventilation.
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
 
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
 +
-image::../media/drw_a800_drive_seated_IEOPS-960.svg[Disques de siège]
+.Vidéo - Confirmer le siège conducteur
+video::2c46e4af-2c21-4f12-b065-b38b003d0ea2[panopto]
++
+image::../media/drw_a800_drive_seated_IEOPS-960.svg[Installez les disques durs]
 
-. Débranchez les blocs d'alimentation du module de contrôleur de la source.
-. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
-. Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système du module de contrôleur, en gardant la trace de l'emplacement où les câbles ont été connectés.
+. Vérifiez les pilotes du contrôleur en fonction de l'état du système :
++
+.. Sur le contrôleur sain, vérifiez si un groupe RAID actif est dans un état dégradé, en panne ou les deux :
++
+[source, cli]
+----
+storage aggregate show -raidstatus !*normal*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<Check-missing-drives,Passez à la sous-étape suivante pour vérifier l'absence de disques.>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+.. [[Check-missing-drives]]Vérifiez les problèmes de disques manquants pour le système de fichiers ou les disques de secours :
++
+[source, cli]
+----
+event log show -severity * -node * -message-name *disk.missing*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<remove-power-cables,passer à l'étape suivante>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+
+
+. [[remove-power-cables]]Retirez les fixations des câbles d'alimentation, puis débranchez les câbles des alimentations.
+. Desserrez la sangle auto-agrippante du dispositif de gestion des câbles.  Débranchez les câbles système et les modules SFP/QSFP (le cas échéant) du module contrôleur.  Notez l'emplacement de chaque câble.
 +
 Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
 
@@ -103,7 +144,7 @@ Laissez les câbles dans le périphérique de gestion des câbles de sorte que l
 Le module de contrôleur se déplace légèrement hors du châssis.
 
 +
-image::../media/drw_a800_pcm_remove.png[Relâchement du module de contrôleur]
+image::../media/drw_a800_pcm_remove.png[Retrait du module de contrôleur]
 
 +
 [cols="1,4"]
@@ -112,7 +153,9 @@ image::../media/drw_a800_pcm_remove.png[Relâchement du module de contrôleur]
 
  a| 
 image:../media/icon_round_1.png["Légende numéro 1"]
-| Loquet de verrouillage 
+ a| 
+Loquet de verrouillage
+
 
 
  a| 
@@ -121,19 +164,19 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Goupille de blocage
 
 |===
-. Faites glisser le module de contrôleur hors du châssis.
+. Faites glisser le module de contrôleur hors du châssis et placez-le sur une surface plane et stable.
 +
-Assurez-vous de prendre en charge la partie inférieure du module de contrôleur lorsque vous le faites glisser hors du châssis.
+Soutenez la partie inférieure du module de commande pendant que vous le faites glisser hors du châssis.
 
-. Mettez le module de contrôleur de côté en lieu sûr.
 
 
 
 
 == Étape 3 : remplacer un ventilateur
 
-Pour remplacer un ventilateur, retirez le module de ventilation défectueux et remplacez-le par un nouveau module de ventilation.
+Repérez le module de ventilateur défectueux et remplacez-le par un module neuf.
 
+.Étapes
 . Identifiez le module de ventilation que vous devez remplacer en vérifiant les messages d'erreur de la console ou en localisant le voyant lumineux du module de ventilation sur la carte mère.
 . Retirez le module de ventilateur en pinçant les languettes de verrouillage sur le côté du module de ventilateur, puis en soulevant le module de ventilateur pour le sortir du module de contrôleur.
 +
@@ -161,14 +204,18 @@ Module de ventilateur
 
 == Étape 4 : réinstallez le module de contrôleur
 
-Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
+Réinstallez le module de contrôleur et redémarrez-le.
 
+.Étapes
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
 
 NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 
 . Recâblage du système, selon les besoins.
++
+Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
+
 . Terminez la réinstallation du module de contrôleur :
 +
 .. Poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.
@@ -187,8 +234,18 @@ Le module de contrôleur commence à démarrer dès que l'alimentation est réta
 .. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
 
 
-. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
-. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -controller local -auto-giveback true`
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`.
+
+. Si le retour automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`.
+
+. Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`.
+
 
 
 

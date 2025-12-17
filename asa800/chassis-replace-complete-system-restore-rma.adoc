@@ -4,21 +4,20 @@ sidebar: sidebar
 keywords: asa a800, verify and set HA state, complete the replacement process 
 summary: 'Vous devez vérifier l"état HA du châssis et renvoyer la pièce défectueuse à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.' 
 ---
-= Remplacement complet du châssis - ASA A800
+= Finaliser le processus de restauration et de remplacement - ASA A800
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous devez vérifier l'état HA du châssis et renvoyer la pièce défectueuse à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.
+Redémarrez les contrôleurs, vérifiez l'état du système et renvoyez la pièce défectueuse à NetApp pour terminer la dernière étape de la procédure de remplacement du châssis ASA A800 .
 
 
 
 == Étape 1 : vérifier et définir l'état de haute disponibilité du châssis
 
-Vous devez vérifier l'état HA du châssis et, le cas échéant, mettre à jour l'état pour qu'il corresponde à la configuration de votre système.
-
+.Étapes
 . En mode Maintenance, depuis l'un ou l'autre module de contrôleur, afficher l'état HA du module de contrôleur local et du châssis : `ha-config show`
 +
 L'état de la HA doit être le même pour tous les composants.
@@ -45,6 +44,12 @@ La valeur de HA-State peut être l'une des suivantes :
 
 
 
-== Étape 2 : renvoyer la pièce défectueuse à NetApp
+== Étape 2 : vérifiez l'état du système de stockage
+
+Une fois la restitution du contrôleur terminée, vérifiez l'état du système à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"] .  Corrigez tout problème constaté.
+
+
+
+== Étape 3 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

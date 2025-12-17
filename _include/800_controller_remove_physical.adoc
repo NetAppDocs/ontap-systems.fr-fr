@@ -1,0 +1,85 @@
+= 
+:allow-uri-read: 
+
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
++
+.Vidéo - Confirmer le siège conducteur
+video::2c46e4af-2c21-4f12-b065-b38b003d0ea2[panopto]
++
+image::../media/drw_a800_drive_seated_IEOPS-960.svg[Installez les disques durs]
+
+. Vérifiez les pilotes du contrôleur en fonction de l'état du système :
++
+.. Sur le contrôleur sain, vérifiez si un groupe RAID actif est dans un état dégradé, en panne ou les deux :
++
+[source, cli]
+----
+storage aggregate show -raidstatus !*normal*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<Check-missing-drives,Passez à la sous-étape suivante pour vérifier l'absence de disques.>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+.. [[Check-missing-drives]]Vérifiez les problèmes de disques manquants pour le système de fichiers ou les disques de secours :
++
+[source, cli]
+----
+event log show -severity * -node * -message-name *disk.missing*
+----
++
+*** Si la commande renvoie `There are no entries matching your query.` continuer à<<remove-power-cables,passer à l'étape suivante>> .
+*** Si la commande renvoie d'autres résultats, collectez les données AutoSupport des deux contrôleurs et contactez le support NetApp pour obtenir de l'aide.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+
+
+. [[remove-power-cables]]Retirez les fixations des câbles d'alimentation, puis débranchez les câbles des alimentations.
+. Desserrez la sangle auto-agrippante du dispositif de gestion des câbles.  Débranchez les câbles système et les modules SFP/QSFP (le cas échéant) du module contrôleur.  Notez l'emplacement de chaque câble.
++
+Laissez les câbles dans le périphérique de gestion des câbles de sorte que lorsque vous réinstallez le périphérique de gestion des câbles, les câbles sont organisés.
+
+. Retirez le périphérique de gestion des câbles du module de contrôleur et mettez-le de côté.
+. Appuyez sur les deux loquets de verrouillage, puis faites pivoter les deux loquets vers le bas en même temps.
++
+Le module de contrôleur se déplace légèrement hors du châssis.
+
++
+image::../media/drw_a800_pcm_remove.png[Retrait du module de contrôleur]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Loquet de verrouillage
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Goupille de blocage
+
+|===
+. Faites glisser le module de contrôleur hors du châssis et placez-le sur une surface plane et stable.
++
+Soutenez la partie inférieure du module de commande pendant que vous le faites glisser hors du châssis.
+
+

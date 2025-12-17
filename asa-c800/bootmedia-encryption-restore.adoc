@@ -11,9 +11,9 @@ summary: 'Une fois les variables d"environnement vérifiées, vous devez effectu
 
 
 [role="lead"]
-Restaurez le chiffrement sur le support de démarrage de remplacement.
+Rétablissez le chiffrement sur le support de démarrage de remplacement de votre système ASA C800 pour assurer une protection continue des données. Le processus de remplacement implique la vérification de la disponibilité des clés, la réapplication des paramètres de chiffrement et la confirmation de l'accès sécurisé à vos données.
 
-Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"]
+Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
 Suivez les étapes appropriées pour restaurer le chiffrement sur votre système en fonction de votre type de gestionnaire de clés.  Si vous ne savez pas quel gestionnaire de clés votre système utilise, vérifiez les paramètres que vous avez enregistrés au début de la procédure de remplacement du support de démarrage.
 
@@ -432,3 +432,5 @@ Selection (1-11)? 1
 
 --
 ====
+.Et la suite ?
+Après avoir restauré le cryptage sur le support de démarrage, vous devez link:bootmedia-complete-rma.html["Renvoyer la pièce défectueuse à NetApp"].
