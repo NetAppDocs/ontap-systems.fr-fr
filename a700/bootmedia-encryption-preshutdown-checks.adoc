@@ -1,8 +1,8 @@
 ---
 permalink: a700/bootmedia-encryption-preshutdown-checks.html 
 sidebar: sidebar 
-keywords: aff a700, fas9000, shutdown, check, onboard, encryption, key 
-summary: 'Avant d"arrêter le nœud douteux et de vérifier l"état des clés de cryptage intégrées, vous devez vérifier l"état du nœud défaillant, désactiver le giveback automatique et vérifier quelle version de ONTAP le système est en cours d"exécution.' 
+keywords: aff a700, shutdown, check, onboard, encryption, key, manual, manual boot recovery 
+summary: 'Avant de mettre hors service le nœud défaillant et de vérifier l"état des clés de chiffrement embarquées, vous devez vérifier l"état du nœud défaillant, désactiver la restitution automatique et vérifier la version d" ONTAP exécutée par le système. Le système AFF A700 ne prend en charge que les procédures de récupération manuelles du support de démarrage.' 
 ---
 = Vérifiez la prise en charge et l'état de la clé de cryptage - AFF A700
 :allow-uri-read: 
@@ -11,7 +11,9 @@ summary: 'Avant d"arrêter le nœud douteux et de vérifier l"état des clés de
 
 
 [role="lead"]
-Pour assurer la sécurité des données sur votre système de stockage, vous devez vérifier la prise en charge et l'état de la clé de cryptage sur votre support de démarrage. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.
+Pour garantir la sécurité des données sur votre système de stockage, vous devez vérifier la prise en charge et l'état de la clé de chiffrement sur votre support de démarrage. Le système AFF A700 ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
+
+Vérifiez si votre version ONTAP prend en charge le chiffrement de volume NetApp (NVE), et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.
 
 
 

@@ -1,16 +1,18 @@
 ---
 permalink: a700/bootmedia-2n-mcc-switchback.html 
 sidebar: sidebar 
-keywords: fas9000, aff a700, metrocluster, switchback 
-summary: 'Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l"opération de rétablissement MetroCluster. Cette commande renvoie la configuration à son état de fonctionnement normal, avec des serveurs virtuels de stockage source synchrone \(SVM\) sur le site précédemment affecté, maintenant actifs et servant les données des pools de disques locaux.' 
+keywords: aff a700, metrocluster, switchback, manual, manual boot recovery 
+summary: 'Une fois le remplacement de l"unité remplaçable sur site (FRU) terminé dans une configuration MetroCluster à deux nœuds, vous pouvez effectuer l"opération de retour en arrière du MetroCluster . Cela rétablit la configuration dans son état de fonctionnement normal, les machines virtuelles de stockage de source de synchronisation (SVM) sur le site précédemment défaillant étant désormais actives et fournissant des données à partir des pools de disques locaux. Le système AFF A700 ne prend en charge que les procédures de récupération manuelles du support de démarrage.' 
 ---
-= Agrégats avec basculement en arrière dans une configuration MetroCluster à deux nœuds : AFF A700 et FAS9000
+= Basculement des agrégats dans une configuration MetroCluster à deux nœuds - AFF A700
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Une fois le remplacement du support de démarrage terminé, effectuez l'opération de basculement MetroCluster . Le système AFF A700 ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
+
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
 
 .Étapes

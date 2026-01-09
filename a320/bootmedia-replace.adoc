@@ -1,8 +1,8 @@
 ---
 permalink: a320/bootmedia-replace.html 
 sidebar: sidebar 
-keywords: aff, a320, aff a320, boot, media, store, primary, secondary, set, system, boot, image, file, replace, replace the boot media 
-summary: 'Le support de démarrage stocke un ensemble principal et secondaire de fichiers système \(image de démarrage\) que le système utilise lors de son démarrage.' 
+keywords: aff, a320, aff a320, boot, media, store, primary, secondary, set, system, boot, image, file, replace, replace the boot media, manual, manual boot recovery 
+summary: Le support de démarrage stocke un ensemble principal et un ensemble secondaire de fichiers image de démarrage que le système utilise lors de son démarrage. Le système AFF A320 ne prend en charge que les procédures de récupération manuelle du support de démarrage. 
 ---
 = Remplacez le support de démarrage : AFF A320
 :allow-uri-read: 
@@ -10,15 +10,16 @@ summary: 'Le support de démarrage stocke un ensemble principal et secondaire de
 :imagesdir: ../media/
 
 
-Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
+[role="lead"]
+Pour remplacer le support de démarrage, vous devez retirer le module de commande défectueux, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB. Le système AFF A320 ne prend en charge que les procédures de récupération manuelle du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
 
 
 
 == Étape 1 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
 
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Débranchez l'alimentation du module de contrôleur de la source d'alimentation.
 . Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
@@ -51,6 +52,7 @@ Le crochet du mécanisme de verrouillage doit être presque vertical et doit êt
 
 Vous devez localiser le support de démarrage dans le module de contrôleur, puis suivre les instructions pour le remplacer.
 
+.Étapes
 . Ouvrez le conduit d'air et localisez le support de démarrage à l'aide de l'illustration ou du mappage des FRU sur le module de contrôleur :
 . Recherchez et retirez le support de démarrage du module de contrôleur :
 +
@@ -80,7 +82,7 @@ Si nécessaire, retirez le support de démarrage et réinstallez-le dans le supp
 
 
 
-== Étape 3 : transférez l'image d'amorçage sur le support d'amorçage à l'aide d'une clé USB
+== Étape 3 : Transférez l’image de démarrage à l’aide d’une clé USB.
 
 Le support de démarrage de remplacement que vous avez installé ne dispose pas d'une image d'amorçage. Vous devez donc transférer une image d'amorçage à l'aide d'un lecteur flash USB.
 
@@ -93,11 +95,13 @@ Le support de démarrage de remplacement que vous avez installé ne dispose pas 
 
 * Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau.
 * Si votre système est un système autonome, vous n'avez pas besoin d'une connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
+
+
+.Étapes
+. Téléchargez et copiez l'image de service appropriée depuis le site de support NetApp vers le lecteur Flash USB.
 +
-.. Téléchargez et copiez l'image de service appropriée depuis le site de support NetApp vers le lecteur Flash USB.
-+
-... Téléchargez l'image du service sur votre espace de travail sur votre ordinateur portable.
-... Décompressez l'image du service.
+.. Téléchargez l'image du service sur votre espace de travail sur votre ordinateur portable.
+.. Décompressez l'image du service.
 +
 
 NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas winzip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
@@ -106,11 +110,11 @@ NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas winzip po
 Le fichier image du service décompressé contient deux dossiers :
 
 +
-**** démarrage
-**** efi
+*** démarrage
+*** efi
 
 
-... Copiez le dossier efi dans le répertoire supérieur du lecteur flash USB.
+.. Copiez le dossier efi dans le répertoire supérieur du lecteur flash USB.
 +
 
 NOTE: Si l'image de service ne contient pas de dossier efi, reportez-vous à link:https://kb.netapp.com/onprem/ontap/hardware/EFI_folder_missing_from_Service_Image_download_file_used_for_boot_device_recovery_for_FAS_and_AFF_models["Dossier EFI manquant dans le fichier de téléchargement d'image de service utilisé pour la récupération du périphérique d'amorçage pour les modèles FAS et AFF^"]la section .
@@ -118,30 +122,30 @@ NOTE: Si l'image de service ne contient pas de dossier efi, reportez-vous à lin
 +
 Le lecteur flash USB doit avoir le dossier efi et la même version BIOS (Service image) de ce que le contrôleur douteux est en cours d'exécution.
 
-... Retirez la clé USB de votre ordinateur portable.
+.. Retirez la clé USB de votre ordinateur portable.
 
 
-.. Si ce n'est déjà fait, fermer le conduit d'air.
-.. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
-.. Réinstallez le périphérique de gestion des câbles et recâblage du système, selon les besoins.
+. Si ce n'est déjà fait, fermer le conduit d'air.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+. Réinstallez le périphérique de gestion des câbles et recâblage du système, selon les besoins.
 +
 Lors du retrait, n'oubliez pas de réinstaller les convertisseurs de support (SFP ou QSFP) s'ils ont été retirés.
 
-.. Branchez le câble d'alimentation dans le bloc d'alimentation et réinstallez le dispositif de retenue du câble d'alimentation.
-.. Insérez la clé USB dans le logement USB du module de contrôleur.
+. Branchez le câble d'alimentation dans le bloc d'alimentation et réinstallez le dispositif de retenue du câble d'alimentation.
+. Insérez la clé USB dans le logement USB du module de contrôleur.
 +
 Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
 
-.. Terminez la réinstallation du module de contrôleur :
+. Terminez la réinstallation du module de contrôleur :
 +
-... S'assurer que les bras de verrouillage sont verrouillés en position étendue.
-... A l'aide des bras de verrouillage, poussez le module de contrôleur dans la baie du châssis jusqu'à ce qu'il s'arrête.
+.. S'assurer que les bras de verrouillage sont verrouillés en position étendue.
+.. A l'aide des bras de verrouillage, poussez le module de contrôleur dans la baie du châssis jusqu'à ce qu'il s'arrête.
 +
 
 NOTE: Ne pas pousser le mécanisme de verrouillage en haut des bras de verrouillage vers le bas. Relever le mécanisme de verrouillage et empêcher le déplacement du module de contrôleur dans le châssis.
 
-... Appuyez sur les languettes orange du haut du mécanisme de verrouillage et maintenez-les enfoncées.
-... Poussez doucement le module contrôleur dans la baie du châssis jusqu'à ce qu'il affleure les bords du châssis.
+.. Appuyez sur les languettes orange du haut du mécanisme de verrouillage et maintenez-les enfoncées.
+.. Poussez doucement le module contrôleur dans la baie du châssis jusqu'à ce qu'il affleure les bords du châssis.
 +
 
 NOTE: Les bras du mécanisme de verrouillage coulissent dans le châssis.
@@ -149,42 +153,42 @@ NOTE: Les bras du mécanisme de verrouillage coulissent dans le châssis.
 +
 Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis.
 
-... Libérer les loquets pour verrouiller le module de contrôleur en place.
-... Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
+.. Libérer les loquets pour verrouiller le module de contrôleur en place.
+.. Si ce n'est déjà fait, réinstallez le périphérique de gestion des câbles.
 
 
-.. Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
+. Interrompez le processus de démarrage en appuyant sur Ctrl-C pour vous arrêter à l'invite DU CHARGEUR.
 +
 Si vous manquez ce message, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le nœud pour démarrer le CHARGEUR.
 
-.. À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`
+. À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`
 +
 L'image est téléchargée à partir de la clé USB.
 
-.. Lorsque vous y êtes invité, entrez le nom de l'image ou acceptez l'image par défaut affichée entre crochets sur votre écran.
-.. Une fois l'image installée, démarrez le processus de restauration :
+. Lorsque vous y êtes invité, entrez le nom de l'image ou acceptez l'image par défaut affichée entre crochets sur votre écran.
+. Une fois l'image installée, démarrez le processus de restauration :
 +
-... Notez l'adresse IP du nœud douteux qui s'affiche à l'écran.
-... Appuyez sur `y` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
-... Appuyez sur `y` lorsque vous êtes invité à remplacer /etc/ssh/ssh_host_dsa_key.
+.. Notez l'adresse IP du nœud douteux qui s'affiche à l'écran.
+.. Appuyez sur `y` lorsque vous êtes invité à restaurer la configuration de sauvegarde.
+.. Appuyez sur `y` lorsque vous êtes invité à remplacer /etc/ssh/ssh_host_dsa_key.
 
 
-.. À partir du nœud partenaire au niveau de privilège avancé, démarrez la synchronisation de la configuration à l'aide de l'adresse IP enregistrée à l'étape précédente : `system node restore-backup -node local -target-address _impaired_node_IP_address_`
-.. Si la restauration a réussi, appuyez sur `y` sur le nœud douteux, lorsque vous êtes invité à utiliser la copie restaurée ?
-.. Appuyez sur `y` lorsque vous voyez confirmer la réussite de la procédure de sauvegarde, puis appuyez sur `y` lorsque vous êtes invité à redémarrer le nœud.
-.. Vérifiez que les variables d'environnement sont définies comme prévu.
+. À partir du nœud partenaire au niveau de privilège avancé, démarrez la synchronisation de la configuration à l'aide de l'adresse IP enregistrée à l'étape précédente : `system node restore-backup -node local -target-address _impaired_node_IP_address_`
+. Si la restauration a réussi, appuyez sur `y` sur le nœud douteux, lorsque vous êtes invité à utiliser la copie restaurée ?
+. Appuyez sur `y` lorsque vous voyez confirmer la réussite de la procédure de sauvegarde, puis appuyez sur `y` lorsque vous êtes invité à redémarrer le nœud.
+. Vérifiez que les variables d'environnement sont définies comme prévu.
 +
-... Prenez le nœud vers l'invite DU CHARGEUR.
+.. Prenez le nœud vers l'invite DU CHARGEUR.
 +
 À partir de l'invite ONTAP, vous pouvez lancer la commande system node halt -skip-lif-migration-before-shutdown true -ignore-quorum-avertissements true -Inhibit-Takeover-Takeover true.
 
-... Vérifiez les paramètres de la variable d'environnement à l'aide de l' `printenv` commande.
-... Si une variable d'environnement n'est pas définie comme prévu, modifiez-la avec le `setenv __environment-variable-name__ __changed-value__` commande.
-... Enregistrez vos modifications à l'aide du `savenv` commande.
-... Redémarrez le nœud.
+.. Vérifiez les paramètres de la variable d'environnement à l'aide de l' `printenv` commande.
+.. Si une variable d'environnement n'est pas définie comme prévu, modifiez-la avec le `setenv __environment-variable-name__ __changed-value__` commande.
+.. Enregistrez vos modifications à l'aide du `savenv` commande.
+.. Redémarrez le nœud.
 
 
-.. Le nœud ayant redémarré et affichant le `Waiting for giveback...` message, effectuer un retour à partir du nœud en bon état :
+. Le nœud ayant redémarré et affichant le `Waiting for giveback...` message, effectuer un retour à partir du nœud en bon état :
 +
 [cols="1,2"]
 |===
@@ -196,7 +200,7 @@ Une paire haute disponibilité
  a| 
 Une fois que le nœud douteux affiche le `Waiting for giveback...` message, effectuer un retour à partir du nœud en bon état :
 
-... Depuis le nœud sain : `storage failover giveback -ofnode partner_node_name`
+.. Depuis le nœud sain : `storage failover giveback -ofnode partner_node_name`
 +
 Le nœud défaillant reprend son stockage, termine son démarrage, puis redémarre et le nœud en bon état.
 
@@ -207,13 +211,11 @@ NOTE: Si le retour est vetoté, vous pouvez envisager d'ignorer les vetoes.
 +
 https://docs.netapp.com/us-en/ontap/high-availability/index.html["Gestion des paires HAUTE DISPONIBILITÉ"^]
 
-... Surveiller la progression de l'opération de rétablissement à l'aide du `storage failover show-giveback` commande.
-... Une fois l'opération de rétablissement terminée, vérifiez que la paire HA est saine et que le basculement est possible à l'aide du `storage failover show` commande.
-... Restaurez le rétablissement automatique si vous le avez désactivé à l'aide de la commande Storage Failover modify.
+.. Surveiller la progression de l'opération de rétablissement à l'aide du `storage failover show-giveback` commande.
+.. Une fois l'opération de rétablissement terminée, vérifiez que la paire HA est saine et que le basculement est possible à l'aide du `storage failover show` commande.
+.. Restaurez le rétablissement automatique si vous le avez désactivé à l'aide de la commande Storage Failover modify.
 
 
 |===
-.. Quittez le niveau de privilège avancé sur le nœud en bon état.
-
-
+. Quittez le niveau de privilège avancé sur le nœud en bon état.
 

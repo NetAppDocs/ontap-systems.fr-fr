@@ -1,8 +1,8 @@
 ---
 permalink: a700/bootmedia-recovery-image-boot-options.html 
 sidebar: sidebar 
-keywords: aff a700, fas9000, boot, recovery, image, two, node, metrocluster, configuration 
-summary: 'La procédure de démarrage du nœud douteux à partir de l"image de récupération dépend de si le système se trouve dans une configuration MetroCluster à deux nœuds.' 
+keywords: aff a700, boot, recovery, image, two, node, metrocluster, configuration, manual, manual boot recovery 
+summary: 'Démarrez l"image de récupération ONTAP à partir de la clé USB sur un système AFF A700 pour restaurer le support de démarrage. Le système AFF A700 ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n"est pas prise en charge.' 
 ---
 = Démarrez l'image de restauration - AFF A700
 :allow-uri-read: 
@@ -11,6 +11,10 @@ summary: 'La procédure de démarrage du nœud douteux à partir de l"image de r
 
 
 [role="lead"]
+Démarrez l'image de récupération ONTAP à partir de la clé USB sur un système AFF A700 pour restaurer le support de démarrage. Cette procédure comprend le démarrage à partir de la clé USB, la restauration du système de fichiers, la vérification des variables d'environnement et le retour du contrôleur à un fonctionnement normal, avec des étapes spécifiques qui varient selon que le système est configuré en MetroCluster à deux nœuds.
+
+Le système AFF A700 ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
+
 La procédure de démarrage du nœud douteux à partir de l'image de récupération dépend de si le système se trouve dans une configuration MetroCluster à deux nœuds.
 
 

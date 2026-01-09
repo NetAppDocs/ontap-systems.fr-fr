@@ -1,8 +1,8 @@
 ---
 permalink: a700s/bootmedia-shutdown.html 
 sidebar: sidebar 
-keywords: aff a700s, aff, a700s, completing, complete, nve, nse, shutdown, impair, controller, shut down the controller 
-summary: Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement. 
+keywords: aff a700s, aff, a700s, completing, complete, nve, nse, shutdown, impair, controller, shut down the controller, manual, manual boot recovery 
+summary: 'Éteignez le contrôleur défectueux sur un système AFF A700s après avoir terminé les vérifications de cryptage. Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n"est pas prise en charge.' 
 ---
 = Arrêtez le contrôleur - AFF A700s
 :allow-uri-read: 
@@ -11,6 +11,10 @@ summary: Une fois les tâches NVE ou NSE terminées, vous devez arrêter le cont
 
 
 [role="lead"]
+Éteignez le contrôleur défectueux sur un système AFF A700s après avoir terminé les vérifications de cryptage. Cette procédure comprend l'accès au terminal LOADER, la capture des variables d'environnement de démarrage à titre de référence et la préparation du terminal pour le remplacement du support de démarrage.
+
+Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
+
 Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
 
 .Étapes

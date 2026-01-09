@@ -1,8 +1,8 @@
 ---
 permalink: a220/bootmedia-encryption-preshutdown-checks.html 
 sidebar: sidebar 
-keywords: aff a220, shutdown, checks, onboard, encryption, keys, impaired controller, disable, automatic, feedback 
-summary: 'Avant d"arrêter le contrôleur douteux et de vérifier le statut des clés de cryptage intégrées, vous devez vérifier le statut de ce contrôleur, désactiver le giveback automatique et vérifier quelle version de ONTAP le système fonctionne.' 
+keywords: aff a220, shutdown, checks, onboard, encryption, keys, impaired controller, disable, automatic, feedback, manual, manual boot recovery 
+summary: 'Avant de mettre hors service le contrôleur défectueux et de vérifier l"état des clés de chiffrement intégrées, vous devez vérifier l"état du contrôleur défectueux, désactiver la restitution automatique et vérifier la version d" ONTAP exécutée par le système. Le système AFF A220 ne prend en charge que les procédures de récupération manuelles du support de démarrage.' 
 ---
 = Vérifiez la prise en charge et l'état de la clé de cryptage - AFF A220
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Avant d"arrêter le contrôleur douteux et de vérifier le statut des 
 
 
 [role="lead"]
-Pour assurer la sécurité des données sur votre système de stockage, vous devez vérifier la prise en charge et l'état de la clé de cryptage sur votre support de démarrage. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.
+Pour garantir la sécurité des données sur votre système de stockage, vous devez vérifier la prise en charge et l'état de la clé de chiffrement sur votre support de démarrage. Vérifiez si votre version ONTAP prend en charge le chiffrement de volume NetApp (NVE), et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif. Le système AFF A220 ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
 
 
 

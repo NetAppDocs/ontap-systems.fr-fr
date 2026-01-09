@@ -1,8 +1,8 @@
 ---
 permalink: a700s/bootmedia-replace-overview.html 
 sidebar: sidebar 
-keywords: aff a700s, aff, a700s, primary, boot, media, store, ontap, image, system, restore, primary, media, secondary, usb, flash, drive, replace, replace the boot media 
-summary: 'Le support de démarrage principal stocke l"image de démarrage ONTAP que le système utilise lors du démarrage. Vous pouvez restaurer l"image du support de démarrage principal à l"aide de l"image ONTAP sur le support de démarrage secondaire ou, si nécessaire, à l"aide d"une clé USB.' 
+keywords: aff a700s, aff, a700s, primary, boot, media, store, ontap, image, system, restore, primary, media, secondary, usb, flash, drive, replace, replace the boot media, manual, manual boot recovery 
+summary: 'Découvrez comment remplacer le support de démarrage sur un système AFF A700s et comprenez les méthodes de récupération. Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n"est pas prise en charge.' 
 ---
 = Présentation du remplacement du support de démarrage - AFF A700s
 :allow-uri-read: 
@@ -11,7 +11,9 @@ summary: 'Le support de démarrage principal stocke l"image de démarrage ONTAP 
 
 
 [role="lead"]
-Le support de démarrage principal stocke l'image de démarrage ONTAP que le système utilise lors du démarrage. Vous pouvez restaurer l'image du support de démarrage principal à l'aide de l'image ONTAP sur le support de démarrage secondaire ou, si nécessaire, à l'aide d'une clé USB.
+Découvrez comment remplacer le support de démarrage sur un système AFF A700s et comprenez les méthodes de récupération. Le support de démarrage principal stocke l'image de démarrage ONTAP que le système utilise au démarrage. Vous pouvez restaurer l'image du support de démarrage principal à l'aide de l'image ONTAP provenant du support de démarrage secondaire ou, si nécessaire, d'une clé USB formatée en FAT32.
+
+Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
 
 Si le support d'amorçage secondaire a échoué ou s'il n'a pas le fichier image.tgz, vous devez restaurer le support d'amorçage principal à l'aide d'un lecteur flash USB. Le lecteur doit être formaté en FAT32 et avoir la quantité de stockage appropriée pour contenir le fichier image_xxx.tgz.
 

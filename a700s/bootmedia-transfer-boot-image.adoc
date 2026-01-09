@@ -1,8 +1,8 @@
 ---
 permalink: a700s/bootmedia-transfer-boot-image.html 
 sidebar: sidebar 
-keywords: aff a700s, aff, a700s, procedure, secondary, boot, media, restore, fail, image, tgz, file, trasnfer, usb, flash, drive, transfer the boot image to the boot medai using a usb flash drive 
-summary: Cette procédure ne doit être utilisée que si la restauration du support de démarrage secondaire a échoué ou si le fichier image.tgz est introuvable sur le support de démarrage secondaire. 
+keywords: aff a700s, aff, a700s, procedure, secondary, boot, media, restore, fail, image, tgz, file, trasnfer, usb, flash, drive, transfer the boot image to the boot medai using a usb flash drive, manual, manual boot recovery 
+summary: 'Transférez l"image de démarrage sur le support de démarrage de remplacement d"un système AFF A700s en utilisant soit le support de démarrage secondaire, soit une clé USB. Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n"est pas prise en charge.' 
 ---
 = Transférez l'image de démarrage vers le support de démarrage - AFF A700s
 :allow-uri-read: 
@@ -11,11 +11,13 @@ summary: Cette procédure ne doit être utilisée que si la restauration du supp
 
 
 [role="lead"]
-Vous pouvez installer l'image système sur le support de démarrage de remplacement à l'aide de l'image sur le second support de démarrage installé dans le module de contrôleur, la méthode principale de restauration de l'image système, Ou en transférant l'image de démarrage vers le support de démarrage à l'aide d'un lecteur flash USB lorsque le support de démarrage secondaire a échoué ou si le fichier image.tgz est introuvable sur le support de démarrage secondaire.
+Transférez l'image de démarrage sur le support de démarrage de remplacement d'un système AFF A700s en utilisant soit le support de démarrage secondaire, soit une clé USB. Cette procédure consiste à restaurer l'image sur le support de démarrage secondaire comme méthode principale, ou à utiliser une clé USB si la restauration sur le support de démarrage secondaire échoue ou si le fichier image.tgz est manquant.
+
+Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
 
 
 
-== Option 1 : transférez des fichiers vers le support de démarrage à l'aide de la récupération de sauvegarde à partir du second support de démarrage
+== Option 1 : Transférer les fichiers à l’aide d’une sauvegarde de récupération depuis le second support de démarrage
 
 Vous pouvez installer l'image système sur le support de démarrage de remplacement à l'aide de l'image sur le second support de démarrage installé dans le module de contrôleur. Il s'agit de la méthode principale pour transférer les fichiers de support d'amorçage vers le support d'amorçage de remplacement des systèmes avec deux supports d'amorçage dans le module de contrôleur.
 
@@ -84,7 +86,7 @@ L'image est téléchargée à partir du support de démarrage secondaire.
 
 
 
-== Option 2 : transférez l'image d'amorçage sur le support d'amorçage à l'aide d'une clé USB
+== Option 2 : Transférer l’image de démarrage à l’aide d’une clé USB
 
 Cette procédure ne doit être utilisée que si la restauration du support de démarrage secondaire a échoué ou si le fichier image.tgz est introuvable sur le support de démarrage secondaire.
 

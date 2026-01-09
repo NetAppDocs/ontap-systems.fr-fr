@@ -1,16 +1,20 @@
 ---
 permalink: fas2700/bootmedia-replace-overview.html 
 sidebar: sidebar 
-keywords: fas2700, aff a220, replace, boot, media, image, nondisruptive, disruptive, replacement, fat32, usb 
-summary: 'Le support de démarrage stocke un ensemble principal et secondaire de fichiers système \(image de démarrage\) que le système utilise lors de son démarrage. Selon votre configuration réseau, vous pouvez effectuer un remplacement sans interruption ou sans interruption.' 
+keywords: fas2700, aff a220, replace, boot, media, image, nondisruptive, disruptive, replacement, fat32, usb, manual, manual boot recovery 
+summary: 'Découvrez comment remplacer le support de démarrage sur un système FAS2700 et comprenez les différentes méthodes de remplacement. Le support de démarrage stocke les fichiers image de démarrage primaire et secondaire utilisés par le système au démarrage. Selon la configuration de votre réseau, vous pouvez effectuer soit un remplacement non perturbateur (paire HA connectée au réseau), soit un remplacement perturbateur (nécessite deux redémarrages).' 
 ---
-= Présentation du remplacement des supports de démarrage - AFF A220 et FAS2700
+= Présentation du remplacement du support de démarrage - FAS2700
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Découvrez comment remplacer le support de démarrage sur un système FAS2700 et comprenez les différentes méthodes de remplacement.
+
+Le support de démarrage stocke les fichiers image de démarrage primaire et secondaire utilisés par le système au démarrage. Selon la configuration de votre réseau, vous pouvez effectuer soit un remplacement non perturbateur (paire HA connectée au réseau), soit un remplacement perturbateur (nécessite deux redémarrages).
+
 Le support de démarrage stocke un ensemble principal et secondaire de fichiers système (image de démarrage) que le système utilise lors du démarrage. Selon votre configuration réseau, vous pouvez effectuer un remplacement sans interruption ou sans interruption.
 
 Vous devez disposer d'une clé USB, formatée en FAT32, avec la quantité de stockage appropriée pour maintenir le `image_xxx.tgz` fichier.

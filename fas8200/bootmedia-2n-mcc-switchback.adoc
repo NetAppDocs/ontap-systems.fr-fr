@@ -1,8 +1,8 @@
 ---
 permalink: fas8200/bootmedia-2n-mcc-switchback.html 
 sidebar: sidebar 
-keywords: fas8200, switch back aggregate in a two-node metrocluster configuration 
-summary: 'Après avoir terminé le remplacement des unités remplaçables sur site dans une configuration MetroCluster à deux nœuds, vous pouvez exécuter l"opération de rétablissement MetroCluster. Cette configuration renvoie la configuration à son état de fonctionnement normal, avec les SVM (Storage Virtual machines) source et sur le site précédemment douteux actifs et peuvent accéder aux données des pools de disques locaux.' 
+keywords: fas8200, switch back aggregate in a two-node metrocluster configuration, manual, manual boot recovery 
+summary: 'Effectuez l"opération de basculement MetroCluster sur un système FAS8200 après avoir terminé le remplacement du support de démarrage dans une configuration MetroCluster à deux nœuds. Le système FAS8200 ne prend en charge que les procédures de récupération manuelle du support de démarrage. La récupération automatique du support de démarrage n"est pas prise en charge.' 
 ---
 = Basculez des agrégats à l'arrière dans une configuration MetroCluster à deux nœuds - FAS8200
 :allow-uri-read: 
@@ -11,6 +11,10 @@ summary: 'Après avoir terminé le remplacement des unités remplaçables sur si
 
 
 [role="lead"]
+Effectuez l'opération de basculement MetroCluster sur un système FAS8200 après avoir terminé le remplacement du support de démarrage dans une configuration MetroCluster à deux nœuds. Cette procédure comprend la vérification de l'état des nœuds et des machines virtuelles de stockage (SVM), l'exécution de la commande de retour en arrière et la confirmation que la configuration revient à un état de fonctionnement normal avec des SVM de source synchronisée servant des données à partir de pools de disques locaux.
+
+Le système FAS8200 ne prend en charge que les procédures de récupération manuelle du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
+
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
 
 .Étapes

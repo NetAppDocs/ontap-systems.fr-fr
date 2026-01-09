@@ -1,8 +1,8 @@
 ---
 permalink: a700s/bootmedia-recovery-image-boot-non-2n-mcc.html 
 sidebar: sidebar 
-keywords: aff a700s, aff, a700s, boot, ontap, image, usb, drive, restore, file, system, verify, environmental, variable 
-summary: 'Vous devez démarrer l"image ONTAP à partir du lecteur USB, restaurer le système de fichiers et vérifier les variables environnementales.' 
+keywords: aff a700s, aff, a700s, boot, ontap, image, usb, drive, restore, file, system, verify, environmental, variable, manual, manual boot recovery 
+summary: 'Démarrez l"image de récupération ONTAP à partir de la clé USB sur un système AFF A700s pour restaurer le support de démarrage. Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n"est pas prise en charge.' 
 ---
 = Démarrage de l'image de récupération - AFF A700s
 :allow-uri-read: 
@@ -11,8 +11,11 @@ summary: 'Vous devez démarrer l"image ONTAP à partir du lecteur USB, restaurer
 
 
 [role="lead"]
-Vous devez démarrer l'image ONTAP à partir du lecteur USB, restaurer le système de fichiers et vérifier les variables environnementales.
+Démarrez l'image de récupération ONTAP à partir de la clé USB sur un système AFF A700s pour restaurer le support de démarrage. Cette procédure comprend le démarrage à partir de la clé USB, la restauration du système de fichiers, la vérification des variables d'environnement et le retour du contrôleur à un fonctionnement normal après le remplacement du support de démarrage.
 
+Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
+
+.Étapes
 . À partir de l'invite DU CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : `boot_recovery`
 +
 L'image est téléchargée à partir de la clé USB.
