@@ -1,0 +1,115 @@
+= 
+:allow-uri-read: 
+
+
+Mettez en ligne le module d'E/S de remplacement, vérifiez que les ports du module d'E/S ont été initialisés avec succès, vérifiez que l'emplacement est alimenté, puis vérifiez que le module d'E/S est en ligne et reconnu.
+
+.Description de la tâche
+Après le remplacement du module d'E/S et le retour des ports à un état sain, les LIF sont réattribuées au module d'E/S remplacé.
+
+.Étapes
+. Mettez en service le module d'E/S de remplacement :
++
+.. Entrez la commande suivante :
++
+`system controller slot module insert -node _impaired_node_name_ -slot _slot_number_`
+
+.. Entrer `y` lorsque vous voyez l'invite, _Voulez-vous continuer ?_
++
+Le résultat doit confirmer que le module d'E/S a été mis en ligne avec succès (allumé, initialisé et mis en service).
+
++
+Par exemple, la commande suivante met en ligne l'emplacement 7 du nœud 2 (le contrôleur défaillant) et affiche un message indiquant que le processus a réussi :
+
++
+[listing]
+----
+node2::> system controller slot module insert -node node2 -slot 7
+
+Warning: IO_2X_100GBE_NVDA_NIC module in slot 7 of node node2 will be powered on and initialized.
+
+Do you want to continue? {y|n}: `y`
+
+The module has been successfully powered on, initialized and placed into service.
+----
+
+
+. Vérifiez que chaque port du module d'E/S a été initialisé avec succès :
++
+.. Entrez la commande suivante depuis la console du contrôleur défaillant :
++
+`event log show -event \*hotplug.init*`
+
++
+
+NOTE: La mise à jour du firmware requise et l'initialisation des ports peuvent prendre plusieurs minutes.
+
++
+Le résultat devrait afficher un ou plusieurs événements EMS hotplug.init.success  `_hotplug.init.success:_` dans la  `_Event_` colonne, indiquant que chaque port du module d'E/S a été initialisé avec succès.
+
++
+Par exemple, le résultat suivant montre que l'initialisation a réussi pour les ports d'E/S e7b et e7a :
+
++
+[listing]
+----
+node2::> event log show -event *hotplug.init*
+
+Time                Node             Severity      Event
+
+------------------- ---------------- ------------- ---------------------------
+
+7/11/2025 16:04:06  node2      NOTICE        hotplug.init.success: Initialization of ports "e7b" in slot 7 succeeded
+
+7/11/2025 16:04:06  node2      NOTICE        hotplug.init.success: Initialization of ports "e7a" in slot 7 succeeded
+
+2 entries were displayed.
+----
+.. Si l'initialisation du port échoue, consultez le journal EMS pour les prochaines étapes à suivre.
+
+
+. Vérifiez que l'emplacement du module d'E/S est alimenté et prêt à fonctionner :
++
+`system controller slot module show`
+
++
+La sortie doit indiquer que l'état de l'emplacement est  `_powered-on_` et donc prêt pour le fonctionnement du module d'E/S.
+
+. Vérifiez que le module d'E/S est en ligne et reconnu.
++
+Entrez la commande depuis la console du contrôleur défaillant :
+
++
+`system controller config show -node local -slot _slot_number_`
+
++
+Si le module d'E/S a été mis en ligne avec succès et est reconnu, la sortie affiche les informations du module d'E/S, y compris les informations de port pour le slot.
+
++
+Par exemple, vous devriez obtenir un résultat similaire à ce qui suit pour un module d'E/S dans l'emplacement 7 :
+
++
+[listing]
+----
+node2::> system controller config show -node local -slot 7
+
+Node: node2
+Sub- Device/
+Slot slot Information
+---- ---- -----------------------------
+   7    - Dual 40G/100G Ethernet Controller CX6-DX
+                  e7a MAC Address: d0:39:ea:59:69:74 (auto-100g_cr4-fd-up)
+                          QSFP Vendor:        CISCO-BIZLINK
+                          QSFP Part Number:   L45593-D218-D10
+                          QSFP Serial Number: LCC2807GJFM-B
+                  e7b MAC Address: d0:39:ea:59:69:75 (auto-100g_cr4-fd-up)
+                          QSFP Vendor:        CISCO-BIZLINK
+                          QSFP Part Number:   L45593-D218-D10
+                          QSFP Serial Number: LCC2809G26F-A
+                  Device Type:        CX6-DX PSID(NAP0000000027)
+                  Firmware Version:   22.44.1700
+                  Part Number:        111-05341
+                  Hardware Revision:  20
+                  Serial Number:      032403001370
+----
+

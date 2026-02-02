@@ -1,0 +1,59 @@
+= 
+:allow-uri-read: 
+
+
+Pour utiliser cette procédure, votre système de stockage doit exécuter ONTAP 9.17.1 ou une version ultérieure, et votre système de stockage doit répondre à toutes les exigences de la version de ONTAP que votre système de stockage exécute.
+
+
+NOTE: Si votre système de stockage n'exécute pas ONTAP 9.17.1 ou une version ultérieure, ou ne répond pas à toutes les exigences de la version d'ONTAP exécutée par votre système de stockage, vous ne pouvez pas utiliser cette procédure, vous devez utiliser la link:io-module-replace.html["procédure de remplacement d'un module d'E/S"].
+
+[role="tabbed-block"]
+====
+.ONTAP 9.17.1 ou 9.18.1RC
+--
+* Vous remplacez à chaud un module cluster et HA d'E/S défaillant dans l'emplacement 4 par un module d'E/S équivalent. Vous ne pouvez pas changer le type du module d'E/S.
+* Le contrôleur présentant une défaillance du cluster et du module d'E/S HA (le contrôleur défaillant) doit déjà avoir pris le relais du contrôleur partenaire fonctionnel. Le basculement aurait dû se produire automatiquement si le module d'E/S a échoué.
++
+Pour les clusters à deux nœuds, le système de stockage ne peut pas discerner quel contrôleur a le module d'E/S défaillant, donc l'un ou l'autre contrôleur peut initier le basculement. Le remplacement à chaud n'est pris en charge que lorsque le contrôleur avec le module d'E/S défaillant (le contrôleur défaillant) a pris le contrôle du contrôleur sain. Remplacer à chaud le module d'E/S est le seul moyen de récupérer sans interruption.
+
++
+Vous pouvez vérifier que le contrôleur défaillant a pris le contrôle du contrôleur sain en entrant le  `storage failover show` commande.
+
++
+Si vous n'êtes pas sûr du contrôleur dont le module d'E/S est défectueux, contactez  https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] .
+
+* La configuration de votre système de stockage doit comporter un seul cluster et un seul module d'E/S HA situés dans l'emplacement 4, et non deux clusters et deux modules d'E/S HA.
+* Votre système de stockage doit être une configuration de cluster à deux nœuds (sans commutateur ou commuté).
+* Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
+
+--
+.ONTAP 9.18.1GA ou version ultérieure
+--
+* Vous remplacez à chaud un module d'E/S Ethernet dans n'importe quel emplacement ayant n'importe quelle combinaison de ports utilisés pour le cluster, la haute disponibilité et le client, par un module d'E/S équivalent. Vous ne pouvez pas changer le type du module d'E/S.
++
+Les modules d'E/S Ethernet avec des ports utilisés pour le stockage ou MetroCluster ne sont pas remplaçables à chaud.
+
+* Votre système de stockage (configuration de cluster sans commutateur ou avec commutateur) peut avoir n'importe quel nombre de nœuds pris en charge pour votre système de stockage.
+* Tous les nœuds du cluster doivent exécuter la même version d'ONTAP (ONTAP 9.18.1GA ou ultérieure) ou différents niveaux de correctifs de la même version d'ONTAP.
++
+Si les nœuds de votre cluster exécutent différentes versions d'ONTAP, il s'agit d'un cluster à versions mixtes et le remplacement à chaud d'un module d'E/S n'est pas pris en charge.
+
+
+
+* Les contrôleurs de votre système de stockage peuvent se trouver dans l'un des états suivants :
++
+** Les deux contrôleurs peuvent être opérationnels et exécuter des E/S (servir des données).
+** L'un ou l'autre contrôleur peut être en état de prise de contrôle si la prise de contrôle a été provoquée par la défaillance du module d'E/S et si les contrôleurs fonctionnent par ailleurs correctement.
++
+Dans certaines situations, ONTAP peut automatiquement effectuer un basculement de l’un ou l’autre contrôleur en raison du module d’E/S défaillant. Par exemple, si le module d’E/S défaillant contenait tous les ports du cluster (toutes les liaisons du cluster sur ce contrôleur sont hors service), ONTAP effectue automatiquement un basculement.
+
+
+
+
+
+* Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
+
+--
+====

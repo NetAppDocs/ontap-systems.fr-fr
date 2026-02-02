@@ -1,0 +1,368 @@
+---
+permalink: afx-1k/io-module-hotswap.html 
+sidebar: sidebar 
+keywords: AFX 1K, hot swap a cluster ha card, hot swap ethernet client io module, hotswap io module, hot swap io module 
+summary: 'Vous pouvez remplacer à chaud un module d"E/S Ethernet dans votre système de stockage AFX 1K si un module tombe en panne et si votre système de stockage répond à toutes les exigences de version ONTAP.' 
+---
+= Remplacer à chaud un module d'E/S - AFX 1K
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez remplacer à chaud un module d'E/S Ethernet dans votre système de stockage AFX 1K si un module tombe en panne et si votre système de stockage répond à toutes les exigences de version ONTAP.
+
+Pour remplacer à chaud un module d'E/S, assurez-vous que votre système de stockage exécute ONTAP 9.18.1 GA ou une version ultérieure, préparez votre système de stockage et votre module d'E/S, remplacez à chaud le module défaillant, mettez le module de remplacement en ligne, rétablissez le fonctionnement normal du système de stockage et retournez le module défaillant à NetApp.
+
+.Description de la tâche
+* Vous n'avez pas besoin d'effectuer un basculement manuel avant de remplacer le module d'E/S défaillant.
+* Appliquez les commandes au contrôleur et à l'emplacement d'E/S corrects pendant le remplacement à chaud :
++
+** Le _contrôleur défectueux_ est le contrôleur sur lequel vous remplacez le module d'E/S.
+** Le _contrôleur sain_ est le partenaire HA du contrôleur altéré.
+
+
+* Vous pouvez activer les voyants bleus de localisation du système de stockage pour faciliter le repérage physique du système de stockage concerné. Connectez-vous au BMC via SSH et saisissez la commande  `system location-led _on_`.
++
+Le système de stockage comprend trois voyants LED de localisation : un sur le panneau de commande et un sur chaque contrôleur. Les voyants restent allumés pendant 30 minutes.
+
++
+Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
+
+
+
+
+
+== Étape 1 : Assurez-vous que le système de stockage répond aux exigences de la procédure
+
+Pour utiliser cette procédure, votre système de stockage doit exécuter ONTAP 9.18.1 GA ou une version ultérieure, et votre système de stockage doit répondre à toutes les exigences.
+
+
+NOTE: Si votre système de stockage n'exécute pas ONTAP 9.18.1 GA ou une version ultérieure, vous ne pouvez pas utiliser cette procédure, vous devez utiliser le link:io-module-replace.html["procédure de remplacement d'un module d'E/S"].
+
+* Vous remplacez à chaud un module d'E/S Ethernet dans n'importe quel emplacement ayant n'importe quelle combinaison de ports utilisés pour le cluster, la haute disponibilité et le client, par un module d'E/S équivalent. Vous ne pouvez pas changer le type du module d'E/S.
++
+Les modules d'E/S Ethernet avec des ports utilisés pour le stockage ou MetroCluster ne sont pas remplaçables à chaud.
+
+* Votre système de stockage (configuration de cluster sans commutateur ou avec commutateur) peut avoir n'importe quel nombre de nœuds pris en charge pour votre système de stockage.
+* Tous les nœuds du cluster doivent exécuter la même version d'ONTAP (ONTAP 9.18.1GA ou ultérieure) ou différents niveaux de correctifs de la même version d'ONTAP.
++
+Si les nœuds de votre cluster exécutent différentes versions d'ONTAP, il s'agit d'un cluster à versions mixtes et le remplacement à chaud d'un module d'E/S n'est pas pris en charge.
+
+
+
+* Les contrôleurs de votre système de stockage peuvent se trouver dans l'un des états suivants :
++
+** Les deux contrôleurs peuvent être opérationnels et exécuter des E/S (servir des données).
+** L'un ou l'autre contrôleur peut être en état de basculement si le basculement a été provoqué par la défaillance du module d'E/S et que les nœuds fonctionnent par ailleurs correctement.
++
+Dans certaines situations, ONTAP peut automatiquement effectuer un basculement de l’un ou l’autre contrôleur en raison du module d’E/S défaillant. Par exemple, si le module d’E/S défaillant contenait tous les ports du cluster (toutes les liaisons du cluster sur ce contrôleur sont hors service), ONTAP effectue automatiquement un basculement.
+
+
+
+
+
+* Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+
+
+
+
+== Étape 2 : Préparez le système de stockage et l’emplacement du module d’E/S
+
+Préparez le système de stockage et l'emplacement du module d'E/S afin qu'il soit sûr de retirer le module d'E/S défectueux :
+
+.Étapes
+. Mettez-vous à la terre.
+. Étiquetez les câbles pour identifier leur provenance, puis débranchez tous les câbles du module d'E/S cible.
++
+[NOTE]
+====
+Le module d'E/S devrait être défaillant (les ports devraient être en état de liaison désactivée) ; cependant, si les liaisons sont toujours actives et qu'elles contiennent le dernier port de cluster fonctionnel, le débranchement des câbles déclenche un basculement automatique.
+
+Attendez cinq minutes après avoir débranché les câbles pour vous assurer que tous les basculements automatiques ou les basculements LIF sont terminés avant de poursuivre cette procédure.
+
+====
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h`
+
++
+Par exemple, le message AutoSupport suivant supprime la création automatique de cas pendant deux heures :
+
++
+`node2::> system node autosupport invoke -node * -type all -message MAINT=2h`
+
+. Désactivez le giveback automatique si le nœud partenaire a été pris en charge :
++
+[cols="1,2"]
+|===
+| Si... | Alors... 
+
+
+ a| 
+Si l'un des contrôleurs a pris le contrôle de son partenaire automatiquement
+ a| 
+Désactiver le retour automatique :
+
+.. Saisissez la commande suivante depuis la console du contrôleur qui a pris le contrôle de son partenaire :
++
+`storage failover modify -node local -auto-giveback false`
+
+.. Entrer `y` lorsque vous voyez l'invite _Voulez-vous désactiver le retour automatique ?_
+
+
+
+
+ a| 
+Les deux contrôleurs sont opérationnels et traitent des E/S (fournissent des données)
+ a| 
+Passez à l'étape suivante.
+
+|===
+. Préparez le module d'E/S défectueux en vue de son retrait en le mettant hors service et en le coupant de l'alimentation :
++
+.. Entrez la commande suivante :
++
+`system controller slot module remove -node _impaired_node_name_ -slot _slot_number_`
+
+.. Entrer `y` lorsque vous voyez l'invite _Voulez-vous continuer ?_
++
+Par exemple, la commande suivante prépare le module défaillant dans l'emplacement 7 sur le nœud 2 (le contrôleur défaillant) pour le retrait, et affiche un message indiquant qu'il est sûr de le retirer :
+
++
+[listing]
+----
+node2::> system controller slot module remove -node node2 -slot 7
+
+Warning: IO_2X_100GBE_NVDA_NIC module in slot 7 of node node2 will be powered off for removal.
+
+Do you want to continue? {y|n}: y
+
+The module has been successfully removed from service and powered off. It can now be safely removed.
+----
+
+
+. Vérifiez que le module d'E/S défectueux est hors tension :
++
+`system controller slot module show`
+
++
+Le résultat doit afficher  `_powered-off_` dans la  `_status_` colonne pour le module défaillant et son numéro d'emplacement.
+
+
+
+
+
+== Étape 3 : remplacer à chaud le module d’E/S défectueux
+
+Remplacez à chaud le module d'E/S défectueux par un module d'E/S équivalent.
+
+.Étapes
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés à l'intérieur du chemin de câbles et en le faisant pivoter vers le bas.
+. Retirez le module d'E/S du module de contrôleur :
++
+
+NOTE: L'illustration suivante montre le retrait d'un module d'E/S horizontal et vertical. En général, vous ne retirerez qu'un seul module d'E/S.
+
++
+image::../media/drw_a1k_io_remove_replace_ieops-1382.svg[Retirez le module d'E/S.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Bouton de verrouillage de came
+
+|===
++
+.. Appuyer sur le bouton de verrouillage de came.
+.. Faites tourner le loquet de came aussi loin que possible du module.
+.. Retirez le module du module de contrôleur en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du module de contrôleur.
++
+Notez bien dans quel emplacement se trouvait le module d'E/S.
+
+
+
+. Mettez le module d'E/S de côté.
+. Installez le module d'E/S de remplacement dans le logement cible :
++
+.. Alignez le module d'E/S sur les bords du logement.
+.. Faites glisser doucement le module dans le logement jusqu'au fond du module de contrôleur, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+. Branchez le câble du module d'E/S.
+. Faites pivoter le chemin de câbles en position verrouillée.
+
+
+
+
+== Étape 4 : Mettez le module d’E/S de remplacement en ligne
+
+Mettez en ligne le module d'E/S de remplacement, vérifiez que les ports du module d'E/S ont été initialisés avec succès, vérifiez que l'emplacement est alimenté, puis vérifiez que le module d'E/S est en ligne et reconnu.
+
+.Description de la tâche
+Après le remplacement du module d'E/S et le retour des ports à un état sain, les LIF sont réattribuées au module d'E/S remplacé.
+
+.Étapes
+. Mettez en service le module d'E/S de remplacement :
++
+.. Entrez la commande suivante :
++
+`system controller slot module insert -node _impaired_node_name_ -slot _slot_number_`
+
+.. Entrer `y` lorsque vous voyez l'invite, _Voulez-vous continuer ?_
++
+Le résultat doit confirmer que le module d'E/S a été mis en ligne avec succès (allumé, initialisé et mis en service).
+
++
+Par exemple, la commande suivante met en ligne l'emplacement 7 du nœud 2 (le contrôleur défaillant) et affiche un message indiquant que le processus a réussi :
+
++
+[listing]
+----
+node2::> system controller slot module insert -node node2 -slot 7
+
+Warning: IO_2X_100GBE_NVDA_NIC module in slot 7 of node node2 will be powered on and initialized.
+
+Do you want to continue? {y|n}: `y`
+
+The module has been successfully powered on, initialized and placed into service.
+----
+
+
+. Vérifiez que chaque port du module d'E/S a été initialisé avec succès :
++
+.. Entrez la commande suivante depuis la console du contrôleur défaillant :
++
+`event log show -event \*hotplug.init*`
+
++
+
+NOTE: La mise à jour du firmware requise et l'initialisation des ports peuvent prendre plusieurs minutes.
+
++
+Le résultat devrait afficher un ou plusieurs événements EMS hotplug.init.success  `_hotplug.init.success:_` dans la  `_Event_` colonne, indiquant que chaque port du module d'E/S a été initialisé avec succès.
+
++
+Par exemple, le résultat suivant montre que l'initialisation a réussi pour les ports d'E/S e7b et e7a :
+
++
+[listing]
+----
+node2::> event log show -event *hotplug.init*
+
+Time                Node             Severity      Event
+
+------------------- ---------------- ------------- ---------------------------
+
+7/11/2025 16:04:06  node2      NOTICE        hotplug.init.success: Initialization of ports "e7b" in slot 7 succeeded
+
+7/11/2025 16:04:06  node2      NOTICE        hotplug.init.success: Initialization of ports "e7a" in slot 7 succeeded
+
+2 entries were displayed.
+----
+.. Si l'initialisation du port échoue, consultez le journal EMS pour les prochaines étapes à suivre.
+
+
+. Vérifiez que l'emplacement du module d'E/S est alimenté et prêt à fonctionner :
++
+`system controller slot module show`
+
++
+La sortie doit indiquer que l'état de l'emplacement est  `_powered-on_` et donc prêt pour le fonctionnement du module d'E/S.
+
+. Vérifiez que le module d'E/S est en ligne et reconnu.
++
+Entrez la commande depuis la console du contrôleur défaillant :
+
++
+`system controller config show -node local -slot _slot_number_`
+
++
+Si le module d'E/S a été mis en ligne avec succès et est reconnu, la sortie affiche les informations du module d'E/S, y compris les informations de port pour le slot.
+
++
+Par exemple, vous devriez obtenir un résultat similaire à ce qui suit pour un module d'E/S dans l'emplacement 7 :
+
++
+[listing]
+----
+node2::> system controller config show -node local -slot 7
+
+Node: node2
+Sub- Device/
+Slot slot Information
+---- ---- -----------------------------
+   7    - Dual 40G/100G Ethernet Controller CX6-DX
+                  e7a MAC Address: d0:39:ea:59:69:74 (auto-100g_cr4-fd-up)
+                          QSFP Vendor:        CISCO-BIZLINK
+                          QSFP Part Number:   L45593-D218-D10
+                          QSFP Serial Number: LCC2807GJFM-B
+                  e7b MAC Address: d0:39:ea:59:69:75 (auto-100g_cr4-fd-up)
+                          QSFP Vendor:        CISCO-BIZLINK
+                          QSFP Part Number:   L45593-D218-D10
+                          QSFP Serial Number: LCC2809G26F-A
+                  Device Type:        CX6-DX PSID(NAP0000000027)
+                  Firmware Version:   22.44.1700
+                  Part Number:        111-05341
+                  Hardware Revision:  20
+                  Serial Number:      032403001370
+----
+
+
+
+
+== Étape 5 : Restaurer le système de stockage à son fonctionnement normal
+
+Rétablissez le fonctionnement normal de votre système de stockage en restituant le stockage au contrôleur qui a été pris en charge (si nécessaire), en rétablissant la restitution automatique (si nécessaire), en vérifiant que les LIF sont sur leurs ports d'origine, et en réactivant la création automatique de dossiers AutoSupport.
+
+.Étapes
+. En fonction de la version d'ONTAP exécutée par votre système de stockage et de l'état des contrôleurs, restituez le stockage et rétablissez la restitution automatique sur le contrôleur qui a été pris en charge :
++
+[cols="1,2"]
+|===
+| Si... | Alors... 
+
+
+ a| 
+Si l'un des contrôleurs a pris le contrôle de son partenaire automatiquement
+ a| 
+.. Rendez le contrôleur qui avait été pris en charge à un fonctionnement normal en lui rendant son stockage :
++
+`storage failover giveback -ofnode _controller that was taken over_name_`
+
+.. Rétablir la restitution automatique depuis la console du contrôleur qui a été pris en charge :
++
+`storage failover modify -node local -auto-giveback _true_`
+
+
+
+
+
+ a| 
+Les deux contrôleurs sont opérationnels et traitent des E/S (fournissent des données)
+ a| 
+Passez à l'étape suivante.
+
+|===
+. Vérifiez que les interfaces logiques signalent leur nœud et leurs ports d'origine : `network interface show -is-home false`
++
+Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de home port : `network interface revert -vserver * -lif *`
+
+. Si AutoSupport est activé, restaurez la création automatique de dossiers :
++
+`system node autosupport invoke -node * -type all -message MAINT=end`
+
+
+
+
+
+== Étape 6 : renvoyer la pièce défaillante à NetApp
+
+Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

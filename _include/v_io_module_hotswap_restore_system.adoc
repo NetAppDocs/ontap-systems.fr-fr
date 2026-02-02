@@ -7,30 +7,11 @@ Rétablissez le fonctionnement normal de votre système de stockage en restituan
 .Étapes
 . En fonction de la version d'ONTAP exécutée par votre système de stockage et de l'état des contrôleurs, restituez le stockage et rétablissez la restitution automatique sur le contrôleur qui a été pris en charge :
 +
-[cols="1,2,3"]
+[cols="1,2"]
 |===
-| Version ONTAP | Si... | Alors... 
+| Si... | Alors... 
 
 
- a| 
-9.17.1 ou 9.18.1RC
- a| 
-Si le contrôleur défaillant a pris automatiquement le relais du contrôleur sain
- a| 
-.. Rétablissez le contrôleur sain à un fonctionnement normal en lui rendant son stockage :
-+
-`storage failover giveback -ofnode _healthy_node_name_`
-
-.. Rétablir la restitution automatique depuis la console du contrôleur défectueux :
-+
-`storage failover modify -node local -auto-giveback _true_`
-
-
-
-
-
- a| 
-9.18.1GA ou version ultérieure
  a| 
 Si l'un des contrôleurs a pris le contrôle de son partenaire automatiquement
  a| 
@@ -47,14 +28,12 @@ Si l'un des contrôleurs a pris le contrôle de son partenaire automatiquement
 
 
  a| 
-9.18.1GA ou version ultérieure
- a| 
 Les deux contrôleurs sont opérationnels et traitent des E/S (fournissent des données)
  a| 
 Passez à l'étape suivante.
 
 |===
-. Vérifiez que les interfaces logiques sont bien placées sur leur serveur domestique et leurs ports : `network interface show -is-home false`
+. Vérifiez que les interfaces logiques signalent leur nœud et leurs ports d'origine : `network interface show -is-home false`
 +
 Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de home port : `network interface revert -vserver * -lif *`
 

@@ -2,18 +2,21 @@
 :allow-uri-read: 
 
 
-Mettez en ligne le cluster de remplacement et le module d'E/S HA dans l'emplacement 4, vérifiez que les ports du module sont correctement initialisés, vérifiez que l'emplacement 4 est sous tension, puis vérifiez que le module est en ligne et reconnu.
+Mettez en ligne le module d'E/S de remplacement, vérifiez que les ports du module d'E/S ont été initialisés avec succès, vérifiez que l'emplacement est alimenté, puis vérifiez que le module d'E/S est en ligne et reconnu.
+
+.Description de la tâche
+Après le remplacement du module d'E/S et le retour des ports à un état sain, les LIF sont réattribuées au module d'E/S remplacé.
 
 .Étapes
-. Mettez en ligne le cluster de remplacement et le module d'E/S HA :
+. Mettez en service le module d'E/S de remplacement :
 +
 .. Entrez la commande suivante :
 +
-`system controller slot module insert -node _impaired_node_name_ -slot _slot_name_`
+`system controller slot module insert -node _impaired_node_name_ -slot _slot_number_`
 
 .. Entrer `y` lorsque vous voyez l'invite, _Voulez-vous continuer ?_
 +
-La sortie doit confirmer que le cluster et le module d'E/S HA ont été correctement mis en ligne (mis sous tension, initialisés et mis en service).
+Le résultat doit confirmer que le module d'E/S a été mis en ligne avec succès (allumé, initialisé et mis en service).
 
 +
 Par exemple, la commande suivante met en ligne l'emplacement 4 du nœud 2 (le contrôleur altéré) et affiche un message indiquant que le processus a réussi :
@@ -31,19 +34,21 @@ The module has been successfully powered on, initialized and placed into service
 ----
 
 
-. Vérifiez que chaque port du cluster et du module d'E/S HA ont été initialisés avec succès :
+. Vérifiez que chaque port du module d'E/S a été initialisé avec succès :
++
+.. Entrez la commande suivante depuis la console du contrôleur défaillant :
 +
 `event log show -event \*hotplug.init*`
 
 +
 
-NOTE: L'exécution des mises à jour du micrologiciel et l'initialisation du port requises peuvent prendre plusieurs minutes.
+NOTE: La mise à jour du firmware requise et l'initialisation des ports peuvent prendre plusieurs minutes.
 
 +
-La sortie doit afficher un événement EMS hotplug.init.success enregistré pour chaque port du cluster et du module d'E/S HA avec  `_hotplug.init.success:_` dans le  `_Event_` colonne.
+La sortie doit afficher un ou plusieurs événements EMS hotplug.init.success indiquant que chaque port sur le module d'E/S a été initialisé avec succès.
 
 +
-Par exemple, la sortie suivante montre que l'initialisation a réussi pour les ports e4b et e4a du cluster et du module d'E/S HA :
+Par exemple, le résultat suivant montre que l'initialisation a réussi pour les ports d'E/S e4b et e4a :
 
 +
 [listing]
@@ -60,25 +65,28 @@ Time                Node             Severity      Event
 
 2 entries were displayed.
 ----
-. Vérifiez que l'emplacement 4 du module d'E/S est sous tension et prêt à fonctionner :
+.. Si l'initialisation du port échoue, consultez le journal EMS pour les prochaines étapes à suivre.
+
+
+. Vérifiez que l'emplacement du module d'E/S est alimenté et prêt à fonctionner :
 +
 `system controller slot module show`
 
 +
-La sortie doit afficher l'état de l'emplacement 4 comme suit  `_powered-on_` et donc prêt à fonctionner pour le cluster de remplacement et le module d'E/S HA.
+La sortie doit indiquer que l'état de l'emplacement est  `_powered-on_` et donc prêt pour le fonctionnement du module d'E/S.
 
-. Vérifiez que le cluster de remplacement et le module d’E/S HA sont en ligne et reconnus.
+. Vérifiez que le module d'E/S est en ligne et reconnu.
 +
 Entrez la commande depuis la console du contrôleur défaillant :
 
 +
-`system controller config show -node local -slot4`
+`system controller config show -node local -slot _slot_number_`
 
 +
-Si le cluster de remplacement et le module d'E/S HA ont été mis en ligne avec succès et sont reconnus, la sortie affiche les informations du module d'E/S, y compris les informations de port, pour l'emplacement 4.
+Si le module d'E/S a été mis en ligne avec succès et est reconnu, la sortie affiche les informations du module d'E/S, y compris les informations de port pour le slot.
 
 +
-Par exemple, vous devriez voir un résultat similaire à ce qui suit :
+Par exemple, vous devriez obtenir un résultat similaire à celui-ci pour un module d'E/S dans l'emplacement 4 :
 
 +
 [listing]
