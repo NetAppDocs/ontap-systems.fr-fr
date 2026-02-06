@@ -1,0 +1,37 @@
+---
+permalink: fas500f/bootmedia-replace-requirements.html 
+sidebar: sidebar 
+keywords: fas500f, replace the boot media 
+summary: 'Avant de remplacer le support de démarrage de votre FAS500f, assurez-vous de respecter les conditions requises pour une opération réussie. Cela inclut de vérifier que vous disposez d"une clé USB avec une capacité de stockage suffisante et que vous possédez le périphérique de démarrage de remplacement adéquat.' 
+---
+= Exigences pour la récupération manuelle du support de démarrage - FAS500f
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de remplacer le support de démarrage de votre FAS500f, assurez-vous de respecter les conditions requises pour une opération réussie. Cela inclut de vérifier que vous disposez d'une clé USB avec une capacité de stockage suffisante et que vous possédez le périphérique de démarrage de remplacement adéquat.
+
+Si votre système de stockage exécute ONTAP 9.18.1 ou une version ultérieure, utilisez link:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"]. Si votre système exécute une version antérieure d'ONTAP, vous devez utiliser la procédure de récupération par démarrage manuel.
+
+.clé USB
+* Assurez-vous d’avoir une clé USB formatée en FAT32.
+* La clé USB doit avoir une capacité de stockage suffisante pour contenir le  `image_xxx.tgz` déposer.
+
+
+.Préparation du dossier
+Copiez le  `image_xxx.tgz` sur la clé USB. Ce fichier sera utilisé lors du transfert de l'image ONTAP via la clé USB.
+
+.Remplacement des composants
+Remplacez le composant défectueux par le composant de remplacement fourni par NetApp.
+
+.Identification du contrôleur
+Il est essentiel d'appliquer les commandes au contrôleur approprié lorsque vous remplacez le support de démarrage défectueux :
+
+* Le _contrôleur défaillant_ est le contrôleur sur lequel vous effectuez la maintenance.
+* Le _contrôleur sain_ est le partenaire HA du contrôleur altéré.
+
+
+.Et la suite ?
+Après avoir examiné la configuration requise pour remplacer le support de démarrage, vous devez link:bootmedia-encryption-preshutdown-checks.html["vérifiez la prise en charge et l'état de la clé de cryptage sur le support de démarrage"].

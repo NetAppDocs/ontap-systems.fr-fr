@@ -1,0 +1,173 @@
+---
+permalink: asa250/bootmedia-replace-bmr.html 
+sidebar: sidebar 
+keywords: asa a250, replace the boot media 
+summary: Le support de démarrage de votre système ASA A250 contient le micrologiciel et les données de configuration essentiels. La procédure de remplacement consiste à retirer le module contrôleur, à retirer le support de démarrage défectueux, à installer le nouveau support de démarrage dans le module contrôleur, puis à réinstaller le module contrôleur. 
+---
+= Remplacez le support de démarrage pour la récupération de démarrage automatisée - ASA A250
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le support de démarrage de votre ASA A250 stocke le micrologiciel et les données de configuration essentiels. Le processus de remplacement consiste à retirer et ouvrir le module contrôleur, à retirer le support de démarrage défectueux, à installer le nouveau support de démarrage dans le module contrôleur, puis à réinstaller le module contrôleur.
+
+Le processus de récupération automatique du support de démarrage est pris en charge uniquement dans ONTAP 9.18.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d'ONTAP, utilisez le link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"].
+
+Le support de démarrage est situé à l'intérieur du module de contrôleur sous le conduit d'air et est accessible en retirant le module de contrôleur du système.
+
+
+
+== Étape 1 : retirer le module de contrôleur
+
+. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
+. Débranchez les blocs d'alimentation du module de contrôleur de la source.
+. Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Débranchez les câbles d'E/S du module de contrôleur.
+. Insérez votre index dans le mécanisme de verrouillage de chaque côté du module de contrôleur, appuyez sur le levier avec votre pouce et tirez doucement le contrôleur à quelques pouces du châssis.
++
+
+NOTE: Si vous avez des difficultés à retirer le module de contrôleur, placez vos doigts à travers les trous des doigts de l'intérieur (en croisant vos bras).
+
++
+image::../media/drw_a250_pcm_remove_install.png[Ouverture du mécanisme de verrouillage]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Levier
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Mécanisme de verrouillage
+
+|===
+. À l'aide des deux mains, saisissez les côtés du module de contrôleur et tirez-le doucement hors du châssis et posez-le sur une surface plane et stable.
+. Tournez la vis moletée située à l'avant du module de contrôleur dans le sens anti-horaire et ouvrez le capot du module de contrôleur.
++
+image::../media/drw_a250_open_controller_module_cover.png[Ouverture du capot du module de contrôleur]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Vis moletée
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Capot du module de contrôleur.
+
+|===
+. Soulever le couvercle du conduit d'air.
++
+image::../media/drw_a250_remove_airduct_cover.png[Soulever le couvercle du conduit d'air]
+
+
+
+
+
+== Étape 2 : remplacer le support de démarrage
+
+Vous pouvez utiliser la vidéo suivante ou les étapes tabulées pour remplacer le support de démarrage :
+
+.Animation : remplacez le support de démarrage
+video::7c2cad51-dd95-4b07-a903-ac5b015c1a6d[panopto]
+. Localisez et remplacez le support de démarrage défectueux du module de commande :
++
+
+NOTE: Vous avez besoin d'un tournevis à tête cruciforme magnétique n° 1 pour retirer la vis qui maintient le support de démarrage en place. En raison des contraintes d'espace dans le module de contrôleur, vous devez également disposer d'un aimant pour transférer la vis à afin de ne pas la perdre.
+
++
+image::../media/drw_a250_replace_boot_media.png[Remplacement du support de démarrage]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Retirez la vis fixant le support d'amorçage à la carte mère du module de contrôleur.
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Soulevez le support de démarrage pour le sortir du module de contrôleur.
+
+|===
++
+.. À l'aide du tournevis magnétique n° 1, retirez la vis du support de coffre pour malvoyants et mettez-la de côté en toute sécurité sur l'aimant.
+.. Soulevez doucement le support de coffre pour malvoyants et mettez-le de côté.
+.. Retirez le support de démarrage de remplacement du sac de transport antistatique et alignez-le en place sur le module de contrôleur.
+.. A l'aide du tournevis magnétique n° 1, insérez et serrez la vis sur le support de démarrage.
++
+Ne serrez pas trop la vis pour éviter d'endommager le support de démarrage.
+
+.. Installez le conduit d'air.
++
+image::../media/drw_a250_install_airduct_cover.png[Installation du conduit d'air]
+
+.. Fermez le capot du module de contrôleur et serrez la vis à molette.
++
+image::../media/drw_a250_close_controller_module_cover.png[Fermeture du capot du module de contrôleur]
+
++
+[cols="1,3"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Capot du module de contrôleur
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Vis moletée
+
+|===
+
+
+. Installez le module de contrôleur :
++
+.. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+.. Poussez entièrement le module de contrôleur dans le châssis :
+.. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
+.. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
+.. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
++
+Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
+
+
+
+. Rebranchez les câbles d'E/S du module de contrôleur.
+. Branchez les cordons d'alimentation aux blocs d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis branchez les blocs d'alimentation à la source d'alimentation.
++
+Le module contrôleur commence à démarrer et s'arrête à l'invite LOADER.
+
+
+
+.Et la suite
+Après le remplacement physique du support de démarrage défectueux, link:bootmedia-recovery-image-boot-bmr.html["Restaurez l'image ONTAP à partir du nœud partenaire"].

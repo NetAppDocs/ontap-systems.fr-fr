@@ -4,14 +4,16 @@ sidebar: sidebar
 keywords: fas500f, move hardware components, replace the chassis 
 summary: 'Déplacez les blocs d"alimentation, les disques durs et le module de contrôleur ou les modules du châssis défaillant vers le nouveau châssis, puis remplacez le châssis douteux par le rack d"équipement ou l"armoire système avec le nouveau châssis du même modèle que le châssis douteux.' 
 ---
-= Déplacement et remplacement matériel - FAS500f
+= Remplacer le châssis - FAS500f
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Déplacez les blocs d'alimentation, les disques durs et le module de contrôleur ou les modules du châssis défaillant vers le nouveau châssis, puis remplacez le châssis douteux par le rack d'équipement ou l'armoire système avec le nouveau châssis du même modèle que le châssis douteux.
+Remplacez le châssis de votre FAS500f lorsque cela est nécessaire en cas de défaillance matérielle. Le processus de remplacement consiste à retirer les contrôleurs et les blocs d'alimentation (PSU), à retirer les disques, à installer le châssis de remplacement, puis à réinstaller les composants du châssis.
+
+Pour remplacer le châssis, déplacez les blocs d'alimentation, les disques durs et le module de contrôleur du châssis défectueux vers le nouveau châssis, puis remplacez le châssis défectueux par le nouveau châssis du même modèle que le châssis défectueux.
 
 
 
@@ -19,7 +21,7 @@ Déplacez les blocs d'alimentation, les disques durs et le module de contrôleur
 
 Pour remplacer le châssis, vous devez retirer les modules de contrôleur de l'ancien châssis.
 
-Vous pouvez utiliser la vidéo suivante ou les étapes tabulées pour remplacer le châssis ; elle suppose le retrait et le remplacement du cadre :
+Utilisez la vidéo suivante ou les étapes tabulées pour remplacer le châssis ; elle suppose le retrait et le remplacement du cadre :
 
 .Animation - remplacer le châssis
 video::1f859217-fede-491a-896e-ac5b015c1a36[panopto]
@@ -35,6 +37,7 @@ NOTE: Si vous avez des difficultés à retirer le module de contrôleur, placez 
 image::../media/drw_a250_pcm_remove_install.png[Ouverture du mécanisme de verrouillage]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -108,7 +111,7 @@ Vous devez retirer le châssis existant du rack ou de l'armoire système de l'é
 
 == Étape 4 : installer les modules de contrôleur
 
-Après avoir installé les modules de contrôleur dans le nouveau châssis, vous devez le démarrer.
+Après avoir installé les modules de contrôleur dans le nouveau châssis, vous devez démarrer le système.
 
 Pour les paires haute disponibilité avec deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez le module de contrôleur est particulièrement important, car il tente de redémarrer dès que vous le placez entièrement dans le châssis.
 
@@ -118,7 +121,6 @@ Pour les paires haute disponibilité avec deux modules de contrôleur dans le m�
 NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 
 . Recâblage de la console sur le module contrôleur, puis reconnexion du port de gestion.
-. Branchez les câbles d'alimentation dans les blocs d'alimentation et réinstallez les dispositifs de retenue des câbles d'alimentation.
 . Insérer le module de contrôleur dans le châssis :
 +
 .. S'assurer que les bras du mécanisme de verrouillage sont verrouillés en position complètement sortie.
@@ -126,13 +128,20 @@ NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tan
 .. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
 .. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
 .. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
-+
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
-
 
 
 +
 Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
 
++
+.. Branchez les cordons d'alimentation aux blocs d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis branchez les blocs d'alimentation à la source d'alimentation.
++
+Le module de contrôleur commence à démarrer dès que l'alimentation est rétablie. Soyez prêt à interrompre le processus de démarrage.
+
+
+
 . Répétez la procédure précédente pour installer le second contrôleur dans le nouveau châssis.
 
+
+.Et la suite ?
+Après avoir remplacé le châssis FAS500f défectueux et réinstallé les composants, vous devez link:chassis-replace-complete-system-restore-rma.html["terminez le remplacement du châssis"]

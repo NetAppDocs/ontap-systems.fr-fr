@@ -2,7 +2,7 @@
 permalink: a250/maintain-overview.html 
 sidebar: sidebar 
 keywords: aff A250 maintenance, maintenance, repairing A250, repairing aff A250, replace aff A250 components, replace aff A250 components 
-summary: Maintenance du matériel ASA A250 
+summary: Maintenance du matériel AFF A250 
 ---
 = Maintenance du matériel AFF A250
 :allow-uri-read: 
@@ -11,64 +11,93 @@ summary: Maintenance du matériel ASA A250
 
 
 [role="lead"]
+Assurez la maintenance du matériel de votre AFF A250 pour garantir une fiabilité à long terme et des performances optimales. Effectuez des tâches de maintenance régulières, comme le remplacement des composants défectueux, afin de prévenir l'interruption et la perte de données.
+
+Les procédures de maintenance supposent que le système de stockage AFF A250 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP.
+
+
+
+== Composants du système
+
 Pour le système de stockage AFF A250, vous pouvez effectuer les procédures de maintenance sur les composants suivants.
 
+[cols="25,65"]
+|===
 
 
-== Support de démarrage
+ a| 
+link:bootmedia-replace-workflow-bmr.html["Support de démarrage - récupération automatique"]
+ a| 
+Le support de démarrage stocke un ensemble principal et un ensemble secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer. Lors d'une récupération automatisée, le système récupère l'image de démarrage depuis le nœud partenaire et exécute automatiquement l'option appropriée du menu de démarrage pour installer l'image sur votre support de démarrage de remplacement. Le processus automatisé de récupération du support de démarrage est pris en charge uniquement dans ONTAP 9.18.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d'ONTAP, utilisez le link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"].
 
-Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
+
+
+ a| 
+link:bootmedia-replace-workflow.html["Support de démarrage - récupération manuelle"]
+ a| 
+Le support de démarrage contient un ensemble principal et un ensemble secondaire de fichiers image ONTAP que le système de stockage utilise pour démarrer. Lors d'une récupération manuelle, vous démarrez le système de stockage à partir d'une clé USB et restaurez manuellement l'image du système de fichiers et la configuration. Si votre système de stockage exécute ONTAP 9.18.1 ou une version ultérieure, utilisez le link:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"].
 
 
 
-== Châssis
-
+ a| 
+link:chassis-replace-workflow.html["Châssis"]
+ a| 
 Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
 
 
 
-== Contrôleur
-
+ a| 
+link:controller-replace-workflow.html["Contrôleur"]
+ a| 
 Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
 
 
 
-== DIMM
-
+ a| 
+link:dimm-replace.html["DIMM"]
+ a| 
 Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
 
 
 
-== Lecteur
-
+ a| 
+link:drive-replace.html["Lecteur"]
+ a| 
 Un lecteur est un périphérique qui fournit le support de stockage physique pour les données.
 
 
 
-== Ventilateur
-
+ a| 
+link:fan-replace.html["Ventilateur"]
+ a| 
 Le ventilateur refroidit le contrôleur.
 
 
 
-== Carte mezzanine
-
-Une carte mezzanine est une carte de circuit imprimé qui se branche directement sur une autre carte enfichable.
-
-
-
-== Batterie NVEM
-
-Une batterie est fournie avec le contrôleur et conserve les données en cache en cas de panne de courant alternatif.
+ a| 
+link:mezzanine-replace.html["Carte mezzanine"]
+ a| 
+La carte mezzanine est un circuit imprimé qui se branche directement sur une autre carte enfichable.
 
 
 
-== Alimentation électrique
+ a| 
+link:nvmem-nvram-battery-replace.html["Batterie NVMEM"]
+ a| 
+La batterie NVMEM est chargée de préserver les données mises en cache si l'alimentation secteur tombe en panne.
 
+
+
+ a| 
+link:power-supply-replace.html["Alimentation électrique"]
+ a| 
 Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
 
 
 
-== Pile de l'horloge en temps réel
-
+ a| 
+link:rtc-battery-replace.html["Pile de l'horloge en temps réel"]
+ a| 
 Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.
+
+|===

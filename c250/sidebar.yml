@@ -16,13 +16,30 @@ entries:
 - title: Maintenance
   pdf-filename: AFF C250 entretien
   entries:
-  - title: Présentation
+  - title: Présentation de la maintenance
     url: "/c250/maintain-overview.html"
-  - title: Support de démarrage
-    pdf-filename: Support de démarrage AFF C250
+  - title: Support de démarrage - récupération automatique
+    pdf-filename: AFF C250 Support de démarrage automatisé
     entries:
-    - title: Présentation
-      url: "/c250/bootmedia-replace-overview.html"
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/c250/bootmedia-replace-workflow-bmr.html"
+    - title: Examen des conditions requises
+      url: "/c250/bootmedia-replace-requirements-bmr.html"
+    - title: Arrêter le contrôleur
+      url: "/c250/bootmedia-shutdown-bmr.html"
+    - title: Remplacez le support de démarrage
+      url: "/c250/bootmedia-replace-bmr.html"
+    - title: Restaurer l'image sur le support de démarrage
+      url: "/c250/bootmedia-recovery-image-boot-bmr.html"
+    - title: Renvoyer la pièce défectueuse à NetApp
+      url: "/c250/bootmedia-complete-rma-bmr.html"
+  - title: Support de démarrage - récupération manuelle
+    pdf-filename: AFF C250 Boot Media manuel
+    entries:
+    - title: Procédure de remplacement des supports de démarrage
+      url: "/c250/bootmedia-replace-workflow.html"
+    - title: Examen des conditions requises
+      url: "/c250/bootmedia-replace-requirements.html"
     - title: Vérifiez les clés de cryptage
       url: "/c250/bootmedia-encryption-preshutdown-checks.html"
     - title: Arrêtez le contrôleur douteux
@@ -38,28 +55,34 @@ entries:
   - title: Châssis
     pdf-filename: Châssis AFF C250
     entries:
-    - title: Présentation
-      url: "/c250/chassis-replace-overview.html"
-    - title: Arrêtez le contrôleur douteux
+    - title: Workflow de remplacement du châssis
+      url: "/c250/chassis-replace-workflow.html"
+    - title: Examen des conditions requises
+      url: "/c250/chassis-replace-requirements.html"
+    - title: Préparez-vous à le remplacer
+      url: "/c250/chassis-replace-prepare.html"
+    - title: Arrêtez les contrôleurs
       url: "/c250/chassis-replace-shutdown.html"
-    - title: Remplacer le matériel de fixation
+    - title: Remplacez le châssis
       url: "/c250/chassis-replace-move-hardware.html"
-    - title: Remplacement complet
+    - title: Remplacement complet du châssis
       url: "/c250/chassis-replace-complete-system-restore-rma.html"
   - title: Contrôleur
     pdf-filename: Module de contrôleur AFF C250
     entries:
-    - title: Présentation
-      url: "/c250/controller-replace-overview.html"
+    - title: Workflow de remplacement du contrôleur
+      url: "/c250/controller-replace-workflow.html"
+    - title: Examen des conditions requises
+      url: "/c250/controller-replace-requirements.html"
     - title: Arrêtez le contrôleur douteux
       url: "/c250/controller-replace-shutdown.html"
-    - title: Remplacer le module de contrôleur
+    - title: Remplacer le contrôleur
       url: "/c250/controller-replace-move-hardware.html"
     - title: Restaurez la configuration du système
       url: "/c250/controller-replace-system-config-restore-and-verify.html"
     - title: Système de récupération
       url: "/c250/controller-replace-recable-reassign-disks.html"
-    - title: Restauration complète du système
+    - title: Remplacement complet du contrôleur
       url: "/c250/controller-replace-restore-system-rma.html"
   - title: DIMM
     url: "/c250/dimm-replace.html"

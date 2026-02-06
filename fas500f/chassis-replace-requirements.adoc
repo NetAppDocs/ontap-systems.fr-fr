@@ -1,0 +1,29 @@
+---
+permalink: fas500f/chassis-replace-requirements.html 
+sidebar: sidebar 
+keywords: fas500f, replace the chassis 
+summary: 'Avant de remplacer le châssis de votre FAS500f, assurez-vous de respecter les conditions requises pour un remplacement réussi. Cela inclut la vérification du bon fonctionnement de tous les autres composants du système, la confirmation que vous disposez des identifiants d"administrateur local pour ONTAP, du châssis de remplacement adéquat et des outils nécessaires.' 
+---
+= Exigences pour remplacer le châssis - FAS500f
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de remplacer le châssis de votre FAS500f, assurez-vous de respecter les conditions requises pour un remplacement réussi. Cela inclut la vérification du bon fonctionnement de tous les autres composants du système, la confirmation que vous disposez des identifiants d'administrateur local pour ONTAP, du châssis de remplacement adéquat et des outils nécessaires.
+
+Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
+
+Passez en revue les exigences suivantes.
+
+* Assurez-vous que tous les autres composants du système fonctionnent correctement ; si ce n'est pas le cas, contactez http://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
+* Obtenez les informations d'identification de l'administrateur local pour ONTAP si vous ne les avez pas.
+* Assurez-vous de disposer des outils et de l'équipement nécessaires pour le remplacement.
+* Vous pouvez utiliser la procédure de remplacement du châssis avec toutes les versions de ONTAP prises en charge par votre système.
+* La procédure de remplacement du châssis suppose que vous déplacez le panneau, les disques NVMe et les modules de contrôleur vers le nouveau châssis, et que le châssis de remplacement est un nouveau composant de NetApp.
+* La procédure de remplacement du châssis est disruptive. Dans le cas d'un cluster à deux nœuds, la panne totale du service et une panne partielle dans un cluster multinœud sont associés.
+
+
+.Et la suite ?
+Après avoir examiné les exigences,link:chassis-replace-prepare.html["préparez le remplacement du châssis"] .

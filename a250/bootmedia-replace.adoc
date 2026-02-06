@@ -4,13 +4,17 @@ sidebar: sidebar
 keywords: aff a250, replace the boot media 
 summary: 'Vous recherchez le support de démarrage défectueux dans le module de contrôleur en retirant le conduit d"air du module de contrôleur avant de pouvoir remplacer le support de démarrage.' 
 ---
-= Remplacez le support de démarrage - AFF A250
+= Remplacez le support de démarrage et préparez-vous à une récupération manuelle du démarrage - AFF A250
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Le support de démarrage de votre AFF A250 stocke le micrologiciel et les données de configuration essentiels. La procédure de remplacement consiste à retirer le module de gestion du système, à retirer le support de démarrage défectueux, à installer le nouveau support de démarrage, puis à transférer manuellement l'image ONTAP sur le support de remplacement à l'aide d'une clé USB.
+
+Si votre système de stockage exécute ONTAP 9.18.1 ou une version ultérieure, utilisez link:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"]. Si votre système exécute une version antérieure d'ONTAP, vous devez utiliser la procédure de récupération par démarrage manuel.
+
 Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
 
 
@@ -217,3 +221,6 @@ Le système commence à démarrer et s'arrête à l'invite DU CHARGEUR.
 
 
 
+
+.Et la suite ?
+Après avoir remplacé le support de démarrage, vous devez link:bootmedia-recovery-image-boot.html["démarrez l'image de récupération"].

@@ -11,6 +11,8 @@ summary: Vous devez recomm le stockage et confirmer la réaffectation des disque
 
 
 [role="lead"]
+Après avoir terminé la restauration et vérifié la configuration du système AFF A250, vous devez recâbler le système et réaffecter les disques.
+
 Poursuivre la procédure de remplacement en mettant le stockage en mémoire et en confirmant la réaffectation du disque.
 
 
@@ -144,3 +146,6 @@ dr-group-id            cluster node           configuration-state
 . Vérifier que les volumes attendus sont présents pour chaque contrôleur : `vol show -node node-name`
 . Si vous avez désactivé le basculement automatique au redémarrage, activez-le à partir du contrôleur sain : `storage failover modify -node replacement-node-name -onreboot true`
 
+
+.Et la suite ?
+Après avoir recâblé le système et réattribué les disques, vous devez link:controller-replace-restore-system-rma.html["terminez le remplacement du contrôleur"].

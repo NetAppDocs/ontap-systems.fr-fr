@@ -4,13 +4,15 @@ sidebar: sidebar
 keywords: fas500f, move the hardware components 
 summary: Pour remplacer le matériel du module de contrôleur, vous devez retirer le module de contrôleur défaillant, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode maintenance. 
 ---
-= Remplacez le matériel du module de contrôleur - FAS500f
+= Remplacez le contrôleur - FAS500f
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Remplacez le contrôleur de votre système FAS500f lorsqu'une défaillance matérielle l'exige. La procédure de remplacement consiste à retirer le contrôleur défectueux, à transférer les composants vers le contrôleur de remplacement, à installer le contrôleur de remplacement et à le redémarrer.
+
 Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance.
 
 
@@ -21,7 +23,7 @@ Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez u
 
 Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
 
-Vous pouvez utiliser la vidéo suivante ou les étapes tabulées pour remplacer un module de contrôleur :
+Utilisez la vidéo suivante ou les étapes tabulées pour remplacer un module de contrôleur :
 
 .Animation - remplacer un module de contrôleur
 video::ab0ebe6b-e891-489c-aab4-ac5b015c8f01[panopto]
@@ -37,6 +39,7 @@ NOTE: Si vous avez des difficultés à retirer le module de contrôleur, placez 
 image::../media/drw_a250_pcm_remove_install.png[Ouverture du mécanisme de verrouillage]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -57,6 +60,7 @@ Mécanisme de verrouillage
 image::../media/drw_a250_open_controller_module_cover.png[Ouverture du capot du module de contrôleur]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -92,9 +96,13 @@ Lorsque vous remplacez un module de contrôleur, vous devez déplacer le bloc d'
 CAUTION: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
 
 +
+L'alimentation est en court-circuit. Utilisez toujours deux mains pour le soutenir lors du retrait du module de contrôleur afin qu'il ne bascule pas brusquement et ne vous blesse pas.
+
++
 image::../media/drw_a250_replace_psu.png[Retrait du bloc d'alimentation]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -116,7 +124,7 @@ Les blocs d'alimentation ne s'enclenteront correctement qu'avec le connecteur in
 
 +
 
-IMPORTANT: Pour éviter d'endommager le connecteur interne, ne pas exercer de force excessive lors du glissement du bloc d'alimentation dans le système.
+CAUTION: Pour éviter d'endommager le connecteur interne, ne pas exercer de force excessive lors du glissement du bloc d'alimentation dans le système.
 
 
 
@@ -131,6 +139,7 @@ Vous devez déplacer les ventilateurs du module de contrôleur défectueux vers 
 image::../media/drw_a250_replace_fan.png[Retrait du module de ventilation]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -146,15 +155,19 @@ image:../media/icon_round_1.png["Légende numéro 1"]
 
 == Étape 4 : déplacer le support de démarrage
 
-Le AFF A250 se trouve sous le conduit d'air dans le module de contrôleur. Vous devez le déplacer du module de contrôleur défaillant vers le module de contrôleur de remplacement.
+Vous devez déplacer le périphérique de démarrage du module de contrôleur défectueux vers le module de contrôleur de remplacement.
 
 Vous avez besoin d'un tournevis à tête cruciforme magnétique n° 1 pour retirer la vis qui maintient le support de démarrage en place. En raison des contraintes d'espace dans le module de contrôleur, vous devez également disposer d'un aimant pour transférer la vis à afin de ne pas la perdre.
 
 . Localisez et déplacez le support de démarrage du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
 +
+Le support de démarrage se trouve sous le cache du conduit d'air que vous avez retiré précédemment dans cette procédure.
+
++
 image::../media/drw_a250_replace_boot_media.png[Remplacement du support de démarrage]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -169,15 +182,12 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Soulevez le support de démarrage pour le retirer du module de contrôleur défaillant.
 
 |===
-+
-.. A l'aide du tournevis magnétique n° 1, retirez la vis du support de coffre et mettez-la de côté en toute sécurité sur l'aimant.
-.. Soulevez doucement le support de démarrage directement hors du support et alignez-le en place dans le module de contrôleur de remplacement.
-.. A l'aide du tournevis magnétique n° 1, insérez et serrez la vis sur le support de démarrage.
+. A l'aide du tournevis magnétique n° 1, retirez la vis du support de coffre et mettez-la de côté en toute sécurité sur l'aimant.
+. Soulevez doucement le support de démarrage directement hors du support et alignez-le en place dans le module de contrôleur de remplacement.
+. A l'aide du tournevis magnétique n° 1, insérez et serrez la vis sur le support de démarrage.
 +
 
 NOTE: Ne pas exercer de force lors du serrage de la vis sur le support de soufflet ; vous pouvez le fissurer.
-
-
 
 
 
@@ -190,12 +200,12 @@ Pour déplacer les modules DIMM, localisez-les et déplacez-les du contrôleur d
 image::../media/drw_a250_dimm_replace.png[Remplacement des modules DIMM]
 
 
-IMPORTANT: Installez chaque module DIMM dans le même emplacement qu'il a occupé dans le module de contrôleur défaillant.
+NOTE: Installez chaque module DIMM dans le même emplacement qu'il a occupé dans le module de contrôleur défaillant.
 
 . Poussez lentement les languettes de l'éjecteur de module DIMM de chaque côté du module DIMM, puis faites glisser le module DIMM hors de son logement.
 +
 
-IMPORTANT: Tenez le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
+NOTE: Tenez le module DIMM par les bords pour éviter toute pression sur les composants de la carte de circuit DIMM.
 
 . Localisez le slot DIMM correspondant sur le module de contrôleur de remplacement.
 . Assurez-vous que les languettes de l'éjecteur de DIMM sur le support DIMM sont en position ouverte, puis insérez le module DIMM directement dans le support.
@@ -217,6 +227,7 @@ Pour déplacer une carte mezzanine, vous devez retirer le câblage et les module
 image::../media/drw_a250_replace_mezz_card.png[Retrait de la carte mezzanine]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -269,6 +280,7 @@ Lors du remplacement du module de contrôleur, vous devez déplacer la batterie 
 image::../media/drw_a250_replace_nvmem_batt.png[Retrait de la batterie NVMEM]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -311,7 +323,7 @@ Soulevez la batterie pour la sortir du support et du module de contrôleur.
 
 Après avoir déplacé tous les composants du module de contrôleur défaillant vers le module de contrôleur de remplacement, vous devez installer le module de contrôleur de remplacement dans le châssis, puis le démarrer en mode maintenance.
 
-Vous pouvez utiliser l'illustration suivante ou les étapes écrites pour installer le module de contrôleur de remplacement dans le châssis.
+Vous pouvez utiliser les illustrations suivantes ou les étapes écrites pour installer le module de contrôleur de remplacement dans le châssis.
 
 . Si ce n'est déjà fait, installez le conduit d'air.
 +
@@ -322,6 +334,7 @@ image::../media/drw_a250_install_airduct_cover.png[Installation du conduit d'air
 image::../media/drw_a250_close_controller_module_cover.png[Fermeture du capot du module de contrôleur]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -346,16 +359,23 @@ NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tan
 
 NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
 
-. Insérer le module de contrôleur dans le châssis.
-. S'assurer que les bras du mécanisme de verrouillage sont verrouillés en position complètement sortie.
-. À l'aide des deux mains, alignez et faites glisser doucement le module de commande dans les bras du mécanisme de verrouillage jusqu'à ce qu'il s'arrête.
-. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
-. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
-. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
+. Insérer le module de contrôleur dans le châssis :
 +
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
-
+.. S'assurer que les bras du mécanisme de verrouillage sont verrouillés en position complètement sortie.
+.. À l'aide des deux mains, alignez et faites glisser doucement le module de commande dans les bras du mécanisme de verrouillage jusqu'à ce qu'il s'arrête.
+.. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
+.. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
+.. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
 +
 Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
 
+.. Branchez les cordons d'alimentation aux blocs d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis branchez les blocs d'alimentation à la source d'alimentation.
++
+Le module de contrôleur commence à démarrer dès que l'alimentation est rétablie. Soyez prêt à interrompre le processus de démarrage.
 
+
+
+
+
+.Et la suite ?
+Après avoir remplacé le contrôleur FAS500f défectueux, vous devez link:controller-replace-system-config-restore-and-verify.html["restaurer et vérifier la configuration du système"].

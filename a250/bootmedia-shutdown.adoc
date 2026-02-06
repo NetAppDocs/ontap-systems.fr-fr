@@ -1,20 +1,24 @@
 ---
 permalink: a250/bootmedia-shutdown.html 
 sidebar: sidebar 
-keywords: aff a250, shutdown 
+keywords: aff a250, shut down the controller 
 summary: Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement. 
 ---
-= Arrêter le contrôleur - AFF A250
+= Arrêter le contrôleur pour la récupération manuelle du support de démarrage - AFF A250
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
+[role="lead"]
+Éteignez le contrôleur défectueux de votre AFF A250 pour éviter la perte de données et maintenir la stabilité du système pendant le processus automatisé de récupération du support de démarrage.
+
+Si votre système de stockage exécute ONTAP 9.18.1 ou une version ultérieure, utilisez link:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"]. Si votre système exécute une version antérieure d'ONTAP, vous devez utiliser la procédure de récupération par démarrage manuel.
+
 
 
 == Option 1 : la plupart des systèmes
 
-[role="lead"]
 Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
 
 .Étapes
@@ -56,9 +60,7 @@ NOTE: Cette commande peut ne pas fonctionner si le périphérique d'amorçage es
 
 
 
-== Option 2 : systèmes dans un MetroCluster
-
-Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
+== Option 2 : le système est dans un MetroCluster
 
 
 NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
@@ -105,3 +107,6 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 |===
 
+
+.Et la suite ?
+Après l'arrêt du contrôleur, vous devez link:bootmedia-replace.html["remplacez le support de démarrage"].

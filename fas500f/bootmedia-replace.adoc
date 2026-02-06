@@ -4,26 +4,30 @@ sidebar: sidebar
 keywords: fas500f, replace the boot media 
 summary: 'Vous recherchez le support de démarrage défectueux dans le module de contrôleur en retirant le conduit d"air du module de contrôleur avant de pouvoir remplacer le support de démarrage.' 
 ---
-= Remplacez le support de démarrage - FAS500f
+= Remplacez le support de démarrage et préparez-vous à une récupération manuelle du menu de démarrage - FAS500f
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Le support de démarrage de votre système FAS500f stocke le micrologiciel et les données de configuration essentiels. Le processus de remplacement consiste à retirer le module de gestion du système, à retirer le support de démarrage défectueux, à installer le support de démarrage de remplacement, puis à transférer manuellement l'image ONTAP sur le support de démarrage de remplacement à l'aide d'une clé USB.
+
+Si votre système de stockage exécute ONTAP 9.18.1 ou une version ultérieure, utilisez link:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"]. Si votre système exécute une version antérieure d'ONTAP, vous devez utiliser la procédure de récupération par démarrage manuel.
+
 Pour remplacer le support de démarrage, vous devez retirer le module de contrôleur endommagé, installer le support de démarrage de remplacement et transférer l'image de démarrage sur une clé USB.
 
 
 
 == Étape 1 : retirer le module de contrôleur
 
-Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez un composant dans le module de contrôleur.
+Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
 
-Assurez-vous d'étiqueter les câbles de manière à connaître leur origine.
-
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Débranchez les blocs d'alimentation du module de contrôleur de la source.
 . Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
+. Débranchez les câbles d'E/S du module de contrôleur.
 . Insérez votre index dans le mécanisme de verrouillage de chaque côté du module de contrôleur, appuyez sur le levier avec votre pouce et tirez doucement le contrôleur à quelques pouces du châssis.
 +
 
@@ -33,6 +37,7 @@ NOTE: Si vous avez des difficultés à retirer le module de contrôleur, placez 
 image::../media/drw_a250_pcm_remove_install.png[Ouverture du mécanisme de verrouillage]
 
 +
+[cols="1,4"]
 |===
 
 
@@ -55,6 +60,7 @@ Mécanisme de verrouillage
 image::../media/drw_a250_open_controller_module_cover.png[Ouverture du capot du module de contrôleur]
 
 +
+[cols="1,4"]
 |===
 
 
@@ -83,7 +89,7 @@ image::../media/drw_a250_remove_airduct_cover.png[Soulever le couvercle du condu
 
 Vous recherchez le support de démarrage défectueux dans le module de contrôleur en retirant le conduit d'air du module de contrôleur avant de pouvoir remplacer le support de démarrage.
 
-Vous avez besoin d'un tournevis à tête cruciforme magnétique n° 1 pour retirer la vis qui maintient le support de démarrage en place. En raison des contraintes d'espace dans le module de contrôleur, vous devez également disposer d'un aimant pour transférer la vis à afin de ne pas la desserrer.
+Vous avez besoin d'un tournevis à tête cruciforme magnétique n° 1 pour retirer la vis qui maintient le support de démarrage en place. En raison des contraintes d'espace dans le module de contrôleur, vous devez également disposer d'un aimant pour transférer la vis à afin de ne pas la perdre.
 
 Vous pouvez utiliser la vidéo suivante ou les étapes tabulées pour remplacer le support de démarrage :
 
@@ -94,6 +100,7 @@ video::7c2cad51-dd95-4b07-a903-ac5b015c1a6d[panopto]
 image::../media/drw_a250_replace_boot_media.png[Remplacement du support de démarrage]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -110,16 +117,13 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Soulevez le support de démarrage pour le sortir du module de contrôleur.
 
 |===
-+
-.. À l'aide du tournevis magnétique n° 1, retirez la vis du support de coffre pour malvoyants et mettez-la de côté en toute sécurité sur l'aimant.
-.. Soulevez doucement le support de coffre pour malvoyants et mettez-le de côté.
-.. Retirez le support de démarrage de remplacement du sac de transport antistatique et alignez-le en place sur le module de contrôleur.
-.. A l'aide du tournevis magnétique n° 1, insérez et serrez la vis sur le support de démarrage.
+. À l'aide du tournevis magnétique n° 1, retirez la vis du support de coffre pour malvoyants et mettez-la de côté en toute sécurité sur l'aimant.
+. Soulevez doucement le support de coffre pour malvoyants et mettez-le de côté.
+. Retirez le support de démarrage de remplacement du sac de transport antistatique et alignez-le en place sur le module de contrôleur.
+. A l'aide du tournevis magnétique n° 1, insérez et serrez la vis sur le support de démarrage.
 +
 
 NOTE: Ne pas exercer de force lors du serrage de la vis sur le support de soufflet ; vous pouvez le fissurer.
-
-
 
 
 
@@ -130,7 +134,7 @@ NOTE: Ne pas exercer de force lors du serrage de la vis sur le support de souffl
 Le support de démarrage de remplacement que vous avez installé est sans image de démarrage, donc vous devez transférer une image de démarrage à l'aide d'une clé USB.
 
 * Vous devez disposer d'une clé USB, formatée en MBR/FAT32, avec au moins 4 Go de capacité
-* Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section *Downloads* du site de support NetApp
+* Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section Downloads du site de support NetApp
 +
 ** Si NVE est activé, téléchargez l'image avec NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
 ** Si NVE n'est pas activé, téléchargez l'image sans NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
@@ -138,38 +142,41 @@ Le support de démarrage de remplacement que vous avez installé est sans image 
 
 * Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau.
 * Si votre système est un système autonome, vous n'avez pas besoin d'une connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
-
-
-.Étapes
-. Téléchargez et copiez l'image de service appropriée depuis le site de support NetApp vers le lecteur Flash USB.
-. Téléchargez l'image du service sur votre espace de travail sur votre ordinateur portable.
-. Décompressez l'image du service.
++
+.. Téléchargez et copiez l'image de service appropriée depuis le site de support NetApp vers le lecteur Flash USB.
+.. Téléchargez l'image du service sur votre espace de travail sur votre ordinateur portable.
+.. Décompressez l'image du service.
 +
 
-NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas WinZip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
+NOTE: Si vous extrayez le contenu à l'aide de Windows, n'utilisez pas winzip pour extraire l'image netboot. Utilisez un autre outil d'extraction, tel que 7-Zip ou WinRAR.
 
 +
 Le fichier image du service décompressé contient deux dossiers :
 
 +
-** `boot`
-** `efi`
+*** démarrage
+*** efi
 
 
-. Copiez le `efi` Dossier dans le répertoire supérieur de la clé USB.
+.. Copiez le dossier efi dans le répertoire supérieur du lecteur flash USB.
++
+
+NOTE: Si l'image de service ne contient pas de dossier efi, reportez-vous à link:https://kb.netapp.com/onprem/ontap/hardware/EFI_folder_missing_from_Service_Image_download_file_used_for_boot_device_recovery_for_FAS_and_AFF_models["Dossier EFI manquant dans le fichier de téléchargement d'image de service utilisé pour la récupération du périphérique d'amorçage pour les modèles FAS et AFF^"]la section .
+
 +
 Le lecteur flash USB doit avoir le dossier efi et la même version BIOS (Service image) de ce que le contrôleur douteux est en cours d'exécution.
 
-. Retirez la clé USB de votre ordinateur portable.
-. Si ce n'est déjà fait, installez le conduit d'air.
+.. Retirez la clé USB de votre ordinateur portable.
+.. Si ce n'est déjà fait, installez le conduit d'air.
 +
 image::../media/drw_a250_install_airduct_cover.png[Installation du conduit d'air]
 
-. Fermez le capot du module de contrôleur et serrez la vis à molette.
+.. Fermez le capot du module de contrôleur et serrez la vis à molette.
 +
 image::../media/drw_a250_close_controller_module_cover.png[Fermeture du capot du module de contrôleur]
 
 +
+[cols="1,3"]
 |===
 
 
@@ -186,20 +193,34 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Vis moletée
 
 |===
-. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
-. Branchez le câble d'alimentation dans le bloc d'alimentation et réinstallez le dispositif de retenue du câble d'alimentation.
-. Insérez la clé USB dans le logement USB du module de contrôleur.
+.. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
+.. Insérez la clé USB dans le logement USB du module de contrôleur.
 +
 Assurez-vous d'installer le lecteur flash USB dans le logement étiqueté pour périphériques USB et non dans le port de console USB.
 
-. Poussez entièrement le module de contrôleur dans le châssis :
-. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
-. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
-. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
-+
-Le module de contrôleur commence à démarrer dès qu'il est complètement inséré dans le châssis. Soyez prêt à interrompre le processus de démarrage.
-
+.. Poussez entièrement le module de contrôleur dans le châssis :
+.. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
+.. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
+.. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
 +
 Le module de contrôleur doit être complètement inséré et aligné avec les bords du châssis.
 
+.. Rebranchez les câbles d'E/S du module de contrôleur.
+.. Branchez les cordons d'alimentation aux blocs d'alimentation, réinstallez le collier de verrouillage du câble d'alimentation, puis branchez les blocs d'alimentation à la source d'alimentation.
++
+Le module de contrôleur commence à démarrer dès que l'alimentation est rétablie. Soyez prêt à interrompre le processus de démarrage.
 
+.. Interrompez le processus de démarrage pour qu'il s'arrête à l'invite DU CHARGEUR en appuyant sur Ctrl-C lorsque vous voyez démarrer L'AUTOBOOT, appuyez sur Ctrl-C pour annuler
++
+Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour démarrer en mode maintenance, puis arrêtez le contrôleur pour démarrer LE CHARGEUR.
+
+.. Pour les systèmes équipés d'un contrôleur dans le châssis, reconnectez les blocs d'alimentation et mettez les blocs d'alimentation sous tension.
++
+Le système commence à démarrer et s'arrête à l'invite DU CHARGEUR.
+
+
+
+
+
+.Et la suite ?
+Après avoir remplacé le support de démarrage, vous devez link:bootmedia-recovery-image-boot.html["démarrez l'image de récupération"].

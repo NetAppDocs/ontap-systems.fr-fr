@@ -11,6 +11,8 @@ summary: Après avoir effectué le remplacement du matériel et démarrer en mod
 
 
 [role="lead"]
+Après avoir terminé le remplacement du matériel et démarré votre système ASA C250 en mode Maintenance, vous devez vérifier la configuration système de bas niveau du contrôleur de remplacement et reconfigurer les paramètres système si nécessaire.
+
 Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
 
 
@@ -68,3 +70,6 @@ La valeur de HA-State peut être l'une des suivantes :
 . Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le `HA` état pour le module de contrôleur : `ha-config modify controller ha-state`
 . Vérifiez que le paramètre a changé : `ha-config show`
 
+
+.Et la suite ?
+Après avoir restauré et vérifié la configuration du système, vous devez link:controller-replace-recable-reassign-disks.html["recâbler le système et réaffecter les disques"].

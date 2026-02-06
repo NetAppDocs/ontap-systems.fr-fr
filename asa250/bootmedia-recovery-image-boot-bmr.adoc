@@ -1,0 +1,304 @@
+---
+permalink: asa250/bootmedia-recovery-image-boot-bmr.html 
+sidebar: sidebar 
+keywords: asa a250, boot the recovery image 
+summary: Après avoir installé le nouveau périphérique de démarrage dans votre système ASA A250, vous pouvez lancer le processus de récupération automatisée du support de démarrage pour restaurer la configuration à partir du nœud partenaire. 
+---
+= Récupération automatisée du support de démarrage à partir du nœud partenaire - ASA A250
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir installé le nouveau support de démarrage dans votre système ASA A250, vous pouvez lancer la procédure de récupération automatique du support de démarrage afin de restaurer la configuration à partir du nœud partenaire. Pendant la procédure de récupération, le système vérifie si le chiffrement est activé et détermine le type de chiffrement de clé utilisé. Si le chiffrement de clé est activé, le système vous guide à travers les étapes appropriées pour le restaurer.
+
+Le processus de récupération automatique du support de démarrage est pris en charge uniquement dans ONTAP 9.18.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d'ONTAP, utilisez le link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"].
+
+.Avant de commencer
+* Déterminez le type de votre gestionnaire de clés :
++
+** Gestionnaire de clés intégré (OKM) : nécessite une phrase secrète à l’échelle du cluster et des données de sauvegarde
+** Gestionnaire de clés externes (EKM) : nécessite les fichiers suivants provenant du nœud partenaire :
++
+*** `/cfcard/kmip/servers.cfg`
+*** `/cfcard/kmip/certs/client.crt`
+*** `/cfcard/kmip/certs/client.key`
+*** `/cfcard/kmip/certs/CA.pem`
+
+
+
+
+
+
+.Étapes
+. À partir de l'invite LOADER, lancez le processus de récupération du support de démarrage :
++
+`boot_recovery -partner`
+
++
+L'écran affiche le message suivant :
+
++
+`Starting boot media recovery (BMR) process. Press Ctrl-C to abort…`
+
+. Surveillez le processus de récupération de l'installation du support de démarrage.
++
+Le processus se termine et affiche le `Installation complete` message.
+
+. Le système vérifie le chiffrement et affiche l'un des messages suivants :
++
+[cols="1,2"]
+|===
+| Si ce message s'affiche... | Procédez comme ça... 
+
+
+ a| 
+`key manager is not configured. Exiting.`
+ a| 
+Le chiffrement n'est pas installé sur le système.
+
+.. Attendez que l'invite de connexion s'affiche.
+.. Connectez-vous au nœud et restituez le stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+.. Allez à <<reenable-auto-giveback,réactivation du don automatique>> s'il était désactivé.
+
+
+
+
+ a| 
+`key manager is configured.`
+ a| 
+Le chiffrement est installé. Aller à<<restore-key-manager,restauration du gestionnaire de clés>> .
+
+|===
++
+
+NOTE: Si le système ne parvient pas à identifier la configuration du gestionnaire de clés, il affiche un message d'erreur et vous invite à confirmer si le gestionnaire de clés est configuré et de quel type (intégré ou externe).  Répondez aux questions pour continuer.
+
+. [[restore-key-manager]] Restaurez le gestionnaire de clés en utilisant la procédure appropriée pour votre configuration :
++
+[role="tabbed-block"]
+====
+.Gestionnaire de clés intégré Onboard Key Manager (OKM)
+--
+Le système affiche le message suivant et lance l'option 10 du menu de démarrage :
+
+....
+key manager is configured.
+Entering Bootmenu Option 10...
+
+This option must be used only in disaster recovery procedures. Are you sure? (y or n):
+....
+.. Entrer `y` à l'invite de confirmation que vous souhaitez démarrer le processus de récupération OKM.
+.. Saisissez la phrase secrète pour la gestion des clés embarquées lorsque vous y êtes invité.
+.. Saisissez à nouveau la phrase secrète lorsque le système vous y invite pour confirmation.
+.. Saisissez les données de sauvegarde pour le gestionnaire de clés intégré lorsque vous y êtes invité.
++
+.Afficher un exemple de phrase secrète et d'invite de données de sauvegarde
+[%collapsible]
+=====
+....
+Enter the passphrase for onboard key management:
+-----BEGIN PASSPHRASE-----
+<passphrase_value>
+-----END PASSPHRASE-----
+Enter the passphrase again to confirm:
+-----BEGIN PASSPHRASE-----
+<passphrase_value>
+-----END PASSPHRASE-----
+Enter the backup data:
+-----BEGIN BACKUP-----
+<passphrase_value>
+-----END BACKUP-----
+....
+=====
+.. Surveillez le processus de récupération pendant qu'il restaure les fichiers appropriés à partir du nœud partenaire.
++
+Une fois le processus de récupération terminé, le nœud redémarre.  Les messages suivants indiquent une récupération réussie :
+
++
+....
+Trying to recover keymanager secrets....
+Setting recovery material for the onboard key manager
+Recovery secrets set successfully
+Trying to delete any existing km_onboard.keydb file.
+
+Successfully recovered keymanager secrets.
+....
+.. Après le redémarrage du nœud, vérifiez que le système est de nouveau en ligne et opérationnel.
+.. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+.. Une fois que le nœud partenaire est pleinement opérationnel et fournit des données, synchronisez les clés OKM sur l'ensemble du cluster :
++
+`security key-manager onboard sync`
+
++
+Allez à <<reenable-auto-giveback,réactivation du don automatique>> s'il était désactivé.
+
+
+
+--
+.Gestionnaire de clés externe (EKM)
+--
+Le système affiche le message suivant et commence à exécuter l'option 11 du menu de démarrage :
+
+....
+key manager is configured.
+Entering Bootmenu Option 11...
+....
+.. Saisissez les paramètres de configuration EKM lorsque vous y êtes invité :
++
+... Saisissez le contenu du certificat client à partir du `/cfcard/kmip/certs/client.crt` déposer:
++
+.Affiche un exemple de contenu de certificat client
+[%collapsible]
+=====
+....
+-----BEGIN CERTIFICATE-----
+<certificate_value>
+-----END CERTIFICATE-----
+....
+=====
+... Saisissez le contenu du fichier de clé client à partir du `/cfcard/kmip/certs/client.key` déposer:
++
+.Affiche un exemple de contenu de fichier de clé client
+[%collapsible]
+=====
+....
+-----BEGIN RSA PRIVATE KEY-----
+<key_value>
+-----END RSA PRIVATE KEY-----
+....
+=====
+... Saisissez le contenu du ou des fichiers CA du serveur KMIP à partir du `/cfcard/kmip/certs/CA.pem` déposer:
++
+.Affiche un exemple de contenu de fichier de serveur KMIP
+[%collapsible]
+=====
+....
+-----BEGIN CERTIFICATE-----
+<KMIP_certificate_CA_value>
+-----END CERTIFICATE-----
+....
+=====
+... Saisissez le contenu du fichier de configuration du serveur à partir du `/cfcard/kmip/servers.cfg` déposer:
++
+.Affiche un exemple de contenu du fichier de configuration du serveur
+[%collapsible]
+=====
+....
+xxx.xxx.xxx.xxx:5696.host=xxx.xxx.xxx.xxx
+xxx.xxx.xxx.xxx:5696.port=5696
+xxx.xxx.xxx.xxx:5696.trusted_file=/cfcard/kmip/certs/CA.pem
+xxx.xxx.xxx.xxx:5696.protocol=KMIP1_4
+1xxx.xxx.xxx.xxx:5696.timeout=25
+xxx.xxx.xxx.xxx:5696.nbio=1
+xxx.xxx.xxx.xxx:5696.cert_file=/cfcard/kmip/certs/client.crt
+xxx.xxx.xxx.xxx:5696.key_file=/cfcard/kmip/certs/client.key
+xxx.xxx.xxx.xxx:5696.ciphers="TLSv1.2:kRSA:!CAMELLIA:!IDEA:!RC2:!RC4:!SEED:!eNULL:!aNULL"
+xxx.xxx.xxx.xxx:5696.verify=true
+xxx.xxx.xxx.xxx:5696.netapp_keystore_uuid=<id_value>
+....
+=====
+... Si vous y êtes invité, saisissez l'UUID du cluster ONTAP à partir du nœud partenaire.  Vous pouvez vérifier l'UUID du cluster à partir du nœud partenaire en utilisant le `cluster identify show` commande.
++
+.Afficher un exemple d'invite UUID de cluster ONTAP
+[%collapsible]
+=====
+....
+Notice: bootarg.mgwd.cluster_uuid is not set or is empty.
+Do you know the ONTAP Cluster UUID? {y/n} y
+Enter the ONTAP Cluster UUID: <cluster_uuid_value>
+
+
+System is ready to utilize external key manager(s).
+....
+=====
+... Si le système vous y invite, saisissez l'interface réseau temporaire et les paramètres du nœud :
++
+**** L'adresse IP du port
+**** Le masque de réseau du port
+**** L'adresse IP de la passerelle par défaut
++
+.Afficher un exemple d'invites de configuration réseau temporaire
+[%collapsible]
+=====
+....
+In order to recover key information, a temporary network interface needs to be
+configured.
+
+Select the network port you want to use (for example, 'e0a')
+e0M
+
+Enter the IP address for port : xxx.xxx.xxx.xxx
+Enter the netmask for port : xxx.xxx.xxx.xxx
+Enter IP address of default gateway: xxx.xxx.xxx.xxx
+Trying to recover keys from key servers....
+[discover_versions]
+[status=SUCCESS reason= message=]
+....
+=====
+
+
+
+
+.. Vérifiez l'état de restauration des clés :
++
+*** Si vous voyez `kmip2_client: Successfully imported the keys from external key server: xxx.xxx.xxx.xxx:5696` Dans les résultats, la configuration EKM a été restaurée avec succès.  Le processus restaure les fichiers appropriés à partir du nœud partenaire et redémarre ce dernier.  Passez à l'étape suivante.
+*** Si la clé n'est pas restaurée avec succès, le système s'arrête et affiche des messages d'erreur et d'avertissement.  Relancez le processus de récupération à partir de l'invite LOADER : `boot_recovery -partner`
++
+.Montrer un exemple d'erreur de récupération de clé et de messages d'avertissement
+[%collapsible]
+=====
+....
+ERROR: kmip_init: halting this system with encrypted mroot...
+WARNING: kmip_init: authentication keys might not be available.
+********************************************************
+*                 A T T E N T I O N                    *
+*                                                      *
+*       System cannot connect to key managers.         *
+*                                                      *
+********************************************************
+ERROR: kmip_init: halting this system with encrypted mroot...
+.
+Terminated
+
+Uptime: 11m32s
+System halting...
+
+LOADER-B>
+....
+=====
+
+
+.. Après le redémarrage du nœud, vérifiez que le système est de nouveau en ligne et opérationnel.
+.. Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
++
+Allez à <<reenable-auto-giveback,réactivation du don automatique>> s'il était désactivé.
+
+
+
+--
+====
+
+
+. [[reenable-auto-giveback]]Si le giveback automatique a été désactivé, réactivez-le :
++
+`storage failover modify -node local -auto-giveback true`
+
+. Si AutoSupport est activé, restaurez la création automatique de dossiers :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+.Et la suite
+Une fois que vous avez restauré l'image ONTAP et que le nœud est prêt à accéder aux données, vous link:bootmedia-complete-rma-bmr.html["Renvoyer la pièce défectueuse à NetApp"].

@@ -1,0 +1,38 @@
+---
+permalink: asa250/controller-replace-workflow.html 
+sidebar: sidebar 
+keywords: asa a250, replace the controller workflow 
+summary: Commencez à remplacer le contrôleur de votre système de stockage ASA A250 en arrêtant le contrôleur défectueux, en retirant et en remplaçant le contrôleur, en reconfigurant les paramètres du système et en vérifiant le fonctionnement du système. 
+---
+= Workflow de remplacement du contrôleur - ASA A250
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Remplacez le contrôleur de votre système de stockage ASA A250 en arrêtant le contrôleur défectueux, en le retirant et en le remplaçant, en restaurant la configuration du système et en redonnant le contrôle des ressources de stockage au contrôleur de remplacement.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:controller-replace-requirements.html["Vérifiez la configuration requise pour remplacer le contrôleur"]
+[role="quick-margin-para"]
+Examiner les exigences de remplacement du contrôleur, notamment la compatibilité du système, les outils requis, les identifiants ONTAP et la vérification des fonctionnalités des composants.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:controller-replace-shutdown.html["Arrêtez le contrôleur défaillant"]
+[role="quick-margin-para"]
+Arrêtez ou prenez le contrôle du contrôleur défaillant pour que le contrôleur fonctionnel continue à transmettre des données à partir du stockage défectueux.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:controller-replace-move-hardware.html["Remplacer le contrôleur"]
+[role="quick-margin-para"]
+Retirez le contrôleur défectueux, déplacez les composants FRU vers le module de contrôleur de remplacement et installez ce dernier dans le boîtier.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:controller-replace-system-config-restore-and-verify.html["Restaurez et vérifiez la configuration du système"]
+[role="quick-margin-para"]
+Vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:controller-replace-recable-reassign-disks.html["Recâblage et remise du contrôleur"]
+[role="quick-margin-para"]
+Recâblage du contrôleur et transfert de propriété des ressources de stockage vers le contrôleur de remplacement.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:controller-replace-restore-system-rma.html["Remplacement complet du contrôleur"]
+[role="quick-margin-para"]
+Vérifier les LIF, vérifier l'état du cluster et renvoyer la pièce défectueuse à NetApp.

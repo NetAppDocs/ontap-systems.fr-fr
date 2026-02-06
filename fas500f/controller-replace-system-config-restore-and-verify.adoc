@@ -11,6 +11,8 @@ summary: Après avoir effectué le remplacement du matériel et démarrer en mod
 
 
 [role="lead"]
+Après avoir effectué le remplacement du matériel et démarré votre système FAS500f en mode Maintenance, vous devez vérifier la configuration système de bas niveau du contrôleur de remplacement et reconfigurer les paramètres système si nécessaire.
+
 Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
 
 
@@ -46,7 +48,7 @@ La date et l'heure sont indiquées en GMT.
 
 
 
-== Étape 2 : vérifier et définir l'état de haute disponibilité du châssis
+== Étape 2 : vérifier et définir l'état de haute disponibilité du contrôleur
 
 Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
 
@@ -68,3 +70,6 @@ La valeur de HA-State peut être l'une des suivantes :
 . Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le `HA` état pour le module de contrôleur : `ha-config modify controller ha-state`
 . Vérifiez que le paramètre a changé : `ha-config show`
 
+
+.Et la suite ?
+Après avoir restauré et vérifié la configuration du système, vous devez link:controller-replace-recable-reassign-disks.html["recâbler le système et réaffecter les disques"].
