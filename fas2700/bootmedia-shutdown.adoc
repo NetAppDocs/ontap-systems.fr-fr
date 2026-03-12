@@ -17,7 +17,7 @@ Arrêtez ou prenez le contrôle du contrôleur défaillant en utilisant la proc�
 
 == Option 1 : plupart des configurations
 
-Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
+Terminez l'arrêt du contrôleur défectueux en le ramenant à l'invite LOADER et en enregistrant les variables d'environnement de démarrage. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer le support de démarrage.
 
 .Étapes
 . Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
@@ -65,7 +65,7 @@ Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur p
 
 NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
 
-Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
+Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
 
 * Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
 * Si vous disposez d'une configuration MetroCluster, vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal (`metrocluster node show`).

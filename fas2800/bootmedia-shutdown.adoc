@@ -15,7 +15,7 @@ Arrêtez ou prenez le contrôle du contrôleur défectueux.
 
 Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
-Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
+Terminez l'arrêt du contrôleur défectueux en le ramenant à l'invite LOADER et en enregistrant les variables d'environnement de démarrage. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer le support de démarrage.
 
 .Étapes
 . Faites passer le contrôleur douteux à l'invite DU CHARGEUR :

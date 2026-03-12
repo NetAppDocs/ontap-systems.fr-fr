@@ -13,7 +13,7 @@ summary: Arrêtez le contrôleur de votre système de stockage AFX 1K pour évit
 [role="lead"]
 Arrêtez le contrôleur de votre système de stockage AFX 1K pour éviter la perte de données et garantir la stabilité du système lors du remplacement du châssis.
 
-Pour arrêter le contrôleur endommagé, vous devez déterminer l'état du contrôleur et, si nécessaire, effectuer une reprise de basculement de stockage du contrôleur afin que le contrôleur sain continue de fournir les données du stockage du contrôleur endommagé.
+Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
 
 .Description de la tâche
 * Si vous avez un cluster avec plus de quatre nœuds, il doit être en quorum.  Pour afficher les informations de cluster sur vos nœuds, utilisez le `cluster show` commande.  Pour plus d'informations sur le `cluster show` commande, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/display-nodes-cluster-task.html["Afficher les détails au niveau du nœud dans un cluster ONTAP"^] .
