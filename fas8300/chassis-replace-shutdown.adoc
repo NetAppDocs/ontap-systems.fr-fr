@@ -20,17 +20,10 @@ Cette procédure concerne les systèmes ayant des configurations à deux nœuds.
 * Vérifiez que vous disposez des autorisations et des informations d'identification nécessaires :
 +
 ** Informations d'identification de l'administrateur local pour ONTAP.
-** Accès BMC pour chaque contrôleur.
+** Accessibilité BMC pour chaque contrôleur.
 
 
 * Assurez-vous de disposer des outils et de l'équipement nécessaires pour le remplacement.
-* Avant de procéder à l'arrêt, vous devez :
-+
-** Effectuer des opérations supplémentaires https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["vérifications de l'état du système"].
-** Mettez à niveau ONTAP vers une version recommandée pour le système.
-** Résoudre tout https://activeiq.netapp.com/["Alertes et risques liés au bien-être Active IQ"]. Notez toutes les anomalies présentes sur le système, telles que les voyants des composants du système.
-
-
 
 
 .Étapes
@@ -49,9 +42,11 @@ Cette procédure concerne les systèmes ayant des configurations à deux nœuds.
 +
 `exit`
 
-. Connectez-vous à SP/BMC via SSH en utilisant l'adresse IP de l'un des nœuds répertoriés dans le résultat de l'étape précédente pour surveiller la progression.
+. Connectez-vous au SP/BMC de chaque contrôleur en utilisant l'adresse IP identifiée à l'étape précédente :
 +
-Si vous utilisez une console ou un ordinateur portable, connectez-vous au contrôleur à l'aide des mêmes informations d'identification d'administrateur de cluster.
+** Si vous vous connectez depuis le BMC via SSH, connectez-vous en utilisant l'adresse SP/BMC (par exemple, `ssh admin@<SP/BMC_address>`), puis entrez la commande `system console` et authentifiez-vous.
+** Si vous utilisez une console locale ou un ordinateur portable connecté directement au contrôleur, connectez-vous en utilisant les mêmes identifiants d'administrateur du cluster.
+
 
 . Arrêtez les deux nœuds situés dans le châssis défectueux :
 +
