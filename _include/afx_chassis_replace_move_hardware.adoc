@@ -1,17 +1,6 @@
----
-permalink: a1k/chassis-replace-move-hardware.html 
-sidebar: sidebar 
-keywords: aff a1k, move hardware components, replace the chassis 
-summary: 'Remplacez le châssis de votre système AFF A1K lorsqu"une défaillance matérielle l"exige. La procédure de remplacement consiste à retirer le contrôleur, les cartes d"E/S, le module NVRAM12, le module de gestion du système et les blocs d"alimentation, à installer le châssis de remplacement, puis à réinstaller les composants du châssis.' 
----
-= Remplacer le châssis - AFF A1K
+= Étape 1 : retirez les blocs d'alimentation et les câbles
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-Remplacez le châssis de votre système AFF A1K lorsqu'une panne matérielle l'exige.  Le processus de remplacement implique le retrait du contrôleur, des cartes d'E/S, du module NVRAM12, du module de gestion du système et des blocs d'alimentation (PSU), l'installation du châssis de remplacement et la réinstallation des composants du châssis.
 
 
 
@@ -24,9 +13,6 @@ Vous devez retirer les deux blocs d'alimentation (PSU) avant de retirer le contr
 +
 .. Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 .. Débranchez les cordons d’alimentation des blocs d’alimentation.
-+
-Si votre système est alimenté en courant continu, débranchez le bloc d'alimentation des blocs d'alimentation.
-
 .. Retirez les deux blocs d'alimentation de l'arrière du châssis en faisant pivoter la poignée du bloc d'alimentation vers le haut afin de pouvoir retirer le bloc d'alimentation, appuyez sur la languette de verrouillage du bloc d'alimentation, puis retirez le bloc d'alimentation du châssis.
 +
 
@@ -239,12 +225,6 @@ NOTE: Pour éviter d'endommager le connecteur interne, ne forcez pas trop lorsqu
 
 . Reconnectez les câbles d’alimentation du bloc d’alimentation aux deux blocs d’alimentation et fixez chaque câble d’alimentation au bloc d’alimentation à l’aide du dispositif de retenue du câble d’alimentation.
 +
-Si vous disposez d'une alimentation CC, reconnectez le bloc d'alimentation aux blocs d'alimentation une fois le module de contrôleur entièrement installé dans le châssis et fixez le câble d'alimentation au bloc d'alimentation à l'aide des vis moletées.
-
-+
 Les modules de contrôleur commencent à démarrer dès que les blocs d'alimentation sont installés et que l'alimentation est rétablie.
 
 
-
-.Et la suite ?
-Après avoir remplacé le châssis AFF A1K défectueux et réinstallé les composants, vous devezlink:chassis-replace-complete-system-restore-rma.html["terminez le remplacement du châssis"] .
