@@ -193,7 +193,7 @@ video::beec3966-0a01-473c-a5de-ac68017fbf29[panopto]
 .Étapes
 . Utilisez le câble d'interconnexion de cluster 25 GbE pour connecter les ports d'interconnexion de cluster e0c à e0c et e0d à e0d.
 +
-image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]:
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
 
 +
 image:../media/drw_affa250_tnsc_cabling.png["Câblage d'interconnexion de cluster dans un cluster sans commutateur à 2 nœuds"]
@@ -249,7 +249,7 @@ image::../media/drw_affa250_mgmt_cabling.png[Câblage du port de gestion]
 Vous disposez d'un câblage en option dépendant de la configuration pour les réseaux hôtes Fibre Channel ou iSCSI ou pour le stockage à connexion directe. Ce câblage n'est pas exclusif ; vous pouvez disposer d'un câblage vers un réseau hôte et un stockage.
 
 
-NOTE: link:https://hwu.netapp.com["NetApp Hardware Universe"^] La priorité de slot pour les cartes réseau hôte (Fibre Channel ou 25GbE) est le slot 2. Toutefois, si vous disposez des deux cartes, la carte Fibre Channel se place dans le logement 2 et la carte 25GbE dans le logement 1 (comme indiqué dans les options ci-dessous). Si vous disposez d'un tiroir externe, la carte de stockage se place dans le logement 1, le seul logement pris en charge pour les tiroirs.
+NOTE: link:https://hwu.netapp.com["NetApp Hardware Universe"^]La priorité d’emplacement pour les cartes réseau hôtes (Fibre Channel ou 25 GbE) est l’emplacement 2. Cependant, si vous disposez des deux cartes, la carte Fibre Channel va dans l’emplacement 2 et la carte 25 GbE dans l’emplacement 1 (comme indiqué dans les options ci-dessous). Si vous avez une étagère externe, la carte de stockage va dans l’emplacement 1, le seul emplacement pris en charge pour les étagères.
 
 [role="tabbed-block"]
 ====
@@ -280,9 +280,9 @@ image:../media/drw_affa250_fc_host_cabling.png["Câblage hôte Fibre Channel"]
 
 
 --
-.Option 2 : câble vers un réseau de données 25 GbE ou hôte
+.Option 2 : Câble vers réseau de données ou réseau hôte 25 GbE
 --
-Les ports 25 GbE des contrôleurs sont connectés à des switchs de données 25 GbE ou du réseau hôte.
+Les ports 25 GbE des contrôleurs sont connectés à des commutateurs de réseau de données ou de réseau hôte 25 GbE.
 
 .Avant de commencer
 * Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.

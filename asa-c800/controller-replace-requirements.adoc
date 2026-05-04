@@ -15,6 +15,15 @@ Avant de remplacer le contrôleur de votre système ASA C800 , assurez-vous de r
 
 Passez en revue la configuration requise pour le remplacement du module de contrôleur.
 
+[NOTE]
+====
+NetApp recommande fortement d'activer la journalisation de la console sur les appareils que vous utilisez et de prendre les mesures suivantes lors de cette procédure :
+
+* Laissez AutoSupport activé pendant votre maintenance. Cela permet au support NetApp de recevoir des informations de diagnostic en cas de problème.
+* Activez la journalisation des sessions pour toutes les sessions CLI. Cela crée un enregistrement complet de toutes les commandes et des sorties système pendant l'opération de maintenance. Pour savoir comment activer la journalisation des sessions, consultez  https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+
+
+====
 * Tous les tiroirs disques doivent fonctionner correctement.
 * Le contrôleur sain doit pouvoir prendre le relais du contrôleur remplacé (appelé dans cette procédure contrôleur défectueux).
 * N’utilisez pas cette procédure pour les mises à niveau de contrôleur.  Se référer à https://docs.netapp.com/us-en/ontap-systems-upgrade/choose_controller_upgrade_procedure.html["Choisissez la procédure de mise à niveau matérielle de votre contrôleur"] pour vous guider.
@@ -29,10 +38,6 @@ Passez en revue la configuration requise pour le remplacement du module de contr
 ** Le contrôleur de remplacement est le nouveau contrôleur qui remplace le contrôleur défectueux.
 ** Le contrôleur _Healthy_ est le contrôleur survivant.
 
-
-* Capturez les données de la console du contrôleur dans un fichier journal texte.
-+
-Ce document consigne la procédure de dépannage en cas de problème survenu lors du processus de remplacement.
 
 
 

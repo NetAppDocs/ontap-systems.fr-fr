@@ -17,6 +17,15 @@ Le processus de récupération automatisée du support de démarrage nécessite 
 
 Passez en revue les exigences suivantes.
 
+[NOTE]
+====
+NetApp recommande fortement d'activer la journalisation de la console sur les appareils que vous utilisez et de prendre les mesures suivantes lors de cette procédure :
+
+* Laissez AutoSupport activé pendant votre maintenance. Cela permet au support NetApp de recevoir des informations de diagnostic en cas de problème.
+* Activez la journalisation des sessions pour toutes les sessions CLI. Cela crée un enregistrement complet de toutes les commandes et des sorties système pendant l'opération de maintenance. Pour savoir comment activer la journalisation des sessions, consultez  https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+
+
+====
 * Vous devez remplacer le support de démarrage défectueux par un support de démarrage de remplacement que vous avez reçu de NetApp.
 * Les ports du cluster permettent la communication entre les deux contrôleurs lors du processus de récupération automatique au démarrage. Assurez-vous que les ports du cluster du contrôleur défaillant fonctionnent correctement.
 * Pour OKM, vous avez besoin de la phrase secrète à l'échelle du cluster ainsi que des données de sauvegarde.

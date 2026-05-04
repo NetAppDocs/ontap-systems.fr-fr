@@ -15,6 +15,15 @@ Avant de remplacer le contrôleur de votre système de stockage FAS50, veillez �
 
 Revoir les exigences et les considérations relatives à la procédure de remplacement du contrôleur.
 
+[NOTE]
+====
+NetApp recommande fortement d'activer la journalisation de la console sur les appareils que vous utilisez et de prendre les mesures suivantes lors de cette procédure :
+
+* Laissez AutoSupport activé pendant votre maintenance. Cela permet au support NetApp de recevoir des informations de diagnostic en cas de problème.
+* Activez la journalisation des sessions pour toutes les sessions CLI. Cela crée un enregistrement complet de toutes les commandes et des sorties système pendant l'opération de maintenance. Pour savoir comment activer la journalisation des sessions, consultez  https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+
+
+====
 
 
 == De formation
@@ -24,10 +33,6 @@ Revoir les exigences et les considérations relatives à la procédure de rempla
 * Si votre système est dans une configuration MetroCluster, vous devez passer en revue la section https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html["Choix de la procédure de récupération correcte"] pour déterminer si vous devez utiliser cette procédure.
 * Vous devez remplacer un contrôleur par un contrôleur de même type. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le contrôleur.
 * Vous ne pouvez pas modifier de disques ou de tiroirs dans le cadre de cette procédure.
-* Vous devez toujours capturer la sortie de la console du contrôleur dans un fichier journal texte.
-+
-Le résultat de la console vous fournit un enregistrement de la procédure que vous pouvez utiliser pour résoudre les problèmes que vous pourriez rencontrer pendant le processus de remplacement.
-
 
 
 

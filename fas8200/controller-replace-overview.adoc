@@ -13,6 +13,15 @@ summary: 'Vous devez passer en revue les conditions préalables à la procédure
 [role="lead"]
 Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d'exploitation ONTAP.
 
+[NOTE]
+====
+NetApp recommande fortement d'activer la journalisation de la console sur les appareils que vous utilisez et de prendre les mesures suivantes lors de cette procédure :
+
+* Laissez AutoSupport activé pendant votre maintenance. Cela permet au support NetApp de recevoir des informations de diagnostic en cas de problème.
+* Activez la journalisation des sessions pour toutes les sessions CLI. Cela crée un enregistrement complet de toutes les commandes et des sorties système pendant l'opération de maintenance. Pour savoir comment activer la journalisation des sessions, consultez  https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+
+
+====
 * Tous les tiroirs disques doivent fonctionner correctement.
 * Si votre système dispose d'une licence V_StorageAttach, vous devez vous reporter aux étapes supplémentaires requises avant d'effectuer cette procédure.
 * Si votre système se trouve dans une paire haute disponibilité, le contrôleur en bon état doit pouvoir reprendre le contrôleur en cours de remplacement (appelé « contrôleur défectueux »).
@@ -38,9 +47,5 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 ** Le contrôleur _remplacement_ est le nouveau contrôleur qui remplace le contrôleur défaillant.
 ** Le contrôleur _Healthy_ est le contrôleur survivant.
 
-
-* Vous devez toujours capturer la sortie de la console du contrôleur dans un fichier texte.
-+
-Vous disposez ainsi d'un enregistrement de la procédure afin de pouvoir résoudre tout problème que vous pourriez rencontrer pendant le processus de remplacement.
 
 

@@ -15,8 +15,17 @@ Avant de remplacer le support de démarrage de votre FAS9500, assurez-vous de r�
 
 La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
 
+[NOTE]
+====
+NetApp recommande fortement d'activer la journalisation de la console sur les appareils que vous utilisez et de prendre les mesures suivantes lors de cette procédure :
+
+* Laissez AutoSupport activé pendant votre maintenance. Cela permet au support NetApp de recevoir des informations de diagnostic en cas de problème.
+* Activez la journalisation des sessions pour toutes les sessions CLI. Cela crée un enregistrement complet de toutes les commandes et des sorties système pendant l'opération de maintenance. Pour savoir comment activer la journalisation des sessions, consultez  https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+
+
+====
 * Vous devez remplacer le composant défectueux par un composant FRU de remplacement de même capacité que celle reçue de NetApp.
-* Vérifiez que le port e0M (clé) du contrôleur défectueux est connecté et n'est pas défectueux.
+* Vérifiez que l'interface e0S (port e0M wrench) du contrôleur défectueux n'est pas défectueuse.
 +
 Le port e0M est utilisé pour communiquer entre les deux contrôleurs pendant le processus de récupération de démarrage automatisé.
 

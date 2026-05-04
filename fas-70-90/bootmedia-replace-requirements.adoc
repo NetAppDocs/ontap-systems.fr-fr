@@ -13,6 +13,15 @@ summary: 'Avant de remplacer le support de démarrage de votre système FAS70 ou
 [role="lead"]
 Avant de remplacer le support de démarrage de votre système FAS70 ou FAS90, assurez-vous de répondre aux exigences requises pour un remplacement réussi. Cela inclut la vérification de la présence d'une clé USB contenant la quantité de stockage appropriée et la vérification de la bonne mise en place du périphérique de démarrage de remplacement.
 
+[NOTE]
+====
+NetApp recommande fortement d'activer la journalisation de la console sur les appareils que vous utilisez et de prendre les mesures suivantes lors de cette procédure :
+
+* Laissez AutoSupport activé pendant votre maintenance. Cela permet au support NetApp de recevoir des informations de diagnostic en cas de problème.
+* Activez la journalisation des sessions pour toutes les sessions CLI. Cela crée un enregistrement complet de toutes les commandes et des sorties système pendant l'opération de maintenance. Pour savoir comment activer la journalisation des sessions, consultez  https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+
+
+====
 .clé USB
 * Assurez-vous d’avoir une clé USB formatée en FAT32.
 * La clé USB doit avoir une capacité de stockage suffisante pour contenir le  `image_xxx.tgz` déposer.

@@ -41,7 +41,10 @@ Chaque processus SCSI-Blade doit se trouver au quorum avec les autres nœuds du 
 .Étapes
 . Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
 +
-`system node autosupport invoke -node * -type all -message MAINT=<# of hours>h`
+`system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h`
+
++
+Cela empêche l'ouverture automatique de tickets d'assistance pendant votre fenêtre de maintenance planifiée. La durée maximale de suspension est de 72 heures. Si votre maintenance se termine plus tôt, vous pouvez réactiver la création de tickets en envoyant un AutoSupport message avec  `MAINT=END`. Pour plus d'informations, consultez  https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées"^].
 
 +
 Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :
@@ -106,7 +109,10 @@ Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôle
 .Étapes
 . Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
 +
-`system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
+`system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h`
+
++
+Cela empêche l'ouverture automatique de tickets d'assistance pendant votre fenêtre de maintenance planifiée. La durée maximale de suspension est de 72 heures. Si votre maintenance se termine plus tôt, vous pouvez réactiver la création de tickets en envoyant un AutoSupport message avec  `MAINT=END`. Pour plus d'informations, consultez  https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées"^].
 
 +
 Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :

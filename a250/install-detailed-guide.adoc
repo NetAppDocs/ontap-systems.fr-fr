@@ -54,7 +54,7 @@ Le tableau suivant identifie les types de câbles que vous pouvez recevoir. Si v
 +
 [cols="1,2,1,2"]
 |===
-| Type de câble... | Numéro de pièce et longueur | Type de connecteur | Pour... .2+ 
+| Type de câble... | Numéro de pièce et longueur | Type de connecteur | Pour... 
 
 
  a| 
@@ -62,7 +62,7 @@ Câble 25 GbE
  a| 
 X66240A-05 (112-00595), 0,5 m ;
 
-X66240-2 (112-00573), 2 m 3+
+X66240-2 (112-00573), 2 M.
  a| 
 image:../media/oie_cable100_gbe_qsfp28.png["Connecteur QSFP28 100 GbE"]
  a| 
@@ -76,28 +76,31 @@ X66240A-2 (112-00598), 2 m ;
 X66240A-5 (112-00600), 5 m
  a| 
 Les données
+
+
+
  a| 
 Câble 100 GbE
  a| 
 X66211-2 (112-00574), 2 m ;
 
 X66211-5 (112-00576), 5 m
-
-
-
  a| 
 Stockage
+
+
+
  a| 
 RJ-45 (selon la commande)
  a| 
 Sans objet
  a| 
 image:../media/oie_cable_rj45.png["Connecteur de câble RJ-45"]
-
-
-
  a| 
 Réseau de gestion (BMC et port de clé) et données Ethernet (e0a et e0b)
+
+
+
  a| 
 Fibre Channel
  a| 
@@ -110,27 +113,29 @@ X66250-15 (112-00346) 15 m ;
 X66250-30 (112-00347) 30 m
  a| 
 image:../media/oie_cable_fc_optical.png["Câble optique Fibre Channel de l'OIE"]
-
-
-
  a| 
+
+
+
  a| 
 Câble de console micro-USB
  a| 
 Sans objet
  a| 
 image:../media/oie_cable_micro_usb.png["Connecteur micro USB"]
-
-
-
  a| 
 Connexion de la console durant la configuration du logiciel
+
+
+
  a| 
 Câbles d'alimentation
  a| 
 Sans objet
  a| 
 image:../media/oie_cable_power.png["Câbles d'alimentation"]
+ a| 
+Mise sous tension du système
 
 |===
 . Vérifiez le link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"^] et recueillez les informations requises répertoriées dans ce guide.
@@ -188,7 +193,7 @@ video::beec3966-0a01-473c-a5de-ac68017fbf29[panopto]
 .Étapes
 . Utilisez le câble d'interconnexion de cluster 25 GbE pour connecter les ports d'interconnexion de cluster e0c à e0c et e0d à e0d.
 +
-image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]:
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
 
 +
 image:../media/drw_affa250_tnsc_cabling.png["Câblage d'interconnexion de cluster dans un cluster sans commutateur à 2 nœuds"]
@@ -244,7 +249,7 @@ image::../media/drw_affa250_mgmt_cabling.png[Câblage du port de gestion]
 Vous disposez d'un câblage en option dépendant de la configuration pour les réseaux hôtes Fibre Channel ou iSCSI ou pour le stockage à connexion directe. Ce câblage n'est pas exclusif ; vous pouvez disposer d'un câblage vers un réseau hôte et un stockage.
 
 
-NOTE: link:https://hwu.netapp.com["NetApp Hardware Universe"^] La priorité de slot pour les cartes réseau hôte (Fibre Channel ou 25GbE) est le slot 2. Toutefois, si vous disposez des deux cartes, la carte Fibre Channel se place dans le logement 2 et la carte 25GbE dans le logement 1 (comme indiqué dans les options ci-dessous). Si vous disposez d'un tiroir externe, la carte de stockage se place dans le logement 1, le seul logement pris en charge pour les tiroirs.
+NOTE: link:https://hwu.netapp.com["NetApp Hardware Universe"^]La priorité d’emplacement pour les cartes réseau hôtes (Fibre Channel ou 25 GbE) est l’emplacement 2. Cependant, si vous disposez des deux cartes, la carte Fibre Channel va dans l’emplacement 2 et la carte 25 GbE dans l’emplacement 1 (comme indiqué dans les options ci-dessous). Si vous avez une étagère externe, la carte de stockage va dans l’emplacement 1, le seul emplacement pris en charge pour les étagères.
 
 [role="tabbed-block"]
 ====
@@ -275,9 +280,9 @@ image:../media/drw_affa250_fc_host_cabling.png["Câblage hôte Fibre Channel"]
 
 
 --
-.Option 2 : câble vers un réseau de données 25 GbE ou hôte
+.Option 2 : Câble vers réseau de données ou réseau hôte 25 GbE
 --
-Les ports 25 GbE des contrôleurs sont connectés à des switchs de données 25 GbE ou du réseau hôte.
+Les ports 25 GbE des contrôleurs sont connectés à des commutateurs de réseau de données ou de réseau hôte 25 GbE.
 
 .Avant de commencer
 * Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.

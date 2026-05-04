@@ -13,6 +13,15 @@ summary: 'Découvrez comment remplacer le support de démarrage sur un système 
 [role="lead"]
 Découvrez comment remplacer le support de démarrage sur un système AFF A700s et comprenez les méthodes de récupération. Le support de démarrage principal stocke l'image de démarrage ONTAP que le système utilise au démarrage. Vous pouvez restaurer l'image du support de démarrage principal à l'aide de l'image ONTAP provenant du support de démarrage secondaire ou, si nécessaire, d'une clé USB formatée en FAT32.
 
+[NOTE]
+====
+NetApp recommande fortement d'activer la journalisation de la console sur les appareils que vous utilisez et de prendre les mesures suivantes lors de cette procédure :
+
+* Laissez AutoSupport activé pendant votre maintenance. Cela permet au support NetApp de recevoir des informations de diagnostic en cas de problème.
+* Activez la journalisation des sessions pour toutes les sessions CLI. Cela crée un enregistrement complet de toutes les commandes et des sorties système pendant l'opération de maintenance. Pour savoir comment activer la journalisation des sessions, consultez  https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+
+
+====
 Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
 
 Si le support d'amorçage secondaire a échoué ou s'il n'a pas le fichier image.tgz, vous devez restaurer le support d'amorçage principal à l'aide d'un lecteur flash USB. Le lecteur doit être formaté en FAT32 et avoir la quantité de stockage appropriée pour contenir le fichier image_xxx.tgz.

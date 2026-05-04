@@ -146,8 +146,6 @@
   <block id="93693d8b94899fb843897083df3dfad1" category="list-text">Le contrôleur _trouble_ est le contrôleur qui est en cours de remplacement.</block>
   <block id="8fc18417b34debbf06d43a8004e7af83" category="list-text">Le contrôleur _remplacement_ est le nouveau contrôleur qui remplace le contrôleur défaillant.</block>
   <block id="adb78e1174ae799e5d64ba90539a8d1a" category="list-text">Le contrôleur _Healthy_ est le contrôleur survivant.</block>
-  <block id="d1e26bcc4cbc247391931bd56755d0de" category="list-text">Vous devez toujours capturer la sortie de la console du contrôleur dans un fichier texte.</block>
-  <block id="c05037a88de91ff2d60122b1ccf7291a" category="paragraph">Vous disposez ainsi d'un enregistrement de la procédure afin de pouvoir résoudre tout problème que vous pourriez rencontrer pendant le processus de remplacement.</block>
   <block id="0443683677e40fa41815d2d7edef042b" category="doc">Arrêter le contrôleur - FAS2600</block>
   <block id="244b874016608f71c1442226368f5da8" category="list-text">Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :<block ref="8c7d165004dc30be518ba575e7800648" prefix=" " category="inline-code"></block></block>
   <block id="f80af4e39d67de6feaae8747f603e24b" category="paragraph">Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :<block ref="6cf51b10a85b7bdc2a6698400ee841b7" prefix=" " category="inline-code"></block></block>
@@ -1425,17 +1423,13 @@
   <block id="9bd8aa5689228cb2b0d7fa13ff310ec9" category="list-text">Identifiez et gérez les câbles car ce système ne dispose pas de périphérique de gestion des câbles.</block>
   <block id="b97bdff613a0ca54c0d7c15ca245a1f5" category="paragraph">Les ports de gestion, Fibre Channel et de données ou réseau hôte des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux modules de contrôleur.</block>
   <block id="3f4a7771ab61ac16b156190d458da251" category="cell">Effectuer des opérations sur chaque contrôleur</block>
-  <block id="3ea38b3923e0e690201e332cebb4b94d" category="paragraph">Reliez les ports d'interconnexion de cluster aux autres ports avec le câble d'interconnexion de cluster 25 GbE</block>
   <block id="59fffbd09d1c7158959327a869b9292f" category="list-text">e0c à e0c</block>
   <block id="0b344445518caeaff89d8726c0ffa65f" category="paragraph">Reliez les ports de clé aux commutateurs du réseau de gestion à l'aide de câbles RJ45.</block>
   <block id="611c6be02af4f5847e3d1df02f0dd5cd" category="paragraph">Tous les ports des contrôleurs sont connectés aux commutateurs, à l'interconnexion de cluster, à la gestion, à Fibre Channel et aux commutateurs de réseau d'hôte ou de données.</block>
   <block id="09401fd662d47d1159b97106f3c2c4b4" category="paragraph">Reliez les ports d'interconnexion de cluster aux commutateurs d'interconnexion de cluster 25 GbE.</block>
   <block id="96640993dd2592a16c29226daf83b860" category="list-text">e0c</block>
   <block id="91007f6223d7f1e23fa6822f2e16adad" category="paragraph">Reliez les ports 2a à 2d aux commutateurs hôte FC.</block>
-  <block id="56207a9d07b6607ddcfada226919fb00" category="list-text"><block ref="9f2a6ae0f8e4e0c002cabfcf0d3b8027" category="inline-xref-macro-rx"></block></block>
   <block id="9ec8ef762c375cb5ef67631e96a76733" category="list-text"><block ref="1476a857b220f13e41f9015c8596b1d0" category="inline-xref-macro-rx"></block></block>
-  <block id="46bef70db2abdd00f0d4fccb83fbd3db" category="section-title">Option 2 : câble vers un réseau hôte ou une données de 25 GbE</block>
-  <block id="2283d2460c1fb366154589c8106aeabb" category="paragraph">Les ports 25 GbE des contrôleurs sont connectés à des switchs de données 25 GbE ou du réseau hôte.</block>
   <block id="277ba6b7a127ec6b40495a0cd012279f" category="paragraph">Reliez les ports e4a à e4d aux commutateurs du réseau hôte 10GbE.</block>
   <block id="3ee99f95dccd989449c31c5582a02a92" category="list-text"><block ref="9d121b80040875d39da3830ae414ba9b" category="inline-xref-macro-rx"></block></block>
   <block id="030773f8722b074a51df84aa530f0c3d" category="paragraph">Utilisez l'animation ou les étapes tabulées pour effectuer le câblage entre les contrôleurs et le tiroir unique :</block>
@@ -1857,7 +1851,6 @@
   <block id="fd6012123eb1d03462c1cd48d50c92e6" category="list-text">Le nœud douteux est le nœud en cours de remplacement.</block>
   <block id="9e51ab12d26faade2a31d70da71c74f5" category="list-text">Le nœud de remplacement est le nouveau nœud qui remplace le nœud avec facultés affaiblies.</block>
   <block id="537af5095a4992ae7e9026bd3ff008a6" category="list-text">Le nœud en bon état est le nœud survivant.</block>
-  <block id="ef82d539dc8acbd089c50343493834e6" category="list-text">Vous devez toujours capturer les valeurs de sortie de la console du nœud dans un fichier texte.</block>
   <block id="dc8763d13c28622d2ba4adace1e2fee7" category="summary">La procédure de démarrage du nœud douteux à partir de l'image de récupération dépend de si le système se trouve dans une configuration MetroCluster à deux nœuds.</block>
   <block id="cdcb00922b21796793c48c3b35b6c0f4" category="doc">Démarrez l'image de restauration - FAS9500</block>
   <block id="6ce5f7147d284a7d41c1fc93d3072d57" category="list-text">Appuyez sur<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à remplacer<block ref="295b4ac77f4e1c5f93c6894df85fd86d" prefix=" " category="inline-code"></block>.</block>
@@ -3253,7 +3246,6 @@
   <block id="4653f37d997fd730d216474b1f92447c" category="paragraph">X66030A (112-00435), 0,5 m</block>
   <block id="e7e749fdb513f8650505d5c05ea4890c" category="paragraph">Câbles HD Mini-SAS vers mini-SAS HD (selon les commandes)</block>
   <block id="b8baf655ec765d5d983898664c9272aa" category="paragraph">X66250-2-N-C (112-00342)</block>
-  <block id="13378a0df578c502443ae7f6cba29221" category="paragraph">Câbles 16 Go FC ou 25 GbE pour cartes mezzanine (selon la commande)</block>
   <block id="6a34534c1e57a69bc063e8a88767c875" category="list-text">Consultez le _Guide de configuration du ONTAP NetApp_ et recueillez les informations nécessaires indiquées dans ce guide.</block>
   <block id="19026798e40f3d682dde87cbb940fc1b" category="paragraph">Les ports de données en option, les cartes NIC en option et les ports de gestion des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur les deux modules de contrôleur.</block>
   <block id="3d6d824132e6ea9215d5f55aab2c487b" category="paragraph">Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de branchement des câbles sont vers le haut pour tous les ports intégrés et vers le bas pour les cartes d'extension (NIC).</block>
@@ -3407,7 +3399,6 @@
   <block id="04e5807be0e6821b9804d78226e4476a" category="list-text">HAUTE DISPONIBILITÉ/MetroCluster</block>
   <block id="0328774aec0a00ab97b619f670f3584f" category="inline-link">X91122A</block>
   <block id="22fb50240417da3b46a5b9bc9f4fba23" category="paragraph"><block ref="22fb50240417da3b46a5b9bc9f4fba23" category="inline-link-rx"></block></block>
-  <block id="0c54c33cbdaf870abc3b1f6dccea1cd7" category="paragraph">2 ports RoCE 25 GbE QSFP28</block>
   <block id="8c6eb6a8f3b879a85c9abb062dcf57b6" category="inline-link">X9170A</block>
   <block id="dfd3db7fdc1a7e88e6e8d964ce5bed7b" category="paragraph"><block ref="dfd3db7fdc1a7e88e6e8d964ce5bed7b" category="inline-link-rx"></block></block>
   <block id="8ed5851faf32cc00c77e732fa7ccd048" category="paragraph">Module SSD NVMe (1 To)</block>
@@ -3427,7 +3418,6 @@
   <block id="289176b1f2563464b0dfb798658c0152" category="paragraph"><block ref="deb0a21917c7eb0c3c9938d678ab438a" category="inline-link-rx"></block><block ref="18e71ce452675f527b9e6ee74d504889" category="inline-link-rx"></block></block>
   <block id="856f27e361c1b2c9da2793619e1bea84" category="paragraph">Le commutateur Cisco Nexus 100 GbE peut être utilisé en tant que commutateur de stockage dédié pour connecter les tiroirs disques NVMe NS224 aux plateformes suivantes :</block>
   <block id="a2830a8a6b7415efd3d60ab3af3c1b02" category="list-text">AFF A400/AFF ASA A400</block>
-  <block id="fc2c2083a19a418b8843fac67146e44d" category="paragraph">Prise en charge du commutateur d'interconnexion de cluster Broadcom BES-53248 pour les contrôleurs AFF/FAS avec ports 10 GbE.</block>
   <block id="afa798215d91c0ee616815befa600f66" category="paragraph">ONTAP 9.5P8</block>
   <block id="ad30bda50ee1d84821c1e37d140d5779" category="section-title">Prise en charge de la nouvelle plateforme</block>
   <block id="8fb3915f86fbc4fd2aabaf4ff9cd2391" category="section-title">Nouveau support de tablette</block>
@@ -4654,7 +4644,6 @@
   <block id="562006e5bc5a05872c89072601752baa" category="paragraph">Ports des logements A3 et B3 (e3a et e3c) et A9 et B9 (e9a et e9c) vers les commutateurs réseau 25 GbE.</block>
   <block id="8b891f41fe066d01d04ca12a9bd0033f" category="paragraph">Câbles de connexions FC 32 Gb :</block>
   <block id="c368da6f34e41cf660fe742d1776c0c1" category="paragraph">Reliez les ports A5 et B5 (5a, 5b, 5c et 5d) et les connecteurs A7 et B7 (7a, 7b, 7c et 7d) aux commutateurs réseau FC 32 Gbit.</block>
-  <block id="3b632bef76bf01e7a7e2e0c7d8200b68" category="paragraph">Câble 25 GbE switchs réseau :</block>
   <block id="c60dbcf19edff60839d3c0fbf6f60f2a" category="paragraph">Vous devez connecter chaque contrôleur aux modules NSM du tiroir disque NS224 sur un système AFF A900.</block>
   <block id="5ec6942c74c6a8edac1d2288d383731d" category="list-text">Utilisez l'animation ou les dessins suivants pour connecter les contrôleurs à un seul tiroir de disque NS224.</block>
   <block id="a51b0e75591721e9a3d930569f70d056" category="video-title">Animation : raccorder un seul tiroir NS224</block>
@@ -5470,12 +5459,10 @@
   <block id="d8c9578f313af4d30124d95a9a82f55a" category="list-text"><block ref="45857239f243800c6028823fe1bb7167" category="inline-link-macro-rx"></block> votre système.</block>
   <block id="42608111c1df97efb2c5e1785a0c9236" category="paragraph">Reliez les contrôleurs à un cluster à l'aide de la méthode cluster sans commutateur à deux nœuds ou à l'aide de la méthode réseau d'interconnexion de cluster.</block>
   <block id="940761e28da4b693854d6f9dd90cf253" category="video-title">Animation : câble d'un cluster sans commutateur à deux nœuds</block>
-  <block id="e8da070fbb7ed9f4e58234be76f00e95" category="list-text">Utilisez le câble d'interconnexion de cluster 25 GbE pour connecter les ports d'interconnexion de cluster e0c à e0c et e0d à e0d.</block>
   <block id="c26780590002425e46bd9c5734245466" category="paragraph">Utilisez l'animation ou les étapes pour terminer le câblage entre les contrôleurs et les commutateurs. Effectuez les étapes sur chaque contrôleur.</block>
   <block id="76cc458c90f11508f1ec83bed8953ef1" category="video-title">Animation - Groupe de câbles commutés</block>
   <block id="f7d77014760bf79c9b9469d98b1e031b" category="admonition">Lorsque vous insérez le connecteur, vous devez le sentir en place. Si vous ne le sentez pas, retirez-le, retournez-le et réessayez.</block>
   <block id="ed7a3f593115fbd1332dbd3743a9967c" category="paragraph">Effectuer l'étape suivante sur chaque module de contrôleur.</block>
-  <block id="63acd4af39a4e0dda6fe6c3d381743a7" category="open-title">Option 2 : câble vers un réseau de données 25 GbE ou hôte</block>
   <block id="2b5c65d5b0abc122c914eec510d083ae" category="paragraph">Une erreur s'est produite avec la fonction de l'une des FRU suivantes : tiroir disque, disques durs, modules IOM12/IOM12B ou blocs d'alimentation.</block>
   <block id="179393dc95adf2d21fee0c7a4ac43a35" category="paragraph">Le voyant d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12/IOM12B s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.</block>
   <block id="a0e54d8ccf5f2c0e80dde9c632b59a06" category="section-title">Voyants du module IOM12/IOM12B</block>
@@ -6438,7 +6425,6 @@ SFP+ (cible/initiateur)</block>
   <block id="abc8a9a1aab13018556d024a5691afae" category="doc">Étapes vidéo : FAS8300 et FAS8700</block>
   <block id="57fcdb44384a01811b20cb55bd021011" category="doc">Étapes vidéo - AFF A320</block>
   <block id="f4c78bd954ecc6d38092f7c504ddfb9a" category="doc">Étapes vidéo - FAS2700</block>
-  <block id="3620e8833d6beeecd610b282d65a89b5" category="admonition"><block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> La priorité de slot pour les cartes réseau hôte (Fibre Channel ou 25GbE) est le slot 2. Toutefois, si vous disposez des deux cartes, la carte Fibre Channel se place dans le logement 2 et la carte 25GbE dans le logement 1 (comme indiqué dans les options ci-dessous). Si vous disposez d'un tiroir externe, la carte de stockage se place dans le logement 1, le seul logement pris en charge pour les tiroirs.</block>
   <block id="de8a85d6bcdb94b40275e65134363d85" category="doc">Étapes vidéo - AFF C250</block>
   <block id="0b22644145264cc3d3c89acc64fc435a" category="doc">Étapes vidéo - AFF A150</block>
   <block id="0f2e7671fbc778ffb86bcc59f57731e6" category="doc">Etapes vidéo - AFF A800</block>
@@ -6710,7 +6696,6 @@ SFP+ (cible/initiateur)</block>
   <block id="4169d3d04b863ba6044225d783c8511c" category="paragraph">Utilisez le <block ref="760faf2edba83a3b2dfe198c423cd5ec" category="inline-link-macro-rx"></block> Si vous connaissez déjà l'installation des systèmes NetApp,</block>
   <block id="230fb764922530d0d527b96fb40d15f8" category="paragraph"><block ref="230fb764922530d0d527b96fb40d15f8" category="inline-link-macro-rx"></block></block>
   <block id="9e4682a37df843156979b712e93e942d" category="paragraph"><block ref="9e4682a37df843156979b712e93e942d" category="inline-link-macro-rx"></block></block>
-  <block id="370d65afeef540ea21d331a7da8675ec" category="list-text">Reliez les ports d'interconnexion de cluster e0c à e0c et e0d à e0d à l'aide de câbles d'interconnexion de cluster 25 GbE.</block>
   <block id="5407ed45e4a9085a4f72a4611d202d7c" category="sidebar">Les tiroirs NS224 et les tiroirs SAS de NetApp vous aident à obtenir les performances, la résilience et la flexibilité dont vous avez besoin pour votre transformation digitale.</block>
   <block id="4ab265d37ededf839a389d0b0bedcb7f" category="paragraph">30 cm</block>
   <block id="f0c3921d8aabdebf1548d35d830083d9" category="list-text">Retirez la plaque d'E/S en la faisant glisser hors du module de contrôleur.</block>
@@ -7022,10 +7007,7 @@ SFP+ (cible/initiateur)</block>
   <block id="e84bd7a7cafaabc7b1743876dcc73c70" category="image-alt">Schéma de câblage composite d'un cluster sans commutateur à 2 nœuds</block>
   <block id="0372c9caab5ee11faf1ffac3ef3c46fa" category="inline-image-macro">Schéma de câblage composite du cluster commuté</block>
   <block id="009e65f17aa2f40deb1c718bea3bf98b" category="paragraph"><block ref="009e65f17aa2f40deb1c718bea3bf98b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a6efff0cc5b19d4c49cb4467336db466" category="list-text">Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande de message AutoSupport :<block ref="fbcb7868c4849064439910664677cb60" prefix=" " category="inline-code"></block></block>
-  <block id="61612a74be5170dd342eb619d607d9a0" category="paragraph">La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures :<block ref="6cf51b10a85b7bdc2a6698400ee841b7" prefix=" " category="inline-code"></block></block>
   <block id="ab859514fa976f71299cd0d5366c702d" category="paragraph">Arrêtez ou prenez le contrôle du contrôleur défectueux à partir du contrôleur sain :<block ref="64d2ac6bbd59fb854ec2bed7b2dbe259" prefix=" " category="inline-code"></block></block>
-  <block id="fd9366185c7040d2814e95fefcce2264" category="list-text">Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande AutoSupport :<block ref="fbcb7868c4849064439910664677cb60" prefix=" " category="inline-code"></block></block>
   <block id="656450ae55843844fdfca7b44cbc5678" category="list-text">Vérifiez que le<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block> nouveau module d'E/S est compatible avec votre système de stockage et la version de ONTAP que vous exécutez.</block>
   <block id="78263f5226743bdd204519f0e9bd22d2" category="list-text">Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés à l'intérieur du chemin de câbles et en le faisant pivoter vers le bas.</block>
   <block id="72e0b58a2d456f6ab89ca8d83859264d" category="list-text">Retirez le module d'obturation du logement cible du support :</block>
@@ -7129,7 +7111,6 @@ SFP+ (cible/initiateur)</block>
   <block id="ed3f8b7cf16a504e6873c49f3ad8c721" category="list-text">Repérez le logement dans lequel vous installez le module DIMM dans le module de contrôleur de remplacement.</block>
   <block id="3874bbf004c50eed71c2b06f7ce4e648" category="list-text">Répétez ces étapes pour les autres modules DIMM. Fermez le conduit d'air de la carte mère.</block>
   <block id="d20809d05af81f52d71c6d3d4f4fe771" category="list-text">Comme le périphérique d'amorçage se trouve sur le module de gestion du système installé à l'arrière du système, vous n'avez pas besoin de déplacer le périphérique d'amorçage lors du remplacement d'un module de contrôleur.</block>
-  <block id="c78805aa63e8c47c7cae0cdebcc54f64" category="list-text">Vous devez toujours capturer la sortie de la console du contrôleur dans un fichier journal texte.</block>
   <block id="f9d9eff2772e16e9135d964e4533138c" category="list-text">Si le chiffrement est configuré sur votre système de stockage, vous devez restaurer la fonctionnalité de chiffrement de volume ou de stockage en procédant comme suit pour redémarrer le système :</block>
   <block id="c380f4d06afd36dcee7654a86545b95b" category="list-text">Démarrez le menu et exécutez l'option 10</block>
   <block id="1cd2c681f4d255665595108ab57cef94" category="list-text">Saisissez la phrase de passe et sauvegardez les données, puis effectuez un démarrage normal. Voir<block ref="1ab4828979a21de09829a9c51e95a6df" category="inline-link-rx"></block>.</block>
@@ -9112,7 +9093,6 @@ SFP+ (cible/initiateur)</block>
   <block id="0f4c05d658aace7b29b5ea53d3fa4cf2" category="list-text">Toutes les tablettes doivent fonctionner correctement.</block>
   <block id="34f0c52d74ac2c621ab6284425793c19" category="list-text">Vous devez remplacer un contrôleur par un contrôleur de même type. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le contrôleur.</block>
   <block id="f66467941a18b4f0a908d26d19b031ae" category="list-text">Vous ne pouvez pas modifier de disques ou de tiroirs dans le cadre de cette procédure.</block>
-  <block id="11f1efcf5793dbf6efc77f8d776228ce" category="paragraph">Le résultat de la console vous fournit un enregistrement de la procédure que vous pouvez utiliser pour résoudre les problèmes que vous pourriez rencontrer pendant le processus de remplacement.</block>
   <block id="c5977cf82bd57f5e5245e58d04c5be10" category="list-text">Il est important d'appliquer les commandes de cette procédure au contrôleur approprié :</block>
   <block id="057fbac6858b356c70e8500db3bd9f68" category="paragraph">Vous devez vérifier<block ref="594c16ca0695f6665d7cf4971707adf6" prefix=" " category="inline-code"></block> l'état du contrôleur et, si nécessaire, mettre à jour l'état pour qu'il corresponde à la configuration de votre système de stockage.</block>
   <block id="cc4a4c0fdb2dd603766bf674e02390ba" category="list-text">Démarrage en mode maintenance :</block>
@@ -9338,8 +9318,6 @@ SFP+ (cible/initiateur)</block>
   <block id="04fca3f1f2d55aeb84370ab3e66d9214" category="list-text">Reliez le port e4b du contrôleur B au commutateur de réseau du cluster B.</block>
   <block id="044628848918241f36841cbeb4d4dc4e" category="admonition">Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 10/25 GbE.</block>
   <block id="9d14c26ccbbb0d65a3b5d05e2013404b" category="paragraph">*Câbles d'interconnexion cluster/haute disponibilité 10/25 GbE*</block>
-  <block id="3488ff918c31f4a57e74bbab6ef9bcc9" category="inline-image-macro">schéma de câblage du bloc de commande a20 utilisant un module 25gbe io</block>
-  <block id="ae3bd4fc66b4084d0dc856b5f0230d72" category="paragraph"><block ref="ae3bd4fc66b4084d0dc856b5f0230d72" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7f99cbc2aa28ab9fed6e99fa94242b4a" category="section-title">Étape 2 : câblez les connexions réseau de l'hôte</block>
   <block id="8246042d23ca859d83185957ac9c4044" category="paragraph">Sur chaque contrôleur, reliez les ports e2b et e4b aux commutateurs réseau hôte Ethernet.</block>
   <block id="e827a0600a7ebd00f36ea855012f66a1" category="admonition">Les ports des modules d'E/S des connecteurs 2 et 4 sont 40/100 GbE (connectivité hôte 40/100 GbE).</block>
@@ -10501,7 +10479,6 @@ SFP+ (cible/initiateur)</block>
   <block id="587bed5e1b1013acb3b0cad78e0dc97f" category="inline-image-macro">schéma de câblage du bloc de commande fas50 utilisant un module 100gbe io</block>
   <block id="5af61e2d32561bdfd725b4ff1abad33d" category="paragraph"><block ref="5af61e2d32561bdfd725b4ff1abad33d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="30116aad52f0bad698fa0cb2a523a7d2" category="example-title">FAS50 avec un module d'E/S 10/25 GbE à 4 ports</block>
-  <block id="83ed0059cf7b8565a69e40d218194766" category="image-alt">câblage des commutateurs de réseau hôte ethernet fas50 à 10 gbe</block>
   <block id="97999a10174c7270f80d69a61f881c34" category="example-title">FAS50 avec un module d'E/S FC 64 Gbit/s à 4 ports</block>
   <block id="4af0635b9b0fa01d90348d64d44ac5a7" category="paragraph">Les procédures suivantes montrent comment connecter les contrôleurs à un ou deux tiroirs DS460C.</block>
   <block id="0d4ae2c19fb1eec9c73a9ba31cf7b80f" category="list-text">Les exemples de câblage montrent des tiroirs DS460C. Toutefois, des tiroirs SAS supplémentaires sont pris en charge, voir <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>.</block>
@@ -10569,7 +10546,6 @@ SFP+ (cible/initiateur)</block>
   <block id="58a7a102daa03629c6548f4b567a8bdc" category="sidebar">MODULE D'E/S FAS50</block>
   <block id="42ce83dc3f5ef22d986311b267a5ac20" category="section-title">Avril 2025</block>
   <block id="a574039687c6d52e2a17e47affbc4d8d" category="list-text">Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :</block>
-  <block id="5c40960208a7535beecf44f84d10cea9" category="paragraph"><block ref="fa00b95aa82b5506a4c27cc4a50f05d7" prefix="" category="inline-code"></block></block>
   <block id="2a9205137f8a0ec57be25e6b19b96284" category="paragraph">Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :</block>
   <block id="cd080b2ac496489acb1e57ed7c6444c6" category="paragraph"><block ref="387708b955ccf034fcf9197ad51ba879" prefix="" category="inline-code"></block></block>
   <block id="b452c4bf6d6344fb288a06006598685e" category="paragraph"><block ref="f454cdc7efb7d9bfad8109c4264a3a1b" prefix="" category="inline-code"></block></block>
@@ -10581,7 +10557,6 @@ SFP+ (cible/initiateur)</block>
   <block id="83057bdb135cca58f0756be73b3fe4f0" category="paragraph">La valeur de l'état HA peut être l'une des suivantes :</block>
   <block id="b0e2306e9f0b1db26beda9207b643adc" category="list-text">Vous devez avoir confirmé que l'état de configuration MetroCluster est configuré et que les nœuds sont dans un état activé et normal :</block>
   <block id="ecada3140a47012aab89f14c63ba9190" category="paragraph"><block ref="4d06f3844212ac745a73965bbb3f6e51" prefix="" category="inline-code"></block></block>
-  <block id="f045de31e6ca5c44bdd82fc2b4ea9e53" category="paragraph"><block ref="fbcb7868c4849064439910664677cb60" prefix="" category="inline-code"></block></block>
   <block id="b56b78769068ef30879ff862bf0d7d58" category="paragraph"><block ref="6cf51b10a85b7bdc2a6698400ee841b7" prefix="" category="inline-code"></block></block>
   <block id="5f54996be1665b2f88bba84f87a93569" category="paragraph">Utilisez le mappage des FRU sur le conduit d'air du contrôleur pour localiser le logement DIMM.</block>
   <block id="7d0097234d19020f58b7650559edaf2b" category="section-title">Étape 2 : remplacez le module NVRAM ou le module DIMM NVRAM</block>
@@ -10652,8 +10627,6 @@ SFP+ (cible/initiateur)</block>
   <block id="11695514a878032b3fb5ecdf5e659b5b" category="paragraph">Si votre configuration ne s'affiche pas ici, reportez-vous à  la section <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> pour obtenir des informations complètes sur la configuration et la priorité des connecteurs afin de connecter le câble de votre système de stockage.</block>
   <block id="2e169c8e6f4cc1f6315545b46d7284a2" category="inline-image-macro">Câble fc de 64 Go</block>
   <block id="0bf370304560205688213d22ba637c07" category="paragraph"><block ref="0bf370304560205688213d22ba637c07" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="beb0d5517240a78e9a0d820d0cc72901" category="cell">Pour... .2+</block>
-  <block id="41808d27e9d2aded3d4e7b4d381cd4f6" category="paragraph">X66240-2 (112-00573), 2 m 3+</block>
   <block id="610784c65e00a7160be578b24e829e1f" category="inline-image-macro">Câblage du contrôleur 1</block>
   <block id="fb1a92a9f3466626feb9c8b39fc2f15a" category="paragraph"><block ref="fb1a92a9f3466626feb9c8b39fc2f15a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4aee1879aa42ff92e3eacf5873fbb5d4" category="inline-image-macro">Câblage du contrôleur 2</block>
@@ -11319,7 +11292,6 @@ SFP+ (cible/initiateur)</block>
   <block id="4db3443ca8b7e077da6fda74143b5d12" category="sidebar">HA multi-trajets</block>
   <block id="98a06331c5019fee7c2bec76b5d289fb" category="sidebar">HA à quatre chemins</block>
   <block id="fd00151c44420f6f79e4b58679a95624" category="sidebar">Les étagères DS212C, DS224C ou DS460C maintiennent</block>
-  <block id="445dfd5b6a6cefa8cddbd35f02b84b3f" category="list-text">Vérifiez que le port e0M (clé) du contrôleur défectueux est connecté et n'est pas défectueux.</block>
   <block id="28ee83acca422d1018aa8c24fc45a4ae" category="paragraph">Le port e0M est utilisé pour communiquer entre les deux contrôleurs pendant le processus de récupération de démarrage automatisé.</block>
   <block id="6dcd1ebf4390170868ab9bcdfd967581" category="list-text">Entrez la commande suivante :</block>
   <block id="fafdccda6cda9f9e3734c54d6282a4a7" category="list-text">Entrer<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous voyez l'invite, _Voulez-vous continuer ?_</block>
@@ -11439,7 +11411,6 @@ SFP+ (cible/initiateur)</block>
   <block id="d3db264d9eacbc28b1e95a3db2488f15" category="summary">Remplacez un module DIMM dans votre système de stockage AFF C30 ou AFF C60 si des erreurs de mémoire excessives, corrigibles ou non, sont détectées.  De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP.  Le processus de remplacement implique l'arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, la réinstallation du contrôleur, puis le renvoi de la pièce défectueuse à NetApp.</block>
   <block id="e64c35566f4192910fd96255b2ce6829" category="summary">Remplacez un lecteur de votre système de stockage AFF C30 ou AFF C60 lorsqu'un lecteur tombe en panne ou nécessite une mise à niveau.  Le processus de remplacement consiste à identifier le lecteur défectueux, à le retirer en toute sécurité et à installer un nouveau lecteur pour garantir un accès continu aux données et aux performances du système.</block>
   <block id="30039d681358f47535e9dc792b85b7ff" category="summary">Remplacez un module de ventilateur dans votre système de stockage AFF C30 ou AFF C60 lorsqu'un ventilateur tombe en panne ou ne fonctionne pas efficacement, car cela peut affecter le refroidissement du système et les performances globales.  Le processus de remplacement implique l'arrêt du contrôleur, le retrait du contrôleur, le remplacement du ventilateur, la réinstallation du contrôleur et le renvoi de la pièce défectueuse à NetApp.</block>
-  <block id="d8a896f9e037be6fb6681599c6a8aa8c" category="summary">Ajoutez un module d'E/S à votre système de stockage AFF C30 ou AFF C60 pour améliorer la connectivité réseau et étendre la capacité de votre système à gérer le trafic de données.</block>
   <block id="9b18885feab6818399cdcd5895dc6c4c" category="summary">Remplacez un module d'E/S dans votre système de stockage AFF C30 ou AFF C60 lorsque le module tombe en panne ou nécessite une mise à niveau pour prendre en charge des performances supérieures ou des fonctionnalités supplémentaires. Le remplacement consiste à arrêter le contrôleur, à remplacer le module d'E/S défectueux, à redémarrer le contrôleur et à renvoyer le composant défectueux à NetApp.</block>
   <block id="c76ddb32b3eb44ec7a4a9ee7f5667f81" category="summary">Remplacez la batterie NV de votre système de stockage AFF C30 ou AFF C60 lorsque la batterie commence à perdre sa charge ou tombe en panne, car elle est responsable de la préservation des données critiques du système pendant les pannes de courant.  Le processus de remplacement implique l'arrêt du contrôleur défectueux, le retrait du module de contrôleur, le remplacement de la batterie NV, la réinstallation du module de contrôleur et le renvoi de la pièce défectueuse à NetApp.</block>
   <block id="27fb3d3ae019d8ba63f63d1bd7545c44" category="summary">Remplacez un bloc d'alimentation CA ou CC (PSU) de votre système de stockage AFF C30 ou AFF C60 lorsqu'il tombe en panne ou devient défectueux, garantissant ainsi que votre système continue de recevoir l'alimentation requise pour un fonctionnement stable.  Le processus de remplacement consiste à déconnecter le bloc d'alimentation défectueux de la source d'alimentation, à débrancher le cordon d'alimentation, à remplacer le bloc d'alimentation défectueux, puis à le reconnecter à la source d'alimentation.</block>
@@ -11832,7 +11803,6 @@ SFP+ (cible/initiateur)</block>
   <block id="a9f25df7e08b579215eb3375343eb3a5" category="paragraph">Avant de remplacer le support de démarrage de votre FAS8300 ou FAS8700, assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi.  Cela inclut la vérification que vous disposez du support de démarrage de remplacement approprié, la confirmation que le port e0S (clé e0M) sur le contrôleur défectueux n'est pas défectueux et la détermination si Onboard Key Manager (OKM) ou External Key Manager (EKM) est activé.</block>
   <block id="be767870bb556c204155138a2ea3ad9f" category="summary">Avant de remplacer le support de démarrage de votre système FAS8300 et FAS8700 , assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
   <block id="cc2c652dd46d9b43caba43e56578d8fc" category="doc">Exigences pour la récupération manuelle du support de démarrage - FAS8300 et FAS8700</block>
-  <block id="00211911b2ba513521720fdc3f5c8683" category="paragraph">Avant de remplacer le support de démarrage de votre système FAS8300 ou FAS8700 , assurez-vous de répondre aux exigences nécessaires pour un remplacement réussi. Il est notamment important de disposer d'une clé USB avec la capacité de stockage appropriée et de vérifier que vous disposez du périphérique de démarrage de remplacement approprié.</block>
   <block id="65899bfeb0f4080d023f5b76933df62a" category="summary">Commencez à remplacer le support de démarrage de votre système de stockage FAS8300 ou FAS8700 en examinant les exigences de remplacement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en restaurant l'image sur le support de démarrage et en vérifiant la fonctionnalité du système.</block>
   <block id="9c211242417a2d4e971c87e2f2ab93b0" category="doc">Workflow de récupération automatisée du support de démarrage - FAS8300 et FAS8700</block>
   <block id="c23c751e94afc93f18b1692d0c6f7466" category="paragraph">La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage sur le nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement dans votre système de stockage FAS8300 ou FAS8700 .</block>
@@ -13250,8 +13220,6 @@ SFP+ (cible/initiateur)</block>
   <block id="306709d67f2dec8b8ba6331b0da7011d" category="paragraph">Les systèmes ASA r2 offrent une solution matérielle et logicielle unifiée qui crée une expérience simplifiée spécifique aux besoins des clients SAN uniquement. <block ref="67383e616307465eca49426accf697dc" category="inline-link-macro-rx"></block> .</block>
   <block id="277f3da1559e139922ed3989a9354148" category="paragraph">Les étagères de disques sont spécialement conçues pour les systèmes NetApp AFF, AFX, ASA et FAS et contribuent à fournir les performances, la résilience et la flexibilité dont votre transformation numérique a besoin.</block>
   <block id="15098ffd77b0868f845cfc616f250a6b" category="list-text">Étagère NSX224 pour systèmes AFX</block>
-  <block id="3cfc071da5a0fdf899bb147a25be0c08" category="list-text">Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande de message AutoSupport :</block>
-  <block id="2a9c9df22f9538653501b32719999555" category="paragraph">La commande AutoSupport suivante supprime la création automatique de cas pendant deux heures :</block>
   <block id="a5e0a9798bce38c0259a506f0fd1147d" category="list-text">Désactiver le retour automatique depuis la console du contrôleur sain :</block>
   <block id="a9f9ae342279f5d338d3038ce3af820c" category="paragraph"><block ref="7b903d789523bfa1771a2f63b3523783" prefix="" category="inline-code"></block></block>
   <block id="506e005a43769e0aa9d2a519e91ac21a" category="paragraph"><block ref="5fd0741516e2bbd70fc3c26403444415" prefix="" category="inline-code"></block></block>
@@ -13669,8 +13637,6 @@ SFP+ (cible/initiateur)</block>
   <block id="f2ea399faffde1f5e44ec5d36a46743b" category="list-text">Comprendre la terminologie du contrôleur utilisée dans cette procédure :</block>
   <block id="fd9d57e205ad7278ee5e9d7da776e592" category="list-text">Le contrôleur _défaillant_ est le contrôleur en cours de remplacement.</block>
   <block id="2a9c66dec8268e51da2f8aeefaacc47b" category="list-text">Le contrôleur de remplacement est le nouveau contrôleur qui remplace le contrôleur défectueux.</block>
-  <block id="dfa9a1a987cae2ab54b634b23d17d07f" category="list-text">Capturez les données de la console du contrôleur dans un fichier journal texte.</block>
-  <block id="75eecc98c33af038783f7353a8c916ec" category="paragraph">Ce document consigne la procédure de dépannage en cas de problème survenu lors du processus de remplacement.</block>
   <block id="a3a951ff4647dbd0664ca7a8ea23ed07" category="paragraph">Vérifiez les paramètres de configuration HA et la liste des disques avant de remettre le système en service.</block>
   <block id="04d87613fffde1c6cb2c90776f2d0c2a" category="list-text">Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, configurez le<block ref="594c16ca0695f6665d7cf4971707adf6" prefix=" " category="inline-code"></block> état du module de contrôle :</block>
   <block id="b883881b0cd895a8decfc031e7c33695" category="list-text">Vérifiez que l'adaptateur répertorie les chemins d'accès à tous les disques :<block ref="c41292f339fa0dd66d84b7c3a9eac054" prefix=" " category="inline-code"></block></block>
@@ -14967,7 +14933,6 @@ SFP+ (cible/initiateur)</block>
   <block id="e34b47b2fc72c64c99406982ed952d64" category="summary">Une fois les variables d'environnement vérifiées, vous devez effectuer des étapes spécifiques aux systèmes sur lesquels Onboard Key Manager, NetApp Storage Encryption ou NetApp Volume Encryption sont activés.</block>
   <block id="6fea8dae69f912b0a722a051419e6ef1" category="summary">Pour que le remplacement du contrôleur de votre système AFF C250 soit pleinement opérationnel, vous devez restaurer la configuration de chiffrement du stockage NetApp, installer les licences pour le nouveau contrôleur et renvoyer la pièce défectueuse à NetApp.</block>
   <block id="15644129509c2584f7bffe491694e5c1" category="summary">Ajoutez un module d'E/S à votre système de stockage AFF C30 ou AFF C60 pour améliorer la connectivité réseau et étendre la capacité de votre système à gérer le trafic de données.</block>
-  <block id="72c9bdd2d54c242e898b2fcd4b5fbbe6" category="doc">Ajouter un module d'E/S - AFF C30 et AFF C60</block>
   <block id="dbd80ee306ba34928c51a4931c276537" category="summary">Remplacez le bloc d'alimentation CA ou CC de votre système de stockage AFF C30 ou AFF C60 lorsqu'il tombe en panne ou présente un dysfonctionnement, afin de garantir que votre système continue de recevoir l'alimentation requise pour un fonctionnement stable. La procédure de remplacement consiste à déconnecter le bloc d'alimentation défectueux de la source d'alimentation, à débrancher le cordon d'alimentation, à remplacer le bloc d'alimentation défectueux, puis à le reconnecter à la source d'alimentation.</block>
   <block id="71d361350ed28dfae001760251b6e988" category="summary">Remplacez la pile de l'horloge temps réel, communément appelée pile bouton, de votre système de stockage AFF C30 ou AFF C60 pour garantir le fonctionnement des services et applications nécessitant une synchronisation horaire précise.</block>
   <block id="9c0259404d69f4d29b60fec70f11e02b" category="summary">Vous devez remplacer une barrette DIMM dans le module contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d'erreurs corrigibles (ECC), faute de quoi le système paniquera.</block>
@@ -15055,4 +15020,34 @@ SFP+ (cible/initiateur)</block>
   <block id="21eb4ba3e07d5691bb2ca2aeeaea8fca" category="paragraph">Restituez le stockage au contrôleur défaillant, rétablissez la restitution automatique et terminez la fenêtre de maintenance AutoSupport.</block>
   <block id="b0cf17c34e1e13a80699938c1fb9a3a1" category="list-text">À partir du contrôleur sain ou d'une invite de commande d'administrateur de cluster, rétablissez le fonctionnement normal du contrôleur en restaurant son stockage :<block ref="30edaf7c9fa43c78aeaf4b8fabb7af1a" prefix=" " category="inline-code"></block></block>
   <block id="5a1c9794f830d65f2a212554cf798ab8" category="admonition">Avant de refermer le couvercle NSM endommagé, assurez-vous que les languettes d'éjection de tous les emplacements DIMM vides sont complètement remises en position verrouillée.</block>
+  <block id="66f72fed10eea65ffd47206a4c0e4a12" category="paragraph">NetApp recommande fortement d'activer la journalisation de la console sur les appareils que vous utilisez et de prendre les mesures suivantes lors de cette procédure :</block>
+  <block id="d60697e9ad2359c8b84595bbbf7b4dd1" category="list-text">Laissez AutoSupport activé pendant votre maintenance. Cela permet au support NetApp de recevoir des informations de diagnostic en cas de problème.</block>
+  <block id="fb42fce84a1f5a648367e2e027a6c941" category="inline-link">Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP</block>
+  <block id="28d499572d8b4be2e6b17a164ce69bb7" category="list-text">Activez la journalisation des sessions pour toutes les sessions CLI. Cela crée un enregistrement complet de toutes les commandes et des sorties système pendant l'opération de maintenance. Pour savoir comment activer la journalisation des sessions, consultez <block ref="969f6e4e41456399a13556dea44fc607" category="inline-link-rx"></block>.</block>
+  <block id="4b48b65f16187f40e68db0c4df7cb08a" category="inline-link">Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées</block>
+  <block id="ccbd6c8b93f413ab5d3cabde9555077b" category="paragraph">Cela empêche l'ouverture automatique de tickets d'assistance pendant votre fenêtre de maintenance planifiée. La durée maximale de suspension est de 72 heures. Si votre maintenance se termine plus tôt, vous pouvez réactiver la création de tickets en envoyant un AutoSupport message avec <block ref="f0f32d61e0cd2495dc3cf151e5af854d" prefix=" " category="inline-code"></block>. Pour plus d'informations, consultez <block ref="103c5a3d17ace9358d9c20d8a69a4d2c" category="inline-link-rx"></block>.</block>
+  <block id="c2226ed1d066c6a94ef089cb63240788" category="list-text">Vérifiez que l'interface e0S (port clé e0M) du contrôleur défectueux n'est pas défectueuse.</block>
+  <block id="18a7044864206b80675dbf6c85b18b1d" category="list-text">Vérifiez que l'interface e0S (port e0M wrench) du contrôleur défectueux n'est pas défectueuse.</block>
+  <block id="d691a1ea4819b7230086723af3ecd3a0" category="paragraph">RoCE QSFP28 25 GbE 2 ports</block>
+  <block id="21df9f311f1f416a9e469b29179c8aa1" category="paragraph">Prise en charge du commutateur d'interconnexion de cluster Broadcom BES-53248 pour les contrôleurs AFF/FAS avec ports 10/25 GbE.</block>
+  <block id="a9c7addc04fb05dcf8c26ea8c1d6e122" category="inline-image-macro">Schéma de câblage d'un cluster commuté a20 utilisant un module d'E/S 25 GbE</block>
+  <block id="31022f648a706591ff17bdcf7d2de430" category="paragraph"><block ref="31022f648a706591ff17bdcf7d2de430" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1b566031093c2862a24b61416128a899" category="list-text">Utilisez le câble d'interconnexion de cluster 25 GbE pour connecter les ports d'interconnexion de cluster e0c à e0c et e0d à e0d.</block>
+  <block id="88ed1058d08ec766642e8b39b6f34c94" category="admonition"><block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>La priorité d’emplacement pour les cartes réseau hôtes (Fibre Channel ou 25 GbE) est l’emplacement 2. Cependant, si vous disposez des deux cartes, la carte Fibre Channel va dans l’emplacement 2 et la carte 25 GbE dans l’emplacement 1 (comme indiqué dans les options ci-dessous). Si vous avez une étagère externe, la carte de stockage va dans l’emplacement 1, le seul emplacement pris en charge pour les étagères.</block>
+  <block id="5835c21fa077803ab06f9ca055cffa02" category="open-title">Option 2 : Câble vers réseau de données ou réseau hôte 25 GbE</block>
+  <block id="f3009b83cc38372f17ed6158a021abe6" category="paragraph">Les ports 25 GbE des contrôleurs sont connectés à des commutateurs de réseau de données ou de réseau hôte 25 GbE.</block>
+  <block id="854f160935893031748d736c0d182855" category="paragraph">Câbles 16 Gb FC ou 25 GbE pour cartes mezzanine (selon la commande)</block>
+  <block id="65c598353c15f10a9eb14a722d053351" category="list-text">Câblez les ports d'interconnexion de cluster e0c à e0c et e0d à e0d avec les câbles d'interconnexion de cluster 25 GbE.</block>
+  <block id="85a6c0ec28664166f4a156353c8b037c" category="open-title">Option 2 : Connexion par câble à un réseau de données ou hôte 25 GbE</block>
+  <block id="877ce8d6e2378f25eb1934d780634787" category="doc">Ajouter un module d'E/S - AFF C30 et AFF C60</block>
+  <block id="0a3f2b72eb2ea0bdcd4dc118b1aae238" category="paragraph">Ajoutez un module d'E/S à votre système de stockage AFF C30 ou AFF C60 pour améliorer la connectivité réseau et augmenter la capacité de traitement du trafic de données. Vous pouvez utiliser cette procédure pour ajouter un module d'E/S soit à un contrôleur opérationnel dans le cadre d'une mise à niveau planifiée, soit à un contrôleur défaillant lors d'une opération de maintenance.</block>
+  <block id="97607991c1dd6b608ef187243a963982" category="paragraph">Vous pouvez effectuer cette procédure sur l'un ou l'autre des contrôleurs de la paire haute disponibilité, qu'il soit actuellement opérationnel ou défaillant. Comme il est impossible d'ajouter un module d'E/S à un contrôleur en fonctionnement, le contrôleur cible doit être arrêté avant l'installation du module. Le partenaire de la paire haute disponibilité prend le relais des opérations de stockage pendant la procédure afin que les données restent accessibles aux clients.</block>
+  <block id="1e0843e40bafc397e75bea095831f620" category="list-text">Si le contrôleur cible est *opérationnel* (ajout prévu), suivez les étapes d'arrêt telles qu'elles sont écrites, en traitant le contrôleur cible comme le contrôleur « défaillant » dans ce contenu.</block>
+  <block id="085d901dd9c5d889c883f7e54c4cfb71" category="list-text">Si le contrôleur cible est *défaillant*, suivez les étapes d'arrêt décrites.</block>
+  <block id="3cde15579201073e7ad07db8b2135498" category="section-title">Étape 1 : Arrêter le module de contrôleur cible</block>
+  <block id="43fb137870b7f187f8cab19a2c6819a1" category="paragraph">Prenez le contrôle et arrêtez le module de contrôleur cible afin que sa paire haute disponibilité continue de fournir des données pendant l'ajout du module d'E/S. Les étapes liées font référence au contrôleur arrêté comme étant le contrôleur « défaillant » ; les mêmes étapes s'appliquent que vous preniez le contrôle d'un contrôleur opérationnel pour un ajout planifié ou que vous arrêtiez un contrôleur déjà défaillant.</block>
+  <block id="5bb9eb7c6de6a5f45df6464218ff1cf1" category="image-alt">câble FAS50 vers commutateurs réseau hôtes Ethernet 10/25 GbE</block>
+  <block id="9032ec2413add8bae5c7091ded2efd15" category="paragraph">Reliez les ports d'interconnexion de cluster entre eux à l'aide du câble d'interconnexion de cluster 25 GbE</block>
+  <block id="ae50728003d401e456e4268de55cb82f" category="list-text"><block ref="22c13bbaef49007250d4766c3983eb52" category="inline-xref-macro-rx"></block></block>
+  <block id="c8319347335872bf1fd4bd3b782289bd" category="paragraph">Avant de remplacer le support de démarrage de votre FAS8300 ou FAS8700, assurez-vous de respecter les conditions requises pour un remplacement réussi. Cela inclut la vérification que vous disposez du support de démarrage de remplacement adéquat, la confirmation que le port e0S (clé e0M) du contrôleur défectueux n'est pas défaillant, et la détermination de l'activation du Onboard Key Manager (OKM) ou de l'External Key Manager (EKM).</block>
 </blocks>

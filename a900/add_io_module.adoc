@@ -29,9 +29,18 @@ Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôle
 Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de désactiver le contrôleur défaillant ; voir link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^].
 
 .Étapes
-. Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande de message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
 +
-La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+`system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h`
+
++
+Cela empêche l'ouverture automatique de tickets d'assistance pendant votre fenêtre de maintenance planifiée. La durée maximale de suspension est de 72 heures. Si votre maintenance se termine plus tôt, vous pouvez réactiver la création de tickets en envoyant un AutoSupport message avec  `MAINT=END`. Pour plus d'informations, consultez  https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées"^].
+
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :
+
++
+`cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
 
 . Désactiver le retour automatique depuis la console du contrôleur défaillant :
 +
@@ -88,9 +97,18 @@ Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôle
 
 
 .Étapes
-. Si AutoSupport est activé, supprimez la création automatique de cas en appelant une commande AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=number_of_hours_downh`
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
 +
-La commande AutoSupport suivante supprime la création automatique de dossiers pendant deux heures : `cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
+`system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h`
+
++
+Cela empêche l'ouverture automatique de tickets d'assistance pendant votre fenêtre de maintenance planifiée. La durée maximale de suspension est de 72 heures. Si votre maintenance se termine plus tôt, vous pouvez réactiver la création de tickets en envoyant un AutoSupport message avec  `MAINT=END`. Pour plus d'informations, consultez  https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées"^].
+
++
+Le message AutoSupport suivant supprime la création automatique de dossiers pendant deux heures :
+
++
+`cluster1:*> system node autosupport invoke -node * -type all -message MAINT=2h`
 
 . Désactiver le rétablissement automatique depuis la console du contrôleur sain : `storage failover modify –node local -auto-giveback false`
 . Faites passer le contrôleur douteux à l'invite DU CHARGEUR :
