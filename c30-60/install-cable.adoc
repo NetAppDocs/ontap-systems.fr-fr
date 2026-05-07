@@ -44,18 +44,17 @@ Si votre configuration ne s'affiche pas ici, reportez-vous à  la section link:h
 ====
 .Câblage switchless cluster Cabling
 --
+Utilisez cette option de câblage lorsque les deux contrôleurs sont directement connectés l'un à l'autre sans utiliser de commutateurs réseau de cluster.
+
 .AFF C30 ou AFF C60 avec deux modules d'E/S 40/100 GbE à 2 ports
-[%collapsible]
-=====
-.Étapes
-. Reliez les connexions d'interconnexion cluster/haute disponibilité :
-+
+Câblez les ports d'interconnexion cluster/HA sur les modules d'E/S dans les emplacements 2 et 4.
+
 
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur les modules d'E/S des connecteurs 2 et 4). Les ports sont 40/100 GbE.
 
-+
-.. Reliez le port e2a du contrôleur A au port e2a du contrôleur B.
-.. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
+.Étapes
+. Reliez le port e2a du contrôleur A au port e2a du contrôleur B.
+. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
 +
 
 NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour la connectivité réseau de l'hôte.
@@ -67,25 +66,19 @@ NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour 
 image::../media/oie_cable100_gbe_qsfp28.png[Câble 100 GbE haute disponibilité du cluster]
 
 +
-image::../media/drw_isi_a30-50_switchless_2p_100gbe_2card_cabling_ieops-2011.svg[schéma de câblage des clusters sans commutateur a30 et a60 utilisant deux modules io 100 gbe]
+image::../media/drw_isi_a30-50_switchless_2p_100gbe_2card_cabling_ieops-2011.svg[Schéma de câblage du cluster sans commutateur c30 et c60 utilisant deux modules d'E/S 100GbE]
 
 
 
-
-
-=====
 .AFF C30 ou AFF C60 avec un module d'E/S 40/100 GbE à 2 ports
-[%collapsible]
-=====
-.Étapes
-. Reliez les connexions d'interconnexion cluster/haute disponibilité :
-+
+Câblez les ports d'interconnexion cluster/interconnexion haute disponibilité sur le module d'E/S dans l'emplacement 4.
+
 
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 40/100 GbE.
 
-+
-.. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
-.. Reliez le port e4b du contrôleur A au port e4b du contrôleur B.
+.Étapes
+. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
+. Reliez le port e4b du contrôleur A au port e4b du contrôleur B.
 +
 *Câbles d'interconnexion cluster/haute disponibilité 100 GbE*
 
@@ -93,30 +86,26 @@ NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité pa
 image::../media/oie_cable100_gbe_qsfp28.png[Câble 100 GbE haute disponibilité du cluster]
 
 +
-image::../media/drw_isi_a30-50_switchless_2p_100gbe_1card_cabling_ieops-1925.svg[schéma de câblage des clusters sans commutateur a30 et a60 utilisant un module io 100 gbe]
+image::../media/drw_isi_a30-50_switchless_2p_100gbe_1card_cabling_ieops-1925.svg[Schéma de câblage sans commutateur pour cluster c30 et c60 utilisant un module d'E/S 100 GbE]
 
 
 
-
-
-=====
 --
 .Câblage commuté du cluster
 --
+Utilisez cette option de câblage lorsque les contrôleurs se connectent à des commutateurs réseau de cluster au lieu d'être connectés directement entre eux.
+
 .AFF C30 ou AFF C60 avec deux modules d'E/S 40/100 GbE à 2 ports
-[%collapsible]
-=====
-.Étapes
-. Reliez les connexions d'interconnexion cluster/haute disponibilité :
-+
+Câblez les ports d'interconnexion cluster/HA sur les modules d'E/S dans les emplacements 2 et 4 aux commutateurs du réseau du cluster.
+
 
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur les modules d'E/S des connecteurs 2 et 4). Les ports sont 40/100 GbE.
 
-+
-.. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
-.. Reliez le port e2a du contrôleur de câbles au commutateur de réseau du cluster B.
-.. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
-.. Reliez le port e2a du contrôleur B au commutateur de réseau du cluster B.
+.Étapes
+. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
+. Reliez le port e2a du contrôleur de câbles au commutateur de réseau du cluster B.
+. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
+. Reliez le port e2a du contrôleur B au commutateur de réseau du cluster B.
 +
 
 NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour la connectivité réseau de l'hôte.
@@ -128,27 +117,21 @@ NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour 
 image::../media/oie_cable100_gbe_qsfp28.png[Câble 40/100 GbE haute disponibilité du cluster]
 
 +
-image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[schéma de câblage des clusters commutés a30 et a60 avec deux modules io 100 gbe]
+image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[Schéma de câblage du cluster commuté c30 et c60 utilisant deux modules d'E/S 100GbE]
 
 
 
-
-
-=====
 .AFF C30 ou AFF C60 avec un module d'E/S 40/100 GbE à 2 ports
-[%collapsible]
-=====
-.Étapes
-. Reliez les contrôleurs aux commutateurs du réseau du cluster :
-+
+Câblez les ports d'interconnexion cluster/interconnexion haute disponibilité sur le module d'E/S dans l'emplacement 4 aux commutateurs réseau du cluster.
+
 
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 40/100 GbE.
 
-+
-.. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
-.. Reliez le port e4b du contrôleur A au commutateur de réseau du cluster B.
-.. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
-.. Reliez le port e4b du contrôleur B au commutateur de réseau du cluster B.
+.Étapes
+. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
+. Reliez le port e4b du contrôleur A au commutateur de réseau du cluster B.
+. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
+. Reliez le port e4b du contrôleur B au commutateur de réseau du cluster B.
 +
 *Câbles d'interconnexion cluster/haute disponibilité 40/100 GbE*
 
@@ -160,9 +143,6 @@ image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[R
 
 
 
-
-
-=====
 --
 ====
 
@@ -182,83 +162,56 @@ Si votre configuration ne s'affiche pas ici, reportez-vous à  la section link:h
 ====
 .Câblage hôte Ethernet
 --
+Connectez les contrôleurs à votre réseau hôte Ethernet en utilisant les ports appropriés en fonction de la configuration de votre module d'E/S.
+
 .AFF C30 ou AFF C60 avec deux modules d'E/S 40/100 GbE à 2 ports
-[%collapsible]
-=====
-.Étapes
-. Sur chaque contrôleur, reliez les ports e2b et e4b aux commutateurs réseau hôte Ethernet.
-+
+Sur chaque contrôleur, reliez les ports e2b et e4b aux commutateurs réseau hôte Ethernet.
+
 
 NOTE: Les ports des modules d'E/S des connecteurs 2 et 4 sont 40/100 GbE (connectivité hôte 40/100 GbE).
 
-+
 *Câbles 40/100 GbE*
 
-+
 image::../media/oie_cable_sfp_gbe_copper.png[Câble de 40/100 Go]
 
-+
 image::../media/drw_isi_a30-50_host_2p_40-100gbe_2card_cabling_ieops-2014.svg[Câble vers les switchs réseau hôte ethernet 40 gbe]
 
-
-
-=====
 .AFF C30 ou AFF C60 avec un module d'E/S 10/25 GbE à 4 ports
-[%collapsible]
-=====
-.Étapes
-. Sur chaque contrôleur, reliez les ports e2a, e2b, e2c et e2d aux commutateurs de réseau hôte Ethernet.
-+
+Sur chaque contrôleur, reliez les ports e2a, e2b, e2c et e2d aux commutateurs de réseau hôte Ethernet.
+
 *Câbles 10/25 GbE*
 
-+
 image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE"]
 
-+
 image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[Câble vers les switchs réseau hôte ethernet 40 gbe]
 
-
-
-=====
 --
 .Câblage hôte FC
 --
+Connectez les contrôleurs à votre réseau hôte Fibre Channel à l'aide du module d'E/S FC de votre système.
+
 .AFF C30 ou AFF C60 avec un module d'E/S FC 64 Gbit/s à 4 ports
-[%collapsible]
-=====
-.Étapes
-. Sur chaque contrôleur, câblez les ports 2a, 2b, 2c et 2d aux commutateurs réseau hôtes FC.
-+
+Sur chaque contrôleur, câblez les ports 2a, 2b, 2c et 2d aux commutateurs réseau hôtes FC.
+
 *Câbles FC 64 Gbit/s*
 
-+
-image:../media/oie_cable_sfp_gbe_copper.png["Câble fc de 64 Go, largeur = 100 px"]
+image:../media/oie_cable_sfp_gbe_copper.png["Câble fc de 64 Go"]
 
-+
 image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Câble vers les switchs réseau hôte fc de 64 go]
 
-
-
-=====
 --
 ====
 
 
 == Étape 3 : branchement des câbles du réseau de gestion
 
-Connectez les contrôleurs au réseau de gestion.
+Reliez les ports de gestion (clé anglaise) de chaque contrôleur aux switchs réseau de gestion.
 
-. Reliez les ports de gestion (clé anglaise) de chaque contrôleur aux switchs réseau de gestion.
-+
 *CÂBLES 1000BASE-T RJ-45*
 
-+
 image::../media/oie_cable_rj45.png[Câbles RJ-45]
 
-+
 image::../media/drw_isi_g_wrench_cabling_ieops-1928.svg[Connectez-vous à votre réseau de gestion]
-
-
 
 
 IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
@@ -288,23 +241,15 @@ image::../media/oie_cable100_gbe_qsfp28.png[Câble en cuivre QSFP28 à 100 GbE]
 
 
 .Étapes
-. Connectez les câbles du contrôleur A au tiroir :
-+
-.. Contrôleur de câble A, port e3a à NSM A, port e1a.
-.. Contrôleur de câble A, port e3b à NSM B, port e1b.
+. Contrôleur de câble A, port e3a à NSM A, port e1a.
+. Contrôleur de câble A, port e3b à NSM B, port e1b.
 +
 image:../media/drw_isi_g_1_ns224_controller_a_cabling_ieops-1945.svg["Ports du contrôleur A e3a et e3b câblés sur un tiroir NS224"]
 
-
-
-. Câble du contrôleur B vers le tiroir :
-+
-.. Contrôleur de câble du port B e3a au port NSM B e1a.
-.. Port e3b du contrôleur de câble au port e1b du NSM A.
+. Contrôleur de câble du port B e3a au port NSM B e1a.
+. Port e3b du contrôleur de câble au port e1b du NSM A.
 +
 image:../media/drw_isi_g_1_ns224_controller_b_cabling_ieops-1946.svg["Ports du contrôleur B e3a et e3b câblés sur un tiroir NS224"]
-
-
 
 
 

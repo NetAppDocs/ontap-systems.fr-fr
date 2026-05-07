@@ -44,48 +44,41 @@ Si votre configuration ne s'affiche pas ici, reportez-vous à  la section link:h
 ====
 .Câblage switchless cluster Cabling
 --
+Utilisez cette option de câblage lorsque les deux contrôleurs sont directement connectés l'un à l'autre sans utiliser de commutateurs réseau de cluster.
+
 .FAS50 avec un module d'E/S 40/100 GbE à 2 ports
-[%collapsible]
-=====
-.Étapes
-. Reliez les connexions d'interconnexion cluster/haute disponibilité :
-+
+Câblez les ports d'interconnexion cluster/interconnexion haute disponibilité sur le module d'E/S dans l'emplacement 4.
+
 
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 40/100 GbE.
 
-+
-.. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
-.. Reliez le port e4b du contrôleur A au port e4b du contrôleur B.
-+
+.Étapes
+. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
+. Reliez le port e4b du contrôleur A au port e4b du contrôleur B.
+
+
 *Câbles d'interconnexion cluster/haute disponibilité 100 GbE*
 
-+
 image::../media/oie_cable100_gbe_qsfp28.png[Câble 100 GbE haute disponibilité du cluster]
 
-+
 image::../media/drw_isi_fas50_switchless_2p_100gbe_cabling_ieops-1937.svg[schéma de câblage du cluster fas50 sans commutateur utilisant un module io 100 gbe]
 
-
-
-
-
-=====
 --
 .Câblage commuté du cluster
 --
+Utilisez cette option de câblage lorsque les contrôleurs se connectent à des commutateurs réseau de cluster au lieu d'être connectés directement entre eux.
+
 .FAS50 avec un module d'E/S 40/100 GbE à 2 ports
-[%collapsible]
-=====
-. Reliez les contrôleurs aux commutateurs du réseau du cluster :
-+
+Câblez les ports d'interconnexion cluster/interconnexion haute disponibilité sur le module d'E/S dans l'emplacement 4 aux commutateurs réseau du cluster.
+
 
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 40/100 GbE.
 
-+
-.. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
-.. Reliez le port e4b du contrôleur A au commutateur de réseau du cluster B.
-.. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
-.. Reliez le port e4b du contrôleur B au commutateur de réseau du cluster B.
+.Étapes
+. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
+. Reliez le port e4b du contrôleur A au commutateur de réseau du cluster B.
+. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
+. Reliez le port e4b du contrôleur B au commutateur de réseau du cluster B.
 +
 *Câbles d'interconnexion cluster/haute disponibilité 40/100 GbE*
 
@@ -97,9 +90,6 @@ image:../media/drw_isi_fas50_2p_100gbe_switched_cluster_cabling_ieops-1936.svg["
 
 
 
-
-
-=====
 --
 ====
 
@@ -119,62 +109,44 @@ Si votre configuration ne s'affiche pas ici, reportez-vous à  la section link:h
 ====
 .Câblage hôte Ethernet
 --
+Connectez les contrôleurs à votre réseau hôte Ethernet en utilisant les ports appropriés en fonction de la configuration de votre module d'E/S.
+
 .FAS50 avec un module d'E/S 10/25 GbE à 4 ports
-[%collapsible]
-=====
-.Étapes
-. Sur chaque contrôleur, reliez les ports e2a, e2b, e2c et e2d aux commutateurs de réseau hôte Ethernet.
-+
+Sur chaque contrôleur, reliez les ports e2a, e2b, e2c et e2d aux commutateurs de réseau hôte Ethernet.
+
 *Câbles 10/25 GbE*
 
-+
 image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur = 100 px"]
 
-+
 image::../media/drw_isi_fas50_4p_25gbe_optional_cabling_ieops-1934.svg[câble FAS50 vers commutateurs réseau hôtes Ethernet 10/25 GbE]
 
-
-
-=====
 --
 .Câblage hôte FC
 --
+Connectez les contrôleurs à votre réseau hôte Fibre Channel à l'aide du module d'E/S FC de votre système.
+
 .FAS50 avec un module d'E/S FC 64 Gbit/s à 4 ports
-[%collapsible]
-=====
-.Étapes
-. Sur chaque contrôleur, câblez les ports 2a, 2b, 2c et 2d aux commutateurs réseau hôtes FC.
-+
+Sur chaque contrôleur, câblez les ports 2a, 2b, 2c et 2d aux commutateurs réseau hôtes FC.
+
 *Câbles FC 64 Gbit/s*
 
-+
 image:../media/oie_cable_sfp_gbe_copper.png["Câble fc de 64 Go, largeur = 100 px"]
 
-+
 image::../media/drw_isi_fas50_4p_64gb_fc_optional_cabling_ieops-1935.svg[Câble vers les switchs réseau hôte fc de 64 go]
 
-
-
-=====
 --
 ====
 
 
 == Étape 3 : branchement des câbles du réseau de gestion
 
-Connectez les contrôleurs au réseau de gestion.
+Reliez les ports de gestion (clé anglaise) de chaque contrôleur aux switchs réseau de gestion.
 
-. Reliez les ports de gestion (clé anglaise) de chaque contrôleur aux switchs réseau de gestion.
-+
 *CÂBLES 1000BASE-T RJ-45*
 
-+
 image::../media/oie_cable_rj45.png[Câbles RJ-45]
 
-+
 image::../media/drw_isi_fas50_wrench_cabling_ieops-1938.svg[Connectez-vous à votre réseau de gestion]
-
-
 
 
 IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
@@ -201,26 +173,20 @@ image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Câble HD Mini-SAS]
 
 
 
-[role="tabbed-block"]
-====
-.Option 1 : un tiroir DS460C
---
+
+
+=== Une étagère DS460C
+
 Reliez chaque contrôleur à chaque module IOM12 du tiroir DS460C.
 
 .Étapes
-. Connectez les câbles du contrôleur A au tiroir :
-+
-.. Cable Controller A port 3a vers le port IOMA 1.
-.. Port 3d Du contrôleur de câble A vers le port IOMB 3.
+. Cable Controller A port 3a vers le port IOMA 1.
+. Port 3d Du contrôleur de câble A vers le port IOMB 3.
 +
 image:../media/drw_isi_fas50_1_ds460c_controller_a_cabling_ieops-2167.svg["Ports 3a du contrôleur A et câble 3d sur un tiroir DS460C"]
 
-
-
-. Câble du contrôleur B vers le tiroir :
-+
-.. Connectez le port 3a du contrôleur B au port IOMB 1.
-.. Port 3d du contrôleur de câble B vers le port IOMA 3.
+. Connectez le port 3a du contrôleur B au port IOMB 1.
+. Port 3d du contrôleur de câble B vers le port IOMA 3.
 +
 image:../media/drw_isi_fas50_1_ds460c_controller_b_cabling_ieops-2169.svg["Les ports 3a du contrôleur B et la 3d sont reliés à un tiroir DS460C"]
 
@@ -228,41 +194,26 @@ image:../media/drw_isi_fas50_1_ds460c_controller_b_cabling_ieops-2169.svg["Les p
 
 
 
---
-.Option 2 : deux tiroirs DS460C
---
+=== Deux étagères DS460C
+
 Connectez chaque contrôleur aux modules IOM12 des deux tiroirs DS460C.
 
-. Branchez les câbles des connexions tiroir à tiroir :
-+
-.. Cable Shelf 1 port IOMA 3 à Shelf 2 port IOMA 1.
-.. Cable Shelf 1 port IOMB 3 to Shelf 2 port IOMB 1.
+. Cable Shelf 1 port IOMA 3 à Shelf 2 port IOMA 1.
+. Cable Shelf 1 port IOMB 3 to Shelf 2 port IOMB 1.
 +
 image:../media/drw_isi_fas50_2_ds460c_shelf_to_shelf_ieops-2172.svg["reliez le tiroir aux connexions du tiroir"]
 
-
-
-. Connectez les câbles du contrôleur A aux tiroirs.
-+
-.. Reliez le port 3a du contrôleur A au port IOMA 1 du tiroir 1.
-.. Reliez le port 3d du contrôleur A au port IOMB du tiroir 2 3.
+. Reliez le port 3a du contrôleur A au port IOMA 1 du tiroir 1.
+. Reliez le port 3d du contrôleur A au port IOMB du tiroir 2 3.
 +
 image:../media/drw_isi_fas50_2_ds460c_controller_a_cabling_ieops-2170.svg["Les ports 3a du contrôleur A et la 3d sont câblés à deux tiroirs DS460C"]
 
-
-
-. Connectez les câbles du contrôleur B aux tiroirs.
-+
-.. Reliez le port 3a du contrôleur B au port IOMB 1 du tiroir 1.
-.. Reliez le port 3d du contrôleur B au port IOMA 3 du tiroir 2.
+. Reliez le port 3a du contrôleur B au port IOMB 1 du tiroir 1.
+. Reliez le port 3d du contrôleur B au port IOMA 3 du tiroir 2.
 +
 image:../media/drw_isi_fas50_2_ds460c_controller_b_cabling_ieops-2171.svg["Les ports 3a du contrôleur B et la 3d sont reliés à deux tiroirs DS460C"]
 
 
 
-
-
---
-====
 .Et la suite ?
 Après avoir câblé le matériel de votre système de stockage, vous link:install-power-hardware.html["mettez le système de stockage sous tension"].
