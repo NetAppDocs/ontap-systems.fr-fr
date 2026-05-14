@@ -8306,12 +8306,6 @@ SFP+ (cible/initiateur)</block>
   <block id="9e4b32259f721cc54024969657de5534" category="paragraph">Vous pouvez ajouter à chaud jusqu'à deux tiroirs NS224 à une paire HA ASA A70 ou ASA A90 lorsque du stockage supplémentaire est nécessaire (dans le tiroir interne).</block>
   <block id="55ec693931401ff7a634100e33ff8cfd" category="doc">Nouveautés des systèmes matériels ONTAP</block>
   <block id="ec6e72d1c4bb7dccdc62b6caf35c95f7" category="sidebar">Documentation des systèmes matériels ONTAP</block>
-  <block id="64f78e10c5d8a4db6f25299bf9a418cd" category="sidebar">Les systèmes AFF A-Series et C-Series aident les entreprises à transformer leur infrastructure plus rapidement et à stimuler leurs stratégies data-driven.</block>
-  <block id="d186b8a54af216bfae7a9573dc3dfd54" category="sidebar">La documentation des systèmes AFF décrit l'installation, la configuration et la maintenance des systèmes AFF A-Series et C-Series.</block>
-  <block id="8b4ad289620e7b0611000ddd6fa583c3" category="sidebar">Installez et configurez les systèmes A-Series</block>
-  <block id="c91d48fe9284f4d299615b787ff7c882" category="sidebar">Installation et configuration des systèmes C-Series</block>
-  <block id="d82b198ed12fecd580981b34c4959490" category="sidebar">Assurez la maintenance des systèmes A-Series</block>
-  <block id="e32ee65ffedbf05873ffce177cee51b5" category="sidebar">Maintenance des systèmes C-Series</block>
   <block id="9c2e760711833288658335a04261b16a" category="sidebar">La documentation du système de stockage ASA r2 vous permet d'installer, de configurer et de gérer votre système ASA r2.</block>
   <block id="e995d56efd9e31d97825dd79be4d1383" category="sidebar">En savoir plus sur les systèmes de stockage ASA r2</block>
   <block id="aa0dbb314a1c2c27148345705facc55c" category="sidebar">Installation et maintenance des systèmes ASA r2</block>
@@ -8328,8 +8322,6 @@ SFP+ (cible/initiateur)</block>
   <block id="2a2dfadb84e98697260fabd8a1ba63ea" category="sidebar">Vous devrez peut-être effectuer des procédures de maintenance sur votre matériel. Cette section présente les procédures spécifiques à la maintenance des composants du système ASA r2.</block>
   <block id="9823a9d702614ebe046cb789d32b241d" category="sidebar">Découvrez comment assurer la maintenance de vos systèmes ASA r2.</block>
   <block id="8cf7baf96983d1c70a286576ddcd0ca1" category="sidebar">ASA A70 et ASA A90</block>
-  <block id="91be56ff709f018bb7b1a4c33c68d316" category="sidebar">Systèmes a-Series</block>
-  <block id="078c4b575f196efdc8ec79e58f26db9f" category="sidebar">Systèmes C-Series</block>
   <block id="2d0e9a7694bf5bc701c3af145a6bba71" category="sidebar">Examen des conditions requises</block>
   <block id="f76aaf3aaa7b30238e7a3e2b1a04493b" category="sidebar">Préparer l'installation</block>
   <block id="03f15d4e5abe2379224af55ea714e8fd" category="sidebar">Systèmes ASA A70 et ASA A90</block>
@@ -9781,7 +9773,6 @@ SFP+ (cible/initiateur)</block>
   <block id="38ae227cf94e3775806bccfd95814d4b" category="paragraph"><block ref="035b082bfaf23bf2d7b95c3ef597d380" prefix="" category="inline-code"></block></block>
   <block id="a5e51e5f50ca83720f1d0d8b17c1e93b" category="list-text">Ces procédures présentent les configurations courantes. Le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour obtenir des détails complets sur la configuration et la priorité des emplacements, reportez-vous à la section <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>.</block>
   <block id="e5f780ef73bd41c1dd64af7a1a1a31ac" category="paragraph">Connectez les contrôleurs au cluster ONTAP. Cette procédure varie en fonction du modèle de votre système de stockage et de la configuration de votre module d'E/S.</block>
-  <block id="0990249c3bba6596b74be9af46837266" category="list-text">Connectez le port e7a du contrôleur A au port e1a du contrôleur B.</block>
   <block id="18695b824b22d82a916970e4903bf31d" category="paragraph">Utilisez le câble 100 GbE pour connecter les ports e1a à e1a et les ports e7a à e7a.</block>
   <block id="3b29102e499249644dff327644d96081" category="list-text">Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet.</block>
   <block id="c7900e3ee1f4eb935f449465b57ad5c1" category="paragraph">Utilisez les câbles 1000BASE-T RJ-45 pour connecter les ports de gestion (clé anglaise) de chaque contrôleur aux commutateurs du réseau de gestion.</block>
@@ -9812,7 +9803,6 @@ SFP+ (cible/initiateur)</block>
   <block id="8019bdcaff5849ab8015533c8674f305" category="paragraph">Reliez chaque contrôleur aux modules NSM des deux tiroirs NS224. Les graphiques présentent le câblage du contrôleur A en bleu et le câblage du contrôleur B en jaune.</block>
   <block id="546125971d4fce23d0f562118f0ce95f" category="open-title">Option 3 : deux tiroirs DS460C</block>
   <block id="8994222dc8e3118b755e00531cef6a1c" category="paragraph">Reliez chaque contrôleur aux modules IOM des deux tiroirs DS460C. Les graphiques présentent le câblage du contrôleur A en bleu et le câblage du contrôleur B en jaune.</block>
-  <block id="d42c87e93d80bf28fffc01d7bb494eb2" category="list-text"><block ref="d42c87e93d80bf28fffc01d7bb494eb2" category="inline-link-macro-rx"></block></block>
   <block id="98aab8017242eea1d6e23ba928b20ae5" category="list-text"><block ref="98aab8017242eea1d6e23ba928b20ae5" category="inline-link-macro-rx"></block></block>
   <block id="4e3c3284590d1aa1440e67b3bd65ba6e" category="list-text"><block ref="4e3c3284590d1aa1440e67b3bd65ba6e" category="inline-link-macro-rx"></block></block>
   <block id="370d2e6f20948d3881708f9706576691" category="sidebar">Préparez-vous à le remplacer</block>
@@ -15048,4 +15038,6 @@ SFP+ (cible/initiateur)</block>
   <block id="6b7f864bd91be16ace313bfe44f12e71" category="section-title">Deux étagères DS460C</block>
   <block id="b62281acd6d6f68b211c9c140acb1de6" category="summary">Rebranchez le système et réaffectez les disques.</block>
   <block id="c7585f11abe7b6b5267f9b01ab8db3d3" category="summary">Remplacez la pile de l'horloge temps réel dans le module de commande.</block>
+  <block id="4e219191285e6b026a35828fa008670f" category="list-text"><block ref="4e219191285e6b026a35828fa008670f" category="inline-link-macro-rx"></block></block>
+  <block id="f907c55a04055c61d778510e17a75874" category="list-text"><block ref="f907c55a04055c61d778510e17a75874" category="inline-link-macro-rx"></block></block>
 </blocks>
