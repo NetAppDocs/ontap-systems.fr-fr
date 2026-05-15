@@ -1,0 +1,33 @@
+= 
+:allow-uri-read: 
+
+
+Lorsque vous ajoutez à chaud des étagères à une paire haute disponibilité A1K, vous devez recâbler les étagères existantes pour équilibrer la connectivité entre plusieurs modules d'E/S compatibles RoCE.
+
+* Si vous ajoutez à chaud un deuxième châssis, le premier châssis doit être recâblé entre les emplacements 11 et 10. Pour un deuxième châssis, la procédure suppose que le châssis existant est câblé à un module d'E/S compatible RoCE dans l'emplacement 11 de chaque contrôleur.
+* Si vous ajoutez à chaud une quatrième étagère, la troisième étagère doit être recâblée entre les emplacements 9 et 8. Pour une quatrième étagère, la procédure suppose que la troisième étagère est câblée à l'emplacement 9 de chaque contrôleur.
+* Si vous ajoutez à chaud un troisième châssis et installez un troisième ou un quatrième module d'E/S compatible RoCE dans chaque contrôleur, le troisième châssis est câblé uniquement au troisième ou aux troisième et quatrième modules d'E/S. Il n'est pas nécessaire de recâbler les châssis existants, vous pouvez donc ignorer cette procédure.
+
+
+.Étapes
+. Procédez de l'une des manières suivantes si vous ajoutez un deuxième ou un quatrième tiroir à chaud.
++
+** Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 11 et le slot 10 de chaque contrôleur.
++
+... Sur le contrôleur A, déplacez le câble du slot 11 port b (e11b) vers le slot 10 port b (e10b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+** Si vous ajoutez un quatrième tiroir à chaud, recentrez le troisième tiroir sur les modules d'E/S compatibles RoCE dans le slot 9 et le slot 8 de chaque contrôleur.
++
+... Sur le contrôleur A, déplacez le câble du slot 9 port b (e9b) vers le slot 8 port b (e8b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+. Vérifiez que le shelf recabled est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+

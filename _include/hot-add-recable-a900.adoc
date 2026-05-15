@@ -1,0 +1,32 @@
+= 
+:allow-uri-read: 
+
+
+Lorsque vous ajoutez à chaud des étagères à une paire haute disponibilité A900, vous devez recâbler les étagères existantes pour équilibrer la connectivité entre plusieurs modules d'E/S compatibles RoCE.
+
+* Si vous ajoutez à chaud un deuxième châssis, le premier châssis doit être recâblé entre les emplacements 2 et 10. Pour un deuxième châssis, la procédure suppose que le châssis existant est câblé à un module d'E/S compatible RoCE dans l'emplacement 2 de chaque contrôleur.
+* Si vous ajoutez à chaud une quatrième étagère, la troisième étagère doit être recâblée entre les emplacements 1 et 11. Pour une quatrième étagère, la procédure suppose que la troisième étagère est câblée à l'emplacement 1 de chaque contrôleur.
+
+
+.Étapes
+. Procédez de l'une des manières suivantes si vous ajoutez un deuxième ou un quatrième tiroir à chaud.
++
+** Si vous ajoutez un second tiroir à chaud, recentrez le premier tiroir sur les modules d'E/S compatibles RoCE dans le slot 2 et le slot 10 de chaque contrôleur.
++
+... Sur le contrôleur A, déplacez le câble du slot 2 port b (e2b) vers le slot 10 port b (e10b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+** Si vous ajoutez un quatrième tiroir à chaud, recentrez le troisième tiroir sur les modules d'E/S compatibles RoCE dans le slot 1 et le slot 11 de chaque contrôleur.
++
+... Sur le contrôleur A, déplacez le câble du slot 1 port b (e1b) vers le slot 11 port b (e11b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+. Vérifiez que le shelf recabled est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+

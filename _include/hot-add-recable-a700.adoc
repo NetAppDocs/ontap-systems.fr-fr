@@ -1,0 +1,20 @@
+= 
+:allow-uri-read: 
+
+
+Lorsque vous ajoutez à chaud une deuxième étagère à une paire haute disponibilité, vous devez recâbler la première étagère sur les deux ensembles de ports compatibles RoCE dans l'emplacement 3 et l'emplacement 7 de chaque contrôleur.
+
+La procédure suppose que l'étagère existante est câblée à des modules d'E/S compatibles RoCE dans l'emplacement 3 de chaque contrôleur.
+
+.Étapes
+. Recâblez le premier plateau à travers les deux ensembles de ports compatibles RoCE dans l'emplacement 3 et l'emplacement 7 de chaque contrôleur.
++
+.. Sur le contrôleur A, déplacer le câble du connecteur 3, port b (e3b), vers le connecteur 7, port b (e7b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+. Vérifiez que le shelf recabled est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+

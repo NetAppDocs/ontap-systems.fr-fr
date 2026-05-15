@@ -1,0 +1,150 @@
+---
+permalink: ns224/hot-add-asa-prepare-a400-c400.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, asa systems, preparation, roce, asa a400, asa c400 
+summary: 'Préparez votre système ASA A400 ou C400 à ajouter à chaud un châssis NS224 en installant des cartes PCIe compatibles RoCE ou des modules d"E/S, en configurant les ports, en recâblant les châssis existants et en désactivant l"attribution automatique des disques.' 
+---
+= Préparez votre système ASA A400 ou C400 pour l'ajout à chaud d'une étagère NS224
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Préparez votre système ASA A400 ou C400 à ajouter à chaud un châssis NS224 en vous assurant d'avoir suffisamment de ports de stockage compatibles RoCE, en les configurant pour une utilisation de stockage, en recâblant les châssis existants pour la résilience des emplacements et en désactivant l'attribution automatique des disques.
+
+
+
+== Installez des cartes PCIe ou des modules d'E/S compatibles RoCE
+
+Si votre système prend en charge l'utilisation de cartes PCIe ou de modules d'E/S compatibles RoCE, votre paire haute disponibilité doit disposer de suffisamment de ports Ethernet compatibles RoCE disponibles pour prendre en charge le nombre de shelves que vous ajoutez à chaud.
+
+.Étapes
+. Pour chaque tiroir que vous ajoutez à chaud, vérifiez qu'il existe deux ports compatibles RoCE sur chaque contrôleur.
++
+Ces ports peuvent se trouver sur les contrôleurs, sur des cartes PCIe compatibles RoCE, une combinaison des deux, ou sur des modules d'E/S compatibles RoCE, selon la compatibilité de votre système.
+
+. Si votre paire haute disponibilité ne dispose pas de suffisamment de ports compatibles RoCE, installez les cartes PCIe ou les modules d'E/S supplémentaires dans les emplacements de contrôleur appropriés, comme pris en charge par votre système.
++
+.. Identifiez les emplacements de contrôleur appropriés pour votre système. Voir https://hwu.netapp.com["NetApp Hardware Universe"^].
+.. Consultez la documentation de votre système pour obtenir les instructions d'installation de la carte PCIe ou du module d'E/S.
+
+
+
+
+
+
+== Configurez les ports compatibles RoCE pour l'utilisation du stockage
+
+Sur certains systèmes, les ports compatibles RoCE sont automatiquement configurés pour une utilisation de stockage lorsqu'une carte PCIe ou un module d'E/S compatible RoCE est installé dans un emplacement de contrôleur pris en charge. Cependant, vous devez suivre cette procédure pour vérifier que les ports sont correctement configurés pour une utilisation de stockage.
+
+La configuration des ports RoCE non dédiés pour le stockage est une procédure non perturbatrice. Il n'est pas nécessaire de redémarrer les contrôleurs, sauf si l'un ou les deux sont en mode maintenance. Cette procédure suppose qu'aucun contrôleur n'est en mode maintenance.
+
+Si vous devez à l'avenir modifier l'utilisation des ports pour le stockage en vue de leur utilisation réseau, utilisez la commande `storage port modify -node _node_name_ -port _port_name_ -mode network`.
+
+.Étapes
+. Vérifiez que vous avez installé toutes les cartes PCIe ou modules d'E/S compatibles RoCE supplémentaires dans chaque contrôleur.
+. Connectez-vous au cluster à l'aide d'une connexion SSH ou du port série console.
+. Vérifiez que les ports non dédiés de la paire haute disponibilité sont configurés pour le stockage en saisissant la commande `storage port show`.
++
+Le résultat de la commande varie en fonction de votre version d'ONTAP :
+
++
+** **ONTAP 9.8 ou version ultérieure :** Les ports non dédiés configurés pour le stockage affichent  `storage` dans la  `Mode` colonne. Les ports non configurés pour le stockage affichent  `network` dans la  `Mode` colonne.
+** **ONTAP 9.7 :** Les ports non dédiés configurés pour le stockage affichent  `false` dans la colonne  `Is Dedicated?` et  `enabled` dans la colonne  `State`. Les ports non configurés pour le stockage affichent  `false` dans la colonne  `Is Dedicated?` et  `disabled` dans la colonne  `State`.
+
+
+. Si les ports non dédiés sont configurés pour le stockage, cette procédure est terminée. Sinon, suivez les étapes suivantes pour configurer les ports.
+. Configurez les ports non dédiés pour le stockage sur l'un des contrôleurs. Vous devez répéter la commande correspondante pour chaque port que vous configurez.
++
+[cols="1,3"]
+|===
+| Si votre paire haute disponibilité est en cours d'exécution... | Utilisez cette commande... 
+
+
+ a| 
+ONTAP 9.8 ou version ultérieure
+ a| 
+`storage port modify -node _node_name_ -port _port_name_ -mode storage`
+
+
+
+ a| 
+ONTAP 9.7
+ a| 
+`storage port enable -node _node_name_ -port _port_name_`
+
+|===
+. Répétez l'étape précédente pour la deuxième manette.
+. Vérifiez que les ports non dédiés des deux contrôleurs sont configurés pour le stockage en saisissant la commande `storage port show`.
++
+Le résultat de la commande varie en fonction de votre version d'ONTAP :
+
++
+** **ONTAP 9.8 ou version ultérieure :** Les ports non dédiés configurés pour l'utilisation du stockage affichent  `storage` dans la  `Mode` colonne.
+** **ONTAP 9.7 :** Les ports non dédiés configurés pour l'utilisation du stockage affichent  `false` dans la  `Is Dedicated?` colonne et  `enabled` dans la  `State` colonne.
+
+
+
+
+
+
+== Recâblage des étagères existantes
+
+Lorsque vous ajoutez à chaud une deuxième étagère à une paire haute disponibilité A400 ou C400, vous devez recâbler la première étagère sur deux ensembles de ports compatibles RoCE sur chaque contrôleur.
+
+* Pour l'A400, la procédure suppose que le châssis existant est câblé aux ports embarqués compatibles RoCE e0c/e0d sur chaque contrôleur, et que vous recâblez entre les ports embarqués e0c/e0d et l'emplacement 5.
+* Pour le C400, la procédure suppose que le châssis existant est câblé aux ports compatibles RoCE dans l'emplacement 4 de chaque contrôleur, et que vous effectuez un câblage entre l'emplacement 4 et l'emplacement 5.
+
+
+.Étapes
+. Selon votre système, effectuez l'une des opérations suivantes :
++
+** Sur l'A400 :
++
+Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE, sur les ports e0c/e0d intégrés et dans le slot 5, sur chaque contrôleur
+
++
+... Sur le contrôleur A, déplacer le câble du port e0d vers le connecteur 5 Port b (e5b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+** Sur le C400 :
++
+Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE dans les connecteurs 4 et 5, sur chaque contrôleur
+
++
+... Sur le contrôleur A, déplacez le câble de l'emplacement 4, port a (e4a), vers l'emplacement 5, port b (e5b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+. Vérifiez que le shelf recabled est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+
+
+
+
+== Désactiver l'affectation automatique de l'entraînement
+
+Si vous ne savez pas si vous devez attribuer manuellement la propriété des disques ou si vous souhaitez comprendre l'affectation automatique des règles de propriété des disques pour votre système de stockage, rendez-vous sur https://docs.netapp.com/us-en/ontap/disks-aggregates/disk-autoassignment-policy-concept.html["À propos de l'assignation automatique de Disk Ownership"^].
+
+.Étapes
+. Vérifiez si l'affectation automatique des disques est activée : `storage disk option show`
++
+Vous pouvez saisir la commande sur l'un ou l'autre nœud.
+
++
+Si l'attribution automatique des lecteurs est activée, la sortie affiche  `on` dans la colonne  `Auto Assign` pour chaque nœud.
+
+. Si l'affectation automatique des disques est activée, désactivez-la : `storage disk option modify -node _node_name_ -autoassign off`
++
+Vous devez désactiver l'affectation automatique des disques sur les deux nœuds.
+
+
+
+.Et la suite
+Accédez à link:hot-add-asa-install.html["installer l'étagère"].

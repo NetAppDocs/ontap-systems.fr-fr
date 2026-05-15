@@ -1,0 +1,28 @@
+---
+permalink: ns224/hot-add-eoa-prepare-overview.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, eoa systems, end-of-availability, preparation 
+summary: 'Préparez-vous à ajouter à chaud un châssis NS224 à votre système en fin de disponibilité en installant des cartes PCIe ou des modules d"E/S compatibles RoCE, en configurant les ports et en désactivant l"attribution automatique des disques si nécessaire.' 
+---
+= Aperçu de la préparation à l'ajout à chaud d'une étagère NS224 à votre système en fin de disponibilité
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Préparez-vous à ajouter à chaud des baies NS224 à votre système en fin de disponibilité en vous assurant d'avoir suffisamment de ports de stockage compatibles RoCE, en les configurant pour une utilisation de stockage et en optimisant votre configuration existante pour la nouvelle baie.
+
+
+
+== Que préparer
+
+Avant d'ajouter physiquement de nouvelles baies NS224 à votre système en fin de disponibilité, il est nécessaire de vérifier et de configurer l'infrastructure de connectivité du stockage. Ces étapes garantissent que votre paire haute disponibilité dispose des ports Ethernet compatibles RoCE nécessaires et que votre système est configuré pour prendre en charge un stockage supplémentaire.
+
+Les tâches préparatoires spécifiques que vous devez effectuer dépendent du modèle de votre plateforme, de sa configuration actuelle et du nombre d'étagères que vous ajoutez :
+
+Installez des cartes PCIe ou des modules d'E/S compatibles RoCE:: Vérifiez que votre système dispose d'un nombre suffisant de ports Ethernet compatibles RoCE (deux par shelf et par contrôleur). Si des ports supplémentaires sont nécessaires, installez des cartes PCIe ou des modules d'E/S compatibles RoCE dans les emplacements de contrôleur appropriés.
+Configurez les ports compatibles RoCE pour l'utilisation du stockage:: Si vous utilisez des ports non dédiés compatibles RoCE pour connecter le châssis NS224, configurez ces ports pour une utilisation de stockage plutôt que pour une utilisation réseau. Cette opération est sans interruption de service.
+Recâblage des étagères existantes:: Pour certains modèles de plateforme, vous devrez peut-être recâbler un châssis existant sur deux ensembles de ports dans des emplacements différents afin d'assurer la résilience en cas de défaillance d'emplacement après l'installation de cartes PCIe compatibles RoCE supplémentaires ou de modules d'E/S compatibles RoCE supplémentaires.
+Désactiver l'affectation automatique de l'entraînement:: Si vous prévoyez d'attribuer manuellement la propriété des disques, désactivez l'attribution automatique des disques avant d'ajouter des étagères à chaud.
+

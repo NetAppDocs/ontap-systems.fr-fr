@@ -1,16 +1,12 @@
-= 
+= Câbler l'étagère à une paire haute disponibilité A400
 :allow-uri-read: 
 
 
-.Avant de commencer
-* Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
-* Vous devez avoir effectué les procédures applicables dans link:prepare-hot-add-shelf.html["Préparez l'ajout à chaud d'une étagère"].
-* Vous devez avoir installé les tiroirs, les mettre sous tension et définir les ID de tiroir comme décrit dans la section link:prepare-hot-add-shelf.html["Installation d'un tiroir pour ajouter à chaud"].
 
 
-*Etagère pour câble à une paire HA AFF A400*
+== Câbler l'étagère à une paire haute disponibilité A400
 
-Dans le cas d'une paire HA AFF A400, vous pouvez ajouter à chaud jusqu'à deux tiroirs et utiliser les ports e0c/e0d et les ports du slot 5 en fonction des besoins.
+Pour une paire haute disponibilité A400, vous pouvez ajouter à chaud jusqu'à deux étagères et utiliser les ports intégrés e0c/e0d et les ports de l'emplacement 5 selon les besoins.
 
 .Étapes
 . Si vous ajoutez un tiroir à chaud en utilisant un ensemble de ports compatibles RoCE (ports intégrés compatibles RoCE) sur chaque contrôleur, et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.
@@ -70,15 +66,13 @@ image::../media/drw_ns224_a400_2shelves_IEOPS-983.svg[Câblage d'un /ASA A400 av
 +
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
-. Si vous avez désactivé l'affectation automatique de disques dans le cadre de la préparation de cette procédure, vous devez attribuer manuellement la propriété du disque, puis réactiver l'affectation automatique de disques, si nécessaire. Voir link:complete-hot-add-shelf.html["Terminez l'ajout à chaud"].
-+
-Sinon, cette procédure est effectuée.
 
 
 
-*Etagère de câble à une paire haute disponibilité AFF C400*
 
-Pour une paire HA AFF C400, vous pouvez ajouter à chaud jusqu'à deux tiroirs et utiliser les ports des emplacements 4 et 5 selon les besoins.
+== Câbler l'étagère à une paire haute disponibilité C400
+
+Pour une paire haute disponibilité C400, vous pouvez ajouter à chaud jusqu'à deux étagères et utiliser les ports des emplacements 4 et 5 selon vos besoins.
 
 .Étapes
 . Si vous ajoutez un tiroir à chaud en utilisant un ensemble de ports compatibles RoCE sur chaque contrôleur et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.
@@ -139,8 +133,3 @@ image::../media/drw_ns224_c400_2shelves_IEOPS-984.svg[Câblage d'un AFF/ASA C400
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 
-
-.Et la suite ?
-Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire. Allez à link:complete-hot-add-shelf.html["Terminez l'ajout à chaud"].
-
-Sinon, vous effectuez l'ajout à chaud d'un tiroir.

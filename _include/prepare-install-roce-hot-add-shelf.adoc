@@ -1,0 +1,18 @@
+= 
+:allow-uri-read: 
+
+
+Si votre système prend en charge l'utilisation de cartes PCIe ou de modules d'E/S compatibles RoCE, votre paire haute disponibilité doit disposer de suffisamment de ports Ethernet compatibles RoCE disponibles pour prendre en charge le nombre de shelves que vous ajoutez à chaud.
+
+.Étapes
+. Pour chaque tiroir que vous ajoutez à chaud, vérifiez qu'il existe deux ports compatibles RoCE sur chaque contrôleur.
++
+Ces ports peuvent se trouver sur les contrôleurs, sur des cartes PCIe compatibles RoCE, une combinaison des deux, ou sur des modules d'E/S compatibles RoCE, selon la compatibilité de votre système.
+
+. Si votre paire haute disponibilité ne dispose pas de suffisamment de ports compatibles RoCE, installez les cartes PCIe ou les modules d'E/S supplémentaires dans les emplacements de contrôleur appropriés, comme pris en charge par votre système.
++
+.. Identifiez les emplacements de contrôleur appropriés pour votre système. Voir https://hwu.netapp.com["NetApp Hardware Universe"^].
+.. Consultez la documentation de votre système pour obtenir les instructions d'installation de la carte PCIe ou du module d'E/S.
+
+
+

@@ -1,0 +1,24 @@
+= 
+:allow-uri-read: 
+
+
+.Description de la tâche
+Vu de l'arrière du châssis de la plateforme, le port de la carte compatible RoCE sur la gauche est le port « a » (e1a) et le port de droite est le port « b » (e1b).
+
+.Étapes
+. Connectez les câbles du tiroir :
++
+.. Reliez le port E0a du NSM A du tiroir du contrôleur à l'emplacement 1 du port a (e1a).
+.. Reliez le port e0b du tiroir NSM A au port 1 b du contrôleur B (e1b).
+.. Reliez le port e0a du NSM B du tiroir du contrôleur B au port a (e1a) du connecteur 1 du contrôleur.
+.. Reliez le port e0b du tiroir NSM B au port b (e1b) du contrôleur A. + l'illustration suivante montre le câblage du tiroir une fois l'opération terminée.
++
+image::../media/drw_ns224_a250_c250_f500f_1shelf_ieops-1824.svg[Câblage d'un système FAS500f AFF A250 ou AFF C250 avec un tiroir NS224 et un ensemble de ports]
+
+
+
+. Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+

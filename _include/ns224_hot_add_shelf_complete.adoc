@@ -1,0 +1,24 @@
+= 
+:allow-uri-read: 
+
+
+.Avant de commencer
+Vous devez déjà avoir câblé votre étagère comme indiqué pour votre paire haute disponibilité.
+
+.Étapes
+. Afficher tous les disques non propriétaires : `storage disk show -container-type unassigned`
++
+Vous pouvez saisir la commande sur l'un ou l'autre contrôleur.
+
+. Affectez chaque disque : `storage disk assign -disk _disk_name_ -owner _owner_name_`
++
+Vous pouvez saisir la commande sur l'un ou l'autre contrôleur.
+
++
+Vous pouvez utiliser le caractère générique pour attribuer plusieurs lecteurs à la fois.
+
+. Réactivez l'affectation automatique des disques si nécessaire : `storage disk option modify -node _node_name_ -autoassign on`
++
+Vous devez réactiver l'affectation automatique des disques sur les deux contrôleurs.
+
+

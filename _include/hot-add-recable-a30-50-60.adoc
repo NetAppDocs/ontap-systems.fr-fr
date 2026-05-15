@@ -1,0 +1,20 @@
+= 
+:allow-uri-read: 
+
+
+Lorsque vous ajoutez à chaud un deuxième châssis à une paire haute disponibilité A30, C30, A50 ou C60, vous devez recâbler le premier châssis à travers les modules d'E/S compatibles RoCE dans l'emplacement 3 et l'emplacement 1 de chaque contrôleur.
+
+La procédure suppose que l'étagère existante est câblée à un module d'E/S compatible RoCE dans l'emplacement 3 de chaque contrôleur.
+
+.Étapes
+. Recâblez le premier châssis à travers les modules d'E/S compatibles RoCE dans l'emplacement 3 et l'emplacement 1 de chaque contrôleur.
++
+.. Sur le contrôleur A, déplacez le câble de l'emplacement 3 port b (e3b) vers l'emplacement 1 port b (e1b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+. Vérifiez que le shelf recabled est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+

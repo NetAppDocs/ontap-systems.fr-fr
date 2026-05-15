@@ -1,0 +1,33 @@
+---
+permalink: ns224/hot-add-aff-cable-overview.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, aff systems, cable 
+summary: Connectez votre étagère NS224 à votre système AFF pour fournir une connectivité à double chemin qui assure la redondance du stockage et une haute disponibilité pour la paire haute disponibilité. 
+---
+= Connectez un châssis NS224 à votre système AFF
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Connectez votre étagère NS224 à votre système AFF pour fournir une connectivité à double chemin qui assure la redondance du stockage et une haute disponibilité pour la paire haute disponibilité.
+
+
+
+== Aperçu du câblage pour les systèmes AFF
+
+Le câblage diffère selon le modèle de plateforme AFF car chaque système possède des affectations de ports et des configurations de modules d'E/S uniques.
+
+Lors de la procédure de câblage à chaud, vous connectez chaque étagère NS224 aux deux contrôleurs de la paire haute disponibilité :
+
+* Chaque module NSM d'étagère se connecte à un port de stockage dédié sur chaque contrôleur, créant deux chemins par étagère (un via NSM A, un via NSM B).
+* Cette configuration à double chemin assure la redondance du stockage et garantit l'accès aux données en cas de défaillance d'un seul chemin.
+* Les câbles se connectent des ports NSM e0a/e0b (NSM100) ou e1a/e1b (NSM100B) de l'étagère aux ports de stockage compatibles RoCE des contrôleurs.
+
+
+
+
+== Ressources supplémentaires
+
+Votre système matériel peut être compatible avec les châssis NS224 équipés de modules NSM100 et les châssis NS224 équipés de modules NSM100B. Pour obtenir la liste complète des noms de ports et les détails de configuration, consultez https://hwu.netapp.com["NetApp Hardware Universe"^].

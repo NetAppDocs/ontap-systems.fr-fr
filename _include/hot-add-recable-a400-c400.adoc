@@ -1,0 +1,38 @@
+= 
+:allow-uri-read: 
+
+
+Lorsque vous ajoutez à chaud une deuxième étagère à une paire haute disponibilité A400 ou C400, vous devez recâbler la première étagère sur deux ensembles de ports compatibles RoCE sur chaque contrôleur.
+
+* Pour l'A400, la procédure suppose que le châssis existant est câblé aux ports embarqués compatibles RoCE e0c/e0d sur chaque contrôleur, et que vous recâblez entre les ports embarqués e0c/e0d et l'emplacement 5.
+* Pour le C400, la procédure suppose que le châssis existant est câblé aux ports compatibles RoCE dans l'emplacement 4 de chaque contrôleur, et que vous effectuez un câblage entre l'emplacement 4 et l'emplacement 5.
+
+
+.Étapes
+. Selon votre système, effectuez l'une des opérations suivantes :
++
+** Sur l'A400 :
++
+Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE, sur les ports e0c/e0d intégrés et dans le slot 5, sur chaque contrôleur
+
++
+... Sur le contrôleur A, déplacer le câble du port e0d vers le connecteur 5 Port b (e5b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+** Sur le C400 :
++
+Recâblage du premier tiroir sur les deux ensembles de ports compatibles RoCE dans les connecteurs 4 et 5, sur chaque contrôleur
+
++
+... Sur le contrôleur A, déplacez le câble de l'emplacement 4, port a (e4a), vers l'emplacement 5, port b (e5b).
+... Répétez le même déplacement de câble sur le contrôleur B.
+
+
+
+
+. Vérifiez que le shelf recabled est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+

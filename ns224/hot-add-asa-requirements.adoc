@@ -1,0 +1,44 @@
+---
+permalink: ns224/hot-add-asa-requirements.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, asa systems, requirement 
+summary: 'Avant d"ajouter à chaud un châssis NS224 à votre système ASA, consultez les exigences et les meilleures pratiques.' 
+---
+= Exigences et bonnes pratiques pour l'ajout à chaud d'un châssis NS224 à votre système ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'ajouter à chaud un shelf NS224, vérifiez que votre système ASA répond aux exigences de version ONTAP, de capacité du shelf et de câblage. Consultez les bonnes pratiques de mise à jour du micrologiciel et de configuration pour garantir que la procédure d'ajout à chaud se termine avec succès, sans erreurs.
+
+
+
+== De formation
+
+Votre paire haute disponibilité doit répondre aux exigences suivantes pour ajouter à chaud un shelf NS224.
+
+Version ONTAP prise en charge:: Votre modèle de plateforme et votre version d'ONTAP doivent prendre en charge le châssis NS224 et les disques que vous ajoutez à chaud. Voir https://hwu.netapp.com["NetApp Hardware Universe"^].
+Nombre d'étagères:: Votre paire haute disponibilité doit prendre en charge au moins une étagère supplémentaire par rapport au nombre actuellement installé. Après l’ajout à chaud d’étagères, vous ne pouvez pas dépasser le nombre maximal d’étagères prises en charge par votre paire haute disponibilité. Voir https://hwu.netapp.com["NetApp Hardware Universe"^].
+Câblage:: Vous devez disposer du nombre et du type de câbles appropriés pour connecter l'étagère. Si vous ajoutez à chaud une étagère à une paire haute disponibilité contenant déjà une étagère NS224, votre paire haute disponibilité doit être câblée en multipath HA sans erreur de câblage de stockage.
++
+--
+Exécutez  https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^] pour afficher les messages d'erreur relatifs au câblage du stockage et les actions correctives. Consultez  https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître les exigences en matière de câblage.
+
+--
+
+
+
+
+== Et des meilleures pratiques
+
+Familiarisez-vous avec les bonnes pratiques suivantes avant d'ajouter à chaud un tiroir NS224.
+
+Disk qualification Package:: Installez la version actuelle du  https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["Disk qualification Package"^] avant d'ajouter un châssis à chaud. L'installation de la version actuelle du DQP permet à votre système de reconnaître et d'utiliser les disques nouvellement qualifiés, évite les messages d'événement système concernant des informations de disque non actuelles et prévient les échecs de partitionnement dus à des disques non reconnus. Le DQP vous informe également du firmware de disque non actuel.
+Active IQ Config Advisor:: Exécutez  https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^] avant et après l’ajout à chaud d’une baie. L’exécution avant l’ajout à chaud fournit un instantané de la connectivité Ethernet existante de la baie, vérifie les versions du firmware NSM et identifie les ID de baie déjà utilisés. L’exécution après l’ajout à chaud vérifie que les baies sont correctement câblées et que les ID de baie sont uniques au sein de la paire haute disponibilité.
+NSM et firmware:: Installez les versions actuelles de https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["Micrologiciel du module de tiroir NVMe (NSM)"^] et https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["le firmware du disque"^] sur votre système de stockage avant d'ajouter une nouvelle étagère. Ne restaurez pas le firmware à une version qui ne prend pas en charge votre étagère et ses composants.
+
+
+.Et la suite
+Après avoir examiné les exigences, link:hot-add-asa-prepare.html["Préparez-vous à ajouter votre shelf à chaud"].

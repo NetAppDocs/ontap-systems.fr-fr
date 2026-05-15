@@ -1,0 +1,20 @@
+= 
+:allow-uri-read: 
+
+
+Lorsque vous ajoutez à chaud une deuxième étagère à une paire haute disponibilité A800 ou C800, vous devez recâbler la première étagère sur les deux ensembles de ports compatibles RoCE dans l'emplacement 5 et l'emplacement 3 de chaque contrôleur.
+
+La procédure suppose que le châssis existant est câblé à des cartes PCIe compatibles RoCE dans l'emplacement 5 de chaque contrôleur.
+
+.Étapes
+. Recâblez le premier plateau à travers les deux ensembles de ports compatibles RoCE dans l'emplacement 5 et l'emplacement 3 de chaque contrôleur.
++
+.. Sur le contrôleur A, déplacer le câble du connecteur 5 port b (e5b) vers le connecteur 3 port b (e3b).
+.. Répétez le même déplacement de câble sur le contrôleur B.
+
+
+. Vérifiez que le shelf recabled est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+

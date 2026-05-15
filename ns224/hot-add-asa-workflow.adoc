@@ -1,0 +1,39 @@
+---
+permalink: ns224/hot-add-asa-workflow.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, asa systems, workflow 
+summary: Suivez ces étapes de flux de travail pour ajouter à chaud un châssis NS224 à votre système ASA. 
+---
+= Ajoutez à chaud un châssis NS224 à votre système ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Suivez ces étapes de flux de travail pour ajouter à chaud un châssis NS224 à votre système ASA.
+
+.Avant de commencer
+* Cette procédure s'applique uniquement au stockage à connexion directe. Pour consulter les instructions relatives au stockage à connexion par commutateur, voir link:cable-as-switch-attached.html["guide de câblage connecté au commutateur"].
+* Pour ajouter à chaud une étagère NS224, votre paire haute disponibilité doit répondre à certaines exigences. Consultez le link:hot-add-asa-requirements.html["exigences et bonnes pratiques à ajouter à chaud"].
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:hot-add-asa-requirements.html["Examiner les exigences d'ajout à chaud"]
+[role="quick-margin-para"]
+Vérifiez que votre système ASA répond aux exigences d'ajout à chaud d'une étagère NS224, y compris la prise en charge de la version ONTAP, le nombre d'étagères et les exigences de câblage.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:hot-add-asa-prepare.html["Préparez-vous à ajouter votre étagère à chaud"]
+[role="quick-margin-para"]
+Selon le modèle de votre plateforme, vous devrez peut-être installer des cartes PCIe ou des modules d'E/S compatibles RoCE supplémentaires, configurer les ports Ethernet non dédiés compatibles RoCE pour l'utilisation du stockage, récupérer un tiroir existant sur deux jeux de ports dans différents connecteurs pour la résilience en cas de défaillance des connecteurs. et désactivez l'affectation automatique des lecteurs si vous attribuez manuellement la propriété des lecteurs.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:hot-add-asa-install.html["Installez votre tablette"]
+[role="quick-margin-para"]
+Installez le kit de rails pour l'étagère, installez et fixez votre étagère dans le rack ou l'armoire télécom, connectez les cordons d'alimentation pour alimenter l'étagère et attribuez un ID d'étagère unique pour garantir que l'étagère est distincte au sein de la paire haute disponibilité.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:hot-add-asa-cable-overview.html["Branchez les câbles du shelf"]
+[role="quick-margin-para"]
+Reliez le tiroir que vous ajoutez à chaud de sorte qu'il dispose de deux connexions à chaque contrôleur de la paire haute disponibilité.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:hot-add-asa-complete.html["Terminez votre ajout à chaud"]
+[role="quick-margin-para"]
+Si vous avez désactivé l'affectation automatique des disques dans le cadre de la préparation de l'ajout à chaud, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique des disques, si nécessaire.

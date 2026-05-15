@@ -1,0 +1,19 @@
+= 
+:allow-uri-read: 
+
+
+Si vous ne savez pas si vous devez attribuer manuellement la propriété des disques ou si vous souhaitez comprendre l'affectation automatique des règles de propriété des disques pour votre système de stockage, rendez-vous sur https://docs.netapp.com/us-en/ontap/disks-aggregates/disk-autoassignment-policy-concept.html["À propos de l'assignation automatique de Disk Ownership"^].
+
+.Étapes
+. Vérifiez si l'affectation automatique des disques est activée : `storage disk option show`
++
+Vous pouvez saisir la commande sur l'un ou l'autre nœud.
+
++
+Si l'attribution automatique des lecteurs est activée, la sortie affiche  `on` dans la colonne  `Auto Assign` pour chaque nœud.
+
+. Si l'affectation automatique des disques est activée, désactivez-la : `storage disk option modify -node _node_name_ -autoassign off`
++
+Vous devez désactiver l'affectation automatique des disques sur les deux nœuds.
+
+

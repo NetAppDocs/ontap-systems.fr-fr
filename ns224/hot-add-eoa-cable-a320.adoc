@@ -1,0 +1,39 @@
+---
+permalink: ns224/hot-add-eoa-cable-a320.html 
+sidebar: sidebar 
+keywords: ns224, shelves, shelf, ns224 shelves, hot-add, ha, pair, aff a320, cable, end-of-availability 
+summary: Câblez votre étagère NS224 à votre système AFF A320 de sorte que chaque étagère dispose de deux connexions à chaque contrôleur de la paire haute disponibilité. 
+---
+= Connectez une étagère NS224 à votre système AFF A320
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Câblez votre étagère NS224 à votre système AFF A320 de sorte que chaque étagère dispose de deux connexions à chaque contrôleur de la paire haute disponibilité.
+
+Vous pouvez ajouter un second tiroir à chaud à une paire haute disponibilité existante lorsque du stockage supplémentaire est nécessaire.
+
+.Étapes
+. Reliez le tiroir aux contrôleurs.
++
+.. Reliez le port E0A du NSM A au port e0e du contrôleur.
+.. Câble port A NSM e0b sur le port B du contrôleur e0b.
+.. Reliez le port E0A du NSM B au port e0e du contrôleur B.
+.. Reliez le port B du NSM e0b au port De contrôleur A e0b. + l'illustration suivante montre le câblage du tiroir à chaud (tiroir 2) :
++
+image::../media/drw_ns224_a320_2shelves_direct_attached.png[Câblage d'un système AFF A320 avec deux tiroirs NS224 et trois jeux de ports intégrés]
+
+
+
+. Vérifiez que le tiroir ajouté à chaud est correctement câblé à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
++
+Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
+
+
+
+.Et la suite
+Si vous avez désactivé l'attribution automatique des lecteurs lors de la préparation de cette procédure, vous devez attribuer manuellement la propriété du lecteur, puis réactiver l'attribution automatique si nécessaire. Accédez à link:hot-add-eoa-complete.html["Terminez l'ajout à chaud"].
+
+Sinon, vous effectuez l'ajout à chaud d'un tiroir.

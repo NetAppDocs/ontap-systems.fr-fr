@@ -2,12 +2,6 @@
 :allow-uri-read: 
 
 
-.Avant de commencer
-* Vous devez avoir examiné le link:requirements-hot-add-shelf.html["exigences et bonnes pratiques à ajouter à chaud"].
-* Vous devez avoir effectué les procédures applicables dans link:prepare-hot-add-shelf.html["Préparez l'ajout à chaud d'une étagère"].
-* Vous devez avoir installé les tiroirs, les mettre sous tension et définir les ID de tiroir comme décrit dans la section link:prepare-hot-add-shelf.html["Installation d'un tiroir pour ajouter à chaud"].
-
-
 .Étapes
 . Si vous ajoutez un tiroir à chaud en utilisant un ensemble de ports compatibles RoCE (une carte PCIe compatible RoCE) sur chaque contrôleur, et qu'il s'agit du seul tiroir NS224 de votre paire haute disponibilité, procédez comme suit.
 +
@@ -81,8 +75,3 @@ image::../media/drw_ns224_a800_c800_2shelves_IEOPS-966.svg[drw ns224 a800 c800 2
 Si des erreurs de câblage sont générées, suivez les actions correctives fournies.
 
 
-
-.Et la suite ?
-Si vous avez désactivé l'affectation automatique de disque dans le cadre de votre préparation, vous devez attribuer manuellement la propriété des disques, puis réactiver l'affectation automatique de disque, si nécessaire. Allez à link:complete-hot-add-shelf.html["Terminez l'ajout à chaud"].
-
-Sinon, vous effectuez l'ajout à chaud d'un tiroir.
