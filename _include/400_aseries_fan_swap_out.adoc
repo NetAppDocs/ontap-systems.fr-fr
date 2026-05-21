@@ -44,17 +44,21 @@ image:../media/icon_round_4.png["Numéro de légende 4"]
 Voyant d'état
 
 |===
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Retirez le cadre (si nécessaire) à deux mains, en saisissant les ouvertures de chaque côté du cadre, puis en le tirant vers vous jusqu'à ce que le cadre se dégage des goujons à rotule du châssis.
 . Identifiez le module de ventilation que vous devez remplacer en vérifiant les messages d'erreur de la console et en regardant le voyant d'avertissement de chaque module de ventilation.
++
+Utilisez le message BMC ou la LED d'attention pour identifier le module de ventilateur à remplacer. BMC associe les modules de ventilateur au format Fan#_#, où le premier nombre correspond à l'emplacement et le second à la rangée (1=haut, 2=bas) ; par exemple, emplacement 1, deuxième rangée = Fan1_2.
+
 . Appuyez sur le loquet de déverrouillage de la poignée de came du module de ventilateur, puis faites pivoter la poignée de came vers le bas.
 +
-Le module de ventilation se déplace un peu à l'écart du châssis.
+Le module de ventilation s'éloigne légèrement du châssis.
 
 . Tirez le module du ventilateur tout droit hors du châssis, en vous assurant de le soutenir avec votre main libre pour qu'il ne bascule pas hors du châssis.
 +
 
-NOTE: Les modules de ventilation sont courts. Soutenez toujours la partie inférieure du module de ventilation avec votre main libre pour qu'il ne tombe pas brusquement du châssis et vous blesse.
+CAUTION: Les modules de ventilation sont courts. Soutenez toujours la partie inférieure du module de ventilation avec votre main libre pour qu'il ne tombe pas brusquement du châssis et vous blesse.
 
 . Mettez le module de ventilation de côté.
 . Insérez le module de ventilateur de remplacement dans le châssis en l'alignant avec l'ouverture, puis en le faisant glisser dans le châssis.
@@ -64,7 +68,7 @@ La poignée de came se soulève légèrement lorsque le module de ventilateur es
 
 . Faites pivoter la poignée de came vers le haut jusqu'à sa position fermée, en vous assurant que le loquet de déverrouillage de la poignée de came s'enclenche dans la position verrouillée.
 +
-Le voyant d'avertissement ne doit pas être allumé une fois que le ventilateur est assis et a été lancé jusqu'à la vitesse de fonctionnement.
+La LED d'avertissement s'éteint une fois le ventilateur en place et ayant atteint sa vitesse de fonctionnement.
 
 . Alignez le cadre avec les goujons à rotule, puis poussez doucement le cadre sur les goujons à rotule.
 . Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"^] page pour plus d'informations.

@@ -1,7 +1,7 @@
 ---
 permalink: a700s/bootmedia-transfer-boot-image.html 
 sidebar: sidebar 
-keywords: aff a700s, aff, a700s, procedure, secondary, boot, media, restore, fail, image, tgz, file, trasnfer, usb, flash, drive, transfer the boot image to the boot medai using a usb flash drive, manual, manual boot recovery 
+keywords: aff a700s, aff, a700s, procedure, secondary, boot, media, restore, fail, image, tgz, file, transfer, usb, flash, drive, transfer the boot image to the boot media using a usb flash drive, manual, manual boot recovery 
 summary: 'Transférez l"image de démarrage sur le support de démarrage de remplacement d"un système AFF A700s en utilisant soit le support de démarrage secondaire, soit une clé USB. Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n"est pas prise en charge.' 
 ---
 = Transférez l'image de démarrage vers le support de démarrage - AFF A700s
@@ -11,17 +11,17 @@ summary: 'Transférez l"image de démarrage sur le support de démarrage de remp
 
 
 [role="lead"]
-Transférez l'image de démarrage sur le support de démarrage de remplacement d'un système AFF A700s en utilisant soit le support de démarrage secondaire, soit une clé USB. Cette procédure consiste à restaurer l'image sur le support de démarrage secondaire comme méthode principale, ou à utiliser une clé USB si la restauration sur le support de démarrage secondaire échoue ou si le fichier image.tgz est manquant.
+Transférez l'image de démarrage sur le support de démarrage de remplacement d'un AFF A700s en utilisant soit le support de démarrage secondaire (méthode principale), soit une clé USB (si la restauration du support de démarrage secondaire échoue ou si le fichier  `image.tgz` est manquant).
 
 Le système AFF A700s ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
 
 
 
-== Option 1 : Transférer les fichiers à l’aide d’une sauvegarde de récupération depuis le second support de démarrage
+== Option 1 : Transférer l’image système à l’aide d’une sauvegarde de récupération depuis le second support de démarrage
 
-Vous pouvez installer l'image système sur le support de démarrage de remplacement à l'aide de l'image sur le second support de démarrage installé dans le module de contrôleur. Il s'agit de la méthode principale pour transférer les fichiers de support d'amorçage vers le support d'amorçage de remplacement des systèmes avec deux supports d'amorçage dans le module de contrôleur.
+Vous pouvez installer l'image système sur le support de démarrage de remplacement en utilisant l'image présente sur le second support de démarrage dans le module contrôleur. Il s'agit de la méthode principale pour les systèmes disposant de deux supports de démarrage dans le module contrôleur.
 
-L'image du support de démarrage secondaire doit contenir un `image.tgz` fichier et ne doit pas être signalant des échecs. Si le fichier image.tgz est manquant ou si le support de démarrage signale des échecs, vous ne pouvez pas suivre cette procédure. Vous devez transférer l'image d'amorçage sur le support de démarrage de remplacement en suivant la procédure de remplacement du lecteur flash USB.
+L'image sur le support de démarrage secondaire doit contenir un  `image.tgz` fichier et ne doit pas signaler d'erreurs. Si le  `image.tgz` fichier est manquant ou si le support de démarrage signale des erreurs, vous ne pouvez pas utiliser cette procédure. Utilisez <<Option 2 : Transférer l’image de démarrage à l’aide d’une clé USB>> à la place.
 
 .Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -88,10 +88,10 @@ L'image est téléchargée à partir du support de démarrage secondaire.
 
 == Option 2 : Transférer l’image de démarrage à l’aide d’une clé USB
 
-Cette procédure ne doit être utilisée que si la restauration du support de démarrage secondaire a échoué ou si le fichier image.tgz est introuvable sur le support de démarrage secondaire.
+Cette procédure ne doit être utilisée que si la restauration du support de démarrage secondaire a échoué ou si le  `image.tgz` fichier est introuvable sur le support de démarrage secondaire.
 
 * Vous devez disposer d'une clé USB, formatée en FAT32, avec au moins 4 Go de capacité.
-* Copie de la même version d'image de ONTAP que celle du contrôleur avec facultés affaiblies. Vous pouvez télécharger l'image appropriée depuis la section Downloads du site de support NetApp
+* Une copie de la même version d'image ONTAP que celle utilisée par le contrôleur défectueux. Vous pouvez télécharger l'image appropriée dans la section Téléchargements du NetApp Support Site.
 +
 ** Si NVE est activé, téléchargez l'image avec NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
 ** Si NVE n'est pas activé, téléchargez l'image sans NetApp Volume Encryption, comme indiqué sur le bouton de téléchargement.
@@ -176,7 +176,7 @@ Si ce message ne s'affiche pas, appuyez sur Ctrl-C, sélectionnez l'option pour 
 *** `bootarg.onboard_keymanager <value>`
 
 
-.. Enregistrez les variables d'environnement que vous avez modifiées à l'aide de la `savenv` commande
+.. Enregistrez les variables d'environnement que vous avez modifiées avec la commande  `savenv`.
 .. Confirmez vos modifications à l'aide du `printenv _variable-name_` commande.
 
 
@@ -195,12 +195,11 @@ L'image est téléchargée à partir de la clé USB.
 . Appuyez sur `y` lorsque vous êtes invité à utiliser la copie restaurée, puis à appuyer sur `y` lorsque vous êtes invité à redémarrer le contrôleur.
 . À partir du contrôleur partenaire au niveau de privilège avancé, démarrez la synchronisation de la configuration à l'aide de l'adresse IP enregistrée à l'étape précédente : `system node restore-backup -node local -target-address _impaired_node_IP_address_`
 . Une fois la synchronisation de la configuration terminée sans erreur, appuyez sur `y` lorsque vous êtes invité à confirmer que la procédure de sauvegarde a réussi.
-. Appuyez sur `y` lorsque vous êtes invité à utiliser la copie restaurée, puis à appuyer sur `y` lorsque vous êtes invité à redémarrer le contrôleur.
-. Vérifiez que les variables d'environnement sont définies comme prévu.
+. Vérifiez que les variables d'environnement sont configurées comme prévu.
 +
 .. Prenez le contrôleur vers l'invite DU CHARGEUR.
 +
-À l'invite ONTAP, vous pouvez lancer la commande « System node halt -skip-lif-migration-before-shutdown true -ignore-quorum-avertissements true -Inhibit-Takeover-Takeover true ».
+Dans l'invite ONTAP, vous pouvez lancer la commande `system node halt -skip-lif-migration-before-shutdown true -ignore-quorum-warnings true -inhibit-takeover true`.
 
 .. Vérifiez les paramètres de la variable d'environnement à l'aide de l' `printenv` commande.
 .. Si une variable d'environnement n'est pas définie comme prévu, modifiez-la avec le `setenv __environment-variable-name__ __changed-value__` commande.
