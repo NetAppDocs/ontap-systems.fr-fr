@@ -2,7 +2,7 @@
 permalink: c400/controller-replace-system-config-restore-and-verify.html 
 sidebar: sidebar 
 keywords: aff c400, restore and verify the system configuration, verify and set the ha state of the controller module 
-summary: Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire. 
+summary: 'Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement dans votre système de stockage AFF C400, et confirmez que les ports de stockage du système listent tous les chemins d"accès aux disques.' 
 ---
 = Restaurez et vérifiez la configuration du système - AFF C400
 :allow-uri-read: 
@@ -11,52 +11,38 @@ summary: Après avoir effectué le remplacement du matériel et démarrer en mod
 
 
 [role="lead"]
-Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
+Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement dans votre système de stockage AFF C400, et confirmez que les ports de stockage du système listent tous les chemins d'accès aux disques.
 
-
-
-== Étape 1 : définir et vérifier l'heure du système après le remplacement du contrôleur
-
-Vous devez vérifier l'heure et la date du module de contrôleur de remplacement par rapport au module de contrôleur sain dans une paire haute disponibilité, ou par rapport à un serveur de temps fiable dans une configuration autonome. Si la date et l'heure ne correspondent pas, vous devez les réinitialiser sur le module de contrôleur de remplacement pour éviter toute interruption possible sur les clients en raison de différences de temps.
-
-.Description de la tâche
-Il est important d'appliquer les commandes dans les étapes sur les systèmes appropriés :
-
-* Le _remplacement_ node est le nouveau noeud qui a remplacé le noeud douteux dans le cadre de cette procédure.
-* Le _Healthy_ node est le partenaire HA du _replace_ node.
-
+Vérifiez les paramètres de configuration HA et la liste des disques avant de remettre le système en service.
 
 .Étapes
-. Si le _remplacement_ node n'est pas à l'invite DU CHARGEUR, arrêtez le système à l'invite DU CHARGEUR.
-. Sur le noeud _Healthy_, vérifiez l'heure du système : `cluster date show`
+. Démarrage en mode maintenance :
 +
-La date et l'heure sont basées sur le fuseau horaire configuré.
+`boot_ontap maint`
 
-. À l'invite DU CHARGEUR, vérifiez la date et l'heure sur le noeud _remplacement_ : `show date`
+. Entrez `y` lorsque vous voyez _Continuer avec boot?_.
 +
-La date et l'heure sont indiquées en GMT.
+Si le message d'avertissement _ID système incorrect_ s'affiche, entrez `y`.
 
-. Si nécessaire, définissez la date en GMT sur le nœud de remplacement : `set date _mm/dd/yyyy_`
-. Si nécessaire, définissez l'heure en GMT sur le nœud de remplacement : `set time _hh:mm:ss_`
-. À l'invite DU CHARGEUR, confirmez la date et l'heure sur le noeud _remplacement_ : `show date`
+. Saisir `sysconfig -v` et capturer le contenu de l'affichage.
 +
-La date et l'heure sont indiquées en GMT.
 
+NOTE: Si vous voyez _INADÉQUATION DE PERSONNALITÉ_, contactez le service clientèle.
 
+. A partir du `sysconfig -v` résultat, comparez les informations de la carte adaptateur avec les cartes et les emplacements dans le contrôleur de remplacement.
+. Vérifier que tous les composants affichent le même `HA` état :
++
+`ha-config show`
 
-
-
-== Étape 2 : vérifier et définir l'état HA du module de contrôleur
-
-Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.
-
-. En mode Maintenance à partir du nouveau module de contrôleur, vérifier que tous les composants affichent la même valeur `HA` état : `ha-config show`
 +
 L'état de la HA doit être le même pour tous les composants.
 
-. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le `HA` état pour le module de contrôleur : `ha-config modify controller ha-state`
+. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, configurez le `HA` état du module de contrôle :
 +
-La valeur de HA-State peut être l'une des suivantes :
+`ha-config modify controller _ha-state_`
+
++
+La valeur de l'état HA peut être l'une des suivantes :
 
 +
 ** `ha`
@@ -66,6 +52,16 @@ La valeur de HA-State peut être l'une des suivantes :
 ** `non-ha`
 
 
-. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le `HA` état pour le module de contrôleur : `ha-config modify controller ha-state`
-. Vérifiez que le paramètre a changé : `ha-config show`
+. Vérifiez que le paramètre a changé :
++
+`ha-config show`
 
+. Vérifiez que l'adaptateur répertorie les chemins d'accès à tous les disques : `storage show disk -p`
++
+En cas de problème, vérifiez le câblage et réinstallez les câbles.
+
+. Quitter le mode Maintenance : `halt`
+
+
+.Et la suite ?
+Après avoir restauré et vérifié la configuration système de votre AFF C400, vous devez link:controller-replace-recable-reassign-disks.html["remettez le contrôleur en place"].

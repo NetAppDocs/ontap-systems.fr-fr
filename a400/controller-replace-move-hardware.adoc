@@ -2,27 +2,30 @@
 permalink: a400/controller-replace-move-hardware.html 
 sidebar: sidebar 
 keywords: aff a400, move the controller module hardware 
-summary: Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance. 
+summary: Remplacez le contrôleur de votre AFF A400 lorsque cela est nécessaire en cas de défaillance matérielle. Retirez le contrôleur défectueux, transférez ses composants vers le contrôleur de remplacement, installez le nouveau contrôleur et redémarrez-le. 
 ---
-= Remplacez le matériel du module de contrôleur - AFF A400
+= Remplacer le contrôleur - AFF A400
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance.
+Remplacez le contrôleur de votre AFF A400 lorsque cela est nécessaire en cas de défaillance matérielle. Retirez le contrôleur défectueux, transférez ses composants vers le contrôleur de remplacement, installez le nouveau contrôleur et redémarrez-le.
 
 
 
 == Étape 1 : retirer le module de contrôleur
 
+Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
+
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
 
-Vous pouvez utiliser la , illustration ou les étapes écrites suivantes pour retirer le module de contrôleur du châssis.
+Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour retirer le module de contrôleur du châssis.
 
 .Animation - retirez le module de contrôleur
 video::ca74d345-e213-4390-a599-aae10019ec82[panopto]
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
 . Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
@@ -35,7 +38,7 @@ Laissez les câbles dans le périphérique de gestion des câbles de sorte que l
 Le module de contrôleur se déplace légèrement hors du châssis.
 
 +
-image:../media/drw_A400_Remove_controller.png["Relâchez le module de contrôleur"]
+image::../media/drw_A400_Remove_controller.png[Relâchez le module de contrôleur]
 
 +
 [cols="10a,90a"]
@@ -88,12 +91,15 @@ Loquets de déverrouillage de la carte de montage
 
 == Étape 2 : déplacer les blocs d'alimentation
 
+Déplacez les alimentations vers le module de commande de remplacement.
+
 Lorsque vous remplacez un module de contrôleur, vous devez déplacer le bloc d'alimentation du module de contrôleur endommagé vers le module de contrôleur de remplacement.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer les blocs d'alimentation vers le module de contrôleur de remplacement.
 
 .Animation - déplacer les blocs d'alimentation
 video::92060115-1967-475b-b517-aad9012f130c[panopto]
+.Étapes
 . Retirer l'alimentation électrique :
 +
 image::../media/drw_A400_psu.png[Remplacez le bloc d'alimentation]
@@ -138,6 +144,8 @@ NOTE: Pour éviter d'endommager le connecteur interne, ne pas exercer de force e
 
 == Étape 3 : déplacez la batterie NVDIMM
 
+Déplacez la batterie NVDIMM vers le module de contrôleur de remplacement.
+
 Pour déplacer la batterie NVDIMM du module de contrôleur défaillant vers le module de contrôleur de remplacement, vous devez effectuer une séquence spécifique d'étapes.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer la batterie NVDIMM du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
@@ -170,6 +178,7 @@ image:../media/icon_round_3.png["Numéro de légende 3"]
 Batterie NVDIMM
 
 |===
+.Étapes
 . Ouvrir le conduit d'air :
 +
 .. Appuyer sur les pattes de verrouillage situées sur les côtés du conduit d'air vers le milieu du module de commande.
@@ -180,7 +189,7 @@ Batterie NVDIMM
 . Localisez la fiche mâle batterie et appuyez sur le clip situé sur la face de la fiche mâle batterie pour libérer la fiche de la prise, puis débranchez le câble de batterie de la prise.
 . Saisissez la batterie et appuyez sur la languette de verrouillage bleue indiquant « POUSSER », puis soulevez la batterie pour la sortir du support et du module de contrôleur.
 . Placer la batterie sur le module de contrôleur de remplacement.
-. Alignez le module de batterie avec l'ouverture de la batterie, puis poussez doucement la batterie dans son logement jusqu'à ce qu'elle s'enclenche.
+. Alignez le module de batterie avec l'ouverture prévue pour la batterie, puis poussez délicatement la batterie dans son logement jusqu'à ce qu'elle se verrouille en place.
 +
 
 NOTE: Ne rebranchez pas le câble de la batterie sur la carte mère tant que vous n'y êtes pas invité.
@@ -190,6 +199,8 @@ NOTE: Ne rebranchez pas le câble de la batterie sur la carte mère tant que vou
 
 
 == Étape 4 : déplacer le support de démarrage
+
+Transférez le support de démarrage vers le module de contrôleur de remplacement.
 
 Vous devez localiser le support de démarrage, puis suivre les instructions pour le retirer du module de contrôleur pour facultés affaiblies et l'insérer dans le module de contrôleur de remplacement.
 
@@ -216,6 +227,7 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Support de démarrage
 
 |===
+.Étapes
 . Recherchez et retirez le support de démarrage du module de contrôleur :
 +
 .. Appuyez sur le bouton bleu à l'extrémité du support de démarrage jusqu'à ce que le rebord du support de démarrage disparaisse du bouton bleu.
@@ -231,7 +243,7 @@ Si nécessaire, retirez le support de démarrage et réinstallez-le dans le supp
 +
 .. Faites pivoter le support de démarrage vers le bas, vers la carte mère.
 .. Appuyer sur le bouton de verrouillage bleu pour qu'il soit en position ouverte.
-.. En plaçant vos doigts à l'extrémité du support de démarrage par le bouton bleu, appuyez fermement sur l'extrémité du support de démarrage pour engager le bouton de verrouillage bleu.
+.. Placez vos doigts à l'extrémité du support de démarrage, près du bouton bleu, et appuyez fermement sur cette extrémité pour enclencher le bouton de verrouillage bleu.
 
 
 
@@ -239,6 +251,8 @@ Si nécessaire, retirez le support de démarrage et réinstallez-le dans le supp
 
 
 == Étape 5 : déplacez les cartes de montage PCIe et la carte mezzanine
+
+Déplacez les cartes d'extension PCIe et la carte mezzanine vers le module de contrôleur de remplacement.
 
 Dans le cadre du processus de remplacement du contrôleur, vous devez déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
 
@@ -285,6 +299,7 @@ image:../media/icon_round_4.png["Numéro de légende 4"]
 Carte PCI
 
 |===
+.Étapes
 . Déplacez les cartes de montage PCIe une et deux du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement :
 +
 .. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
@@ -315,6 +330,8 @@ La carte de montage se soulève légèrement du module de contrôleur.
 
 
 == Étape 6 : déplacez les modules DIMM
+
+Déplacez les modules DIMM vers le module de contrôleur de remplacement.
 
 Vous devez localiser les modules DIMM, puis les déplacer du module de contrôleur défaillant vers le module de contrôleur de remplacement.
 
@@ -350,13 +367,14 @@ image:../media/icon_round_3.png["Numéro de légende 3"]
 Support DIMM
 
 |===
+.Étapes
 . Localisez les modules DIMM de votre module de contrôleur.
 . Notez l'orientation du module DIMM dans le support afin que vous puissiez insérer le module DIMM dans le module de remplacement dans le bon sens.
 . Vérifiez que la batterie NVDIMM n'est pas branchée sur le nouveau module de contrôleur.
 . Déplacez les modules DIMM du module de contrôleur défaillant vers le module de contrôleur de remplacement :
 +
 
-NOTE: Assurez-vous d'installer chaque module DIMM dans le même emplacement qu'il est occupé dans le module de contrôleur défaillant.
+NOTE: Assurez-vous d'installer chaque barrette DIMM dans le même emplacement qu'elle occupait dans le module de contrôleur défectueux.
 
 +
 .. Éjectez le module DIMM de son logement en écartant lentement les languettes de l'éjecteur de DIMM de chaque côté du module DIMM, puis en faisant glisser le module DIMM hors de son logement.
@@ -383,6 +401,8 @@ Assurez-vous que la fiche se verrouille sur le module de contrôleur.
 
 == Étape 7 : installer le module de contrôleur
 
+Réinstallez le module de contrôleur et redémarrez-le.
+
 Après avoir déplacé tous les composants du module de contrôleur défaillant vers le module de contrôleur de remplacement, vous devez installer le module de contrôleur de remplacement dans le châssis, puis le démarrer en mode maintenance.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour installer le module de contrôleur de remplacement dans le châssis.
@@ -408,6 +428,7 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Loquets de verrouillage du contrôleur
 
 |===
+.Étapes
 . Si ce n'est déjà fait, fermer le conduit d'air.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
@@ -445,3 +466,6 @@ Si votre système s'arrête au menu de démarrage, sélectionnez l'option de dé
 
 
 
+
+.Et la suite ?
+Après avoir remplacé le contrôleur AFF A400 défectueux, vous devez link:controller-replace-system-config-restore-and-verify.html["restaurez la configuration du système"].

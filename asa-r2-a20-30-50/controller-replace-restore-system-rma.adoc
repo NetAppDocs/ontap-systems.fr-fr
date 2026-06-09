@@ -50,7 +50,7 @@ NOTE: Les nouvelles clés de licence dont vous avez besoin sont générées auto
 
 == Étape 2 : vérifier la LIF, enregistrer le numéro de série et vérifier l'état du cluster
 
-Avant de renvoyer le _replace_ node au service, vérifiez que les LIF se trouvent sur leurs ports de rattachement, puis enregistrez le numéro de série du _replace_ node si AutoSupport est activé et réinitialisez le rétablissement automatique.
+Avant de remettre le nœud de remplacement en service, vous devez vérifier que les LIF sont sur leurs ports d'origine, enregistrer le numéro de série du nœud de remplacement si AutoSupport est activé, vérifier l'état de votre cluster, fermer toutes les fenêtres de maintenance et réinitialiser la remise en service automatique.
 
 .Étapes
 . Vérifiez que les interfaces logiques sont bien placées sur leur serveur domestique et leurs ports : `network interface show -is-home false`

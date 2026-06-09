@@ -1,0 +1,46 @@
+---
+permalink: fas8300/controller-replace-requirements.html 
+sidebar: sidebar 
+keywords: fas8300, fas8700, prerequisite, replace the controller module 
+summary: 'Avant de remplacer le contrôleur de votre FAS8300 ou FAS8700, vérifiez que tous les autres composants du système fonctionnent correctement, assurez-vous d"avoir le contrôleur de remplacement approprié et enregistrez la sortie de la console du contrôleur dans un fichier journal texte.' 
+---
+= Exigences pour le remplacement du contrôleur - FAS8300 et FAS8700
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de remplacer le contrôleur de votre FAS8300 ou FAS8700, vérifiez que tous les autres composants du système fonctionnent correctement, assurez-vous d'avoir le contrôleur de remplacement approprié et enregistrez la sortie de la console du contrôleur dans un fichier journal texte.
+
+Passez en revue la configuration requise pour le remplacement du module de contrôleur.
+
+[NOTE]
+====
+NetApp recommande fortement d'activer la journalisation de la console sur les appareils que vous utilisez et de prendre les mesures suivantes lors de cette procédure :
+
+* Laissez AutoSupport activé pendant votre maintenance. Cela permet au support NetApp de recevoir des informations de diagnostic en cas de problème.
+* Activez la journalisation des sessions pour toutes les sessions CLI. Cela crée un enregistrement complet de toutes les commandes et des sorties système pendant l'opération de maintenance. Pour savoir comment activer la journalisation des sessions, consultez  https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+
+
+====
+* Tous les tiroirs disques doivent fonctionner correctement.
+* Le contrôleur sain doit pouvoir prendre le relais du contrôleur remplacé (appelé dans cette procédure contrôleur défectueux).
+* N’utilisez pas cette procédure pour les mises à niveau de contrôleur.  Se référer à https://docs.netapp.com/us-en/ontap-systems-upgrade/choose_controller_upgrade_procedure.html["Choisissez la procédure de mise à niveau matérielle de votre contrôleur"] pour vous guider.
+* Si votre système est configuré en MetroCluster , veuillez consulter https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html["Choix de la procédure de récupération correcte"] pour déterminer s'il convient d'utiliser cette procédure.
+* Remplacez le composant défectueux par l'unité remplaçable sur site (FRU) que vous avez reçue de NetApp.
+* Remplacez le module de commande par un module de commande du même type.  Vous ne pouvez pas mettre à niveau votre système en remplaçant le module de contrôle.
+* Vous ne pouvez pas changer de disques durs ni de baies de disques durs dans le cadre de cette procédure.
+* Au cours de cette procédure, le périphérique de démarrage est déplacé du contrôleur défaillant vers le contrôleur de remplacement de sorte que le contrôleur de remplacement démarre dans la même version de ONTAP que l'ancien module de contrôleur.
+* Comprendre la terminologie du contrôleur utilisée dans cette procédure :
++
+** Le contrôleur _défaillant_ est le contrôleur en cours de remplacement.
+** Le contrôleur de remplacement est le nouveau contrôleur qui remplace le contrôleur défectueux.
+** Le contrôleur _Healthy_ est le contrôleur survivant.
+
+
+* Utilisez  `security key-manager onboard show-key-store` pour vérifier si Onboard Key Manager (OKM) est configuré. Si c'est le cas, récupérez la phrase secrète du cluster à l'aide de  https://docs.netapp.com/us-en/ontap-cli/security-key-manager-onboard-show-backup.html["security key-manager onboard show-backup"] ou contactez le support NetApp avant de commencer cette procédure.
+
+
+.Et la suite ?
+Après avoir examiné les exigences relatives au remplacement de votre contrôleur FAS8300 ou FAS8700, vous devez link:controller-replace-shutdown.html["arrêtez le contrôleur défectueux"].

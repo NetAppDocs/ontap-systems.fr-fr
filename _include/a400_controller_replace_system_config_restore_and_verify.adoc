@@ -1,0 +1,53 @@
+= 
+:allow-uri-read: 
+
+
+Vérifiez les paramètres de configuration HA et la liste des disques avant de remettre le système en service.
+
+.Étapes
+. Démarrage en mode maintenance :
++
+`boot_ontap maint`
+
+. Entrez `y` lorsque vous voyez _Continuer avec boot?_.
++
+Si le message d'avertissement _ID système incorrect_ s'affiche, entrez `y`.
+
+. Saisir `sysconfig -v` et capturer le contenu de l'affichage.
++
+
+NOTE: Si vous voyez _INADÉQUATION DE PERSONNALITÉ_, contactez le service clientèle.
+
+. A partir du `sysconfig -v` résultat, comparez les informations de la carte adaptateur avec les cartes et les emplacements dans le contrôleur de remplacement.
+. Vérifier que tous les composants affichent le même `HA` état :
++
+`ha-config show`
+
++
+L'état de la HA doit être le même pour tous les composants.
+
+. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, configurez le `HA` état du module de contrôle :
++
+`ha-config modify controller _ha-state_`
+
++
+La valeur de l'état HA peut être l'une des suivantes :
+
++
+** `ha`
+** `mcc`
+** `mcc-2n`
+** `mccip`
+** `non-ha`
+
+
+. Vérifiez que le paramètre a changé :
++
+`ha-config show`
+
+. Vérifiez que l'adaptateur répertorie les chemins d'accès à tous les disques : `storage show disk -p`
++
+En cas de problème, vérifiez le câblage et réinstallez les câbles.
+
+. Quitter le mode Maintenance : `halt`
+

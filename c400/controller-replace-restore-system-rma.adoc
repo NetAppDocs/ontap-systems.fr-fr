@@ -2,16 +2,16 @@
 permalink: c400/controller-replace-restore-system-rma.html 
 sidebar: sidebar 
 keywords: aff c400, how to restore NetApp Storage Encryption, how to complete the replacement process 
-summary: 'Pour restaurer le fonctionnement complet de votre système, vous devez restaurer la configuration NetApp Storage Encryption (si nécessaire), installer les licences pour le nouveau contrôleur et renvoyer la pièce défaillante à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.' 
+summary: 'Finalisez le remplacement du contrôleur de votre AFF C400. Installez les licences du contrôleur de remplacement, vérifiez que les interfaces logiques (LIF) sont bien rattachées à leurs ports d"origine et effectuez une vérification de l"état du cluster. Enfin, retournez la pièce défectueuse à NetApp.' 
 ---
-= Restauration complète du système - AFF C400
+= Remplacement complet du contrôleur - AFF C400
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour restaurer le fonctionnement complet de votre système, vous devez restaurer la configuration NetApp Storage Encryption (si nécessaire), installer les licences pour le nouveau contrôleur et renvoyer la pièce défaillante à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.
+Finalisez le remplacement du contrôleur de votre AFF C400. Installez les licences du contrôleur de remplacement, vérifiez que les interfaces logiques (LIF) sont bien rattachées à leurs ports d'origine et effectuez une vérification de l'état du cluster. Enfin, retournez la pièce défectueuse à NetApp.
 
 
 
@@ -51,7 +51,7 @@ NOTE: Les nouvelles clés de licence dont vous avez besoin sont générées auto
 
 == Étape 2 : vérifier les LIF et enregistrer le numéro de série
 
-Avant de renvoyer le _replace_ node au service, vérifiez que les LIF se trouvent sur leurs ports de rattachement, puis enregistrez le numéro de série du _replace_ node si AutoSupport est activé et réinitialisez le rétablissement automatique.
+Avant de remettre le nœud de remplacement en service, vous devez vérifier que les LIF sont sur leurs ports d'origine, enregistrer le numéro de série du nœud de remplacement si AutoSupport est activé, vérifier l'état de votre cluster, fermer toutes les fenêtres de maintenance et réinitialiser la remise en service automatique.
 
 .Étapes
 . Vérifiez que les interfaces logiques sont bien placées sur leur serveur domestique et leurs ports : `network interface show -is-home false`

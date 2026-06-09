@@ -546,7 +546,6 @@
   <block id="eb9892aa7a6ee6cfe6b30dad735d6d7a" category="list-text">Vérifier si les licences ne sont pas utilisées :<block ref="60a583c8fa078514132caec54651bde7" prefix=" " category="inline-code"></block></block>
   <block id="f77eef718a5ddb0006a44a75016370bf" category="list-text">Si la liste semble correcte, supprimez les licences inutilisées :<block ref="288b5ec1c29101426e7991b13fe689ce" prefix=" " category="inline-code"></block></block>
   <block id="cd52056b12799b75e95ce3715dbd95d0" category="section-title">Étape 2 : vérifier les LIF et enregistrer le numéro de série</block>
-  <block id="556aba51608845a42e971c4c7b471837" category="paragraph">Avant de renvoyer le _replace_ node au service, vérifiez que les LIF se trouvent sur leurs ports de rattachement, puis enregistrez le numéro de série du _replace_ node si AutoSupport est activé et réinitialisez le rétablissement automatique.</block>
   <block id="462ec873925d8409f9ead354ff424e1b" category="list-text">Vérifiez que les interfaces logiques sont bien placées sur leur serveur domestique et leurs ports :<block ref="f8a58a872dbff91c3ae7076526ddf81a" prefix=" " category="inline-code"></block></block>
   <block id="bfe787834fd9e46156b1d62f2f5029f8" category="list-text">Enregistrez le numéro de série du système auprès du support NetApp.</block>
   <block id="523f153f577513ed6f7ddd1f4d6a7cac" category="list-text">Si AutoSupport est activé, envoyez un message AutoSupport pour enregistrer le numéro de série.</block>
@@ -3141,7 +3140,6 @@
   <block id="586f834e3ea252c8d0ecb1f23610e68c" category="list-text">Interrompez le processus de démarrage et démarrez vers l'invite DU CHARGEUR en appuyant sur<block ref="76be6883bcf9e8a6aed3a347ac20e41f" prefix=" " category="inline-code"></block>.</block>
   <block id="365fae0e6393caadfc5e7bef45b9ce56" category="section-title">Étape 7 : retournez les agrégats via une configuration MetroCluster à deux nœuds</block>
   <block id="936537a41290b6040d5cea518bd8e9f8" category="doc">Restaurez et vérifiez la configuration du système - AFF A400</block>
-  <block id="20ea0eb9eebca0280abc5766496bdaed" category="doc">Remplacez le matériel du module de contrôleur - AFF A400</block>
   <block id="d77f71cbbb3c8057b08d0dfb49aa5664" category="paragraph">Vous pouvez utiliser la , illustration ou les étapes écrites suivantes pour retirer le module de contrôleur du châssis.</block>
   <block id="f4c10aef61f6ce27a93c5212bf85139d" category="list-text">Sur le module de contrôleur de remplacement, ouvrez le conduit d'air et retirez les surmontoirs vides du module de contrôleur en suivant l'animation, l'illustration ou les étapes écrites :</block>
   <block id="63f87aaa5f633e2ee952b199ae093a26" category="video-title">Animation - retirez les cartes de montage vides du module de contrôleur de remplacement</block>
@@ -3207,7 +3205,6 @@
   <block id="144c419e3dcef5763e6e9018f63fe3f4" category="list-text">A l'aide des loquets de verrouillage, poussez fermement le module de contrôleur dans le châssis jusqu'à ce qu'il rencontre le fond de panier central et qu'il soit bien en place.</block>
   <block id="3c38b76f36cf9e85685d2299abf20afc" category="section-title">Étape 6 : rétablir le fonctionnement du module de contrôleur</block>
   <block id="37d55b9e3f3a09bc1c5307fdcb0cff08" category="paragraph">Pour restaurer le contrôleur, vous devez refaire le système, remettre le module de contrôleur, puis réactiver le rétablissement automatique.</block>
-  <block id="61c752abcbb868d9432b6f4a5da1593b" category="doc">Présentation du remplacement du module de contrôleur - AFF A400</block>
   <block id="855366b23fbc8af0c5a01bb5529b380c" category="list-text">Le _remplacement node_ est le nouveau contrôleur qui remplace le contrôleur défaillant.</block>
   <block id="54f4c70c653781a776673e986d65e502" category="paragraph">Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer le bloc d'alimentation.</block>
   <block id="e7391aa0081cf0bb76d099d43b77df97" category="video-title">Animation - remplacer une alimentation</block>
@@ -3270,8 +3267,6 @@
   <block id="ef3d6a7034bbb6a1a5a3adc4e54f05da" category="paragraph">Les modules DIMM sont situés dans les logements 2, 4, 13 et 15. Le NVDIMM est situé dans le logement 11.</block>
   <block id="4e4a2611625f6b2041743db1df7febd6" category="doc">Présentation du remplacement de châssis - AFF A400</block>
   <block id="8eea6ffadcece75bbf0826ed26885fb9" category="list-text">Cette procédure est perturbatrice. Dans le cas d'un cluster à deux nœuds, vous aurez une panne complète du service et une interruption partielle dans un cluster multinœud.</block>
-  <block id="3d295bc9d76a2ebbc6f508a6fdc75d90" category="doc">Récupération du système et réaffectation de disques - AFF A400</block>
-  <block id="2147ead816c0910c1fb713da5e278601" category="doc">Restauration complète du système - AFF A400</block>
   <block id="2c4c75d1e0e065592eedb5be469928fc" category="doc">Remplacement à chaud d'un module de ventilation - AFF A400</block>
   <block id="f94769a33d4669a6660b7ec2722589ef" category="paragraph">Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer à chaud un module de ventilation.</block>
   <block id="f56310c49687a40fd4b43bced4b3dcc8" category="video-title">Animation : instructions d'installation et de configuration du système AFF A400</block>
@@ -3496,10 +3491,6 @@
   <block id="edae17e7394c8face12fc5d74d33aa9b" category="paragraph">Pour remplacer le NVDIMM, vous devez le localiser dans le module de contrôleur à l'aide du plan des FRU situé sur le dessus du conduit d'air, le plan des FRU sur le dessus du dispositif de montage du logement 1.</block>
   <block id="bf333756fca94003818a0db8ced6f7d9" category="list-text">Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage :<block ref="a2a0d2a805a6a7b779572d78313420fd" prefix=" " category="inline-code"></block></block>
   <block id="e81e65a4f6bbdd26bd0618bcbf34a71d" category="doc">Restaurez et vérifiez la configuration du système - FAS8300 et FAS8700</block>
-  <block id="406be05f374ba93dabeb2514a008179a" category="doc">Remplacez le matériel du module de contrôleur - FAS8300 et FAS8700</block>
-  <block id="8555f8973ccc4539a56ac495380c89d5" category="inline-link">Retrait des cartes de montage vides du module de contrôleur de remplacement</block>
-  <block id="d5e62cab20ddc280f38e9a81562855fc" category="paragraph"><block ref="d5e62cab20ddc280f38e9a81562855fc" category="inline-link-rx"></block></block>
-  <block id="6976de191bb895bccff42aea7f5ef312" category="section-title">Étape 6 : déplacer les modules de cache</block>
   <block id="1e6c27613480cee2fca639b93121fd62" category="paragraph">Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour déplacer les modules de cache vers le nouveau module de contrôleur.</block>
   <block id="1d3cf3e64d50da3c959f6c6aefc86da4" category="video-title">Animation : déplacez les modules de cache</block>
   <block id="6ce420982732936565ee6cdc23281310" category="list-text">Déplacez les modules de cache du module de contrôleur défaillant vers le module de contrôleur de remplacement :</block>
@@ -3510,7 +3501,6 @@
   <block id="6fa69afac2c36bdcc90389549843343d" category="list-text">Placez votre doigt à l'extrémité du module de cache par le bouton bleu, appuyez fermement sur l'extrémité du module de cache, puis soulevez le bouton de verrouillage pour verrouiller le module de cache en place.</block>
   <block id="838316a92edbe8e931b912c827cad7b7" category="section-title">Étape 7 : déplacez les modules DIMM</block>
   <block id="f060498e4a9c2e920e619ab0da23740a" category="doc">Remplacez une carte PCIe ou mezzanine - FAS8300 et FAS8700</block>
-  <block id="94aea6f09b1466d3642940029f1b693a" category="doc">Présentation du remplacement des modules de contrôleur - FAS8300 et FAS8700</block>
   <block id="fe0879209afd1fc2f28d40077ccda980" category="doc">Arrêtez le contrôleur pour facultés affaiblies - FAS8300 et FAS8700</block>
   <block id="f406838ab1af1615895d90b4b0439c67" category="doc">Guide détaillé - FAS8300 et FAS8700</block>
   <block id="598ec2ec2714b9a699a42898b690e48d" category="section-title">Option 1 : câblage des contrôleurs aux tiroirs disques SAS</block>
@@ -3548,11 +3538,8 @@
   <block id="23322e561ac6bea2fdd969f81f065cb0" category="list-text">Le NVDIMM est situé dans le logement 11.</block>
   <block id="48d478390eb7cda13973a166fcbc6922" category="paragraph">Vous pouvez utiliser l'animation, la mise en plan ou les étapes écrites suivantes pour installer le module de contrôleur dans le châssis.</block>
   <block id="25a1b4c8ff5717b58eca78fec7573116" category="doc">Présentation du remplacement de châssis - FAS8300 et FAS8700</block>
-  <block id="c1541e02506543efaa1d18ae5a171fa3" category="doc">Recâblage du système et réaffectation de disques - FAS8300 et FAS8700</block>
-  <block id="7b69f40dd7d380028b22097976e23e5c" category="paragraph">Vous devez effectuer une série de tâches avant de restaurer le système en mode de fonctionnement complet.</block>
   <block id="60c80807c8eb6c015d6e5032198a46ec" category="paragraph"><block ref="751c01f8467f96987ff97e3a647e9973" category="inline-xref-macro-rx"></block>]</block>
   <block id="676531da1f0338f4a714f21a3bb7c046" category="paragraph"><block ref="3ed7db6e7aa5ae33a12299b6d5351893" category="inline-xref-macro-rx"></block></block>
-  <block id="9839b9efeb4f2cb59f36a02a747b73cb" category="doc">Restauration complète du système - FAS8300 et FAS8700</block>
   <block id="f53fd2bac78253daaa912be518fddcc2" category="doc">Remplacement à chaud d'un module de ventilation - FAS8300 et FAS8700</block>
   <block id="a3fad5983ba1f7c61a46ffcf74ea359a" category="video-title">Animation - instructions d'installation et de configuration des systèmes FAS8300 et FAS8700</block>
   <block id="c0925c06c8c424f377718df251d2ae9f" category="doc">Remplacez la pile de l'horloge temps réel - FAS8300 et FAS8700</block>
@@ -4809,7 +4796,6 @@
   <block id="33a725da473f57f9db39e8cb90fb8ec1" category="sidebar">Châssis FAS9500</block>
   <block id="cea781d942e6e6feafc25284d025750b" category="sidebar">Module de contrôleur FAS9500</block>
   <block id="718b8a88a314d56b344c3895d896ab2a" category="sidebar">Restaurez et vérifiez la configuration du système</block>
-  <block id="88e09b832b8634d2f827a9e44cf2569c" category="sidebar">Recâblage du système</block>
   <block id="f32bab2b08e5fc2e905512eaec57f369" category="sidebar">Systèmes AFF C190</block>
   <block id="6bcfc4aeb02db575a71692ba5bde6626" category="sidebar">Installation et configuration de AFF C190</block>
   <block id="0087675754f48392af7d0a0e8d38f775" category="sidebar">Maintenance de AFF C190</block>
@@ -4861,7 +4847,6 @@
   <block id="935fc9f8b4345efff79d84bae87ad200" category="sidebar">Module de contrôleur AFF A400</block>
   <block id="4f8a739856ad7964205e7218a641cde5" category="sidebar">MODULE DIMM AFF A400</block>
   <block id="a7160a81ce3eb81df82c2030fa1d88b2" category="sidebar">Module de ventilateur AFF A400</block>
-  <block id="3a93eb637d6da3552373ff488f2ed198" category="sidebar">Batterie AFF A400 NVDIMM</block>
   <block id="3f2fd3ac92645a8ea03580ed3ca49f5d" category="sidebar">AFF A320 NVDIMM</block>
   <block id="60aacc44860a019da72b796a579487fe" category="sidebar">Carte PCIe ou mezzanine AFF A400</block>
   <block id="2719a09a183f15b1adb6cd0009b4aa0e" category="sidebar">Bloc d'alimentation AFF A400</block>
@@ -5053,7 +5038,6 @@
   <block id="bef061f2ba2a880a4d71960c6fb14a8f" category="inline-link-macro">Instructions d'installation et de configuration du AFF C400</block>
   <block id="a637f1b4c2a1d9b5cb9f0347c7e77539" category="doc">Restaurez et vérifiez la configuration du système - AFF C400</block>
   <block id="b1c4aeeae550bfbe7c6574898398d781" category="doc">Remplacez la batterie NVDIMM - AFF C400</block>
-  <block id="76f50c3f31d2ab405df556357b00ae41" category="doc">Présentation du remplacement du module de contrôleur - AFF C400</block>
   <block id="59278043c69406fc3ad5a92b1268c7a1" category="list-text"><block ref="59278043c69406fc3ad5a92b1268c7a1" category="inline-link-macro-rx"></block></block>
   <block id="207fa20809605ec76418419987911de1" category="list-text"><block ref="207fa20809605ec76418419987911de1" category="inline-link-macro-rx"></block></block>
   <block id="8ec5a018cdb8c2ff183e79e6526679cf" category="list-text"><block ref="8ec5a018cdb8c2ff183e79e6526679cf" category="inline-link-macro-rx"></block></block>
@@ -5064,15 +5048,12 @@
   <block id="670ce436320fc9008e2880db983e27d2" category="paragraph">Les options suivantes vous indiquent comment connecter un ou deux tiroirs de disque NS224 à votre système.</block>
   <block id="eca713323e6fa9782ebae60357fc0453" category="doc">Remplacez un module NVDIMM - AFF C400</block>
   <block id="51e4f59a1aaa143b8d5c910f0a77328e" category="video-title">Animation - instructions d'installation et de configuration du AFF C400</block>
-  <block id="e6423ca3487b9b75d5af512862698175" category="doc">Remplacez le matériel du module de contrôleur - AFF C400</block>
   <block id="5edd30c4cef8fac3bd29e60266f4cb36" category="doc">Arrêtez les contrôleurs - AFF C400</block>
   <block id="5254fce53c38649f011fdb307e35d4b3" category="doc">Remplacez un module DIMM - AFF C400</block>
-  <block id="454f2d4445f738afc6491f938272785d" category="doc">Recâblage du système et réaffectation des disques - AFF C400</block>
   <block id="7fc305adae8e903c0dc8bff5a49862c9" category="doc">Remplacez une carte PCIe ou mezzanine - AFF C400</block>
   <block id="042e6e8da8b6da480bf85ff04e4d7922" category="doc">Présentation du remplacement du support de démarrage - AFF C400</block>
   <block id="bb2c0218cb7e6195837599cbb3d03ac1" category="doc">Rebasculez les agrégats dans une configuration MetroCluster à deux nœuds - AFF C400</block>
   <block id="1d3d538ec62d31076cad785952dec0e5" category="doc">Remplacez le matériel - AFF C400</block>
-  <block id="2642a6c4a1666402654202d970bc20a6" category="doc">Restauration complète du système - AFF C400</block>
   <block id="3e442d8f2f13e8331a31e7c1c2737e59" category="paragraph">Le remplacement d'un bloc d'alimentation implique la déconnexion du bloc d'alimentation cible de la source d'alimentation, le débranchement du câble d'alimentation, le retrait de l'ancien bloc d'alimentation et l'installation du bloc d'alimentation de remplacement, puis sa reconnexion à la source d'alimentation.</block>
   <block id="311f323a046afbcf6ce4b152ad2dee93" category="list-text">Cette procédure est écrite pour remplacer un bloc d'alimentation à la fois.</block>
   <block id="be0020622e775d64818f3acc7c2d856d" category="admonition">Il est recommandé de remplacer le bloc d'alimentation dans les deux minutes qui suivent son retrait du châssis. Le système continue de fonctionner, mais ONTAP envoie des messages à la console concernant le bloc d'alimentation dégradé jusqu'à ce qu'il soit remplacé.</block>
@@ -6167,13 +6148,11 @@ SFP+ (cible/initiateur)</block>
   <block id="941c5c287ded8e20a0e0afb65a87e0f3" category="paragraph">Une fois le remplacement du matériel terminé, vous vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.</block>
   <block id="1308073a5b44cc77fcce7142e61edf15" category="doc">Maintenance du matériel FAS9500</block>
   <block id="9e209d7a48bf7b8bd414632f31a6d032" category="paragraph">Pour le système de stockage FAS9500, vous pouvez effectuer des procédures de maintenance sur les composants suivants.</block>
-  <block id="48f49ab53c743281158bdd3a887f7928" category="summary">Maintenance du matériel ASA C400</block>
   <block id="572168caec82d1a40dbb65b06309a1d8" category="doc">Maintenance du matériel AFF C400</block>
   <block id="59f0681daaf8f83f78428571c3e8b6d4" category="paragraph">Pour le système de stockage AFF C400, vous pouvez effectuer les procédures de maintenance des composants suivants.</block>
   <block id="7152aeb3bd29d76fe947dfa4c1f97021" category="summary">Maintenance du matériel AFF A200</block>
   <block id="ecbe5fbd8a23ff594108a3c325ac5c57" category="doc">Assurez la maintenance du matériel AFF A200</block>
   <block id="ec9ecc2392793e81abb2dd44deb36f6d" category="paragraph">Pour le système de stockage AFF A200, vous pouvez effectuer les procédures de maintenance sur les composants suivants.</block>
-  <block id="387bb93ff4bb00a831a3ddb5c619a84a" category="doc">Recable le système et reassignent des disques - ASA A400</block>
   <block id="f4a25106acc9f2b398da8ab1dbc2278a" category="doc">Présentation du remplacement des supports de démarrage - ASA A400</block>
   <block id="1ad7108acef5f97dbf6407833d441058" category="doc">Remplacez à chaud un module de ventilation - ASA A400</block>
   <block id="f04cfd2261dd6a1f556f80b087e6b8e6" category="doc">Remplacer le matériel - ASA A400</block>
@@ -6194,13 +6173,11 @@ SFP+ (cible/initiateur)</block>
   <block id="c3c10c279bac3cb43b6f1f1f0865469c" category="list-text"><block ref="c3c10c279bac3cb43b6f1f1f0865469c" category="inline-link-macro-rx"></block></block>
   <block id="fbe5ac44caed14b65f65c674c260d4f6" category="list-text"><block ref="fbe5ac44caed14b65f65c674c260d4f6" category="inline-link-macro-rx"></block></block>
   <block id="5ba82c1fe7f9a054ea742a089f7a227e" category="list-text"><block ref="5ba82c1fe7f9a054ea742a089f7a227e" category="inline-link-macro-rx"></block></block>
-  <block id="b8a21ef26361bcf497970ad95729f649" category="doc">Restauration complète du système - ASA A400</block>
   <block id="b65dcf1c7ad6c86f6d2d5bed4626bcc6" category="doc">Guide rapide - ASA A400</block>
   <block id="5eb8101a6e8a2a3f54c56549ab21ade4" category="admonition">Le système ASA A400 utilise la même procédure d'installation que le système AFF A400.</block>
   <block id="2d7c6c8ec11dfd6f4583d91c8d94d5d0" category="doc">Remplacer le contrôleur - ASA A400</block>
   <block id="1952c1c21894126b1d43fd1b446add88" category="doc">Présentation du remplacement du châssis - ASA A400</block>
   <block id="8a5c79d05f266b99fd8b21d069b75d78" category="doc">Remplacement complet du châssis - ASA A400</block>
-  <block id="c4b2f6abafcc332bf4722cbb6468f31f" category="doc">Présentation du remplacement du contrôleur - ASA A400</block>
   <block id="466aa8d45982e2ca3b8ed3fa99638ca2" category="paragraph">Après avoir installé le module de contrôleur dans le nouveau châssis, démarrez-le.</block>
   <block id="145ef1ac525baa70aa5c03030fa49d7b" category="summary">Maintenance du matériel AFF A700s</block>
   <block id="5128a68724ce704ce115a0fb76e61b2d" category="doc">Maintenance du matériel AFF A700s</block>
@@ -6417,13 +6394,9 @@ SFP+ (cible/initiateur)</block>
   <block id="f7f6cafa82cca0d649fec769636a374b" category="doc">Arrêtez le contrôleur défectueux - ASA C400</block>
   <block id="124e5d993905ca8fc1e3ed8fa62e76ad" category="doc">Remplacez un module DIMM - ASA C400</block>
   <block id="9187e0a8947f2ca2039bb2793202300f" category="doc">Remplacez la batterie NVDIMM - ASA C400</block>
-  <block id="d8f9a29ce7164ac54d9904be12998cb5" category="doc">Présentation du remplacement du module de contrôleur - ASA C400</block>
-  <block id="d593ab590ed489d6717b0d0fbc84376f" category="doc">Remplacez le matériel du module de contrôleur - ASA C400</block>
   <block id="00e85c9b81ade8fe5e2f38c4a31d4388" category="doc">Remplacez à chaud un module de ventilation - ASA C400</block>
   <block id="b31b0c352e7abb4634524d9d53f5fcce" category="doc">Remplacez une carte PCIe ou mezzanine - ASA C400</block>
   <block id="b4247ab28006e796109bb9e6443b612f" category="doc">Présentation du remplacement du support de démarrage - ASA C400</block>
-  <block id="967b266f7bf42739746ff8ee10704ec8" category="doc">Restauration complète du système - ASA C400</block>
-  <block id="a2e400b53e6df30e6ea808a7a8d9cf03" category="doc">Recâblage du système et réaffectation des disques - ASA C400</block>
   <block id="d87d17cd765dde0b8f553a33b6d61945" category="doc">Remplacez le matériel - ASA C400</block>
   <block id="d8548c2140dedaa5fc883590a1f7009a" category="doc">Remplacez la pile de l'horloge temps réel - ASA C400</block>
   <block id="90276cd1568977c0a841334b01c793ee" category="doc">Restaurez et vérifiez la configuration du système - ASA C400</block>
@@ -6649,8 +6622,6 @@ SFP+ (cible/initiateur)</block>
   <block id="f0770a756304b05e8fc4f321e0babe43" category="open-title">Option 2 : ajout d'un module X91148A en tant que module de stockage</block>
   <block id="9e41ec46d0af5ba1b01d8b3bde9b4f52" category="list-text">Si vous ajoutez un module X91148A en tant que module de stockage dans les logements 3 et/ou 7 dans un emplacement doté d'un module NIC existant, utilisez System Manager pour migrer définitivement les LIF vers différents ports d'accueil, comme décrit dans la section<block ref="8a81e44d8701c7e0abd4b6ad328792f0" category="inline-link-rx"></block>.</block>
   <block id="68439e6a6b3d21f29b1f4c3391b0fc9d" category="admonition">Le module de contrôleur ver2 n'a qu'un seul support de module de cache (emplacement 6) dans le FAS8300. Le modèle FAS8700 ne dispose pas d'un module de contrôleur VER2. La fonctionnalité du module de cache n'est pas affectée par le retrait du socket.</block>
-  <block id="c70a0b227334f67f05309732ae67641e" category="paragraph">Vous pouvez utiliser les animations, illustrations, la carte de FOURRURES du système ou les étapes écrites suivantes pour déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur défectueux vers le module de contrôleur de remplacement.</block>
-  <block id="e0b36bb653f20c62f1b87229ea86e61e" category="admonition">Il n'est pas nécessaire de retirer les cartes PCIe des cartes de montage. Transférez les cartes de montage, avec les cartes PCIe toujours installées, vers le module de contrôleur de remplacement.</block>
   <block id="569455efa28fef99f37a55bfd832334e" category="admonition">Le module de contrôleur ver2 ne dispose que d'un seul support de module de cache dans le FAS8300. Le modèle FAS8700 ne dispose pas d'un module de contrôleur VER2. La fonctionnalité du module de cache n'est pas affectée par le retrait du socket.</block>
   <block id="f30c92bb3a7434fbf14bd27327ab95f7" category="admonition">Le slot 6 est uniquement disponible dans le contrôleur FAS8300 VER2.</block>
   <block id="bcd681cc4aa56b9c1d3f83f1729660cb" category="paragraph">Utilisez le lien : <block ref="0e85fb8899763a058efca868ed40a959" category="inline-link-macro-rx"></block></block>
@@ -6966,8 +6937,6 @@ SFP+ (cible/initiateur)</block>
   <block id="415d68191d2fba8f12396142cd83b078" category="image-alt">Retrait ou remplacement du module de cache</block>
   <block id="fc29ed0d741870e4e8c36ca82510cf9a" category="image-alt">Retirer et remplacer le module de cache</block>
   <block id="6bc6ce8422771329317122532e3badfd" category="image-alt">Retirez et remplacez le module de cache</block>
-  <block id="88d9a1b17863a743c5d31333c8bd6c82" category="image-alt">Retirez la carte de montage vide</block>
-  <block id="8edb2beda5152e63e95d47b37fce7aa7" category="image-alt">Retirez la carte mezzanine</block>
   <block id="3e86dd6511e223ecedd044d86cd934bf" category="image-alt">Schéma de câblage d'un cluster sans commutateur à 2 nœuds</block>
   <block id="2d2cf47916959433721b7cc7d46cdea2" category="image-alt">Schéma de câblage réseau du cluster commuté</block>
   <block id="f9fdbcb98f873b6faf3dd8bc1752740e" category="image-alt">Diagramme de câblage de trois tiroirs DS224C</block>
@@ -11271,7 +11240,6 @@ SFP+ (cible/initiateur)</block>
   <block id="33f15341dc012b7a1741173f0a003ced" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - AFF A400</block>
   <block id="217151ef13b32a9ab67e7c5b3ba1f936" category="paragraph">Arrêtez le contrôleur défectueux de votre système de stockage AFF A400 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.</block>
   <block id="74c6811365bff32176970c98a7ab6f9d" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - AFF A400</block>
-  <block id="c6615dfdc0291800b33208ac35a4f3a7" category="summary">Maintenir le matériel AFF A400</block>
   <block id="72b339e7e15c8320ce1d0ba12fe138c8" category="paragraph">Entretenez le matériel de votre système de stockage AFF A400 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
   <block id="5c2498e6d495f2eadf0d5823b9b81b5f" category="paragraph">Les procédures de maintenance supposent que le système de stockage AFF A400 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
   <block id="2deff6ec3e4c0e2a0db765f462db4612" category="paragraph"><block ref="2deff6ec3e4c0e2a0db765f462db4612" category="inline-link-macro-rx"></block></block>
@@ -11505,7 +11473,6 @@ SFP+ (cible/initiateur)</block>
   <block id="a0dbcf6f0f26d754fde2bb6d70fbb73f" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage AFF C400 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
   <block id="966d4890030f1e5c3f1b51c3c5299a94" category="doc">Arrêter le contrôleur pour une récupération automatique du support de démarrage - AFF C400</block>
   <block id="e36c07ddc2c852e96b18f7eda4762c15" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - AFF C400</block>
-  <block id="a42309898a70f71c8b47fb7946ed0fa2" category="summary">Entretenir le matériel AFF C400</block>
   <block id="37a0c3f42116a45593e1759f7ca396f7" category="paragraph">Entretenez le matériel de votre système de stockage AFF C400 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
   <block id="3fc46261568f86b2dfeb5c6ac5374871" category="paragraph">Les procédures de maintenance supposent que le système de stockage AFF C400 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
   <block id="a6783798c7878d8ef836e14478c0ef38" category="paragraph">Le module de gestion du système fournit l'interface entre le contrôleur et une console ou un ordinateur portable à des fins de maintenance du contrôleur ou du système.  Le module de gestion du système contient le support de démarrage et stocke le numéro de série du système (SSN).</block>
@@ -11595,7 +11562,6 @@ SFP+ (cible/initiateur)</block>
   <block id="f92852859a1256b879ad5dfabaea0674" category="summary">Arrêtez le contrôleur défectueux de votre système de stockage FAS8300 ou FAS8700 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage.</block>
   <block id="b2afd54a88356df6b7914f4f501173fe" category="doc">Arrêter le contrôleur pour la récupération automatique du support de démarrage - FAS8300 et FAS8700</block>
   <block id="710b1825cc3b61d89111ebcb4f63d4ed" category="doc">Arrêter le contrôleur pour la récupération manuelle du support de démarrage - FAS8300 et FAS8700</block>
-  <block id="cdcc1635d67f2d69b9bc78130ddd2127" category="summary">Maintenir le matériel FAS8300 et FAS8700</block>
   <block id="8dc6127ffd213090bdfb30a973df145d" category="paragraph">Entretenez le matériel de votre système de stockage FAS8300 et FAS8700 pour garantir une fiabilité à long terme et des performances optimales. Effectuez régulièrement des tâches de maintenance, comme le remplacement des composants défectueux, afin d'éviter les temps d'arrêt et les pertes de données.</block>
   <block id="2f5b095ada5faeed091717ef3fef109e" category="paragraph">Les procédures de maintenance supposent que le système de stockage FAS8300 et FAS8700 a déjà été déployé en tant que nœud de stockage dans l'environnement ONTAP .</block>
   <block id="0facd68d08373b50ebf915bc5f5d5586" category="paragraph">Pour les systèmes de stockage FAS8300 et FAS8700 , vous pouvez effectuer des procédures de maintenance sur les composants suivants.</block>
@@ -12508,19 +12474,15 @@ SFP+ (cible/initiateur)</block>
   <block id="5c47498d3e11ee9a57ddebd2baefb88d" category="list-text"><block ref="5c47498d3e11ee9a57ddebd2baefb88d" category="inline-link-macro-rx"></block></block>
   <block id="320b62021250ac3397d332e11199a626" category="list-text"><block ref="320b62021250ac3397d332e11199a626" category="inline-link-macro-rx"></block></block>
   <block id="891c5359e682529a1627e4999520d382" category="list-text"><block ref="891c5359e682529a1627e4999520d382" category="inline-link-macro-rx"></block></block>
-  <block id="3bed913e05df4b686d188f0b1563edaf" category="list-text"><block ref="3bed913e05df4b686d188f0b1563edaf" category="inline-link-macro-rx"></block></block>
   <block id="657b2449f31023007c28fe58c1112b27" category="list-text"><block ref="657b2449f31023007c28fe58c1112b27" category="inline-link-macro-rx"></block></block>
   <block id="2d0745dbc460eeaa58a9a0ff32201dbd" category="list-text"><block ref="2d0745dbc460eeaa58a9a0ff32201dbd" category="inline-link-macro-rx"></block></block>
   <block id="8c93358c335849a177a2b064d61fee49" category="list-text"><block ref="8c93358c335849a177a2b064d61fee49" category="inline-link-macro-rx"></block></block>
   <block id="fe7940c070c008b7384704652d68649d" category="list-text"><block ref="fe7940c070c008b7384704652d68649d" category="inline-link-macro-rx"></block></block>
   <block id="3126d2686507d95d694289ed10b84c81" category="list-text"><block ref="3126d2686507d95d694289ed10b84c81" category="inline-link-macro-rx"></block></block>
   <block id="22f46c8d8c23447b8b2d25ba99c89ea5" category="list-text"><block ref="22f46c8d8c23447b8b2d25ba99c89ea5" category="inline-link-macro-rx"></block></block>
-  <block id="ac31af4b50ec3f45e426fed2d12a4579" category="list-text"><block ref="ac31af4b50ec3f45e426fed2d12a4579" category="inline-link-macro-rx"></block></block>
   <block id="efb4ef1a7e68e6464e2855d284715e8f" category="list-text"><block ref="efb4ef1a7e68e6464e2855d284715e8f" category="inline-link-macro-rx"></block></block>
   <block id="b9a5aa0dda2abe8c56433655233c5afe" category="list-text"><block ref="b9a5aa0dda2abe8c56433655233c5afe" category="inline-link-macro-rx"></block></block>
-  <block id="09514b85ea6e4a26b271ee897526f719" category="list-text"><block ref="09514b85ea6e4a26b271ee897526f719" category="inline-link-macro-rx"></block></block>
   <block id="d667d10a2839d4d94c58c56f5c5f3632" category="list-text"><block ref="d667d10a2839d4d94c58c56f5c5f3632" category="inline-link-macro-rx"></block></block>
-  <block id="25e9061afcbf32bd115473b789388d4a" category="list-text"><block ref="25e9061afcbf32bd115473b789388d4a" category="inline-link-macro-rx"></block></block>
   <block id="7934c4d942ff95cd60f23fa77b0f6248" category="list-text"><block ref="7934c4d942ff95cd60f23fa77b0f6248" category="inline-link-macro-rx"></block></block>
   <block id="ac8da8b52bd313ac221e71b1ea98d0fe" category="list-text"><block ref="ac8da8b52bd313ac221e71b1ea98d0fe" category="inline-link-macro-rx"></block></block>
   <block id="1682e451ff05726b873698cd1d255f39" category="list-text"><block ref="1682e451ff05726b873698cd1d255f39" category="inline-link-macro-rx"></block></block>
@@ -12531,7 +12493,6 @@ SFP+ (cible/initiateur)</block>
   <block id="49c072d4a239128d83dc028820477cc2" category="list-text"><block ref="49c072d4a239128d83dc028820477cc2" category="inline-link-macro-rx"></block></block>
   <block id="3132e68710534e3087e9540fb5faecde" category="list-text"><block ref="3132e68710534e3087e9540fb5faecde" category="inline-link-macro-rx"></block></block>
   <block id="d190ef926760f506c2d8c9da045ea3d6" category="list-text"><block ref="d190ef926760f506c2d8c9da045ea3d6" category="inline-link-macro-rx"></block></block>
-  <block id="609db4e3e3add4cc680b27c876caea1e" category="list-text"><block ref="609db4e3e3add4cc680b27c876caea1e" category="inline-link-macro-rx"></block></block>
   <block id="f087a289d756a862ee9348da71b2f901" category="list-text"><block ref="f087a289d756a862ee9348da71b2f901" category="inline-link-macro-rx"></block></block>
   <block id="ced5ecac2334cd3afa716dededa9d4c8" category="list-text"><block ref="ced5ecac2334cd3afa716dededa9d4c8" category="inline-link-macro-rx"></block></block>
   <block id="01a3f659112c26b68dc2a4223fa153e4" category="summary">Recherchez les procédures de remplacement du module d'alimentation DCPM pour votre système de stockage NetApp organisées par famille de plates-formes.  Cette référence fournit des liens directs vers des flux de travail de remplacement de module d'alimentation DCPM étape par étape pour les systèmes AFF, ASA et FAS pour vous aider à localiser rapidement la procédure appropriée pour votre modèle spécifique.</block>
@@ -14596,7 +14557,6 @@ SFP+ (cible/initiateur)</block>
   <block id="643f89dfcdb99598dff0698a6c6f477f" category="summary">Rétablissez le chiffrement sur le support de démarrage de remplacement. Suivez les étapes spécifiques aux systèmes sur lesquels le Gestionnaire de clés intégré, NetApp Storage Encryption ou NetApp Volume Encryption sont activés.</block>
   <block id="4d7aa69fc026b3a6f987b82e95bc8b6e" category="summary">Le support de démarrage stocke un ensemble principal et un ensemble secondaire de fichiers système que le système utilise lors de son démarrage.</block>
   <block id="bb5e69b90aaf792d44828cce6a24757b" category="summary">Vous devez localiser le support de démarrage dans le module de commande, puis suivre les instructions pour le remplacer.</block>
-  <block id="392332a3990bcf6a83cb056eebd84db7" category="summary">Pour rétablir le fonctionnement complet de votre système AFF A400, restaurez la configuration de chiffrement du stockage NetApp si nécessaire, installez les licences pour le nouveau contrôleur et renvoyez la pièce défectueuse à NetApp.</block>
   <block id="7c3d0fbb22df3b0d007f4c77b6168305" category="summary">Remplacez une barrette DIMM de votre module contrôleur AFF A400 lorsque le système enregistre un nombre croissant de codes de correction d'erreurs corrigibles ou d'erreurs ECC non corrigibles. Le non-remplacement d'une barrette DIMM défectueuse peut entraîner un blocage du système.</block>
   <block id="bc8a0da992c3b6518fd7063cb3cb66d5" category="summary">Remplacez la NVDIMM dans votre module contrôleur AFF A400 lorsque le système détecte que la durée de vie de la mémoire flash est presque terminée ou que la NVDIMM identifiée n'est pas saine. Le non-remplacement d'une NVDIMM défectueuse peut provoquer une panique du système.</block>
   <block id="ceae6e7ef833654d24b8abca1cfe66da" category="summary">Remplacez une alimentation dans votre système AFF A400 en déconnectant l'alimentation cible de la source d'alimentation, en débranchant le câble d'alimentation, en retirant l'ancienne alimentation, en installant l'alimentation de remplacement, puis en la reconnectant à la source d'alimentation.</block>
@@ -14641,7 +14601,6 @@ SFP+ (cible/initiateur)</block>
   <block id="9d7c3d3b770fe5897f074e07e07cbcaf" category="summary">Remplacez la pile de l'horloge temps réel de votre module contrôleur ASA C250 pour garantir le bon fonctionnement des services et applications qui dépendent d'une synchronisation horaire précise.</block>
   <block id="b24f02c4e7a8a9855edccae6b952886b" category="summary">Une fois le remplacement de l'unité remplaçable sur site (FRU) terminé dans une configuration MetroCluster à deux nœuds, vous pouvez effectuer l'opération de basculement MetroCluster. Cette opération rétablit la configuration dans son état de fonctionnement normal, les machines virtuelles de stockage source synchronisée du site précédemment défaillant étant désormais actives et fournissant des données à partir des pools de disques locaux.</block>
   <block id="1def1a624f87466dfe205016921c2a3b" category="summary">Avant de remplacer le support de démarrage de votre ASA C400, assurez-vous de respecter les conditions requises pour une opération réussie. Cela inclut la vérification que vous disposez du support de démarrage de remplacement adéquat, la confirmation que le port e0S ou e0M du contrôleur défectueux n'est pas endommagé, et la détermination de l'activation du Onboard Key Manager ou de l'External Key Manager.</block>
-  <block id="9fef75caa345568e96571917968940bb" category="summary">Pour rétablir le fonctionnement complet de votre système ASA C400, restaurez la configuration de chiffrement du stockage NetApp si nécessaire, installez les licences pour le nouveau contrôleur et renvoyez la pièce défectueuse à NetApp.</block>
   <block id="9cb41a7869b0b4762e6d8c42cd595bb2" category="summary">Remplacez une barrette DIMM de votre module contrôleur ASA C400 lorsque le système enregistre un nombre croissant de codes de correction d'erreurs corrigibles ou d'erreurs ECC non corrigibles. Le non-remplacement d'une barrette DIMM défectueuse peut entraîner un blocage du système.</block>
   <block id="1bc0e984a9d2a92049c302ccd0a7b555" category="summary">Vous devez remplacer la barrette NVDIMM du module contrôleur lorsque votre système détecte que la durée de vie de la mémoire flash est presque terminée ou que la barrette NVDIMM identifiée n'est généralement pas saine. Si vous ne le faites pas, cela provoquera une panique du système.</block>
   <block id="aeb9b01e5a21c04bbf5df5b71f87cce4" category="summary">Remplacez un bloc d'alimentation dans votre ASA C400 en déconnectant le bloc d'alimentation cible de la source d'alimentation, en débranchant le câble d'alimentation, en retirant l'ancien bloc d'alimentation, en installant le bloc d'alimentation de remplacement, puis en le reconnectant à la source d'alimentation.</block>
@@ -14681,7 +14640,6 @@ SFP+ (cible/initiateur)</block>
   <block id="80a03749c26b164d7070302e7fb6265c" category="summary">Vous devez remplacer une barrette DIMM dans le module contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d'erreurs correctibles ECC. À défaut, le système se bloquera.</block>
   <block id="36f57f3085cbef659363e3f44ff548bd" category="summary">Après avoir terminé le remplacement de la FRU dans une configuration MetroCluster à deux nœuds, vous pouvez effectuer l'opération de basculement MetroCluster. Cela ramène la configuration à son état de fonctionnement normal, avec les machines virtuelles de stockage SVM source de synchronisation sur le site précédemment défaillant désormais actives et servant les données à partir des pools de disques locaux.</block>
   <block id="d30f19d7a1c4ffd11d33f8d689ac0e96" category="summary">Le support de démarrage stocke un ensemble principal et un ensemble secondaire de fichiers image de démarrage système que le système utilise lors de son démarrage.</block>
-  <block id="9434dd2b0b8671c7f3e981dec2723908" category="summary">Pour rétablir le fonctionnement complet de votre système, vous devez restaurer la configuration de chiffrement du stockage NetApp si nécessaire, installer les licences pour le nouveau contrôleur et renvoyer la pièce défectueuse à NetApp, comme décrit dans les instructions RMA fournies avec le kit.</block>
   <block id="bd65b9823a24aa687849ee601ce1a98a" category="summary">Vous devez remplacer une barrette DIMM dans le module contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d'erreurs ECC correctibles afin d'éviter un plantage du système.</block>
   <block id="c0d800e72ab9f4f4587eea240b4be738" category="summary">Vous devez remplacer la NVDIMM dans le module contrôleur lorsque votre système détecte que la durée de vie de la mémoire flash est presque terminée ou que la NVDIMM identifiée est globalement défectueuse afin d'éviter un plantage du système.</block>
   <block id="4636bd1fe7b8dcbebddaa21d31c37740" category="summary">Vous remplacez la pile de l'horloge temps réel (RTC) dans le module de contrôle afin que les services et applications de votre système qui dépendent d'une synchronisation horaire précise continuent de fonctionner.</block>
@@ -15144,4 +15102,111 @@ SFP+ (cible/initiateur)</block>
   <block id="8f58e61d50af420886f01cc38be3cf6a" category="doc">Remplacer un NSM dans un shelf NX224</block>
   <block id="5154a7eeeb6eb7c914e9aa6ac86007e6" category="doc">Remplacer un bloc d'alimentation dans un châssis NX224</block>
   <block id="7b0bd118308264295dfa730998f7251f" category="doc">Remplacez la pile RTC dans un châssis NX224</block>
+  <block id="b22ed3efff094d07c32c76b9295bde13" category="list-text">Placez vos doigts à l'extrémité du support de démarrage, près du bouton bleu, et appuyez fermement sur cette extrémité pour enclencher le bouton de verrouillage bleu.</block>
+  <block id="9fb8ee3921bba78c0e4054199b3300af" category="admonition">Assurez-vous d'installer chaque barrette DIMM dans le même emplacement qu'elle occupait dans le module de contrôleur défectueux.</block>
+  <block id="833d24cc61bde8db4ab9f8d8141e65f8" category="list-text">Alignez le module de batterie avec l'ouverture prévue pour la batterie, puis poussez délicatement la batterie dans son logement jusqu'à ce qu'elle se verrouille en place.</block>
+  <block id="32ba7af89b7557f6e3e6d80a922080ce" category="inline-link">security key-manager onboard show-backup</block>
+  <block id="a21017a372e84cc9d6cc9e2a7e0f23d2" category="list-text">Utilisez <block ref="2d524d70cca425f0ea0070a709ecb7d4" prefix=" " category="inline-code"></block> pour vérifier si Onboard Key Manager (OKM) est configuré. Si c'est le cas, récupérez la phrase secrète du cluster à l'aide de <block ref="6f522857c47788f1087697333fe0d531" category="inline-link-rx"></block> ou contactez le support NetApp avant de commencer cette procédure.</block>
+  <block id="e6a8f1db0b7d35326b54876f284f811f" category="paragraph"><block ref="df7653bd48e36a44cee252d7543a526f" prefix="" category="inline-code"></block></block>
+  <block id="43c63a956a767713bbc4bab69a853af7" category="paragraph">Avant de remettre le nœud de remplacement en service, vous devez vérifier que les LIF sont sur leurs ports d'origine, enregistrer le numéro de série du nœud de remplacement si AutoSupport est activé, vérifier l'état de votre cluster, fermer toutes les fenêtres de maintenance et réinitialiser la remise en service automatique.</block>
+  <block id="6b60e7f24a30b9e3a07fd4349176c6f5" category="open-title">Aucun chiffrement ni External Key Manager (EKM)</block>
+  <block id="a9c46224e1208bec23244c121f22a175" category="paragraph">Restaurez et rescelliez les clés de chiffrement embarquées pour OKM et remettez le contrôleur en fonctionnement normal.</block>
+  <block id="99464671a9ee8f5d9bec8b8dc7a3cc6f" category="paragraph">Avant de commencer, consultez <block ref="6f522857c47788f1087697333fe0d531" category="inline-link-rx"></block> ou contactez NetApp Support.</block>
+  <block id="b46eb70574ba72ddd18297870ac72496" category="list-text">Récupérez et vérifiez la phrase secrète globale du cluster auprès du contrôleur sain.</block>
+  <block id="5e208af3a3c950196c1dd0dfc02ffc56" category="list-text">Exécutez la commande suivante pour récupérer la phrase secrète du cluster :</block>
+  <block id="5d5069bc693614975aa81a354e040601" category="list-text">Vérifiez la phrase secrète globale du cluster à l'aide de la commande suivante :</block>
+  <block id="7b0d473a82241e1a01fb90a8bc2cf05f" category="paragraph"><block ref="dff8e3a1b1fc2becfcb5e40a46f984ee" prefix="" category="inline-code"></block></block>
+  <block id="ad46fdb4c583c5a533a352f036a18d2d" category="list-text">Vérifier l'état des clés :<block ref="297f477a8524857592ffedfea06bb8d7" prefix=" " category="inline-code"></block></block>
+  <block id="299c9bfb3cd1f598a62efacc3686ea10" category="paragraph">La sortie ne devrait afficher aucun résultat lorsque la synchronisation est correcte.</block>
+  <block id="6a72b23cbddb31aefc94c19ac93880a9" category="admonition">Ne passez pas outre le droit de veto sur le retour pour les clés manquantes. Contactez le support NetApp.</block>
+  <block id="5cee181dfbd0634fc32049787ea85754" category="paragraph">Lors du remplacement d'un module de contrôleur, vous devez déplacer le module de cache du module de contrôleur défectueux vers le module de contrôleur de remplacement.</block>
+  <block id="1643d6928089f00cefebe1eea8a5ffbe" category="summary">Remplacez le contrôleur de votre AFF A400 lorsque cela est nécessaire en cas de défaillance matérielle. Retirez le contrôleur défectueux, transférez ses composants vers le contrôleur de remplacement, installez le nouveau contrôleur et redémarrez-le.</block>
+  <block id="da87a1ef9e4dce8990634b208c2e400c" category="doc">Remplacer le contrôleur - AFF A400</block>
+  <block id="ca30387fe6e0cef8a561037bdfb8c158" category="paragraph">Déplacez les cartes d'extension PCIe et la carte mezzanine vers le module de contrôleur de remplacement.</block>
+  <block id="143e03e25155fc0b2d5e768767ed9204" category="paragraph">Après avoir remplacé le contrôleur AFF A400 défectueux, vous devez <block ref="ba0281d4e0b6e4cebf5e13fd7e583c92" category="inline-link-macro-rx"></block>.</block>
+  <block id="9c503c1e275a7def20b5d8e142605d45" category="summary">Rendez le contrôle des ressources de stockage au contrôleur de remplacement afin que votre système AFF A400 puisse reprendre son fonctionnement normal.</block>
+  <block id="eeefc6f7bbea7deec49bb038a1ef58a7" category="doc">Rendez le contrôleur - AFF A400</block>
+  <block id="0e4a99c2560b3effdb700a50064c68d7" category="summary">Avant de remplacer le contrôleur de votre AFF A400, vérifiez que tous les autres composants du système fonctionnent correctement, assurez-vous d'avoir le contrôleur de remplacement approprié et enregistrez la sortie de la console du contrôleur dans un fichier journal texte.</block>
+  <block id="b3bc8e7c6e7a8108242bc5ca2ff9e804" category="doc">Exigences pour le remplacement du contrôleur - AFF A400</block>
+  <block id="235a170162423b606079a22d4d2111d7" category="paragraph">Après avoir examiné les exigences relatives au remplacement de votre contrôleur AFF A400, vous devez <block ref="049c9e44f3f84f6c7ce4b89629424c9c" category="inline-link-macro-rx"></block>.</block>
+  <block id="85641ff1382ae475727e50b36add62d0" category="summary">Terminez le remplacement du contrôleur de votre AFF A400. Installez les licences du contrôleur de remplacement, vérifiez que les interfaces logiques (LIF) sont bien rattachées à leurs ports d'origine et effectuez une vérification de l'état du cluster. Enfin, retournez la pièce défectueuse à NetApp.</block>
+  <block id="fc47844b9623eebe1defcb33880c1b71" category="doc">Remplacement complet du contrôleur - AFF A400</block>
+  <block id="73ee175361b7d96d55a922056163aad3" category="summary">Éteignez le contrôleur de votre système de stockage AFF A400 pour éviter toute perte de données et garantir la stabilité du système lors du remplacement du contrôleur.</block>
+  <block id="4a2dcad0c8dc7ef61fc636684fb4c76c" category="paragraph">Après avoir éteint le contrôleur AFF A400, vous devez <block ref="4c59920dffd5894cdc2dc27ddd7fff07" category="inline-link-macro-rx"></block>.</block>
+  <block id="63214527d97d0112a03823015c039309" category="summary">Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement dans votre système de stockage AFF A400, et confirmez que les ports de stockage du système listent tous les chemins d'accès aux disques.</block>
+  <block id="48ddf67afa51030bb8d13513cd840c46" category="paragraph">Après avoir restauré et vérifié la configuration système de votre AFF A400, vous devez <block ref="f96992113d4cc080f9d372523b7a919c" category="inline-link-macro-rx"></block>.</block>
+  <block id="a9bcc69be7c2d63a1395731650762ee6" category="summary">Remplacez le contrôleur de votre AFF A400 en arrêtant le contrôleur défectueux, en le retirant et en le remplaçant, en restaurant la configuration du système et en redonnant le contrôle des ressources de stockage au contrôleur de remplacement.</block>
+  <block id="a84189ce54ebd4640ded6ec93d14b1ac" category="doc">Workflow de remplacement du contrôleur - AFF A400</block>
+  <block id="0b1625986f97ca41471cb730a6e13738" category="summary">Remplacez le contrôleur de votre système ASA C400 lorsqu'une défaillance matérielle l'exige. Retirez le contrôleur défectueux, transférez ses composants vers le contrôleur de remplacement, installez le nouveau contrôleur et redémarrez-le.</block>
+  <block id="a624682d2091abacd9b18fcefa024722" category="doc">Remplacer le contrôleur - ASA C400</block>
+  <block id="270d3fcc0126b88dc0d79b4e7a654ca6" category="paragraph">Après avoir remplacé le contrôleur ASA C400 défectueux, vous devez <block ref="ba0281d4e0b6e4cebf5e13fd7e583c92" category="inline-link-macro-rx"></block>.</block>
+  <block id="3b98803ddf3c789920134eda41008597" category="summary">Rendez le contrôle des ressources de stockage au contrôleur de remplacement afin que votre système ASA C400 puisse reprendre son fonctionnement normal.</block>
+  <block id="34069e90a9500a622e423919bbd63949" category="doc">Rendre le contrôleur - ASA C400</block>
+  <block id="782436f400c77c6a7865bee8589e0ea5" category="summary">Avant de remplacer le contrôleur de votre ASA C400, vérifiez que tous les autres composants du système fonctionnent correctement, assurez-vous d'avoir le contrôleur de remplacement approprié et enregistrez la sortie de la console du contrôleur dans un fichier journal texte.</block>
+  <block id="2471c47910dc3d15a1fde99622112b20" category="doc">Exigences pour le remplacement du contrôleur - ASA C400</block>
+  <block id="c9e1f9015dc64824a31411413353c1ec" category="paragraph">Après avoir examiné les exigences relatives au remplacement de votre ASA C400, vous devez <block ref="049c9e44f3f84f6c7ce4b89629424c9c" category="inline-link-macro-rx"></block>.</block>
+  <block id="173037eb9ab43a621d9ba86529c794d2" category="summary">Terminez le remplacement du contrôleur de votre système ASA C400. Installez les licences du contrôleur de remplacement, vérifiez que les interfaces logiques (LIF) communiquent avec leurs ports d'origine et effectuez une vérification de l'état du cluster. Enfin, retournez la pièce défectueuse à NetApp.</block>
+  <block id="cf8edfc354af31c6afd5010ff98d26de" category="doc">Remplacement complet du contrôleur - ASA C400</block>
+  <block id="5698f6098dcf6a01344444248f386edc" category="summary">Éteignez le contrôleur de votre système de stockage ASA C400 pour éviter toute perte de données et garantir la stabilité du système lors du remplacement du contrôleur.</block>
+  <block id="28b83041ec0389a13d355213bc2943e7" category="paragraph">Après avoir arrêté le contrôleur ASA C400, vous devez <block ref="4c59920dffd5894cdc2dc27ddd7fff07" category="inline-link-macro-rx"></block>.</block>
+  <block id="cfbca48fbad65eddf5e21a8053f82845" category="summary">Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement dans votre système de stockage ASA C400, et confirmez que les ports de stockage du système listent tous les chemins d'accès aux disques.</block>
+  <block id="dbca2f6dc3210181bfa410413769d31a" category="paragraph">Après avoir restauré et vérifié la configuration système de votre ASA C400, vous devez <block ref="f96992113d4cc080f9d372523b7a919c" category="inline-link-macro-rx"></block>.</block>
+  <block id="beebfa36ed107f66aa0cc51bfa243586" category="summary">Remplacez le contrôleur de votre ASA C400 en arrêtant le contrôleur défectueux, en le retirant et en le remplaçant, en restaurant la configuration du système et en redonnant le contrôle des ressources de stockage au contrôleur de remplacement.</block>
+  <block id="f4d78e995c7f16cdde02289d5c117485" category="doc">Workflow de remplacement du contrôleur - ASA C400</block>
+  <block id="2fdf514c2d9fa977ee2867f1fc969e2b" category="summary">Remplacez le contrôleur de votre système ASA A400 lorsqu'une défaillance matérielle l'exige. Retirez le contrôleur défectueux, transférez ses composants vers le contrôleur de remplacement, installez le nouveau contrôleur et redémarrez-le.</block>
+  <block id="d5fdafc0f97fe0e3b59d80a9ab525c2a" category="paragraph">Après avoir remplacé le contrôleur ASA A400 défectueux, vous devez <block ref="ba0281d4e0b6e4cebf5e13fd7e583c92" category="inline-link-macro-rx"></block>.</block>
+  <block id="8e947660f362f0a4d86a28747d995c6c" category="summary">Rendez le contrôle des ressources de stockage au contrôleur de remplacement afin que votre système ASA A400 puisse reprendre son fonctionnement normal.</block>
+  <block id="dfb88b3579c8fa94fff94e45fe033df9" category="doc">Restituez le contrôleur - ASA A400</block>
+  <block id="4fcaa86a07a17d3d8b2ef0d7bb46bab4" category="summary">Avant de remplacer le contrôleur de votre ASA A400, vérifiez que tous les autres composants du système fonctionnent correctement, assurez-vous d'avoir le contrôleur de remplacement approprié et enregistrez la sortie de la console du contrôleur dans un fichier journal texte.</block>
+  <block id="d043454ffa52d2dde29e9b3ddb67bc85" category="doc">Exigences pour le remplacement du contrôleur - ASA A400</block>
+  <block id="1f4df5a2f55421d84d5462ddea4c450a" category="paragraph">Après avoir examiné les exigences relatives au remplacement de votre ASA A400, vous devez <block ref="049c9e44f3f84f6c7ce4b89629424c9c" category="inline-link-macro-rx"></block>.</block>
+  <block id="ddcd2195550de716ab8a68c01f2f71ee" category="summary">Terminez le remplacement du contrôleur de votre système ASA A400. Installez les licences du contrôleur de remplacement, vérifiez que les interfaces logiques (LIF) sont rattachées à leurs ports d'origine et effectuez une vérification de l'état du cluster. Enfin, retournez la pièce défectueuse à NetApp.</block>
+  <block id="c4f89572eb7afdd08c114854d3501aab" category="doc">Remplacement complet du contrôleur - ASA A400</block>
+  <block id="9991899f8771ca7fd42c63396edd9b38" category="summary">Éteignez le contrôleur de votre système de stockage ASA A400 pour éviter toute perte de données et garantir la stabilité du système lors du remplacement du contrôleur.</block>
+  <block id="7398d38cd0c8e80500ba1b2684897978" category="paragraph">Après avoir arrêté le contrôleur ASA A400, vous devez <block ref="4c59920dffd5894cdc2dc27ddd7fff07" category="inline-link-macro-rx"></block>.</block>
+  <block id="1497cf44cbda23bb003f913e598fab52" category="summary">Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement dans votre système de stockage ASA A400, et confirmez que les ports de stockage du système listent tous les chemins d'accès aux disques.</block>
+  <block id="ba1b2ccfb40b6fada5a226eb44891da6" category="paragraph">Après avoir restauré et vérifié la configuration système de votre ASA A400, vous devez <block ref="f96992113d4cc080f9d372523b7a919c" category="inline-link-macro-rx"></block>.</block>
+  <block id="bdec3a549aafe952a4c46d4618f2117a" category="summary">Remplacez le contrôleur de votre ASA A400 en arrêtant le contrôleur défectueux, en le retirant et en le remplaçant, en restaurant la configuration du système et en redonnant le contrôle des ressources de stockage au contrôleur de remplacement.</block>
+  <block id="232b440a7c6cee72b84ae61c240d0724" category="doc">Workflow de remplacement du contrôleur - ASA A400</block>
+  <block id="5f11b65bf6bc9fcd0e94d50f675d562d" category="summary">Remplacez le contrôleur de votre AFF C400 lorsque cela est nécessaire en cas de défaillance matérielle. Retirez le contrôleur défectueux, transférez ses composants vers le contrôleur de remplacement, installez le nouveau contrôleur et redémarrez-le.</block>
+  <block id="105e433772cafee3792392c306a12364" category="doc">Remplacer le contrôleur - AFF C400</block>
+  <block id="fb856566523de294063ff59d6bb060f9" category="paragraph">Après avoir remplacé le contrôleur AFF C400 défectueux, vous devez <block ref="ba0281d4e0b6e4cebf5e13fd7e583c92" category="inline-link-macro-rx"></block>.</block>
+  <block id="46c5a0485089a65097a12790fbafab58" category="summary">Rendez le contrôle des ressources de stockage au contrôleur de remplacement afin que votre système AFF C400 puisse reprendre son fonctionnement normal.</block>
+  <block id="ec99220c1030c4a9588c82a1a7966dfb" category="doc">Rendez le contrôleur - AFF C400</block>
+  <block id="f1ed5c3985a20ccbd8a0348875e2c946" category="summary">Avant de remplacer le contrôleur de votre AFF C400, vérifiez que tous les autres composants du système fonctionnent correctement, assurez-vous d'avoir le contrôleur de remplacement approprié et enregistrez la sortie de la console du contrôleur dans un fichier journal texte.</block>
+  <block id="ce9d12d389346f2bfb94ba734445d5ae" category="doc">Exigences pour le remplacement du contrôleur - AFF C400</block>
+  <block id="d36c86b8b92c0c47e54049ea3124034e" category="paragraph">Après avoir examiné les exigences relatives au remplacement de votre AFF C400, vous devez <block ref="049c9e44f3f84f6c7ce4b89629424c9c" category="inline-link-macro-rx"></block>.</block>
+  <block id="a95a84bd5d058767981611eed200cd4b" category="summary">Finalisez le remplacement du contrôleur de votre AFF C400. Installez les licences du contrôleur de remplacement, vérifiez que les interfaces logiques (LIF) sont bien rattachées à leurs ports d'origine et effectuez une vérification de l'état du cluster. Enfin, retournez la pièce défectueuse à NetApp.</block>
+  <block id="e8c31c6812c243844bcc019c22b5c973" category="doc">Remplacement complet du contrôleur - AFF C400</block>
+  <block id="ca3b4092c04b946b9a327ae1ad6bbcf7" category="summary">Éteignez le contrôleur de votre système de stockage AFF C400 pour éviter toute perte de données et garantir la stabilité du système lors du remplacement du contrôleur.</block>
+  <block id="54a9cc27ebed20219b381a412a6308a6" category="paragraph">Après avoir éteint le contrôleur AFF C400, vous devez <block ref="4c59920dffd5894cdc2dc27ddd7fff07" category="inline-link-macro-rx"></block>.</block>
+  <block id="3a759f91fb899d97ffb9afd084ff6e4f" category="summary">Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement dans votre système de stockage AFF C400, et confirmez que les ports de stockage du système listent tous les chemins d'accès aux disques.</block>
+  <block id="39ad79ee2c4ca5f619d8424da883ab5b" category="paragraph">Après avoir restauré et vérifié la configuration système de votre AFF C400, vous devez <block ref="f96992113d4cc080f9d372523b7a919c" category="inline-link-macro-rx"></block>.</block>
+  <block id="fefb7b68b3f7fe6ea267ed9c6c66b68e" category="summary">Remplacez le contrôleur de votre AFF C400 en arrêtant le contrôleur défectueux, en le retirant et en le remplaçant, en restaurant la configuration du système et en redonnant le contrôle des ressources de stockage au contrôleur de remplacement.</block>
+  <block id="6a793c74e17ef2a44033b70954cda6ae" category="doc">Workflow de remplacement du contrôleur - AFF C400</block>
+  <block id="68aae893878b9b44b304ff241a50bdf7" category="summary">Remplacez le contrôleur de votre FAS8300 ou FAS8700 lorsque cela est requis en cas de défaillance matérielle. Retirez le contrôleur défectueux, transférez ses composants vers le contrôleur de remplacement, installez le nouveau contrôleur et redémarrez-le.</block>
+  <block id="fb78806046bfd39498a09b2aad2e7d3e" category="doc">Remplacez le contrôleur - FAS8300 et FAS8700</block>
+  <block id="f7d201357faa9ae2d265a5f2c65fe46d" category="section-title">Étape 6 : Déplacer le module de cache</block>
+  <block id="a3b6831de1a3f9c8f105924288933491" category="paragraph">Déplacez le module cache vers le module contrôleur de remplacement.</block>
+  <block id="b4f26fc71c4fc61777a6ce11602f5e00" category="paragraph">Après avoir remplacé le contrôleur FAS8300 ou FAS8700 défectueux, vous devez <block ref="ba0281d4e0b6e4cebf5e13fd7e583c92" category="inline-link-macro-rx"></block>.</block>
+  <block id="a36d5eafdcb3f308230dc8b131c5faf6" category="summary">Rendez le contrôle des ressources de stockage au contrôleur de remplacement afin que votre système FAS8300 et FAS8700 puisse reprendre son fonctionnement normal.</block>
+  <block id="71e953ec010aeacbe8f805d010b1d6d1" category="doc">Rendez le contrôleur - FAS8300 et FAS8700</block>
+  <block id="1da37087c24bcd60efcfdcae23691238" category="summary">Avant de remplacer le contrôleur de votre FAS8300 ou FAS8700, vérifiez que tous les autres composants du système fonctionnent correctement, assurez-vous d'avoir le contrôleur de remplacement approprié et enregistrez la sortie de la console du contrôleur dans un fichier journal texte.</block>
+  <block id="4ae6d273c4a1e5238089ef798be8c473" category="doc">Exigences pour le remplacement du contrôleur - FAS8300 et FAS8700</block>
+  <block id="387ff05fe60ba9646e9d4f0cd7d00100" category="paragraph">Après avoir examiné les exigences relatives au remplacement de votre contrôleur FAS8300 ou FAS8700, vous devez <block ref="049c9e44f3f84f6c7ce4b89629424c9c" category="inline-link-macro-rx"></block>.</block>
+  <block id="603833ad2ebf9ea77b5c7ff3d4fdb0e6" category="summary">Terminez le remplacement du contrôleur de votre système FAS8300 et FAS8700. Installez les licences du contrôleur de remplacement, vérifiez que les interfaces logiques (LIF) sont signalées sur leurs ports d'origine et effectuez une vérification de l'état du cluster. Enfin, retournez la pièce défectueuse à NetApp.</block>
+  <block id="c440c3b18352c35065bbb5e4f23e587c" category="doc">Remplacement complet du contrôleur - FAS8300 et FAS8700</block>
+  <block id="f1e632999f15d29c6bd0c27b05504930" category="summary">Éteignez le contrôleur de votre système de stockage FAS8300 et FAS8700 pour éviter toute perte de données et garantir la stabilité du système lors du remplacement du contrôleur.</block>
+  <block id="63b0663effa529ba8008218ffe66480c" category="paragraph">Après avoir arrêté les contrôleurs FAS8300 et FAS8700, vous devez <block ref="4c59920dffd5894cdc2dc27ddd7fff07" category="inline-link-macro-rx"></block>.</block>
+  <block id="0397eddbd173e99f6f78717f750ae112" category="summary">Vérifiez que la configuration HA du contrôleur est active et fonctionne correctement dans votre système de stockage FAS8300 et FAS8700, et confirmez que les ports de stockage du système listent tous les chemins d'accès aux disques.</block>
+  <block id="fcdbd452b2a51442d278eba3819d54dc" category="paragraph">Après avoir restauré et vérifié la configuration système de votre FAS8300 et FAS8700, vous devez <block ref="f96992113d4cc080f9d372523b7a919c" category="inline-link-macro-rx"></block>.</block>
+  <block id="7072df916f72777ba4ad0ae8aca46ddb" category="summary">Remplacez le contrôleur de votre FAS8300 ou FAS8700 système de stockage en arrêtant le contrôleur défectueux, en le retirant et en le remplaçant, en restaurant la configuration du système et en redonnant le contrôle des ressources de stockage au contrôleur de remplacement.</block>
+  <block id="ab584200ad246ef800e11a807062aecf" category="doc">Workflow de remplacement du contrôleur - FAS8300 et FAS8700</block>
+  <block id="65a24d3342cebb3269310e0c87c40028" category="list-text"><block ref="65a24d3342cebb3269310e0c87c40028" category="inline-link-macro-rx"></block></block>
+  <block id="9051e620091e4081cce7d9772ee688de" category="list-text"><block ref="9051e620091e4081cce7d9772ee688de" category="inline-link-macro-rx"></block></block>
+  <block id="5cd0249d03fb4aefcd24bc07905ba6a9" category="list-text"><block ref="5cd0249d03fb4aefcd24bc07905ba6a9" category="inline-link-macro-rx"></block></block>
+  <block id="5fcf11e7fb8d2d8858748e1191368731" category="list-text"><block ref="5fcf11e7fb8d2d8858748e1191368731" category="inline-link-macro-rx"></block></block>
+  <block id="9503755300c52aec4490e33c653bfc3f" category="list-text"><block ref="9503755300c52aec4490e33c653bfc3f" category="inline-link-macro-rx"></block></block>
+  <block id="f570bacc2bcfa586cbbc915a822ba186" category="sidebar">AFF A400 Batterie NVDIMM</block>
+  <block id="a11b9a2e6ec144b9081801e3c74c0349" category="sidebar">AFF A400 NVDIMM</block>
 </blocks>

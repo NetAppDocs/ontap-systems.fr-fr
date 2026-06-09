@@ -1,8 +1,8 @@
 ---
 permalink: fas8300/controller-replace-shutdown.html 
 sidebar: sidebar 
-keywords: fas8300, fas8700, shut down the impair controller 
-summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage. 
+keywords: fas8300, fas8700, shut down the impaired controller 
+summary: Éteignez le contrôleur de votre système de stockage FAS8300 et FAS8700 pour éviter toute perte de données et garantir la stabilité du système lors du remplacement du contrôleur. 
 ---
 = Arrêtez le contrôleur pour facultés affaiblies - FAS8300 et FAS8700
 :allow-uri-read: 
@@ -11,7 +11,9 @@ summary: Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant
 
 
 [role="lead"]
-Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
+Éteignez le contrôleur de votre système de stockage FAS8300 et FAS8700 pour éviter toute perte de données et garantir la stabilité du système lors du remplacement du contrôleur.
+
+Arrêtez le module de contrôleur à l'aide de l'une des options suivantes.
 
 [role="tabbed-block"]
 ====
@@ -179,3 +181,5 @@ mcc1A::> metrocluster operation show
 
 --
 ====
+.Et la suite ?
+Après avoir arrêté les contrôleurs FAS8300 et FAS8700, vous devez link:controller-replace-move-hardware.html["remplacer le contrôleur"].

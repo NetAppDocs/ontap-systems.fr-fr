@@ -15,7 +15,7 @@ Renvoyer le contrôle des ressources de stockage sur le contrôleur de remplacem
 
 [role="tabbed-block"]
 ====
-.Pas de cryptage
+.Aucun chiffrement ni External Key Manager (EKM)
 --
 Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant son espace de stockage.
 
@@ -35,11 +35,25 @@ Remettez le contrôleur défectueux en mode de fonctionnement normal en laissant
 --
 .Chiffrement intégré (OKM)
 --
-Réinitialise le chiffrement intégré et rétablit le fonctionnement normal du contrôleur.
+Restaurez et rescelliez les clés de chiffrement embarquées pour OKM et remettez le contrôleur en fonctionnement normal.
+
+.Avant de commencer
+Avant de commencer, consultez  https://docs.netapp.com/us-en/ontap-cli/security-key-manager-onboard-show-backup.html["security key-manager onboard show-backup"] ou contactez NetApp Support.
 
 .Étapes
-. Dans l'invite Loader, entrez `boot_ontap maint`.
 . Démarrez à partir du menu ONTAP à partir de l'invite Loader `boot_ontap menu` et sélectionnez l'option 10.
+. Récupérez et vérifiez la phrase secrète globale du cluster auprès du contrôleur sain.
++
+.. Exécutez la commande suivante pour récupérer la phrase secrète du cluster :
++
+`security key-manager onboard show-backup`
+
+.. Vérifiez la phrase secrète globale du cluster à l'aide de la commande suivante :
++
+`security key-manager onboard verify-backup`
+
+
+
 . Saisissez la phrase de passe OKM.
 +
 
@@ -63,9 +77,9 @@ NOTE: Vous êtes invité à saisir deux fois la phrase de passe.
 
 NOTE: Vous êtes invité à saisir la phrase de passe OKM au niveau du cluster.
 
-.. Vérifier l'état des clés : `security key-manager key query -restored _false_`
+.. Vérifier l'état des clés : `security key-manager key query -restored false`
 +
-La sortie ne doit pas afficher de résultats lorsqu'elle est correctement synchronisée.
+La sortie ne devrait afficher aucun résultat lorsque la synchronisation est correcte.
 
 +
 Si le résultat affiche des résultats (les ID de clé des clés qui ne sont pas présents dans la table de clés internes du système), contactez https://support.netapp.com["Support NetApp"].
@@ -74,6 +88,10 @@ Si le résultat affiche des résultats (les ID de clé des clés qui ne sont pas
 
 . Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage : `storage failover giveback -ofnode _impaired_node_name_`
 . Si le rétablissement automatique a été désactivé, le réactiver : `storage failover modify -node local -auto-giveback _true_`
++
+
+NOTE: Ne passez pas outre le droit de veto sur le retour pour les clés manquantes. Contactez le support NetApp.
+
 . Si AutoSupport est activé, restaurer/annuler la suppression de la création automatique de cas : `system node autosupport invoke -node * -type all -message MAINT=END`
 
 

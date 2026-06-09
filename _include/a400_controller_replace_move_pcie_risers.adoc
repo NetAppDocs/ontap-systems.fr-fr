@@ -1,0 +1,76 @@
+= 
+:allow-uri-read: 
+
+
+Dans le cadre du processus de remplacement du contrôleur, vous devez déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+
+Vous pouvez utiliser les animations, illustrations ou étapes écrites suivantes pour déplacer les cartes de montage PCIe et la carte mezzanine du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement.
+
+Déplacement des cartes de montage PCIe 1 et 2 (redresseurs gauche et central) :
+
+.Animation - déplacer les cartes de montage PCI 1 et 2
+video::f4ee1d4d-6029-4fe6-a063-aad9012f170b[panopto]
+Déplacement de la carte mezzanine et de la carte de montage 3 (carte de montage droite) :
+
+.Animation : déplacez la carte mezzanine et la carte de montage 3
+video::b0c3b575-3434-4e00-a421-aad9012f2e9e[panopto]
+image::../media/drw_A400_Replace-PCIe-cards.png[Retirez les cartes PCIe]
+
+[cols="10,90"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Loquet de verrouillage de la rehausse
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+Loquet de verrouillage de la carte PCI
+
+
+
+ a| 
+image:../media/icon_round_3.png["Numéro de légende 3"]
+ a| 
+Plaque de verrouillage PCI
+
+
+
+ a| 
+image:../media/icon_round_4.png["Numéro de légende 4"]
+ a| 
+Carte PCI
+
+|===
+.Étapes
+. Déplacez les cartes de montage PCIe une et deux du module de contrôleur pour facultés affaiblies vers le module de contrôleur de remplacement :
++
+.. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
+.. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers le conduit d'air.
++
+La carte de montage se soulève légèrement du module de contrôleur.
+
+.. Soulevez la carte de montage, puis déplacez-la vers le module de contrôleur de remplacement.
+.. Alignez la carte de montage avec les broches sur le côté du support de la carte de montage, abaissez la carte de montage sur les broches, poussez-la directement dans le support de la carte mère, puis faites-la pivoter vers le bas au même niveau que la tôle de la carte de montage.
+.. Répétez cette étape pour la carte de montage numéro 2.
+
+
+. Retirez la carte de montage numéro 3, retirez la carte mezzanine et installez les deux dans le module de contrôleur de remplacement :
++
+.. Retirez tous les modules SFP ou QSFP qui peuvent se trouver dans les cartes PCIe.
+.. Faites pivoter le loquet de verrouillage de la rehausse sur le côté gauche de la rehausse vers le haut et vers le conduit d'air.
++
+La carte de montage se soulève légèrement du module de contrôleur.
+
+.. Soulevez la rehausse, puis mettez-la de côté sur une surface plane et stable.
+.. Desserrez les vis moletées de la carte mezzanine, soulevez doucement la carte pour la sortir du support, puis déplacez-la vers le module de contrôleur de remplacement.
+.. Installez la mezzanine dans le contrôleur de remplacement et fixez-la à l'aide des vis à molette.
+.. Installez la troisième carte de montage dans le module de contrôleur de remplacement.
+
+
+
