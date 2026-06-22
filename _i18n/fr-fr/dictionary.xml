@@ -992,7 +992,6 @@
   <block id="c08617576b470c531fa6946e0863ed35" category="paragraph">Vous pouvez continuer après avoir afficher les messages suivants :</block>
   <block id="34a4ecb461cfb36d2012f0c5b69f96be" category="list-text">Si une variable d'environnement n'est pas définie comme prévu, modifiez-la avec le<block ref="9065882215d4a8221fe75c4a7e40b529" prefix=" " category="inline-code"></block> commande.</block>
   <block id="8b4eefcd8e93a21d1bcd9ddea95d0b29" category="list-text">Enregistrez vos modifications à l'aide du<block ref="c1a29cc79fbc441f23fa8d5d10961fd8" prefix=" " category="inline-code"></block> commande.</block>
-  <block id="3b1cae4630f47c8bafa2138c896b9e8d" category="list-text">Reaccordez le contrôleur à l'aide du<block ref="e23a9f1c6189f372292c98d844a0895f" prefix=" " category="inline-code"></block> commande</block>
   <block id="12abc0287f5162e3fd98e6515d1cc063" category="doc">Récupération du système et réaffectation des disques - AFF A800</block>
   <block id="6e831181b071042488de60792bba5661" category="paragraph">Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.</block>
   <block id="38c6311b7d9271edd32d4452d105b150" category="list-text">À partir de l'invite DU CHARGEUR sur le contrôleur _replace_, démarrez le contrôleur, puis entrez<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système :<block ref="ce54ef17bebf280339d340bd40dff593" prefix="" category="inline-code"></block></block>
@@ -3283,85 +3282,19 @@
   <block id="e568219783dc2975662f32e6665b9312" category="paragraph">Le processus de mise à jour flash s'exécute pendant plusieurs minutes, puis le système redémarre.</block>
   <block id="64c7b7b950f686aaa9399673582360b1" category="list-text">Lorsque vous êtes invité à confirmer que l'ID système ne correspond pas, entrez<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>.</block>
   <block id="e4c1c828d40a575431492bab6401d8ae" category="paragraph">La séquence de démarrage se poursuit normalement.</block>
-  <block id="cfd2431baff6fc4122f2c8fed540c128" category="paragraph">Lors de la mise à niveau en déplaçant le stockage, vous mettez les nœuds 3 et 4 sous tension, démarrez l'image logicielle et configurez les nœuds. L'organisation des ports physiques entre les nœuds d'origine et les nouveaux peut être différente. Le mappage des ports entre les nœuds d'origine et de remplacement doit être réalisé afin d'identifier le schéma approprié des ports et des connexions.</block>
-  <block id="cc32105596984688d6ab5fee199bc645" category="list-text">Mettez le nœud 3 sous tension, puis appuyez immédiatement sur Ctrl-C sur le terminal de la console pour accéder à l'invite DU CHARGEUR.</block>
-  <block id="25870cbb4fe9afef5797b531420b7012" category="paragraph">Si les nœuds 3 et 4 se trouvent dans le même châssis, passez à l'étape 2. Sinon, passer à l'étape 3.</block>
-  <block id="6c43e0670806fec2f9b82e002c3d44d5" category="list-text">Si les nœuds 3 et 4 se trouvent dans une configuration de châssis unique (avec des contrôleurs dans le même châssis) :</block>
-  <block id="d486515e741f0bde35c2fd426a867b3d" category="list-text">Reliez une console série au nœud 4.</block>
-  <block id="bab144c0a8977d9f14b3ec5a34769bb7" category="list-text">Mettez le nœud 4 sous tension, s'il n'est pas déjà ALLUMÉ, puis interrompez le processus de démarrage en appuyant sur Ctrl-C au niveau du terminal de la console pour accéder à l'invite DU CHARGEUR.</block>
-  <block id="7f3fbfaad92df530efc5e2c935feab6d" category="paragraph">Si les deux contrôleurs se trouvent dans le même châssis, l'alimentation doit déjà ÊTRE MISE SOUS tension.</block>
-  <block id="b55b1fdf790245853aab84a6f6dd8662" category="paragraph">Quittez NODE4 à l'invite DU CHARGEUR ; vous revenez à cette procédure et répétez ces étapes après l'installation du nœud 3.</block>
-  <block id="f48f19368f0b14f420b24f2ef271b455" category="list-text">À l'invite DU CHARGEUR, entrez la commande suivante :<block ref="b33e24759706adbdd475faecf8fa12dd" prefix=" " category="inline-code"></block></block>
-  <block id="f1115a4ee76c827e3baf90e4fccb2989" category="list-text">À l'invite DU CHARGEUR, configurez la connexion netboot pour les LIF de gestion :</block>
-  <block id="d28de6877e1c71b43aa9dbe62d9bc5a1" category="cell">Si l'adressage IP est...</block>
-  <block id="54201c55d2bdc7a9e19d9e032d8c0ede" category="paragraph">DHCP</block>
-  <block id="34fa36e7cbe88693048d104245a7ad12" category="paragraph"><block ref="910e8145592a2ef4eaf5e3c21b90a5e1" prefix="" category="inline-code"></block></block>
-  <block id="8e6e6006ec999664feafadd20f497a0e" category="paragraph"><block ref="f25dfb72f16dee7b2d5d9ae7416ce91e" prefix="" category="inline-code"></block><block ref="175d3dd01e5d16ef9b830b22b0914782" prefix=" " category="inline-code"></block></block>
-  <block id="fc77134b1cf9bee36efeff8c4e7ff00d" category="list-text">À l'invite DU CHARGEUR, exécutez netboot sur le nœud 3 :</block>
-  <block id="a6d12afddb580faaf04d9a073325f914" category="paragraph">*SYSTÈMES FAS2200, FAS2500, FAS3200, FAS6200, FAS/AFF8000*</block>
-  <block id="935d002e70e8bae5172c906d561c2c9e" category="paragraph"><block ref="461505a825167d6b66e648674621319f" prefix="" category="inline-code"></block></block>
-  <block id="339dbbf2e3919abe2381758c4b54e24c" category="paragraph">*Tous les autres systèmes*</block>
-  <block id="a7cb2d731b29707bf9c40c8d88a0c732" category="admonition">Si vous ne pouvez pas netboot sur les nouveaux contrôleurs, contactez le support technique.</block>
-  <block id="9a8c20fab9267090fe0211c579b8d259" category="list-text">Dans le menu de démarrage, sélectionnez l'option *(7) installer le nouveau logiciel en premier* pour télécharger et installer la nouvelle image logicielle sur le périphérique d'amorçage.</block>
-  <block id="071501038eea1d369bfa271bfc4c7ff9" category="paragraph">Ignorez le message suivant : « cette procédure n'est pas prise en charge pour effectuer une mise à niveau sans interruption sur une paire haute disponibilité ». Il s'applique aux mises à niveau logicielles sans interruption et non aux mises à niveau des contrôleurs.</block>
-  <block id="647f982b341b67a165ac63d735784a54" category="paragraph">Saisissez le nom d'utilisateur/mot de passe, le cas échéant, ou appuyez sur entrée pour continuer.</block>
-  <block id="a01beec0f6ce0a2dd45c8f1d5aa3e76c" category="list-text">Entrez<block ref="7b8b965ad4bca0e41ab51de7b31363a1" prefix=" " category="inline-code"></block> pour ignorer la restauration de la sauvegarde lorsque vous voyez une invite similaire à la suivante :</block>
-  <block id="4c311f4de89068c42d4731e90025eefc" category="list-text">Redémarrez en entrant<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous voyez une invite similaire à la suivante :</block>
-  <block id="3772c3f3ea70d5c6527c33a07c35e34b" category="list-text">Interrompez le processus de redémarrage en appuyant sur Ctrl-C pour afficher le menu de démarrage lorsque le système vous invite à le faire.</block>
-  <block id="6854e023bbdb323be06c87482d9b3a73" category="list-text">Dans le menu de démarrage, sélectionnez *(5) Maintenance mode boot* pour accéder au mode Maintenance.</block>
-  <block id="2e17578ed57b4217f0fff6fb665fb7db" category="list-text">Si nécessaire, modifiez les ports FC ou CNA sur le nœud, puis redémarrez le nœud en mode maintenance.</block>
-  <block id="1988e9c8cf124cb346a67d52ea613567" category="inline-link">Guide d'administration du SAN ONTAP 9</block>
-  <block id="18c7e0e75e3812f51b2d0d056bba571f" category="paragraph"><block ref="18c7e0e75e3812f51b2d0d056bba571f" category="inline-link-rx"></block></block>
-  <block id="fac8856b7deb46986e1adf9adfcd8760" category="inline-link">Recherchez le Guide d'administration SAN correspondant à votre version de Data ONTAP 8</block>
-  <block id="80d64ccaef61f3ad09c88667c74bd5f0" category="paragraph"><block ref="80d64ccaef61f3ad09c88667c74bd5f0" category="inline-link-rx"></block></block>
-  <block id="4fc3840b98010fad05789a6f15af7d01" category="list-text">Vous devez vérifier que le résultat de la commande indique ha :</block>
-  <block id="39b29886f880d41a4124d49c7d84425f" category="paragraph">Les systèmes enregistrent dans une PROM, qu'ils soient dans une paire HA ou une configuration autonome. L'état doit être le même sur tous les composants du système autonome ou de la paire haute disponibilité</block>
-  <block id="f1d3befb93f2448e5fed337b4f43a25b" category="paragraph">La commande ha-config modify Controller HA configure la haute disponibilité pour le paramètre du contrôleur. La commande ha-config modify chassis HA configure la haute disponibilité pour le paramètre châssis.</block>
-  <block id="d221362a63e7ae50e83d35a15224dfbc" category="inline-link">Recherchez le Guide de configuration haute disponibilité de votre version de Data ONTAP 8</block>
-  <block id="fdb5e3795d932923cacf5ee53c989cbb" category="paragraph"><block ref="fdb5e3795d932923cacf5ee53c989cbb" category="inline-link-rx"></block></block>
-  <block id="8b641292568e892fbb88f218a413255c" category="paragraph">Le système s'arrête à l'invite DU CHARGEUR.</block>
-  <block id="8d5222cdfab2ef87317118b2f5929210" category="cell">Plateformes (avec liens vers les fiches techniques)</block>
   <block id="198fc1af468509094e8d40e07916c836" category="cell">Disponible au début</block>
   <block id="756d409209ace98589705774b5011aa0" category="inline-link">FAS9500</block>
-  <block id="777fd6d7388769d3f60adc007c4390a4" category="paragraph"><block ref="777fd6d7388769d3f60adc007c4390a4" category="inline-link-rx"></block></block>
-  <block id="801fb2644ef002c15826950c6197b174" category="paragraph">ONTAP 9.10.1P3 et 9.11.1</block>
   <block id="ec5e81cea4c5ee83d635778e86350e80" category="inline-link">AFF A900</block>
-  <block id="ca4b82b36a4dc81f4031a7b488d4b39f" category="paragraph"><block ref="ca4b82b36a4dc81f4031a7b488d4b39f" category="inline-link-rx"></block></block>
   <block id="ab8296c5ef7a7b056b384680f89a9379" category="paragraph">ONTAP 9.10.1</block>
-  <block id="7a5c1b3b42cd33e030fad3a09cb47892" category="inline-link">AFF A250/AFF ASA A250</block>
-  <block id="9c592efb6951109c06abfa313c448910" category="paragraph"><block ref="9c592efb6951109c06abfa313c448910" category="inline-link-rx"></block></block>
   <block id="2abfff2974f589f7a217325f304e0ec5" category="paragraph">ONTAP 9.8</block>
   <block id="9cce52969ddef317310e7d9d1c259895" category="inline-link">FAS500f</block>
-  <block id="972a6d8ca1f22a603149f7918e94b4b5" category="paragraph"><block ref="972a6d8ca1f22a603149f7918e94b4b5" category="inline-link-rx"></block></block>
-  <block id="fc7ee7d68ea47bebe0d5a0d9f09a0db6" category="inline-link">AFF ASA A800</block>
-  <block id="d08e349865d8a611a4efa0b375aa9a53" category="paragraph"><block ref="d08e349865d8a611a4efa0b375aa9a53" category="inline-link-rx"></block></block>
   <block id="1752b126dd5e4219fbf53c09ee63d51e" category="inline-link">FAS8300</block>
-  <block id="f3226db0bedff5ebe7d408b5769cc3a1" category="paragraph"><block ref="f3226db0bedff5ebe7d408b5769cc3a1" category="inline-link-rx"></block></block>
   <block id="0588c4f1b58eac9f5062dc1da6e8435a" category="inline-link">FAS8700</block>
-  <block id="3b3ba73020e2a1c395088d82f035a824" category="paragraph"><block ref="3b3ba73020e2a1c395088d82f035a824" category="inline-link-rx"></block></block>
   <block id="540dacfeb5577ce4282c41e9c7518680" category="inline-link">AFF A400</block>
-  <block id="1e88c1b0eef3bd8731168448839c607e" category="paragraph"><block ref="1e88c1b0eef3bd8731168448839c607e" category="inline-link-rx"></block></block>
-  <block id="d82ff6a667a08641467a53a4dd90ba99" category="inline-link">AVEC AFF ASA A220</block>
-  <block id="fc8a74184b0a6f06b20122b246aebb3b" category="paragraph"><block ref="fc8a74184b0a6f06b20122b246aebb3b" category="inline-link-rx"></block></block>
-  <block id="8aad31d89be54b8bac4e5fd542398209" category="inline-link">AFF ASA A700</block>
-  <block id="55d66a8c57f020bf7f89ebbe23192880" category="paragraph"><block ref="55d66a8c57f020bf7f89ebbe23192880" category="inline-link-rx"></block></block>
   <block id="b6000f9eed7f8ea9ee4632bd2f77961a" category="inline-link">AFF C190</block>
   <block id="73ab298c8e00d66d28156892903a39ce" category="inline-link">AFF A320</block>
-  <block id="d031966d3750279e57bedf297cc882ab" category="paragraph"><block ref="d031966d3750279e57bedf297cc882ab" category="inline-link-rx"></block></block>
-  <block id="e7e0038bb30579a3120d266861982881" category="cell">Fonctionnalité</block>
-  <block id="3100460fa3d7ba2ea001abefda93f3bc" category="cell">Description et où en savoir plus</block>
-  <block id="77a5cc80abc33195772f4153e3373440" category="paragraph">Prise en charge étendue de la plateforme pour les tiroirs disques NS224</block>
-  <block id="97f5affc0c506da7179d6bff20940da1" category="paragraph">Les plateformes suivantes prennent en charge les tiroirs disques NS224 :</block>
   <block id="fe3922b3af83dfb6ba506bb4b7969408" category="list-text">AFF A800/AFF ASA A800</block>
   <block id="040a43f160d19358d6aaa58c129061c6" category="list-text">ASA AFF A700/AFF A700</block>
-  <block id="08eed4f274ea307f3e2eea8d2970b57e" category="paragraph">Ajout à chaud de tiroirs SAS 12 Gb à des piles de stockage SAS 6 Gb</block>
-  <block id="9dc812e3ee72f2236c9121a61ac67152" category="paragraph">Une transition à vitesse unique de 6 Gb à 12 Gb dans une pile de stockage SAS est désormais prise en charge. Vous pouvez ainsi étendre le stockage de piles 6 Go existantes avec des tiroirs 12 Gb.</block>
-  <block id="420766222a929fd9b32b65dbb060314b" category="inline-link">Ajout de tiroirs à chaud avec modules IOM12 à une pile de tiroirs avec modules IOM6</block>
-  <block id="1f1c067ab37a0e7d7639b39f2c4a9863" category="paragraph"><block ref="1f1c067ab37a0e7d7639b39f2c4a9863" category="inline-link-rx"></block></block>
-  <block id="7ebd8d0d42466b09b19073ae00f72945" category="paragraph">ONTAP 9.7P4</block>
-  <block id="6f2977e3ee99fb8e3f9058e09374bdac" category="paragraph">ONTAP 9.6P9</block>
-  <block id="11f1d8b1ae01cc9ffc60cebf4b24af37" category="paragraph">ONTAP 9.5P14</block>
-  <block id="302f8678c032e39790505ccc892157d6" category="doc">Nouvelle prise en charge de l'adaptateur</block>
   <block id="24f29c7fbb4c8e016166824caf65cde6" category="cell">Référence de l'adaptateur</block>
   <block id="3adbdb3ac060038aa0e6e6c138ef9873" category="cell">Catégorie</block>
   <block id="f08a499816d36838908b782ddbffd503" category="inline-link">X91148A</block>
@@ -3375,7 +3308,6 @@
   <block id="dfd3db7fdc1a7e88e6e8d964ce5bed7b" category="paragraph"><block ref="dfd3db7fdc1a7e88e6e8d964ce5bed7b" category="inline-link-rx"></block></block>
   <block id="8ed5851faf32cc00c77e732fa7ccd048" category="paragraph">Module SSD NVMe (1 To)</block>
   <block id="7cf14d1ebaa748e0c979614ac964b725" category="paragraph">Système de vidage de mémoire</block>
-  <block id="925214212b01eccbe569020ac0ec7569" category="section-title">Nouveau support de commutateur</block>
   <block id="d580be6c6f7c3c0fa749d81a5cd7cd95" category="inline-link">Commutateur Cisco 100 GbE 36 ports (X190200)</block>
   <block id="deb0a21917c7eb0c3c9938d678ab438a" category="paragraph"><block ref="deb0a21917c7eb0c3c9938d678ab438a" category="inline-link-rx"></block></block>
   <block id="123e4b878b0b13297b19666d44ad9918" category="paragraph">Prise en charge d'une infrastructure partagée (cluster, haute disponibilité et stockage DAS) sur la même paire de commutateurs Cisco Nexus 9336C-FX2, y compris la prise en charge des configurations MetroCluster IP.</block>
@@ -3391,37 +3323,9 @@
   <block id="856f27e361c1b2c9da2793619e1bea84" category="paragraph">Le commutateur Cisco Nexus 100 GbE peut être utilisé en tant que commutateur de stockage dédié pour connecter les tiroirs disques NVMe NS224 aux plateformes suivantes :</block>
   <block id="a2830a8a6b7415efd3d60ab3af3c1b02" category="list-text">AFF A400/AFF ASA A400</block>
   <block id="afa798215d91c0ee616815befa600f66" category="paragraph">ONTAP 9.5P8</block>
-  <block id="ad30bda50ee1d84821c1e37d140d5779" category="section-title">Prise en charge de la nouvelle plateforme</block>
-  <block id="8fb3915f86fbc4fd2aabaf4ff9cd2391" category="section-title">Nouveau support de tablette</block>
   <block id="0a10ffb3d8f2b29b2aed44120c4b52ee" category="paragraph">NS224</block>
-  <block id="35658b297cf9ed96b6caf7fb1fa6e9b8" category="section-title">Nouvelles mises à jour matérielles</block>
-  <block id="d2ce523f68b472a867f3bd2b22235971" category="section-title">Nouvelles améliorations matérielles</block>
-  <block id="25bb4e4a069ff20f27f5a435822dd06e" category="paragraph">Les procédures de mise à niveau matérielle ont été simplifiées dans ONTAP 9.8 grâce à l'introduction de la fonction de positionnement automatique des ports. Lorsque vous mettez à niveau un système exécutant ONTAP 9.8, vous devez suivre la procédure correcte pour prendre en compte la fonction de positionnement des ports.</block>
-  <block id="fe2331c22be633c0221229b4b8251766" category="paragraph">Consultez le tableau suivant pour connaître les procédures de mise à niveau disponibles. Consultez chaque guide pour obtenir des détails supplémentaires afin de déterminer si la procédure est appropriée.</block>
-  <block id="301e2a674920a7bb1b220a6ccd88ce36" category="inline-link">Choisissez une méthode de mise à niveau ou de rafraîchissement</block>
-  <block id="8e39b9aa91b065e9d66d9c539e9dee09" category="paragraph">Pour connaître les procédures supplémentaires propres à MetroCluster, reportez-vous à la section<block ref="2c4f45f6db308a425e052afade2ba656" category="inline-link-rx"></block>.</block>
   <block id="3b2a75ebc087c7f3c4fa9ac0e2a92ebe" category="cell">Version ONTAP</block>
   <block id="ce5bf551379459c1c61d2a204061c455" category="cell">Emplacement</block>
-  <block id="b8910962b1d031cc1eb8e8ad588c4c48" category="cell">Continuité de l'activité</block>
-  <block id="6a4e2fb80a022a097095074de0872ba8" category="cell">Prend en charge MetroCluster</block>
-  <block id="e4fca24933722ffa2a9b1722f5b7c98b" category="paragraph">9.8 à 9.0.x</block>
-  <block id="a2539e65a13fda0a8ce497ac0baa63a7" category="inline-link">Guide Express de mise à niveau matérielle des contrôleurs</block>
-  <block id="102701de9cd91bb85d0be0b827e7249c" category="paragraph"><block ref="976e9ef467c15e49d11b0c7b029246aa" category="inline-link-rx"></block> (Déplacement du stockage physique existant)</block>
-  <block id="bafd7322c6e97d25b6299b5d6fe8920b" category="paragraph">Non</block>
-  <block id="1bae30ddf0085229a83e78a9a81e702d" category="paragraph"><block ref="976e9ef467c15e49d11b0c7b029246aa" category="inline-link-rx"></block> (Déplacement des volumes vers un nouveau stockage)</block>
-  <block id="93cba07454f06a4a960172bbd6e2a435" category="paragraph">Oui.</block>
-  <block id="4f7dd0fe0940df4a5fda327a4ee4ddbd" category="paragraph">9.8</block>
-  <block id="6e0e0f332bfb66d274b91109411b3f32" category="inline-link">Utilisation des commandes "remplacer contrôleur système" pour mettre à niveau le matériel du contrôleur exécutant ONTAP 9.8</block>
-  <block id="7d7b5e7e6f18571263a6102de668df97" category="paragraph"><block ref="7d7b5e7e6f18571263a6102de668df97" category="inline-link-rx"></block></block>
-  <block id="581517cb09027ad76c00869dee6ebc72" category="paragraph">Oui (FC)</block>
-  <block id="0da585fbf16ad6857f399de508f7bd98" category="inline-link">Utilisation du transfert d'agrégats pour mettre à niveau manuellement le matériel du contrôleur exécutant ONTAP 9.8 ou une version ultérieure</block>
-  <block id="4e3ad587dedcb205e51c2c68fea2b06c" category="paragraph"><block ref="4e3ad587dedcb205e51c2c68fea2b06c" category="inline-link-rx"></block></block>
-  <block id="be19b2cc956046248e1ef8386533881c" category="paragraph">9.7 à 9.5</block>
-  <block id="95c2e51299e797320f63ebcb8537047d" category="inline-link">Utilisation des commandes "remplacer contrôleur système" pour mettre à niveau le matériel du contrôleur exécutant ONTAP 9.5 vers ONTAP 9.7</block>
-  <block id="ab874cc6c54612fa57c8de133e3a234d" category="paragraph"><block ref="ab874cc6c54612fa57c8de133e3a234d" category="inline-link-rx"></block></block>
-  <block id="4b8a576fb64d5b6a41905d5d9b5d1568" category="paragraph">9.7 et versions antérieures</block>
-  <block id="2f92df8531df1f2b3292aaca0327afca" category="inline-link">Mettre à niveau les contrôleurs avec déplacement d'agrégats pour mettre à niveau manuellement le matériel du contrôleur exécutant ONTAP 9.7 et les versions antérieures</block>
-  <block id="9cd2ad15fd6e17e2089c3e6d267284e8" category="paragraph"><block ref="9cd2ad15fd6e17e2089c3e6d267284e8" category="inline-link-rx"></block></block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="doc">Notes de mise à jour</block>
   <block id="616fd6518ea3af054114db97fda5ce99" category="section-title">Étape 2 : déplacer la batterie NVMEM</block>
   <block id="b6790ed19ee7185948334edd9ddcca05" category="section-title">Étape 3 : déplacer le support de démarrage</block>
@@ -6964,15 +6868,6 @@ SFP+ (cible/initiateur)</block>
   <block id="7b71c8c5341c95139930e1f1748956d7" category="list-text">Alignez le module avec les bords de l'ouverture du logement du boîtier.</block>
   <block id="0169e44348295d5766b174aa4c296a62" category="list-text">Répéter les étapes de dépose et de pose pour remplacer les modules supplémentaires du contrôleur.</block>
   <block id="7c99497119e4bb81fd50dbd906dfde72" category="list-text">Redémarrez le contrôleur à partir de l'invite du CHARGEUR :_bye_</block>
-  <block id="66e5f5f877412d7578e6bec4d8f933b5" category="list-text">Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez<block ref="aa48693d0248bb57512e373cd7f7eebc" prefix=" " category="inline-code"></block></block>
-  <block id="3578391379ba5c5411207a0793afef71" category="list-text">Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à écraser<block ref="295b4ac77f4e1c5f93c6894df85fd86d" prefix=" " category="inline-code"></block>.</block>
-  <block id="61dad7d5cf7f4e4b7469b097ac35485f" category="list-text">Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez<block ref="dff08971c5acbbdac6642922fde20608" prefix=" " category="inline-code"></block>.</block>
-  <block id="e9636d3f8e24f08b43c5d1ed71e065ea" category="list-text">Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous voyez<block ref="396e369cf75815ba643925818d3ec37e" prefix=" " category="inline-code"></block>.</block>
-  <block id="976af5aa217f6c1b1dbf16e0ed0a4bde" category="list-text">Sur le contrôleur défectueux, appuyez sur _y_ lorsque vous êtes invité à redémarrer le contrôleur défectueux et appuyez sur _ctrl-c_ pour accéder au menu de démarrage.</block>
-  <block id="29d550bee6b8b18ca38f7642778d8dad" category="inline-link-macro">Restaurer les gestionnaires de clés</block>
-  <block id="55f7c3a98a49a2f2d96cb2d21b95d947" category="list-text">Remettez le contrôleur en place en utilisant la commande _Storage failover giveback -fromnode local_.</block>
-  <block id="4c6b53c8ce9f5900a70a994f21a32c6b" category="list-text">Restaurez le rétablissement automatique si vous l'avez désactivé à l'aide de la commande _Storage failover modify -node local -auto-giveback true_.</block>
-  <block id="85ef34c14131c3f446c3d96330659ce7" category="list-text">Si AutoSupport est activé, restaurez/annulez la suppression de la création automatique de cas en utilisant le noeud système AutoSupport Invoke -node * -type all -message maint=END_ command.</block>
   <block id="4e3d3d75dd1d92ce7fd5a7cb8fbca06f" category="doc">Étape 1 : remplacer le support de démarrage</block>
   <block id="40137b2ef5d6219999ccbff7acc4080e" category="paragraph">Le support de démarrage se trouve à l'intérieur du module de gestion du système et est accessible en retirant le module du système.</block>
   <block id="c7e42b88c75788e5a4dd44ffee425837" category="image-alt">Remplacement du support de démarrage</block>
@@ -7333,9 +7228,6 @@ SFP+ (cible/initiateur)</block>
   <block id="d60b517023845eb33535660ac501cf18" category="list-text">Adresse du serveur KMIP.</block>
   <block id="70b8d21a07e70130ed6b262a91c18626" category="list-text">Port KMIP.</block>
   <block id="e43680b19a57600cbf0bc788265754c7" category="list-text">Sélectionnez l'option 11 dans le menu de démarrage ONTAP.</block>
-  <block id="b719e721c62569ed8b97aaf7ac03691a" category="paragraph">Commutateur d'interconnexion multi-cluster</block>
-  <block id="237cf241ea2c39cca38863cb459577d8" category="paragraph">Les configurations multi-clusters permettent à plusieurs clusters de partager le même commutateur de cluster, grâce à deux nouveaux fichiers de configuration de référence pour les configurations 4x4 et 2x8 nœuds.</block>
-  <block id="8020ad245e7cbc2ac49c84b7f4ace684" category="paragraph">ONTAP 9.14.1</block>
   <block id="0be7ecaeb710959e64858a36fa1f8783" category="inline-link">AFF A1K</block>
   <block id="c61e96543ff55077f64d8dd03940c2c6" category="inline-link">AFF A70</block>
   <block id="8cd7d5cbedf290a9b729cc263d9b289c" category="paragraph">ONTAP 9.15.1</block>
@@ -7689,7 +7581,6 @@ SFP+ (cible/initiateur)</block>
   <block id="0861a4c5524aee3e491db29774dd89a8" category="sidebar">Arrêtez les contrôleurs</block>
   <block id="cada3ae8b9b850f4721595b91f8ab383" category="doc">Étape 1 : réenregistrement du contrôleur</block>
   <block id="f4c083c41633c63a72a1bbce7db1c159" category="sidebar">Remettez le contrôleur en place</block>
-  <block id="a39e0fbfb2db42a80ba7546850d8b5c6" category="paragraph"><block ref="a39e0fbfb2db42a80ba7546850d8b5c6" category="inline-link-rx"></block></block>
   <block id="3512d92434ff4ef9e4eb4253b21a863e" category="image-alt">Les câbles sont insérés avec la languette de retrait du connecteur orientée vers le haut</block>
   <block id="21631ea576ae592d82bfa53578687d4b" category="image-alt">Voyant d'alimentation du panneau d'affichage de l'opérateur</block>
   <block id="98d01cf184fc8b875e89cd5e6234e36c" category="image-alt">Voyant d'avertissement du panneau d'affichage de l'opérateur</block>
@@ -7825,10 +7716,7 @@ SFP+ (cible/initiateur)</block>
   <block id="d17bb023ab45bd18aad4108bff14bf1e" category="list-text">Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la<block ref="672892c7f98df9ad95d0024f72bc4b95" category="inline-link-rx"></block> page pour plus d'informations.</block>
   <block id="66a35db4b6d963b540c6a3d31a9d39e6" category="paragraph">Arrêtez ou prenez le contrôle du module de contrôleur défectueux.</block>
   <block id="011b6189f470beb455ff657e2d7f7a63" category="list-text">Faites tourner le loquet de came aussi loin que possible du module.</block>
-  <block id="5ad3ca057c7fdbeb9a29c3682785baa3" category="cell">Si votre système est en cours d'exécution...</block>
   <block id="2e8e8fd780cc78a14b825cad663b2611" category="paragraph">ONTAP 9.16.0 ou version antérieure</block>
-  <block id="607ae42cd8348594bc8bfa6a3c380eba" category="paragraph">*REMARQUE :* si vous voyez un message autre qu'une restauration réussie, contactez<block ref="dac6ef02422de09259cb8cc562a669a7" category="inline-link-rx"></block>.</block>
-  <block id="d9cbafff040793241dffd17bc8129532" category="paragraph">*REMARQUE :* si le processus échoue, contactez<block ref="dac6ef02422de09259cb8cc562a669a7" category="inline-link-rx"></block>.</block>
   <block id="54d6f7773c4a60500d049c396202a23d" category="list-text">Appuyez sur le bouton CAM de gestion du système.</block>
   <block id="e3f95753aace3276fa0375074c45c988" category="list-text">Il ne doit y avoir aucun port de cluster défectueux sur le contrôleur défectueux.</block>
   <block id="9a55c0fdded61a1e549c1b9afbfc5023" category="list-text"><block ref="32b858596eeb9351eca27c2906a21da4" prefix="" category="inline-code"></block> (Non pris en charge par les systèmes ASA)</block>
@@ -8255,20 +8143,15 @@ SFP+ (cible/initiateur)</block>
   <block id="2fbf4b96b341ff3cf1fd1fb73e8899c8" category="paragraph"><block ref="2fbf4b96b341ff3cf1fd1fb73e8899c8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="feb4f24fd90c865c8c1692c9529598c6" category="paragraph">Image :[numéro de légende 1] drw_a900_POWER-on_IEOPS-941.svg[largeur=500px]</block>
   <block id="cbb5640a4c423d549c9eb57b27dbd4ea" category="image-alt">icône carré 1 vert</block>
-  <block id="0b9a61d1a01d980aaf6ca850e1b286f5" category="paragraph"><block ref="0b9a61d1a01d980aaf6ca850e1b286f5" category="inline-link-macro-rx"></block></block>
   <block id="96a5f900d6bd8337209c17fce1a47ae5" category="image-alt">Numéro de légende 3]</block>
   <block id="cd5ec5f3586869573f3f0b3112426052" category="sidebar">Tr-4290 : SAP HANA sur les systèmes NetApp FAS avec NFS</block>
   <block id="1e4893fc6c634f02ace3ba7beb78d669" category="inline-link-macro">état du quorum</block>
   <block id="8df1727c16aa446d0622abe8cab177ae" category="list-text">Si vous disposez d'un système SAN, vous devez avoir vérifié les messages d'événement <block ref="090678c8ba0a25df800d3d4eeaf19522" prefix="(" category="inline-code"></block>) pour le serveur lame SCSI du contrôleur défectueux. <block ref="090678c8ba0a25df800d3d4eeaf19522" prefix=" " category="inline-code"></block>La commande (from priv mode Advanced) affiche le nom du nœud, son état de disponibilité et <block ref="8650efa63daff32c831511388978454c" category="inline-link-macro-rx"></block>son état de fonctionnement.</block>
-  <block id="8ad44b8e0ede0abb18fd1d9732ea1fec" category="list-text">Sur le contrôleur partenaire sain, exécutez la commande restore backup :<block ref="44d388b27236c791c5fe1d30cc29bc43" prefix=" " category="inline-code"></block>.</block>
-  <block id="3fef721e9c365db9acdcf0c6462afc1d" category="list-text">Sur le contrôleur partenaire sain, remettez le contrôleur défectueux au niveau admin:<block ref="0a654c13d63710f829bc02c4cbec79ee" prefix=" " category="inline-code"></block>.</block>
-  <block id="eb907bd5c32aa1799bf0e27e04819907" category="list-text">Si le système n'utilise pas de chiffrement, sélectionnez _option 1 démarrage normal._, sinon passez à <block ref="9946ce0c7c3feb5cc0b8738324cc4807" category="inline-link-macro-rx"></block>.</block>
   <block id="3a7af7582257ad98ccfd3cbcc0364cd8" category="paragraph">Vous devez débrancher le module de contrôleur, retirer et ouvrir le module de contrôleur, localiser et remplacer le support de démarrage du contrôleur, puis transférer l'image sur le support de démarrage de remplacement.</block>
   <block id="f6c81a45317596483196cae1aac0011e" category="list-text">Téléchargez une copie de la même version d'image de ONTAP que celle utilisée par le contrôleur défectueux. Vous pouvez télécharger l'image appropriée à partir de la section Téléchargements du site de support NetApp. Utilisez<block ref="86722c94aea996cb23c11ba144dd63ed" prefix=" " category="inline-code"></block> la commande pour afficher si votre version de ONTAP prend en charge NVE. Si le résultat de la commande affiche<block ref="59f048302db4763b254cbef2bbb5405b" prefix=" " category="inline-code"></block>, votre version de ONTAP ne prend pas en charge NVE.</block>
   <block id="ec5c21fc20fa1ebbd12fbf29e42dcf81" category="list-text">Si NVE est pris en charge par votre version de ONTAP, téléchargez l'image avec le chiffrement de volume NetApp, comme indiqué sur le bouton de téléchargement.</block>
   <block id="2cab3e1385544356e4037fa5d28c957d" category="list-text">Si ce n'est pas le cas, téléchargez et copiez l'image de maintenance appropriée du<block ref="0ecdd602ef5a1e7a11a81dad2433ccb0" category="inline-link-rx"></block> sur la clé USB.</block>
   <block id="ef51e881e425fd477358e8d9bc291f26" category="list-text">Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de NetApp.</block>
-  <block id="2fab3e35d3a8ad1baf526d01c455141e" category="list-text">Sur le contrôleur partenaire sain, exécutez la commande restore backup :<block ref="44d388b27236c791c5fe1d30cc29bc43" prefix=" " category="inline-code"></block> .</block>
   <block id="b393e0589b34195adda4ab7dea81ba99" category="paragraph">Le support de démarrage de remplacement que vous avez installé est sans image ONTAP. Vous pouvez transférer l'image ONTAP sur le support de démarrage de remplacement en téléchargeant l'image de service ONTAP appropriée du<block ref="0ecdd602ef5a1e7a11a81dad2433ccb0" category="inline-link-rx"></block> vers une clé USB, puis vers le support de démarrage de remplacement.</block>
   <block id="b53660f761dc53e7b68aefd5edbbae44" category="paragraph">Passez à la section suivante.</block>
   <block id="f9a9052b778475b675b5a664c20b88b5" category="paragraph"><block ref="86722c94aea996cb23c11ba144dd63ed" prefix="" category="inline-code"></block></block>
@@ -8322,8 +8205,6 @@ SFP+ (cible/initiateur)</block>
   <block id="2d5a952fbb91c4ae00f6cf700a7a8912" category="sidebar">Contrôleur ASA A1K</block>
   <block id="de6146d3d2df55568fb2490009341fe7" category="inline-link-macro">Dossier EFI manquant dans le fichier de téléchargement d'image de service utilisé pour la récupération du périphérique d'amorçage pour les modèles FAS et AFF^</block>
   <block id="08bb41e143a5dbcb1f95809650758d5d" category="admonition">Si l'image de service ne contient pas de dossier efi, reportez-vous à <block ref="ff41085fda5f8dca9d0e49c279b90ce2" category="inline-link-macro-rx"></block>la section .</block>
-  <block id="fb187e830be89fc21d44062ee3e0783a" category="list-text">À partir de l'invite Loader, démarrez l'image de récupération à partir du lecteur flash USB :<block ref="199329b95897fa5b91256fa51b2186ce" prefix=" " category="inline-code"></block></block>
-  <block id="9f4b6474b2791f1e18fb394e0a9d5749" category="list-text">Sur le contrôleur sain, définissez le contrôleur défectueux sur le niveau de privilège avancé :<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block>.</block>
   <block id="852fee667b0218d56efb26732593192d" category="inline-link-macro">Procédure de remplacement post-carte mère pour mettre à jour les licences sur un système AFF/FAS</block>
   <block id="77464f13a7bfd5b5de3f6d6592b43344" category="admonition">Si votre système exécutait initialement ONTAP 9.10.1 ou une version ultérieure, suivez la procédure décrite dans <block ref="396f3a939b9056719487db53e0cdf43e" category="inline-link-macro-rx"></block>. Si vous n'êtes pas sûr de la version ONTAP initiale de votre système, reportez-vous à la section <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
   <block id="8137cc3da5d92cb60020874c492d8701" category="list-text">Recâblage du système de stockage, selon les besoins.</block>
@@ -8492,17 +8373,6 @@ SFP+ (cible/initiateur)</block>
   <block id="b5507fd73a4983529ea95a333b70737d" category="paragraph">En cas de problème, vérifiez le câblage et réinstallez les câbles.</block>
   <block id="b9b95d927da2cee98d985b1a328995c6" category="list-text">Quitter le mode Maintenance :<block ref="4a1bde0ea8bcda2a591f42646813c477" prefix=" " category="inline-code"></block>.</block>
   <block id="f1d532893d42eeecb43413920b6d1769" category="list-text">Réinstallez le ARM de gestion des câbles, s'il a été retiré, mais ne reconnectez aucun câble au contrôleur de remplacement.</block>
-  <block id="f97ccb05cf3baac7ac118d1817e2a5fd" category="open-title">Option 1 : ONTAP 9.16.0 ou version antérieure</block>
-  <block id="46656bb1c59aea0ac10f1105bf4c8b13" category="list-text">Sur le contrôleur défectueux, appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous voyez<block ref="aa48693d0248bb57512e373cd7f7eebc" prefix=" " category="inline-code"></block></block>
-  <block id="19a9f99a071bb48abc6e83f398b20a0e" category="list-text">Sur le contrôleur défectueux, appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous êtes invité à remplacer _/etc/ssh/ssh_host_ecdsa_key_.</block>
-  <block id="d116a6f9fb96c43c15019792cd4a1fe9" category="list-text">Sur le contrôleur défectueux, appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous voyez<block ref="dff08971c5acbbdac6642922fde20608" prefix=" " category="inline-code"></block>.</block>
-  <block id="c724a78d41a5f05bc3f7a2f2993c497c" category="list-text">Sur le contrôleur défectueux, appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous voyez<block ref="396e369cf75815ba643925818d3ec37e" prefix=" " category="inline-code"></block>.</block>
-  <block id="6b65eb3b3f603ad188b614f3f50a9d13" category="list-text">Sur le contrôleur défectueux, appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous êtes invité à redémarrer le contrôleur défectueux et appuyez sur<block ref="1b10a0464da1409d5026aa8b4f098be8" prefix=" " category="inline-code"></block> pour accéder au menu de démarrage.</block>
-  <block id="d955df273d2c08375d51dc9da0fe5684" category="open-title">Option 2 : ONTAP 9.16.1 ou version ultérieure</block>
-  <block id="5f711b3cd97054c3fbee1821e742da6d" category="paragraph">Une fois la procédure de restauration réussie, ce message s'affiche sur la console -<block ref="92080c75f9b065e263d7fea155b1d733" prefix=" " category="inline-code"></block>.</block>
-  <block id="9959e1ea8c67446c566e6a371f9e14cb" category="list-text">Sur le contrôleur défectueux, appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous y êtes invité pour confirmer si la sauvegarde de restauration a réussi.</block>
-  <block id="b883391d9dfbf834ff0bda07a53554f5" category="list-text">Sur le contrôleur défectueux, appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous êtes invité à utiliser la configuration restaurée.</block>
-  <block id="d0ec0afe83814a07fcdbf02b0d2e2e8b" category="list-text">Sur le contrôleur défectueux, appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous êtes invité à redémarrer le nœud.</block>
   <block id="4250e5b5781f94ff901cc1822461f6ae" category="doc">Remplacez le module de gestion du système - AFF A1K</block>
   <block id="b1b14a007e6d27cacb6cbf9837dd5e7e" category="doc">Remettre le contrôleur - AFF A70 et AFF A90</block>
   <block id="4443f66d8d4febc600e0d4d0b3b0db91" category="doc">Remettre le contrôleur - ASA A70 et ASA A90</block>
@@ -8590,7 +8460,6 @@ SFP+ (cible/initiateur)</block>
   <block id="fc201f3061cf0fb0ac92be830093fe44" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage AFF A900 lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
   <block id="94aa992895c11cf963b2b749b84aa267" category="paragraph">Vous pouvez ajouter un module d'E/S à votre système de stockage FAS70 et FAS90 lorsque des emplacements vides sont disponibles ou lorsque tous les emplacements sont entièrement remplis.</block>
   <block id="bc049e4428d592b69605104cc85d56bc" category="section-title">Étape 2 : ajoutez les nouveaux modules d'E/S.</block>
-  <block id="92ba658b9a66d0825f0f084b7da309b7" category="list-text">Si le système n'utilise pas le chiffrement, sélectionnez _option 1 démarrage normal._, sinon, passez à <block ref="d767082d20397ebb99e586749eda3a08" category="inline-link-macro-rx"></block>.</block>
   <block id="efd2f4952f00033a0e6fc35f4c287446" category="paragraph">Si le système de stockage dispose de logements disponibles, installez le nouveau module d'E/S dans l'un des emplacements disponibles. Si tous les emplacements sont occupés, retirez un module d'E/S existant pour libérer de l'espace, puis installez le nouveau.</block>
   <block id="6d65586ee736e7deb557e0892d29cb10" category="open-title">Ajoutez un module d'E/S à un emplacement disponible</block>
   <block id="49a08f00572d73e2840b5619c89ab1e1" category="paragraph">Vous pouvez ajouter un nouveau module d'E/S à un système de stockage avec les emplacements disponibles.</block>
@@ -8682,11 +8551,6 @@ SFP+ (cible/initiateur)</block>
   <block id="13a20619b6dc3827356a336b68087987" category="doc">Vérifiez NVE ou NSE sur les systèmes</block>
   <block id="d1614290531967ae3b3623d71b4ed961" category="paragraph">Avant d'arrêter le contrôleur douteux et de vérifier le statut des clés de cryptage intégrées, vous devez vérifier le statut de ce contrôleur, désactiver le giveback automatique et vérifier la version de ONTAP en cours d'exécution.</block>
   <block id="4aea9830dd1ec942aefd31d27eb4cfa4" category="paragraph">Directive non résolue dans &lt;stdin&gt; - include:../_include/encryption_check_915_later.adoc[]</block>
-  <block id="7f1dab55b896652272852d94aadf9413" category="list-text">À partir de l'invite du CHARGEUR, démarrez l'image de récupération à partir du lecteur flash USB : _boot_Recovery_</block>
-  <block id="496e1cf89cb904a9a2ceccd873c325c5" category="list-text">Sur le contrôleur sain, définissez le contrôleur défectueux sur le niveau de privilège avancé : _set -Privilege Advanced_.</block>
-  <block id="f0cfaabee28943cffa398d23cd5ca41f" category="list-text">Sur le contrôleur partenaire sain, exécutez la commande restore backup : _system node restore-backup -node local -target-address alghed_node_IP_address_.</block>
-  <block id="271ca74eba5af203102f7ab7c6dd3191" category="list-text">Sur le contrôleur partenaire sain, remettez le contrôleur défectueux au niveau admin: _Set -Privilege admin_.</block>
-  <block id="4b3c12bbe5968bc5c9fa03a5ac899f32" category="list-text">Si le système n'utilise pas le chiffrement, sélectionnez _option 1 démarrage normal._, sinon, passez à <block ref="f2abf47fd75193a34b6b143e08f5b248" category="inline-link-macro-rx"></block>.</block>
   <block id="8649285006757f990d3664b8a1a05dae" category="paragraph">Vous devez retirer le contrôleur du châssis lorsque vous remplacez le contrôleur ou un composant à l'intérieur du contrôleur.</block>
   <block id="c3c54a7de3abd69cdf6b5e38f3461126" category="list-text">Sur le contrôleur défectueux, assurez-vous que le voyant NV est éteint.</block>
   <block id="799b1784122bd715c8030adadf135114" category="paragraph">Lorsque le voyant NV est éteint, la désactivation est terminée et vous pouvez retirer le contrôleur défectueux en toute sécurité.</block>
@@ -9030,31 +8894,6 @@ SFP+ (cible/initiateur)</block>
   <block id="61c05ca68a6ca538f3473986616103f2" category="paragraph">Les tiroirs disques sont disponibles à partir des versions ONTAP suivantes.</block>
   <block id="5c7fb5a9cab188683ddf4f0991a21e1c" category="list-text">NS224 avec modules NSM100B</block>
   <block id="e9fc04f90ca55de311ddb1dfba04ecbc" category="list-text">Tiroir NS224 avec modules NSM100</block>
-  <block id="83fdc9d6e9b033ff2a42dd905fc7f5c3" category="inline-link-macro">En savoir plus sur les systèmes AFF</block>
-  <block id="5f8d4b7a8c1c75224fafa18bd03c63ba" category="paragraph">Les modèles AFF A-Series et C-Series proposent une architecture scale-out robuste, créée pour les environnements virtualisés, et peuvent être déployés en tant que système indépendant ou niveau hautes performances dans une configuration NetApp ONTAP. <block ref="aad502ddc86b92770183faad95fed542" category="inline-link-macro-rx"></block>.</block>
-  <block id="994764637988d1351b296cda22d369ea" category="paragraph-title">AFF A20, AFF A30, AFF A50</block>
-  <block id="3da8ff4a83211912f1ae260ce140f034" category="paragraph">Disponible à partir de ONTAP 9.16.1</block>
-  <block id="b1a7d02f89c62c97fedf60bb09caa4bc" category="paragraph-title">AFF C30, AFF C60</block>
-  <block id="0c93143e3b5b66573a36bc5c766b4d1b" category="paragraph-title">AFF A1K, AFF A70 et AFF A90</block>
-  <block id="f3744dc1f6d5cc67fed28d243d0c1338" category="paragraph">Disponible à partir de ONTAP 9.15.1</block>
-  <block id="2c2b5c212932fcf8dc05bd69ef835e7c" category="paragraph">Disponible à partir de ONTAP 9.13.1, ONTAP 9.12.1P1, ONTAP 9.11.1P8, ONTAP 9.10.1P12</block>
-  <block id="12569b56e0e133b1cea35a6f452d6f86" category="paragraph">Disponible à partir de ONTAP 9.10.1</block>
-  <block id="6f6e22cc680fe5294b2fba3d18e39bf4" category="paragraph-title">AFF A250 et AFF A800</block>
-  <block id="43d7e13da5ae0938fa6ad92b41ed8460" category="paragraph">Disponible à partir de ONTAP 9.8</block>
-  <block id="d5c2a431dee6833b78aebc2e32547e6a" category="paragraph">Disponible à partir de ONTAP 9.7</block>
-  <block id="7c3d41bb91a832b194d140ed72b101e7" category="paragraph-title">AFF C250, AFF C400, AFF C800</block>
-  <block id="6fb32e5383e35c9bfa172ad464e47773" category="paragraph">Disponible à partir de ONTAP 9.12.1P1, ONTAP 9.13.1 GA</block>
-  <block id="0d0429c921864c91828015d2d88d2e3e" category="paragraph">Les systèmes ASA r2 apportent une solution matérielle et logicielle unifiée qui simplifie l'expérience et répond parfaitement aux besoins des clients SAN. <block ref="b6c90a1c7c4faaf50533b742223e9ddb" category="inline-link-macro-rx"></block>.</block>
-  <block id="715204d8d6cf425886f04e9045060465" category="paragraph-title">ASA A1K, ASA A70, ASA A90</block>
-  <block id="90189e5df25cf911e094a465dbca7f83" category="paragraph">Disponible à partir de ONTAP 9.16.0</block>
-  <block id="384655d001afee87a242e9705f1e0cd2" category="paragraph">Les modèles ASA A-Series et C-Series offrent une expérience SAN simplifiée et dédiée qui assure la disponibilité continue des données dans le cadre des bases de données d'entreprise stratégiques et d'autres workloads SAN utilisant le protocole FCP ou iSCSI. <block ref="e67f02f5763cc902b286935d96953fb5" category="inline-link-macro-rx"></block>.</block>
-  <block id="e2f934d1afb1936d07efe383d05425f3" category="paragraph-title">ASA A150, ASA A250, ASA A400, ASA A900</block>
-  <block id="1959453885f5e4cf533cbc4b80873cbd" category="paragraph">Disponible à partir de ONTAP 9.13.1</block>
-  <block id="6353d59231fc7dff9da59dcc228a3976" category="paragraph-title">ASA C250, C400, C800</block>
-  <block id="e965f5a5a4e1cf2d6e9deff577a63a6a" category="paragraph">Disponible à partir de ONTAP 9.13.1P1</block>
-  <block id="b877d145e35085b8ba01a6ca75363cc8" category="paragraph">Les systèmes FAS fournissent un stockage secondaire efficace et sécurisé, qui est la solution idéale pour le Tiering, la sauvegarde et la reprise d'activité. <block ref="82b380dc590efac04a9c3bd2b73112bc" category="inline-link-macro-rx"></block>.</block>
-  <block id="97d4ef7f205f270235992c169dc813ba" category="paragraph">Disponible à partir de ONTAP 9.11.1, ONTAP 9.10.1P3</block>
-  <block id="ce8d881695231451316062f987d97224" category="paragraph-title">FAS8300 et FAS700</block>
   <block id="51ebd7e87b91a4e1790a23e2c6d804e4" category="paragraph"><block ref="452f0bcbdc18ce90fa720a4884350565" prefix="" category="inline-code"></block></block>
   <block id="caa56aca0f722badc7ef4f565531c4cb" category="admonition">Pour les clusters qui utilisent SnapMirror en mode synchrone :<block ref="a5814e4961e25934eebf8d77c96e5206" prefix=" " category="inline-code"></block></block>
   <block id="56e4cf19d3d41173fe280655d99c6aa4" category="list-text">Insérez le NSM dans l'étagère :</block>
@@ -9631,15 +9470,6 @@ SFP+ (cible/initiateur)</block>
   <block id="acb2cdf0e044cb8e41dd9dbe163d56cb" category="example-title">Affiche un exemple de contenu du fichier de configuration du serveur</block>
   <block id="b06a9a7481d8f3ca792e2636ad34a5f6" category="list-text">Lorsque le nœud redémarre, vérifiez que la restauration du support de démarrage a réussi en vérifiant que le système est de nouveau en ligne et opérationnel.</block>
   <block id="5f24aaf8b32f780fce1ea44bd659a2f1" category="list-text">Rétablir le fonctionnement normal du contrôleur en renvoie son espace de stockage :</block>
-  <block id="e531efa1ffce94331d0abc4548448cac" category="list-text">À l'invite Loader du contrôleur défectueux, configurez l'adresse IP du module de contrôleur défectueux :</block>
-  <block id="9674c99b013ac8cdab6eb0df64e77028" category="paragraph"><block ref="83ed86e403dd4a24d2825f48008e5af3" prefix="" category="inline-code"></block></block>
-  <block id="8c58ea9784c7fa6869b22626814be32c" category="list-text">À l'invite Loader, netboot le nœud défectueux :</block>
-  <block id="682c67c386e9533bb90087e13557b0aa" category="list-text">Dans le menu de démarrage, sélectionnez option<block ref="8f14e45fceea167a5a36dedd4bea2543" prefix=" " category="inline-code"></block>.</block>
-  <block id="a0ea840e423d2247bf566acde2c201ab" category="list-text">Entrez<block ref="7b8b965ad4bca0e41ab51de7b31363a1" prefix=" " category="inline-code"></block> lorsque vous êtes invité à restaurer la configuration de sauvegarde.</block>
-  <block id="3115cf8c3646a9861bf194086219616c" category="list-text">Entrez<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> lorsque vous êtes invité à redémarrer le nœud.</block>
-  <block id="f2922cd1bfa5d6f04d27f02d20080042" category="list-text">Appuyez sur<block ref="1b10a0464da1409d5026aa8b4f098be8" prefix=" " category="inline-code"></block> pour revenir au menu de démarrage.</block>
-  <block id="acd0b9b64f818fbc1776d56da41a8e95" category="paragraph">Si le chiffrement est activé, vous devez le restaurer avant de continuer à restaurer l'image de démarrage. Allez à <block ref="d767082d20397ebb99e586749eda3a08" category="inline-link-macro-rx"></block>.</block>
-  <block id="c8d49d03a62a2aaa6d3002fec3a650ea" category="list-text">Sélectionnez option<block ref="1679091c5a880faf6fb5e6087eb1b2dc" prefix=" " category="inline-code"></block>.</block>
   <block id="fe5f4b926efaec8f9797da6b1b0b6c71" category="list-text">Appuyez sur<block ref="57cec4137b614c87cb4e24a3d003a3e0" prefix=" " category="inline-code"></block> lorsque vous êtes invité à restaurer la configuration de sauvegarde.</block>
   <block id="c22df67eafdbaec72d1c041a4f36d374" category="list-text">Vous devez remplacer le support de démarrage défectueux par un support de démarrage de remplacement que vous avez reçu de NetApp.</block>
   <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">Et la suite</block>
@@ -9770,11 +9600,6 @@ SFP+ (cible/initiateur)</block>
   <block id="76341fe070bb8baf145cd67f5221a7ed" category="list-text">Vous pouvez utiliser cette procédure avec toutes les versions de ONTAP prises en charge par votre système.</block>
   <block id="4564e5afb25f1ffe83d0d3ac84e6cb52" category="paragraph">Le module de gestion du système, situé à l'arrière du contrôleur dans le logement 8, contient des composants intégrés pour la gestion du système, ainsi que des ports pour la gestion externe. Le contrôleur cible doit être arrêté pour remplacer un module de gestion du système défectueux ou pour remplacer le support d'amorçage.</block>
   <block id="8715aa093d3bd0ff3589f26f08de5eda" category="list-text">Assurez-vous que le contrôleur partenaire est en mesure de prendre le contrôle du contrôleur défectueux.</block>
-  <block id="bf5a59710d5b5e8b78221799e840dc18" category="paragraph"><block ref="d21ecc516ee16c13faec7e470282a04d" prefix="" category="inline-code"></block></block>
-  <block id="6e724374a7f94186bf150ad3f2518ad5" category="paragraph">Si la version de ONTAP exécutée sur les nouveaux nœuds est différente de celle utilisée sur les nœuds d'origine, vous devez avoir téléchargé le fichier &lt;xxx_image.tgz&gt; correct depuis le site de support NetApp vers un répertoire accessible via le Web (voir l'étape 4). Vous avez besoin du fichier &lt;xxx_image.tgz&gt; pour effectuer un démarrage réseau de votre système.</block>
-  <block id="d40530e10631f437f94d6f1fef14cd53" category="paragraph"><block ref="17adc220b188022ae9f0e1b23b988522" prefix="" category="inline-code"></block></block>
-  <block id="4f77b2dcd560973ee59e2f123323c869" category="paragraph">Le chemin_d'accès_au_répertoire_accessible_par_le_Web est l'emplacement du fichier &lt;xxx_image.tgz&gt; téléchargé.</block>
-  <block id="716023d4600a7c0e1d8be69651c1702f" category="list-text">Si vous êtes invité à poursuivre la procédure, entrez<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>, et lorsque vous y êtes invité, entrez l'URL du fichier image :<block ref="87c1a3418135883a8a235fe337372005" prefix=" " category="inline-code"></block>.</block>
   <block id="091fa7b82bf6559b6079bd7650861afb" category="summary">Le module NVRAM se compose des modules NVRAM12 et DIMM, ainsi que d'un maximum de deux modules Flash cache SSD NVMe (modules Flash cache ou de cache) par module NVRAM.</block>
   <block id="eefb5accf7d4ad2229c3cc4e823f76b3" category="paragraph">Pour assurer la sécurité des données sur votre système de stockage AFF A70 ou AFF A90, vous devez vérifier la prise en charge et l'état de la clé de chiffrement sur votre support de démarrage. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.</block>
   <block id="9cd2a6b6bdd086af956c7e27d3059067" category="inline-link-macro">arrêter le contrôleur</block>
@@ -11002,7 +10827,6 @@ SFP+ (cible/initiateur)</block>
   <block id="25e1a2b7bc684f223e8dad0adb741e5d" category="admonition">Cette procédure concerne les remplacements à chaud ou les échanges de modules IOM identiques. Cela signifie que vous ne pouvez remplacer qu'un module IOM12 par un autre module IOM12 ou un module IOM12B par un autre module IOM12B.</block>
   <block id="df3550302c1d598914df1dab151ca6a5" category="list-text">Les modules IOM12 ou IOM12B se distinguent par leur apparence :</block>
   <block id="1b48c93b7dbdd93c9ce5cac0675787a2" category="inline-link-macro">Surveillance des voyants du plateau de disque</block>
-  <block id="a5dd55402b6693c242408b9b9e33ab8a" category="list-text">Si besoin, vous pouvez vous référer au <block ref="656373589b513431dfa2b073da15ba87" category="inline-link-macro-rx"></block> guide d'information sur la signification et l'emplacement des voyants LED de l'étagère de disque sur le panneau d'affichage de l'opérateur et les composants FRU.</block>
   <block id="1de88d9e7c40d2819c39a96a3793569d" category="doc">Remplacement à chaud d'une alimentation - DS212C, DS224C ou DS460C</block>
   <block id="2ac9e2133062b2b4551875f4ba7f547f" category="paragraph">Cette procédure s'applique aux étagères avec modules IOM12 ou IOM12B.</block>
   <block id="6a5389852eab8501c03b71d72821d04a" category="paragraph">Si vous possédez un tiroir de disque DS224C ou DS212C, lorsque vous retirez le bloc d'alimentation, un volet se met en place pour bloquer la baie vide. Cela permet de maintenir la circulation de l'air et le refroidissement.</block>
@@ -13089,9 +12913,7 @@ SFP+ (cible/initiateur)</block>
   <block id="0d10beeaffa344cce91789b4d6bdd9ac" category="inline-link-macro">Commutateurs AFX</block>
   <block id="723bc0a77490c392225673a06e79300c" category="list-text"><block ref="723bc0a77490c392225673a06e79300c" category="inline-link-macro-rx"></block></block>
   <block id="f267a68fd1c8bddcc992701898021398" category="inline-link-macro">Commutateurs de cluster</block>
-  <block id="cfa57c7a144e70924e4204730542a65f" category="list-text"><block ref="cfa57c7a144e70924e4204730542a65f" category="inline-link-macro-rx"></block></block>
   <block id="403284bd44beda112195a484c8a76421" category="inline-link-macro">Commutateurs de stockage</block>
-  <block id="435e29710768f14877fe952337b92b8b" category="list-text"><block ref="435e29710768f14877fe952337b92b8b" category="inline-link-macro-rx"></block></block>
   <block id="bc8a2cd252a5beb1dbf4f209baea67eb" category="inline-link-macro">Commutateurs partagés</block>
   <block id="f7c018fd044f09965acb0f8a145df757" category="list-text"><block ref="f7c018fd044f09965acb0f8a145df757" category="inline-link-macro-rx"></block></block>
   <block id="8800e4103adfd5822468b330e33ee741" category="list-text"><block ref="8800e4103adfd5822468b330e33ee741" category="inline-link-macro-rx"></block></block>
@@ -15209,4 +15031,8 @@ SFP+ (cible/initiateur)</block>
   <block id="9503755300c52aec4490e33c653bfc3f" category="list-text"><block ref="9503755300c52aec4490e33c653bfc3f" category="inline-link-macro-rx"></block></block>
   <block id="f570bacc2bcfa586cbbc915a822ba186" category="sidebar">AFF A400 Batterie NVDIMM</block>
   <block id="a11b9a2e6ec144b9081801e3c74c0349" category="sidebar">AFF A400 NVDIMM</block>
+  <block id="be5ccdfb6161eac64c36ad208035f6dc" category="paragraph"><block ref="be5ccdfb6161eac64c36ad208035f6dc" category="inline-link-macro-rx"></block></block>
+  <block id="f737d8a0dc47e7e8a9b0f5abfa3860af" category="list-text"><block ref="f737d8a0dc47e7e8a9b0f5abfa3860af" category="inline-link-macro-rx"></block></block>
+  <block id="27a5298e202f9398189a8d32478b42af" category="list-text"><block ref="27a5298e202f9398189a8d32478b42af" category="inline-link-macro-rx"></block></block>
+  <block id="90febc09387b629e9422a756b365dc0a" category="list-text">Si nécessaire, vous pouvez vous référer au <block ref="326b7cccdaf5a8d7e0688a93629b446c" category="inline-link-macro-rx"></block> guide pour obtenir des informations sur la signification et l'emplacement des voyants LED des tiroirs disques sur le panneau d'affichage de l'opérateur et sur les composants FRU.</block>
 </blocks>
