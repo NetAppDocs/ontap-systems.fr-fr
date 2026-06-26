@@ -1,25 +1,25 @@
 ---
 permalink: sas3/service-hot-swap-iom.html 
 sidebar: sidebar 
-keywords: system, configuration, whether, perform, nondisruptive, iom12, module, hot-swap, disruptive, replacement, hot-swap or replace an iom12 iom12b module, iom12b 
-summary: 'La configuration de votre système détermine si vous pouvez effectuer un remplacement à chaud de module IOM12/IOM12B sans interruption ou un remplacement de module IOM12/IOM12B perturbateur en cas de défaillance d"un module IOM12/IOM12B.' 
+keywords: module, hot-swap, replace, iom12, iom12b, iom12c, ds212c, ds224c, ds460c 
+summary: 'La configuration de votre système détermine si vous pouvez effectuer un remplacement à chaud non disruptif de l"IOM de tiroir ou un remplacement disruptif de l"IOM de tiroir lorsqu"un IOM12, IOM12B ou IOM12C de tiroir IOM tombe en panne.' 
 ---
-= Échange à chaud ou remplacement d'un module IOM - DS212C, DS224C ou DS460C
+= Remplacez à chaud ou remplacez un module IOM DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-La configuration de votre système détermine si vous pouvez effectuer un remplacement à chaud d'un module IOM d'étagère sans interruption ou un remplacement d'un module IOM d'étagère avec interruption lorsqu'un module IOM d'étagère IOM12 ou IOM12B tombe en panne.
+La configuration de votre système détermine si vous pouvez effectuer un remplacement à chaud non disruptif de l'IOM de tiroir ou un remplacement disruptif de l'IOM de tiroir lorsqu'un IOM12, IOM12B ou IOM12C de tiroir IOM tombe en panne.
 
 .Description de la tâche
-* Cette procédure s'applique aux étagères dotées de modules IOM12 ou IOM12B.
+* Cette procédure s'applique aux tiroirs disques équipés de modules IOM12, IOM12B ou IOM12C.
 +
 
-NOTE: Cette procédure concerne les remplacements à chaud ou les échanges de modules IOM identiques. Cela signifie que vous ne pouvez remplacer qu'un module IOM12 par un autre module IOM12 ou un module IOM12B par un autre module IOM12B.
+NOTE: Cette procédure concerne les échanges à chaud ou les remplacements de tiroirs IOM identiques. Cela signifie que vous ne pouvez remplacer qu'un module IOM12 par un autre module IOM12, un module IOM12B par un autre module IOM12B, ou un module IOM12C par un autre module IOM12C.
 
-* Les modules IOM12 ou IOM12B se distinguent par leur apparence :
+* Les modules IOM12, IOM12B ou IOM12C se distinguent par leur apparence :
 +
 Les modules IOM12 se distinguent par une étiquette « IOM12 » :
 
@@ -32,9 +32,14 @@ Les modules IOM12B se distinguent par une bande bleue et une étiquette « IOM12
 +
 image::../media/iom12b.png[Avant de l'IOM12B]
 
++
+Les modules IOM12C se distinguent par une bande bleue et grise et une étiquette « IOM12C » :
+
++
+image::../media/drw_iom12c_ieops-2175.svg[Face avant de l'IOM12C]
+
 * Pour les configurations comportant plusieurs chemins d'accès multiples (HA ou multivoie), trois chemins d'accès haute disponibilité et quatre chemins d'accès (HA à quatre chemins ou à quatre chemins), vous pouvez remplacer à chaud un module d'E/S de tiroir (sans interruption, remplacer un module d'E/S dans un système sous tension et qui assure le service des données).
-* Pour les configurations HA à chemin unique des gammes FAS2600 et FAS2700, vous devez effectuer une opération de basculement et de rétablissement pour remplacer un module d'E/S de tiroir dans un système sous tension et où il assure l'accès aux données.
-* Pour les configurations à chemin unique de la gamme FAS2600, vous devez arrêter le système pour remplacer un IOM de tiroir.
+* Pour les configurations de paire haute disponibilité à chemin unique de la série FAS2700, vous devez effectuer une opération de prise de contrôle et de restitution pour remplacer un IOM de tiroir disque dans un système sous tension et en cours de fourniture de données — des E/S sont en cours.
 +
 
 CAUTION: Si vous tentez de remplacer à chaud un module d'E/S de tiroir sur un tiroir disque avec une connexion à un seul chemin, vous perdez tout accès aux disques du tiroir disque, ainsi qu'aux tiroirs disques en dessous. Vous pouvez également arrêter l'ensemble de votre système.
@@ -51,7 +56,7 @@ Un tiroir disque dispose de trois LED d'emplacement : une sur le panneau d'affic
 
 
 .Avant de commencer
-* Tous les autres composants du système, y compris l'autre module IOM12/IOM12B, doivent fonctionner correctement.
+* Tous les autres composants du système, y compris l'autre module IOM12, IOM12B ou IOM12C, doivent fonctionner correctement.
 * *Bonne pratique* : Assurez-vous que votre système dispose des versions actuelles du micrologiciel du module d'E/S (IOM) et du micrologiciel du lecteur de disque avant d'ajouter de nouveaux modules, composants FRU ou câbles SAS. Vous pouvez consulter le site de support NetApp pour  https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["télécharger le firmware du disque dur"] et  https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["télécharger le micrologiciel du lecteur de disque"] .
 
 
@@ -77,22 +82,13 @@ Passez à l'étape suivante.
 
 
  a| 
-Les gammes FAS2600 et FAS2700 Series à chemin unique
+Configuration HA à chemin unique de la série FAS2700
  a| 
 .. Déterminez le nœud cible (le nœud auquel appartient l'IOM de tiroir défaillant).
 +
 L'E/S A appartient au contrôleur 1. L'IOM B appartient au contrôleur 2.
 
 .. Reprendre le nœud cible : `storage failover takeover -bynode _partner HA node_`
-
-
-
-
- a| 
-Configuration à chemin unique de la gamme FAS2600
- a| 
-.. Arrêter le système depuis la console du système : `halt`
-.. Vérifiez que votre système est arrêté en vérifiant la console du système de stockage.
 
 
 |===
@@ -140,16 +136,9 @@ Passez à l'étape suivante.
 
 
  a| 
-Les gammes FAS2600 et FAS2700 Series à chemin unique
+Configuration HA à chemin unique de la série FAS2700
  a| 
 Renvoyer le nœud cible : `storage failover giveback -fromnode partner_HA_node`
-
-
-
- a| 
-Configuration à chemin unique de la gamme FAS2600
- a| 
-Redémarrez votre système.
 
 |===
 . Vérifiez que les liaisons du port IOM du tiroir ont été établies.

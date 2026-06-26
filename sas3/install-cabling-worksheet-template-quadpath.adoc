@@ -1,17 +1,17 @@
 ---
 permalink: sas3/install-cabling-worksheet-template-quadpath.html 
 sidebar: sidebar 
-keywords: complete, completing, worksheet, template, controller, sas, port, pair, cable, controller, disk, shelves, shelf, iom12, quad-pathed, connectivity, ha, pair, controller-to-stack, controller-to-stack cabling worksheet template for quad-pathed connectivity 
-summary: 'Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pour connecter les contrôleurs aux piles de tiroirs disques avec des modules IOM12/IOM12B afin d"obtenir une connectivité à quatre ports dans une paire haute disponibilité ou une configuration à un seul contrôleur. Vous pouvez également utiliser la fiche de travail complétée pour vous guider à travers le câblage des connexions à quatre ports pour votre configuration.' 
+keywords: controller, sas, port, pair, cable, disk, shelf, iom12, quad-pathed, connectivity, ha, stack, iom12b, iom12c, ds212c, ds224c, ds460c 
+summary: 'Définissez les paires de ports SAS du contrôleur que vous pouvez utiliser pour câbler les contrôleurs à des piles de tiroirs disques afin d"assurer une connectivité à quatre chemins dans une paire haute disponibilité ou une configuration à contrôleur unique.' 
 ---
-= Fiche de câblage pour connectivité à quatre chemins - DS212C, DS224C ou DS460C
+= Feuille de câblage pour la connectivité à quatre chemins DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pour connecter les contrôleurs aux piles de tiroirs disques avec des modules IOM12/IOM12B afin d'obtenir une connectivité à quatre ports dans une paire haute disponibilité ou une configuration à un seul contrôleur. Vous pouvez également utiliser la fiche de travail complétée pour vous guider à travers le câblage des connexions à quatre ports pour votre configuration.
+Vous pouvez utiliser une feuille de calcul de câblage pour définir les paires de ports SAS du contrôleur que vous pouvez utiliser pour connecter les contrôleurs à des tiroirs disques équipés de modules IOM12, IOM12B ou IOM12C afin d'obtenir une connectivité à quatre chemins dans une paire haute disponibilité ou une configuration à contrôleur unique. Vous pouvez également utiliser la feuille de calcul complétée pour vous guider lors du câblage des connexions à quatre chemins pour votre configuration.
 
 .Description de la tâche
 * Ce modèle de procédure et de fiche est applicable au câblage de la connectivité à quatre chemins d'accès pour une configuration haute disponibilité à quatre chemins d'accès ou à quatre chemins avec une ou plusieurs piles.
@@ -19,7 +19,7 @@ Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pou
 Vous trouverez des exemples de feuilles de calcul terminées pour les configurations à quatre chemins d'accès haute disponibilité et à quatre chemins d'accès.
 
 +
-Pour les exemples de feuille de travail, vous pouvez utiliser une configuration dotée de deux HBA SAS à quatre ports et de deux piles de tiroirs disques avec des modules IOM12/IOM12B.
+Une configuration avec deux HBA SAS à quatre ports et deux piles de tiroirs disques avec des modules IOM12, IOM12B ou IOM12C est utilisée pour les exemples de feuilles de calcul.
 
 * Le modèle de feuille de calcul peut contenir jusqu'à deux piles. Vous devez ajouter d'autres colonnes si nécessaire.
 * La connectivité à quatre chemins d'accès pour les connexions contrôleur-pile se compose de deux jeux de câbles multipathés : le premier jeu de câbles est appelé « Multifpathed » ; le second jeu de câbles est appelé « quadruple pathed ».

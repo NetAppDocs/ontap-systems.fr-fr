@@ -1,17 +1,17 @@
 ---
 permalink: sas3/install-cabling-worksheet-template-multipath.html 
 sidebar: sidebar 
-keywords: complete, completing, worksheet, template, controller, sas, port, pair, cable, controller, disk, shelves, iom12, module, achieve, multipathed, connectivity, ha, pair, single-controller, configuration, worksheet, connection, controller-to-stack cabling worksheet template for multipathed connectivity, iom12b 
-summary: 'Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pour connecter les contrôleurs aux piles de tiroirs disques avec des modules IOM12/IOM12B afin d"obtenir une connectivité multipathée dans une paire haute disponibilité ou une configuration à un seul contrôleur. Vous pouvez également utiliser la fiche complétée pour vous guider à travers le câblage des connexions multipathed pour votre configuration.' 
+keywords: controller, sas, port, cable, disk, shelf, iom12, module, multipathed, ha, pair, iom12b, iom12c, ds212c, ds224c, ds460c 
+summary: 'Vous pouvez utiliser une feuille de calcul de câblage pour définir les paires de ports SAS du contrôleur que vous pouvez utiliser pour câbler les contrôleurs à des piles de tiroirs disques afin d"obtenir une connectivité multipathed.' 
 ---
-= Fiche de câblage pour connectivité multivoie - DS212C, DS224C ou DS460C
+= Feuille de câblage pour la connectivité multivoies DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Dans ce modèle, vous pouvez définir les paires de ports SAS du contrôleur pour connecter les contrôleurs aux piles de tiroirs disques avec des modules IOM12/IOM12B afin d'obtenir une connectivité multipathée dans une paire haute disponibilité ou une configuration à un seul contrôleur. Vous pouvez également utiliser la fiche complétée pour vous guider à travers le câblage des connexions multipathed pour votre configuration.
+Vous pouvez utiliser une feuille de câblage pour définir les paires de ports SAS de contrôleur que vous pouvez utiliser pour connecter les contrôleurs aux piles de tiroirs disques afin d'obtenir une connectivité multipathed dans une paire haute disponibilité ou une configuration à contrôleur unique. Vous pouvez également utiliser la feuille de câblage complétée pour vous guider lors du câblage des connexions multipathed pour votre configuration.
 
 .Avant de commencer
 Si vous disposez d'une plate-forme avec stockage interne, utilisez la fiche suivante :
@@ -24,7 +24,7 @@ link:install-cabling-worksheets-examples-fas2600.html["Feuilles de câblage cont
 Des exemples de feuilles de calcul complétées sont fournis pour les configurations haute disponibilité multivoie et les configurations à chemins d'accès multiples.
 
 +
-Pour les exemples de feuille de travail, vous pouvez utiliser une configuration dotée de deux HBA SAS à quatre ports et de deux piles de tiroirs disques avec des modules IOM12/IOM12B.
+Une configuration avec deux HBA SAS à quatre ports et deux piles de tiroirs disques avec des modules IOM12, IOM12B ou IOM12C est utilisée pour les exemples de feuilles de calcul.
 
 * Le modèle de feuille de calcul peut contenir jusqu'à six piles. Vous devez ajouter d'autres colonnes si nécessaire.
 * Si nécessaire, vous pouvez consulter le link:install-cabling-rules.html["Concepts et règles de câblage SAS"] pour plus d'informations sur les configurations prises en charge, la convention de numérotation des connecteurs du contrôleur, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir (notamment l'utilisation des paires de ports).

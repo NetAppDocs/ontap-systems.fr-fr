@@ -1,10 +1,10 @@
 ---
 permalink: sas3/service-replace-drawer-ds460c.html 
 sidebar: sidebar 
-keywords: I O activity, power, off, shelf, replacing, replace, drive, drawer, disk, replace a drive drawer in a ds460c disk shelf, dcm2, dcm 
-summary: 'Pour remplacer un tiroir disque, vous devez arrêter l"intégralité du système de stockage (paire haute disponibilité), qui permet de conserver les agrégats de données sur le tiroir ou de maintenir le fonctionnement de la paire haute disponibilité. pour ce faire, vous devez déplacer toutes les données depuis les agrégats de données résidant sur les disques, ainsi que hors ligne et supprimer les agrégats de données. Cependant, si le tiroir contient un agrégat racine, vous devez arrêter la paire haute disponibilité.' 
+keywords: shelf, sas, replace, drive, drawer, disk, dcm2, dcm, ds460c 
+summary: 'Lors du remplacement d"un tiroir disque dans un tiroir, vous pouvez soit arrêter l"ensemble du système de stockage (paire haute disponibilité), soit maintenir la paire haute disponibilité en fonctionnement.' 
 ---
-= Remplacer un tiroir de lecteur - DS460C
+= Remplacer un tiroir disque DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,7 @@ summary: 'Pour remplacer un tiroir disque, vous devez arrêter l"intégralité d
 [role="lead"]
 Pour remplacer un tiroir de disque dur dans une étagère, vous pouvez arrêter l'ensemble du système de stockage (paire HA), ce qui vous permet de conserver les agrégats de données sur l'étagère. Vous pouvez également maintenir la paire HA opérationnelle, ce qui nécessite de déplacer toutes les données des agrégats de données sur les disques de l'étagère, puis de les mettre hors ligne et de les supprimer. Si l'étagère contient un agrégat racine, vous devez arrêter la paire HA.
 
-Cette procédure s'applique aux étagères avec modules IOM12 ou IOM12B.
+Cette procédure s'applique aux tiroirs disques avec modules IOM12, IOM12B ou IOM12C.
 
 .Avant de commencer
 Vous avez besoin de ces éléments pour cette procédure :
@@ -29,7 +29,7 @@ NOTE: *Dommages matériels possibles:* pour éviter d'endommager les décharges 
 
 
 .Description de la tâche
-* Cette procédure s'applique aux étagères équipées de tiroirs pour disques DCM et/ou DCM2 ou DCM3. (Les étagères peuvent également être équipées de deux modules IOM12 ou IOM12B.)
+* Cette procédure s'applique aux tiroirs disques DCM et/ou aux tiroirs disques DCM2 ou DCM3. (Les tiroirs disques disposent également de deux modules IOM12, deux modules IOM12B ou deux modules IOM12C.)
 +
 Lorsqu'un tiroir de lecteur DCM, DCM2 ou DCM3 tombe en panne, vous recevez un tiroir de lecteur DCM, DCM2 ou DCM3 pour le remplacer.
 
@@ -37,9 +37,9 @@ Lorsqu'un tiroir de lecteur DCM, DCM2 ou DCM3 tombe en panne, vous recevez un ti
 
 [NOTE]
 ====
-Lorsque vous remplacez un tiroir de lecteur défectueux par un tiroir de lecteur DCM2 ou DCM3 plus récent, assurez-vous que le logiciel ONTAP et le micrologiciel du module IOM12 ou IOM12B exécutent les versions minimales requises pour prendre en charge les tiroirs DCM2 ou DCM3.
+Lorsque vous remplacez un tiroir de lecteur défectueux par un tiroir de lecteur DCM2 ou DCM3 plus récent, assurez-vous que le logiciel ONTAP et le micrologiciel du module IOM12, IOM12B ou IOM12C exécutent les versions minimales requises pour prendre en charge les tiroirs DCM2 ou DCM3.
 
-La mise à niveau du microprogramme IOM12 peut être effectuée avant ou après le remplacement d'un tiroir de disque. Cette procédure permet de mettre à niveau le micrologiciel dans le cadre de la procédure de préparation au remplacement du tiroir.
+La mise à jour du firmware IOM12, IOM12B ou IOM12C peut être effectuée avant ou après le remplacement d'un tiroir disque. Cette procédure vous demande de mettre à jour le firmware dans le cadre de la préparation à la procédure de remplacement du tiroir disque.
 
 ====
 * Les tiroirs de disques DCM, DCM2 et DCM3 se distinguent par leur apparence :
@@ -81,7 +81,7 @@ Avant de remplacer un tiroir de disque, vous devez mettre à jour le micrologici
 +
 Si nécessaire, vous pouvez vous rendre sur le site de support NetApp pour  https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["télécharger les versions actuelles du micrologiciel du plateau de disque"] Sinon , passez à l’étape suivante.
 
-. Si votre étagère comporte une combinaison de modules IOM12 ou IOM12B avec un nombre quelconque de tiroirs de lecteur DCM3, votre système doit exécuter les versions minimales suivantes d' ONTAP:
+. Si votre tiroir comprend une combinaison de modules IOM12, IOM12B ou IOM12C avec un nombre quelconque de tiroirs de disques DCM3, votre système doit exécuter les versions minimales suivantes d'ONTAP :
 +
 ** ONTAP 9.17.1RC1
 ** ONTAP 9.16.1P3

@@ -1,10 +1,10 @@
 ---
 permalink: sas3/install-new-system.html 
 sidebar: sidebar 
-keywords: install, cabling, cable, disk, shelves, shelf, iom12, module, system, installation, system, ha, pair, single-controller, configuration, cabinet, rack, requirement, install and cable disk shelves with iom12 modules for a new system installation, requirements for installing and cabling disk shelves with iom12 modules for a new system installation, considerations for installing and cabling disk shelves with iom12 modules for a new system installation, install disk shelves with iom12 modules for a new system installation, cable disk shelves with iom12 modules for a new system installation, DS460C, transport DS460C, move DS460C, remove drives from DS460C, DS460C drive handling, iom12b 
-summary: 'Si votre nouveau système (paire haute disponibilité ou configuration à un contrôleur) n"a pas été installé dans une armoire, vous devez installer les tiroirs disques et les raccorder dans un rack.' 
+keywords: install, cable, disk, shelf, iom12, module, system, ha, pair, single-controller, configuration, iom12b, iom12c, ds212c, ds224c, ds460c 
+summary: 'Si votre nouveau système n"est pas installé dans une armoire, vous devez installer et câbler les tiroirs disques dans une baie.' 
 ---
-= Installation et câblage des étagères - DS212C, DS224C ou DS460C
+= Installez et câblez un tiroir disque DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,7 +14,7 @@ summary: 'Si votre nouveau système (paire haute disponibilité ou configuration
 Si votre nouveau système (paire haute disponibilité ou configuration à un contrôleur) n'a pas été installé dans une armoire, vous pouvez installer les tiroirs disques et les raccorder dans un rack.
 
 .Description de la tâche
-* Les tiroirs disques équipés de modules IOM12/IOM12B sont livrés avec des ID de tiroir prédéfinis sur 00.
+* Les tiroirs disques avec modules IOM12, IOM12B ou IOM12C sont livrés avec des ID de tiroir préréglés sur 00.
 +
 
 NOTE: Si vous disposez d'une paire haute disponibilité avec au moins deux piles, l'ID de tiroir est défini sur 10 dans le tiroir disque contenant les agrégats racine de la seconde pile.
@@ -26,7 +26,7 @@ Vous devez définir des ID de tiroir de manière à ce qu'ils soient uniques dan
 +
 Les étiquettes indiquent le numéro de pile, par exemple *Loop ou Stack #: 1* et *Loop ou Stack #: 2*. Les tiroirs disques qui ne contiennent pas d'agrégats racine indiquent uniquement le numéro de série du tiroir disque sur les étiquettes.
 
-* Si, lors de l'installation et de la configuration du système, vous ne configurez pas l'attribution automatique de la propriété des disques, vous devez attribuer la propriété des disques manuellement.
+* Si vous ne configurez pas le système pour utiliser l'attribution automatique de la propriété des disques lors de l'installation et de la configuration du système, vous devrez attribuer manuellement la propriété des disques.
 * IBACP (Alternate Control Path) intrabande est automatiquement activé.
 +
 IBACP n'est pas pris en charge dans les configurations à voie unique haute disponibilité ou à voie unique.

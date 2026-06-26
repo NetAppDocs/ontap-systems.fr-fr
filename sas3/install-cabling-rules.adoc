@@ -1,22 +1,22 @@
 ---
 permalink: sas3/install-cabling-rules.html 
 sidebar: sidebar 
-keywords: disk, shelves, shelf, iom12, module, single-controller, configuration, support, platform, sas, cabling, cable, rule, controller, shelf-to-shelf, connection, rule, controller-to-stack, mini-sas, hd, optical, cable, rule, sas cabling rules, iom12b, concepts 
-summary: 'Les tiroirs disques dotés de modules IOM12/IOM12B peuvent être câblés dans des configurations de paire haute disponibilité et à un seul contrôleur (pour les plateformes prises en charge).' 
+keywords: disk, shelf, iom12, module, iom12b, iom12c, configuration, support, platform, sas, cabling, cable, rule, controller, connection, mini-sas optical, ds212c, ds224c, ds460c 
+summary: 'Les tiroirs disques avec modules IOM12, IOM12B ou IOM12C peuvent être câblés en configurations de paire haute disponibilité ou de contrôleur unique (pour les plateformes prises en charge).' 
 ---
-= Règles et concepts de câblage SAS - DS212C, DS224C ou DS460C
+= Règles et concepts de câblage SAS pour les tiroirs DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Les tiroirs disques dotés de modules IOM12/IOM12B peuvent être câblés dans des paires haute disponibilité et des configurations à un seul contrôleur (pour les plateformes prises en charge) en appliquant les règles de câblage SAS : règles de configuration, règles de numérotation des connecteurs de contrôleur, règles de connexion entre tiroirs et tiroirs, règles de connexion entre contrôleurs et SAS HD Mini-SAS, le cas échéant.
+Les tiroirs DS212C, DS224C et DS460C avec modules IOM12, IOM12B ou IOM12C peuvent être câblés en paire haute disponibilité et en configurations à contrôleur unique (pour les plateformes prises en charge) en appliquant les règles de câblage SAS : règles de configuration, règles de numérotation des emplacements de contrôleur, règles de connexion tiroir à tiroir, règles de connexion contrôleur à pile et, le cas échéant, règles de câble optique mini-SAS HD SAS.
 
 
-NOTE: Les règles de câblage SAS décrites dans ce guide concernant la numérotation des emplacements de contrôleur, les connexions entre étagères et les connexions entre contrôleurs et piles sont les mêmes que celles qui s'appliquent à toutes les étagères de disques SAS, qu'elles soient équipées de modules IOM12 ou IOM12B. Cependant, les informations contenues dans ce guide sont spécifiques aux caractéristiques uniques des étagères de disques équipées de modules IOM12/IOM12B et à leur utilisation dans les configurations prises en charge.
+NOTE: Les règles de câblage SAS relatives à la numérotation des emplacements de contrôleur, aux règles de connexion entre tiroirs et aux règles de connexion contrôleur-vers-pile décrites dans ce guide sont les mêmes règles qui s'appliquent à tous les tiroirs disques SAS, qu'ils soient équipés de modules IOM12, IOM12B ou IOM12C. Cependant, les informations de ce guide sont spécifiques aux caractéristiques uniques des tiroirs disques avec modules IOM12, IOM12B ou IOM12C et à leur utilisation dans les configurations prises en charge.
 
-Les règles de câblage SAS relatives aux règles de configuration et aux règles de câblage optique SAS HD Mini-SAS décrites dans ce guide sont spécifiques aux tiroirs disques dotés de modules IOM12/IOM12B.
+Les règles de câblage SAS concernant les règles de configuration et les règles relatives aux câbles optiques mini-SAS HD SAS décrites dans ce guide sont spécifiques aux tiroirs disques avec modules IOM12, IOM12B ou IOM12C.
 
 Les règles de câblage SAS décrites dans ce guide équilibrent le câblage SAS entre les ports SAS intégrés et les ports SAS d'adaptateur de bus hôte pour fournir des configurations de contrôleurs de stockage haute disponibilité et atteindre les objectifs suivants :
 
@@ -32,7 +32,7 @@ Vous devez éviter de vous écarter des règles ; les écarts pourraient réduir
 
 == Règles de configuration
 
-Les tiroirs disques avec modules IOM12/IOM12B sont pris en charge sur des types spécifiques de configurations à paires haute disponibilité et à un seul contrôleur.
+Les tiroirs disques avec modules IOM12, IOM12B ou IOM12C sont pris en charge sur certains types de configurations de paire haute disponibilité et de contrôleur unique.
 
 [NOTE]
 ====

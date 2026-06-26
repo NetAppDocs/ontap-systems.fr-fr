@@ -1,17 +1,19 @@
 ---
 permalink: sas3/hot-remove-shelf.html 
 sidebar: sidebar 
-keywords: hot-remove, disk, shelf, iom12, module, nondisruptive, module-nondisruptively, system, power, serving, data, I O, progress, hot-remove, stack, shelves, hot-remove a disk shelf with iom12 modules, DS460C, transport DS460C, move DS460C, remove drives from DS460C, DS460C drive handling, iom12b 
-summary: 'Vous pouvez retirer à chaud un tiroir disque avec des modules IOM12 (pour retirer de manière non disruptive un tiroir disque d"un système sous tension et en E/S) lorsque vous devez déplacer ou remplacer le tiroir disque. Vous pouvez supprimer à chaud un ou plusieurs tiroirs disques n"importe où dans une pile de tiroirs disques ou en supprimer une pile de tiroirs disques.' 
+keywords: hot-remove, remove, disk, shelf, sas3, iom12, iom12b, iom12c, stack, ds460c, transport, move, ds212c, ds224c 
+summary: 'Vous pouvez retirer à chaud un tiroir disque lorsqu"il doit être retiré ou remplacé d"un système sous tension et que des opérations d"E/S sont en cours.' 
 ---
-= Retirer une étagère à chaud - DS212C, DS224C et DS460C
+= Retirez à chaud un tiroir disque DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez retirer à chaud une étagère de disques équipée de modules IOM12 ou IOM12B (retrait sans interruption d'une étagère de disques d'un système sous tension et en cours d'E/S) lorsque vous devez déplacer ou remplacer une étagère de disques. Vous pouvez retirer à chaud une ou plusieurs étagères de disques depuis n'importe quel emplacement d'une pile d'étagères de disques ou supprimer une pile d'étagères de disques.
+Vous pouvez retirer à chaud un tiroir disque lorsqu'il doit être retiré ou remplacé sur un système sous tension pendant des opérations d'E/S. Vous pouvez retirer à chaud un ou plusieurs tiroirs disques depuis n'importe quel emplacement d'une pile de tiroirs disques, ou retirer une pile de tiroirs disques.
+
+Cette procédure s'applique aux tiroirs disques avec modules IOM12, IOM12B ou IOM12C.
 
 .Description de la tâche
 * Si vous retirez à chaud un tiroir disque d'une pile (mais que vous conservez la pile), vous pouvez le recâter et vérifier un chemin à la fois (chemin A puis chemin B) pour contourner le tiroir disque que vous supprimez afin de maintenir toujours la connectivité à chemin unique des contrôleurs vers la pile.
@@ -175,7 +177,7 @@ Un tiroir disque du milieu de la pile, Un tiroir disque du milieu d'une pile, es
 Pour retirer un tiroir disque de l'extrémité d'une pile ou du milieu d'une pile, reportez-vous aux exemples de câblage suivants. Notez les exemples de câblage suivants :
 
 +
-** Les modules IOM12/IOM12B sont disposés côte à côte comme dans un tiroir disque DS224C ou DS212C ; si vous disposez d'un DS460C, les modules IOM12/IOM12B sont disposés l'un au-dessus de l'autre.
+** Les modules IOM12, IOM12B ou IOM12C sont disposés côte à côte comme dans un tiroir disque DS224C ou DS212C ; si vous avez un DS460C, les modules IOM12, IOM12B ou IOM12C sont disposés l'un au-dessus de l'autre.
 ** Dans chaque exemple, la pile est câblée par un câblage tiroir à tiroir standard, qui est utilisé dans des piles câblées avec une haute disponibilité multivoie, une haute disponibilité à trois chemins ou une connectivité à chemins d'accès multiples.
 +
 Vous pouvez déduire le câblage de votre pile à l'aide d'une connectivité à quatre chemins haute disponibilité ou à quatre chemins d'accès, qui utilise un câblage à tiroir double.

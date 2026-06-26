@@ -1,10 +1,10 @@
 ---
 permalink: sas3/service-monitor-leds.html 
 sidebar: sidebar 
-keywords: monitor, health, disk, shelf, location, status, condition, led, component, operator, display, panel, iom12, power, supply, fan, ds460c, shelves, drive, monitor disk shelf leds, operator display panel leds, iom12 module leds, power supply leds, fan leds on ds460c disk shelves, disk drive leds 
+keywords: monitor, health, disk, shelf, location, status, led, iom12, iom12b, iom12c, drive, ds212c, ds224c, ds460c 
 summary: 'Vous pouvez contrôler l"état de santé du tiroir disque en indiquant l"emplacement et l"état des LED des composants de votre tiroir disque.' 
 ---
-= LED pour étagère de moniteur - DS212C, DS224C ou DS460C
+= Surveillez les voyants LED des tiroirs DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -40,7 +40,7 @@ Un ou plusieurs blocs d'alimentation fournissent l'alimentation au tiroir disque
 .2+| image:../media/drw_sas_fault_icon.svg["Icône attention, largeur=5px"] .2+| Attention  a| 
 Orange fixe
  a| 
-Une erreur s'est produite avec la fonction de l'une des FRU suivantes : tiroir disque, disques durs, modules IOM12/IOM12B ou blocs d'alimentation.
+Une erreur s'est produite avec le fonctionnement d'une ou plusieurs FRU : le tiroir disque, les disques, les modules IOM12, IOM12B ou IOM12C, ou les alimentations.
 
 Consultez les messages d'événement pour déterminer les mesures correctives à prendre.
 
@@ -64,7 +64,7 @@ Bleu fixe
  a| 
 L'administrateur système a activé cette fonction à LED afin de faciliter la localisation physique du tiroir disque devant être mis en service.
 
-Le voyant d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12/IOM12B s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.
+Le voyant de localisation situé sur le panneau d'affichage de l'opérateur et sur les deux modules IOM12, IOM12B ou IOM12C s'allume lorsque cette fonction LED est activée. Les voyants de localisation s'éteignent automatiquement après 30 minutes.
 
 |===
 Selon votre modèle de tiroir disque, le panneau d'affichage de l'opérateur semble différent ; cependant, les trois LED sont disposées de la même manière.
@@ -75,13 +75,13 @@ image::../media/drw_opd.gif[Affichage de l'opérateur de la tête de gondole]
 
 
 
-== Voyants du module IOM12/IOM12B
+== LED du module IOM12, IOM12B ou IOM12C
 
-Les voyants du module IOM12/IOM12B indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il y a des problèmes avec le matériel.
+Les LED du module IOM12, IOM12B ou IOM12C indiquent si le module fonctionne normalement, s'il est prêt pour le trafic d'E/S et s'il existe des problèmes matériels.
 
-Le tableau suivant décrit les voyants des modules IOM12/IOM12B associés à la fonction du module et à la fonction de chaque port SAS du module.
+Le tableau suivant décrit les LED des modules IOM12, IOM12B ou IOM12C associées à la fonction du module et à la fonction de chaque port SAS sur le module.
 
-Le module IOM12/IOM12B est utilisé dans les tiroirs disques DS460C, DS224C et DS212C.
+Le module IOM12, IOM12B ou IOM12C est utilisé dans les tiroirs disques DS460C, DS224C et DS212C.
 
 [cols="4*"]
 |===
@@ -95,7 +95,7 @@ Attention
  a| 
 Orange fixe
  a| 
-Fonction du module IOM12/IOM12B : une erreur s'est produite avec la fonction du module IOM12/IOM12B.
+Fonctionnement du module IOM12, IOM12B ou IOM12C : Une erreur s’est produite lors du fonctionnement du module IOM12, IOM12B ou IOM12C.
 
 Fonction du port SAS : moins de quatre couloirs SAS ont établi une liaison (avec un adaptateur ou un autre tiroir disque).
 
@@ -121,18 +121,22 @@ Emplacement
  a| 
 Bleu fixe
  a| 
-L'administrateur système a activé cette fonction de LED pour faciliter la localisation physique du tiroir disque avec le module IOM12/IOM12B défectueux.
+L'administrateur système a activé cette fonction LED pour faciliter la localisation physique du tiroir disque avec le module IOM12, IOM12B ou IOM12C en défaillance.
 
-Le voyant d'emplacement sur le panneau d'affichage de l'opérateur et les deux modules IOM12/IOM12B s'allument lorsque cette fonction LED est activée. Les LED de localisation s'éteignent automatiquement après 30 minutes.
+Le voyant de localisation situé sur le panneau d'affichage de l'opérateur et sur les deux modules IOM12, IOM12B ou IOM12C s'allume lorsque cette fonction LED est activée. Les voyants de localisation s'éteignent automatiquement après 30 minutes.
 
 |===
 L'illustration suivante concerne un module IOM12 :
 
-image::../media/drw_iom12.gif[Module IOM12]
+image::../media/drw_iom12.gif[Module IOM12,828px,147px]
 
 Les modules IOM12B se distinguent par une bande bleue et une étiquette « IOM12B » :
 
-image::../media/iom12b.png[Module IOM12B]
+image::../media/iom12b.png[Module IOM12B,828px,147px]
+
+Les modules IOM12C se distinguent par une bande bleue et grise et une étiquette « IOM12C » :
+
+image::../media/drw_iom12c_ieops-2175.svg[Module IOM12C,828px,147px]
 
 
 

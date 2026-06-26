@@ -1,17 +1,19 @@
 ---
 permalink: sas3/install-change-shelf-id.html 
 sidebar: sidebar 
-keywords: change, shelf, id, system, ontap, run, hot-add, ontap, controller, module, available, serve, data, unown, spare, offline, aggregate 
-summary: 'Vous pouvez modifier l"ID d"un tiroir dans un système lorsque ONTAP n"est pas encore en cours d"exécution ou lors de l"ajout à chaud d"un tiroir avant son câblage vers le système. Vous pouvez également modifier un ID de tiroir lorsque ONTAP est actif et en cours d"exécution (les modules de contrôleur sont disponibles pour servir les données) et tous les disques du tiroir sont non détenus, Spares ou font partie d"un ou de plusieurs agrégats de mise hors ligne.' 
+keywords: change, shelf, id, system, ontap, controller, module, ds212c, ds224c, ds460c 
+summary: 'Modifiez l"identifiant d"un tiroir disque dans un système lorsque ONTAP n"est pas encore en cours d"exécution, lors de l"ajout à chaud d"un tiroir disque avant son raccordement au système, ou lorsque ONTAP est en cours d"exécution et que tous les disques du tiroir sont non attribués, de rechange ou font partie d"agrégats hors ligne.' 
 ---
-= Modifier l'identifiant d'une étagère - DS212C, DS224C ou DS460C
+= Modifier l'identifiant d'un tiroir disque DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez modifier l'ID d'un plateau dans un système équipé de modules IOM12/IOM12B lorsque ONTAP n'est pas encore en cours d'exécution ou lors de l'ajout à chaud d'un plateau avant son raccordement au système. Vous pouvez également modifier l'ID d'un plateau lorsque ONTAP est opérationnel (les modules de contrôleur sont disponibles pour traiter les données) et que tous les disques du plateau sont sans propriétaire, de secours ou font partie d'agrégats hors ligne.
+Vous pouvez modifier l'identifiant d'une baie DS212C, DS224C ou DS460C lorsque ONTAP n'est pas encore en fonctionnement ou lors de l'ajout à chaud d'une baie avant son raccordement au système. Vous pouvez également modifier l'identifiant d'une baie lorsque ONTAP est opérationnel (les modules de contrôleur sont disponibles pour fournir des données) et que tous les disques de la baie sont non attribués, de rechange ou font partie d'un ou plusieurs agrégats hors ligne.
+
+Cette procédure s'applique aux tiroirs disques avec modules IOM12, IOM12B ou IOM12C.
 
 .Description de la tâche
 * Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99.

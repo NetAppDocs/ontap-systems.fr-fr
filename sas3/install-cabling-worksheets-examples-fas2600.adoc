@@ -1,20 +1,17 @@
 ---
 permalink: sas3/install-cabling-worksheets-examples-fas2600.html 
 sidebar: sidebar 
-keywords: controller-to-stack, cabling, worksheet, aff, a200, a220, fas2600, fas2700, fas2800, internal storage 
+keywords: controller, stack, cable, aff, a200, a220, fas2600, fas2700, fas2800, internal storage, iom12, iom12b, iom12c, ds212c, ds224c, ds460c 
 summary: Vous pouvez utiliser les feuilles de calcul de câblage contrôleur à pile complètes et des exemples de câblage pour relier les plateformes au stockage interne. 
 ---
-= Fiches de câblage pour stockage interne - DS212C, DS224C ou DS460C
+= Fiches de câblage pour les tiroirs disques DS212C, DS224C ou DS460C avec plateformes de stockage internes
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez utiliser les fiches de câblage contrôleur-pile complétées et les exemples de câblage pour câbler les plateformes avec stockage interne. Ceci s'applique aux étagères équipées de modules IOM12/IOM12B.
-
-
-NOTE: Ces informations ne s'appliquent pas aux plateformes FAS250.
+Vous pouvez utiliser les fiches de câblage contrôleur-vers-pile complétées et les exemples de câblage pour câbler les plateformes avec stockage interne. Cela s'applique aux tiroirs équipés de modules IOM12, IOM12B ou IOM12C.
 
 * Si nécessaire, vous pouvez vous reporter à link:install-cabling-rules.html["Concepts et règles de câblage SAS"] pour plus d'informations sur les configurations prises en charge, la connectivité tiroir à tiroir et la connectivité contrôleur à tiroir.
 * Les exemples de câblage montrent que les câbles reliant le contrôleur à la pile sont continus ou en pointillés pour distinguer les connexions des ports 0b/0b1 du contrôleur des connexions des ports 0a du contrôleur.
@@ -60,26 +57,8 @@ image::../media/drw_fas2800_withshelves_tpha_IEOPS-949.svg[Exemple de câblage h
 Les exemples de fiche et de câblage suivants utilisent la paire de ports 0a/0b :
 
 
-NOTE: Cette section ne s'applique pas aux systèmes FAS2820 ou FAS25XX.
+NOTE: Cette section ne s'applique pas aux systèmes FAS2820.
 
 image::../media/drw_fas2600_mpha_worksheet_IEOPS-1255.svg[Fiche de câblage haute disponibilité multivoie pour les plateformes avec stockage interne et une seule pile]
 
 image::../media/drw_fas2600_mpha_IEOPS-1256.svg[Exemple de câblage haute disponibilité multivoie pour les plateformes avec stockage interne]
-
-
-
-== La gamme FAS2600 offre une configuration à chemins d'accès multiples avec une pile à tiroirs multiples
-
-Les feuilles de calcul et exemples de câblage suivants utilisent la paire de ports 0a/0b.
-
-Dans cet exemple, le contrôleur est installé dans le slot A du châssis. Lorsqu'un contrôleur se trouve dans le slot A du châssis, son port de stockage interne (0b) se trouve dans le domaine A (IOM A). Par conséquent, le port 0b doit se connecter au domaine A (IOM A) de la pile.
-
-image::../media/drw_fas2600_mp_slot_a_worksheet.png[Fiche de câblage des FAS2600 montrant la paire de ports pour une configuration multivoie]
-
-image::../media/drw_fas2600_mp_slot_a.png[Exemple de câblage multivoie FAS2600 avec le contrôleur dans le slot de châssis 1]
-
-Dans cet exemple, le contrôleur est installé dans le slot B du châssis. Lorsqu'un contrôleur se trouve dans le slot B du châssis, son port de stockage interne (0b) se trouve dans le domaine B (IOM B). Par conséquent, le port 0b doit se connecter au domaine B (IOM B) de la pile.
-
-image::../media/drw_fas2600_mp_slot_b_worksheet.png[Fiche de câblage des FAS2600 montrant la paire de ports pour une configuration multivoie]
-
-image::../media/drw_fas2600_mp_slot_b.png[Exemple de câblage multivoie FAS2600 avec le contrôleur dans le slot 2 du châssis]

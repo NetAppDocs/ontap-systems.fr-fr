@@ -1,22 +1,24 @@
 ---
 permalink: sas3/install-hot-add-shelf.html 
 sidebar: sidebar 
-keywords: hot-add, disk, shelves, shelf, iom12, exist, stack, module, sas, hba, onboard, sas, port, controller, DS460C, transport DS460C, move DS460C, remove drives from DS460C, DS460C drive handling, iom12b 
-summary: 'Vous pouvez ajouter à chaud un ou plusieurs tiroirs disques avec des modules IOM12/IOM12B à une pile existante de tiroirs disques avec des modules IOM12/IOM12B ou ajouter à chaud une pile d"un ou plusieurs tiroirs disques avec des modules IOM12/IOM12B directement à un HBA SAS ou à un port SAS intégré du contrôleur.' 
+keywords: hot-add, add, disk, shelf, iom12, stack, sas, hba, port, controller, iom12b, iom12c, ds212c, ds224c, ds460c 
+summary: 'Vous pouvez ajouter à chaud un ou plusieurs tiroirs disques à une pile de tiroirs disques existante ou ajouter à chaud une pile d"un ou plusieurs tiroirs disques directement à un HBA SAS ou à un port SAS intégré au contrôleur.' 
 ---
-= Étagères à ajout à chaud - DS212C, DS224C ou DS460C
+= Ajoutez à chaud un tiroir disque DS212C, DS224C ou DS460C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez ajouter à chaud un ou plusieurs tiroirs disques avec des modules IOM12/IOM12B à une pile existante de tiroirs disques avec des modules IOM12/IOM12B ou ajouter à chaud une pile d'un ou plusieurs tiroirs disques avec des modules IOM12/IOM12B directement à un HBA SAS ou à un port SAS intégré du contrôleur.
+Vous pouvez ajouter à chaud un ou plusieurs tiroirs disques à une pile de tiroirs disques existante ou ajouter à chaud une pile d'un ou plusieurs tiroirs disques directement à un HBA SAS ou à un port SAS intégré au contrôleur.
+
+Cette procédure s'applique aux tiroirs disques avec modules IOM12, IOM12B ou IOM12C.
 
 .Avant de commencer
 Vous devez répondre à certaines exigences et vous familiariser avec les meilleures pratiques et considérations relatives à cette procédure avant d'ajouter à chaud des étagères de disques.
 
-* Assurez-vous que votre système répond à certaines exigences avant d'ajouter à chaud des étagères de disques avec des modules IOM12/IOM12B :
+* Assurez-vous que votre système répond à certaines exigences avant d'ajouter à chaud des tiroirs disques avec des modules IOM12, IOM12B ou IOM12C :
 +
 ** Votre système et votre version d' ONTAP doivent prendre en charge les étagères de disques que vous ajoutez à chaud, y compris les modules d'E/S, les lecteurs de disques et les câbles SAS. Vous pouvez consulter la version d' ONTAP requise pour vos étagères dans la section  https://hwu.netapp.com["NetApp Hardware Universe"^] .
 ** Votre système doit comporter moins de disques que le nombre maximum pris en charge, au moins en fonction du nombre de tiroirs disques que vous envisagez d'ajouter à chaud.
@@ -52,11 +54,11 @@ Une fois le tiroir disque ajouté à chaud, vous devez remplacer les câbles en 
 
 * Familiarisez-vous avec les considérations générales pour réaliser cette procédure :
 +
-** Si vous ajoutez à chaud un tiroir disque avec des modules IOM12/IOM12B à une pile existante (de tiroirs disques avec modules IOM12/IOM12B), vous pouvez ajouter à chaud le tiroir disque pour terminer, soit le premier ou le dernier tiroir disque logique, de la pile.
+** Si vous ajoutez à chaud un tiroir disque avec des modules IOM12, IOM12B ou IOM12C à une pile existante (de tiroirs disques avec des modules IOM12, IOM12B ou IOM12C), vous pouvez ajouter à chaud le tiroir disque à l'une ou l'autre extrémité — le premier ou le dernier tiroir disque logique — de la pile.
 +
 Pour les configurations HA à chemin unique et à chemin unique, s'applique aux systèmes AFF A200, AFF A220, FAS2600 Series et FAS2700, vous pouvez ajouter à chaud des tiroirs disques à la fin de la pile qui ne dispose pas de connexions de contrôleur.
 
-** Les étagères de disques avec modules IOM12/IOM12B doivent se trouver dans leur propre pile unique.
+** Les tiroirs disques avec modules IOM12, IOM12B ou IOM12C doivent être dans leur propre pile unique.
 ** Pour effectuer cette procédure, vous devez utiliser un ACP intrabande.
 +
 Pour les configurations dont la configuration ACP intrabande est activée, la technologie ACP intrabande est automatiquement activée sur les tiroirs disques à chaud. Pour les configurations dans lesquelles la technologie ACP intrabande n'est pas activée, les tiroirs disques à chaud fonctionnent sans fonctionnalité ACP.
