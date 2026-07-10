@@ -22,6 +22,7 @@ Le module NVRAM se compose du matériel NVRAM12 et de modules DIMM remplaçables
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôle du contrôleur défectueux.
@@ -94,9 +95,13 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 
+[[step-2-replace-the-nvram-module-or-nvram-dimm]]
 == Étape 2 : remplacez le module NVRAM ou le module DIMM NVRAM
 
 Remplacez le module NVRAM ou les modules DIMM NVRAM à l’aide de l’option appropriée.
+
+
+WARNING: Le module NVRAM n'est pas remplaçable à chaud. Avant de le remplacer, réinsérez les disques, éteignez le nœud, débranchez l'alimentation du contrôleur et retirez le contrôleur de quelques centimètres du châssis.
 
 [role="tabbed-block"]
 ====
@@ -263,6 +268,7 @@ NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentatio
 ====
 
 
+[[step-3-verify-controller-state]]
 == Étape 3 : vérifiez l'état du contrôleur
 
 Vous devez confirmer l'état du contrôleur connecté au pool de disques au démarrage du contrôleur.
@@ -333,6 +339,7 @@ Disk                   Size Shelf Bay Type    Type        Name
 
 
 
+[[step-4-return-the-failed-part-to-netapp]]
 == Étape 4 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

@@ -10,6 +10,7 @@ Pour remplacer un module d'E/S, vous devez effectuer une séquence spécifique d
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
@@ -182,6 +183,7 @@ mcc1A::> metrocluster operation show
 ====
 
 
+[[step-2-replace-io-modules]]
 == Étape 2 : remplacer les modules d'E/S.
 
 Pour remplacer un module d'E/S, localisez-le dans le châssis et suivez la séquence des étapes.
@@ -236,6 +238,7 @@ Verrou de came d'E/S complètement déverrouillé
 
 
 
+[[step-3-reboot-the-controller-after-io-module-replacement]]
 == Étape 3 : redémarrer le contrôleur après le remplacement du module d'E/S.
 
 Après avoir remplacé un module d'E/S, vous devez redémarrer le module de contrôleur.
@@ -271,6 +274,7 @@ NOTE: Si votre système se trouve dans une configuration MetroCluster à deux n�
 
 
 
+[[step-4-switch-back-aggregates-in-a-two-node-metrocluster-configuration]]
 == Étape 4 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -327,6 +331,7 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 
 
+[[step-5-return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

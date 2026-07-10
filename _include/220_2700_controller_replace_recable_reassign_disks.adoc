@@ -6,6 +6,7 @@ Pour effectuer la procédure de remplacement et restaurer entièrement le systè
 
 
 
+[[step-1-recable-the-system]]
 == Étape 1 : recâblage du système
 
 Vérifiez les connexions de stockage et réseau du module contrôleur en utilisant https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"] .
@@ -19,6 +20,7 @@ Vérifiez les connexions de stockage et réseau du module contrôleur en utilisa
 
 
 
+[[step-2-reassign-disks]]
 == Étape 2 : réaffectation de disques
 
 Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Dans un système autonome, vous devez réattribuer manuellement l'ID aux disques.
@@ -52,6 +54,7 @@ Configuration MetroCluster à deux nœuds
 |===
 
 
+[[option-1-verify-the-system-id-change-on-an-ha-system]]
 === Option 1 : vérifiez la modification de l'ID système sur un système HA
 
 Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.
@@ -138,6 +141,7 @@ Disk  Aggregate Home  Owner  DR Home  Home ID    Owner ID  DR Home ID Reserver  
 
 
 
+[[option-2-manually-reassign-the-system-id-on-a-stand-alone-system-in-ontap]]
 === Option 2 : réaffectez manuellement l'ID système sur un système autonome dans ONTAP
 
 Dans un système autonome, vous devez réaffecter manuellement les disques à l'ID système du nouveau contrôleur avant de rétablir le fonctionnement normal du système.
@@ -200,6 +204,7 @@ disk_name    system-1  (118065481)  Pool0  J8Y0TDZC       system-1  (118065481)
 
 
 
+[[option-3-manually-reassign-the-system-id-on-systems-in-a-two-node-metrocluster-configuration]]
 === Option 3 : réaffectez manuellement l'ID système sur les systèmes dans une configuration MetroCluster à deux nœuds
 
 Dans une configuration MetroCluster à deux nœuds exécutant ONTAP, vous devez réallouer manuellement des disques vers le nouvel ID système du contrôleur avant de rétablir le fonctionnement normal du système.

@@ -24,12 +24,14 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 
+[[option-1-add-io-modules-to-a-storage-system-with-available-slots]]
 == Option 1 : ajoutez des modules d'E/S à un système de stockage avec les emplacements disponibles
 
 Vous pouvez ajouter un module d'E/S dans un emplacement disponible de chaque contrôleur.
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 === Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
@@ -161,6 +163,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 ====
 
 
+[[step-2-add-io-modules-to-available-slots]]
 === Étape 2 : ajoutez des modules d'E/S aux emplacements disponibles
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
@@ -215,6 +218,7 @@ Ceci réinitialise les périphériques PCIe et les autres composants, puis redé
 
 
 
+[[option-2-add-io-modules-in-a-storage-system-with-unavailable-slots]]
 == Option 2 : ajout de modules d'E/S dans un système de stockage avec emplacements non disponibles
 
 Vous pouvez ajouter des modules d'E/S à un système de stockage entièrement rempli en retirant les modules d'E/S existants et en les remplaçant par des modules d'E/S différents.
@@ -250,6 +254,7 @@ Utilisez System Manager pour migrer définitivement les LIF vers différents por
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 === Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
@@ -381,6 +386,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 ====
 
 
+[[step-2-add-io-modules-to-unavailable-slots]]
 === Étape 2 : ajoutez des modules d'E/S aux emplacements non disponibles
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.

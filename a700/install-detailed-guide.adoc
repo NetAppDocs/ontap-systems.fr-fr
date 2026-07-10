@@ -15,6 +15,7 @@ Ce guide fournit des instructions détaillées vous permettant d'installer un sy
 
 
 
+[[step-1-prepare-for-installation]]
 == Étape 1 : préparer l'installation
 
 Pour installer votre système, vous devez créer un compte sur le site de support NetApp, enregistrer votre système et obtenir les clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
@@ -178,6 +179,7 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configur
 
 
 
+[[step-2-install-the-hardware]]
 == Étape 2 : installer le matériel de fixation
 
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
@@ -205,12 +207,14 @@ image::../media/drw_9000_cable_management_arms.png[Connexion de périphériques 
 
 
 
+[[step-3-cable-controllers-to-your-network]]
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
 
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
 
 
 
+[[option-1-two-node-switchless-cluster]]
 === Option 1 : cluster à 2 nœuds sans commutateur
 
 Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
@@ -237,6 +241,7 @@ image::../media/drw_9000_TNSC_composite_cabling.png[Câblage composite en cluste
 
 
 
+[[option-2-switched-cluster]]
 === Option 2 : cluster commuté
 
 Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur le commutateur de cluster/haute disponibilité.
@@ -263,12 +268,14 @@ image:../media/drw_9000_switched_cluster_cabling.png["Câblage composite de clus
 
 
 
+[[step-4-cable-controllers-to-drive-shelves]]
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
 Il est possible de connecter les câbles du nouveau système aux tiroirs DS212C, DS224C ou NS224, selon qu'il s'agit d'un système AFF ou FAS.
 
 
 
+[[option-1-cable-the-controllers-to-ds212c-or-ds224c-drive-shelves]]
 === Option 1 : branchement des contrôleurs aux tiroirs disques DS212C ou DS224C
 
 Il est nécessaire de connecter le tiroir à tiroir, puis de connecter les deux contrôleurs aux tiroirs disques DS212C ou DS224C.
@@ -320,6 +327,7 @@ image:../media/Cable_shelves_new_system_IOM12_shelves.png["Câblage du système 
 
 
 
+[[option-2-cable-the-controllers-to-a-single-ns224-drive-shelf-in-aff-a700-and-asa-aff-a700-systems-running-ontap-9-8-and-later-only]]
 === Option 2 : branchement des contrôleurs à un seul tiroir de disques NS224 dans les systèmes AFF A700 et ASA AFF A700 exécutant ONTAP 9.8 et versions ultérieures uniquement
 
 Vous devez connecter chaque contrôleur aux modules NSM du tiroir disque NS224 sur un système AFF A700 ou ASA AFF A700 qui exécute ONTAP 9.8 ou une version ultérieure.
@@ -355,6 +363,7 @@ image::../media/single_NS224_shelf.png[Câblage à un seul tiroir]
 
 
 
+[[option-3-cable-the-controllers-to-two-ns224-drive-shelves-in-aff-a700-and-asa-aff-a700-systems-running-ontap-9-8-and-later-only]]
 === Option 3 : connectez les contrôleurs à deux tiroirs disques NS224 dans les systèmes AFF A700 et ASA AFF A700 qui exécutent ONTAP 9.8 et versions ultérieures uniquement
 
 Vous devez connecter chaque contrôleur aux modules NSM des tiroirs disques NS224 sur un système AFF A700 ou ASA AFF A700 qui exécute le système ONTAP 9.8 ou version ultérieure.
@@ -390,12 +399,14 @@ image::../media/two_NS224_shelves.png[Câblage à deux tiroirs]
 
 
 
+[[step-5-complete-system-setup-and-configuration]]
 == Étape 5 : installation et configuration complètes du système
 
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 
 
+[[option-1-completing-system-setup-and-configuration-if-network-discovery-is-enabled]]
 === Option 1 : fin de la configuration et de la configuration du système si la détection du réseau est activée
 
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
@@ -468,6 +479,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 
 
 
+[[option-2-completing-system-setup-and-configuration-if-network-discovery-is-not-enabled]]
 === Option 2 : fin de la configuration et de la configuration du système si la détection du réseau n'est pas activée
 
 Si la détection réseau n'est pas activée sur votre ordinateur portable, vous devez effectuer la configuration et la configuration à l'aide de cette tâche.

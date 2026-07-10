@@ -15,6 +15,7 @@ Pour remplacer le matériel du module de contrôleur, vous devez retirer le cont
 
 
 
+[[step-1-remove-the-controller-module]]
 == Étape 1 : retirer le module de contrôleur
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
@@ -93,6 +94,7 @@ Conduit d'air
 
 
 
+[[step-2-move-the-nvram-card]]
 == Étape 2 : déplacer la carte NVRAM
 
 Dans le cadre du processus de remplacement du contrôleur, vous devez retirer la carte NVRAM de la carte Riser 1 du module de contrôleur pour personnes en état de fonctionnement, puis installer la carte dans le Riser 1 du module de contrôleur de remplacement. Vous ne devez réinstaller le module de montage 1 qu'après avoir déplacé les modules DIMM du module de contrôleur défaillant vers le module de contrôleur de remplacement.
@@ -173,6 +175,7 @@ NOTE: Assurez-vous que la carte est correctement insérée dans le support de mo
 
 
 
+[[step-3-move-pcie-cards]]
 == Étape 3 : déplacer les cartes PCIe
 
 Dans le cadre du processus de remplacement du contrôleur, vous devez retirer les deux modules de montage PCIe, la carte de montage 2 (la carte de montage centrale) et la carte de montage 3 (la carte de montage située à l'extrême droite) du module de contrôleur défectueux, puis retirer les cartes PCIe des modules de montage, et installez les cartes dans les mêmes modules de montage dans le module de contrôleur de remplacement. Une fois les modules de montage déplacés vers le module de contrôleur de remplacement, vous devez les installer dans le module de contrôleur de remplacement.
@@ -248,6 +251,7 @@ Assurez-vous que la carte est correctement insérée dans le support de montage.
 
 
 
+[[step-4-move-the-boot-media]]
 == Étape 4 : déplacer le support de démarrage
 
 Le AFF A700s comporte deux périphériques de démarrage, un support principal et un support secondaire ou de sauvegarde. Vous devez les déplacer du contrôleur défaillant vers le contrôleur _remplacement_ et les installer dans leurs emplacements respectifs dans le contrôleur _remplacement_.
@@ -319,6 +323,7 @@ Ne serrez pas trop la vis pour éviter d'endommager le support de démarrage.
 
 
 
+[[step-5-move-the-fans]]
 == Étape 5 : déplacer les ventilateurs
 
 Vous devez déplacer les ventilateurs du module de contrôleur défectueux vers le module de remplacement lors du remplacement d'un module de contrôleur défectueux.
@@ -351,6 +356,7 @@ Module de ventilateur
 
 
 
+[[step-6-move-system-dimms]]
 == Étape 6 : déplacement des DIMM système
 
 Pour déplacer les modules DIMM, localisez-les et déplacez-les du contrôleur défaillant vers le contrôleur de remplacement et suivez la séquence d'étapes spécifique.
@@ -412,6 +418,7 @@ NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien align�
 
 
 
+[[step-7-install-the-nvram-module]]
 == Étape 7 : installez le module NVRAM
 
 Pour installer le module NVRAM, vous devez suivre la séquence spécifique des étapes.
@@ -431,6 +438,7 @@ Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de
 
 
 
+[[step-8-move-the-nvram-battery]]
 == Étape 8 : déplacer la batterie NVRAM
 
 Lors du remplacement du module de contrôleur, vous devez déplacer la batterie NVRAM du module de contrôleur défaillant vers le module de contrôleur de remplacement
@@ -470,6 +478,7 @@ Languette bleue de verrouillage de la batterie NVRAM
 
 
 
+[[step-9-install-a-pcie-riser]]
 == Étape 9 : installez une carte de montage PCIe
 
 Pour installer une carte de montage PCIe, vous devez suivre une séquence spécifique d'étapes.
@@ -491,6 +500,7 @@ Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de
 
 
 
+[[step-10-move-the-power-supply]]
 == Étape 10 : déplacer le bloc d'alimentation
 
 Lorsque vous remplacez un module de contrôleur, vous devez déplacer le cache de l'alimentation et du bloc d'alimentation du module de contrôleur endommagé vers le module de contrôleur de remplacement.
@@ -536,6 +546,7 @@ NOTE: Pour éviter d'endommager le connecteur interne, ne pas exercer de force e
 
 
 
+[[step-11-install-the-controller-module]]
 == Étape 11 : installer le module de contrôleur
 
 Après avoir déplacé tous les composants du module de contrôleur défaillant vers le module de contrôleur de remplacement, vous devez installer le module de contrôleur de remplacement dans le châssis, puis le démarrer en mode maintenance.

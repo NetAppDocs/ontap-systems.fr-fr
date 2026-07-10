@@ -15,6 +15,7 @@ Cette page fournit des instructions détaillées pour l'installation d'un systè
 
 
 
+[[step-1-prepare-for-installation]]
 == Étape 1 : préparer l'installation
 
 Pour installer votre système FAS2700, vous devez créer un compte sur le site du support NetApp, enregistrer votre système et obtenir des clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
@@ -167,6 +168,7 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2839002["Fiche de configur
 
 
 
+[[step-2-install-the-hardware]]
 == Étape 2 : installer le matériel de fixation
 
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
@@ -190,12 +192,14 @@ image::../media/drw_cable_management_arm_install.png[Connexion de périphérique
 
 
 
+[[step-3-cable-controllers-to-your-network]]
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
 
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
 
 
 
+[[option-1-cable-a-two-node-switchless-cluster-unified-network-configuration]]
 === Option 1 : câler un cluster sans commutateur à 2 nœuds, configuration réseau unifiée
 
 Le réseau de gestion, le réseau de données UTA2 et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
@@ -272,6 +276,7 @@ NE branchez PAS les cordons d'alimentation à ce stade.
 
 
 
+[[option-2-cable-a-switched-cluster-unified-network-configuration]]
 === Option 2 : câblage d'un cluster avec commutateur, configuration réseau unifiée
 
 Le réseau de gestion, le réseau de données UTA2 et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés aux commutateurs d'interconnexion de cluster.
@@ -349,6 +354,7 @@ NE branchez PAS les cordons d'alimentation à ce stade.
 
 
 
+[[option-3-cable-a-two-node-switchless-cluster-ethernet-network-configuration]]
 === Option 3 : connexion d'un cluster à 2 nœuds sans commutateur, configuration réseau Ethernet
 
 Le réseau de gestion, le réseau de données Ethernet et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
@@ -413,6 +419,7 @@ NE branchez PAS les cordons d'alimentation à ce stade.
 
 
 
+[[option-4-cable-a-switched-cluster-ethernet-network-configuration]]
 === Option 4 : câble d'un cluster commuté, configuration réseau Ethernet
 
 Le réseau de gestion, le réseau de données Ethernet et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés aux commutateurs d'interconnexion de cluster.
@@ -475,6 +482,7 @@ NE branchez PAS les cordons d'alimentation à ce stade.
 
 
 
+[[step-4-cable-controllers-to-drive-shelves]]
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
 Vous devez connecter les câbles des contrôleurs à vos tiroirs à l'aide des ports de stockage intégrés. NetApp recommande le câblage MP-HA pour les systèmes avec stockage externe. Si vous disposez d'un lecteur de bande SAS, vous pouvez utiliser le câblage à chemin unique. Si vous ne possédez pas de tiroirs externes, le câblage MP-HA vers les disques internes est facultatif (non illustré) si les câbles SAS sont commandés avec le système.
@@ -551,12 +559,14 @@ NOTE: Pour plus d'informations sur le câblage SAS et les fiches de calcul, repo
 
 
 
+[[step-5-complete-system-setup-and-configuration]]
 == Étape 5 : installation et configuration complètes du système
 
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 
 
+[[option-1-complete-system-setup-if-network-discovery-is-enabled]]
 === Option 1 : effectuez la configuration du système si la détection du réseau est activée
 
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
@@ -610,6 +620,7 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configur
 
 
 
+[[option-2-completing-system-setup-and-configuration-if-network-discovery-is-not-enabled]]
 === Option 2 : fin de la configuration et de la configuration du système si la détection du réseau n'est pas activée
 
 Si la détection réseau n'est pas activée sur votre ordinateur portable, vous devez effectuer la configuration et la configuration à l'aide de cette tâche.

@@ -14,10 +14,11 @@ summary: 'Remplacez la batterie NV de votre système de stockage afx 2k dès qu"
 Remplacez la batterie NV de votre système de stockage AFX 2K dès qu'elle commence à se décharger ou qu'elle tombe en panne, car elle assure la sauvegarde des données système critiques en cas de coupure de courant. La procédure de remplacement consiste à éteindre le contrôleur défectueux, à retirer le module de contrôleur, à remplacer la batterie NV, à réinstaller le module de contrôleur et à renvoyer la pièce défectueuse à NetApp.
 
 .Description de la tâche
-Cette procédure s'applique au remplacement d'une pile NV défectueuse pour le module NVRAM situé dans les emplacements 4 et 5 du contrôleur AFX 2K. Pour obtenir des informations sur le remplacement de la pile NV pour le module NVRAM12-EX dans les emplacements 6 et 7 du contrôleur AFX 2K, consultez link:../install-setup/nv12l-replace.html#step-2-replace-the-nvram12-ex-module-nvram-dimm-or-nvram-battery["Remplacez la batterie NV pour la NVRAM12-EX"].
+Cette procédure s'applique au remplacement d'une pile NV défectueuse pour le module NVRAM situé dans les emplacements 4 et 5 du contrôleur AFX 2K. Pour obtenir des informations sur le remplacement de la pile NV pour le module NVRAM12-EX dans les emplacements 6 et 7 du contrôleur AFX 2K, consultez link:nv12l-replace.html#step-2-replace-the-nvram12-ex-module-nvram-dimm-or-nvram-battery["Remplacez la batterie NV pour la NVRAM12-EX"].
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôle du contrôleur défectueux.
@@ -75,6 +76,7 @@ Le paramètre _-halt true_ amène le nœud altéré à l'invite LOADER.
 
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Vous devez retirer le module de contrôleur du boîtier lorsque vous remplacez le module de contrôleur ou un composant à l'intérieur du module de contrôleur.
@@ -159,6 +161,7 @@ Assurez-vous de soutenir le bas du module de contrôleur lorsque vous le faites 
 
 
 
+[[step-3-replace-the-nv-battery]]
 == Étape 3 : remplacez la batterie NV
 
 Retirez la batterie NV défectueuse du module de contrôleur et installez la batterie NV de remplacement.
@@ -201,6 +204,7 @@ Assurez-vous que la fiche se verrouille dans la prise.
 
 
 
+[[step-4-reinstall-the-controller-module]]
 == Étape 4 : réinstallez le module de contrôleur
 
 Réinstallez le module de contrôleur et démarrez-le.
@@ -260,6 +264,7 @@ NOTE: La commande suivante n’est disponible que dans le niveau de privilège d
 
 
 
+[[step-5-return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

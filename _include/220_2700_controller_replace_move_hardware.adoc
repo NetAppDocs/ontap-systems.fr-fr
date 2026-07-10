@@ -6,6 +6,7 @@ Pour remplacer le matériel du module de contrôleur, vous devez retirer le cont
 
 
 
+[[step-1-remove-controller-module]]
 == Étape 1 : retirer le module de contrôleur
 
 Pour remplacer le module de contrôleur, vous devez d'abord retirer l'ancien module de contrôleur du châssis.
@@ -33,6 +34,7 @@ image::../media/drw_2600_opening_pcm_cover.png[Ouverture ou fermeture du module 
 
 
 
+[[step-2-move-the-nvmem-battery]]
 == Étape 2 : déplacer la batterie NVMEM
 
 Pour déplacer la batterie NVMEM de l'ancien module de contrôleur vers le nouveau module de contrôleur, vous devez effectuer une séquence spécifique d'étapes.
@@ -72,6 +74,7 @@ image::../media/drw_2600_nvmem_battery_move_animated_gif.png[Remplacement de la 
 
 
 
+[[step-3-move-the-boot-media]]
 == Étape 3 : déplacer le support de démarrage
 
 Vous devez localiser le support de démarrage et suivre les instructions pour le retirer de l'ancien module de contrôleur et l'insérer dans le nouveau module de contrôleur.
@@ -95,6 +98,7 @@ Si nécessaire, retirez le support de démarrage et réinstallez-le dans le supp
 
 
 
+[[step-4-move-the-dimms]]
 == Étape 4 : déplacez les modules DIMM
 
 Pour déplacer les modules DIMM, vous devez suivre les instructions pour les localiser et les déplacer de l'ancien module de contrôleur vers le module de contrôleur de remplacement.
@@ -137,6 +141,7 @@ Assurez-vous que la fiche se verrouille sur le module de contrôleur.
 
 
 
+[[step-5-move-a-caching-module-if-present]]
 == Étape 5 : déplacer un module de mise en cache, le cas échéant
 
 Si votre système AFF A220 ou FAS2700 est équipé d'un module de cache, vous devez transférer le module de cache de l'ancien contrôleur vers le module de contrôleur de remplacement. Le module de mise en cache est appelé « carte PCIe M.2 » sur l'étiquette du module de contrôleur.
@@ -164,6 +169,7 @@ Si nécessaire, retirez le module de cache et réinstallez-le dans le support.
 
 
 
+[[step-6-install-the-controller]]
 == Étape 6 : installer le contrôleur
 
 Après avoir installé les composants de l'ancien module de contrôleur dans le nouveau module de contrôleur, vous devez installer le nouveau module de contrôleur dans le châssis du système et démarrer le système d'exploitation.

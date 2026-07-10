@@ -15,6 +15,7 @@ Redémarrez les contrôleurs, vérifiez l'état du système et renvoyez la pièc
 
 
 
+[[step-1-boot-the-controllers-and-perform-giveback]]
 == Étape 1 : Démarrer les manettes et effectuer le retour
 
 Démarrez ONTAP sur les contrôleurs et effectuez une restitution du contrôleur pour rétablir la propriété du stockage.
@@ -36,12 +37,14 @@ Démarrez ONTAP sur les contrôleurs et effectuez une restitution du contrôleur
 
 
 
+[[step-2-verify-storage-system-health]]
 == Étape 2 : vérifiez l'état du système de stockage
 
 Une fois la restitution du contrôleur terminée, vérifiez l'état du système à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"] .  Corrigez tout problème constaté.
 
 
 
+[[step-3-return-the-failed-part-to-netapp]]
 == Étape 3 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

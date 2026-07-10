@@ -17,6 +17,7 @@ Tous les autres composants du système doivent fonctionner correctement ; si ce 
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
@@ -87,6 +88,7 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez un composant dans le module de contrôleur.
@@ -149,6 +151,7 @@ Capot du module de contrôleur.
 
 
 
+[[step-3-replace-the-nvmem-battery]]
 == Étape 3 : remplacer la batterie NVMEM
 
 Pour remplacer la batterie NVMEM, vous devez retirer la batterie défectueuse du module de contrôleur et installer la batterie de rechange dans le module de contrôleur.
@@ -207,6 +210,7 @@ Soulevez la batterie pour la sortir du support et du module de contrôleur.
 
 
 
+[[step-4-install-the-controller-module]]
 == Étape 4 : installer le module de contrôleur
 
 Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis l'amorcer.
@@ -258,6 +262,7 @@ Le module de contrôleur commence à démarrer dès que l'alimentation est réta
 
 
 
+[[step-5-return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

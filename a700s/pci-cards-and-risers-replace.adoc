@@ -19,6 +19,7 @@ Pour remplacer une carte PCIe, vous devez déconnecter les câbles des cartes de
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
@@ -73,6 +74,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
@@ -151,6 +153,7 @@ Conduit d'air
 
 
 
+[[step-3-replace-a-pcie-card]]
 == Étape 3 : remplacer une carte PCIe
 
 Pour remplacer une carte PCIe, vous devez retirer le câblage et les SFP des ports des cartes PCIe de la carte de montage cible, retirer la carte de montage du module de contrôleur, retirer et remplacer la carte PCIe, réinstaller la carte de montage et la remettre en place.
@@ -233,6 +236,7 @@ Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de
 
 
 
+[[step-4-reinstall-the-controller-module]]
 == Étape 4 : réinstallez le module de contrôleur
 
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
@@ -304,6 +308,7 @@ NOTE: Assurez-vous de quitter le mode Maintenance après avoir terminé la conve
 
 
 
+[[step-5-return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

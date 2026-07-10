@@ -42,19 +42,19 @@ Avant de commencer, consultez  https://docs.netapp.com/us-en/ontap-cli/security-
 
 .Étapes
 . Démarrez à partir du menu ONTAP à partir de l'invite Loader `boot_ontap menu` et sélectionnez l'option 10.
-. Récupérez et vérifiez la phrase secrète globale du cluster auprès du contrôleur sain.
+. Afficher les informations de sauvegarde de la gestion des clés pour le cluster.
 +
-.. Exécutez la commande suivante pour récupérer la phrase secrète du cluster :
+.. Exécutez la commande suivante pour afficher les informations de sauvegarde de la gestion des clés pour le cluster :
 +
 `security key-manager onboard show-backup`
 
-.. Vérifiez la phrase secrète globale du cluster à l'aide de la commande suivante :
+.. Exécutez la commande suivante pour vérifier la sauvegarde du gestionnaire de clés intégré :
 +
 `security key-manager onboard verify-backup`
 
 
 
-. Saisissez la phrase de passe OKM.
+. Saisissez la phrase secrète OKM et confirmez la réussite de la vérification.
 +
 
 NOTE: Vous êtes invité à saisir deux fois la phrase de passe.

@@ -15,6 +15,7 @@ Pour effectuer la procédure de remplacement et restaurer le fonctionnement comp
 
 
 
+[[step-1-install-licenses-for-the-replacement-node-in-ontap]]
 == Étape 1 : installez les licences pour le nœud de remplacement dans ONTAP
 
 Vous devez installer de nouvelles licences pour le _remplacement_ node si le nœud douteux utilisait des fonctions ONTAP qui requièrent une licence standard (nœud verrouillé). Pour les fonctionnalités avec licences standard, chaque nœud du cluster doit avoir sa propre clé pour cette fonctionnalité.
@@ -49,6 +50,7 @@ NOTE: Les nouvelles clés de licence dont vous avez besoin sont générées auto
 
 
 
+[[step-2-verify-lifs-and-registering-the-serial-number]]
 == Étape 2 : vérifier les LIF et enregistrer le numéro de série
 
 Avant de remettre le nœud de remplacement en service, vous devez vérifier que les LIF sont sur leurs ports d'origine, enregistrer le numéro de série du nœud de remplacement si AutoSupport est activé, vérifier l'état de votre cluster, fermer toutes les fenêtres de maintenance et réinitialiser la remise en service automatique.
@@ -71,6 +73,7 @@ Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de hom
 
 
 
+[[step-3-return-the-failed-part-to-netapp]]
 == Étape 3 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

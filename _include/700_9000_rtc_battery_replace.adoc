@@ -12,6 +12,7 @@ Vous devez utiliser une batterie RTC approuvée.
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
@@ -184,6 +185,7 @@ mcc1A::> metrocluster operation show
 ====
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
@@ -236,6 +238,7 @@ Bouton de verrouillage du couvercle du module de commande
 
 
 
+[[step-3-replace-the-rtc-battery]]
 == Étape 3 : remplacer la batterie RTC
 
 Pour remplacer la batterie RTC, vous devez localiser la batterie défectueuse dans le module de contrôleur, la retirer du support, puis installer la batterie de rechange dans le support.
@@ -278,6 +281,7 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 
 
+[[step-4-reinstall-the-controller-module-and-set-timedate]]
 == Étape 4 : réinstallez le module de contrôleur et définissez l'heure/la date
 
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
@@ -322,6 +326,7 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 
 
 
+[[step-5-switch-back-aggregates-in-a-two-node-metrocluster-configuration]]
 == Étape 5 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -378,6 +383,7 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 
 
+[[step-6-return-the-failed-part-to-netapp]]
 == Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

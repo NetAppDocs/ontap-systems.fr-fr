@@ -15,6 +15,7 @@ Ce guide fournit des instructions détaillées vous permettant d'installer un sy
 
 
 
+[[step-1-prepare-for-installation]]
 == Étape 1 : préparer l'installation
 
 Pour installer votre système, vous devez créer un compte, enregistrer le système et obtenir des clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
@@ -163,6 +164,7 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configur
 
 
 
+[[step-2-install-the-hardware]]
 == Étape 2 : installer le matériel de fixation
 
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
@@ -186,6 +188,7 @@ image::../media/drw_a320_cable_management_arms.png[Retrait ou installation des b
 
 
 
+[[step-3-cable-controllers-to-your-network]]
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
 
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
@@ -195,6 +198,7 @@ NOTE: Si les étiquettes de port de la carte ne sont pas visibles, vérifiez l'o
 
 
 
+[[option-1-cable-a-two-node-switchless-cluster]]
 === Option 1 : câler un cluster à deux nœuds sans commutateur
 
 Les ports de données en option, les cartes NIC en option et les ports de gestion des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur les deux modules de contrôleur.
@@ -223,6 +227,7 @@ image::../media/drw_fas8300_TNSC_network_cabling.png[Schéma de câblage d'un cl
 
 
 
+[[option-2-cable-a-switched-cluster]]
 === Option 2 : câblage d'un cluster commuté
 
 Les ports de données en option, les cartes NIC en option, les cartes mezzanine et les ports de gestion des modules de contrôleur sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur le commutateur de cluster/haute disponibilité.
@@ -251,10 +256,12 @@ image::../media/drw_fas8300_switched_network_cabling.png[Schéma de câblage ré
 
 
 
+[[step-4-cable-controllers-to-drive-shelves]]
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
 
 
+[[option-1-cable-the-controllers-to-sas-drive-shelves]]
 === Option 1 : câblage des contrôleurs aux tiroirs disques SAS
 
 Vous devez connecter chaque contrôleur aux modules IOM des deux tiroirs disques SAS.
@@ -279,12 +286,14 @@ image::../media/drw_fas8300_three-ds224c_shelves.png[Diagramme de câblage de tr
 
 
 
+[[step-5-complete-system-setup-and-configuration]]
 == Étape 5 : installation et configuration complètes du système
 
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 
 
+[[option-1-completing-system-setup-and-configuration-if-network-discovery-is-enabled]]
 === Option 1 : fin de la configuration et de la configuration du système si la détection du réseau est activée
 
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
@@ -346,6 +355,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Télé
 
 
 
+[[option-2-completing-system-setup-and-configuration-if-network-discovery-is-not-enabled]]
 === Option 2 : fin de la configuration et de la configuration du système si la détection du réseau n'est pas activée
 
 Si la détection réseau n'est pas activée sur votre ordinateur portable, vous devez effectuer la configuration et la configuration à l'aide de cette tâche.

@@ -19,6 +19,7 @@ Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de cont
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
@@ -89,6 +90,7 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez un composant dans le module de contrôleur.
@@ -155,6 +157,7 @@ image::../media/drw_a250_remove_airduct_cover.png[Soulever le couvercle du condu
 
 
 
+[[step-3-replace-the-rtc-battery]]
 == Étape 3 : remplacer la batterie RTC
 
 Pour remplacer la batterie RTC, la placer à l'intérieur du contrôleur et suivre l'ordre des étapes.
@@ -223,6 +226,7 @@ CAUTION: Une pression agressive peut provoquer l'éjection de la batterie.
 
 
 
+[[step-4-reinstall-the-controller-module-and-setting-timedate-after-rtc-battery-replacement]]
 == Étape 4 : réinstaller le module de contrôleur et régler l'heure/la date après le remplacement de la batterie RTC
 
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
@@ -266,6 +270,7 @@ Le module de contrôleur commence à démarrer dès que l'alimentation est réta
 
 
 
+[[step-5-return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

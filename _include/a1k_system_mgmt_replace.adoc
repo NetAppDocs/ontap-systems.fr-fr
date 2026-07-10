@@ -34,6 +34,7 @@ Cette procédure utilise la terminologie suivante :
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
@@ -180,6 +181,7 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 ====
 
 
+[[step-2-replace-the-impaired-system-management-module]]
 == Étape 2 : remplacez le module de gestion du système défectueux
 
 Remplacez le module de gestion du système défectueux.
@@ -273,6 +275,7 @@ Support de démarrage
 
 
 
+[[step-3-reboot-the-controller-module]]
 == Étape 3 : redémarrez le module de contrôleur
 
 Redémarrez le module contrôleur.
@@ -290,6 +293,7 @@ Le système commence à redémarrer, généralement à l'invite du CHARGEUR.
 
 
 
+[[step-4-install-licenses-and-register-serial-number]]
 == Étape 4 : installez les licences et enregistrez le numéro de série
 
 Vous devez installer de nouvelles licences pour le nœud concerné si ce dernier utilisait des fonctionnalités ONTAP nécessitant une licence standard (verrouillée par un nœud). Pour les fonctionnalités avec licences standard, chaque nœud du cluster doit avoir sa propre clé pour cette fonctionnalité.
@@ -328,6 +332,7 @@ NOTE: Les nouvelles clés de licence dont vous avez besoin sont générées auto
 
 
 
+[[step-5-return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

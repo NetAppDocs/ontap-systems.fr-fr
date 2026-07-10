@@ -15,6 +15,7 @@ Pour remplacer le matériel du module de contrôleur, vous devez retirer le cont
 
 
 
+[[step-1-open-the-controller-module]]
 == Étape 1 : ouvrir le module de contrôleur
 
 Pour remplacer le module de contrôleur, vous devez d'abord retirer l'ancien module de contrôleur du châssis.
@@ -59,6 +60,7 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
+[[step-2-move-the-boot-device]]
 == Étape 2 : déplacer le périphérique d'amorçage
 
 Vous devez localiser le support de démarrage et suivre les instructions pour le retirer de l'ancien contrôleur et l'insérer dans le nouveau contrôleur.
@@ -82,6 +84,7 @@ Si nécessaire, retirez le support de démarrage et réinstallez-le dans le supp
 
 
 
+[[step-3-move-the-nvmem-battery]]
 == Étape 3 : déplacer la batterie NVMEM
 
 Pour déplacer la batterie NVMEM de l'ancien module de contrôleur vers le nouveau module de contrôleur, vous devez effectuer une séquence spécifique d'étapes.
@@ -135,6 +138,7 @@ Batterie NVMEM
 
 
 
+[[step-4-move-the-dimms]]
 == Étape 4 : déplacez les modules DIMM
 
 Pour déplacer les modules DIMM, localisez-les et déplacez-les de l'ancien contrôleur vers le contrôleur de remplacement et suivez la séquence d'étapes spécifique.
@@ -171,6 +175,7 @@ NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien align�
 
 
 
+[[step-5-move-a-pcie-card]]
 == Étape 5 : déplacer une carte PCIe
 
 Pour déplacer des cartes PCIe, localisez-les de l'ancien contrôleur et déplacez-les vers le contrôleur de remplacement, puis suivez les étapes spécifiques.
@@ -215,6 +220,7 @@ Assurez-vous d'aligner correctement la carte dans la fente et d'exercer une pres
 
 
 
+[[step-6-move-a-caching-module]]
 == Étape 6 : déplacer un module de mise en cache
 
 Vous devez déplacer les modules de cache des modules de contrôleur douteux vers le module de contrôleur de remplacement lors du remplacement d'un module de contrôleur.
@@ -239,6 +245,7 @@ image::../media/drw_rxl_fcache.png[Retirer et remplacer le module de cache]
 
 
 
+[[step-7-install-the-controller]]
 == Étape 7 : installer le contrôleur
 
 Après avoir installé les composants de l'ancien module de contrôleur dans le nouveau module de contrôleur, vous devez installer le nouveau module de contrôleur dans le châssis du système et démarrer le système d'exploitation.

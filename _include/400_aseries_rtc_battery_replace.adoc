@@ -12,6 +12,7 @@ Vous devez utiliser une batterie RTC approuvée.
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
@@ -184,6 +185,7 @@ mcc1A::> metrocluster operation show
 ====
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
@@ -229,6 +231,7 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
+[[step-3-replace-the-rtc-battery]]
 == Étape 3 : remplacer la batterie RTC
 
 Vous devez localiser la batterie RTC à l'intérieur du module de contrôleur, puis suivre la séquence spécifique des étapes. Voir le schéma des FRU à l'intérieur du module de contrôleur pour l'emplacement de la batterie RTC.
@@ -288,6 +291,7 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 
 
+[[step-4-reinstall-the-controller-module-and-setting-timedate-after-rtc-battery-replacement]]
 == Étape 4 : réinstaller le module de contrôleur et régler l'heure/la date après le remplacement de la batterie RTC
 
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
@@ -363,6 +367,7 @@ NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option 
 
 
 
+[[step-5-switch-back-aggregates-in-a-two-node-metrocluster-configuration]]
 == Étape 5 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -419,6 +424,7 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 
 
+[[step-6-return-the-failed-part-to-netapp]]
 == Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

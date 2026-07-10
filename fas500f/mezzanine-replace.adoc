@@ -19,6 +19,7 @@ Pour remplacer une carte mezzanine défectueuse, vous devez retirer les câbles 
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
@@ -89,6 +90,7 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez un composant dans le module de contrôleur.
@@ -145,6 +147,7 @@ Capot du module de contrôleur.
 
 
 
+[[step-3-replace-or-install-a-mezzanine-card]]
 == Étape 3 : remplacer ou installer une carte mezzanine
 
 Pour remplacer une carte mezzanine, vous devez retirer la carte pour personnes malvoyantes et installer la carte de remplacement. Pour installer une carte mezzanine, vous devez retirer la façade et installer la nouvelle carte.
@@ -155,6 +158,7 @@ Vous pouvez utiliser la vidéo suivante ou les étapes tabulées pour remplacer 
 video::d8e7d4d9-8d28-4be1-809b-ac5b01643676[panopto]
 
 
+[[option-1-replace-a-mezzanine-card]]
 === Option 1 : remplacer une carte mezzanine :
 
 . Localisez et remplacez la carte mezzanine pour malvoyants située sur le module de contrôleur.
@@ -203,6 +207,7 @@ NOTE: Ne forcez pas lors du serrage de la vis sur la carte mezzanine ; vous pouv
 
 
 
+[[option-2-install-a-mezzanine-card]]
 === Option 2 : installez une carte mezzanine :
 
 Vous installez une nouvelle carte mezzanine si votre système ne en possède pas.
@@ -219,6 +224,7 @@ NOTE: Ne forcez pas lors du serrage de la vis sur la carte mezzanine ; vous pouv
 
 
 
+[[step-4-reinstall-the-controller-module]]
 == Étape 4 : réinstallez le module de contrôleur
 
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
@@ -264,6 +270,7 @@ Le module de contrôleur doit être complètement inséré et aligné avec les b
 
 
 
+[[step-5-return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

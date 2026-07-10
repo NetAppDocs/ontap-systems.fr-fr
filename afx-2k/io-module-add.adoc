@@ -17,6 +17,7 @@ Vous pouvez ajouter un module d'E/S à votre système de stockage AFX 2K lorsqu'
 
 
 
+[[step-1-shut-down-the-impaired-controller-module]]
 == Étape 1 : arrêtez le module de contrôleur défectueux
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
@@ -77,6 +78,7 @@ Le `-halt true` le paramètre vous amène à l'invite LOADER.
 
 
 
+[[step-2-add-the-new-io-module]]
 == Étape 2 : ajoutez le nouveau module d'E/S.
 
 Si le système de stockage dispose de logements disponibles, installez le nouveau module d'E/S dans l'un des emplacements disponibles. Si tous les emplacements sont occupés, retirez un module d'E/S existant pour libérer de l'espace, puis installez le nouveau.

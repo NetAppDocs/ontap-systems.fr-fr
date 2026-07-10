@@ -19,6 +19,7 @@ Si vous disposez d'une configuration MetroCluster, utilisez https://docs.netapp.
 
 
 
+[[step-1-prepare-for-installation]]
 == Étape 1 : préparer l'installation
 
 Pour installer votre système, créez un compte sur le site de support NetApp, enregistrez votre système et obtenez vos clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
@@ -159,6 +160,7 @@ Mise sous tension du système
 
 
 
+[[step-2-install-the-hardware]]
 == Étape 2 : installer le matériel de fixation
 
 Installez le système dans un rack à 4 montants ou une armoire système NetApp, le cas échéant.
@@ -182,6 +184,7 @@ image::../media/drw_cable_management_arm_install.png[Connexion de périphérique
 
 
 
+[[step-3-cable-controllers-to-network]]
 == Étape 3 : connectez les contrôleurs au réseau
 
 Reliez les contrôleurs au réseau en utilisant la méthode cluster sans commutateur à 2 nœuds ou la méthode réseau d'interconnexion de cluster.
@@ -332,6 +335,7 @@ IMPORTANT: NE branchez PAS les cordons d'alimentation à ce stade.
 ====
 
 
+[[step-4-cable-controllers-to-drive-shelves]]
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
 Reliez les contrôleurs à vos tiroirs à l'aide des ports de stockage intégrés. NetApp recommande le câblage MP-HA pour les systèmes avec stockage externe.
@@ -384,6 +388,7 @@ Pour plus d'informations sur le câblage, reportez-vous à la section link:../sa
 
 
 
+[[step-5-complete-system-setup]]
 == Étape 5 : terminez la configuration du système
 
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.

@@ -34,6 +34,7 @@ Pour remplacer le module DIMM et NVRAM, vous devez retirer le module NVRAM du ch
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
@@ -99,6 +100,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 
 
+[[step-2-replace-the-nvram-module]]
 == Étape 2 : remplacer le module NVRAM
 
 Pour remplacer le module NVRAM, placez-le dans le logement 6 du châssis et suivez la séquence spécifique des étapes.
@@ -176,6 +178,7 @@ Languettes d'éjection du module DIMM et du module DIMM
 
 
 
+[[step-3-replace-a-nvram-dimm]]
 == Étape 3 : remplacer un module DIMM NVRAM
 
 Pour remplacer les modules DIMM NVRAM du module NVRAM, vous devez retirer le module NVRAM, ouvrir le module, puis remplacer le module DIMM cible.
@@ -254,6 +257,7 @@ Languettes d'éjection du module DIMM et du module DIMM
 
 
 
+[[step-4-reboot-the-controller-after-fru-replacement]]
 == Étape 4 : redémarrer le contrôleur après le remplacement d'une unité remplaçable sur site
 
 Après avoir remplacé le FRU, vous devez redémarrer le module de contrôleur.
@@ -262,6 +266,7 @@ Pour démarrer ONTAP à partir de l'invite DU CHARGEUR, entrez `bye`.
 
 
 
+[[step-5-reassigning-disks]]
 == Étape 5 : réaffectation des disques
 
 Vous devez confirmer la modification de l'ID système au démarrage du contrôleur de remplacement, puis vérifier que la modification a été implémentée.
@@ -364,6 +369,7 @@ dr-group-id            cluster node           configuration-state
 
 
 
+[[step-6-return-the-failed-part-to-netapp]]
 == Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

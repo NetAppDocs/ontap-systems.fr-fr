@@ -11,6 +11,7 @@ Vous pouvez utiliser cette procédure avec toutes les versions de ONTAP prises e
 
 
 
+[[step-1-shut-down-the-impaired-node]]
 == Étape 1 : arrêtez le nœud douteux
 
 Arrêtez ou prenez le contrôle du contrôleur défectueux.
@@ -68,6 +69,7 @@ Le paramètre _-halt true_ amène le nœud altéré à l'invite LOADER.
 
 
 
+[[step-2-replace-a-failed-io-module]]
 == Étape 2 : remplacez un module d'E/S défectueux
 
 Pour remplacer un module d'E/S, localisez-le dans le boîtier et suivez la séquence spécifique des étapes.
@@ -125,6 +127,7 @@ Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le mod
 
 
 
+[[step-3-reboot-the-controller]]
 == Étape 3 : redémarrer le contrôleur
 
 Après le remplacement d'un module d'E/S, vous devez redémarrer le contrôleur.
@@ -182,6 +185,7 @@ NOTE: La commande suivante n’est disponible que dans le niveau de privilège d
 
 
 
+[[step-4-return-the-failed-part-to-netapp]]
 == Étape 4 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

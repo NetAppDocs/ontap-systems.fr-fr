@@ -19,6 +19,7 @@ Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de cont
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
@@ -191,6 +192,7 @@ mcc1A::> metrocluster operation show
 ====
 
 
+[[step-2-open-the-controller-module]]
 == Étape 2 : ouvrir le module de contrôleur
 
 Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
@@ -234,6 +236,7 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
+[[step-3-replace-the-rtc-battery]]
 == Étape 3 : remplacer la batterie RTC
 
 Pour remplacer la batterie RTC, localisez-les à l'intérieur du contrôleur et suivez la séquence d'étapes spécifique.
@@ -256,6 +259,7 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 
 
+[[step-4-reinstall-the-controller-module-and-setting-timedate-after-rtc-battery-replacement]]
 == Étape 4 : réinstaller le module de contrôleur et régler l'heure/la date après le remplacement de la batterie RTC
 
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
@@ -302,6 +306,7 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 
 
 
+[[step-5-switch-back-aggregates-in-a-two-node-metrocluster-configuration]]
 == Étape 5 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -358,6 +363,7 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 
 
+[[step-6-return-the-failed-part-to-netapp]]
 == Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

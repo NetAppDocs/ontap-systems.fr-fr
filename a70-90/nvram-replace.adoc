@@ -22,6 +22,7 @@ Le module NVRAM se compose du matériel NVRAM12 et de modules DIMM remplaçables
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôleur pour facultés affaiblies en utilisant l'une des options suivantes.
@@ -168,12 +169,16 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 ====
 
 
+[[step-2-replace-the-nvram-module-or-nvram-dimm]]
 == Étape 2 : remplacez le module NVRAM ou le module DIMM NVRAM
 
 Remplacez le module NVRAM ou les modules DIMM NVRAM à l’aide de l’option appropriée.
 
 
 CAUTION: Portez systématiquement un bracelet antistatique relié à une prise de terre vérifiée lors des opérations d'installation et de maintenance. Le non-respect des précautions ESD appropriées peut causer des dommages permanents aux nœuds de contrôleur, aux baies de stockage et aux commutateurs réseau.
+
+
+WARNING: Le module NVRAM n'est pas remplaçable à chaud. Avant de le remplacer, réinsérez les disques, éteignez le nœud, débranchez l'alimentation du contrôleur et retirez le contrôleur de quelques centimètres du châssis.
 
 [role="tabbed-block"]
 ====
@@ -298,7 +303,7 @@ NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentatio
 --
 .Option 2 : remplacez le module DIMM NVRAM
 --
-Pour remplacer les modules DIMM NVRAM dans le module NVRAM, vous devez d'abord retirer le module NVRAM, puis remplacer le module DIMM cible.
+Pour remplacer les barrettes DIMM NVRAM dans le module NVRAM, vous devez d'abord retirer le module NVRAM, puis remplacer la barrette DIMM cible.
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Assurez-vous que tous les lecteurs du châssis sont fermement installés contre le fond de panier central en appuyant sur chaque lecteur à l'aide de vos pouces jusqu'à ce que vous sentiez un arrêt positif.
@@ -370,7 +375,9 @@ image::../media/drw_a70-90_nvram12_remove_replace_ieops-1370.svg[Retirez le modu
 
  a| 
 image:../media/icon_round_1.png["Légende numéro 1"]
-| Bouton de verrouillage de came 
+ a| 
+Bouton de verrouillage de came
+
 
 
  a| 
@@ -422,6 +429,7 @@ NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentatio
 ====
 
 
+[[step-3-reassign-disks]]
 == Étape 3 : réaffectation de disques
 
 Vous devez confirmer la modification de l'ID système au démarrage du contrôleur, puis vérifier que la modification a été implémentée.
@@ -455,8 +463,10 @@ node2             node1             -            Waiting for giveback (HA mailbo
 ----
 . Remettre le contrôleur :
 +
-.. À partir du contrôleur sain, restituez le stockage du contrôleur remplacé : +
+.. Depuis le contrôleur sain, restituez le stockage du contrôleur remplacé :
++
 `storage failover giveback -ofnode replacement_node_name`
+
 +
 Le contrôleur récupère son stockage et termine le démarrage.
 
@@ -547,6 +557,7 @@ dr-group-id            cluster node           configuration-state
 
 
 
+[[step-4-return-the-failed-part-to-netapp]]
 == Étape 4 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

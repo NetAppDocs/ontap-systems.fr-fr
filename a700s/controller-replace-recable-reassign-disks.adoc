@@ -15,6 +15,7 @@ Pour effectuer la procédure de remplacement et restaurer le fonctionnement comp
 
 
 
+[[step-1-recable-the-system]]
 == Étape 1 : recâblage du système
 
 Vérifiez les connexions de stockage et réseau du module contrôleur en utilisant https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"] .
@@ -28,6 +29,7 @@ Vérifiez les connexions de stockage et réseau du module contrôleur en utilisa
 
 
 
+[[step-2-reassign-disks]]
 == Étape 2 : réaffectation de disques
 
 Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.

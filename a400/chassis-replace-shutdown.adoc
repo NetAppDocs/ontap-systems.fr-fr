@@ -15,6 +15,7 @@ Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropri�
 
 
 
+[[option-1-shut-down-the-controllers-when-replacing-a-chassis]]
 == Option 1 : arrêter les contrôleurs lors du remplacement d'un châssis
 
 Cette procédure concerne les systèmes ayant des configurations à deux nœuds. Pour plus d'informations sur l'arrêt normal lors de la maintenance d'un cluster, reportez-vous à la section https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_is_the_procedure_for_graceful_shutdown_and_power_up_of_a_storage_system_during_scheduled_power_outage["Arrêtez et mettez sous tension votre système de stockage - Guide de résolution - base de connaissances NetApp"].
@@ -68,6 +69,7 @@ NOTE: Pour les clusters qui utilisent SnapMirror en mode synchrone : `system nod
 
 
 
+[[option-2-shut-down-a-controller-in-a-two-node-metrocluster-configuration]]
 == Option 2 : arrêter un contrôleur dans une configuration MetroCluster à deux nœuds
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.

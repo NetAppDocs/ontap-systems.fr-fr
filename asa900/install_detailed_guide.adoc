@@ -15,6 +15,7 @@ Cette page fournit des instructions détaillées pour l'installation d'un systè
 
 
 
+[[step-1-prepare-for-installation]]
 == Étape 1 : préparer l'installation
 
 Pour installer votre système, vous devez créer un compte sur le site de support NetApp, enregistrer votre système et obtenir les clés de licence. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
@@ -170,6 +171,7 @@ Mise sous tension du système
 
 
 
+[[step-2-install-the-hardware]]
 == Étape 2 : installer le matériel de fixation
 
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
@@ -196,6 +198,7 @@ image::../media/drw_a900_controller_in_chassis_ID_IEOPS-856.svg[Configuration ty
 
 
 
+[[step-3-cable-controllers-to-your-network]]
 == Étape 3 : connectez les câbles des contrôleurs à votre réseau
 
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
@@ -387,6 +390,7 @@ image:../media/drw_a900fas9500_power_icon_IEOPS-1142.svg["largeur=200px"]
 ====
 
 
+[[step-4-cable-controllers-to-drive-shelves]]
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
 Reliez un tiroir de disque NS224 ou deux tiroirs de disques NS224 à vos contrôleurs.
@@ -515,6 +519,7 @@ Câble 100 GbE
 ====
 
 
+[[step-5-complete-system-setup-and-configuration]]
 == Étape 5 : installation et configuration complètes du système
 
 Vous pouvez effectuer la configuration et l'installation du système en utilisant la découverte de cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.

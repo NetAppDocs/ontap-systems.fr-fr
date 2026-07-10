@@ -18,6 +18,7 @@ Vous devez remplacer le module de cache du module de contrôleur lorsque votre s
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
@@ -80,6 +81,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 
 
+[[step-2-remove-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
@@ -107,6 +109,7 @@ image::../media/drw_2600_opening_pcm_cover.png[Ouverture ou fermeture du module 
 
 
 
+[[step-3-replace-a-caching-module]]
 == Étape 3 : remplacer un module de cache
 
 Pour remplacer un module de mise en cache appelé carte PCIe M.2 sur l'étiquette de votre contrôleur, localisez le logement à l'intérieur du contrôleur et suivez la séquence des étapes.
@@ -141,6 +144,7 @@ Si nécessaire, retirez le module de cache et réinstallez-le dans le support.
 
 
 
+[[step-4-reinstall-the-controller-module]]
 == Étape 4 : réinstallez le module de contrôleur
 
 Après avoir remplacé des composants dans le module de contrôleur, réinstallez-les dans le châssis.
@@ -201,6 +205,7 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 
 
 
+[[step-5-switch-back-aggregates-in-a-two-node-metrocluster-configuration]]
 == Étape 5 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -257,6 +262,7 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 
 
+[[step-6-return-the-failed-part-to-netapp]]
 == Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

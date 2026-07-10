@@ -34,6 +34,7 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 
+[[step-1-ensure-the-storage-system-meets-the-procedure-requirements]]
 == Étape 1 : Assurez-vous que le système de stockage répond aux exigences de la procédure
 
 Pour utiliser cette procédure, votre système de stockage doit exécuter ONTAP 9.18.1 GA ou une version ultérieure, et votre système de stockage doit répondre à toutes les exigences.
@@ -68,6 +69,7 @@ Dans certaines situations, ONTAP peut automatiquement effectuer un basculement d
 
 
 
+[[step-2-prepare-the-storage-system-and-io-module-slot]]
 == Étape 2 : Préparez le système de stockage et l’emplacement du module d’E/S
 
 Préparez le système de stockage et l'emplacement du module d'E/S afin qu'il soit sûr de retirer le module d'E/S défectueux :
@@ -154,12 +156,58 @@ Le résultat doit afficher  `_powered-off_` dans la  `_status_` colonne pour le 
 
 
 
+[[step-3-hot-swap-the-failed-io-module]]
 == Étape 3 : remplacer à chaud le module d’E/S défectueux
 
-Directive non résolue dans stdin - include::../_include/afx_2k_io_module_hotswap_replace.adoc[]
+Remplacez à chaud le module d'E/S défectueux par un module d'E/S équivalent.
+
+
+CAUTION: Portez systématiquement un bracelet antistatique relié à une prise de terre vérifiée lors des opérations d'installation et de maintenance. Le non-respect des précautions ESD appropriées peut causer des dommages permanents aux nœuds de contrôleur, aux baies de stockage et aux commutateurs réseau.
+
+.Étapes
+. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés à l'intérieur du chemin de câbles et en le faisant pivoter vers le bas.
+. Retirez le module d'E/S du module de contrôleur :
++
+
+NOTE: L'illustration suivante montre le retrait d'un module d'E/S vertical. En général, vous ne retirerez qu'un seul module d'E/S.
+
++
+image::../media/drw_afx_2k_io_remove_replace_ieops-2878.svg[Retirez le module d'E/S.]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+Bouton de verrouillage de came
+
+|===
++
+.. Appuyer sur le bouton de verrouillage de came.
+.. Faites tourner le loquet de came aussi loin que possible du module.
+.. Retirez le module du module de contrôleur en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du module de contrôleur.
++
+Notez bien dans quel emplacement se trouvait le module d'E/S.
 
 
 
+. Mettez le module d'E/S de côté.
+. Installez le module d'E/S de remplacement dans le logement cible :
++
+.. Alignez le module d'E/S sur les bords du logement.
+.. Faites glisser doucement le module dans le logement jusqu'au fond du module de contrôleur, puis faites pivoter le loquet de came complètement vers le haut pour verrouiller le module en place.
+
+
+. Branchez le câble du module d'E/S.
+. Faites pivoter le chemin de câbles en position verrouillée.
+
+
+
+
+[[step-4-bring-the-replacement-io-module-online]]
 == Étape 4 : Mettez le module d’E/S de remplacement en ligne
 
 Mettez en ligne le module d'E/S de remplacement, vérifiez que les ports du module d'E/S ont été initialisés avec succès, vérifiez que l'emplacement est alimenté, puis vérifiez que le module d'E/S est en ligne et reconnu.
@@ -276,6 +324,7 @@ Slot slot Information
 
 
 
+[[step-5-restore-the-storage-system-to-normal-operation]]
 == Étape 5 : Restaurer le système de stockage à son fonctionnement normal
 
 Rétablissez le fonctionnement normal de votre système de stockage en restituant le stockage au contrôleur qui a été pris en charge (si nécessaire), en rétablissant la restitution automatique (si nécessaire), en vérifiant que les LIF sont sur leurs ports d'origine, et en réactivant la création automatique de dossiers AutoSupport.
@@ -321,6 +370,7 @@ Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de hom
 
 
 
+[[step-6-return-the-failed-part-to-netapp]]
 == Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

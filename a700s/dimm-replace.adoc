@@ -19,6 +19,7 @@ Vous devez remplacer le composant défectueux par un composant FRU de remplaceme
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, prendre le contrôle de façon à ce que le contrôleur en bonne santé continue de transmettre des données provenant du stockage défaillant du contrôleur.
@@ -62,6 +63,7 @@ Lorsque le contrôleur avec facultés affaiblies affiche `Waiting for giveback..
 
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
@@ -139,6 +141,7 @@ Conduit d'air
 
 
 
+[[step-3-replace-a-dimm]]
 == Étape 3 : remplacez un module DIMM
 
 Pour remplacer un module DIMM, vous devez le localiser dans le module de contrôleur à l'aide de la carte DIMM à l'intérieur du module de contrôleur, puis le remplacer en suivant la séquence spécifique des étapes.
@@ -214,6 +217,7 @@ Si vous avez retiré la carte de montage NVRAM, Riser 1, veillez à brancher la 
 
 
 
+[[step-4-reinstall-the-controller-module-and-boot-the-system]]
 == Étape 4 : réinstallez le module de contrôleur et démarrez le système
 
 Après avoir remplacé une FRU dans le module de contrôleur, vous devez réinstaller le module de contrôleur et le redémarrer.
@@ -252,6 +256,7 @@ Le module de contrôleur commence à démarrer dès que l'alimentation est réta
 
 
 
+[[step-5return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défectueuse à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

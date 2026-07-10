@@ -29,6 +29,7 @@ image:../media/drw_cable_pull_tab_direction_ieops-1699.svg["Direction de la lang
 
 
 
+[[step-1-cable-the-clusterha-connections]]
 == Étape 1 : câblez les connexions du cluster/haute disponibilité
 
 Créez les connexions du cluster ONTAP. Dans le cas de clusters sans commutateur, connectez les contrôleurs les uns aux autres. Pour les clusters commutés, connectez les contrôleurs aux commutateurs de réseau du cluster.
@@ -189,6 +190,7 @@ image:../media/drw_isi_a20_switched_2p_25gbe_cabling_ieops-2019.svg["Schéma de 
 ====
 
 
+[[step-2-cable-the-host-network-connections]]
 == Étape 2 : câblez les connexions réseau de l'hôte
 
 Reliez les contrôleurs à votre réseau hôte Ethernet ou FC.
@@ -245,6 +247,7 @@ image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Câble ve
 ====
 
 
+[[step-3-cable-the-management-network-connections]]
 == Étape 3 : branchement des câbles du réseau de gestion
 
 Reliez les ports de gestion (clé anglaise) de chaque contrôleur aux switchs réseau de gestion.
@@ -260,6 +263,7 @@ IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
 
 
 
+[[step-4-cable-the-shelf-connections]]
 == Étape 4 : branchement des tiroirs sur le câble
 
 Cette procédure explique comment connecter les contrôleurs à un tiroir NS224.

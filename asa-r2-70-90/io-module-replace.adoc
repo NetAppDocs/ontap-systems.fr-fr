@@ -22,6 +22,7 @@ Vous pouvez utiliser cette procédure avec toutes les versions d' ONTAP prises e
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôle du contrôleur défectueux.
@@ -94,6 +95,7 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 
+[[step-2-replace-a-failed-io-module]]
 == Étape 2 : remplacez un module d'E/S défectueux
 
 .Étapes
@@ -148,6 +150,7 @@ Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le mod
 
 
 
+[[step-3-reboot-the-controller]]
 == Étape 3 : redémarrer le contrôleur
 
 Après le remplacement d'un module d'E/S, vous devez redémarrer le contrôleur.
@@ -177,6 +180,7 @@ NOTE: Le redémarrage du contrôleur défectueux réinitialise également les mo
 
 
 
+[[step-4-return-the-failed-part-to-netapp]]
 == Étape 4 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

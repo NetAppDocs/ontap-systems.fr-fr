@@ -30,6 +30,7 @@ Le module de gestion du système, situé à l'arrière du contrôleur dans le lo
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôle du contrôleur défectueux.
@@ -102,9 +103,13 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 
+[[step-2-replace-the-system-management-module]]
 == Étape 2 : Remplacer le module de gestion du système
 
 Remplacez le module de gestion du système défectueux.
+
+
+WARNING: Le module de gestion du système n'est pas remplaçable à chaud. Avant de le remplacer, réinsérez les disques, éteignez le nœud, débranchez l'alimentation du contrôleur et retirez le contrôleur de quelques centimètres du châssis.
 
 .Étapes
 . Assurez-vous que le déchargement de la NVRAM est terminé avant de continuer. Lorsque le voyant du module NV est éteint, le NVRAM est déchargé. Si le voyant clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
@@ -235,6 +240,7 @@ NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentatio
 
 
 
+[[step-3-reboot-the-controller]]
 == Étape 3 : redémarrer le contrôleur
 
 Redémarrez le module contrôleur.
@@ -257,6 +263,7 @@ Redémarrez le module contrôleur.
 
 
 
+[[step-4-install-licenses-and-register-serial-number]]
 == Étape 4 : installez les licences et enregistrez le numéro de série
 
 Vous devez installer de nouvelles licences pour le nœud concerné si ce dernier utilisait des fonctionnalités ONTAP nécessitant une licence standard (verrouillée par un nœud). Pour les fonctionnalités avec licences standard, chaque nœud du cluster doit avoir sa propre clé pour cette fonctionnalité.
@@ -295,6 +302,7 @@ NOTE: Les nouvelles clés de licence dont vous avez besoin sont générées auto
 
 
 
+[[step-5-return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

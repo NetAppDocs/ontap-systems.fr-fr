@@ -15,6 +15,7 @@ Préparez votre système en fin de disponibilité à l'ajout à chaud d'une baie
 
 
 
+[[install-roce-capable-io-modules]]
 == Installer des modules d'E/S compatibles RoCE
 
 Si votre système prend en charge l'utilisation de cartes PCIe ou de modules d'E/S compatibles RoCE, votre paire haute disponibilité doit disposer de suffisamment de ports Ethernet compatibles RoCE disponibles pour prendre en charge le nombre de shelves que vous ajoutez à chaud.
@@ -34,6 +35,7 @@ Ces ports peuvent se trouver sur les contrôleurs, sur des cartes PCIe compatibl
 
 
 
+[[configure-roce-capable-ports-for-storage-use]]
 == Configurez les ports compatibles RoCE pour l'utilisation du stockage
 
 Sur certains systèmes, les ports compatibles RoCE sont automatiquement configurés pour une utilisation de stockage lorsqu'une carte PCIe ou un module d'E/S compatible RoCE est installé dans un emplacement de contrôleur pris en charge. Cependant, vous devez suivre cette procédure pour vérifier que les ports sont correctement configurés pour une utilisation de stockage.
@@ -89,6 +91,7 @@ Le résultat de la commande varie en fonction de votre version d'ONTAP :
 
 
 
+[[recable-existing-shelves]]
 == Recâblage des étagères existantes
 
 Le recâblage des étagères existantes ne s'applique qu'aux systèmes en fin de disponibilité dans le workflow AFF A700.
@@ -114,6 +117,7 @@ Si des erreurs de câblage sont générées, suivez les actions correctives four
 
 
 
+[[disable-automatic-drive-assignment]]
 == Désactiver l'affectation automatique de l'entraînement
 
 Si vous ne savez pas si vous devez attribuer manuellement la propriété des disques ou si vous souhaitez comprendre l'affectation automatique des règles de propriété des disques pour votre système de stockage, rendez-vous sur https://docs.netapp.com/us-en/ontap/disks-aggregates/disk-autoassignment-policy-concept.html["À propos de l'assignation automatique de Disk Ownership"^].

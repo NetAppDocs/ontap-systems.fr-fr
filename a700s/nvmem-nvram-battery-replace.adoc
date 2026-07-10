@@ -17,6 +17,7 @@ Tous les autres composants du système doivent fonctionner correctement ; si ce 
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
@@ -71,6 +72,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
@@ -116,6 +118,7 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
+[[step-3-replace-the-nvram-battery]]
 == Étape 3 : remplacer la batterie NVRAM
 
 Pour remplacer la batterie NVRAM, vous devez retirer la batterie NVRAM défectueuse du module de contrôleur et installer la batterie NVRAM de rechange dans le module de contrôleur.
@@ -152,6 +155,7 @@ Languette bleue de verrouillage de la batterie NVRAM
 
 
 
+[[step-4-reinstall-the-controller-module]]
 == Étape 4 : réinstallez le module de contrôleur
 
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système et le démarrer.
@@ -223,6 +227,7 @@ NOTE: Assurez-vous de quitter le mode Maintenance après avoir terminé la conve
 
 
 
+[[step-5-return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

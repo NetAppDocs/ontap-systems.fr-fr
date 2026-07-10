@@ -29,6 +29,7 @@ image:../media/drw_cable_pull_tab_direction_ieops-1699.svg["Direction de la lang
 
 
 
+[[step-1-cable-the-clusterha-connections]]
 == Étape 1 : câblez les connexions du cluster/haute disponibilité
 
 Créez les connexions du cluster ONTAP. Dans le cas de clusters sans commutateur, connectez les contrôleurs les uns aux autres. Pour les clusters commutés, connectez les contrôleurs aux commutateurs de réseau du cluster.
@@ -94,6 +95,7 @@ image:../media/drw_isi_fas50_2p_100gbe_switched_cluster_cabling_ieops-1936.svg["
 ====
 
 
+[[step-2-cable-the-host-network-connections]]
 == Étape 2 : câblez les connexions réseau de l'hôte
 
 Reliez les contrôleurs à votre réseau hôte Ethernet ou FC.
@@ -138,6 +140,7 @@ image::../media/drw_isi_fas50_4p_64gb_fc_optional_cabling_ieops-1935.svg[Câble 
 ====
 
 
+[[step-3-cable-the-management-network-connections]]
 == Étape 3 : branchement des câbles du réseau de gestion
 
 Reliez les ports de gestion (clé anglaise) de chaque contrôleur aux switchs réseau de gestion.
@@ -153,6 +156,7 @@ IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
 
 
 
+[[step-4-cable-the-shelf-connections]]
 == Étape 4 : branchement des tiroirs sur le câble
 
 Les procédures suivantes montrent comment connecter les contrôleurs à un ou deux tiroirs DS460C.
@@ -175,6 +179,7 @@ image::../media/oie_cable_mini_sas_hd_to_mini_sas_hd.svg[Câble HD Mini-SAS]
 
 
 
+[[one-ds460c-shelf]]
 === Une étagère DS460C
 
 Reliez chaque contrôleur à chaque module IOM12 du tiroir DS460C.
@@ -194,6 +199,7 @@ image:../media/drw_isi_fas50_1_ds460c_controller_b_cabling_ieops-2169.svg["Les p
 
 
 
+[[two-ds460c-shelves]]
 === Deux étagères DS460C
 
 Connectez chaque contrôleur aux modules IOM12 des deux tiroirs DS460C.

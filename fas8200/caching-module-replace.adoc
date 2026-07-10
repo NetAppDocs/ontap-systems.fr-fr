@@ -30,6 +30,7 @@ NOTE: Exécutez `system controller flash-cache show` la commande si vous ne conn
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
@@ -202,6 +203,7 @@ mcc1A::> metrocluster operation show
 ====
 
 
+[[step-2-open-the-controller-module]]
 == Étape 2 : ouvrir le module de contrôleur
 
 Pour accéder aux composants à l'intérieur du contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
@@ -245,6 +247,7 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
+[[step-3-replace-or-add-a-caching-module]]
 == Étape 3 : remplacer ou ajouter un module de mise en cache
 
 Pour remplacer ou ajouter un module de mise en cache appelé carte PCIe M.2 sur l'étiquette de votre contrôleur, localisez les logements à l'intérieur du contrôleur et suivez la séquence d'étapes spécifique.
@@ -281,6 +284,7 @@ Si nécessaire, retirez le module de cache et réinstallez-le dans le support.
 
 
 
+[[step-4-reinstall-the-controller]]
 == Étape 4 : réinstallez le contrôleur
 
 Après avoir remplacé un composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système.
@@ -313,6 +317,7 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 
 
 
+[[step-5-switch-back-aggregates-in-a-two-node-metrocluster-configuration]]
 == Étape 5 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -369,6 +374,7 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 
 
+[[step-6-complete-the-replacement-process]]
 == Étape 6 : terminez le processus de remplacement
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

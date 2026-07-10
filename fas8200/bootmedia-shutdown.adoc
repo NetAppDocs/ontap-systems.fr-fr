@@ -12,6 +12,7 @@ summary: 'Arrêtez le contrôleur défectueux sur un système FAS8200 après avo
 
 
 
+[[option-1-most-systems]]
 == Option 1 : la plupart des systèmes
 
 [role="lead"]
@@ -21,6 +22,7 @@ Le système FAS8200 ne prend en charge que les procédures de récupération man
 
 
 
+[[option-1-most-systems]]
 == Option 1 : la plupart des systèmes
 
 Terminez l'arrêt du contrôleur défectueux en le ramenant à l'invite LOADER et en enregistrant les variables d'environnement de démarrage. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer le support de démarrage.
@@ -64,6 +66,7 @@ NOTE: Cette commande peut ne pas fonctionner si le périphérique d'amorçage es
 
 
 
+[[option-2-controller-is-in-a-metrocluster-configuration]]
 == Option 2 : le contrôleur est en configuration MetroCluster
 
 
@@ -123,6 +126,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 
 
+[[option-3-controller-is-in-a-two-node-metrocluster]]
 == Option 3 : le contrôleur est intégré à un MetroCluster à deux nœuds
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.

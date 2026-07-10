@@ -19,6 +19,7 @@ Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de cont
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
@@ -73,6 +74,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 
 
 
+[[step-2-remove-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez d'abord retirer le module de contrôleur du système, puis retirer le capot du module de contrôleur.
@@ -99,6 +101,7 @@ image::../media/drw_2600_opening_pcm_cover.png[Ouverture ou fermeture du module 
 
 
 
+[[step-3-replace-the-rtc-battery]]
 == Étape 3 : remplacer la batterie RTC
 
 Pour remplacer la batterie RTC, vous devez la localiser à l'intérieur du module de contrôleur, puis suivre la séquence spécifique des étapes.
@@ -120,6 +123,7 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 
 
+[[step-4-reinstall-the-controller-module-and-set-timedate-after-rtc-battery-replacement]]
 == Étape 4 : réinstaller le module de contrôleur et régler l'heure/la date après le remplacement de la batterie RTC
 
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
@@ -162,6 +166,7 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 
 
 
+[[step-5-complete-the-replacement-process]]
 == Étape 5 : terminer le processus de remplacement
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

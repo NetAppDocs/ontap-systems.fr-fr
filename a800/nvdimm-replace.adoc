@@ -20,6 +20,7 @@ Remplacez la NVDIMM de votre système AFF A800 lorsque celui-ci détecte que la 
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôle du contrôleur défectueux.
@@ -92,6 +93,7 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
@@ -180,6 +182,7 @@ Soutenez la partie inférieure du module de commande pendant que vous le faites 
 
 
 
+[[step-3-replace-the-nvdimm]]
 == Étape 3 : remplacez le NVDIMM
 
 Repérez le module NVDIMM dans le module de commande à l'aide de l'étiquette de schéma NVDIMM située sur le dessus du conduit d'air, puis remplacez-le.
@@ -240,6 +243,7 @@ NOTE: Inspectez visuellement le NVDIMM pour vérifier qu'il est bien aligné et 
 
 
 
+[[step-4-reinstall-the-controller-module-and-booting-the-system]]
 == Étape 4 : réinstallez le module de contrôleur et démarrez le système
 
 Réinstallez le module de contrôleur et redémarrez-le.
@@ -288,6 +292,7 @@ Le module de contrôleur commence à démarrer dès que l'alimentation est réta
 
 
 
+[[step-5-return-the-failed-part-to-netapp]]
 == Étape 5 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

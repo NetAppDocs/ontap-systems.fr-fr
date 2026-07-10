@@ -15,6 +15,7 @@ Remplacez le châssis de votre système de stockage AFF A20, AFF A30 ou AFF A50 
 
 
 
+[[about-this-task]]
 == Description de la tâche
 
 Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
@@ -25,6 +26,7 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 
+[[step-1-remove-the-controller]]
 == Étape 1 : retirer le contrôleur
 
 Vous devez retirer le contrôleur du châssis lorsque vous remplacez le contrôleur ou un composant à l'intérieur du contrôleur.
@@ -136,6 +138,7 @@ Si nécessaire, faites pivoter les poignées vers le haut (à côté des languet
 
 
 
+[[step-2-remove-the-drives-from-the-impaired-chassis]]
 == Étape 2 : retirez les lecteurs du châssis défectueux
 
 Vous devez retirer tous les lecteurs et tous les caches de lecteur du châssis défectueux afin de pouvoir les installer ultérieurement dans le châssis de remplacement.
@@ -184,6 +187,7 @@ NOTE: Les disques étant fragiles, leur manipulation est réduite pour éviter d
 
 
 
+[[step-2-replace-the-chassis-from-within-the-equipment-rack-or-system-cabinet]]
 == Étape 2 : remplacez le châssis à partir du rack d'équipement ou de l'armoire système
 
 Vous retirez le châssis défectueux du rack d'équipement ou de l'armoire système, installez le châssis de remplacement, installez les lecteurs, tout cache de lecteur, puis installez le cadre.
@@ -203,6 +207,7 @@ NOTE: Si le système de stockage a été livré dans une armoire système NetApp
 
 
 
+[[step-4-install-the-controllers-and-drives]]
 == Étape 4 : installer les contrôleurs et les lecteurs
 
 Installez les contrôleurs et les lecteurs dans le châssis de remplacement et redémarrez les contrôleurs.

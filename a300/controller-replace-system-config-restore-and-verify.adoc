@@ -15,6 +15,7 @@ Après avoir effectué le remplacement du matériel et démarrer en mode mainten
 
 
 
+[[step-1-set-and-verify-system-time-after-replacing-the-controller]]
 == Étape 1 : définir et vérifier l'heure du système après le remplacement du contrôleur
 
 Vous devez vérifier l'heure et la date du module de contrôleur de remplacement par rapport au module de contrôleur sain dans une paire haute disponibilité, ou par rapport à un serveur de temps fiable dans une configuration autonome. Si la date et l'heure ne correspondent pas, vous devez les réinitialiser sur le module de contrôleur de remplacement pour éviter toute interruption possible sur les clients en raison de différences de temps.
@@ -46,6 +47,7 @@ La date et l'heure sont indiquées en GMT.
 
 
 
+[[step-2-verify-and-set-the-ha-state-of-the-controller-module]]
 == Étape 2 : vérifier et définir l'état HA du module de contrôleur
 
 Vous devez vérifier le `HA` état du module de contrôleur et, si nécessaire, mettez à jour l'état pour qu'il corresponde à la configuration de votre système.

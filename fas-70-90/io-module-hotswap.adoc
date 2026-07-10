@@ -34,6 +34,7 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 
+[[step-1-ensure-the-storage-system-meets-the-procedure-requirements]]
 == Étape 1 : Assurez-vous que le système de stockage répond aux exigences de la procédure
 
 Pour utiliser cette procédure, votre système de stockage doit exécuter ONTAP 9.18.1 GA ou une version ultérieure, et votre système de stockage doit répondre à toutes les exigences.
@@ -68,6 +69,7 @@ Dans certaines situations, ONTAP peut automatiquement effectuer un basculement d
 
 
 
+[[step-2-prepare-the-storage-system-and-io-module-slot]]
 == Étape 2 : Préparez le système de stockage et l’emplacement du module d’E/S
 
 Préparez le système de stockage et l'emplacement du module d'E/S afin qu'il soit sûr de retirer le module d'E/S défectueux :
@@ -154,6 +156,7 @@ Le résultat doit afficher  `_powered-off_` dans la  `_status_` colonne pour le 
 
 
 
+[[step-3-replace-the-failed-io-module]]
 == Étape 3 : Remplacez le module d’I/O défectueux
 
 Remplacez le module d'E/S défectueux par un module d'E/S équivalent.
@@ -202,6 +205,7 @@ Notez bien dans quel emplacement se trouvait le module d'E/S.
 
 
 
+[[step-4-bring-the-replacement-io-module-online]]
 == Étape 4 : Mettez le module d’E/S de remplacement en ligne
 
 Mettez en ligne le module d'E/S de remplacement, vérifiez que les ports du module d'E/S ont été initialisés avec succès, vérifiez que l'emplacement est alimenté, puis vérifiez que le module d'E/S est en ligne et reconnu.
@@ -318,6 +322,7 @@ Slot slot Information
 
 
 
+[[step-5-restore-the-storage-system-to-normal-operation]]
 == Étape 5 : Restaurer le système de stockage à son fonctionnement normal
 
 Rétablissez le fonctionnement normal de votre système de stockage en restituant le stockage au contrôleur qui a été pris en charge (si nécessaire), en rétablissant la restitution automatique (si nécessaire), en vérifiant que les LIF sont sur leurs ports d'origine, et en réactivant la création automatique de dossiers AutoSupport.
@@ -363,6 +368,7 @@ Si des LIFs sont répertoriées comme faux, restaurez-les sur leurs ports de hom
 
 
 
+[[step-6-return-the-failed-part-to-netapp]]
 == Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

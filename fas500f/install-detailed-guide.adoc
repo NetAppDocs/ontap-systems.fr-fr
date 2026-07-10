@@ -15,6 +15,7 @@ Cette section fournit des instructions détaillées pour l'installation d'un sys
 
 
 
+[[step-1-prepare-for-installation]]
 == Étape 1 : préparer l'installation
 
 Pour installer votre système FAS500f, vous devez créer un compte et enregistrer le système. Vous devez également inventorier le nombre et le type de câbles appropriés pour votre système et collecter des informations réseau spécifiques.
@@ -138,6 +139,7 @@ Mise sous tension du système
 
 
 
+[[step-2-install-the-hardware]]
 == Étape 2 : installer le matériel de fixation
 
 Vous devez installer votre système sur un rack de 4 montants ou une armoire système NetApp, le cas échéant.
@@ -158,12 +160,14 @@ image::../media/drw_affa250_weight_caution.png[Précaution de levage pour deux p
 
 
 
+[[step-3-cable-controllers]]
 == Étape 3 : contrôleurs de câble
 
 Un câblage est nécessaire pour le cluster de votre plateforme via la méthode de cluster sans commutateur à deux nœuds ou la méthode de réseau d'interconnexion de cluster. Il existe un câblage en option vers les réseaux hôtes Fibre Channel ou iSCSI ou le stockage à connexion directe. Ce câblage n'est pas exclusif ; vous pouvez disposer d'un câble vers un réseau hôte et un espace de stockage.
 
 
 
+[[required-cabling-cable-controllers-to-a-cluster]]
 === Câblage requis : câblage des contrôleurs à un cluster
 
 Reliez les contrôleurs à un cluster en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
@@ -280,6 +284,7 @@ Pour terminer la configuration de votre système, reportez-vous à la section li
 
 
 
+[[optional-cabling-cable-configuration-dependent-options]]
 === Câblage en option : options dépendant de la configuration du câble
 
 Vous disposez d'un câblage en option dépendant de la configuration pour les réseaux hôtes Fibre Channel ou iSCSI ou pour le stockage à connexion directe. Ce câblage n'est pas exclusif ; vous pouvez disposer d'un câblage vers un réseau hôte et un stockage.
@@ -417,12 +422,14 @@ Pour terminer la configuration de votre système, reportez-vous à la section li
 
 
 
+[[step-4-complete-system-setup-and-configuration]]
 == Étape 4 : installation et configuration complètes du système
 
 Procédez à la configuration du système en utilisant la découverte du cluster uniquement avec une connexion au commutateur et à l'ordinateur portable, ou en vous connectant directement à un contrôleur du système, puis en vous connectant au commutateur de gestion.
 
 
 
+[[option-1-complete-system-setup-and-configuration-if-network-discovery-is-enabled]]
 === Option 1 : effectuez la configuration et l'installation du système si la détection du réseau est activée
 
 Si la détection réseau est activée sur votre ordinateur portable, vous pouvez effectuer l'installation et la configuration du système à l'aide de la détection automatique des clusters.
@@ -462,6 +469,7 @@ System Manager s'ouvre.
 
 
 
+[[option-2-complete-system-setup-and-configuration-if-network-discovery-is-not-enabled]]
 === Option 2 : effectuez la configuration et l'installation du système si la détection du réseau n'est pas activée
 
 Si la détection réseau n'est pas activée sur votre ordinateur portable, vous devez effectuer la configuration et la configuration à l'aide de cette tâche.

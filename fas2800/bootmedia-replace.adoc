@@ -17,6 +17,7 @@ Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, 
 
 
 
+[[step-1-remove-the-controller-module]]
 == Étape 1 : retirer le module de contrôleur
 
 .Étapes
@@ -47,6 +48,7 @@ Bouton de déverrouillage du capot du module de contrôleur
 |===
 
 
+[[step-2-replace-the-boot-media]]
 == Étape 2 : remplacer le support de démarrage
 
 Localisez le support de démarrage dans le module de contrôleur, situé sous la carte mezzanine et suivez les instructions pour le remplacer.
@@ -100,6 +102,7 @@ Vérifiez le support de démarrage pour vous assurer qu'il est correctement ins�
 
 
 
+[[step-3-transfer-the-boot-image-to-the-boot-media]]
 == Étape 3 : transférez l'image de démarrage sur le support de démarrage
 
 Installez l'image système sur le support de démarrage de remplacement à l'aide d'une clé USB sur laquelle l'image est installée. Vous devez restaurer le système de fichiers var au cours de cette procédure.

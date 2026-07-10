@@ -10,6 +10,7 @@ Vous devez remplacer le composant défectueux par un composant FRU de remplaceme
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 Arrêtez ou prenez le contrôleur défaillant en suivant la procédure appropriée pour votre configuration.
@@ -182,6 +183,7 @@ mcc1A::> metrocluster operation show
 ====
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
@@ -227,6 +229,7 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 
 
 
+[[step-3-replace-the-nvdimm]]
 == Étape 3 : remplacez le NVDIMM
 
 Pour remplacer le NVDIMM, vous devez le localiser dans le module de contrôleur à l'aide du plan des FRU situé sur le dessus du conduit d'air ou du plan des FRU situé sur le dessus de la carte de montage du logement 1.
@@ -301,6 +304,7 @@ NOTE: Inspectez visuellement le NVDIMM pour vérifier qu'il est bien aligné et 
 
 
 
+[[step-4-install-the-controller-module]]
 == Étape 4 : installer le module de contrôleur
 
 Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
@@ -345,6 +349,7 @@ Si votre système s'arrête au menu de démarrage, sélectionnez l'option de dé
 
 
 
+[[step-5-restore-the-controller-module-to-operation]]
 == Étape 5 : rétablir le fonctionnement du module de contrôleur
 
 Vous devez recâblage du système, remettre le module de contrôleur, puis réactiver le rétablissement automatique.
@@ -359,6 +364,7 @@ Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas 
 
 
 
+[[step-6-switch-back-aggregates-in-a-two-node-metrocluster-configuration]]
 == Étape 6 : retournez les agrégats via une configuration MetroCluster à deux nœuds
 
 Cette tâche s'applique uniquement aux configurations MetroCluster à deux nœuds.
@@ -415,6 +421,7 @@ Si un rétablissement prend beaucoup de temps, vous pouvez vérifier l'état des
 
 
 
+[[step-7-return-the-failed-part-to-netapp]]
 == Étape 7 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

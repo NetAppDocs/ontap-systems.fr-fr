@@ -65,6 +65,8 @@ image::../media/drw_dcm3_ieops-2176.svg[Vue de face d'une étagère de lecteur D
 
 
 
+[[step-1-prepare-to-replace-a-drive-drawer]]
+[[prepare_to_replace_drive_drawer]]
 == Étape 1 : Préparez-vous à remplacer un tiroir de lecteur
 
 Avant de remplacer un tiroir de disque, vous devez mettre à jour le micrologiciel IOM et ONTAP si nécessaire, puis arrêter la paire HA, ce qui vous permet de conserver les agrégats de données sur le tiroir, ou la maintenir opérationnelle, ce qui nécessite de déplacer toutes les données des agrégats de données résidant sur les disques. Vous devez ensuite mettre hors ligne et supprimer les agrégats de données. Cependant, si le tiroir contient un agrégat racine, vous devez arrêter la paire HA. Enfin, vous devez mettre le tiroir hors tension.
@@ -143,6 +145,8 @@ NOTE: Si des disques défectueux dans le tiroir, `broken` s'affiche dans le `Con
 
 
 
+[[step-2-remove-the-cable-chains]]
+[[remove_cable_chains]]
 == Étape 2 : Retirez les chaînes porte-câbles
 
 Les chaînes de câbles gauche et droite de chaque tiroir d'entraînement du DS460C permettent aux tiroirs de glisser vers l'intérieur et l'extérieur. Avant de pouvoir retirer un tiroir disque, vous devez retirer les deux chaînes de câble.
@@ -291,6 +295,7 @@ La figure montre que l'anneau orange du support horizontal est poussé vers le b
 
 
 
+[[step-3-remove-a-drive-drawer]]
 == Étape 3 : Retirer un tiroir de lecteur
 
 Après avoir retiré les chaînes de câbles droite et gauche, vous pouvez retirer le tiroir disque du tiroir. Le retrait d'un tiroir de lecteur implique le déplacement de la partie tiroir vers l'extérieur, le retrait des lecteurs et le retrait du tiroir.
@@ -346,6 +351,7 @@ image:../media/icon_round_1.png["Légende numéro 1"]
 
 
 
+[[step-4-install-a-drive-drawer]]
 == Étape 4 : Installer un tiroir de lecteur
 
 L'installation d'un tiroir disque dans un tiroir disque consiste à faire glisser le tiroir dans le slot vide, à installer les disques et à remettre en place le cadre avant.
@@ -442,6 +448,7 @@ NOTE: *Risque de dysfonctionnement de l'équipement:* Assurez-vous de fermer com
 
 
 
+[[step-5-attach-the-cable-chains]]
 == Étape 5 : Fixez les chaînes porte-câbles
 
 La dernière étape de la pose d'un tiroir de transmission consiste à fixer les chaînes de câbles gauche et droite de rechange à la tablette de transmission. Lors de la fixation d'une chaîne de câbles, inverser l'ordre utilisé lors du débranchement de la chaîne de câbles. Vous devez insérer le connecteur horizontal de la chaîne dans le support horizontal du boîtier avant d'insérer le connecteur vertical de la chaîne dans le support vertical du boîtier.

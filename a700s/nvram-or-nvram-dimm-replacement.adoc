@@ -29,6 +29,7 @@ Pour remplacer une carte NVRAM défectueuse, vous devez retirer la carte de mont
 
 
 
+[[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
 .Étapes
@@ -91,6 +92,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["Guide ON
 
 
 
+[[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
 Vous devez retirer le module de contrôleur du châssis lorsque vous remplacez le module de contrôleur ou remplacez un composant dans le module de contrôleur.
@@ -169,6 +171,7 @@ Conduit d'air
 
 
 
+[[step-3-remove-the-nvram-card]]
 == Étape 3 : retirez la carte NVRAM
 
 Le remplacement de la NVRAM consiste à retirer la carte de montage NVRAM, la carte Riser 1, du module de contrôleur, à déconnecter la batterie NVRAM de la carte NVRAM, à retirer la carte NVRAM défectueuse et à installer la carte NVRAM de rechange, puis à réinstaller la carte de montage NVRAM dans le module de contrôleur.
@@ -260,6 +263,7 @@ Lorsqu'il est verrouillé, le loquet de verrouillage est aligné avec le haut de
 
 
 
+[[step-4-reinstall-the-controller-module-and-booting-the-system]]
 == Étape 4 : réinstallez le module de contrôleur et démarrez le système
 
 Après avoir remplacé une FRU dans le module de contrôleur, vous devez réinstaller le module de contrôleur et le redémarrer.
@@ -300,6 +304,7 @@ Le module de contrôleur commence à démarrer dès que l'alimentation est réta
 
 
 
+[[step-5-verify-the-system-id-change-on-an-ha-system]]
 == Étape 5 : vérifier la modification de l'ID système sur un système HA
 
 Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.
@@ -382,6 +387,7 @@ Disk  Aggregate Home  Owner  DR Home  Home ID    Owner ID  DR Home ID Reserver  
 
 
 
+[[step-6-return-the-failed-part-to-netapp]]
 == Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

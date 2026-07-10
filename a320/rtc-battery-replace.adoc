@@ -19,6 +19,7 @@ Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de cont
 
 
 
+[[step-1-shut-down-the-controller]]
 == Étape 1 : arrêter le contrôleur
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
@@ -89,12 +90,14 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 
+[[step-2-replace-the-rtc-battery]]
 == Étape 2 : remplacer la batterie RTC
 
 Vous devez localiser la batterie RTC à l'intérieur du module de contrôleur, puis suivre la séquence spécifique des étapes.
 
 
 
+[[step-3-remove-the-controller-module]]
 == Étape 3 : retirez le module de contrôleur
 
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
@@ -127,6 +130,7 @@ Le crochet du mécanisme de verrouillage doit être presque vertical et doit êt
 
 
 
+[[step-4-replace-the-rtc-battery]]
 == Étape 4 : remplacer la batterie RTC
 
 image::../media/drw_a320_rtc_batt_replace_animated_gif.png[Remplacez la batterie RTC]
@@ -156,6 +160,7 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 
 
 
+[[step-5-reinstall-the-controller-module-and-setting-timedate-after-rtc-battery-replacement]]
 == Étape 5 : réinstaller le module de contrôleur et régler l'heure/la date après le remplacement de la batterie RTC
 
 Après avoir remplacé un composant dans le module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis du système, réinitialiser l'heure et la date sur le contrôleur, puis le démarrer.
@@ -208,6 +213,7 @@ Le module de contrôleur commence à démarrer dès qu'il est complètement ins�
 
 
 
+[[step-6-return-the-failed-part-to-netapp]]
 == Étape 6 : renvoyer la pièce défaillante à NetApp
 
 Retournez la pièce défectueuse à NetApp, tel que décrit dans les instructions RMA (retour de matériel) fournies avec le kit. Voir la https://mysupport.netapp.com/site/info/rma["Retour de pièces et remplacements"] page pour plus d'informations.

@@ -15,6 +15,7 @@ Poursuivez la procédure de remplacement en réétiquetage des condications de s
 
 
 
+[[step-1-recable-the-system]]
 == Étape 1 : recâblage du système
 
 Vous devez recosable les connexions réseau et de stockage du module de contrôleur.
@@ -36,6 +37,7 @@ NOTE: Les informations d'ID système et d'affectation de disque résident dans l
 
 
 
+[[step-2-reassign-disks]]
 == Étape 2 : réaffectation de disques
 
 Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Vous devez confirmer la modification de l'ID système lors du démarrage du _replace_ node, puis vérifier que la modification a été implémentée.

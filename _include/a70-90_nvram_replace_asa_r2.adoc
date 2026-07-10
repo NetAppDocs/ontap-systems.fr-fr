@@ -4,6 +4,9 @@
 
 Remplacez le module NVRAM ou les modules DIMM NVRAM à l’aide de l’option appropriée.
 
+
+WARNING: Le module NVRAM n'est pas remplaçable à chaud. Avant de le remplacer, réinsérez les disques, éteignez le nœud, débranchez l'alimentation du contrôleur et retirez le contrôleur de quelques centimètres du châssis.
+
 [role="tabbed-block"]
 ====
 .Option 1 : remplacez le module NVRAM
@@ -169,6 +172,7 @@ NOTE: Si vous disposez d’alimentations CC, reconnectez le bloc d’alimentatio
 ====
 
 
+[[step-3-verify-controller-state]]
 == Étape 3 : vérifiez l'état du contrôleur
 
 Vous devez confirmer l'état du contrôleur connecté au pool de disques au démarrage du contrôleur.

@@ -30,6 +30,7 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 
+[[step-1-shut-down-the-target-controller-module]]
 == Étape 1 : Arrêter le module de contrôleur cible
 
 Prenez le contrôle et arrêtez le module de contrôleur cible afin que sa paire haute disponibilité continue de fournir des données pendant l'ajout du module d'E/S. Les étapes liées font référence au contrôleur arrêté comme étant le contrôleur « défaillant » ; les mêmes étapes s'appliquent que vous preniez le contrôle d'un contrôleur opérationnel pour un ajout planifié ou que vous arrêtiez un contrôleur déjà défaillant.
@@ -176,6 +177,7 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 ====
 
 
+[[step-2-add-the-new-io-module]]
 == Étape 2 : ajoutez le nouveau module d'E/S.
 
 Si le système de stockage dispose de logements disponibles, installez le nouveau module d'E/S dans l'un des emplacements disponibles. Si tous les emplacements sont occupés, retirez un module d'E/S existant pour libérer de l'espace, puis installez le nouveau.

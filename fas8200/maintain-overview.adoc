@@ -15,60 +15,70 @@ Les procédures de maintenance des systèmes de stockage FAS8200 peuvent être e
 
 
 
+[[boot-media]]
 == Support de démarrage
 
 Le support de démarrage stocke un ensemble principal et secondaire de fichiers d'image de démarrage que le système utilise lorsqu'il démarre.
 
 
 
+[[caching-module]]
 == Module de cache
 
 Vous devez remplacer le module de cache du contrôleur lorsque votre système enregistre un seul message AutoSupport (ASUP) indiquant que le module est hors ligne.
 
 
 
+[[chassis]]
 == Châssis
 
 Le châssis correspond au boîtier physique qui contient tous les composants du contrôleur, tels que le contrôleur/l'unité centrale, l'alimentation et les E/S.
 
 
 
+[[controller]]
 == Contrôleur
 
 Un contrôleur se compose d'une carte, d'un micrologiciel et d'un logiciel. Il contrôle les entraînements et met en œuvre les fonctions ONTAP.
 
 
 
+[[dimm]]
 == DIMM
 
 Vous devez remplacer un module DIMM (module de mémoire double en ligne) en cas de non-concordance de mémoire, ou si vous avez un module DIMM défectueux.
 
 
 
+[[drive]]
 == Lecteur
 
 Un lecteur est un périphérique qui fournit le support de stockage physique pour les données.
 
 
 
+[[nvem-battery]]
 == Batterie NVEM
 
 Une batterie est fournie avec un contrôleur et conserve les données mises en cache en cas de panne de l'alimentation secteur.
 
 
 
+[[pcie-card]]
 == Carte PCIe
 
 Une carte PCIe (Peripheral Component Interconnect express) est une carte d'extension qui se branche dans le logement PCIe de la carte mère.
 
 
 
+[[power-supply]]
 == Alimentation électrique
 
 Une alimentation électrique fournit une source d'alimentation redondante dans un tiroir contrôleur.
 
 
 
+[[real-time-clock-battery]]
 == Batterie d'horloge en temps réel
 
 Une batterie d'horloge en temps réel conserve les informations relatives à la date et à l'heure du système si l'alimentation est coupée.

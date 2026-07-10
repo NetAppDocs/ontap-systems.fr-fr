@@ -15,6 +15,7 @@ Voici quelques spécifications sélectionnées pour l' AFF A70.  Visite https://
 
 
 
+[[key-specifications-for-aff-a70]]
 === Spécifications clés de AFF A70
 
 Configuration de la plateforme : paire de châssis simple HA AFF A70
@@ -33,6 +34,7 @@ Version minimale ONTAP : ONTAP 9.15.1RC2
 
 
 
+[[scaleout-maximums]]
 === Maximums de mise à l'échelle
 
 * NAS : 12 paires HA, capacité brute de 79,3 Po / 70,4 PiB, mémoire maximale de 3 072 Go
@@ -42,6 +44,7 @@ Version minimale ONTAP : ONTAP 9.15.1RC2
 
 
 
+[[io]]
 === IO
 
 
@@ -74,12 +77,14 @@ Aucune donnée IO embarquée.
 
 
 
+[[storage-networking-supported]]
 === Réseau de stockage pris en charge
 
 CIFS ; FC ; iSCSI ; NFS v3 ; NFS v4.0 ; NFS v4.1 ; NFS v4.2 ; NFSv3/RDMA ; NFSv4/RDMA ; NVMe/FC ; NVMe/TCP ; S3 ; S3 avec NAS ; SMB 2.0 ; SMB 2.1 ; SMB 2.x ; SMB 3.0 ; SMB 3.1 ; SMB 3.1.1 ;
 
 
 
+[[system-environment-specifications]]
 === Spécifications de l'environnement système
 
 * Puissance typique : 6938 BTU/h
@@ -95,6 +100,7 @@ CIFS ; FC ; iSCSI ; NFS v3 ; NFS v4.0 ; NFS v4.1 ; NFS v4.2 ; NFSv3/RDMA ; NFSv4
 
 
 
+[[compliance]]
 === Conformité
 
 * Certifications EMC/EMI : AMCA, FCC, ICES, KC, Maroc, VCCI
@@ -107,6 +113,7 @@ CIFS ; FC ; iSCSI ; NFS v3 ; NFS v4.0 ; NFS v4.1 ; NFS v4.2 ; NFSv3/RDMA ; NFSv4
 
 
 
+[[high-availability]]
 === Haute disponibilité
 
 Contrôleur de gestion de carte mère (BMC) basé sur Ethernet et interface de gestion ONTAP ; contrôleurs redondants remplaçables à chaud ; alimentations redondantes remplaçables à chaud ; gestion SAS en bande via des connexions SAS pour les étagères externes ; [//] 2025-10-15 ontap-systems-internal/issues/1357

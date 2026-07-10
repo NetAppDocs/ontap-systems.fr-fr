@@ -4,6 +4,7 @@
 
 
 
+[[about-this-task]]
 == Description de la tâche
 
 Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
@@ -14,6 +15,7 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 
+[[step-1-remove-the-controller]]
 == Étape 1 : retirer le contrôleur
 
 Vous devez retirer le contrôleur du châssis lorsque vous remplacez le contrôleur ou un composant à l'intérieur du contrôleur.
@@ -125,6 +127,7 @@ Si nécessaire, faites pivoter les poignées vers le haut (à côté des languet
 
 
 
+[[step-2-remove-the-caching-modules-from-the-impaired-chassis]]
 == Étape 2 : retirez les modules de cache du châssis défectueux
 
 Vous devez retirer les modules de cache et les caches de lecteur du châssis défectueux afin de pouvoir les installer ultérieurement dans le châssis de remplacement.
@@ -170,6 +173,7 @@ Lors de la dépose d'un module de cache, toujours utiliser deux mains pour soute
 
 
 
+[[step-3-replace-the-chassis-from-within-the-equipment-rack-or-system-cabinet]]
 == Étape 3 : remplacez le châssis à partir du rack d'équipement ou de l'armoire système
 
 Vous retirez le châssis défectueux du rack d'équipement ou de l'armoire système, installez le châssis de remplacement, installez les contrôleurs, installez les modules de cache et les caches de lecteur, puis installez le cadre.
@@ -189,6 +193,7 @@ NOTE: Si le système de stockage a été livré dans une armoire système NetApp
 
 
 
+[[step-4-install-the-controllers]]
 == Étape 4 : installer les contrôleurs
 
 Installez les contrôleurs dans le châssis de remplacement et redémarrez-les.
