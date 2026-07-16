@@ -90,13 +90,13 @@ image::../media/drw_a1k_switched_cluster_cabling_ieops-1652.svg[Reliez les conne
 
 Connectez les ports du module Ethernet à votre réseau hôte.
 
-Voici quelques exemples types de câblage réseau hôte. Reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour connaître la configuration spécifique de votre système.
+Voici quelques exemples typiques de câblage réseau hôte. Voir link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour la configuration spécifique de votre système.
 
 .Étapes
 . Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet.
 +
 
-NOTE: N'utilisez pas les ports e1b et e7b pour les connexions réseau hôte. Utilisez une carte hôte distincte.
+NOTE: N’utilisez pas les ports e1b et e7b pour les connexions réseau de l’hôte. Utilisez une carte hôte distincte.
 
 +
 *Câble 100 GbE*
@@ -147,7 +147,7 @@ Pour connaître le nombre maximum de tiroirs pris en charge par votre système d
 Pour obtenir des conseils supplémentaires sur le câblage des tiroirs SAS, reportez-vous à la section link:https://docs.netapp.com/us-en/ontap-systems/sas3/install-cabling-rules.html["Règles et concepts de câblage SAS - tiroirs avec modules IOM12/IOM12B"].
 
 .Description de la tâche
-Les systèmes de stockage FAS70 et FAS90 prennent en charge les étagères DS212C, DS224C, DS460C et NS224 avec le module NSM100 ou NSM100B.
+Les systèmes de stockage FAS70 et FAS90 prennent en charge les châssis DS212C, DS224C, DS460C et NS224 avec le module NSM100 ou NSM100B.
 
 Les principales différences entre les modules NS224 sont :
 
@@ -171,7 +171,7 @@ image::../media/oie_cable100_gbe_qsfp28.png[Câble en cuivre QSFP28 à 100 GbE]
 . Sur le contrôleur A, connecter les ports suivants :
 +
 .. Connectez le port e11a au port NSM A e0a.
-.. Connectez le port e11b au port NSM B e0b.
+.. Connectez le port e11b au port e0b du NSM B.
 +
 image:../media/drw_a1k_1shelf_cabling_a_ieops-1703.svg["Contrôleur A e11a et e11b vers un seul tiroir NS224"]
 
@@ -201,24 +201,24 @@ image::../media/oie_cable100_gbe_qsfp28.png[Câble en cuivre QSFP28 à 100 GbE]
 . Sur le contrôleur A, connecter les ports suivants :
 +
 .. Connectez le port e11a au port e0a NSM A du tiroir 1.
-.. Connectez le port e11b au port e0b du tiroir 2 NSM B.
-.. Connectez le port e10a au port e0a NSM A du tiroir 2.
 .. Connectez le port e10b au port e0b du NSM B de l'étagère 1.
-
-
+.. Connectez le port e10a au port e0a NSM A du tiroir 2.
+.. Connectez le port e11b au port e0b du tiroir 2 NSM B.
 +
 image:../media/drw_a1k_2shelf_cabling_a_ieops-1705.svg["Les ports e11a e11b e10a et e10b du contrôleur de câbles A sont destinés à deux étagères NS224"]
+
+
 
 . Sur le contrôleur B, connecter les ports suivants :
 +
 .. Connectez le port e11a au port e0a NSM B du tiroir 1.
-.. Connectez le port e11b au port e0b du tiroir 2 NSM A.
-.. Connectez le port e10a au port e0a NSM B du tiroir 2.
 .. Connectez le port e10b au port e0b du tiroir 1 NSM A.
-
-
+.. Connectez le port e10a au port e0a NSM B du tiroir 2.
+.. Connectez le port e11b au port e0b du tiroir 2 NSM A.
 +
 image:../media/drw_a1k_2shelf_cabling_b_ieops-1706.svg["Les ports e11a e11b e10a et e10b du contrôleur de câbles B sont destinés à deux étagères NS224"]
+
+
 
 
 

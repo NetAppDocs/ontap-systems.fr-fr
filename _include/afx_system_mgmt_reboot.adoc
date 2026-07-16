@@ -1,0 +1,51 @@
+= 
+:allow-uri-read: 
+
+
+Après avoir remplacé le module de gestion du système, redémarrez le contrôleur pour rétablir le fonctionnement normal de la paire haute disponibilité. Vous devez mettre le contrôleur sous tension, effectuer une restauration partielle pour rétablir l’agrégat racine, puis effectuer une restauration complète pour remettre en service le contrôleur défaillant.
+
+.Étapes
+. Rebranchez les câbles d’alimentation sur le bloc d’alimentation.
++
+Le système redémarre, généralement à l'invite LOADER.
+
+. Entrez _bye_ à l'invite du CHARGEUR.
+. Appuyez sur <enter> lorsque les messages de la console s'arrêtent.
++
+** Si vous voyez l’invite _login_, passez à l’étape suivante.
+** Si vous ne voyez pas l’invite de connexion, connectez-vous au nœud partenaire.
+
+
+. Renvoyer uniquement la racine avec l'option override-destination-checks :
++
+`storage failover giveback -ofnode impaired-node -only-root true -override -destination-checks true`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.  Pour plus d'informations sur les niveaux de privilège, voirlink:https://docs.netapp.com/us-en/ontap/system-admin/administrative-privilege-levels-concept.html["Comprendre les niveaux de privilèges pour les commandes CLI ONTAP"^] .
+
++
+Si vous rencontrez des erreurs, contactez https://support.netapp.com["Support NetApp"].
+
+. Attendez 5 minutes après la fin du rapport de retour, puis vérifiez les statuts de basculement et de retour :
++
+`storage failover show`et `storage failover show-giveback`
+
++
+
+NOTE: La commande suivante n’est disponible que dans le niveau de privilège du mode Diagnostic.
+
+. Si les liaisons d'interconnexion haute disponibilité ont été interrompues, rétablissez-les :
++
+`system ha interconnect link on -node healthy-node -link 0`
+
++
+`system ha interconnect link on -node healthy-node -link 1`
+
+. Remettre le contrôleur défectueux en fonctionnement normal en réutilisant son espace de stockage :
++
+`storage failover giveback -ofnode _impaired_node_name_`
+
+. Si le retour automatique a été désactivé, réactivez-le : `storage failover modify -node local -auto-giveback-of true` .
+. Si AutoSupport est activé, restaurer/annuler la suppression automatique de la création de cas : `system node autosupport invoke -node * -type all -message MAINT=END`.
+

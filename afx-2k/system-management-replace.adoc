@@ -13,7 +13,7 @@ summary: 'Remplacez le module de gestion système de votre système de stockage 
 [role="lead"]
 Remplacez le module de gestion système de votre système de stockage AFX 2K lorsqu'il est défectueux ou que son micrologiciel est corrompu. La procédure de remplacement comprend l'arrêt du contrôleur, le remplacement du module de gestion système défectueux, le redémarrage du contrôleur, la mise à jour des clés de licence et le renvoi de la pièce défectueuse à NetApp.
 
-Le module de gestion du système, situé à l'arrière du contrôleur à gauche de l'emplacement 8, contient des composants embarqués pour la gestion du système, ainsi que des ports pour la gestion externe.  Le contrôleur cible doit être arrêté et mis hors tension pour remplacer un module de gestion système défectueux ou pour remplacer le support de démarrage.
+Le module de gestion système, situé à l'arrière du contrôleur, à gauche de l'emplacement 8, intègre des composants pour la gestion du système ainsi que des ports pour la gestion externe. Le contrôleur cible doit être arrêté et mis hors tension pour remplacer un module de gestion système défectueux ou remplacer le support de démarrage.
 
 Le module de gestion du système comprend les composants intégrés suivants :
 
@@ -47,8 +47,6 @@ Cette procédure utilise la terminologie suivante :
 
 [[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
-
-Arrêtez ou prenez le contrôle du contrôleur défectueux.
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
 
@@ -106,12 +104,13 @@ Le paramètre _-halt true_ amène le nœud altéré à l'invite LOADER.
 [[step-2-replace-the-impaired-system-management-module]]
 == Étape 2 : remplacez le module de gestion du système défectueux
 
-Remplacez le module de gestion du système défectueux.
+Le module de gestion du système contient le support de démarrage et assure les fonctions de gestion du système. Vous devez retirer le module de gestion du système défectueux, transférer le support de démarrage sur le module de remplacement et réinstaller le module de remplacement dans le boîtier.
 
+.Étapes
 . Retirez le module de gestion du système :
 +
 
-NOTE: Assurez-vous que le déchargement de la NVRAM est terminé avant de continuer. Lorsque le voyant du module NV est éteint, le NVRAM est déchargé. Si le voyant clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
+NOTE: Assurez-vous que la désactivation de la NVRAM est terminée avant de continuer. Lorsque la LED du module NV est éteinte, la NVRAM est désactivée. Si la LED clignote, attendez que le clignotement cesse. Si le clignotement persiste pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
 
 +
 image::../media/drw_afx_2k_sys_mgmt_remove_replace_ieops-2880.svg[Remplacez le module de gestion du système]
@@ -194,8 +193,9 @@ Support de démarrage
 [[step-3-reboot-the-controller-module]]
 == Étape 3 : redémarrez le module de contrôleur
 
-Redémarrez le module contrôleur.
+Après avoir remplacé le module de gestion du système, redémarrez le contrôleur pour rétablir le fonctionnement normal de la paire haute disponibilité. Vous devez mettre le contrôleur sous tension, effectuer une restauration partielle pour rétablir l’agrégat racine, puis effectuer une restauration complète pour remettre en service le contrôleur défaillant.
 
+.Étapes
 . Rebranchez les câbles d’alimentation sur le bloc d’alimentation.
 +
 Le système redémarre, généralement à l'invite LOADER.
