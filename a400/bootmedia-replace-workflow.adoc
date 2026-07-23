@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: aff a400, replace the boot media 
 summary: 'Commencez à remplacer le support de démarrage de votre système de stockage AFF A400 en examinant les exigences de remplacement, en vérifiant l"état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l"image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.' 
 ---
-= Workflow de récupération manuelle du support de démarrage - AFF A400
+= Flux de travail de remplacement du support de démarrage AFF A400 utilisant la procédure de récupération de démarrage manuelle
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage sur le nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement dans votre système de stockage AFF A400 .
+Commencez à remplacer le support de démarrage de votre système AFF A400 en utilisant le processus de récupération manuelle au démarrage. Vous devez télécharger l'image de récupération ONTAP appropriée depuis le site de support NetApp et la copier sur une clé USB pour effectuer la récupération et restaurer le système à son état opérationnel.
 
 La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
 

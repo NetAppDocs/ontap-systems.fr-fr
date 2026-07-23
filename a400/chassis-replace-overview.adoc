@@ -2,19 +2,25 @@
 permalink: a400/chassis-replace-overview.html 
 sidebar: sidebar 
 keywords: aff a400, aff, a400, component, system, function, properly, contact, technical, support, replace, chassis, shut, down, controller, replacing, remove, module, fan, equipment, rack, cabinet, ha, state, switch, back, aggregate, two-node, metrocluster, configuration, complete, replacement, process, replace the chassis, shut down the controllers when replacing a chassis, remove the controller modules, move the fans, replace a chassis from within the equipment rack or system cabinet, install the controller modules, verify and set the ha state of the chassis, switch back aggregates in a two-node metrocluster configuration, complete the replacement process 
-summary: Vous remplacez un châssis endommagé le nouveau châssis du même modèle que le châssis endommagé. 
+summary: Commencez à remplacer le châssis de votre système AFF A400 en éteignant les contrôleurs, en déplaçant le matériel vers le châssis de remplacement et en terminant la restauration du système. 
 ---
-= Présentation du remplacement de châssis - AFF A400
+= Flux de travail de remplacement du châssis AFF A400
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour remplacer le châssis, vous devez déplacer les ventilateurs et les modules de contrôleur du châssis endommagé vers le nouveau châssis du même modèle que le châssis endommagé.
+Commencez à remplacer le châssis de votre système AFF A400 en éteignant les contrôleurs, en déplaçant le matériel vers le châssis de remplacement et en terminant la restauration du système.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:chassis-replace-shutdown.html["Arrêtez les contrôleurs"]
+[role="quick-margin-para"]
+Mettez les contrôleurs hors tension pour effectuer la maintenance du châssis en toute sécurité.
 
-* Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système.
-* Cette procédure est perturbatrice. Dans le cas d'un cluster à deux nœuds, vous aurez une panne complète du service et une interruption partielle dans un cluster multinœud.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:chassis-replace-move-hardware.html["Remplacez le châssis"]
+[role="quick-margin-para"]
+Transférez les ventilateurs, les disques et les modules de contrôleur du châssis défectueux vers le châssis de remplacement.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:chassis-replace-complete-system-restore-rma.html["Terminez le remplacement du châssis"]
+[role="quick-margin-para"]
+Terminez le remplacement en vérifiant l'état HA, en rétablissant les agrégats si nécessaire et en renvoyant le châssis défaillant à NetApp.
