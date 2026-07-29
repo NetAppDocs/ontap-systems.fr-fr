@@ -22,14 +22,12 @@ Pour remplacer une carte PCIe ou mezzanine, déconnectez les câbles et tous les
 [[step-1-shut-down-the-impaired-controller]]
 == Étape 1 : arrêtez le contrôleur défaillant
 
-[role="lead"]
 Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différentes procédures, en fonction de la configuration matérielle du système de stockage.
 
 [role="tabbed-block"]
 ====
 .Option 1 : plupart des configurations
 --
-[role="lead"]
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
 
 .Description de la tâche
@@ -99,7 +97,6 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 --
 .Option 2 : le contrôleur est intégré à un MetroCluster à deux nœuds
 --
-[role="lead"]
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 
 .Description de la tâche
@@ -198,9 +195,9 @@ mcc1A::> metrocluster operation show
 [[step-2-remove-the-controller-module]]
 == Étape 2 : retirer le module de contrôleur
 
-[role="lead"]
 Pour accéder aux composants à l'intérieur du module de contrôleur, vous devez retirer le module de contrôleur du châssis.
 
+.Étapes
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Libérez les dispositifs de retenue du câble d'alimentation, puis débranchez les câbles des blocs d'alimentation.
 . Desserrez le crochet et la bride de boucle qui relient les câbles au périphérique de gestion des câbles, puis débranchez les câbles système et les SFP (si nécessaire) du module de contrôleur, en maintenant une trace de l'emplacement où les câbles ont été connectés.
@@ -245,7 +242,6 @@ Assurez-vous de prendre en charge la partie inférieure du module de contrôleur
 [[step-3-replace-a-pcie-card]]
 == Étape 3 : remplacer une carte PCIe
 
-[role="lead"]
 Pour remplacer une carte PCIe, vous devez localiser la carte PCIe défectueuse, retirer la carte de montage qui contient la carte du module de contrôleur, remplacer la carte, puis réinstaller la carte de montage PCIe dans le module de contrôleur.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer une carte PCIe.
@@ -285,6 +281,7 @@ image:../media/icon_round_4.png["Numéro de légende 4"]
 Carte PCI
 
 |===
+.Étapes
 . Retirez la carte de montage contenant la carte à remplacer :
 +
 .. Ouvrez le conduit d'air en appuyant sur les pattes de verrouillage situées sur les côtés du conduit d'air, faites-le glisser vers l'arrière du module de contrôleur, puis faites-le tourner jusqu'à sa position complètement ouverte.
@@ -326,7 +323,6 @@ NOTE: Si vous installez une carte dans le logement inférieur et que vous ne voy
 [[step-4-replace-the-mezzanine-card]]
 == Étape 4 : remplacer la carte mezzanine
 
-[role="lead"]
 La carte mezzanine se trouve sous la carte de montage numéro 3 (logements 4 et 5). Vous devez retirer cette carte de montage pour accéder à la carte mezzanine, remplacer la carte mezzanine, puis réinstaller le numéro de montage 3. Voir le mappage des FRU sur le module de contrôleur pour plus d'informations.
 
 Vous pouvez utiliser l'animation, l'illustration ou les étapes écrites suivantes pour remplacer la carte mezzanine.
@@ -359,6 +355,7 @@ image:../media/icon_round_3.png["Numéro de légende 3"]
 Carte de montage
 
 |===
+.Étapes
 . Retirez la carte de montage numéro 3 (emplacements 4 et 5) :
 +
 .. Ouvrez le conduit d'air en appuyant sur les pattes de verrouillage situées sur les côtés du conduit d'air, faites-le glisser vers l'arrière du module de contrôleur, puis faites-le tourner jusqu'à sa position complètement ouverte.
@@ -398,6 +395,7 @@ NOTE: Serrez complètement les vis moletées de la carte mezzanine. Si elles son
 
 Après avoir remplacé le composant du module de contrôleur, vous devez réinstaller le module de contrôleur dans le châssis, puis le démarrer en mode Maintenance.
 
+.Étapes
 . Si ce n'est déjà fait, fermer le conduit d'air.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
@@ -443,6 +441,7 @@ NOTE: Si votre système s'arrête au menu de démarrage, sélectionnez l'option 
 
 Pour restaurer le contrôleur, vous devez refaire le système, remettre le module de contrôleur, puis réactiver le rétablissement automatique.
 
+.Étapes
 . Recâblage du système, selon les besoins.
 +
 Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas de les réinstaller si vous utilisez des câbles à fibre optique.
