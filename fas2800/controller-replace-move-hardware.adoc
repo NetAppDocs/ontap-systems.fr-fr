@@ -1,17 +1,17 @@
 ---
 permalink: fas2800/controller-replace-move-hardware.html 
 sidebar: sidebar 
-keywords: fas2800, move the controller module hardware 
-summary: Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance. 
+keywords: fas2820, move the controller module hardware 
+summary: Dans votre système FAS2820, remplacez le matériel du module de contrôleur défectueux en retirant le contrôleur défectueux, en déplaçant les composants FRU vers le module de contrôleur de remplacement, en installant le module de contrôleur de remplacement dans le châssis, puis en démarrant le module de contrôleur de remplacement. 
 ---
-= Remplacez le matériel du module de contrôleur - FAS2820
+= Remplacez le contrôleur dans votre système FAS2820
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Remplacez le matériel défectueux du module de contrôleur en retirant le contrôleur défectueux, en déplaçant les composants FRU vers le module de contrôleur de remplacement, en installant le module de contrôleur de remplacement dans le châssis, puis en amorçant le module de contrôleur de remplacement.
+Dans votre système FAS2820, remplacez le matériel du module de contrôleur défectueux en retirant le contrôleur défectueux, en déplaçant les composants FRU vers le module de contrôleur de remplacement, en installant le module de contrôleur de remplacement dans le châssis, puis en démarrant le module de contrôleur de remplacement.
 
 .Animation - remplacer un module de contrôleur
 video::c83a3301-3161-4d65-86e8-af540147576a[panopto]
@@ -88,11 +88,11 @@ Fiche mâle batterie NVMEM
 
 . Déplacez la batterie vers le module de contrôleur de remplacement et installez-la :
 +
-.. Alignement de la batterie avec les supports de fixation sur la paroi latérale en tôle.
+.. Alignez la batterie avec les supports de fixation de la paroi latérale en tôle.
 .. Faites glisser la batterie vers le bas jusqu'à ce que le loquet de la batterie s'enclenche et s'enclenche dans l'ouverture de la paroi latérale.
 +
 
-NOTE: Ne branchez pas encore la batterie.  Vous le branchez une fois que les autres composants sont déplacés vers le module de contrôleur de remplacement.
+NOTE: Ne branchez pas encore la batterie. Vous la brancherez une fois que tous les autres composants auront été transférés dans le module de commande de remplacement.
 
 
 
@@ -165,7 +165,7 @@ NOTE: Ne faites pas tourner ou tirer le support de démarrage directement vers l
 
 
 
-. Installez le support de démarrage sur le module de contrôleur de remplacement :
+. Installez le support de démarrage sur le module de contrôleur de remplacement :
 +
 .. Alignez les bords du support de démarrage de remplacement avec le support de démarrage, puis poussez-le doucement dans le support.
 .. Vérifiez le support de démarrage pour vous assurer qu'il est bien en place dans le support.
@@ -243,7 +243,7 @@ NOTE: Tenez soigneusement le module DIMM par les bords pour éviter toute pressi
 +
 .. Poussez délicatement, mais fermement, sur le bord supérieur du module DIMM jusqu'à ce que les languettes de l'éjecteur s'enclenchent sur les encoches situées aux extrémités du module DIMM.
 +
-Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
+La barrette DIMM s'insère fermement dans son emplacement, mais devrait s'y glisser facilement. Si ce n'est pas le cas, réalignez la barrette DIMM avec l'emplacement et réinsérez-la.
 
 +
 
@@ -259,7 +259,7 @@ NOTE: Inspectez visuellement le module DIMM pour vérifier qu'il est bien align�
 [[step-7-move-a-caching-module]]
 == Étape 7 : déplacer un module de cache
 
-Retirez le module de cache du module de contrôleur défectueux installez-le dans le module de contrôleur de remplacement.
+Retirez le module de cache du module de contrôleur défectueux et installez-le dans le module de contrôleur de remplacement.
 
 image::../media/drw_2850_replace_caching module_IEOPS-697.svg[Déplacer le module de mise en cache]
 
@@ -311,7 +311,7 @@ Installez la batterie NV dans le module de contrôleur de remplacement.
 +
 Assurez-vous que la fiche se verrouille dans la prise batterie de la carte mère.
 
-. Alignement de la batterie avec les supports de fixation sur la paroi latérale en tôle.
+. Alignez la batterie avec les supports de fixation de la paroi latérale en tôle.
 . Faites glisser la batterie vers le bas jusqu'à ce que le loquet de la batterie s'enclenche et s'enclenche dans l'ouverture de la paroi latérale.
 . Réinstallez le capot du module de contrôleur et verrouillez-le en place.
 
@@ -328,7 +328,7 @@ NOTE: Le système peut mettre à jour le firmware du système lors de son démar
 
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
 . Si vous ne l'avez pas encore fait, remettez le capot sur le module de contrôleur.
-. Tournez le module de contrôleur.
+. Retournez le module de commande.
 . Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
 

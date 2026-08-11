@@ -4,18 +4,18 @@ sidebar: sidebar
 keywords: fas9500, add io module 
 summary: 'Vous pouvez ajouter un module d"E/S à votre système, soit en remplaçant un module d"E/S existant par un nouveau module d"E/S dans un système entièrement rempli, soit en ajoutant un nouveau module d"E/S dans un emplacement vide du châssis.' 
 ---
-= Ajout d'un module d'E/S - FAS9500
+= Ajoutez un module d'E/S à votre système FAS9500
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez ajouter un module d'E/S à votre système en remplaçant une carte réseau ou une carte de stockage par une nouvelle carte dans un système entièrement rempli, ou en ajoutant une nouvelle carte réseau ou un adaptateur de stockage dans un logement de châssis vide du système.
+Vous pouvez ajouter un module d'E/S à votre système FAS9500 soit en remplaçant une carte réseau ou un adaptateur de stockage par un nouveau dans un système entièrement équipé, soit en ajoutant une nouvelle carte réseau ou un nouvel adaptateur de stockage dans un emplacement de châssis vide.
 
 .Avant de commencer
 * Vérifier le https://hwu.netapp.com/["NetApp Hardware Universe"] Pour vérifier que le nouveau module d'E/S est compatible avec votre système et la version de ONTAP que vous utilisez.
-* Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans https://hwu.netapp.com/["NetApp Hardware Universe"] Et utiliser la meilleure solution disponible pour votre module d'E/S.
+* Si plusieurs emplacements sont disponibles, vérifiez les priorités des emplacements dans https://hwu.netapp.com/["NetApp Hardware Universe"] et utilisez le meilleur disponible pour votre module d'E/S.
 * Pour ajouter un module d'E/S sans interruption, vous devez reprendre le contrôleur cible, retirer l'obturateur de logement dans le slot cible ou retirer un module d'E/S existant, ajouter le nouveau ou le module d'E/S de remplacement, puis renvoyer le contrôleur cible.
 * S'assurer que tous les autres composants fonctionnent correctement.
 
@@ -184,7 +184,7 @@ Vous pouvez ajouter un nouveau module d'E/S dans un système de stockage avec de
 . Si le module d'E/S de remplacement est une carte réseau, branchez-le sur les commutateurs de données.
 +
 
-NOTE: Assurez-vous que des espaces vides sont installés dans les emplacements d'E/S inutilisés afin d'éviter tout problème thermique.
+NOTE: Veillez à installer des caches dans tous les emplacements d'E/S inutilisés afin d'éviter d'éventuels problèmes thermiques.
 
 . Redémarrez le contrôleur à partir de l'invite DU CHARGEUR : _bye_
 +
@@ -193,7 +193,7 @@ NOTE: Cette opération réinitialise les cartes PCIe et les autres composants et
 
 . Renvoyer le nœud à partir du nœud partenaire. `storage failover giveback -ofnode target_node_name`
 . Activer le rétablissement automatique si elle a été désactivée : `storage failover modify -node local -auto-giveback true`
-. Si vous utilisez des connecteurs 3 et/ou 7 pour la mise en réseau, utilisez le `storage port modify -node __<node name>__ -port __<port name>__ -mode network` commande permettant de convertir le logement pour une utilisation en réseau.
+. Si vous utilisez l'emplacement 3 ou 7 pour la mise en réseau, utilisez la commande  `storage port modify -node __<node name>__ -port __<port name>__ -mode network` pour convertir l'emplacement pour une utilisation réseau.
 . Répétez ces étapes pour le contrôleur B.
 . Si vous avez installé un module d'E/S de stockage, installez et câblez vos tiroirs SAS, comme décrit à la section link:../sas3/install-hot-add-shelf.html["Ajout à chaud d'un tiroir SAS"].
 
@@ -214,7 +214,7 @@ Veillez à bien comprendre les scénarios suivants pour ajouter un nouveau modul
  a| 
 NIC à NIC (même nombre de ports)
  a| 
-Les LIF migrent automatiquement lorsque son module de contrôleur est arrêté.
+Les LIF migrent automatiquement lorsque le module de contrôleur est arrêté.
 
 
 

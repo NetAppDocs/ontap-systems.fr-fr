@@ -4,16 +4,16 @@ sidebar: sidebar
 keywords: fas8300, fas8700, replace, dimm, shut, down, impaired, controller, module, reinstall,  system, controller, aggregates, metrocluster, replacement 
 summary: 'Vous devez remplacer une barrette DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles qu"un nombre excessif de codes de correction d"erreurs corrigibles ou des erreurs non corrigibles, généralement causées par la défaillance d"une seule barrette DIMM empêchant le système de stockage de démarrer ONTAP.' 
 ---
-= Remplacez un module DIMM - FAS8300 et FAS8700
+= Remplacez une barrette DIMM dans votre système FAS8300 ou FAS8700 pour corriger les erreurs de mémoire
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous devez remplacer un module DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles que des erreurs CECC (Correctable Error correction codes) excessives qui sont basées sur des alertes du moniteur d'intégrité ou des erreurs ECC incorrigibles, généralement causées par une panne de module DIMM unique empêchant le système de stockage de démarrer ONTAP.
+Vous devez remplacer une barrette DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles qu'un nombre excessif d'erreurs CECC (Correctable Error Correction Code) signalées par la vérification de l'état, ou des erreurs ECC non corrigibles. Ces erreurs sont généralement dues à la défaillance d'une seule barrette DIMM, ce qui empêche le système de stockage de démarrer ONTAP.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+Tous les autres composants du système doivent fonctionner correctement. Si un composant ne fonctionne pas correctement, vous devez contacter le support technique.
 
 Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
@@ -238,7 +238,7 @@ NOTE: L'animation et l'illustration montrent des emplacements vides pour les soc
 video::175c6597-449e-4dc8-8c02-aad9012f08b5[panopto]
 image::../media/drw_A400_Replace-NVDIMM-DIMM.png[Déplacement des modules DIMM]
 
-Le nombre et l'emplacement DES MODULES DIMM de votre système dépendent du modèle de votre système. Se référer au schéma des FRU sur le conduit d'air pour plus d'informations.
+Le nombre et l'emplacement des modules DIMM dans votre système dépendent du modèle de votre système. Consultez la carte FRU sur le conduit d'air pour plus d'informations.
 
 * Si vous disposez d'un système FAS8300, les modules DIMM système se trouvent dans les connecteurs 2, 4, 13 et 15.
 * Si vous possédez un système FAS8700, les modules DIMM système se trouvent dans les emplacements 2, 4, 7, 9, 13, 15, 18 et 20.
@@ -265,7 +265,7 @@ L'encoche entre les broches du DIMM doit être alignée avec la languette du sup
 
 . Assurez-vous que les languettes de l'éjecteur de DIMM sur le connecteur sont en position ouverte, puis insérez le module DIMM directement dans le logement.
 +
-Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
+La barrette DIMM s'insère fermement dans son emplacement, mais devrait s'y glisser facilement. Si ce n'est pas le cas, réalignez la barrette DIMM avec l'emplacement et réinsérez-la.
 
 +
 
@@ -298,11 +298,11 @@ NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tan
 . Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
 +
 
-NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus tard dans cette procédure.
 
 . Terminez l'installation du module de contrôleur :
 +
-.. A l'aide des loquets de verrouillage, poussez fermement le module de contrôleur dans le châssis jusqu'à ce que les loquets de verrouillage commencent à se relever.
+.. Enfoncez fermement le module de commande dans le châssis à l'aide des loquets de verrouillage jusqu'à ce que ces derniers commencent à se soulever.
 +
 
 NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.

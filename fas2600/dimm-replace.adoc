@@ -2,18 +2,18 @@
 permalink: fas2600/dimm-replace.html 
 sidebar: sidebar 
 keywords: fas2600, replace dimm 
-summary: 'Vous devez remplacer une barrette DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles que des erreurs excessives de codes de correction d"erreurs corrigibles basées sur des alertes du Health Monitor ou des erreurs ECC non corrigibles, généralement causées par une seule défaillance de barrette DIMM empêchant le système de stockage de démarrer ONTAP.' 
+summary: 'Remplacez une barrette DIMM de votre système FAS2600 lorsque le système de stockage rencontre un nombre excessif d"erreurs ECC corrigibles d"après les alertes du Health Monitor, ou des erreurs ECC non corrigibles causées par une seule défaillance de barrette DIMM empêchant le système de démarrer ONTAP.' 
 ---
-= Remplacement d'un module DIMM - FAS2600
+= Remplacez une barrette DIMM dans votre système FAS2600 pour corriger les erreurs de mémoire
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous devez remplacer un module DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles que des erreurs CECC (Correctable Error correction codes) excessives qui sont basées sur des alertes du moniteur d'intégrité ou des erreurs ECC incorrigibles, généralement causées par une panne de module DIMM unique empêchant le système de stockage de démarrer ONTAP.
+Remplacez une barrette DIMM de votre système FAS2600 lorsque le système de stockage rencontre un nombre excessif d’erreurs CECC (Correctable Error Correction Codes) sur la base des alertes du Health Monitor, ou des erreurs ECC non corrigibles, généralement causées par une seule défaillance de barrette DIMM empêchant le système de stockage de démarrer ONTAP.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+Si un autre composant ne fonctionne pas correctement, contactez le support technique.
 
 Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
@@ -154,7 +154,7 @@ L'encoche entre les broches du DIMM doit être alignée avec la languette du sup
 
 . Assurez-vous que les languettes de l'éjecteur de DIMM sur le connecteur sont en position ouverte, puis insérez le module DIMM directement dans le logement.
 +
-Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
+La barrette DIMM s'insère fermement dans son emplacement, mais devrait s'y glisser facilement. Si ce n'est pas le cas, réalignez la barrette DIMM avec l'emplacement et réinsérez-la.
 
 +
 

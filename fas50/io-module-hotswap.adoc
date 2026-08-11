@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas50, hot swap a cluster ha card, hot swap ethernet client io module, hotswap io module, hot swap io module 
 summary: 'Vous pouvez remplacer à chaud un module d"E/S Ethernet dans votre système de stockage FAS50 si un module tombe en panne et si votre système de stockage répond à toutes les exigences de version ONTAP.' 
 ---
-= Remplacer à chaud un module d'E/S - FAS50
+= Remplacez à chaud un module d'E/S dans votre système FAS50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,7 @@ summary: 'Vous pouvez remplacer à chaud un module d"E/S Ethernet dans votre sys
 [role="lead"]
 Vous pouvez remplacer à chaud un module d'E/S Ethernet dans votre système de stockage FAS50 si un module tombe en panne et si votre système de stockage répond à toutes les exigences de version ONTAP.
 
-Pour remplacer à chaud un module d'E/S, assurez-vous que votre système de stockage répond aux exigences de version ONTAP, préparez votre système de stockage et le module d'E/S, remplacez à chaud le module défaillant, mettez le module de remplacement en ligne, rétablissez le fonctionnement normal du système de stockage et retournez le module défaillant à NetApp.
+Pour remplacer à chaud un module d'E/S, vérifiez que votre système de stockage répond aux exigences de version ONTAP, préparez votre système de stockage et votre module d'E/S, remplacez à chaud le module défaillant, mettez le module de remplacement en ligne, rétablissez le fonctionnement normal du système de stockage et retournez le module défaillant à NetApp.
 
 .Description de la tâche
 * Le hot swap du module d'E/S signifie que vous n'avez pas besoin d'effectuer un basculement automatique avant de remplacer le module d'E/S défectueux.
@@ -34,8 +34,8 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 
 
 
-[[step-1-ensure-the-storage-system-meets-the-procedure-requirements]]
-== Étape 1 : Assurez-vous que le système de stockage répond aux exigences de la procédure
+[[step-1-verify-the-storage-system-meets-the-procedure-requirements]]
+== Étape 1 : Vérifiez que le système de stockage répond aux exigences de la procédure
 
 Pour utiliser cette procédure, votre système de stockage doit exécuter ONTAP 9.17.1 ou une version ultérieure, et votre système de stockage doit répondre à toutes les exigences de la version de ONTAP que votre système de stockage exécute.
 

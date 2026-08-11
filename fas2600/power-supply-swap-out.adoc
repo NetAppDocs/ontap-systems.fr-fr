@@ -2,24 +2,24 @@
 permalink: fas2600/power-supply-swap-out.html 
 sidebar: sidebar 
 keywords: fas2600, power supply replacement 
-summary: 'Le remplacement d"un bloc d"alimentation implique la mise hors tension, le débranchement et le retrait de l"ancien bloc d"alimentation, ainsi que l"installation, la connexion et l"activation du bloc d"alimentation de remplacement.' 
+summary: 'Remplacez à chaud l"alimentation de votre système FAS2600 en éteignant, en déconnectant et en retirant l"unité défectueuse, puis en installant et en reconnectant l"unité de remplacement.' 
 ---
-= Remplacez l'alimentation par un bloc d'alimentation - FAS2600
+= Remplacez à chaud l'alimentation de votre système FAS2600
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le remplacement d'un bloc d'alimentation implique la mise hors tension, le débranchement et le retrait de l'ancien bloc d'alimentation, ainsi que l'installation, la connexion et l'activation du bloc d'alimentation de remplacement.
+Remplacez à chaud l'alimentation de votre système FAS2600 en éteignant, déconnectant et retirant l'ancienne alimentation, puis en installant, connectant et allumant la nouvelle alimentation.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+Si d'autres composants du système ne fonctionnent pas correctement, contactez le support technique.
 
 * Les blocs d'alimentation sont redondants et échangeables à chaud.
 * Cette procédure permet de remplacer une alimentation à la fois.
 +
 
-NOTE: Le refroidissement est intégré au bloc d'alimentation. Vous devez donc remplacer le bloc d'alimentation dans les deux minutes qui suivent le retrait afin d'éviter toute surchauffe due à une réduction du débit d'air. Le châssis offre une configuration de refroidissement partagée pour les deux nœuds haute disponibilité. Un délai de plus de deux minutes entraîne l'arrêt de tous les modules de contrôleur dans le châssis. Si les deux modules du contrôleur s'arrêtent, assurez-vous que les deux blocs d'alimentation sont insérés, les deux s'arrêtent pendant 30 secondes, puis les deux s'allument.
+NOTE: Le système de refroidissement étant intégré à l'alimentation, vous devez remplacer l'alimentation dans les deux minutes suivant son retrait afin d'éviter une surchauffe due à une réduction du flux d'air. Le châssis assurant une configuration de refroidissement partagée pour les deux nœuds HA, un délai supérieur à deux minutes entraîne l'arrêt de tous les modules de contrôleur du châssis. Si les deux modules de contrôleur s'arrêtent, assurez-vous que les deux alimentations sont insérées, éteignez-les toutes les deux pendant 30 secondes, puis rallumez-les.
 
 * Le nombre d'alimentations dans le système dépend du modèle.
 * Les blocs d'alimentation sont à sélection automatique.
@@ -62,7 +62,7 @@ NOTE: Ne pas exercer de force excessive lors du glissement du bloc d'alimentatio
 
 
 +
-Une fois l'alimentation rétablie, la LED d'état doit être verte.
+Une fois l'alimentation rétablie, la LED d'état devrait être verte.
 
 . Mettez la nouvelle alimentation sous tension, puis vérifiez le fonctionnement des LED d'activité des blocs d'alimentation.
 +

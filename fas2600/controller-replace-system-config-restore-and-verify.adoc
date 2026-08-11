@@ -2,16 +2,16 @@
 permalink: fas2600/controller-replace-system-config-restore-and-verify.html 
 sidebar: sidebar 
 keywords: fas2600, restore and verify the system configuration, verify and set the ha state of the controller module 
-summary: Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire. 
+summary: Restaurez et vérifiez la configuration du contrôleur de votre système FAS2600 après avoir terminé le remplacement du matériel et démarré en mode Maintenance. 
 ---
-= Restaurez et vérifiez la configuration du système - FAS2600
+= Restaurez et vérifiez la configuration du contrôleur dans votre système FAS2600
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Après avoir effectué le remplacement du matériel et démarrer en mode maintenance, vérifiez la configuration système de bas niveau du contrôleur de remplacement et reconfigurez les paramètres système si nécessaire.
+Restaurez et vérifiez la configuration du contrôleur dans votre système FAS2600 après avoir effectué le remplacement du matériel et démarré en mode Maintenance, en vérifiant la configuration système de bas niveau du contrôleur de remplacement et en reconfigurant les paramètres système si nécessaire.
 
 
 
@@ -65,6 +65,5 @@ La valeur de HA-State peut être l'une des suivantes :
 ** `non-ha`
 
 
-. Si l'état système affiché du module de contrôleur ne correspond pas à la configuration de votre système, définissez le `HA` état pour le module de contrôleur : `ha-config modify controller ha-state`
 . Vérifiez que le paramètre a changé : `ha-config show`
 

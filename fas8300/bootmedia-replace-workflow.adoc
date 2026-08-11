@@ -2,16 +2,16 @@
 permalink: fas8300/bootmedia-replace-workflow.html 
 sidebar: sidebar 
 keywords: fas8700, fas8300, replace the boot media 
-summary: 'Commencez à remplacer le support de démarrage de votre système de stockage FAS8300 en examinant les exigences de remplacement, en vérifiant l"état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l"image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.' 
+summary: 'Commencez à remplacer le support de démarrage de votre système de stockage FAS8300 ou FAS8700 en consultant les exigences de remplacement, en vérifiant l"état du chiffrement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l"image de récupération, en restaurant le chiffrement et en vérifiant la fonctionnalité du système.' 
 ---
-= Workflow de récupération manuelle du support de démarrage - FAS8300 et FAS8700
+= Workflow de remplacement du support de démarrage FAS8300 et FAS8700 à l'aide du processus de récupération de démarrage manuel
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Commencez à remplacer le support de démarrage de votre système de stockage FAS8300 en examinant les exigences de remplacement, en vérifiant l'état de cryptage, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le cryptage et en vérifiant la fonctionnalité du système.
+Commencez à remplacer le support de démarrage de votre système de stockage FAS8300 ou FAS8700 en consultant les exigences de remplacement, en vérifiant l'état du chiffrement, en arrêtant le contrôleur, en remplaçant le support de démarrage, en démarrant l'image de récupération, en restaurant le chiffrement et en vérifiant la fonctionnalité du système.
 
 Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
@@ -37,7 +37,7 @@ Démarrez l'image ONTAP à partir du lecteur USB, restaurez le système de fichi
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:bootmedia-encryption-restore.html["Restaurez le chiffrement"]
 [role="quick-margin-para"]
-Restaurez la configuration du gestionnaire de clés intégré ou le gestionnaire de clés externe à partir du menu de démarrage ONATP .
+Restaurez la configuration du gestionnaire de clés intégré ou le gestionnaire de clés externe à partir du menu de démarrage ONTAP .
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sept"]link:bootmedia-complete-rma.html["Renvoyez la pièce défectueuse à NetApp"]
 [role="quick-margin-para"]

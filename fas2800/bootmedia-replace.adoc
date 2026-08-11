@@ -1,17 +1,17 @@
 ---
 permalink: fas2800/bootmedia-replace.html 
 sidebar: sidebar 
-keywords: fas2800, replace, boot, media, controller, module, fru map 
-summary: Vous devez localiser le support de démarrage dans le contrôleur et suivre les instructions pour le remplacer. 
+keywords: fas2820, replace, boot, media, controller, module, fru map 
+summary: 'Le support de démarrage de votre système FAS2820 contient le micrologiciel et les données de configuration essentiels. Pour le remplacer, vous retirez et ouvrez le module contrôleur défectueux, localisez et remplacez le support de démarrage, transférez l"image de démarrage sur une clé USB, puis démarrez le contrôleur.' 
 ---
-= Remplacez le support de démarrage et préparez-vous à la récupération manuelle du démarrage - FAS2820
+= Remplacez le support de démarrage de votre système FAS2820 à l'aide de la procédure de récupération de démarrage manuelle
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous devez retirer et ouvrir le module de contrôleur défectueux, localiser et remplacer le support de démarrage dans le contrôleur, transférer l'image de démarrage sur une clé USB, insérer la clé USB dans le contrôleur, puis démarrer le contrôleur.
+Le support de démarrage de votre FAS2820 stocke le micrologiciel et les données de configuration essentiels. Pour le remplacer, vous retirez et ouvrez le module contrôleur défectueux, localisez et remplacez le support de démarrage, transférez l'image de démarrage sur une clé USB, insérez la clé USB dans le contrôleur, puis démarrez le contrôleur.
 
 Si votre système de stockage exécute ONTAP 9.17.1 ou une version ultérieure, utilisez lelink:bootmedia-replace-workflow-bmr.html["procédure de récupération de démarrage automatisée"] .  Si votre système exécute une version antérieure d’ ONTAP, vous devez utiliser la procédure de récupération de démarrage manuel.
 
@@ -51,7 +51,7 @@ Bouton de déverrouillage du capot du module de contrôleur
 [[step-2-replace-the-boot-media]]
 == Étape 2 : remplacer le support de démarrage
 
-Localisez le support de démarrage dans le module de contrôleur, situé sous la carte mezzanine et suivez les instructions pour le remplacer.
+Repérez le support de démarrage, qui se trouve sous la carte mezzanine dans le module contrôleur, et suivez les instructions pour le remplacer.
 
 image:../media/drw_2850_replace_boot_media_IEOPS-696.svg["Remplacez le support de démarrage"]
 

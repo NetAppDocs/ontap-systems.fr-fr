@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: fas9500, recable the system, reassign disks 
 summary: Rebranchez le système et réaffectez les disques. 
 ---
-= Recâble du système - FAS9500
+= Remettez en place le contrôleur dans votre système FAS9500 pour reprendre le fonctionnement normal.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Poursuivez la procédure de remplacement en réétiquetage des condications de stockage et de réseau.
+Rendez le contrôle des ressources de stockage au contrôleur de remplacement afin que votre système FAS9500 puisse reprendre son fonctionnement normal.
 
 
 
@@ -25,27 +25,27 @@ Vous devez recosable les connexions réseau et de stockage du module de contrôl
 . Vérifiez que le câblage est correct à l'aide de https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^].
 +
 .. Téléchargez et installez Config Advisor.
-.. Entrez les informations du système cible, puis cliquez sur collecter les données.
-.. Cliquez sur l'onglet câblage, puis examinez la sortie. Vérifiez que tous les tiroirs disques sont affichés et que tous les disques apparaissent dans le résultat, en corrigeant les problèmes de câblage que vous rencontrez.
-.. Pour vérifier les autres câbles, cliquez sur l'onglet approprié, puis examinez les résultats de Config Advisor.
+.. Saisissez les informations relatives au système cible, puis sélectionnez Collect Data.
+.. Sélectionnez l'onglet Câblage, puis examinez le résultat. Assurez-vous que toutes les étagères de disques sont affichées et que tous les disques apparaissent dans le résultat, en corrigeant tout problème de câblage que vous trouvez.
+.. Vérifiez les autres câblages en sélectionnant l'onglet approprié, puis en examinant la sortie de Config Advisor.
 
 
 
 
 
-NOTE: Les informations d'ID système et d'affectation de disque résident dans le module NVRAM, qui se trouve dans un module séparé du module de contrôleur et ne sont pas affectées par le remplacement du module de contrôleur.
+NOTE: Les informations relatives à l'identifiant système et à l'affectation des disques résident dans le module NVRAM, qui se trouve dans un module distinct du module contrôleur et ne sont pas affectées par le remplacement du module contrôleur.
 
 
 
 [[step-2-reassign-disks]]
 == Étape 2 : réaffectation de disques
 
-Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Vous devez confirmer la modification de l'ID système lors du démarrage du _replace_ node, puis vérifier que la modification a été implémentée.
+Si le système de stockage est configuré en paire haute disponibilité, l'identifiant système du nouveau module de contrôleur est automatiquement attribué aux disques lors de la restauration à la fin de la procédure. Vous devez confirmer la modification de l'identifiant système au démarrage du nœud de remplacement, puis vérifier que cette modification est correcte.
 
 Cette procédure s'applique uniquement aux systèmes qui exécutent ONTAP dans une paire HA.
 
 . Si le _remplacement_ noeud est en mode Maintenance (affiche le `*>` Invite), quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`
-. À partir de l'invite DU CHARGEUR sur le _replace_ node, démarrez le nœud, puis entrez `y` Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système.``boot_ontap``
+. À partir de l'invite LOADER sur le nœud _replacement_, démarrez le nœud, puis saisissez  `y` si vous êtes invité à remplacer l'ID système en raison d'une incompatibilité d'ID système : `boot_ontap`
 . Attendre jusqu'à `Waiting for giveback...` Le message s'affiche sur la console _replace_ node, puis, à partir du nœud en bon état, vérifiez que le nouvel ID système partenaire a été automatiquement attribué : Storage failover show
 +
 Dans le résultat de la commande, un message indiquant l'ID du système a changé sur le nœud pour lequel l'ID a été modifié, et indiquant l'ancien et le nouveau ID corrects. Dans l'exemple suivant, le node2 a fait l'objet d'un remplacement et a un nouvel ID système de 151759706.

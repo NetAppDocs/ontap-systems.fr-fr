@@ -1,20 +1,20 @@
 ---
 permalink: fas2800/rtc-battery-replace.html 
 sidebar: sidebar 
-keywords: fas2800, replace, real, time, clock, battery, impaired, controller, shut, down, controller, system, rtc, date, time, controller, module, reinstall, replace, open 
-summary: 'Vous remplacez la pile de l"horloge temps réel (RTC) dans le module de contrôle afin que les services et applications de votre système qui dépendent d"une synchronisation horaire précise continuent de fonctionner.' 
+keywords: fas2820, replace, real, time, clock, battery, impaired, controller, shut, down, controller, system, rtc, date, time, controller, module, reinstall, replace, open 
+summary: 'Vous remplacez la pile de l"horloge temps réel dans le module de contrôleur de votre système FAS2820 afin que les services et applications qui dépendent d"une synchronisation horaire précise continuent de fonctionner.' 
 ---
-= Remplacez la batterie de l'horloge temps réel - FAS2820
+= Remplacez la pile de l'horloge temps réel dans votre système FAS2820
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de contrôleur afin que les services et applications de votre système qui dépendent d'une synchronisation précise de l'heure continuent de fonctionner.
+Vous remplacez la pile de l'horloge temps réel (RTC) dans le module de contrôleur de votre FAS2820 afin que les services et applications qui dépendent d'une synchronisation horaire précise continuent de fonctionner.
 
 * Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
-* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+* Tous les autres composants du système doivent fonctionner correctement. Dans le cas contraire, veuillez contacter le support technique.
 
 
 
@@ -117,7 +117,7 @@ image::../media/drw_2850_open_controller_module_cover_IEOPS-695.svg[Retirez le c
 [[step-3-replace-the-rtc-battery]]
 == Étape 3 : remplacer la batterie RTC
 
-Remplacez la batterie RTC en la plaçant à l'intérieur du contrôleur et suivez la séquence spécifique des étapes.
+Remplacez la pile RTC en la localisant à l'intérieur du contrôleur et en suivant la séquence d'étapes spécifique.
 
 .Animation - remplacer la batterie RTC
 video::7420d100-23b1-4213-a8da-af4701725622[panopto]
@@ -142,10 +142,10 @@ NOTE: Notez la polarité de la batterie lorsque vous la retirez du support. La b
 [[step-4-reinstall-the-controller-module]]
 == Étape 4 : réinstallez le module de contrôleur
 
-Réinstallez le module du contrôleur et démarrez-le à l'invite DU CHARGEUR.
+Réinstallez le module de contrôleur et démarrez-le à l'invite LOADER.
 
 . Retournez le module de contrôleur et alignez l'extrémité sur l'ouverture du châssis.
-. Poussez doucement le module de contrôleur à mi-chemin dans le système.alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-chemin dans le système.
+. Alignez l'extrémité du module de contrôleur avec l'ouverture du châssis, puis poussez doucement le module de contrôleur à mi-course dans le système.
 +
 N'insérez pas complètement le module de contrôleur dans le châssis tant qu'il n'y a pas été demandé.
 

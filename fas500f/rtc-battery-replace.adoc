@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas500f, replace real-time clock battery 
 summary: 'Vous remplacez la pile de l"horloge temps réel dans le module de contrôle afin que les services et applications de votre système qui dépendent d"une synchronisation horaire précise continuent de fonctionner.' 
 ---
-= Remplacez la pile de l'horloge en temps réel
+= Remplacez la batterie de l'horloge temps réel dans votre système FAS500f
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,7 +14,7 @@ summary: 'Vous remplacez la pile de l"horloge temps réel dans le module de cont
 Vous remplacez la batterie de l'horloge temps réel (RTC) dans le module de contrôleur afin que les services et applications de votre système qui dépendent d'une synchronisation précise de l'heure continuent de fonctionner.
 
 * Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
-* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+* Tous les autres composants du système doivent fonctionner correctement. Dans le cas contraire, veuillez contacter le support technique.
 
 
 
@@ -190,7 +190,7 @@ La batterie doit s'éjecter.
 
 |===
 +
-La batterie sera éjectée.
+La batterie s'éjecte.
 
 . Retirez la batterie de rechange du sac d'expédition antistatique.
 . Repérez le support de batterie RTC entre le dissipateur de chaleur et le fond de panier central et insérez-le exactement comme indiqué sur le graphique.
@@ -203,7 +203,7 @@ image::../media/drw_a250_install_rtc_batt.png[Installation de la batterie RTC]
 
  a| 
 image:../media/icon_round_1.png["Légende numéro 1"]
-| Avec la polarité positive orientée vers le haut, faites glisser la batterie sous la languette du boîtier de la batterie. 
+| Glissez la pile sous la languette du boîtier de la batterie, face positive vers le haut. 
 
 
  a| 
@@ -238,7 +238,7 @@ Si vous avez retiré les convertisseurs de support (QSFP ou SFP), n'oubliez pas 
 . Si les blocs d'alimentation ont été débranchés, rebranchez-les et réinstallez les dispositifs de retenue du câble d'alimentation.
 . Insérer le module de contrôleur dans le châssis :
 +
-.. S'assurer que les bras du mécanisme de verrouillage sont verrouillés en position complètement sortie.
+.. Vérifiez que les bras du mécanisme de verrouillage sont verrouillés en position complètement déployée.
 .. À l'aide des deux mains, alignez et faites glisser doucement le module de commande dans les bras du mécanisme de verrouillage jusqu'à ce qu'il s'arrête.
 .. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
 .. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.

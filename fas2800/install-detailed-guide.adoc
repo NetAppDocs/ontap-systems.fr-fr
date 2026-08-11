@@ -1,17 +1,17 @@
 ---
 permalink: fas2800/install-detailed-guide.html 
 sidebar: sidebar 
-keywords: fas2800, detailed, guide, prepare, install, hardware, cable, controllers, node, switchless, cluster, network, configuration, system, storage system, setup, discovery 
-summary: 'Ce processus fournit des instructions détaillées pour l"installation d"un système de stockage NetApp classique.' 
+keywords: fas2820, detailed, guide, prepare, install, hardware, cable, controllers, node, switchless, cluster, network, configuration, system, storage system, setup, discovery 
+summary: 'Cette procédure fournit des instructions détaillées, étape par étape, pour l"installation de votre système de stockage FAS2820.' 
 ---
-= Étapes détaillées - FAS2820
+= Installez votre système FAS2820 en suivant des instructions détaillées
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cette procédure fournit des instructions détaillées étape par étape pour l'installation d'un système de stockage NetApp classique. Utilisez cette procédure pour obtenir des instructions d'installation plus détaillées.
+Cette procédure fournit des instructions détaillées, étape par étape, pour la préparation, l'installation, le câblage et la mise sous tension de votre système de stockage FAS2820. Utilisez ces étapes si vous préférez des explications approfondies plutôt qu'un guide rapide abrégé.
 
 
 
@@ -45,8 +45,8 @@ IMPORTANT: Les clients ayant des besoins spécifiques en alimentation doivent le
 
 . Accédez au https://docs.netapp.com/us-en/ontap/task_configure_ontap.html#assign-a-node-management-ip-address["Configurez ONTAP sur un nouveau cluster avec System Manager"^]
 +
-.. Passez en revue les étapes de la procédure amd requises.
-.. Collectez des informations sur votre système de stockage en complétant le https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Feuille de travail de configuration^ (URL nécessaire pour accéder à la fiche)"].
+.. Examinez les exigences et les étapes de la procédure.
+.. Rassemblez les informations relatives à votre système de stockage en remplissant la fiche de configuration.
 .. Notez le numéro de série du système de stockage provenant des contrôleurs.
 +
 image::../media/drw_ssn_label.svg[Exemple de numéro de série du système]
@@ -478,7 +478,7 @@ image::../media/dwr-2800_controller2-to shelves_IEOPS-897.svg[Connexion du contr
 [[step-5-complete-storage-system-setup-and-configuration]]
 == Étape 5 : installation et configuration complètes du système de stockage
 
-Terminez l'installation et la configuration de votre système de stockage en utilisant l'option 1 : si la détection du réseau est activée ou l'option 2 : si la détection du réseau n'est pas activée.
+Terminez la configuration de votre système de stockage en utilisant soit l'option 1 : si la découverte du réseau est activée, soit l'option 2 : si la découverte du réseau n'est pas activée.
 
 Utilisez l'animation suivante dans l'une ou l'autre des options où la définition de l'ID d'étagère est requise :
 
@@ -488,10 +488,10 @@ video::c600f366-4d30-481a-89d9-ab1b0066589b[panopto]
 ====
 .Option 1 : si la détection réseau est activée
 --
-Si la détection de réseau est activée sur votre ordinateur portable, effectuez la configuration et la configuration du système de stockage à l'aide de la détection automatique de cluster.
+Si la découverte du réseau est activée sur votre ordinateur portable, effectuez la configuration complète du système de stockage à l'aide de la découverte automatique du cluster.
 
 .Étapes
-. Allumez l’alimentation de l’étagère et définissez les identifiants d’étagère à l’aide de l’animation au début de cette étape.
+. Mettez l'alimentation des étagères sous tension et définissez les identifiants des étagères en utilisant l'animation au début de cette étape.
 . Mettez les contrôleurs sous tension
 +
 .. Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
@@ -516,7 +516,7 @@ image::../media/drw_autodiscovery_controler_select_ieops-1849.svg[Système de d�
 
 +
 .. Ouvrez l'Explorateur de fichiers.
-.. Cliquez sur *réseau* dans le volet gauche, cliquez avec le bouton droit de la souris et sélectionnez *refresh*.
+.. Cliquez avec le bouton droit sur *Network* dans le volet gauche et sélectionnez *Actualiser*.
 .. Double-cliquez sur l'une des icônes ONTAP et acceptez les certificats affichés à l'écran.
 +
 
@@ -530,8 +530,8 @@ System Manager s'ouvre.
 . Utilisez la configuration guidée de System Manager pour configurer votre système de stockage à l'aide des données collectées dans <<Étape 1 : préparer l'installation>>.
 . Créez un compte ou connectez-vous à votre compte.
 +
-.. Cliquez sur https://mysupport.netapp.com["mysupport.netapp.com"]
-.. Cliquez sur _Créer un compte_ si vous devez créer un compte ou vous connecter à votre compte.
+.. Sélectionnez https://mysupport.netapp.com["mysupport.netapp.com"]
+.. Sélectionnez _Créer un compte_ si vous devez créer un compte ou vous connecter à votre compte.
 
 
 . Téléchargez et installez https://mysupport.netapp.com/site/tools["Active IQ Config Advisor"]
@@ -606,13 +606,13 @@ NOTE: Consultez l'aide en ligne de votre ordinateur portable ou de votre console
 
 NOTE: Le format de l'adresse est +https://x.x.x.x.+
 
-.. Configurez le système de stockage à l'aide des données collectées dans <<Étape 1 : préparer l'installation>>..
+.. Configurez le système de stockage en utilisant les données que vous avez collectées dans <<Étape 1 : préparer l'installation>>.
 
 
 . Créez un compte ou connectez-vous à votre compte.
 +
-.. Cliquez sur https://mysupport.netapp.com["mysupport.netapp.com"]
-.. Cliquez sur _Créer un compte_ si vous devez créer un compte ou vous connecter à votre compte.
+.. Sélectionnez https://mysupport.netapp.com["mysupport.netapp.com"]
+.. Sélectionnez _Créer un compte_ si vous devez créer un compte ou vous connecter à votre compte.
 
 
 . Téléchargez et installez https://mysupport.netapp.com/site/tools["Active IQ Config Advisor"]

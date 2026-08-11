@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: FAS9500 
 summary: 'Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d"exploitation ONTAP.' 
 ---
-= Remplacez le module de contrôleur - FAS9500
+= Vérifiez les exigences avant de remplacer le contrôleur de votre système FAS9500.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -35,7 +35,7 @@ Si c'est cette procédure, notez que la procédure de remplacement du contrôleu
 * Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 * Vous devez remplacer un module de contrôleur par un module de contrôleur du même type de modèle. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le module de contrôleur.
 * Vous ne pouvez pas modifier de disques ou de tiroirs disques dans le cadre de cette procédure.
-* Dans cette procédure, le périphérique de démarrage est déplacé du nœud douteux vers le nœud de remplacement afin que le nœud de remplacement démarre dans la même version de ONTAP que l'ancien module de contrôleur.
+* Dans cette procédure, le périphérique de démarrage est déplacé du nœud défectueux vers le nœud de remplacement afin que ce dernier démarre dans la même version d'ONTAP que l'ancien module de contrôleur.
 * Il est important d'appliquer les commandes au cours des étapes suivantes sur les systèmes appropriés :
 +
 ** Le nœud douteux est le nœud en cours de remplacement.

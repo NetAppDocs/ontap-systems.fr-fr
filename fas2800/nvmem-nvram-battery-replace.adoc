@@ -1,19 +1,19 @@
 ---
 permalink: fas2800/nvmem-nvram-battery-replace.html 
 sidebar: sidebar 
-keywords: fas2800, replace, nvmem, battery, shut, down, impaired, controller, controller, system, aggregates, metrocluster, configuration, reinstall 
-summary: 'Pour remplacer une batterie NVMEM du système, vous devez retirer le module de contrôleur du système, l"ouvrir, remplacer la batterie, puis fermer et remplacer le module de contrôleur.' 
+keywords: fas2820, replace, nvmem, battery, shut, down, impaired, controller, controller, system, aggregates, metrocluster, configuration, reinstall 
+summary: 'Pour remplacer une batterie NVMEM dans votre système FAS2820, vous devez retirer le module de contrôleur, l"ouvrir, remplacer la batterie, puis refermer et réinstaller le module de contrôleur.' 
 ---
-= Remplacez la batterie NVMEM - FAS2820
+= Remplacez la batterie NVMEM de votre système FAS2820
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour remplacer une batterie NVMEM du système, vous devez retirer le module de contrôleur du système, l'ouvrir, remplacer la batterie, puis fermer et remplacer le module de contrôleur.
+Pour remplacer une batterie NVMEM dans votre système FAS2820, vous devez retirer le module de contrôleur, l'ouvrir, remplacer la batterie, puis refermer et réinstaller le module de contrôleur.
 
-Tous les autres composants du système doivent fonctionner correctement ; dans le cas contraire, vous devez contacter https://mysupport.netapp.com/site/global/dashboard["Support NetApp"].
+Si d'autres composants du système ne fonctionnent pas correctement, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"].
 
 
 
@@ -94,15 +94,15 @@ image::../media/drw_hw_nvram_icon.svg[Icône NV]
 
 +
 
-NOTE: Le voyant vert NV situé sur la façade clignote lorsque le contrôleur est mis hors tension si le système était en état « en attente de rétablissement » ou si le système n'a pas été repris ou arrêté correctement (données non validées).  Si le module de contrôleur défectueux n'a pas été repris avec succès par le module de contrôleur partenaire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"]
+NOTE: La LED verte NV en façade clignote lorsque l'alimentation du contrôleur est coupée si le système était en état « attente de reprise » ou si le système n'a pas été repris ou arrêté correctement (données non validées). Si le module de contrôleur défaillant n'a pas été repris avec succès par le module de contrôleur partenaire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"]
 
 +
 ** Si le voyant vert d'état NV commence à clignoter lorsque le module de contrôleur est retiré du châssis :
 +
-*** Vérifiez que le contrôleur a subi un basculement net par le module de contrôleur partenaire ou que le contrôleur défectueux affiche _waiting for giveback_, le voyant clignotant peut être ignoré et vous pouvez terminer le retrait du contrôleur défectueux du châssis.
+*** Vérifiez que le contrôleur a bien été repris par le module de contrôleur partenaire, ou que le contrôleur défectueux affiche _waiting for giveback_. Dans ce cas, vous pouvez ignorer le clignotement de la LED et poursuivre le retrait du contrôleur défectueux du châssis.
 
 
-** Si le voyant vert NV est éteint, vous pouvez terminer le retrait du contrôleur défectueux du châssis.
+** Si la LED verte NV est éteinte, vous pouvez terminer le retrait du contrôleur défectueux du châssis.
 
 
 
@@ -155,13 +155,13 @@ Connecteur d'alimentation de la batterie
 
 
 . Retirez la batterie de rechange de son emballage.
-Installez la batterie de rechange :
+. Installez la batterie de remplacement :
 +
 .. Rebranchez la fiche de la batterie dans la prise du module de contrôleur.
 +
 Assurez-vous que la fiche se verrouille dans la prise batterie de la carte mère.
 
-.. Alignement de la batterie avec les supports de fixation sur la paroi latérale en tôle.
+.. Alignez la batterie avec les supports de fixation de la paroi latérale en tôle.
 .. Faites glisser la batterie vers le bas jusqu'à ce que le loquet de la batterie s'enclenche et s'enclenche dans l'ouverture de la paroi latérale.
 
 
@@ -216,8 +216,8 @@ NOTE: Au cours du processus de démarrage, les invites suivantes peuvent s'affic
 
 
 
-[[step-5-restore-automatic-giveback-and-autsupport]]
-== Étape 5 : restaurez le rétablissement automatique et AutoSupport
+[[step-5-restore-automatic-giveback-and-autosupport]]
+== Étape 5 : restaurez le rétablissement automatique et le AutoSupport
 
 Restaurez le rétablissement automatique et les AutoSupport s'ils ont été désactivés.
 

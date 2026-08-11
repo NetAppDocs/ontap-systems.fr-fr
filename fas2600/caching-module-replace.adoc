@@ -2,16 +2,16 @@
 permalink: fas2600/caching-module-replace.html 
 sidebar: sidebar 
 keywords: fas2600, replace the caching module 
-summary: Vous devez remplacer le module de cache du contrôleur lorsque votre système enregistre un seul message AutoSupport indiquant que le module est hors ligne. À défaut, les performances seront dégradées. 
+summary: Remplacez le module de cache de votre système FAS2600 lorsque votre système enregistre un seul message AutoSupport indiquant que le module est hors ligne. Si vous ne le faites pas, les performances seront dégradées. 
 ---
-= Remplacer le module de cache - FAS2600
+= Remplacez le module de cache de votre système FAS2600
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous devez remplacer le module de cache du module de contrôleur lorsque votre système enregistre un message AutoSupport (ASUP) unique que le module a mis hors ligne. Dans le cas contraire, les performances s'en trouvent affectées.
+Remplacez le module de cache de votre système FAS2600 dès que votre système enregistre un seul message AutoSupport (ASUP) indiquant que le module est hors ligne. Si vous ne le faites pas, les performances seront dégradées.
 
 * Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
@@ -29,8 +29,6 @@ Vous pouvez arrêter ou reprendre le contrôleur défaillant en suivant différe
 Si vous avez un cluster avec plus de deux nœuds, il doit être dans le quorum. Si le cluster n'est pas au quorum ou si un contrôleur en bonne santé affiche la valeur false pour l'éligibilité et la santé, vous devez corriger le problème avant de mettre le contrôleur en panne hors tension.
 
 link:https://docs.netapp.com/us-en/ontap/system-admin/synchronize-node-cluster-task.html?q=Quorum["Synchroniser un nœud avec le cluster"^]
-
-Vous pouvez effacer le contenu de votre module de cache avant de le remplacer.
 
 . Bien que les données du module de cache soient cryptées, il est possible que vous souhaitiez effacer toutes les données du module de cache pour personnes affaiblies et vérifier que le module de cache n'a pas de données :
 +
@@ -112,7 +110,7 @@ image::../media/drw_2600_opening_pcm_cover.png[Ouverture ou fermeture du module 
 [[step-3-replace-a-caching-module]]
 == Étape 3 : remplacer un module de cache
 
-Pour remplacer un module de mise en cache appelé carte PCIe M.2 sur l'étiquette de votre contrôleur, localisez le logement à l'intérieur du contrôleur et suivez la séquence des étapes.
+Le module de cache est désigné comme carte M.2 PCIe sur l'étiquette du contrôleur. Repérez l'emplacement à l'intérieur du contrôleur et suivez les étapes suivantes.
 
 Votre système de stockage doit répondre à certains critères en fonction de votre situation :
 

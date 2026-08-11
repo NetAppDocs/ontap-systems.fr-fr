@@ -1,17 +1,17 @@
 ---
 permalink: fas2800/controller-replace-overview.html 
 sidebar: sidebar 
-keywords: fas2800, prerequisite, replace the controller module 
-summary: 'Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d"exploitation ONTAP.' 
+keywords: fas2820, prerequisite, replace the controller module 
+summary: 'Avant de remplacer le contrôleur de votre système FAS2820, vous devez consulter les prérequis de la procédure de remplacement et sélectionner celle qui convient à votre version du système d"exploitation ONTAP.' 
 ---
-= Présentation du remplacement des modules de contrôleur - FAS2820
+= Vérifiez les exigences avant de remplacer le contrôleur dans votre système FAS2820
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous devez passer en revue les conditions préalables à la procédure de remplacement et sélectionner la version appropriée de votre système d'exploitation ONTAP.
+Avant de remplacer le contrôleur de votre système FAS2820, vous devez consulter les prérequis de la procédure de remplacement et sélectionner celle qui convient à votre version du système d'exploitation ONTAP.
 
 [NOTE]
 ====
@@ -29,9 +29,9 @@ NetApp recommande fortement d'activer la journalisation de la console sur les ap
 Vous devez effectuer la réaffectation du disque selon les instructions de la procédure.
 
 * Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
-* Vous devez remplacer un module de contrôleur par un module de contrôleur du même type de modèle. Vous ne pouvez pas mettre à niveau votre système en remplaçant simplement le module de contrôleur.
+* Vous devez remplacer le module de commande par un module de commande du même modèle. Le simple remplacement du module de commande ne permet pas de mettre à niveau votre système.
 * Vous ne pouvez pas modifier de disques ou de tiroirs disques dans le cadre de cette procédure.
-* Dans cette procédure, le périphérique d'amorçage est déplacé du contrôleur défaillant vers le contrôleur _remplacement_ de sorte que le _remplacement_ contrôleur démarre dans la même version de ONTAP que l'ancien module de contrôleur.
+* Dans cette procédure, le périphérique de démarrage est déplacé du contrôleur défectueux vers le contrôleur de remplacement afin que le contrôleur de remplacement démarre avec la même version d'ONTAP que l'ancien module de contrôleur.
 * Il est important d'appliquer les commandes au cours des étapes suivantes sur les systèmes appropriés :
 +
 ** Le contrôleur _trouble_ est le contrôleur qui est en cours de remplacement.

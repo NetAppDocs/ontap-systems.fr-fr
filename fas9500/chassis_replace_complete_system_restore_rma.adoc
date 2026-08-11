@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: aff fas9500, verify and set HA state, complete the replacement process 
 summary: 'Vous devez vérifier l"état HA du châssis et renvoyer la pièce défectueuse à NetApp, comme indiqué dans les instructions RMA fournies avec le kit.' 
 ---
-= Restaurez et vérifiez la configuration - FAS9500
+= Terminez le remplacement du châssis de votre système FAS9500
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour effectuer le remplacement du châssis, vous devez effectuer des tâches spécifiques.
+Pour terminer le remplacement du châssis de votre système FAS9500, vous devez vérifier et définir l'état HA du châssis, remettre le système en marche et renvoyer le châssis défectueux à NetApp, comme décrit dans les instructions RMA fournies avec le kit.
 
 
 
@@ -47,9 +47,9 @@ La valeur de HA-State peut être l'une des suivantes :
 == Étape 2 : afficher le système
 
 . Si ce n'est pas le cas, rebranchez les câbles d'alimentation aux blocs d'alimentation.
-. Mettez les blocs d'alimentation sous tension en basculant le commutateur à bascule sur *ON*, et attendez que les contrôleurs s'allument complètement.
+. Mettez les alimentations sous tension en basculant l'interrupteur à bascule sur *ON*, et attendez que les contrôleurs soient complètement sous tension.
 . Vérifiez l'avant et l'arrière du châssis et des contrôleurs à la recherche de voyants de défaillance après la mise sous tension.
-. Connectez-vous à l'adresse IP du processeur de service ou du contrôleur BMC des nœuds via SSH. Cette adresse sera la même que celle utilisée pour arrêter les nœuds.
+. Connectez-vous à l'adresse IP du SP ou du BMC des nœuds via SSH. Il s'agit de la même adresse utilisée pour arrêter les nœuds.
 . Effectuez d'autres vérifications de l'état de santé comme décrit dans https://kb.netapp.com/onprem/ontap/os/How_to_perform_a_cluster_health_check_with_a_script_in_ONTAP["Comment_exécuter_une_vérification_de_l'intégrité_d'un_cluster_avec_un_script_dans_ONTAP"^]
 . Réactivez AutoSupport (mettez fin au message de la fenêtre de maintenance) :
 `system node autosupport invoke -node * -type all -message MAINT=end`

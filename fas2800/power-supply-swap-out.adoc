@@ -1,25 +1,25 @@
 ---
 permalink: fas2800/power-supply-swap-out.html 
 sidebar: sidebar 
-keywords: fas2800, swap, power, supply, turn off, disconnect, remove, install, connect, turn on, replacement 
-summary: 'Le remplacement d"un bloc d"alimentation implique la mise hors tension, la déconnexion et le retrait du bloc d"alimentation défectueux et l"installation, la connexion et la mise sous tension du bloc d"alimentation de remplacement.' 
+keywords: fas2820, swap, power, supply, turn off, disconnect, remove, install, connect, turn on, replacement 
+summary: 'Le remplacement à chaud d"une alimentation dans votre FAS2820 implique d"éteindre, de déconnecter et de retirer l"alimentation défectueuse, puis d"installer, de connecter et de mettre en marche l"alimentation de remplacement.' 
 ---
-= Remplacez une alimentation - FAS2820
+= Remplacez à chaud l'alimentation de votre système FAS2820
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le remplacement d'un bloc d'alimentation implique la mise hors tension, la déconnexion et le retrait du bloc d'alimentation défectueux et l'installation, la connexion et la mise sous tension du bloc d'alimentation de remplacement.
+Remplacez à chaud une alimentation dans votre système FAS2820 en cas de panne ou de dégradation, sans interrompre le fonctionnement du système. Cette procédure consiste à mettre hors tension et à retirer l'alimentation défectueuse, puis à installer et à mettre sous tension la nouvelle.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+Si d'autres composants du système ne fonctionnent pas correctement, contactez le support technique.
 
 * Les blocs d'alimentation sont redondants et échangeables à chaud.
 * Cette procédure permet de remplacer une alimentation à la fois.
 +
 
-NOTE: Il est recommandé de remplacer le bloc d'alimentation dans les deux minutes qui suivent le retrait du châssis. Le système continue de fonctionner, mais ONTAP envoie des messages à la console concernant l'alimentation défectueuse jusqu'à ce que le bloc d'alimentation soit remplacé.
+NOTE: Remplacez le bloc d'alimentation dans les deux minutes suivant son retrait du châssis. Le système continue de fonctionner, mais ONTAP envoie des messages à la console concernant la défaillance du bloc d'alimentation jusqu'à ce que le bloc d'alimentation soit remplacé.
 
 * Les blocs d'alimentation sont à sélection automatique.
 
@@ -46,7 +46,7 @@ image::../media/drw_2850_replace_PSU_IEOPS-702.svg[Remplacez un bloc d'alimentat
 CAUTION: Lors de la dépose d'une alimentation électrique, toujours utiliser deux mains pour soutenir son poids.
 
 . S'assurer que l'interrupteur marche/arrêt de la nouvelle alimentation est en position arrêt.
-. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du châssis du système, puis poussez doucement le bloc d'alimentation dans le châssis à l'aide de la poignée de came.
+. Maintenez et alignez les bords du bloc d'alimentation avec l'ouverture du châssis du système à l'aide des deux mains, puis poussez délicatement le bloc d'alimentation dans le châssis à l'aide de la poignée à came.
 +
 Les blocs d'alimentation sont munis de clés et ne peuvent être installés qu'une seule fois.
 
@@ -62,7 +62,7 @@ NOTE: Ne pas exercer de force excessive lors du glissement du bloc d'alimentatio
 
 
 +
-Une fois l'alimentation rétablie, la LED d'état doit être verte.
+Une fois l'alimentation rétablie, la LED d'état devrait être verte.
 
 . Mettez la nouvelle alimentation sous tension, puis vérifiez le fonctionnement des LED d'activité des blocs d'alimentation.
 +

@@ -2,22 +2,22 @@
 permalink: fas-70-90/io-module-hotswap.html 
 sidebar: sidebar 
 keywords: fas70, fas90, hot swap a cluster ha card, hot swap ethernet client io module, hotswap io module, hot swap io module 
-summary: 'Vous pouvez remplacer à chaud un module d"E/S Ethernet dans votre système de stockage FAS 70 ou FAS 90 si un module tombe en panne et si votre système de stockage répond à toutes les exigences de version ONTAP.' 
+summary: 'Vous pouvez remplacer à chaud un module d"E/S Ethernet dans votre système de stockage FAS70 ou FAS90 si un module tombe en panne et si votre système de stockage répond à toutes les exigences de version ONTAP.' 
 ---
-= Remplacer à chaud un module d'E/S - FAS 70 et FAS 90
+= Remplacez à chaud un module d'E/S dans votre système FAS70 ou FAS90 sans l'arrêter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez remplacer à chaud un module d'E/S Ethernet dans votre système de stockage FAS 70 ou FAS 90 si un module tombe en panne et si votre système de stockage répond à toutes les exigences de version ONTAP.
+Vous pouvez remplacer à chaud un module d'E/S Ethernet dans votre système de stockage FAS70 ou FAS90 si un module tombe en panne et si votre système de stockage répond à toutes les exigences de version ONTAP.
 
 Pour remplacer à chaud un module d'E/S, assurez-vous que votre système de stockage exécute ONTAP 9.18.1 GA ou une version ultérieure, préparez votre système de stockage et votre module d'E/S, remplacez à chaud le module défaillant, mettez le module de remplacement en ligne, rétablissez le fonctionnement normal du système de stockage et retournez le module défaillant à NetApp.
 
 .Description de la tâche
 * Vous n'avez pas besoin d'effectuer un basculement manuel avant de remplacer le module d'E/S défaillant.
-* Appliquez les commandes au contrôleur et à l'emplacement d'E/S corrects pendant le remplacement à chaud :
+* Veillez à appliquer les commandes au contrôleur et à l'emplacement d'E/S appropriés lors du remplacement à chaud :
 +
 ** Le _contrôleur défectueux_ est le contrôleur sur lequel vous remplacez le module d'E/S.
 ** Le _contrôleur sain_ est le partenaire HA du contrôleur altéré.

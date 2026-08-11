@@ -1,17 +1,17 @@
 ---
 permalink: fas2800/bootmedia-recovery-image-boot-bmr.html 
 sidebar: sidebar 
-keywords: fas2800, boot the recovery image 
-summary: 'Restaurez l’image ONTAP sur le support de démarrage de remplacement de votre système fas2800.  Le processus implique le lancement du processus de récupération de démarrage à partir de l"invite LOADER et la surveillance du processus de récupération jusqu"à ce qu"il soit terminé et que le nœud redémarre.' 
+keywords: fas2820, boot the recovery image 
+summary: 'Restaurez l"image ONTAP sur le support de démarrage de remplacement de votre système FAS2820. Cette opération consiste à lancer le processus de récupération du démarrage depuis l"invite LOADER et à surveiller la progression jusqu"à son achèvement et le redémarrage du nœud.' 
 ---
-= Récupération automatique du support de démarrage à partir du nœud partenaire - FAS2800
+= Restaurez l'image de démarrage de votre système FAS2820 à l'aide du processus de récupération de démarrage automatisé
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Après avoir installé le nouveau périphérique de support de démarrage dans votre système FAS2800, vous pouvez démarrer le processus de récupération automatique du support de démarrage pour restaurer la configuration à partir du nœud partenaire. Pendant la récupération, le système vérifie si le chiffrement est activé et détermine le type de clé de chiffrement utilisé. Si le chiffrement est activé, le système vous guide à travers les étapes appropriées pour le restaurer.
+Après avoir installé le nouveau support de démarrage dans votre système FAS2820, vous pouvez lancer la procédure de récupération automatique du support de démarrage afin de restaurer la configuration à partir du nœud partenaire. Pendant la procédure de récupération, le système vérifie si le chiffrement est activé et détermine le type de chiffrement de clé utilisé. Si le chiffrement de clé est activé, le système vous guide à travers les étapes appropriées pour le restaurer.
 
 La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
 

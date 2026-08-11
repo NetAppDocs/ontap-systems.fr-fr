@@ -2,16 +2,16 @@
 permalink: fas9500/install-detailed-guide.html 
 sidebar: sidebar 
 keywords: FAS9500 
-summary: 'Cette section fournit des instructions détaillées vous permettant d"installer un système NetApp classique.' 
+summary: 'Cette page fournit des instructions détaillées, étape par étape, pour l"installation de votre système FAS9500.' 
 ---
-= Étapes détaillées - FAS9500
+= Installez votre système FAS9500 en suivant les instructions détaillées
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cet article fournit des instructions détaillées vous permettant d'installer un système NetApp classique. Utilisez cet article si vous souhaitez obtenir des instructions d'installation plus détaillées.
+Cette page fournit des instructions détaillées, étape par étape, pour l'installation de votre système FAS9500. Utilisez ces instructions si vous souhaitez des instructions d'installation plus détaillées.
 
 
 
@@ -279,7 +279,7 @@ image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre SFP GbE]
 
 40 GbE commutateurs réseau hôte :
 
-Reliez les ports b côté hôte dans les logements A4 et B4 (e4b) et A8 et B8 (e8b) au commutateur hôte.
+Câblez les ports b côté hôte dans l'emplacement A4 et B4 (e4b) et l'emplacement A8 et B8 (e8b) au commutateur hôte.
 
 image::../media/oie_cable100_gbe_qsfp28.png[Connecteur QSFP 100 GbE]
 
@@ -300,7 +300,7 @@ image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre SFP GbE]
 image::../media/icon_square_5_grey.png[Icône de légende 4]
  a| 
 ** Attachez les câbles aux bras de gestion des câbles (non illustrés).
-** Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées). Les PSU 1 et 3 fournissent l'alimentation à tous les composants de la face A, tandis que les PSU2 et PSU4 fournissent l'alimentation à tous les composants de la face B.
+** Raccordez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non représentées). PSU1 et PSU3 alimentent tous les composants du côté A, tandis que PSU2 et PSU4 alimentent tous les composants du côté B.
 
 
 image::../media/oie_cable_power.png[Câbles d'alimentation]
@@ -372,7 +372,7 @@ image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre SFP GbE]
 
 40 GbE commutateurs réseau hôte :
 
-Reliez les ports b côté hôte dans les logements A4 et B4 (e4b) et A8 et B8 (e8b) au commutateur hôte.
+Câblez les ports b côté hôte dans l'emplacement A4 et B4 (e4b) et l'emplacement A8 et B8 (e8b) au commutateur hôte.
 
 image::../media/oie_cable100_gbe_qsfp28.png[Connecteur QSFP 100 GbE]
 
@@ -393,7 +393,7 @@ image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre 100 GbE]
 image::../media/icon_square_4_red.png[Icône de légende 4]
  a| 
 ** Attachez les câbles aux bras de gestion des câbles (non illustrés).
-** Connectez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non illustrées). Les PSU 1 et 3 fournissent l'alimentation à tous les composants de la face A, tandis que les PSU2 et PSU4 fournissent l'alimentation à tous les composants de la face B.
+** Raccordez les câbles d'alimentation aux blocs d'alimentation et connectez-les à différentes sources d'alimentation (non représentées). PSU1 et PSU3 alimentent tous les composants du côté A, tandis que PSU2 et PSU4 alimentent tous les composants du côté B.
 
 
 image::../media/oie_cable_power.png[Câbles d'alimentation]
@@ -417,7 +417,7 @@ NOTE: Pour plus d'informations sur le câblage SAS et les fiches de calcul, repo
 
 .Avant de commencer
 * Renseignez la fiche de câblage SAS de votre système. Voir link:../sas3/overview-cabling-rules-examples.html["Présentation des règles, des feuilles de calcul et des exemples de câblage SAS - tiroirs avec modules IOM12"].
-* Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait des câbles des modules de stockage est vers le haut, tandis que les languettes de retrait des étagères sont vers le bas.
+* Veillez à respecter le sens de la languette de déconnexion indiqué par la flèche sur l’illustration. La languette de déconnexion des modules de stockage est orientée vers le haut, tandis que celles des étagères sont orientées vers le bas.
 
 
 image::../media/oie_cable_pull_tab_up.png[Direction de la languette de tirage du câble]
@@ -428,7 +428,7 @@ image::../media/oie_cable_pull_tab_down.png[Direction de la languette de tirage 
 NOTE: Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
 
 .Étapes
-. Utilisez l'animation ou les mises en plan suivantes pour connecter les contrôleurs à trois (1 pile d'un tiroir disque et une pile de deux tiroirs disques) tiroirs disques DS224C.
+. Utilisez l'animation ou les dessins suivants pour câbler vos contrôleurs à trois (une pile d'un seul shelf de disques et une pile de deux shelves de disques) shelves de disques DS224C.
 +
 .Animation Câblez vos étagères de disques
 video::c958aae6-9d08-4d3d-a213-ae7c017040cd[panopto]

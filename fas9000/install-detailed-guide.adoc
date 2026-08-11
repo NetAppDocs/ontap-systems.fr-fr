@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: aff a700, fas9000, detailed, guide, prepare, install, hardware, two, node, switchless, cluster, cable, controller, ds212c, ds224c, ns224, drive, shelf, complete, system, setup, configuration, network, discovery 
 summary: 'Ce guide fournit des instructions détaillées vous permettant d"installer un système NetApp classique.' 
 ---
-= Guide détaillé - FAS9000
+= Installez votre système FAS9000 en suivant les instructions détaillées
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Ce guide fournit des instructions détaillées vous permettant d'installer un système NetApp classique. Utilisez ce guide si vous souhaitez obtenir des instructions d'installation plus détaillées.
+Ces instructions détaillées, étape par étape, vous guident tout au long de l'installation de votre FAS9000, du montage en rack et du câblage à la configuration initiale. Utilisez ces étapes si vous souhaitez des instructions d'installation plus approfondies que celles fournies par les étapes rapides.
 
 
 
@@ -171,7 +171,7 @@ image:../media/oie_cable_power.png["Câbles d'alimentation"]
 Mise sous tension du système
 
 |===
-. Consultez le _Guide de configuration du ONTAP NetApp_ et collectez les informations requises indiquées dans ce guide.
+. Consultez le _Guide de configuration du ONTAP NetApp_ et recueillez les informations nécessaires indiquées dans ce guide.
 +
 https://library.netapp.com/ecm/ecm_download_file/ECMLP2862613["Guide de configuration de ONTAP"]
 
@@ -219,7 +219,7 @@ Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode
 
 Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster sont câblés sur les deux contrôleurs.
 
-Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
+Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
 
 Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de fixation des câbles sont destinées à tous les ports de module réseau.
 
@@ -246,7 +246,7 @@ image::../media/drw_9000_TNSC_composite_cabling.png[Schéma de câblage composit
 
 Le réseau de gestion, le réseau de données et les ports de gestion des contrôleurs sont connectés aux commutateurs. Les ports d'interconnexion de cluster et haute disponibilité sont câblés sur le commutateur de cluster/haute disponibilité.
 
-Vous devez avoir contacté votre administrateur réseau pour obtenir des informations sur la connexion du système aux commutateurs.
+Pour plus d'informations sur la connexion du système aux commutateurs, contactez votre administrateur réseau.
 
 Veillez à vérifier le sens des languettes de fixation du câble lors de l'insertion des câbles dans les orifices. Les languettes de fixation des câbles sont destinées à tous les ports de module réseau.
 
@@ -271,7 +271,7 @@ image:../media/drw_9000_switched_cluster_cabling.png["Schéma de câblage compos
 [[step-4-cable-controllers-to-drive-shelves]]
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
-Il est possible de connecter les câbles du nouveau système aux tiroirs DS212C, DS224C ou NS224, selon qu'il s'agit d'un système AFF ou FAS.
+Vous pouvez câbler votre nouveau système aux étagères DS212C, DS224C ou NS224, selon qu'il s'agisse d'un système AFF ou FAS.
 
 
 
@@ -330,10 +330,10 @@ image:../media/Cable_shelves_new_system_IOM12_shelves.png["Câblage du système 
 [[option-2-cable-the-controllers-to-a-single-ns224-drive-shelf-in-asa-aff-a700-systems-running-ontap-9-8-and-later-only]]
 === Option 2 : connectez les contrôleurs à un seul tiroir NS224 dans les systèmes ASA AFF A700 exécutant ONTAP 9.8 et versions ultérieures uniquement
 
-Vous devez connecter chaque contrôleur aux modules NSM du tiroir disque NS224 sur un système AFF A700 ou ASA AFF A700 qui exécute ONTAP 9.8 ou une version ultérieure.
+Vous devez câbler chaque contrôleur aux modules NSM sur le tiroir de disques NS224 d’un système AFF A700 ou ASA AFF A700 exécutant ONTAP 9.8 ou une version ultérieure.
 
 * Cette tâche s'applique uniquement à ASA AFF A700 exécutant ONTAP 9.8 ou une version ultérieure.
-* Les systèmes doivent comporter au moins un module X91148A installé dans les logements 3 et/ou 7 pour chaque contrôleur. L'animation ou les illustrations montrent ce module installé dans les emplacements 3 et 7.
+* Les systèmes doivent comporter au moins un module X91148A installé dans l'emplacement 3 ou 7 pour chaque contrôleur. L'animation ou les illustrations montrent ce module installé dans les emplacements 3 et 7.
 * Assurez-vous de vérifier que la flèche de l'illustration indique l'orientation correcte du connecteur de câble à languette. La languette de retrait des câbles des modules de stockage est vers le haut, tandis que les languettes de retrait des étagères sont vers le bas.
 +
 image::../media/oie_cable_pull_tab_up.png[Connecteur de câble avec languette de traction sur le dessus]
@@ -366,7 +366,7 @@ image::../media/single_NS224_shelf.png[Câblage à un seul tiroir]
 [[option-3-cable-the-controllers-to-two-ns224-drive-shelves-in-asa-aff-a700-systems-running-ontap-9-8-and-later-only]]
 === Option 3 : connectez les contrôleurs à deux tiroirs disques NS224 dans les systèmes ASA AFF A700 exécutant ONTAP 9.8 et versions ultérieures uniquement
 
-Vous devez connecter chaque contrôleur aux modules NSM des tiroirs disques NS224 sur un système AFF A700 ou ASA AFF A700 qui exécute le système ONTAP 9.8 ou version ultérieure.
+Vous devez câbler chaque contrôleur aux modules NSM sur les baies de disques NS224 d’un système AFF A700 ou ASA AFF A700 exécutant ONTAP 9.8 ou une version ultérieure.
 
 * Cette tâche s'applique uniquement à ASA AFF A700 exécutant ONTAP 9.8 ou une version ultérieure.
 * Les systèmes doivent comporter deux modules X91148A, par contrôleur, installés dans les logements 3 et 7.
@@ -414,7 +414,7 @@ Si la détection réseau est activée sur votre ordinateur portable, vous pouvez
 .Étapes
 . Utilisez l'animation suivante pour définir un ou plusieurs ID de tiroir disque :
 +
-Si votre système est équipé de tiroirs disques NS224, les tiroirs sont prédéfinis pour les ID de tiroir 00 et 01. Si vous souhaitez modifier les ID de tiroir, vous devez créer un outil pour les insérer dans le trou où se trouve le bouton.
+Si votre système comporte des baies de disques NS224, celles-ci sont préconfigurées avec les identifiants de baie 00 et 01. Si vous souhaitez modifier les identifiants de baie, vous devez créer un outil à insérer dans l'orifice où se trouve le bouton.
 
 +
 .Animation : définissez les ID de tiroirs de disques SAS ou NVMe
@@ -442,11 +442,11 @@ image::../media/drw_autodiscovery_controler_select.png[Sélectionnez une icône 
 
 +
 .. Ouvrez l'Explorateur de fichiers.
-.. Cliquez sur *réseau* dans le volet gauche, cliquez avec le bouton droit de la souris et sélectionnez *refresh*.
+.. Sélectionnez *Network* dans le volet de gauche, cliquez avec le bouton droit sur *Network*, puis sélectionnez *Refresh*.
 .. Double-cliquez sur l'une des icônes ONTAP et acceptez les certificats affichés à l'écran.
 +
 
-NOTE: XXXXX est le numéro de série du système du nœud cible.
+NOTE: La valeur affichée correspond au numéro de série du système pour le nœud cible.
 
 +
 System Manager s'ouvre.
@@ -501,7 +501,7 @@ image::../media/drw_9000_cable_console_switch_controller.png[Câblage de la cons
 
 . Utilisez l'animation suivante pour définir un ou plusieurs ID de tiroir disque :
 +
-Si votre système est équipé de tiroirs disques NS224, les tiroirs sont prédéfinis pour les ID de tiroir 00 et 01. Si vous souhaitez modifier les ID de tiroir, vous devez créer un outil pour les insérer dans le trou où se trouve le bouton.
+Si votre système comporte des baies de disques NS224, celles-ci sont préconfigurées avec les identifiants de baie 00 et 01. Si vous souhaitez modifier les identifiants de baie, vous devez créer un outil à insérer dans l'orifice où se trouve le bouton.
 
 +
 .Animation : définissez les ID de tiroirs de disques SAS ou NVMe

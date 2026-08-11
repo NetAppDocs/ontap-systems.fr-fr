@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas70, fas90, hot swap, replace, Flash Cache module carrier, caching module, Flash Cache 
 summary: 'Le support de module Flash cache SSD NVMe de votre système FAS70 ou FAS90 contient un ou deux modules Flash cache (modules de mise en cache) avec un seul disque Flash cache SSD intégré dans chaque module de cache.' 
 ---
-= Remplacez le support du module Flash cache ou un module de cache - FAS70 et FAS90
+= Remplacez le support du module Flash Cache ou le module de cache de votre système FAS70 ou FAS90
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -29,8 +29,8 @@ Selon le composant à remplacer, vous pouvez effectuer l'une des procédures sui
 Le support de module Flash cache se trouve dans le logement 6 et peut accueillir jusqu'à deux modules Flash cache. Vous ne pouvez pas remplacer à chaud le support du module Flash cache
 
 .Avant de commencer
-* Vérifiez que votre système de stockage dispose du système d'exploitation approprié pour le support du module Flash cache de remplacement.
-* Vérifiez que tous les autres composants fonctionnent correctement. Si ce n'est pas le cas, vous devez contacter le support technique.
+* Vérifiez que votre système de stockage possède le système d'exploitation approprié pour le support du module Flash Cache de remplacement.
+* Vérifiez que tous les autres composants fonctionnent correctement. S'ils ne fonctionnent pas correctement, contactez le support technique.
 
 
 
@@ -284,8 +284,8 @@ Les modules Flash cache (modules de cache) se trouvent dans le logement 6-1 ou 6
 Vous pouvez remplacer à chaud des modules de cache individuels par des modules de cache de même capacité provenant du même fournisseur ou d'un autre fournisseur.
 
 .Avant de commencer
-* Assurez-vous que le module de cache de remplacement possède la même capacité que le module défaillant, provenant du même fournisseur ou d'un autre fournisseur pris en charge.
-* Vérifiez que tous les autres composants fonctionnent correctement. Si ce n'est pas le cas, vous devez contacter le support technique.
+* Vérifiez que le module de cache de remplacement a la même capacité que celui qui a échoué, qu'il provienne du même fournisseur ou d'un fournisseur différent pris en charge.
+* Vérifiez que tous les autres composants fonctionnent correctement. S'ils ne fonctionnent pas correctement, contactez le support technique.
 * Les disques des modules de cache ne sont pas des unités remplaçables sur site (FRU). Vous devez remplacer l'ensemble du module de cache.
 
 
@@ -341,7 +341,7 @@ LED de panne du module de cache
 .. Faites pivoter le chemin de câbles vers le bas en tirant sur les boutons situés des deux côtés à l'intérieur du chemin de câbles, puis faites pivoter le bac vers le bas.
 .. Appuyez sur le bouton de déverrouillage en terre cuite situé à l'avant du module de mise en cache.
 .. Tournez la poignée de came aussi loin que possible.
-.. Retirez le module de cache du boîtier en accrochant votre doigt dans l'ouverture du levier de came et en tirant le module hors du support du module Flash cache.
+.. Retirez le module de cache de son boîtier en accrochant votre doigt à l'ouverture du levier à came et en tirant le module hors du support du module Flash Cache.
 +
 Assurez-vous de prendre en charge le module de cache lorsque vous le retirez du support du module Flash cache.
 
@@ -371,7 +371,7 @@ The module has been successfully powered on, initialized and placed into service
 ----
 . Vérifiez l'état du logement à l'aide du `system controller slot module show` commande.
 +
-Assurez-vous que la sortie de commande indique l'état pour le sous-système `powered-on` et prêt à l'emploi.
+Assurez-vous que la sortie de la commande indique que l’état est  `powered-on` et prêt pour l’opération.
 
 . Vérifiez que le module de mise en cache de remplacement est en ligne et reconnu, puis vérifiez visuellement que le voyant d'avertissement orange n'est pas allumé : `sysconfig -av slot_number`
 +

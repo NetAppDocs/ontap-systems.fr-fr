@@ -1,17 +1,17 @@
 ---
 permalink: fas2800/chassis-replace-move-hardware.html 
 sidebar: sidebar 
-keywords: fas2800, replace, chassis, shut down, controller, metrocluster, power, supply, ha, state, controller, configuration, switch, aggregates, replace, move, remove, swap 
-summary: 'Déplacez les blocs d"alimentation, les disques durs et les modules de contrôleur du châssis défectueux vers le châssis de remplacement, puis remplacez le châssis défectueux du rack ou de l"armoire système par le châssis de remplacement du même modèle que le châssis défectueux.' 
+keywords: fas2820, replace, chassis, shut down, controller, metrocluster, power, supply, ha, state, controller, configuration, switch, aggregates, replace, move, remove, swap 
+summary: 'Dans votre système FAS2820, déplacez les alimentations, les disques durs et le ou les modules de contrôleur du châssis défectueux vers le châssis de remplacement, puis remplacez le châssis défectueux dans la baie d"équipement ou l"armoire système par le châssis de remplacement du même modèle que le châssis défectueux.' 
 ---
-= Déplacez et remplacez le matériel - FAS2820
+= Remplacez le châssis de votre système FAS2820
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Déplacez les blocs d'alimentation, les disques durs et les modules de contrôleur du châssis défectueux vers le châssis de remplacement, puis remplacez le châssis défectueux du rack ou de l'armoire système par le châssis de remplacement du même modèle que le châssis défectueux.
+Dans votre système FAS2820, déplacez les alimentations, les disques durs et le ou les modules de contrôleur du châssis défectueux vers le châssis de remplacement, puis remplacez le châssis défectueux dans la baie d'équipement ou l'armoire système par le châssis de remplacement du même modèle que le châssis défectueux.
 
 
 
@@ -35,7 +35,7 @@ Le retrait d'un bloc d'alimentation lors du remplacement d'un châssis implique 
 CAUTION: Lors de la dépose d'une alimentation électrique, toujours utiliser deux mains pour soutenir son poids.
 
 . Répétez les étapes précédentes pour les blocs d'alimentation restants.
-. À l'aide des deux mains, soutenez et alignez les bords du bloc d'alimentation avec l'ouverture du châssis du système, puis poussez doucement le bloc d'alimentation dans le châssis à l'aide de la poignée de came.
+. Maintenez et alignez les bords du bloc d'alimentation avec l'ouverture du châssis du système à l'aide des deux mains, puis poussez délicatement le bloc d'alimentation dans le châssis à l'aide de la poignée à came.
 +
 Les blocs d'alimentation sont munis de clés et ne peuvent être installés qu'une seule fois.
 
@@ -103,7 +103,7 @@ La poignée de came s'engage et commence à tourner en position fermée.
 
 . Poussez fermement le disque le reste dans le châssis, puis verrouillez la poignée de came en la poussant contre le support de disque.
 +
-Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur l'avant du support d'entraînement. Il clique sur lorsqu'il est sécurisé.
+Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur l'avant du support d'entraînement. Les données sont sécurisées en quelques clics.
 
 . Répétez la procédure pour les autres lecteurs du système.
 
@@ -116,9 +116,9 @@ Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s
 Retirez le châssis existant du rack d'équipement ou de l'armoire système et installez le nouveau châssis dans le rack d'équipement ou l'armoire système.
 
 . Retirez les vis des points de montage du châssis.
-. Avec l'aide de deux ou trois personnes, faites glisser le châssis défectueux hors des rails du rack dans une armoire système ou des supports _L_ dans un rack d'équipement, puis mettez-le de côté.
+. Faites glisser le châssis endommagé hors des rails de rack dans une armoire système ou des _L_ supports dans une baie d'équipement avec l'aide de deux ou trois personnes, puis mettez-le de côté.
 . Si vous n'êtes pas déjà mis à la terre, mettez-vous à la terre correctement.
-. De deux à trois personnes, installez le châssis de remplacement dans le rack ou l'armoire système en guidant le châssis sur les rails de rack d'une armoire système ou sur les supports _L_ dans un rack d'équipement.
+. Installez le châssis de remplacement dans la baie d'équipement ou l'armoire système avec l'aide de deux ou trois personnes, en guidant le châssis sur les rails de la baie dans une armoire système ou sur les supports en _L_ dans une baie d'équipement.
 . Faites glisser le châssis complètement dans le rack de l'équipement ou l'armoire système.
 . Fixez l'avant du châssis au rack de l'équipement ou à l'armoire système à l'aide des vis que vous avez retirées du châssis défectueux.
 . Si ce n'est déjà fait, installez le cadre.
@@ -129,7 +129,7 @@ Retirez le châssis existant du rack d'équipement ou de l'armoire système et i
 [[step-5-install-the-controller]]
 == Étape 5 : installer le contrôleur
 
-Installez le module de contrôleur et tous les autres composants dans le châssis de remplacement, puis démarrez-le en mode Maintenance.
+Installez le module de contrôle et tous les autres composants dans le châssis de remplacement, puis démarrez-le en mode maintenance.
 
 Pour les paires haute disponibilité avec deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez le module de contrôleur est particulièrement important, car il tente de redémarrer dès que vous le placez entièrement dans le châssis.
 
@@ -155,7 +155,7 @@ NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur da
 . Connectez les blocs d'alimentation à différentes sources d'alimentation, puis mettez-les sous tension.
 . Démarrer chaque contrôleur en mode maintenance :
 +
-.. Au fur et à mesure que chaque contrôleur démarre, appuyez sur `Ctrl-C` pour interrompre le processus de démarrage lorsque le message s'affiche `Press Ctrl-C for Boot Menu`.
+.. Lorsque chaque contrôleur commence à démarrer, appuyez sur  `Ctrl-C` pour interrompre le processus de démarrage lorsque vous voyez le message  `Press Ctrl-C for Boot Menu`.
 +
 
 NOTE: Si l'invite et les modules de contrôleur ne s'affichent pas sur ONTAP, entrez `halt`, Puis à l'invite DU CHARGEUR, entrez `boot_ontap`, appuyez sur `Ctrl-C` lorsque vous y êtes invité, puis répétez cette étape.

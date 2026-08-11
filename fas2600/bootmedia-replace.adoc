@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas2600, locate, boot, media, controller, direction, replace, manual, manual boot recovery 
 summary: 'Remplacez le support de démarrage défectueux sur un module contrôleur FAS2600. Le système FAS2600 ne prend en charge que les procédures de récupération manuelle du support de démarrage. La récupération automatique du support de démarrage n"est pas prise en charge.' 
 ---
-= Remplacer le support de démarrage - FAS2600
+= Remplacez le support de démarrage de votre système FAS2600
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -81,7 +81,7 @@ Vous pouvez installer l'image système sur le support de démarrage de remplacem
 
 
 * Si votre système est une paire haute disponibilité, vous devez disposer d'une connexion réseau.
-* Si votre système est un système autonome, vous n'avez pas besoin d'une connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
+* Si votre système est un système autonome, vous n'avez pas besoin de connexion réseau, mais vous devez effectuer un redémarrage supplémentaire lors de la restauration du système de fichiers var.
 
 
 .Étapes
@@ -111,7 +111,7 @@ Le système commence à démarrer et s'arrête à l'invite DU CHARGEUR.
 ** Si vous configurez DHCP : `ifconfig e0a -auto`
 +
 
-NOTE: Le port cible que vous configurez est le port cible que vous utilisez pour communiquer avec le contrôleur douteux à partir du contrôleur en bon état pendant la restauration du système de fichiers var avec une connexion réseau. Vous pouvez également utiliser le port e0M dans cette commande.
+NOTE: Le port cible que vous configurez est le port que vous utilisez pour communiquer avec le contrôleur défaillant à partir du contrôleur fonctionnel lors de la restauration du système de fichiers var via une connexion réseau. Vous pouvez également utiliser le port e0M dans cette commande.
 
 ** Si vous configurez des connexions manuelles : `ifconfig e0a -addr=filer_addr -mask=netmask -gw=gateway-dns=dns_addr-domain=dns_domain`
 +

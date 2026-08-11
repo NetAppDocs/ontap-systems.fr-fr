@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas50, replace the real-time clock battery 
 summary: 'Remplacez la pile de l"horloge temps réel, communément appelée pile bouton, de votre système de stockage FAS50 pour garantir le fonctionnement des services et applications nécessitant une synchronisation horaire précise.' 
 ---
-= Remplacez la batterie de l'horloge temps réel - FAS50
+= Remplacez la pile de l'horloge temps réel de votre système FAS50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -283,7 +283,7 @@ image::../media/icon_round_3.png[Numéro de légende 3]
 Si nécessaire, faites pivoter les poignées vers le haut (à côté des languettes) pour les écarter.
 
 |===
-. Ouvrez le capot du contrôleur en tournant la vis à molette dans le sens inverse des aiguilles d'une montre pour la desserrer, puis ouvrez le capot.
+. Tournez la vis moletée dans le sens antihoraire pour la desserrer, puis ouvrez le couvercle du contrôleur.
 
 
 
@@ -445,9 +445,9 @@ BLOC D'ALIMENTATION CC
 == Étape 5 : réinitialisez l'heure et la date sur le contrôleur
 
 
-NOTE: Après le remplacement de la batterie RTC, l'insertion du contrôleur et la mise sous tension de la première réinitialisation du BIOS, les messages d'erreur suivants s'affichent :
+NOTE: Après avoir remplacé la pile RTC, inséré le contrôleur et l'avoir mis sous tension pour la première réinitialisation du BIOS, vous voyez les messages d'erreur suivants :
 `RTC date/time error. Reset date/time to default`
-`RTC power failure error` ces messages sont attendus et vous pouvez poursuivre cette procédure.
+`RTC power failure error` Ces messages sont attendus et vous pouvez continuer cette procédure.
 
 . Sur le contrôleur sain, vérifiez la date et l'heure :
 +
@@ -455,7 +455,7 @@ NOTE: Après le remplacement de la batterie RTC, l'insertion du contrôleur et l
 
 +
 
-NOTE: Si votre système de stockage s'arrête dans le menu de démarrage, sélectionnez l'option  `Reboot node`et répondez _y_ lorsque vous y êtes invité, puis démarrez Loader en appuyant sur _Ctrl-C_.
+NOTE: Si votre système de stockage s'arrête au menu de démarrage, sélectionnez l'option  `Reboot node` et répondez _y_ lorsque vous y êtes invité, puis démarrez sur LOADER en appuyant sur _Ctrl-C_.
 
 . Sur le contrôleur altéré, à l'invite LOADER, vérifiez l'heure et la date :
 +

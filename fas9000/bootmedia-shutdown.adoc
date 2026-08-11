@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: aff a700, fas9000, shut, down, impaired, controller, take, over, manual, manual boot recovery 
 summary: Vous pouvez arrêter ou prendre le contrôle du contrôleur défaillant en utilisant différentes procédures, selon la configuration matérielle du système de stockage. Le système FAS9000 ne prend en charge que les procédures de récupération manuelle du support de démarrage. 
 ---
-= Arrêtez le contrôleur défectueux - FAS9000
+= Éteignez le contrôleur défectueux de votre FAS9000 pendant la procédure de récupération par démarrage manuel.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -62,7 +62,7 @@ NOTE: Cette commande peut ne pas fonctionner si le périphérique d'amorçage es
 [[option-2-controller-is-in-a-metrocluster]]
 === Option 2 : le contrôleur est dans un MetroCluster
 
-Une fois les tâches NVE ou NSE effectuées, vous devez arrêter le nœud douteux. REMARQUE : n'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
+Une fois les tâches NVE ou NSE terminées, arrêtez le nœud défaillant. REMARQUE : N’utilisez pas cette procédure si votre système est dans une configuration MetroCluster à deux nœuds.
 
 Prenez le contrôle et arrêtez le contrôleur défaillant afin que le contrôleur fonctionnel continue de fournir les données provenant du stockage du contrôleur défaillant. Pour ce faire, vous supprimez la création automatique de cas dans AutoSupport, désactivez la restitution automatique et amenez le contrôleur défaillant à l'invite LOADER. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer la FRU.
 
@@ -121,7 +121,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 [[option-3-controller-is-in-a-two-node-metrocluster]]
 == Option 3 : le contrôleur est intégré à un MetroCluster à deux nœuds
 
-Une fois les tâches NVE ou NSE effectuées, vous devez arrêter le nœud douteux.
+Une fois les tâches NVE ou NSE terminées, arrêtez le nœud défectueux.
 
 
 NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.

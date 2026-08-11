@@ -1,17 +1,17 @@
 ---
 permalink: fas2800/bootmedia-replace-workflow-bmr.html 
 sidebar: sidebar 
-keywords: fas2800, replace the boot media 
-summary: 'Commencez à remplacer le support de démarrage de votre système de stockage FAS2800 en examinant les exigences de remplacement, en arrêtant les contrôleurs, en remplaçant le support de démarrage, en restaurant l"image sur le support de démarrage et en vérifiant la fonctionnalité du système.' 
+keywords: fas2820, replace the boot media 
+summary: 'Commencez à remplacer le support de démarrage de votre système de stockage FAS2820 en consultant les exigences de remplacement, en arrêtant les contrôleurs, en remplaçant le support de démarrage, en restaurant l"image sur le support de démarrage et en vérifiant la fonctionnalité du système.' 
 ---
-= Workflow de récupération automatisée du support de démarrage - FAS2800
+= Flux de travail de remplacement du support de démarrage FAS2820 utilisant le processus de récupération de démarrage automatisé
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-La récupération automatique de l'image de démarrage implique que le système identifie et sélectionne automatiquement l'option de menu de démarrage appropriée. Il utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement de votre système de stockage FAS2800.
+La récupération automatique de l'image de démarrage consiste pour le système à identifier et à sélectionner automatiquement l'option appropriée du menu de démarrage. Elle utilise l'image de démarrage du nœud partenaire pour réinstaller ONTAP sur le support de démarrage de remplacement dans votre système de stockage FAS2820.
 
 La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
 

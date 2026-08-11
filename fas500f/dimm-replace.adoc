@@ -4,16 +4,16 @@ sidebar: sidebar
 keywords: fas500f, replace dimms 
 summary: 'Vous devez remplacer une barrette DIMM dans le module contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d"erreurs corrigibles. À défaut, le système se bloquera.' 
 ---
-= Remplacez un module DIMM - FAS500f
+= Remplacez une barrette DIMM dans votre système FAS500f pour corriger les erreurs de mémoire
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous devez remplacer un module DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles que des erreurs CECC (Correctable Error correction codes) excessives qui sont basées sur des alertes du moniteur d'intégrité ou des erreurs ECC incorrigibles, généralement causées par une panne de module DIMM unique empêchant le système de stockage de démarrer ONTAP.
+Vous devez remplacer une barrette DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles qu'un nombre excessif d'erreurs CECC (Correctable Error Correction Codes) signalées par le Health Monitor, ou des erreurs ECC non corrigibles. Ces erreurs sont généralement causées par la défaillance d'une seule barrette DIMM, ce qui empêche le système de stockage de démarrer ONTAP.
 
-Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+Si d'autres composants du système ne fonctionnent pas correctement, contactez le support technique.
 
 Vous devez remplacer le composant défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
@@ -123,7 +123,7 @@ image:../media/icon_round_2.png["Légende numéro 2"]
 Mécanisme de verrouillage
 
 |===
-. À l'aide des deux mains, saisissez les côtés du module de contrôleur et tirez-le doucement hors du châssis et posez-le sur une surface plane et stable.
+. Saisissez le module de commande à deux mains et retirez-le délicatement du châssis, puis posez-le sur une surface plane et stable.
 . Tournez la vis moletée située à l'avant du module de contrôleur dans le sens anti-horaire et ouvrez le capot du module de contrôleur.
 +
 image::../media/drw_a250_open_controller_module_cover.png[Ouverture du capot du module de contrôleur]
@@ -177,7 +177,7 @@ NOTE: Tenez le module DIMM par les bords pour éviter toute pression sur les com
 
 . Insérez le module DIMM de remplacement directement dans le logement.
 +
-Les barrettes DIMM s'adaptent bien dans le support. Si ce n'est pas le cas, réinsérez le module DIMM pour le réaligner avec le support.
+Les barrettes DIMM doivent s'insérer fermement dans leur logement. Si une barrette DIMM ne s'insère pas fermement, réinsérez-la pour la réaligner avec le logement.
 
 . Inspectez visuellement le module DIMM pour vérifier qu'il est bien aligné et complètement inséré dans le support.
 
@@ -216,8 +216,8 @@ Vis moletée
 |===
 . Insérer le module de contrôleur dans le châssis :
 +
-.. S'assurer que les bras du mécanisme de verrouillage sont verrouillés en position complètement sortie.
-.. À l'aide des deux mains, alignez et faites glisser doucement le module de commande dans les bras du mécanisme de verrouillage jusqu'à ce qu'il s'arrête.
+.. Vérifiez que les bras du mécanisme de verrouillage sont verrouillés en position complètement déployée.
+.. À l'aide des deux mains, alignez et faites glisser délicatement le module de commande dans les bras du mécanisme de verrouillage jusqu'à ce qu'il s'arrête.
 .. Placez vos doigts à travers les trous des doigts depuis l'intérieur du mécanisme de verrouillage.
 .. Enfoncez vos pouces sur les pattes orange situées sur le mécanisme de verrouillage et poussez doucement le module de commande au-dessus de la butée.
 .. Libérez vos pouces de la partie supérieure des mécanismes de verrouillage et continuez à pousser jusqu'à ce que les mécanismes de verrouillage s'enclenchent.
@@ -232,7 +232,7 @@ Le module de contrôleur doit être complètement inséré et aligné avec les b
 . Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
 +
 
-NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus tard dans cette procédure.
 
 
 

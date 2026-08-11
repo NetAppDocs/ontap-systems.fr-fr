@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas8200, boot the recovery image, manual, manual boot recovery 
 summary: 'Démarrez l"image de récupération ONTAP depuis la clé USB sur un système FAS8200 pour restaurer le support de démarrage. Le système FAS8200 ne prend en charge que les procédures de récupération manuelle du support de démarrage. La récupération automatique du support de démarrage n"est pas prise en charge.' 
 ---
-= Démarrez l'image de restauration - FAS8200
+= Démarrez l'image de récupération sur votre système FAS8200
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -62,7 +62,7 @@ Si vous êtes invité à poursuivre la mise à jour, appuyez sur `y`.
 
 
 |===
-. Assurez-vous que les variables environnementales sont définies comme prévu :
+. Vérifiez que les variables environnementales sont définies comme prévu :
 +
 .. Prenez le contrôleur vers l'invite DU CHARGEUR.
 .. Vérifiez les paramètres de la variable d'environnement à l'aide de l' `printenv` commande.
@@ -70,7 +70,7 @@ Si vous êtes invité à poursuivre la mise à jour, appuyez sur `y`.
 .. Enregistrez vos modifications à l'aide du `savenv` commande.
 
 
-. Le suivant dépend de la configuration de votre système :
+. L'étape suivante dépend de la configuration de votre système :
 +
 ** Si keymanager, NSE ou NVE intégré est configuré sur votre système, rendez-vous sur xref:bootmedia-encryption-restore.adoc[OKM, NSE et NVE si besoin]
 ** Si keymanager, NSE ou NVE intégré ne sont pas configurés sur votre système, effectuez les étapes de cette section.
@@ -86,7 +86,7 @@ Si vous êtes invité à poursuivre la mise à jour, appuyez sur `y`.
  a| 
 Invite de connexion
  a| 
-Passer à l'étape suivante.
+Passez à l'étape suivante.
 
 
 

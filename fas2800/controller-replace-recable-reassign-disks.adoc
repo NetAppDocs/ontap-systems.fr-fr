@@ -1,17 +1,17 @@
 ---
 permalink: fas2800/controller-replace-recable-reassign-disks.html 
 sidebar: sidebar 
-keywords: fas2800, how to recable the system, how to reassign disks 
-summary: Vous devez recomm le stockage et confirmer la réaffectation des disques. 
+keywords: fas2820, how to recable the system, how to reassign disks 
+summary: 'Pour terminer le remplacement du contrôleur et rétablir le fonctionnement complet de votre système FAS2820, vous devez recâbler le stockage, confirmer la réaffectation du disque, restaurer la configuration NetApp Storage Encryption (si nécessaire) et installer les licences pour le nouveau contrôleur.' 
 ---
-= Recâblage du système et réaffectation des disques - FAS2820
+= Remettez le contrôleur dans votre système FAS2820 pour reprendre le fonctionnement normal.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour effectuer la procédure de remplacement et restaurer entièrement le système en fonctionnement, vous devez récupérer le stockage, confirmer la réaffectation des disques, restaurer la configuration NetApp Storage Encryption (si nécessaire) et installer les licences du nouveau contrôleur. Vous devez effectuer une série de tâches avant de restaurer le système en mode de fonctionnement complet.
+Pour terminer la procédure de remplacement et rétablir le fonctionnement complet de votre système FAS2820, vous devez recâbler le stockage, confirmer la réaffectation du disque, restaurer la configuration NetApp Storage Encryption (si nécessaire), et installer les licences pour le nouveau contrôleur.
 
 
 
@@ -34,7 +34,7 @@ Vérifiez les connexions de stockage et réseau du module contrôleur en utilisa
 
 Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.
 
-. Si le _remplacement_ contrôleur est en mode Maintenance (affiche le `*>` Invite, quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`
+. Si le _remplacement_ contrôleur est en mode Maintenance (affiche le `*>` Invite), quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`
 . À partir de l'invite DU CHARGEUR sur le contrôleur _replace_, démarrez le contrôleur, puis entrez `y` Si vous êtes invité à remplacer l'ID système en raison d'une discordance d'ID système :``boot_ontap``
 . Attendre jusqu'à `Waiting for giveback...` Le message s'affiche sur la console du contrôleur _replace_, puis, à partir du contrôleur sain, vérifiez que le nouvel ID système partenaire a été automatiquement attribué : `storage failover show`
 +

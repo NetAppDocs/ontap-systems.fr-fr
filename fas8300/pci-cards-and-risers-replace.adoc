@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas8300, fas8700, replace, pcie, mezzanine, card, controller, metrocluster, reinstall, controller, aggregate, reinstall, controller 
 summary: Pour remplacer une carte PCIe ou mezzanine, déconnectez les câbles et tous les modules SFP et QSFP des cartes, remplacez la carte PCIe ou mezzanine défectueuse, puis recâble les cartes. 
 ---
-= Remplacez une carte PCIe ou mezzanine - FAS8300 et FAS8700
+= Remplacez une carte PCIe ou mezzanine dans votre système FAS8300 ou FAS8700
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,7 +14,7 @@ summary: Pour remplacer une carte PCIe ou mezzanine, déconnectez les câbles et
 Pour remplacer une carte PCIe ou mezzanine, déconnectez les câbles et tous les modules SFP et QSFP des cartes, remplacez la carte PCIe ou mezzanine défectueuse, puis recâble les cartes.
 
 * Cette procédure peut être utilisée avec toutes les versions de ONTAP prises en charge par votre système
-* Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.
+* Tous les autres composants du système doivent fonctionner correctement. Dans le cas contraire, vous devez contacter le support technique.
 
 
 
@@ -244,7 +244,7 @@ image:../media/drw_A400_Replace-PCIe-cards.png["Retrait des cartes PCIe"]
 +
 La carte de montage se soulève légèrement du module de contrôleur.
 
-.. Soulevez le montant droit et mettez-le de côté sur une surface plane stable,
+.. Soulevez la colonne verticalement et posez-la sur une surface stable et plane.
 
 
 . Retirez la carte PCIe de la carte de montage :
@@ -255,7 +255,7 @@ La carte de montage se soulève légèrement du module de contrôleur.
 .. Retirez la carte PCIe de la carte de montage en poussant doucement vers le haut sur le support et en la soulevant hors du support.
 
 
-. Installez la carte PCIe de remplacement dans la carte de montage en alignant la carte avec le support, appuyez sur la carte dans le support, puis fermez le panneau latéral de la carte de montage, le cas échéant.
+. Installez la carte PCIe de remplacement dans le riser en alignant la carte avec le connecteur, en enfonçant la carte dans le connecteur, puis en fermant le panneau latéral du riser, s'il est présent.
 +
 Assurez-vous d'aligner correctement la carte dans la fente et d'exercer une pression uniforme sur la carte lorsqu'elle est insérée dans la prise. La carte PCIe doit être complètement et uniformément insérée dans le logement.
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fas8200, move the controller module hardware 
 summary: Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance. 
 ---
-= Remplacez le matériel du module de contrôleur - FAS8200
+= Remplacez le contrôleur dans votre système FAS8200
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -67,7 +67,7 @@ Vous devez localiser le support de démarrage et suivre les instructions pour le
 
 . Recherchez le support de démarrage à l'aide de l'illustration suivante ou du mappage des FRU sur le module de contrôleur :
 +
-image::../media/drw_rxl_boot_media.png[Retrait du support de démarrage hte]
+image::../media/drw_rxl_boot_media.png[Retrait du support de démarrage]
 
 . Appuyez sur le bouton bleu du logement du support de démarrage pour libérer le support de démarrage de son logement, puis tirez-le doucement hors du support de démarrage.
 +
@@ -162,7 +162,7 @@ image::../media/drw_rxl_dimms.png[Remplacement des modules DIMM]
 . Repérez le logement où vous installez le module DIMM.
 . Assurez-vous que les languettes de l'éjecteur de DIMM sur le connecteur sont en position ouverte, puis insérez le module DIMM directement dans le logement.
 +
-Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
+La barrette DIMM s'insère fermement dans son emplacement, mais elle devrait s'y glisser facilement. Si ce n'est pas le cas, réalignez la barrette DIMM avec l'emplacement et réinsérez-la.
 
 +
 
@@ -233,7 +233,7 @@ Vous devez déplacer les modules de cache des modules de contrôleur douteux ver
 Le système de stockage est fourni avec deux emplacements disponibles pour le module de cache et un seul emplacement est occupé, par défaut.
 
 +
-image::../media/drw_rxl_fcache.png[Retirer et remplacer le module de cache]
+image::../media/drw_rxl_fcache.png[Retirez et remplacez le module de cache]
 
 
 
@@ -265,7 +265,7 @@ NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tan
 . Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
 +
 
-NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus tard dans cette procédure.
 
 . Terminez la réinstallation du module de contrôleur :
 +
@@ -278,7 +278,7 @@ NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin d
 Une paire haute disponibilité
  a| 
  The controller module begins to boot as soon as it is fully seated in the chassis. Be prepared to interrupt the boot process.
-.. Avec la poignée de came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came en position verrouillée. Serrez la vis moletée sur la poignée de came à l'arrière du module de contrôleur.
+.. Avec la poignée à came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il atteigne le plan médian et soit complètement en place, puis fermez la poignée à came en position verrouillée. Serrez la vis moletée située sur la poignée à came à l'arrière du module de contrôleur.
 +
 
 NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.
@@ -301,7 +301,7 @@ NOTE: Si l'invite et le module de contrôleur ne démarre pas sur ONTAP, entrez 
  a| 
 Une configuration autonome
  a| 
-.. Avec la poignée de came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il rencontre le fond de panier et soit bien en place, puis fermez la poignée de came en position verrouillée. Serrez la vis moletée sur la poignée de came à l'arrière du module de contrôleur.
+.. Avec la poignée à came en position ouverte, poussez fermement le module de contrôleur jusqu'à ce qu'il atteigne le plan médian et soit complètement en place, puis fermez la poignée à came en position verrouillée. Serrez la vis moletée située sur la poignée à came à l'arrière du module de contrôleur.
 +
 
 NOTE: Ne forcez pas trop lorsque vous faites glisser le module de contrôleur dans le châssis pour éviter d'endommager les connecteurs.

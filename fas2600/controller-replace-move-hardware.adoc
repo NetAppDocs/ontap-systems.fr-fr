@@ -2,16 +2,16 @@
 permalink: fas2600/controller-replace-move-hardware.html 
 sidebar: sidebar 
 keywords: fas2600, move the components 
-summary: Pour remplacer le matériel du module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance. 
+summary: Remplacez le contrôleur de votre système FAS2600 en retirant le contrôleur défectueux, en déplaçant les composants FRU vers le module de contrôleur de remplacement, en l’installant dans le châssis et en démarrant le système en mode Maintenance. 
 ---
-= Remplacer le matériel du module de contrôleur - FAS2600
+= Remplacez le contrôleur de votre système FAS2600
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour remplacer le module de contrôleur, vous devez retirer le contrôleur défectueux, déplacer les composants FRU vers le module de contrôleur de remplacement, installer le module de contrôleur de remplacement dans le châssis, puis démarrer le système en mode de maintenance.
+Remplacez le contrôleur de votre système FAS2600 en retirant le contrôleur défectueux, en déplaçant les composants FRU vers le module de contrôleur de remplacement, en installant le module de contrôleur de remplacement dans le châssis, puis en démarrant le système en mode Maintenance.
 
 link:https://youtu.be/2_uWRt_iJqk["Vidéo sur le remplacement des contrôleurs AFF FAS2600"]
 
@@ -141,7 +141,7 @@ image::../media/drw_2600_dimms.png[Emplacement des modules DIMM système]
 . Repérez le logement où vous installez le module DIMM.
 . Assurez-vous que les languettes de l'éjecteur de DIMM sur le connecteur sont en position ouverte, puis insérez le module DIMM directement dans le logement.
 +
-Le module DIMM s'insère bien dans le logement, mais devrait être facilement installé. Si ce n'est pas le cas, réalignez le module DIMM avec le logement et réinsérez-le.
+La barrette DIMM s'insère fermement dans son emplacement, mais devrait s'y glisser facilement. Si ce n'est pas le cas, réalignez la barrette DIMM avec l'emplacement et réinsérez-la.
 
 +
 
@@ -159,9 +159,9 @@ Assurez-vous que la fiche se verrouille sur le module de contrôleur.
 [[step-5-move-the-caching-module]]
 == Étape 5 : déplacer le module de mise en cache
 
-Pour déplacer un module de mise en cache appelé carte PCIe M.2 sur l'étiquette de votre contrôleur, localisez et déplacez-le de l'ancien contrôleur vers le contrôleur de remplacement et suivez la séquence d'étapes spécifique.
+Pour déplacer le module de cache, appelé carte M.2 PCIe sur l'étiquette du contrôleur, de l'ancien module de contrôleur vers le module de contrôleur de remplacement, suivez cette séquence d'étapes.
 
-Vous devez être prêt pour le nouveau module de contrôleur afin de pouvoir déplacer le module de mise en cache directement de l'ancien module de contrôleur vers le slot correspondant dans le nouveau. Tous les autres composants du système de stockage doivent fonctionner correctement. Si ce n'est pas le cas, vous devez contacter le support technique.
+Vous devez avoir le nouveau module de contrôle prêt afin de pouvoir déplacer le module de cache directement de l'ancien module de contrôle vers l'emplacement correspondant du nouveau. Tous les autres composants du système de stockage doivent fonctionner correctement. S'ils ne fonctionnent pas correctement, contactez le support technique.
 
 .Étapes
 . Recherchez le module de mise en cache à l'arrière du module de contrôleur et retirez-le.
@@ -190,7 +190,7 @@ Si nécessaire, retirez le module de cache et réinstallez-le dans le support.
 
 Après avoir installé les composants de l'ancien module de contrôleur dans le nouveau module de contrôleur, vous devez installer le nouveau module de contrôleur dans le châssis du système et démarrer le système d'exploitation.
 
-Pour les paires haute disponibilité avec deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez le module de contrôleur est particulièrement important, car il tente de redémarrer dès que vous le placez entièrement dans le châssis.
+Pour les paires HA comportant deux modules de contrôleur dans le même châssis, l'ordre dans lequel vous installez les modules de contrôleur est particulièrement important, car un module de contrôleur tente de redémarrer dès qu'il est complètement inséré dans le châssis.
 
 
 NOTE: Le système peut mettre à jour le firmware du système lors de son démarrage. N'interrompez pas ce processus. La procédure requiert l'interruption du processus d'amorçage, que vous pouvez généralement faire à tout moment après l'invite à le faire. Toutefois, si le système met à jour le firmware du système lors de son démarrage, vous devez attendre la fin de la mise à jour avant d'interrompre le processus de démarrage.
@@ -206,7 +206,7 @@ NOTE: N'insérez pas complètement le module de contrôleur dans le châssis tan
 . Reliez uniquement les ports de gestion et de console, de sorte que vous puissiez accéder au système pour effectuer les tâches décrites dans les sections ci-après.
 +
 
-NOTE: Vous connecterez le reste des câbles au module de contrôleur plus loin dans cette procédure.
+NOTE: Vous connecterez le reste des câbles au module de contrôleur plus tard dans cette procédure.
 
 . Terminez la réinstallation du module de contrôleur :
 +
