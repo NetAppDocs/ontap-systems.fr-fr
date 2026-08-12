@@ -197,7 +197,7 @@ image::../media/drw_a320_cable_management_arms.png[Retrait ou installation des b
 Vous pouvez connecter les contrôleurs à votre réseau en utilisant la méthode de cluster sans commutateur à deux nœuds ou en utilisant le réseau d'interconnexion de cluster.
 
 
-NOTE: Si les étiquettes de port de la carte ne sont pas visibles, vérifiez l'orientation de l'installation de la carte (le connecteur PCIe se trouve sur le côté gauche du logement de carte dans les modèles A400 et FAS8300/8700), puis recherchez la carte, par numéro de pièce, dans le https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir un graphique du panneau indiquant les étiquettes des ports. Le numéro de référence de la carte se trouve à l'aide du `sysconfig -a` ou sur la liste d'emballage du système.
+NOTE: Si les étiquettes des ports de la carte ne sont pas visibles, vérifiez l’orientation d’installation de la carte. Le connecteur du socket PCIe se trouve sur le côté gauche de l’emplacement de la carte dans les modèles A400 et FAS8300/8700. Recherchez ensuite la carte par numéro de pièce dans le  https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir un schéma du panneau indiquant les étiquettes des ports. Vous pouvez trouver le numéro de pièce de la carte à l’aide de la commande  `sysconfig -a` ou sur la liste de colisage du système.
 
 
 NOTE: Si vous effectuez le câblage d'une configuration IP MetroCluster, les ports e0a/e0b sont disponibles pour l'hébergement des LIF de données (généralement dans l'IPSpace par défaut).
@@ -265,7 +265,7 @@ image::../media/drw_a400_switched_network_cabling.png[Câblage réseau commuté 
 [[step-4-cable-controllers-to-drive-shelves]]
 == Étape 4 : câblage des contrôleurs aux tiroirs disques
 
-Vous pouvez connecter le câble des tiroirs NSS224 ou SAS à votre système.
+Vous pouvez connecter par câble des baies NS224 ou SAS à votre système.
 
 
 
@@ -378,7 +378,7 @@ image::../media/drw_autodiscovery_controler_select_ieops-1849.svg[Sélectionnez 
 
 +
 .. Ouvrez l'Explorateur de fichiers.
-.. Cliquez sur *réseau* dans le volet gauche, cliquez avec le bouton droit de la souris et sélectionnez *refresh*.
+.. Sélectionnez *Réseau* dans le volet de gauche, puis cliquez avec le bouton droit et sélectionnez *Actualiser*.
 .. Double-cliquez sur l'une des icônes ONTAP et acceptez les certificats affichés à l'écran.
 +
 

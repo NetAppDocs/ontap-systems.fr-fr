@@ -11,7 +11,7 @@ summary: Vous devez recomm le stockage et confirmer la réaffectation des disque
 
 
 [role="lead"]
-Rendez le contrôle des ressources de stockage au contrôleur de remplacement afin que votre système AFF A800 puisse reprendre son fonctionnement normal.  La procédure de restitution varie en fonction du type de chiffrement utilisé par votre système : aucun chiffrement ou chiffrement Onboard Key Manager (OKM).
+Après le remplacement d'un contrôleur, recâblez votre système AFF A800 et réaffectez les disques au contrôleur de remplacement. Si votre système est dans une paire haute disponibilité, le processus de restitution attribue automatiquement l'identifiant système aux disques ; les étapes exactes dépendent du fait que votre système utilise ou non le chiffrement, ou le chiffrement Onboard Key Manager (OKM).
 
 
 
@@ -32,9 +32,9 @@ Vérifiez les connexions de stockage et réseau du module contrôleur en utilisa
 [[step-2-reassign-disks]]
 == Étape 2 : réaffectation de disques
 
-Si le système de stockage est dans une paire HA, l'ID système du nouveau module de contrôleur est automatiquement attribué aux disques lors du rétablissement après la procédure. Vous devez confirmer la modification de l'ID système au démarrage du contrôleur _replace_, puis vérifier que la modification a été implémentée.
+Si le système de stockage est configuré en paire haute disponibilité, l'identifiant système du nouveau module de contrôleur est automatiquement attribué aux disques lors de la restauration à la fin de la procédure. Vous devez confirmer la modification de l'identifiant système au démarrage du contrôleur de remplacement, puis vérifier que le système a appliqué la modification.
 
-Cette étape s'applique uniquement aux systèmes exécutant ONTAP dans une paire HA.
+Cette étape s'applique uniquement aux systèmes exécutant ONTAP dans une paire haute disponibilité.
 
 .Étapes
 . Si le _remplacement_ contrôleur est en mode Maintenance (affiche le `*>` Invite, quittez le mode maintenance et accédez à l'invite DU CHARGEUR : `halt`

@@ -4,22 +4,22 @@ sidebar: sidebar
 keywords: aff c30, aff c60, add IO module 
 summary: 'Ajoutez un module d"E/S à votre système de stockage AFF C30 ou AFF C60 pour améliorer la connectivité réseau et étendre la capacité de votre système à gérer le trafic de données.' 
 ---
-= Ajoutez un module d'E/S à votre système de stockage AFF C30 ou AFF C60 pour améliorer la connectivité réseau
+= Ajoutez un module d'E/S à votre système de stockage AFF C30 ou AFF C60
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Ajoutez un module d'E/S à votre système de stockage AFF C30 ou AFF C60 pour améliorer la connectivité réseau et augmenter la capacité de traitement du trafic de données. Vous pouvez utiliser cette procédure pour ajouter un module d'E/S soit à un contrôleur opérationnel dans le cadre d'une mise à niveau planifiée, soit à un contrôleur défaillant lors d'une opération de maintenance.
+Ajoutez un module d'E/S à votre système de stockage AFF C30 ou AFF C60 pour améliorer la connectivité réseau et augmenter la capacité de votre système à gérer le trafic de données. Vous pouvez utiliser cette procédure pour ajouter un module d'E/S soit à un contrôleur opérationnel dans le cadre d'une mise à niveau planifiée, soit à un contrôleur dont le module d'E/S est défectueux lors d'une opération de maintenance.
 
 Vous pouvez ajouter un module d'E/S à vos systèmes de stockage AFF C30 et AFF C60 lorsqu'il y a des emplacements disponibles ou lorsque tous les emplacements sont entièrement remplis.
 
 .Description de la tâche
-Vous pouvez effectuer cette procédure sur l'un ou l'autre des contrôleurs de la paire haute disponibilité, qu'il soit actuellement opérationnel ou défaillant. Comme il est impossible d'ajouter un module d'E/S à un contrôleur en fonctionnement, le contrôleur cible doit être arrêté avant l'installation du module. Le partenaire de la paire haute disponibilité prend le relais des opérations de stockage pendant la procédure afin que les données restent accessibles aux clients.
+Vous pouvez effectuer cette procédure sur l'un ou l'autre des contrôleurs de la paire haute disponibilité, que le module d'E/S du contrôleur soit actuellement opérationnel ou défaillant. Comme il est impossible d'ajouter un module d'E/S à un contrôleur en fonctionnement, le contrôleur cible doit être arrêté avant l'installation du module. Le partenaire de la paire haute disponibilité prend en charge les opérations de stockage pendant la procédure afin que les données restent disponibles pour les clients.
 
-* Si le contrôleur cible est *opérationnel* (ajout prévu), suivez les étapes d'arrêt telles qu'elles sont écrites, en traitant le contrôleur cible comme le contrôleur « défaillant » dans ce contenu.
-* Si le contrôleur cible est *défaillant*, suivez les étapes d'arrêt décrites.
+* Si le contrôleur cible est *opérationnel* (ajout prévu), suivez les étapes d'arrêt telles qu'elles sont écrites, en considérant que le contrôleur cible possède un module d'E/S défectueux dans cette procédure.
+* Si le contrôleur cible possède un module d'E/S défectueux, suivez les étapes d'arrêt telles qu'elles sont décrites.
 
 
 Si nécessaire, vous pouvez allumer les voyants d'emplacement du système de stockage (bleus) pour faciliter la localisation physique du système de stockage concerné. Connectez-vous au BMC à l'aide de SSH et entrez `system location-led _on_` la commande.
@@ -33,7 +33,7 @@ Vous pouvez les désactiver en entrant `system location-led _off_` la commande. 
 [[step-1-shut-down-the-target-controller-module]]
 == Étape 1 : Arrêter le module de contrôleur cible
 
-Prenez le contrôle et arrêtez le module de contrôleur cible afin que sa paire haute disponibilité continue de fournir des données pendant l'ajout du module d'E/S. Les étapes liées font référence au contrôleur arrêté comme étant le contrôleur « défaillant » ; les mêmes étapes s'appliquent que vous preniez le contrôle d'un contrôleur opérationnel pour un ajout planifié ou que vous arrêtiez un contrôleur déjà défaillant.
+Prenez le contrôle et arrêtez le contrôleur cible afin que sa paire haute disponibilité continue de fournir des données pendant que vous ajoutez le module d'E/S. Les étapes liées font référence au contrôleur arrêté comme hébergeant le module d'E/S défectueux. Ces étapes s'appliquent que vous preniez le contrôle d'un contrôleur pour un ajout planifié ou que vous arrêtiez un contrôleur dont le module d'E/S est déjà défectueux.
 
 [role="tabbed-block"]
 ====

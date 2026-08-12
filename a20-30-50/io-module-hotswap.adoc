@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: aff a20, aff a30, aff a50, hot swap a cluster ha card, hot swap ethernet client io module, hotswap io module, hot swap io module 
 summary: 'Vous pouvez remplacer à chaud un module d"E/S Ethernet dans votre AFF A20, AFF A30 ou AFF A50 système de stockage si un module tombe en panne et si votre système de stockage répond à toutes les exigences de version ONTAP.' 
 ---
-= Remplacez à chaud un module d'E/S dans votre système AFF A20, AFF A30 ou AFF A50 sans l'arrêter
+= Remplacez à chaud un module d'E/S dans votre système AFF A20, AFF A30 ou AFF A50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,7 @@ summary: 'Vous pouvez remplacer à chaud un module d"E/S Ethernet dans votre AFF
 [role="lead"]
 Vous pouvez remplacer à chaud un module d'E/S Ethernet dans votre AFF A20, AFF A30 ou AFF A50 système de stockage si un module tombe en panne et si votre système de stockage répond à toutes les exigences de version ONTAP.
 
-Pour remplacer à chaud un module d'E/S, assurez-vous que votre système de stockage répond aux exigences de version ONTAP, préparez votre système de stockage et le module d'E/S, remplacez à chaud le module défaillant, mettez le module de remplacement en ligne, rétablissez le fonctionnement normal du système de stockage et retournez le module défaillant à NetApp.
+Pour remplacer à chaud un module d'E/S, vérifiez que votre système de stockage répond aux exigences de version ONTAP, préparez votre système de stockage et votre module d'E/S, remplacez à chaud le module défaillant, mettez le module de remplacement en ligne, rétablissez le fonctionnement normal du système de stockage et retournez le module défaillant à NetApp.
 
 .Description de la tâche
 * Le hot swap du module d'E/S signifie que vous n'avez pas besoin d'effectuer un basculement automatique avant de remplacer le module d'E/S défectueux.
@@ -28,7 +28,7 @@ Pour remplacer à chaud un module d'E/S, assurez-vous que votre système de stoc
 Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
 
 +
-Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
+Vous pouvez les éteindre en saisissant la  `system location-led _off_` commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en saisissant la  `system location-led show` commande.
 
 
 

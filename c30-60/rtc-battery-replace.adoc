@@ -14,7 +14,7 @@ summary: 'Remplacez la pile de l"horloge temps réel, communément appelée pile
 Remplacez la batterie de l'horloge temps réel (RTC), communément appelée pile bouton, dans votre système de stockage AFF C30 ou AFF C60 pour garantir que les services et applications s'appuyant sur une synchronisation horaire précise restent opérationnels.
 
 .Avant de commencer
-Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
+Tous les autres composants du système de stockage doivent fonctionner correctement. Dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre cette procédure.
 
 .Description de la tâche
 * Vous pouvez utiliser cette procédure avec toutes les versions de ONTAP prises en charge par votre système de stockage.
@@ -23,7 +23,7 @@ Tous les autres composants du système de stockage doivent fonctionner correctem
 Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
 
 +
-Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
+Vous pouvez les éteindre en saisissant la commande  `system location-led _off_`. Si vous ne savez pas si les LED sont allumées ou éteintes, vérifiez leur état en saisissant la commande  `system location-led show`.
 
 
 
@@ -283,7 +283,7 @@ image::../media/icon_round_3.png[Numéro de légende 3]
 Si nécessaire, faites pivoter les poignées vers le haut (à côté des languettes) pour les écarter.
 
 |===
-. Ouvrez le capot du contrôleur en tournant la vis à molette dans le sens inverse des aiguilles d'une montre pour la desserrer, puis ouvrez le capot.
+. Ouvrez le couvercle du contrôleur en tournant la vis moletée dans le sens antihoraire.
 
 
 
@@ -445,9 +445,9 @@ BLOC D'ALIMENTATION CC
 == Étape 5 : réinitialisez l'heure et la date sur le contrôleur
 
 
-NOTE: Après le remplacement de la batterie RTC, l'insertion du contrôleur et la mise sous tension de la première réinitialisation du BIOS, les messages d'erreur suivants s'affichent :
+NOTE: Après avoir remplacé la pile RTC, inséré le contrôleur et mis sous tension, lors de la première réinitialisation du BIOS, vous pourriez voir les messages d'erreur suivants :
 `RTC date/time error. Reset date/time to default`
-`RTC power failure error` ces messages sont attendus et vous pouvez poursuivre cette procédure.
+`RTC power failure error` Ces messages sont normaux et vous pouvez poursuivre la procédure.
 
 . Sur le contrôleur sain, vérifiez la date et l'heure :
 +

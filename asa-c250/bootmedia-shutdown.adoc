@@ -2,7 +2,7 @@
 permalink: asa-c250/bootmedia-shutdown.html 
 sidebar: sidebar 
 keywords: asa c250, shutdown 
-summary: Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement. 
+summary: Éteignez le contrôleur de votre système de stockage ASA C250 pour éviter toute perte de données et maintenir la stabilité du système pendant le processus de récupération manuelle du support de démarrage. 
 ---
 = Éteignez le contrôleur de votre système ASA C250 pendant la procédure de récupération par démarrage manuel
 :allow-uri-read: 
@@ -10,12 +10,14 @@ summary: Une fois les tâches NVE ou NSE terminées, vous devez arrêter le cont
 :imagesdir: ../media/
 
 
+[role="lead"]
+Éteignez le contrôleur de votre système de stockage ASA C250 pour éviter toute perte de données et maintenir la stabilité du système pendant le processus de récupération manuelle du support de démarrage.
+
 
 
 [[option-1-most-systems]]
 == Option 1 : la plupart des systèmes
 
-[role="lead"]
 Terminez l'arrêt du contrôleur défectueux en le ramenant à l'invite LOADER et en enregistrant les variables d'environnement de démarrage. L'invite LOADER correspond à l'état d'arrêt sécurisé à partir duquel vous pouvez remplacer le support de démarrage.
 
 .Étapes
@@ -60,7 +62,7 @@ NOTE: Cette commande peut ne pas fonctionner si le périphérique d'amorçage es
 [[option-2-systems-in-a-metrocluster]]
 == Option 2 : systèmes dans un MetroCluster
 
-Une fois les tâches NVE ou NSE terminées, vous devez arrêter le contrôleur pour cause de dysfonctionnement.
+Après avoir terminé les tâches NVE ou NSE, vous devez procéder à l'arrêt du contrôleur.
 
 
 NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.

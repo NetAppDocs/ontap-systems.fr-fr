@@ -15,7 +15,7 @@ Installez votre système de stockage AFF A150 en suivant ces instructions détai
 
 Si vous disposez d'une configuration MetroCluster, utilisez https://docs.netapp.com/us-en/ontap-metrocluster/index.html["Documentation MetroCluster"^].
 
-*Avertissement :* si votre système est installé avec ONTAP 9.13.1P8 - 9.13.1P11, ONTAP 9.14.1P1 - 9.14.1P7 ou ONTAP 9.15.1 - 9.15.1P2 et que votre système contient au moins 10 lecteurs SSD internes, vous devez prendre des mesures supplémentaires pour préparer le système à l'installation. Voir problème  https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-285173["ONTAP-285173 - ADP ne laisse pas de partition racine de rechange sur un AFF A150 avec 10 disques internes ou plus"^].
+*Avertissement :* Si vous installez ONTAP 9.13.1P8 - 9.13.1P11, ONTAP 9.14.1P1 - 9.14.1P7 ou ONTAP 9.15.1 - 9.15.1P2 et que votre système contient 10 disques SSD internes ou plus, prenez des mesures supplémentaires pour préparer le système à l’installation. Voir le problème  https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-285173["ONTAP-285173 - ADP ne laisse pas de partition racine de rechange sur un AFF A150 avec 10 disques internes ou plus"^].
 
 
 
@@ -33,7 +33,7 @@ Pour installer votre système AFF A150, vous devez créer un compte sur le site 
 ** Espace rack pour le système de stockage
 ** Tournevis Phillips n°2
 ** Câbles réseau supplémentaires pour connecter votre système à votre commutateur réseau et à votre ordinateur portable ou console avec un navigateur Web
-** Ordinateur portable ou console avec connexion RJ-45 et accès à un navigateur Web
+** Un ordinateur portable ou une console avec une connexion RJ-45 et un accès à un navigateur Web
 
 
 
@@ -163,7 +163,7 @@ Mise sous tension du système
 [[step-2-install-the-hardware]]
 == Étape 2 : installer le matériel de fixation
 
-Vous installez votre système dans un rack à 4 montants ou une armoire système NetApp, le cas échéant.
+Vous installez votre système dans un rack à quatre montants ou une armoire système NetApp, selon le cas.
 
 .Étapes
 . Installez les kits de rails, au besoin.
@@ -251,7 +251,7 @@ Vous pouvez connecter une paire de ports en tant que CNA et une paire de ports e
 
 
 --
-Configurations réseau Ethernet:: Utilisez le câble RJ45 de catégorie 6 pour relier le e0c aux ports e0f du réseau hôte. dans l'illustration suivante.
+Configurations réseau Ethernet:: Utilisez le câble Cat 6 RJ45 pour connecter les ports e0c à e0f à votre réseau hôte, comme indiqué dans l’illustration suivante.
 +
 --
 image:../media/drw_c190_e_rj45_cbling.png["Câblage réseau de l'hôte"]
@@ -414,7 +414,7 @@ image::../media/drw_autodiscovery_controler_select_ieops-1849.svg[Sélectionnez 
 
 +
 .. Ouvrez l'Explorateur de fichiers.
-.. Cliquez sur *réseau* dans le volet gauche, cliquez avec le bouton droit de la souris et sélectionnez *refresh*.
+.. Sélectionnez *Network* dans le volet de gauche, cliquez avec le bouton droit et sélectionnez *refresh*.
 .. Double-cliquez sur l'une des icônes ONTAP et acceptez les certificats affichés à l'écran.
 +
 

@@ -2,7 +2,7 @@
 permalink: asa400/bootmedia-shutdown-bmr.html 
 sidebar: sidebar 
 keywords: asa400, shut down the controller 
-summary: Arrêtez le contrôleur défectueux de votre système de stockage ASA A400 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage. 
+summary: Éteignez le contrôleur de votre système de stockage ASA A400 pour éviter toute perte de données et garantir la stabilité du système lors du remplacement du support de démarrage. 
 ---
 = Éteignez le contrôleur de votre système ASA A400 pendant le processus de récupération de démarrage automatique
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Arrêtez le contrôleur défectueux de votre système de stockage ASA A
 
 
 [role="lead"]
-Arrêtez le contrôleur défectueux de votre système de stockage ASA A400 pour éviter la perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.
+Éteignez le contrôleur de votre système de stockage ASA A400 pour éviter toute perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.
 
 La récupération automatique du support de démarrage est prise en charge uniquement dans ONTAP 9.17.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d' ONTAP, utilisez l'option link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"] .
 
@@ -82,4 +82,4 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 .Et la suite
-Après avoir arrêté le contrôleur défectueux, vous link:bootmedia-replace-bmr.html["remplacez le support de démarrage"].
+Après avoir éteint le contrôleur, vous link:bootmedia-replace-bmr.html["remplacez le support de démarrage"].

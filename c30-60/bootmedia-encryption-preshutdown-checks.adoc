@@ -11,7 +11,7 @@ summary: 'Pour garantir la sécurité des données sur votre système de stockag
 
 
 [role="lead"]
-Pour assurer la sécurité des données sur votre système de stockage AFF C30 ou AFF C60, vous devez vérifier la prise en charge et l'état de la clé de chiffrement sur votre support de démarrage. Vérifiez si votre version de ONTAP prend en charge NetApp Volume Encryption (NVE) et avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.
+Pour garantir la sécurité des données sur votre AFF C30 ou AFF C60, vous devez vérifier la prise en charge et l'état de la clé de chiffrement sur votre support de démarrage. Vérifiez si votre version d'ONTAP prend en charge NetApp Volume Encryption (NVE). Avant d'arrêter le contrôleur, vérifiez si le gestionnaire de clés est actif.
 
 
 
@@ -45,7 +45,7 @@ NOTE: Téléchargez l'image ONTAP depuis le site de support NetApp vers votre se
 [[step-2-verify-key-manager-status-and-back-up-configuration]]
 == Étape 2 : Vérifier l’état du gestionnaire de clés et la configuration de sauvegarde
 
-Avant de mettre hors service le contrôleur défectueux, vérifiez la configuration du gestionnaire de clés et sauvegardez les informations nécessaires.
+Avant d'éteindre le contrôleur avec le support de démarrage défectueux, vérifiez la configuration du gestionnaire de clés et sauvegardez les informations nécessaires.
 
 .Étapes
 . Déterminez le gestionnaire de clés activé sur votre système :

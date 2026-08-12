@@ -14,7 +14,7 @@ summary: 'Remplacez un module DIMM dans votre système de stockage AFF C30 ou AF
 Remplacez un module DIMM dans votre système de stockage AFF C30 ou AFF C60 si des erreurs de mémoire excessives, corrigibles ou non, sont détectées.  De telles erreurs peuvent empêcher le système de stockage de démarrer ONTAP.  Le processus de remplacement implique l'arrêt du contrôleur défectueux, son retrait, le remplacement du module DIMM, la réinstallation du contrôleur, puis le renvoi de la pièce défectueuse à NetApp.
 
 .Avant de commencer
-* Tous les autres composants du système de stockage doivent fonctionner correctement ; dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de continuer.
+* Tous les autres composants du système de stockage doivent fonctionner correctement. Dans le cas contraire, contactez https://mysupport.netapp.com/site/global/dashboard["Support NetApp"] avant de poursuivre.
 * Vous devez remplacer le composant FRU défectueux par un composant FRU de remplacement que vous avez reçu de votre fournisseur.
 
 
@@ -281,7 +281,7 @@ image::../media/icon_round_3.png[Numéro de légende 3]
 Si nécessaire, faites pivoter les poignées vers le haut (à côté des languettes) pour les écarter.
 
 |===
-. Ouvrez le capot du contrôleur en tournant la vis à molette dans le sens inverse des aiguilles d'une montre pour la desserrer, puis ouvrez le capot.
+. Ouvrez le couvercle du contrôleur en tournant la vis moletée dans le sens antihoraire.
 
 
 
@@ -289,7 +289,7 @@ Si nécessaire, faites pivoter les poignées vers le haut (à côté des languet
 [[step-3-replace-a-dimm]]
 == Étape 3 : remplacez un module DIMM
 
-Pour remplacer un module DIMM, localisez le module DIMM défectueux à l'intérieur du contrôleur et suivez la séquence spécifique des étapes.
+Pour remplacer une barrette DIMM, localisez la barrette DIMM défectueuse à l'intérieur du contrôleur.
 
 
 CAUTION: Portez systématiquement un bracelet antistatique relié à une prise de terre vérifiée lors des opérations d'installation et de maintenance. Le non-respect des précautions ESD appropriées peut causer des dommages permanents aux nœuds de contrôleur, aux baies de stockage et aux commutateurs réseau.

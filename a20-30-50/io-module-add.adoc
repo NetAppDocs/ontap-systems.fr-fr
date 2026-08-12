@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: aff a20, aff a30, aff a50, add IO module 
 summary: 'Ajoutez un module d"E/S à votre système AFF A20, AFF A30 ou AFF A50 pour améliorer la connectivité réseau et accroître la capacité de votre système à gérer le trafic de données.' 
 ---
-= Ajoutez un module d'E/S à votre système AFF A20, AFF A30 ou AFF A50 pour améliorer la connectivité réseau
+= Ajoutez un module d'E/S à votre système AFF A20, AFF A30 ou AFF A50
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,7 @@ summary: 'Ajoutez un module d"E/S à votre système AFF A20, AFF A30 ou AFF A50 
 [role="lead"]
 Ajoutez un module d'E/S à votre système de stockage AFF A20, AFF A30 ou AFF A50 pour améliorer la connectivité réseau et étendre la capacité de votre système à gérer le trafic de données.
 
-Le processus d'ajout consiste à éteindre un contrôleur, à ajouter le nouveau module d'E/S, à redémarrer le contrôleur, à éteindre l'autre contrôleur, à ajouter le nouveau module d'E/S, et à redémarrer le contrôleur.
+L'ajout du module d'E/S implique d'arrêter un contrôleur, d'ajouter le module, de le redémarrer, puis de répéter ces étapes pour l'autre contrôleur.
 
 .Description de la tâche
 * Vous pouvez ajouter un module d'E/S à vos systèmes de stockage lorsqu'il y a des emplacements disponibles ou lorsque tous les emplacements sont entièrement occupés.
@@ -22,7 +22,7 @@ Le processus d'ajout consiste à éteindre un contrôleur, à ajouter le nouveau
 Un système de stockage comporte trois voyants d'emplacement : un sur le panneau de commande et un sur chaque contrôleur. Les LED d'emplacement restent allumées pendant 30 minutes.
 
 +
-Vous pouvez les désactiver en entrant `system location-led _off_` la commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en entrant `system location-led show` la commande.
+Vous pouvez les éteindre en saisissant la  `system location-led _off_` commande. Si vous n'êtes pas sûr que les LED soient allumées ou éteintes, vous pouvez vérifier leur état en saisissant la  `system location-led show` commande.
 
 
 

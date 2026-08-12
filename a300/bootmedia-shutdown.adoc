@@ -2,16 +2,16 @@
 permalink: a300/bootmedia-shutdown.html 
 sidebar: sidebar 
 keywords: aff a300, shut down the impaired controller, manual, manual boot recovery 
-summary: Vous pouvez arrêter ou prendre le contrôle du contrôleur défaillant en utilisant différentes procédures, selon la configuration matérielle du système de stockage. Le système AFF A300 ne prend en charge que les procédures de récupération manuelles du support de démarrage. 
+summary: Éteignez le contrôleur de votre système de stockage AFF A300 pour éviter toute perte de données et maintenir la stabilité du système pendant le processus de récupération manuelle du support de démarrage. 
 ---
-= Éteignez le contrôleur défectueux de votre système AFF A300 pendant la procédure de récupération par démarrage manuel
+= Éteignez le contrôleur de votre système AFF A300 pendant la procédure de récupération par démarrage manuel
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Arrêtez ou prenez le contrôle du contrôleur défaillant en utilisant la procédure appropriée à votre configuration. Le système AFF A300 ne prend en charge que les procédures de récupération manuelles du support de démarrage. La récupération automatique du support de démarrage n'est pas prise en charge.
+Éteignez le contrôleur de votre système de stockage AFF A300 pour éviter toute perte de données et maintenir la stabilité du système pendant le processus de récupération manuelle du support de démarrage.
 
 
 
@@ -62,7 +62,7 @@ NOTE: Cette commande peut ne pas fonctionner si le périphérique d'amorçage es
 [[option-2-controller-is-in-a-metrocluster-configuration]]
 == Option 2 : le contrôleur est en configuration MetroCluster
 
-Une fois les tâches NVE ou NSE effectuées, vous devez arrêter le nœud douteux.
+Après avoir terminé les tâches NVE ou NSE, vous devez procéder à l'arrêt du nœud.
 
 
 NOTE: N'utilisez pas cette procédure si votre système se trouve dans une configuration MetroCluster à deux nœuds.
@@ -124,7 +124,7 @@ Lorsque le contrôleur douteux s'affiche en attente de rétablissement..., appuy
 [[option-3-controller-is-in-a-two-node-metrocluster]]
 == Option 3 : le contrôleur est intégré à un MetroCluster à deux nœuds
 
-Une fois les tâches NVE ou NSE effectuées, vous devez arrêter le nœud douteux.
+Après avoir terminé les tâches NVE ou NSE, vous devez procéder à l'arrêt du nœud.
 
 Pour arrêter le contrôleur défaillant, vous devez déterminer l'état du contrôleur et, si nécessaire, basculer le contrôleur de sorte que ce dernier continue de transmettre des données depuis le stockage défaillant du contrôleur.
 

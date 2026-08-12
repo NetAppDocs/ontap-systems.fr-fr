@@ -2,7 +2,7 @@
 permalink: a250/bootmedia-shutdown-bmr.html 
 sidebar: sidebar 
 keywords: a250, shut down the controller 
-summary: Éteignez le contrôleur défectueux de votre AFF A250 pour éviter la perte de données et garantir la stabilité du système lors du remplacement du support de démarrage. 
+summary: Éteignez le contrôleur de votre système de stockage AFF A250 pour éviter toute perte de données et garantir la stabilité du système lors du remplacement du support de démarrage. 
 ---
 = Éteignez le contrôleur de votre système AFF A250 pendant le processus de récupération de démarrage automatique
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Éteignez le contrôleur défectueux de votre AFF A250 pour éviter la 
 
 
 [role="lead"]
-Éteignez le contrôleur défectueux de votre AFF A250 pour éviter la perte de données et maintenir la stabilité du système pendant le processus automatisé de récupération du support de démarrage.
+Éteignez le contrôleur de votre système de stockage AFF A250 pour éviter toute perte de données et maintenir la stabilité du système pendant le processus de récupération automatique du support de démarrage.
 
 Le processus de récupération automatique du support de démarrage est pris en charge uniquement dans ONTAP 9.18.1 et versions ultérieures. Si votre système de stockage exécute une version antérieure d'ONTAP, utilisez le link:bootmedia-replace-workflow.html["procédure de récupération de démarrage manuel"].
 
@@ -82,4 +82,4 @@ Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 
 .Et la suite
-Après avoir arrêté le contrôleur défectueux, vous link:bootmedia-replace-bmr.html["remplacez le support de démarrage"].
+Après avoir éteint le contrôleur, vous link:bootmedia-replace-bmr.html["remplacez le support de démarrage"].
