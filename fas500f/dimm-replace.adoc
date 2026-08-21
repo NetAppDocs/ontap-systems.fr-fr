@@ -2,16 +2,16 @@
 permalink: fas500f/dimm-replace.html 
 sidebar: sidebar 
 keywords: fas500f, replace dimms 
-summary: 'Vous devez remplacer une barrette DIMM dans le module contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d"erreurs corrigibles. À défaut, le système se bloquera.' 
+summary: Remplacez la barrette DIMM dans un système FAS500f lorsque le système signale un nombre excessif d’erreurs de mémoire ECC corrigibles ou non corrigibles via des alertes du Moniteur d’intégrité. Une barrette DIMM défectueuse peut empêcher le système de stockage de démarrer ONTAP, donc son remplacement rétablit un fonctionnement stable. Cette procédure comprend l’arrêt du contrôleur défaillant, le remplacement de la barrette DIMM et le retour de la pièce défectueuse à NetApp. 
 ---
-= Remplacez une barrette DIMM dans votre système FAS500f pour corriger les erreurs de mémoire
+= Remplacez une barrette DIMM dans un système FAS500f pour corriger les erreurs de mémoire
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous devez remplacer une barrette DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles qu'un nombre excessif d'erreurs CECC (Correctable Error Correction Codes) signalées par le Health Monitor, ou des erreurs ECC non corrigibles. Ces erreurs sont généralement causées par la défaillance d'une seule barrette DIMM, ce qui empêche le système de stockage de démarrer ONTAP.
+Remplacez la barrette DIMM dans un système FAS500f lorsque le système signale un nombre excessif d’erreurs de mémoire ECC corrigibles ou non corrigibles via des alertes du Moniteur d’intégrité. Une barrette DIMM défectueuse peut empêcher le système de stockage de démarrer ONTAP, donc son remplacement rétablit un fonctionnement stable. Cette procédure comprend l’arrêt du contrôleur défaillant, le remplacement de la barrette DIMM et le retour de la pièce défectueuse à NetApp.
 
 Si d'autres composants du système ne fonctionnent pas correctement, contactez le support technique.
 

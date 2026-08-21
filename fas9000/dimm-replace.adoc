@@ -2,15 +2,17 @@
 permalink: fas9000/dimm-replace.html 
 sidebar: sidebar 
 keywords: aff a700, fas9000, replace, dimm, shut, down, impaired, controller, module, reinstall, system, node, aggregates, metrocluster, replacement 
-summary: 'Vous devez remplacer une barrette DIMM dans le module contrôleur lorsque votre système enregistre un nombre croissant de codes de correction d"erreurs correctibles ECC. À défaut, le système se bloquera.' 
+summary: 'Remplacez une barrette DIMM dans un système FAS9000 lorsque le système signale un nombre excessif d"erreurs ECC corrigibles via les alertes du Health Monitor, ou des erreurs ECC non corrigibles. Une barrette DIMM défectueuse peut empêcher le système de stockage de démarrer ONTAP, donc son remplacement permet de rétablir un fonctionnement stable.' 
 ---
-= Remplacez une barrette DIMM dans votre système FAS9000 pour corriger les erreurs de mémoire
+= Remplacez une barrette DIMM dans un système FAS9000 pour corriger les erreurs de mémoire
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Remplacez une barrette DIMM dans un système FAS9000 lorsque le système signale un nombre excessif d'erreurs ECC corrigibles via les alertes du Health Monitor, ou des erreurs ECC non corrigibles. Une barrette DIMM défectueuse peut empêcher le système de stockage de démarrer ONTAP, donc son remplacement permet de rétablir un fonctionnement stable.
+
 Vous devez remplacer un module DIMM dans le contrôleur lorsque votre système de stockage rencontre des erreurs telles que des erreurs CECC (Correctable Error correction codes) excessives qui sont basées sur des alertes du moniteur d'intégrité ou des erreurs ECC incorrigibles, généralement causées par une panne de module DIMM unique empêchant le système de stockage de démarrer ONTAP.
 
 Tous les autres composants du système doivent fonctionner correctement ; si ce n'est pas le cas, vous devez contacter le support technique.

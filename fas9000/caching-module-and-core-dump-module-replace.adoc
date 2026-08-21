@@ -2,15 +2,17 @@
 permalink: fas9000/caching-module-and-core-dump-module-replace.html 
 sidebar: sidebar 
 keywords: aff a700, fas9000, replace caching module 
-summary: Vous devez remplacer le module de cache du contrôleur dès que votre système enregistre un seul AutoSupport ASUP message indiquant que le module est hors ligne. À défaut, les performances seront dégradées. 
+summary: 'Remplacez le module de cache ou le module de vidage mémoire dans un système FAS9000 lorsque le système enregistre un seul message AutoSupport (ASUP) signalant que le module a été mis hors ligne. Le non-remplacement du module entraîne une dégradation des performances.' 
 ---
-= Remplacez le module de cache ou le module de vidage mémoire dans votre système FAS9000
+= Remplacez le module de mise en cache ou le module de vidage mémoire dans un système FAS9000
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Remplacez le module de cache ou le module de vidage mémoire dans un système FAS9000 lorsque le système enregistre un seul message AutoSupport (ASUP) signalant que le module a été mis hors ligne. Le non-remplacement du module entraîne une dégradation des performances.
+
 Vous devez remplacer le module de cache du module de contrôleur lorsque votre système enregistre un message AutoSupport (ASUP) unique que le module a mis hors ligne. Dans le cas contraire, les performances s'en trouvent affectées. Si AutoSupport n'est pas activé, vous pouvez localiser le module de mise en cache défectueux par le voyant de panne situé à l'avant du module. Vous pouvez également ajouter ou remplacer le module de vidage central X9170A de 1 To, nécessaire si vous installez des tiroirs disques NS224 dans un système AFF A700.
 
 .Avant de commencer
