@@ -53,6 +53,36 @@ NOTE: Les câbles doivent avoir été étiquetés au début de cette procédure.
 [[step-2-remove-the-io-cards-nvram12-and-system-management-module]]
 == Étape 2 : Retirez les cartes d’E/S, la NVRAM12 et le module de gestion du système
 
+. Vérifiez le voyant d'état de la mémoire NVRAM situé dans le logement 4/5 du système. Une LED NVRAM est également présente sur le panneau avant du module contrôleur. Recherchez l'icône NV :
++
+image::../media/drw_a1K-70-90_nvram-led_ieops-1463.svg[Emplacement graphique de la LED d'avertissement et d'état de la NVRAM]
+
++
+[cols="1,4"]
+|===
+
+
+2+| *NVRAM* 
+
+
+ a| 
+image:../media/icon_round_1.png["Légende numéro 1"]
+ a| 
+LED d'état NVRAM
+
+
+
+ a| 
+image:../media/icon_round_2.png["Légende numéro 2"]
+ a| 
+LED d'avertissement NVRAM
+
+|===
++
+** Si le voyant NV est éteint, passez à l'étape suivante.
+** Si le voyant NV clignote, attendez l'arrêt du clignotement. Si le clignotement continue pendant plus de 5 minutes, contactez le support technique pour obtenir de l'aide.
+
+
 . Retirez le module d'E/S cible du châssis :
 +
 image:../media/drw_a1k_io_remove_replace_ieops-1382.svg["Retirez le module d'E/S."]
@@ -73,7 +103,8 @@ Loquet de came d'E/S.
 .. Faites tourner le loquet de came aussi loin que possible du module.
 .. Retirez le module du châssis en accrochant votre doigt dans l'ouverture du levier à came et en tirant le module hors du châssis.
 +
-Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
+
+NOTE: Assurez-vous de garder une trace de l'emplacement dans lequel se trouvait le module d'E/S.
 
 .. Mettez le module d’E/S de côté et répétez ces étapes pour tous les autres modules d’E/S.
 
@@ -191,6 +222,10 @@ Une fois le châssis de remplacement installé, vous devez installer le module d
 . Installer les cartes E/S à l'arrière du châssis :
 +
 .. Alignez l'extrémité du module d'E/S avec le même emplacement dans le châssis de remplacement que dans le châssis endommagé, puis poussez doucement le module jusqu'au fond du châssis.
++
+
+NOTE: Veillez à installer les modules d'E/S dans les mêmes emplacements que ceux qu'ils occupaient dans le châssis défectueux.
+
 .. Faites pivoter le loquet à came vers le haut jusqu'à la position verrouillée.
 .. Répétez ces étapes pour tous les autres modules d’E/S.
 
