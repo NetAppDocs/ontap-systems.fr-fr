@@ -2,16 +2,16 @@
 permalink: a250/fan-replace.html 
 sidebar: sidebar 
 keywords: aff a250, replace a fan 
-summary: Pour remplacer un ventilateur, retirez le module de ventilation défectueux et remplacez-le par un nouveau module de ventilation. 
+summary: Remplacez un module de ventilateur dans votre système AFF A250 lorsqu’un ventilateur tombe en panne ou ne fonctionne pas efficacement. Le processus de remplacement consiste à arrêter le contrôleur défectueux, à retirer le module de contrôleur, à remplacer le ventilateur, à réinstaller le module de contrôleur et à renvoyer la pièce défectueuse à NetApp. 
 ---
-= Remplacez à chaud un ventilateur dans un système AFF A250
+= Remplacez un ventilateur dans un système AFF A250
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Remplacez un module de ventilateur défectueux dans votre système AFF A250 afin de garantir un refroidissement optimal et de prévenir les problèmes de performance. Les modules de ventilateur sont remplaçables à chaud et peuvent être remplacés sans arrêter le système.
+Remplacez un module de ventilateur dans votre système AFF A250 lorsqu’un ventilateur tombe en panne ou ne fonctionne pas efficacement. Le processus de remplacement consiste à arrêter le contrôleur défectueux, à retirer le module de contrôleur, à remplacer le ventilateur, à réinstaller le module de contrôleur et à renvoyer la pièce défectueuse à NetApp.
 
 
 
@@ -46,7 +46,7 @@ Le message AutoSupport suivant supprime la création automatique de dossiers pen
 +
 .. Entrez la commande suivante depuis la console du contrôleur sain :
 +
-`storage failover modify -node _impaired_node_name_ -auto-giveback false`
+`storage failover modify -node local -auto-giveback false`
 
 .. Entrer `y` lorsque vous voyez l'invite _Voulez-vous désactiver le retour automatique ?_
 

@@ -50,7 +50,7 @@ Le message AutoSupport suivant supprime la création automatique de dossiers pen
 +
 .. Entrez la commande suivante depuis la console du contrôleur sain :
 +
-`storage failover modify -node _impaired_node_name_ -auto-giveback false`
+`storage failover modify -node local -auto-giveback false`
 
 .. Entrer `y` lorsque vous voyez l'invite _Voulez-vous désactiver le retour automatique ?_
 
@@ -86,6 +86,8 @@ Prendre le contrôle défectueux ou l'arrêter à partir du contrôleur en bon �
 Le paramètre _-halt true_ vous amène à l'invite Loader.
 
 |===
+
+
 . Si le système ne dispose que d'un seul module de contrôleur dans le châssis, mettez les blocs d'alimentation hors tension, puis débranchez les câbles d'alimentation du contrôleur pour cause d'altération de la source d'alimentation.
 
 

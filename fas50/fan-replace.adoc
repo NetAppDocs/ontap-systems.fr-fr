@@ -1,7 +1,7 @@
 ---
 permalink: fas50/fan-replace.html 
 sidebar: sidebar 
-keywords: fas50, aff, swap, out, fan, module, interrupt, service, sequence, task, hot-swap, hot-swap a fan module 
+keywords: fas50, aff, swap, out, fan, module, interrupt, service, sequence, task 
 summary: 'Remplacez le module de ventilation de votre système FAS50 lorsqu"un ventilateur tombe en panne ou ne fonctionne pas correctement, car cela peut affecter le refroidissement et les performances générales du système. La procédure de remplacement consiste à éteindre le contrôleur, à le retirer, à remplacer le ventilateur, à réinstaller le contrôleur et à renvoyer la pièce défectueuse à NetApp.' 
 ---
 = Remplacez le module de ventilateur dans un système FAS50
@@ -59,7 +59,7 @@ Le message AutoSupport suivant supprime la création automatique de dossiers pen
 +
 .. Entrez la commande suivante depuis la console du contrôleur sain :
 +
-`storage failover modify -node _impaired_node_name_ -auto-giveback false`
+`storage failover modify -node local -auto-giveback false`
 
 .. Entrer `y` lorsque vous voyez l'invite _Voulez-vous désactiver le retour automatique ?_
 
